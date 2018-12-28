@@ -3,7 +3,7 @@ syntax = "proto3";
 package services;
 
 //import "service_one/messages.proto";
-option go_package = "github.com/zzzhr1990/common-grpc/go/services";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/user";
 import "common/common_entity.proto";
 
 
