@@ -2,7 +2,7 @@ syntax = "proto3";
 package services;
 option go_package = "github.com/zzzhr1990/common-grpc/go/common";
 message BoolEntity {
-    bool success = 1;
+    bool data = 1;
 }
 
 message StringEntity {
