@@ -1,2 +1,0 @@
-# common-grpc
-GRPC common

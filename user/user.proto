@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package services;
+
+//import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services";
+import "common/common_response.proto";
+
+
+service GrpcUserService {
+    rpc createUser (GrpcUser) returns (BoolResponse) {}
+}
+
+
+message GrpcUser {
+    int64 uuid = 1;
+    string name = 2;
+    string countryCode = 3;
+    string phone = 4;
+    string createTime = 5;
+    string createIp = 6;
+    string ssid = 7;
+    string icon = 8;
+    uint64 spaceUsed = 9;
+    uint64 spaceCapacity = 10;
+    int32 type = 11;
+    int32 status = 12;
+    int32 version = 13;
+}

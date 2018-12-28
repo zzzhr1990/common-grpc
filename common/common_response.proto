@@ -1,0 +1,26 @@
+syntax = "proto3";
+package services;
+option go_package = "github.com/zzzhr1990/common-grpc/go/common";
+message BoolResponse {
+    bool success = 1;
+}
+
+message StringResponse {
+    string data = 1;
+}
+
+message Int32Response{
+    int32 data = 1;
+}
+
+message Int64Response{
+    int64 data = 1;
+}
+
+message Uint32Response{
+    uint32 data = 1;
+}
+
+message Uint64Response{
+    uint64 data = 1;
+}
