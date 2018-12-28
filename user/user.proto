@@ -4,11 +4,12 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services";
-import "common/common_response.proto";
+import "common/common_entity.proto";
 
 
 service GrpcUserService {
-    rpc createUser (GrpcUser) returns (BoolResponse) {}
+    rpc createUser (GrpcUser) returns (BoolEntity) {}
+    rpc getUser (Int64Entity) returns (GrpcUser) {}
 }
 
 
