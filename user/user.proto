@@ -10,21 +10,23 @@ import "common/common_entity.proto";
 service GrpcUserService {
     rpc createUser (GrpcUser) returns (BoolEntity) {}
     rpc getUser (Int64Entity) returns (GrpcUser) {}
+    rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
 
 message GrpcUser {
     int64 uuid = 1;
     string name = 2;
-    string countryCode = 3;
-    string phone = 4;
-    string createTime = 5;
-    string createIp = 6;
-    string ssid = 7;
-    string icon = 8;
-    uint64 spaceUsed = 9;
-    uint64 spaceCapacity = 10;
-    int32 type = 11;
-    int32 status = 12;
-    int32 version = 13;
+    string password = 3;
+    string countryCode = 4;
+    string phone = 5;
+    string createTime = 6;
+    string createIp = 7;
+    string ssid = 8;
+    string icon = 9;
+    uint64 spaceUsed = 10;
+    uint64 spaceCapacity = 11;
+    int32 type = 12;
+    int32 status = 13;
+    int32 version = 14;
 }
