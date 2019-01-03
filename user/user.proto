@@ -9,7 +9,7 @@ import "common/common_entity.proto";
 
 service GrpcUserService {
     rpc createUser (GrpcUser) returns (BoolEntity) {}
-    rpc getUser (Int64Entity) returns (GrpcUser) {}
+    rpc getUser (Uint64Entity) returns (GrpcUser) {}
     rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
