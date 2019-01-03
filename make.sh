@@ -1,7 +1,7 @@
 #!/bin/bash
 GOPATH="/Users/zzzhr/go"
 export PATH=$PATH:$GOPATH/bin
-nodejs_path="/Users/zzzhr/vscode/nodejs/node-api-gateway/src/proto"
+nodejs_path="/Users/zzzhr/vscode/typescript/ts-api-gateway/src/proto"
 #
 # protoc -I ../def --go_out=plugins=grpc:../go ../def/helloworld.proto
 # -I ../common
