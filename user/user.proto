@@ -11,6 +11,7 @@ service GrpcUserService {
     rpc createUser (GrpcUser) returns (BoolEntity) {}
     // rpc getUser (Uint64Entity) returns (GrpcUser) {}
     rpc getUser (GrpcUser) returns (GrpcUser) {}
+    rpc getUserOrThrowNotFound (GrpcUser) returns (GrpcUser) {}
     rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
