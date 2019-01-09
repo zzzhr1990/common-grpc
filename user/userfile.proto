@@ -7,7 +7,7 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/userfile";
 // import "common/common_entity.proto";
 
 
-service GrpcUserService {
+service GrpcUserFileService {
     // rpc createUser (GrpcUser) returns (BoolEntity) {}
     // rpc getUser (Uint64Entity) returns (GrpcUser) {}
     rpc createUserFile (GrpcUserFile) returns (GrpcUserFile) {}
@@ -18,25 +18,23 @@ service GrpcUserService {
 
 
 message GrpcUserFile {
-    string UUID = 1;
-    string StoreID = 2;
-    uint64 UserID = 3;
-    string Path = 4;
-    string Name = 5;
-    string Ext = 6;
-    uint64 Size = 7;
-    string  Parent = 8;
-    //string createTime = 7;
-    int32 Type = 9;
-    //string ssid = 10;
-    bool IsDirectory = 10;
-    uint64 Atime = 11;
-    uint64 Ctime = 12;
-    uint64 Mtime = 13;
-    uint32  Version = 14;
-    bool Locking = 15;
-    uint32 Op = 16;
-    bool IgnoreCase = 17;
+    string identity = 1;
+    string storeIdentity = 2;
+    uint64 userIdentity = 3;
+    string path = 4;
+    string name = 5;
+    string ext = 6;
+    uint64 size = 7;
+    string  parent = 8;
+    int32 type = 9;
+    bool isDirectory = 10;
+    uint64 atime = 11;
+    uint64 ctime = 12;
+    uint64 mtime = 13;
+    uint32  version = 14;
+    bool locking = 15;
+    uint32 op = 16;
+    bool ignoreCase = 17;
 }
 
 /*
