@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package services;
+
+//import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/userfile";
+// import "common/common_entity.proto";
+
+
+service GrpcUserService {
+    // rpc createUser (GrpcUser) returns (BoolEntity) {}
+    // rpc getUser (Uint64Entity) returns (GrpcUser) {}
+    rpc createUserFile (GrpcUserFile) returns (GrpcUserFile) {}
+    rpc getUserFile (GrpcUserFile) returns (GrpcUserFile) {}
+    rpc getUserFileOrEmpty (GrpcUserFile) returns (GrpcUserFile) {}
+    // rpc login (GrpcUser) returns (GrpcUser) {}
+}
+
+
+message GrpcUserFile {
+    string uuid = 1;
+    string storeID = 2;
+    uint64 userID = 3;
+    string path = 4;
+    string name = 5;
+    string ext = 6;
+    uint64 size = 7;
+    string  parent = 8;
+    //string createTime = 7;
+    int32 type = 9;
+    //string ssid = 10;
+    string isDirectory = 10;
+    uint64 atime = 11;
+    uint64 ctime = 12;
+    uint64 mtime = 13;
+    uint32  version = 14;
+    bool locking = 15;
+    uint32 op = 16;
+    bool ignoreCase = 17;
+}
+
+/*
+type Model struct {
+	UUID        string `gorm:"primary_key;type:varchar(128);" qingzhen_multi_table:"true;"`
+	StoreID     string `gorm:"type:varchar(64);index:idx_store_id"`
+	UserID      uint64 `gorm:"primary_key;type:varchar(32);unique_index:user_parent_name;index:idx_user_parent;index:idx_user_parent_type;index:idx_user_parent_dir"`
+	Path        string `gorm:"type:text(65536);"`
+	Name        string `gorm:"type:varchar(256);unique_index:user_parent_name"`
+	Ext         string `gorm:"type:varchar(32);"`
+	Size        uint64
+	Parent      string `gorm:"type:varchar(128);unique_index:user_parent_name;index:idx_user_parent;index:idx_user_parent_type;index:idx_user_parent_dir"`
+	Type        int32  `gorm:"index:idx_user_parent_type"`
+	IsDirectory bool   `gorm:"index:idx_user_parent_dir"`
+	Atime       uint64
+	Ctime       uint64
+	Mtime       uint64
+	Version     uint32
+	Locking     bool
+	Op          uint32
+	IgnoreCase  bool
+}
+
+*/
