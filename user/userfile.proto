@@ -19,8 +19,8 @@ service GrpcUserService {
 
 message GrpcUserFile {
     string uuid = 1;
-    string storeId = 2;
-    uint64 userId = 3;
+    string storeID = 2;
+    uint64 UserID = 3;
     string path = 4;
     string name = 5;
     string ext = 6;
