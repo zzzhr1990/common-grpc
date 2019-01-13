@@ -28,9 +28,9 @@ message GrpcUserFile {
     string  parent = 8;
     int32 type = 9;
     bool isDirectory = 10;
-    uint64 atime = 11;
-    uint64 ctime = 12;
-    uint64 mtime = 13;
+    int64 atime = 11;
+    int64 ctime = 12;
+    int64 mtime = 13;
     uint32  version = 14;
     bool locking = 15;
     uint32 op = 16;
