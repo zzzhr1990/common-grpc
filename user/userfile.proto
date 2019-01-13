@@ -13,6 +13,7 @@ service GrpcUserFileService {
     rpc createUserFile (GrpcUserFile) returns (GrpcUserFile) {}
     rpc getUserFile (GrpcUserFile) returns (GrpcUserFile) {}
     rpc getUserFileOrEmpty (GrpcUserFile) returns (GrpcUserFile) {}
+    rpc listDirectoryByPage (PagedUserFile) returns (PagedUserFile) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
@@ -35,6 +36,25 @@ message GrpcUserFile {
     bool locking = 15;
     uint32 op = 16;
     bool ignoreCase = 17;
+}
+
+message PagedUserFile {
+    GrpcUserFile parent = 1;
+    repeated GrpcUserFile list = 2;
+    int64 totalCount = 3;
+    int32 totalPage = 4;
+    int32 page = 5;
+    int32 pageSize = 6;
+}
+
+message PagedUserFileRequest {
+    string identity = 1;
+    string path = 2;
+    uint64 userIdentity = 3;
+    int64 totalCount = 4;
+    int32 totalPage = 5;
+    int32 page = 6;
+    int32 pageSize = 7;
 }
 
 /*
