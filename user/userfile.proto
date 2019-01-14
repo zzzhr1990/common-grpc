@@ -51,10 +51,11 @@ message PagedUserFileRequest {
     string identity = 1;
     string path = 2;
     uint64 userIdentity = 3;
-    int64 totalCount = 4;
-    int32 totalPage = 5;
-    int32 page = 6;
-    int32 pageSize = 7;
+    bool   ignoreCase = 4;
+    int64 totalCount = 5;
+    int32 totalPage = 6;
+    int32 page = 7;
+    int32 pageSize = 8;
 }
 
 /*
