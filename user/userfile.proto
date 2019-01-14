@@ -13,7 +13,7 @@ service GrpcUserFileService {
     rpc createUserFile (GrpcUserFile) returns (GrpcUserFile) {}
     rpc getUserFile (GrpcUserFile) returns (GrpcUserFile) {}
     rpc getUserFileOrEmpty (GrpcUserFile) returns (GrpcUserFile) {}
-    rpc listDirectoryByPage (PagedUserFile) returns (PagedUserFile) {}
+    rpc listDirectoryByPage (PagedUserFileRequest) returns (PagedUserFile) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
