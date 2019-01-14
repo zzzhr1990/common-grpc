@@ -60,7 +60,7 @@ message UserFileList {
 message PagedUserFileRequest {
     string identity = 1;
     string path = 2;
-    uint64 userIdentity = 3;
+    int64 userIdentity = 3;
     bool ignoreCase = 4;
     int32 orderBy = 5;
     int32 page = 6;
@@ -70,7 +70,7 @@ message PagedUserFileRequest {
 message ListUserFileRequest {
     string identity = 1;
     string path = 2;
-    uint64 userIdentity = 3;
+    int64 userIdentity = 3;
     bool ignoreCase = 4;
     int32 orderBy = 5;
     int32 start = 6;
