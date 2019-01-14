@@ -17,7 +17,7 @@ service GrpcUserService {
 
 
 message GrpcUser {
-    uint64 identity = 1;
+    int64  identity = 1;
     string name = 2;
     string password = 3;
     string salt = 4;
