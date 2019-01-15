@@ -39,6 +39,12 @@ message GrpcUserFile {
     bool ignoreCase = 17;
 }
 
+message UserFileOperation {
+    repeated GrpcUserFile source = 1;
+    GrpcUserFile destnation = 2;
+    int32 operationCode = 3;
+}
+
 message PagedUserFile {
     GrpcUserFile parent = 1;
     repeated GrpcUserFile list = 2;
