@@ -44,6 +44,7 @@ message UserFileOperation {
     repeated GrpcUserFile source = 1;
     GrpcUserFile destnation = 2;
     int32 operationCode = 3;
+    int64 userIdentity = 4;
 }
 
 message PagedUserFile {
