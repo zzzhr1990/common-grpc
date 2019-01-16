@@ -4,7 +4,7 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/userfile";
-// import "common/common_entity.proto";
+import "common/common_entity.proto";
 
 
 service GrpcUserFileService {
@@ -15,6 +15,7 @@ service GrpcUserFileService {
     rpc getUserFileOrEmpty (GrpcUserFile) returns (GrpcUserFile) {}
     rpc listDirectoryByPage (PagedUserFileRequest) returns (PagedUserFile) {}
     rpc listDirectory (ListUserFileRequest) returns (UserFileList) {}
+    rpc operateUserFile (UserFileOperation) returns (Int32Entity) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
