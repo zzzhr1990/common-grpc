@@ -38,6 +38,7 @@ message GrpcUserFile {
     bool locking = 15;
     uint32 op = 16;
     bool ignoreCase = 17;
+    repeated GrpcUserFile children = 18;
 }
 
 message UserFileOperation {
