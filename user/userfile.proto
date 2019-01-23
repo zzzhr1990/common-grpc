@@ -30,7 +30,7 @@ message GrpcUserFile {
     uint64 size = 7;
     string  parent = 8;
     int32 type = 9;
-    bool isDirectory = 10;
+    bool directory = 10;
     int64 atime = 11;
     int64 ctime = 12;
     int64 mtime = 13;
