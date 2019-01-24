@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package services;
+
+//import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/cloudstore";
+import "common/common_entity.proto";
+
+
+service CloudStoreService {
+    rpc create (CloudStore) returns (CloudStore) {}
+    rpc get (CloudStore) returns (CloudStore) {}
+    rpc getOrEmpty (CloudStore) returns (CloudStore) {}
+}
+
+
+message CloudStore {
+    string  hash = 1;
+    uint64 size = 2;
+    string mime = 3;
+    int64 uploadUser = 4;
+    int64 ctime = 5;
+    string originalaFilename = 6;
+    int32 store = 7;
+    string  bucket = 8;
+    string key = 9;
+    int32 type = 10;
+    bool preview = 11;
+    int32 previewType = 12;
+    int32   flag = 13;
+    string downloadAddress = 14;
+}
