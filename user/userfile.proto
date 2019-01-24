@@ -22,7 +22,7 @@ service GrpcUserFileService {
 
 message GrpcUserFile {
     string identity = 1;
-    string storeIdentity = 2;
+    string hash = 2;
     int64 userIdentity = 3;
     string path = 4;
     string name = 5;
