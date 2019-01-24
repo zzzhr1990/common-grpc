@@ -10,6 +10,8 @@ import "common/common_entity.proto";
 service CloudStoreService {
     rpc create (CloudStore) returns (CloudStore) {}
     rpc get (CloudStore) returns (CloudStore) {}
+    rpc batchGet (CloudStoreList) returns (CloudStoreList) {}
+    rpc batchGetByHash (StringListEntity) returns (CloudStoreList) {}
     rpc getOrEmpty (CloudStore) returns (CloudStore) {}
 }
 
@@ -30,3 +32,8 @@ message CloudStore {
     int32   flag = 13;
     string downloadAddress = 14;
 }
+
+message CloudStoreList {
+    repeated CloudStore data = 1;
+}
+

@@ -98,6 +98,45 @@ func (m *StringEntity) GetData() string {
 	return ""
 }
 
+type StringListEntity struct {
+	Data                 []string `protobuf:"bytes,1,rep,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StringListEntity) Reset()         { *m = StringListEntity{} }
+func (m *StringListEntity) String() string { return proto.CompactTextString(m) }
+func (*StringListEntity) ProtoMessage()    {}
+func (*StringListEntity) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6c0686b0c1e0f70e, []int{2}
+}
+
+func (m *StringListEntity) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StringListEntity.Unmarshal(m, b)
+}
+func (m *StringListEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StringListEntity.Marshal(b, m, deterministic)
+}
+func (m *StringListEntity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StringListEntity.Merge(m, src)
+}
+func (m *StringListEntity) XXX_Size() int {
+	return xxx_messageInfo_StringListEntity.Size(m)
+}
+func (m *StringListEntity) XXX_DiscardUnknown() {
+	xxx_messageInfo_StringListEntity.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StringListEntity proto.InternalMessageInfo
+
+func (m *StringListEntity) GetData() []string {
+	if m != nil {
+		return m.Data
+	}
+	return nil
+}
+
 type Int32Entity struct {
 	Data                 int32    `protobuf:"varint,1,opt,name=data,proto3" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -109,7 +148,7 @@ func (m *Int32Entity) Reset()         { *m = Int32Entity{} }
 func (m *Int32Entity) String() string { return proto.CompactTextString(m) }
 func (*Int32Entity) ProtoMessage()    {}
 func (*Int32Entity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6c0686b0c1e0f70e, []int{2}
+	return fileDescriptor_6c0686b0c1e0f70e, []int{3}
 }
 
 func (m *Int32Entity) XXX_Unmarshal(b []byte) error {
@@ -137,6 +176,45 @@ func (m *Int32Entity) GetData() int32 {
 	return 0
 }
 
+type Int32ListEntity struct {
+	Data                 []int32  `protobuf:"varint,1,rep,packed,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Int32ListEntity) Reset()         { *m = Int32ListEntity{} }
+func (m *Int32ListEntity) String() string { return proto.CompactTextString(m) }
+func (*Int32ListEntity) ProtoMessage()    {}
+func (*Int32ListEntity) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6c0686b0c1e0f70e, []int{4}
+}
+
+func (m *Int32ListEntity) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Int32ListEntity.Unmarshal(m, b)
+}
+func (m *Int32ListEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Int32ListEntity.Marshal(b, m, deterministic)
+}
+func (m *Int32ListEntity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Int32ListEntity.Merge(m, src)
+}
+func (m *Int32ListEntity) XXX_Size() int {
+	return xxx_messageInfo_Int32ListEntity.Size(m)
+}
+func (m *Int32ListEntity) XXX_DiscardUnknown() {
+	xxx_messageInfo_Int32ListEntity.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Int32ListEntity proto.InternalMessageInfo
+
+func (m *Int32ListEntity) GetData() []int32 {
+	if m != nil {
+		return m.Data
+	}
+	return nil
+}
+
 type Int64Entity struct {
 	Data                 int64    `protobuf:"varint,1,opt,name=data,proto3" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -148,7 +226,7 @@ func (m *Int64Entity) Reset()         { *m = Int64Entity{} }
 func (m *Int64Entity) String() string { return proto.CompactTextString(m) }
 func (*Int64Entity) ProtoMessage()    {}
 func (*Int64Entity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6c0686b0c1e0f70e, []int{3}
+	return fileDescriptor_6c0686b0c1e0f70e, []int{5}
 }
 
 func (m *Int64Entity) XXX_Unmarshal(b []byte) error {
@@ -187,7 +265,7 @@ func (m *Uint32Entity) Reset()         { *m = Uint32Entity{} }
 func (m *Uint32Entity) String() string { return proto.CompactTextString(m) }
 func (*Uint32Entity) ProtoMessage()    {}
 func (*Uint32Entity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6c0686b0c1e0f70e, []int{4}
+	return fileDescriptor_6c0686b0c1e0f70e, []int{6}
 }
 
 func (m *Uint32Entity) XXX_Unmarshal(b []byte) error {
@@ -226,7 +304,7 @@ func (m *Uint64Entity) Reset()         { *m = Uint64Entity{} }
 func (m *Uint64Entity) String() string { return proto.CompactTextString(m) }
 func (*Uint64Entity) ProtoMessage()    {}
 func (*Uint64Entity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6c0686b0c1e0f70e, []int{5}
+	return fileDescriptor_6c0686b0c1e0f70e, []int{7}
 }
 
 func (m *Uint64Entity) XXX_Unmarshal(b []byte) error {
@@ -257,7 +335,9 @@ func (m *Uint64Entity) GetData() uint64 {
 func init() {
 	proto.RegisterType((*BoolEntity)(nil), "services.BoolEntity")
 	proto.RegisterType((*StringEntity)(nil), "services.StringEntity")
+	proto.RegisterType((*StringListEntity)(nil), "services.StringListEntity")
 	proto.RegisterType((*Int32Entity)(nil), "services.Int32Entity")
+	proto.RegisterType((*Int32ListEntity)(nil), "services.Int32ListEntity")
 	proto.RegisterType((*Int64Entity)(nil), "services.Int64Entity")
 	proto.RegisterType((*Uint32Entity)(nil), "services.Uint32Entity")
 	proto.RegisterType((*Uint64Entity)(nil), "services.Uint64Entity")
@@ -266,16 +346,18 @@ func init() {
 func init() { proto.RegisterFile("common/common_entity.proto", fileDescriptor_6c0686b0c1e0f70e) }
 
 var fileDescriptor_6c0686b0c1e0f70e = []byte{
-	// 176 bytes of a gzipped FileDescriptorProto
+	// 201 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4a, 0xce, 0xcf, 0xcd,
 	0xcd, 0xcf, 0xd3, 0x87, 0x50, 0xf1, 0xa9, 0x79, 0x25, 0x99, 0x25, 0x95, 0x7a, 0x05, 0x45, 0xf9,
 	0x25, 0xf9, 0x42, 0x1c, 0xc5, 0xa9, 0x45, 0x65, 0x99, 0xc9, 0xa9, 0xc5, 0x4a, 0x0a, 0x5c, 0x5c,
 	0x4e, 0xf9, 0xf9, 0x39, 0xae, 0x60, 0x59, 0x21, 0x21, 0x2e, 0x96, 0x94, 0xc4, 0x92, 0x44, 0x09,
 	0x46, 0x05, 0x46, 0x0d, 0x8e, 0x20, 0x30, 0x5b, 0x49, 0x89, 0x8b, 0x27, 0xb8, 0xa4, 0x28, 0x33,
-	0x2f, 0x1d, 0x8b, 0x1a, 0x4e, 0xa8, 0x1a, 0x45, 0x2e, 0x6e, 0xcf, 0xbc, 0x12, 0x63, 0x23, 0x2c,
-	0x4a, 0x58, 0x51, 0x94, 0x98, 0x99, 0x60, 0x51, 0xc2, 0x8c, 0xb0, 0x29, 0x34, 0x13, 0x87, 0x31,
-	0xbc, 0xa8, 0x6a, 0xb0, 0x9a, 0xc3, 0x02, 0x51, 0xe3, 0xa4, 0x13, 0xa5, 0x95, 0x9e, 0x59, 0x92,
-	0x51, 0x9a, 0xa4, 0x97, 0x9c, 0x9f, 0xab, 0x5f, 0x55, 0x55, 0x95, 0x51, 0x64, 0x68, 0x69, 0x69,
-	0x00, 0x0d, 0x09, 0xdd, 0xf4, 0xa2, 0x82, 0x64, 0xfd, 0xf4, 0x7c, 0x28, 0x37, 0x89, 0x0d, 0x1c,
-	0x24, 0xc6, 0x80, 0x00, 0x00, 0x00, 0xff, 0xff, 0x76, 0xe1, 0x16, 0xcd, 0x30, 0x01, 0x00, 0x00,
+	0x2f, 0x1d, 0x8b, 0x1a, 0x4e, 0xa8, 0x1a, 0x35, 0x2e, 0x01, 0x88, 0x1a, 0x9f, 0xcc, 0xe2, 0x12,
+	0x0c, 0x75, 0xcc, 0x70, 0x75, 0x8a, 0x5c, 0xdc, 0x9e, 0x79, 0x25, 0xc6, 0x46, 0x58, 0x8c, 0x62,
+	0x85, 0x2a, 0x51, 0xe5, 0xe2, 0x07, 0x2b, 0xc1, 0x61, 0x12, 0x2b, 0x8a, 0x49, 0x66, 0x26, 0x58,
+	0x4c, 0x62, 0x46, 0x38, 0x3c, 0x34, 0x13, 0x87, 0x6d, 0xbc, 0xa8, 0x6a, 0xb0, 0x9a, 0xc3, 0x02,
+	0x51, 0xe3, 0xa4, 0x13, 0xa5, 0x95, 0x9e, 0x59, 0x92, 0x51, 0x9a, 0xa4, 0x97, 0x9c, 0x9f, 0xab,
+	0x5f, 0x55, 0x55, 0x95, 0x51, 0x64, 0x68, 0x69, 0x69, 0x00, 0x0d, 0x58, 0xdd, 0xf4, 0xa2, 0x82,
+	0x64, 0xfd, 0xf4, 0x7c, 0x28, 0x37, 0x89, 0x0d, 0x1c, 0xc2, 0xc6, 0x80, 0x00, 0x00, 0x00, 0xff,
+	0xff, 0x5f, 0x5f, 0xa3, 0x5e, 0x7f, 0x01, 0x00, 0x00,
 }

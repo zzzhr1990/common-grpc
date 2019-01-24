@@ -9,8 +9,16 @@ message StringEntity {
     string data = 1;
 }
 
+message StringListEntity {
+    repeated string data = 1;
+}
+
 message Int32Entity{
     int32 data = 1;
+}
+
+message Int32ListEntity{
+    repeated int32 data = 1;
 }
 
 message Int64Entity{
