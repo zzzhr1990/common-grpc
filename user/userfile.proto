@@ -38,7 +38,7 @@ message UserFile {
     bool locking = 15;
     uint32 op = 16;
     bool ignoreCase = 17;
-    repeated UserFile children = 18;
+    // repeated UserFile children = 18;
 }
 
 message UserFileOperation {
