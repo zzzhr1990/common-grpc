@@ -16,7 +16,7 @@ service UserFileService {
     rpc listDirectoryByPage (PagedUserFileRequest) returns (PagedUserFile) {}
     rpc listDirectory (ListUserFileRequest) returns (UserFileList) {}
     rpc operate (UserFileOperation) returns (Int32Entity) {}
-    rpc deleteByHash (DeleteFilesHashRequest) returns (Int32Entity) {}
+    rpc deleteByHash (DeleteFilesHashRequest) returns (Int64Entity) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
