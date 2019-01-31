@@ -20,6 +20,26 @@ service UserFileService {
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
+message UserFileNode {
+    string identity = 1;
+    string hash = 2;
+    int64 userIdentity = 3;
+    string path = 4;
+    string name = 5;
+    string ext = 6;
+    uint64 size = 7;
+    string  parent = 8;
+    int32 type = 9;
+    bool directory = 10;
+    int64 atime = 11;
+    int64 ctime = 12;
+    int64 mtime = 13;
+    uint32  version = 14;
+    bool locking = 15;
+    uint32 op = 16;
+    bool ignoreCase = 17;
+    repeated UserFile children = 18;
+}
 
 message UserFile {
     string identity = 1;
