@@ -26,8 +26,8 @@ cp -r ./go_temp/github.com/zzzhr1990/common-grpc/go ./
 rm -rf ./go_temp
 cd ./go
 go mod init github.com/zzzhr1990/common-grpc/go
-go get github.com/golang/protobuf@master
-go mod tidy
+# go get github.com/golang/protobuf@master
+# go mod tidy
 cd ..
 
 echo "Copy JavaScript Files"
