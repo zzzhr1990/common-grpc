@@ -16,7 +16,7 @@ service UserFileService {
     rpc listDirectoryByPage (PagedUserFileRequest) returns (PagedUserFile) {}
     rpc listDirectory (ListUserFileRequest) returns (UserFileList) {}
     rpc operate (UserFileOperation) returns (Int32Entity) {}
-    rpc deleteByHash (DeleteFilesHashRequest) returns (Int64Entity) {}
+    rpc deleteByIdentity (DeleteFilesRequest) returns (Int64Entity) {}
     rpc MoveToTrash (UserFileOperation) returns (Int64Entity) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
@@ -58,10 +58,9 @@ message PagedUserFile {
     int32 pageSize = 6;
 }
 
-message DeleteFilesHashRequest {
+message DeleteFilesRequest {
     int64 userIdentity = 1;
-    // bool ignoreCase = 2;
-    repeated string filesHash = 3;
+    repeated string filesIdentity = 2;
 }
 
 message UserFileList {
