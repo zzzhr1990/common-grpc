@@ -18,7 +18,7 @@ service UserFileService {
     rpc ListDirectoryInteral (ListUserFileRequest) returns (UserFileList) {}
     rpc operate (UserFileOperation) returns (Int32Entity) {}
     rpc deleteByIdentity (DeleteFilesRequest) returns (Int64Entity) {}
-    rpc MoveToTrash (UserFileOperation) returns (Int64Entity) {}
+    rpc MoveToTrash (UserFile) returns (Int64Entity) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
