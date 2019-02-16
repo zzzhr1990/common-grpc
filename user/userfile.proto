@@ -78,7 +78,7 @@ message TrashInfo {
     string identity = 1;
     string name = 2;
     string source = 3;
-    string size = 4;
+    uint64 size = 4;
 }
 
 message TrashList {
