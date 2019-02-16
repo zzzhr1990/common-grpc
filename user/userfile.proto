@@ -19,6 +19,7 @@ service UserFileService {
     rpc operate (UserFileOperation) returns (Int32Entity) {}
     rpc deleteByIdentity (DeleteFilesRequest) returns (Int64Entity) {}
     rpc MoveToTrash (UserFile) returns (Int64Entity) {}
+    rpc listTrash (TrashList) returns (UserFileList) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
@@ -73,6 +74,21 @@ message UserFileList {
     // int32 pageSize = 6;
 }
 
+message TrashInfo {
+    string identity = 1;
+    string name = 2;
+    string source = 3;
+    string size = 4;
+}
+
+message TrashList {
+    repeated TrashInfo list = 1;
+    // int64 totalCount = 3;
+    // int32 totalPage = 4;
+    // int32 page = 5;
+    // int32 pageSize = 6;
+}
+
 message PagedUserFileRequest {
     string identity = 1;
     string path = 2;
@@ -92,6 +108,13 @@ message ListUserFileRequest {
     int32 start = 6;
     int32 listSize = 7;
     int32 filter = 8;
+}
+
+message ListTrashRequest {
+    int64 userIdentity = 1;
+    int32 orderBy = 2;
+    int32 start = 6;
+    int32 listSize = 7;
 }
 
 /*
