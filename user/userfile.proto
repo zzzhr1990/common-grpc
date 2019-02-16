@@ -19,7 +19,7 @@ service UserFileService {
     rpc operate (UserFileOperation) returns (Int32Entity) {}
     rpc deleteByIdentity (DeleteFilesRequest) returns (Int64Entity) {}
     rpc MoveToTrash (UserFile) returns (Int64Entity) {}
-    rpc listTrash (TrashList) returns (UserFileList) {}
+    rpc listTrash (ListTrashRequest) returns (TrashList) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
