@@ -13,7 +13,7 @@ service UserFileService {
     rpc create (UserFile) returns (UserFile) {}
     rpc get (UserFile) returns (UserFile) {}
     rpc getOrEmpty (UserFile) returns (UserFile) {}
-    rpc pageDirectory (PagedUserFileRequest) returns (PagedUserFile) {}
+    rpc pageDirectory (PageUserFileRequest) returns (UserFilePage) {}
     rpc listDirectory (ListUserFileRequest) returns (UserFileList) {}
     rpc listDirectoryInteral (ListUserFileRequest) returns (UserFileList) {}
     rpc operate (UserFileOperation) returns (Int32Entity) {}
@@ -52,7 +52,7 @@ message UserFileOperation {
     int64 userIdentity = 4;
 }
 
-message PagedUserFile {
+message UserFilePage {
     UserFile parent = 1;
     repeated UserFile list = 2;
     int64 totalCount = 3;
@@ -106,7 +106,7 @@ message PageTrashRequest {
     int32 pageSize = 4;
 }
 
-message PagedUserFileRequest {
+message PageUserFileRequest {
     string identity = 1;
     string path = 2;
     int64 userIdentity = 3;
@@ -114,6 +114,7 @@ message PagedUserFileRequest {
     int32 orderBy = 5;
     int32 page = 6;
     int32 pageSize = 7;
+    int32 filter = 8;
 }
 
 message ListUserFileRequest {
