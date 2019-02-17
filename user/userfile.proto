@@ -13,13 +13,14 @@ service UserFileService {
     rpc create (UserFile) returns (UserFile) {}
     rpc get (UserFile) returns (UserFile) {}
     rpc getOrEmpty (UserFile) returns (UserFile) {}
-    rpc listDirectoryByPage (PagedUserFileRequest) returns (PagedUserFile) {}
+    rpc pageDirectory (PagedUserFileRequest) returns (PagedUserFile) {}
     rpc listDirectory (ListUserFileRequest) returns (UserFileList) {}
-    rpc ListDirectoryInteral (ListUserFileRequest) returns (UserFileList) {}
+    rpc listDirectoryInteral (ListUserFileRequest) returns (UserFileList) {}
     rpc operate (UserFileOperation) returns (Int32Entity) {}
     rpc deleteByIdentity (DeleteFilesRequest) returns (Int64Entity) {}
     rpc MoveToTrash (UserFile) returns (Int64Entity) {}
     rpc listTrash (ListTrashRequest) returns (TrashList) {}
+    rpc pageTrash (PageTrashRequest) returns (TrashPage) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
@@ -87,6 +88,22 @@ message TrashList {
     // int32 totalPage = 4;
     // int32 page = 5;
     // int32 pageSize = 6;
+}
+
+
+message TrashPage {
+    repeated TrashInfo list = 1;
+    int64 totalCount = 2;
+    int32 totalPage = 3;
+    int32 page = 4;
+    int32 pageSize = 5;
+}
+
+message PageTrashRequest {
+    int64 userIdentity = 1;
+    int32 orderBy = 2;
+    int32 page = 3;
+    int32 pageSize = 4;
 }
 
 message PagedUserFileRequest {
