@@ -9,6 +9,8 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	common "github.com/zzzhr1990/common-grpc/go/common"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -289,6 +291,23 @@ type GrpcUserServiceServer interface {
 	GetUser(context.Context, *GrpcUser) (*GrpcUser, error)
 	GetUserOrEmpty(context.Context, *GrpcUser) (*GrpcUser, error)
 	Login(context.Context, *GrpcUser) (*GrpcUser, error)
+}
+
+// UnimplementedGrpcUserServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedGrpcUserServiceServer struct {
+}
+
+func (*UnimplementedGrpcUserServiceServer) CreateUser(ctx context.Context, req *GrpcUser) (*common.BoolEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateUser not implemented")
+}
+func (*UnimplementedGrpcUserServiceServer) GetUser(ctx context.Context, req *GrpcUser) (*GrpcUser, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
+}
+func (*UnimplementedGrpcUserServiceServer) GetUserOrEmpty(ctx context.Context, req *GrpcUser) (*GrpcUser, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserOrEmpty not implemented")
+}
+func (*UnimplementedGrpcUserServiceServer) Login(ctx context.Context, req *GrpcUser) (*GrpcUser, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
 
 func RegisterGrpcUserServiceServer(s *grpc.Server, srv GrpcUserServiceServer) {

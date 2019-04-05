@@ -9,6 +9,8 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	common "github.com/zzzhr1990/common-grpc/go/common"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -336,6 +338,29 @@ type CloudStoreServiceServer interface {
 	BatchGet(context.Context, *CloudStoreList) (*CloudStoreList, error)
 	BatchGetByHash(context.Context, *common.StringListEntity) (*CloudStoreList, error)
 	GetOrEmpty(context.Context, *CloudStore) (*CloudStore, error)
+}
+
+// UnimplementedCloudStoreServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedCloudStoreServiceServer struct {
+}
+
+func (*UnimplementedCloudStoreServiceServer) Create(ctx context.Context, req *CloudStore) (*CloudStore, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (*UnimplementedCloudStoreServiceServer) BatchCreate(ctx context.Context, req *CloudStoreList) (*CloudStoreList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchCreate not implemented")
+}
+func (*UnimplementedCloudStoreServiceServer) Get(ctx context.Context, req *CloudStore) (*CloudStore, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (*UnimplementedCloudStoreServiceServer) BatchGet(ctx context.Context, req *CloudStoreList) (*CloudStoreList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchGet not implemented")
+}
+func (*UnimplementedCloudStoreServiceServer) BatchGetByHash(ctx context.Context, req *common.StringListEntity) (*CloudStoreList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchGetByHash not implemented")
+}
+func (*UnimplementedCloudStoreServiceServer) GetOrEmpty(ctx context.Context, req *CloudStore) (*CloudStore, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrEmpty not implemented")
 }
 
 func RegisterCloudStoreServiceServer(s *grpc.Server, srv CloudStoreServiceServer) {

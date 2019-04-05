@@ -9,6 +9,8 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	common "github.com/zzzhr1990/common-grpc/go/common"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -1154,6 +1156,44 @@ type UserFileServiceServer interface {
 	MoveToTrash(context.Context, *UserFile) (*common.Int64Entity, error)
 	ListTrash(context.Context, *ListTrashRequest) (*TrashList, error)
 	PageTrash(context.Context, *PageTrashRequest) (*TrashPage, error)
+}
+
+// UnimplementedUserFileServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedUserFileServiceServer struct {
+}
+
+func (*UnimplementedUserFileServiceServer) Create(ctx context.Context, req *UserFile) (*UserFile, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (*UnimplementedUserFileServiceServer) Get(ctx context.Context, req *UserFile) (*UserFile, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (*UnimplementedUserFileServiceServer) GetOrEmpty(ctx context.Context, req *UserFile) (*UserFile, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrEmpty not implemented")
+}
+func (*UnimplementedUserFileServiceServer) PageDirectory(ctx context.Context, req *PageUserFileRequest) (*UserFilePage, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PageDirectory not implemented")
+}
+func (*UnimplementedUserFileServiceServer) ListDirectory(ctx context.Context, req *ListUserFileRequest) (*UserFileList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListDirectory not implemented")
+}
+func (*UnimplementedUserFileServiceServer) ListDirectoryInteral(ctx context.Context, req *ListUserFileRequest) (*UserFileList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListDirectoryInteral not implemented")
+}
+func (*UnimplementedUserFileServiceServer) Operate(ctx context.Context, req *UserFileOperation) (*common.Int32Entity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Operate not implemented")
+}
+func (*UnimplementedUserFileServiceServer) DeleteByIdentity(ctx context.Context, req *DeleteFilesRequest) (*common.Int64Entity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteByIdentity not implemented")
+}
+func (*UnimplementedUserFileServiceServer) MoveToTrash(ctx context.Context, req *UserFile) (*common.Int64Entity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MoveToTrash not implemented")
+}
+func (*UnimplementedUserFileServiceServer) ListTrash(ctx context.Context, req *ListTrashRequest) (*TrashList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListTrash not implemented")
+}
+func (*UnimplementedUserFileServiceServer) PageTrash(ctx context.Context, req *PageTrashRequest) (*TrashPage, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PageTrash not implemented")
 }
 
 func RegisterUserFileServiceServer(s *grpc.Server, srv UserFileServiceServer) {

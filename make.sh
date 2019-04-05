@@ -20,6 +20,13 @@ do
     protoc --go_out=plugins=grpc:./go_temp ${file}
 done
 
+echo "Generate User files from ./user"
+for file in ./util/*.proto
+do
+    echo ${file}
+    protoc --go_out=plugins=grpc:./go_temp ${file}
+done
+
 echo "Clean Go Files"
 rm -rf ./go
 cp -r ./go_temp/github.com/zzzhr1990/common-grpc/go ./
