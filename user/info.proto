@@ -53,4 +53,5 @@ message PasswordPair {
     int64  identity = 1;
     string  oldPassword = 2;
     string  newPassword = 3;
+    bool direct = 4;
 }
