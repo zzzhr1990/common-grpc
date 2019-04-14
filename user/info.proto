@@ -16,7 +16,7 @@ service GrpcUserService {
 
     rpc getBalance (Balance) returns (Balance) {}
     rpc setSpaceUsed (Balance) returns (Balance) {}
-    rpc test (Balance) returns (Balance) {}
+    rpc changePassword (PasswordPair) returns (BoolEntity) {}
 }
 
 
@@ -47,4 +47,9 @@ message Balance {
     int64  trafficLimit = 5;
     int64  offlineTaskUsed  = 6;
 	int64  offlineTaskLimit = 7;
+}
+
+message PasswordPair {
+    string  oldPassword = 1;
+    string  newPassword = 2;
 }
