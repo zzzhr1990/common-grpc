@@ -42,6 +42,7 @@ rm -rf ./go
 cp -r ./go_temp/github.com/zzzhr1990/common-grpc/go ./
 rm -rf ./go_temp
 cd ./go
+cp ../main.go ./
 go mod init github.com/zzzhr1990/common-grpc/go
 # go get github.com/golang/protobuf@master
 # go mod tidy
