@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package services;
+
+//import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/user/balance";
+// import "common/common_entity.proto";
+
+
+service CloudStoreService {
+    rpc get (Balance) returns (Balance) {}
+    rpc setSpaceUsed (Balance) returns (Balance) {}
+}
+
+
+message Balance {
+    int64  identity = 1;
+    int64  spaceUsed = 2;
+    int64  spaceLimit = 3;
+    int64  trafficUsed = 4;
+    int64  trafficLimit = 5;
+    int64  OfflineTaskUsed  = 6;
+	int64  OfflineTaskLimit = 7;
+}
+
+
