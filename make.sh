@@ -26,6 +26,16 @@ do
     echo ${file}
     protoc --go_out=plugins=grpc:./go_temp ${file}
 done
+for file in ./store/*.proto
+do
+    echo ${file}
+    protoc --go_out=plugins=grpc:./go_temp ${file}
+done
+for file in ./file/*.proto
+do
+    echo ${file}
+    protoc --go_out=plugins=grpc:./go_temp ${file}
+done
 
 echo "Clean Go Files"
 rm -rf ./go
