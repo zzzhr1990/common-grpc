@@ -50,6 +50,7 @@ message Balance {
 }
 
 message PasswordPair {
-    string  oldPassword = 1;
-    string  newPassword = 2;
+    int64  identity = 1;
+    string  oldPassword = 2;
+    string  newPassword = 3;
 }
