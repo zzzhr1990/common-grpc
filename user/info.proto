@@ -16,6 +16,7 @@ service GrpcUserService {
 
     rpc getBalance (Balance) returns (Balance) {}
     rpc setSpaceUsed (Balance) returns (Balance) {}
+    rpc test (Balance) returns (Balance) {}
 }
 
 
