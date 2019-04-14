@@ -7,7 +7,7 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/user/balance";
 // import "common/common_entity.proto";
 
 
-service CloudStoreService {
+service BalanceService {
     rpc get (Balance) returns (Balance) {}
     rpc setSpaceUsed (Balance) returns (Balance) {}
 }
