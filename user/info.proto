@@ -13,6 +13,9 @@ service GrpcUserService {
     rpc getUser (GrpcUser) returns (GrpcUser) {}
     rpc getUserOrEmpty (GrpcUser) returns (GrpcUser) {}
     rpc login (GrpcUser) returns (GrpcUser) {}
+
+    rpc getBalance (Balance) returns (Balance) {}
+    rpc setSpaceUsed (Balance) returns (Balance) {}
 }
 
 
@@ -33,4 +36,14 @@ message GrpcUser {
     uint32 type = 14;
     int32  status = 15;
     uint32 version = 16;
+}
+
+message Balance {
+    int64  identity = 1;
+    int64  spaceUsed = 2;
+    int64  spaceLimit = 3;
+    int64  trafficUsed = 4;
+    int64  trafficLimit = 5;
+    int64  offlineTaskUsed  = 6;
+	int64  offlineTaskLimit = 7;
 }
