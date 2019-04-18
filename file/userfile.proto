@@ -47,7 +47,7 @@ message UserFile {
 
 message UserFileOperation {
     repeated UserFile source = 1;
-    UserFile destnation = 2;
+    UserFile destination = 2;
     int32 operationCode = 3;
     int64 userIdentity = 4;
 }
