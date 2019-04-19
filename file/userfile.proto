@@ -42,8 +42,8 @@ message UserFile {
     uint32  version = 14;
     bool locking = 15;
     uint32 op = 16;
-    bool ignoreCase = 17;
-    repeated UserFile children = 18;
+    // bool ignoreCase = 17;
+    repeated UserFile children = 17;
 }
 
 message UserFileOperation {
@@ -111,22 +111,22 @@ message PageUserFileRequest {
     string identity = 1;
     string path = 2;
     int64 userIdentity = 3;
-    bool ignoreCase = 4;
-    int32 orderBy = 5;
-    int32 page = 6;
-    int32 pageSize = 7;
-    int32 filter = 8;
+    //bool ignoreCase = 4;
+    int32 orderBy = 4;
+    int32 page = 5;
+    int32 pageSize = 6;
+    int32 filter = 7;
 }
 
 message ListUserFileRequest {
     string identity = 1;
     string path = 2;
     int64 userIdentity = 3;
-    bool ignoreCase = 4;
-    int32 orderBy = 5;
-    int32 start = 6;
-    int32 listSize = 7;
-    int32 filter = 8;
+    // bool ignoreCase = 4;
+    int32 orderBy = 4;
+    int32 start = 5;
+    int32 listSize = 6;
+    int32 filter = 7;
 }
 
 message ListTrashRequest {
@@ -142,26 +142,3 @@ message UploadTokenResponse {
     string uploadUrl = 3;
     string filePath = 4;
 }
-
-/*
-type Model struct {
-	UUID        string `gorm:"primary_key;type:varchar(128);" qingzhen_multi_table:"true;"`
-	StoreID     string `gorm:"type:varchar(64);index:idx_store_id"`
-	UserID      uint64 `gorm:"primary_key;type:varchar(32);unique_index:user_parent_name;index:idx_user_parent;index:idx_user_parent_type;index:idx_user_parent_dir"`
-	Path        string `gorm:"type:text(65536);"`
-	Name        string `gorm:"type:varchar(256);unique_index:user_parent_name"`
-	Ext         string `gorm:"type:varchar(32);"`
-	Size        uint64
-	Parent      string `gorm:"type:varchar(128);unique_index:user_parent_name;index:idx_user_parent;index:idx_user_parent_type;index:idx_user_parent_dir"`
-	Type        int32  `gorm:"index:idx_user_parent_type"`
-	IsDirectory bool   `gorm:"index:idx_user_parent_dir"`
-	Atime       uint64
-	Ctime       uint64
-	Mtime       uint64
-	Version     uint32
-	Locking     bool
-	Op          uint32
-	IgnoreCase  bool
-}
-
-*/
