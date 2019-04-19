@@ -12,7 +12,7 @@ service UserFileService {
     // rpc getUser (Uint64Entity) returns (GrpcUser) {}
     rpc create (UserFile) returns (UserFile) {}
     rpc get (UserFile) returns (UserFile) {}
-    rpc uploadToken (UserFile) returns (UserFile) {}
+    rpc uploadToken (UserFile) returns (UploadTokenResponse) {}
     rpc getOrEmpty (UserFile) returns (UserFile) {}
     rpc pageDirectory (PageUserFileRequest) returns (UserFilePage) {}
     rpc listDirectory (ListUserFileRequest) returns (UserFileList) {}
@@ -134,6 +134,13 @@ message ListTrashRequest {
     int32 orderBy = 2;
     int32 start = 6;
     int32 listSize = 7;
+}
+
+message UploadTokenResponse {
+    string uploadToken = 1;
+    string type = 2;
+    string uploadUrl = 3;
+    string filePath = 4;
 }
 
 /*
