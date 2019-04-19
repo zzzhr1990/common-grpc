@@ -12,6 +12,7 @@ service UserFileService {
     // rpc getUser (Uint64Entity) returns (GrpcUser) {}
     rpc create (UserFile) returns (UserFile) {}
     rpc get (UserFile) returns (UserFile) {}
+    rpc uploadToken (UserFile) returns (UserFile) {}
     rpc getOrEmpty (UserFile) returns (UserFile) {}
     rpc pageDirectory (PageUserFileRequest) returns (UserFilePage) {}
     rpc listDirectory (ListUserFileRequest) returns (UserFileList) {}
