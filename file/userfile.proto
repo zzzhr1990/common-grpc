@@ -14,6 +14,7 @@ service UserFileService {
     rpc get (UserFile) returns (UserFile) {}
     rpc uploadToken (UserFile) returns (UploadTokenResponse) {}
     rpc getOrEmpty (UserFile) returns (UserFile) {}
+    rpc getOrEmptyEx (UserFile) returns (UserFileEx) {}
     rpc pageDirectory (PageUserFileRequest) returns (UserFilePage) {}
     rpc listDirectory (ListUserFileRequest) returns (UserFileList) {}
     rpc listDirectoryInteral (ListUserFileRequest) returns (UserFileList) {}
@@ -66,8 +67,8 @@ message UserFileEx {
     bool locking = 15;
     uint32 op = 16;
     // bool ignoreCase = 17;
-    // repeated UserFile children = 17;
-    string downloadAddress = 17;
+    repeated UserFile children = 17;
+    string downloadAddress = 18;
 }
 
 message UserFileOperation {
