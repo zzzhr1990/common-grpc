@@ -9,6 +9,7 @@ import "common/common_entity.proto";
 
 service CloudStoreService {
     rpc create (CloudStore) returns (CloudStore) {}
+    rpc tryCreate (CloudStore) returns (CloudStore) {}
     rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     rpc get (CloudStore) returns (CloudStore) {}
     rpc batchGet (CloudStoreList) returns (CloudStoreList) {}
