@@ -23,6 +23,7 @@ service UserFileService {
     rpc listTrash (ListTrashRequest) returns (TrashList) {}
     rpc pageTrash (PageTrashRequest) returns (TrashPage) {}
     rpc uploadCallback(StringEntity) returns (UserFile) {}
+    rpc tryCreateFile(UserFile) returns (UserFile) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
