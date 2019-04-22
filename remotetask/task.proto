@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package services;
+
+//import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/remotetask/task";
+import "common/common_entity.proto";
+
+
+service RemoteTaskService {
+    rpc create (RemoteTask) returns (RemoteTask) {}
+    rpc fetch(FetchRequest) returns (FetchResponse) {} // 
+    rpc delete(FetchRequest) returns (FetchResponse) {} // del
+    /*
+    rpc tryCreate (CloudStore) returns (CloudStore) {}
+    rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
+    rpc get (CloudStore) returns (CloudStore) {}
+    rpc batchGet (CloudStoreList) returns (CloudStoreList) {}
+    rpc batchGetByHash (StringListEntity) returns (CloudStoreList) {}
+    rpc getOrEmpty (CloudStore) returns (CloudStore) {}
+    */
+}
+
+
+message RemoteTask {
+    int64 identity = 1; //id
+    int32 type = 2; // type
+    string source = 3;
+    string consumer = 4;
+    string producer = 5;
+    int64 createTime = 6;
+    int64 consumerTime = 7;
+    int64 deadline = 8;
+    string data = 9;
+    int32 status = 10;
+    string comment = 11;
+    string reason = 12;
+}
+
+message FetchRequest {
+    string server = 1;
+    int32 type = 2; 
+    int32 count = 3; 
+    repeated int32 status = 4;
+    int32 nextStatus = 5;
+}
+
+message FetchResponse {
+    repeated FetchRequest data = 1;
+}
