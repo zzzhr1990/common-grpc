@@ -11,6 +11,7 @@ service RemoteTaskService {
     rpc create (RemoteTask) returns (RemoteTask) {}
     rpc fetch(FetchRequest) returns (FetchResponse) {} // 
     rpc delete(FetchRequest) returns (FetchResponse) {} // del
+    rpc list(ListRequest) returns (FetchResponse) {} // del
     /*
     rpc tryCreate (CloudStore) returns (CloudStore) {}
     rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
@@ -44,6 +45,14 @@ message FetchRequest {
     repeated int32 status = 4;
     int32 nextStatus = 5;
     int64 deadline = 6;
+}
+
+message ListRequest {
+    string server = 1;
+    int32 type = 2; 
+    int32 count = 3; 
+    repeated int32 status = 4;
+    int64 deadline = 5;
 }
 
 message FetchResponse {
