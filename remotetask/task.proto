@@ -4,7 +4,7 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/remotetask/task";
-import "common/common_entity.proto";
+// import "common/common_entity.proto";
 
 
 service RemoteTaskService {

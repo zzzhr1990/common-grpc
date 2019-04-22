@@ -36,6 +36,11 @@ do
     echo ${file}
     protoc --go_out=plugins=grpc:./go_temp ${file}
 done
+for file in ./remotetask/*.proto
+do
+    echo ${file}
+    protoc --go_out=plugins=grpc:./go_temp ${file}
+done
 
 echo "Clean Go Files"
 rm -rf ./go
