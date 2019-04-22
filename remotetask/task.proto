@@ -56,5 +56,5 @@ message ListRequest {
 }
 
 message FetchResponse {
-    repeated FetchRequest data = 1;
+    repeated RemoteTask data = 1;
 }
