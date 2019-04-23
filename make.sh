@@ -60,3 +60,4 @@ cp -r ./user ${nodejs_path}
 cp -r ./store ${nodejs_path}
 cp -r ./file ${nodejs_path}
 cp -r ./common ${nodejs_path}
+cp -r ./remotetask ${nodejs_path}

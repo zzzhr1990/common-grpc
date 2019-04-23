@@ -4,13 +4,13 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/remotetask/task";
-// import "common/common_entity.proto";
+import "common/common_entity.proto";
 
 
 service RemoteTaskService {
     rpc create (RemoteTask) returns (RemoteTask) {}
     rpc fetch(FetchRequest) returns (FetchResponse) {} // 
-    rpc delete(FetchRequest) returns (FetchResponse) {} // del
+    rpc delete(RemoteTask) returns (Int32Entity) {} // del
     rpc list(ListRequest) returns (FetchResponse) {} // del
     /*
     rpc tryCreate (CloudStore) returns (CloudStore) {}
