@@ -15,6 +15,7 @@ service CloudStoreService {
     rpc batchGet (CloudStoreList) returns (CloudStoreList) {}
     rpc batchGetByHash (StringListEntity) returns (CloudStoreList) {}
     rpc getOrEmpty (CloudStore) returns (CloudStore) {}
+    rpc getInnerDownloadAddress (StringEntity) returns (StringEntity) {}
 }
 
 
