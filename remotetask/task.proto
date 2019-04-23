@@ -53,6 +53,7 @@ message ListRequest {
     int32 count = 3; 
     repeated int32 status = 4;
     int64 deadline = 5;
+    bool recover = 6;
 }
 
 message FetchResponse {
