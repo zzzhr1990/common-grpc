@@ -10,7 +10,7 @@ import "common/common_entity.proto";
 service RemoteTaskService {
     rpc create (RemoteTask) returns (RemoteTask) {}
     rpc fetch(FetchRequest) returns (FetchResponse) {} // 
-    rpc delete(RemoteTask) returns (Int32Entity) {} // del
+    rpc delete(RemoteTask) returns (Int64Entity) {} // del
     rpc list(ListRequest) returns (FetchResponse) {} // del
     /*
     rpc tryCreate (CloudStore) returns (CloudStore) {}
