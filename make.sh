@@ -41,6 +41,11 @@ do
     echo ${file}
     protoc --go_out=plugins=grpc:./go_temp ${file}
 done
+for file in ./offline/*.proto
+do
+    echo ${file}
+    protoc --go_out=plugins=grpc:./go_temp ${file}
+done
 
 echo "Clean Go Files"
 rm -rf ./go
@@ -61,3 +66,4 @@ cp -r ./store ${nodejs_path}
 cp -r ./file ${nodejs_path}
 cp -r ./common ${nodejs_path}
 cp -r ./remotetask ${nodejs_path}
+cp -r ./offline ${nodejs_path}
