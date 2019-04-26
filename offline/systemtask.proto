@@ -9,7 +9,7 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/system
 
 service SystemOfflineTaskService {
     rpc create (SystemOfflineTask) returns (SystemOfflineTask) {}
-    //rpc tryCreate (SystemOfflineTask) returns (SystemOfflineTask) {}
+    rpc update (SystemOfflineTaskMeta) returns (SystemOfflineTaskMeta) {}
     rpc get (SystemOfflineTask) returns (SystemOfflineTask) {}
     rpc updateFile (SystemOfflineTaskFile) returns (SystemOfflineTask) {}
     rpc finish(SystemOfflineTask) returns (SystemOfflineTask) {}
