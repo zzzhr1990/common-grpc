@@ -40,7 +40,7 @@ message RemoteTask {
 
 message FetchRequest {
     string consumer = 1;
-    int32 type = 2; 
+    repeated int32 type = 2; 
     int32 count = 3; 
     repeated int32 status = 4;
     int32 nextStatus = 5;
