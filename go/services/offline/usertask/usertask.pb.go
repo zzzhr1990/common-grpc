@@ -24,8 +24,63 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+type AddUserOfflineTaskRequest struct {
+	Url                  string   `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
+	User                 int64    `protobuf:"varint,2,opt,name=user,proto3" json:"user,omitempty"`
+	Password             string   `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *AddUserOfflineTaskRequest) Reset()         { *m = AddUserOfflineTaskRequest{} }
+func (m *AddUserOfflineTaskRequest) String() string { return proto.CompactTextString(m) }
+func (*AddUserOfflineTaskRequest) ProtoMessage()    {}
+func (*AddUserOfflineTaskRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_62462ed77fca2601, []int{0}
+}
+
+func (m *AddUserOfflineTaskRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddUserOfflineTaskRequest.Unmarshal(m, b)
+}
+func (m *AddUserOfflineTaskRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddUserOfflineTaskRequest.Marshal(b, m, deterministic)
+}
+func (m *AddUserOfflineTaskRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddUserOfflineTaskRequest.Merge(m, src)
+}
+func (m *AddUserOfflineTaskRequest) XXX_Size() int {
+	return xxx_messageInfo_AddUserOfflineTaskRequest.Size(m)
+}
+func (m *AddUserOfflineTaskRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddUserOfflineTaskRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddUserOfflineTaskRequest proto.InternalMessageInfo
+
+func (m *AddUserOfflineTaskRequest) GetUrl() string {
+	if m != nil {
+		return m.Url
+	}
+	return ""
+}
+
+func (m *AddUserOfflineTaskRequest) GetUser() int64 {
+	if m != nil {
+		return m.User
+	}
+	return 0
+}
+
+func (m *AddUserOfflineTaskRequest) GetPassword() string {
+	if m != nil {
+		return m.Password
+	}
+	return ""
+}
+
 type UserOfflineTask struct {
-	Hash                 string   `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
+	Identity             string   `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
 	User                 int64    `protobuf:"varint,2,opt,name=user,proto3" json:"user,omitempty"`
 	CreateTime           int64    `protobuf:"varint,3,opt,name=createTime,proto3" json:"createTime,omitempty"`
 	Name                 string   `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
@@ -45,7 +100,7 @@ func (m *UserOfflineTask) Reset()         { *m = UserOfflineTask{} }
 func (m *UserOfflineTask) String() string { return proto.CompactTextString(m) }
 func (*UserOfflineTask) ProtoMessage()    {}
 func (*UserOfflineTask) Descriptor() ([]byte, []int) {
-	return fileDescriptor_62462ed77fca2601, []int{0}
+	return fileDescriptor_62462ed77fca2601, []int{1}
 }
 
 func (m *UserOfflineTask) XXX_Unmarshal(b []byte) error {
@@ -66,9 +121,9 @@ func (m *UserOfflineTask) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_UserOfflineTask proto.InternalMessageInfo
 
-func (m *UserOfflineTask) GetHash() string {
+func (m *UserOfflineTask) GetIdentity() string {
 	if m != nil {
-		return m.Hash
+		return m.Identity
 	}
 	return ""
 }
@@ -143,126 +198,249 @@ func (m *UserOfflineTask) GetData() string {
 	return ""
 }
 
-type UserOfflineListener struct {
-	Identity             int64    `protobuf:"varint,1,opt,name=identity,proto3" json:"identity,omitempty"`
-	Hash                 string   `protobuf:"bytes,2,opt,name=hash,proto3" json:"hash,omitempty"`
-	User                 int64    `protobuf:"varint,3,opt,name=user,proto3" json:"user,omitempty"`
-	CreateTime           int64    `protobuf:"varint,4,opt,name=createTime,proto3" json:"createTime,omitempty"`
-	Type                 int32    `protobuf:"varint,5,opt,name=type,proto3" json:"type,omitempty"`
-	Status               int32    `protobuf:"varint,6,opt,name=status,proto3" json:"status,omitempty"`
-	Path                 string   `protobuf:"bytes,7,opt,name=path,proto3" json:"path,omitempty"`
+type UserOfflineTaskFile struct {
+	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Size                 int64    `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
+	Order                int32    `protobuf:"varint,3,opt,name=order,proto3" json:"order,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UserOfflineListener) Reset()         { *m = UserOfflineListener{} }
-func (m *UserOfflineListener) String() string { return proto.CompactTextString(m) }
-func (*UserOfflineListener) ProtoMessage()    {}
-func (*UserOfflineListener) Descriptor() ([]byte, []int) {
-	return fileDescriptor_62462ed77fca2601, []int{1}
+func (m *UserOfflineTaskFile) Reset()         { *m = UserOfflineTaskFile{} }
+func (m *UserOfflineTaskFile) String() string { return proto.CompactTextString(m) }
+func (*UserOfflineTaskFile) ProtoMessage()    {}
+func (*UserOfflineTaskFile) Descriptor() ([]byte, []int) {
+	return fileDescriptor_62462ed77fca2601, []int{2}
 }
 
-func (m *UserOfflineListener) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_UserOfflineListener.Unmarshal(m, b)
+func (m *UserOfflineTaskFile) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UserOfflineTaskFile.Unmarshal(m, b)
 }
-func (m *UserOfflineListener) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_UserOfflineListener.Marshal(b, m, deterministic)
+func (m *UserOfflineTaskFile) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UserOfflineTaskFile.Marshal(b, m, deterministic)
 }
-func (m *UserOfflineListener) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UserOfflineListener.Merge(m, src)
+func (m *UserOfflineTaskFile) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UserOfflineTaskFile.Merge(m, src)
 }
-func (m *UserOfflineListener) XXX_Size() int {
-	return xxx_messageInfo_UserOfflineListener.Size(m)
+func (m *UserOfflineTaskFile) XXX_Size() int {
+	return xxx_messageInfo_UserOfflineTaskFile.Size(m)
 }
-func (m *UserOfflineListener) XXX_DiscardUnknown() {
-	xxx_messageInfo_UserOfflineListener.DiscardUnknown(m)
+func (m *UserOfflineTaskFile) XXX_DiscardUnknown() {
+	xxx_messageInfo_UserOfflineTaskFile.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_UserOfflineListener proto.InternalMessageInfo
+var xxx_messageInfo_UserOfflineTaskFile proto.InternalMessageInfo
 
-func (m *UserOfflineListener) GetIdentity() int64 {
+func (m *UserOfflineTaskFile) GetName() string {
 	if m != nil {
-		return m.Identity
-	}
-	return 0
-}
-
-func (m *UserOfflineListener) GetHash() string {
-	if m != nil {
-		return m.Hash
+		return m.Name
 	}
 	return ""
 }
 
-func (m *UserOfflineListener) GetUser() int64 {
+func (m *UserOfflineTaskFile) GetSize() int64 {
+	if m != nil {
+		return m.Size
+	}
+	return 0
+}
+
+func (m *UserOfflineTaskFile) GetOrder() int32 {
+	if m != nil {
+		return m.Order
+	}
+	return 0
+}
+
+type UserOfflineTaskResponse struct {
+	Identity             string                 `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
+	Info                 *UserOfflineTaskFile   `protobuf:"bytes,2,opt,name=info,proto3" json:"info,omitempty"`
+	Success              bool                   `protobuf:"varint,3,opt,name=success,proto3" json:"success,omitempty"`
+	Name                 string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	NeewPassword         bool                   `protobuf:"varint,5,opt,name=neewPassword,proto3" json:"neewPassword,omitempty"`
+	Files                []*UserOfflineTaskFile `protobuf:"bytes,12,rep,name=files,proto3" json:"files,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
+	XXX_unrecognized     []byte                 `json:"-"`
+	XXX_sizecache        int32                  `json:"-"`
+}
+
+func (m *UserOfflineTaskResponse) Reset()         { *m = UserOfflineTaskResponse{} }
+func (m *UserOfflineTaskResponse) String() string { return proto.CompactTextString(m) }
+func (*UserOfflineTaskResponse) ProtoMessage()    {}
+func (*UserOfflineTaskResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_62462ed77fca2601, []int{3}
+}
+
+func (m *UserOfflineTaskResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UserOfflineTaskResponse.Unmarshal(m, b)
+}
+func (m *UserOfflineTaskResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UserOfflineTaskResponse.Marshal(b, m, deterministic)
+}
+func (m *UserOfflineTaskResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UserOfflineTaskResponse.Merge(m, src)
+}
+func (m *UserOfflineTaskResponse) XXX_Size() int {
+	return xxx_messageInfo_UserOfflineTaskResponse.Size(m)
+}
+func (m *UserOfflineTaskResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UserOfflineTaskResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UserOfflineTaskResponse proto.InternalMessageInfo
+
+func (m *UserOfflineTaskResponse) GetIdentity() string {
+	if m != nil {
+		return m.Identity
+	}
+	return ""
+}
+
+func (m *UserOfflineTaskResponse) GetInfo() *UserOfflineTaskFile {
+	if m != nil {
+		return m.Info
+	}
+	return nil
+}
+
+func (m *UserOfflineTaskResponse) GetSuccess() bool {
+	if m != nil {
+		return m.Success
+	}
+	return false
+}
+
+func (m *UserOfflineTaskResponse) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *UserOfflineTaskResponse) GetNeewPassword() bool {
+	if m != nil {
+		return m.NeewPassword
+	}
+	return false
+}
+
+func (m *UserOfflineTaskResponse) GetFiles() []*UserOfflineTaskFile {
+	if m != nil {
+		return m.Files
+	}
+	return nil
+}
+
+type UserTaskListener struct {
+	TaskIdentity         string   `protobuf:"bytes,1,opt,name=taskIdentity,proto3" json:"taskIdentity,omitempty"`
+	User                 int64    `protobuf:"varint,3,opt,name=user,proto3" json:"user,omitempty"`
+	CreateTime           int64    `protobuf:"varint,4,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	Deadline             int64    `protobuf:"varint,5,opt,name=deadline,proto3" json:"deadline,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UserTaskListener) Reset()         { *m = UserTaskListener{} }
+func (m *UserTaskListener) String() string { return proto.CompactTextString(m) }
+func (*UserTaskListener) ProtoMessage()    {}
+func (*UserTaskListener) Descriptor() ([]byte, []int) {
+	return fileDescriptor_62462ed77fca2601, []int{4}
+}
+
+func (m *UserTaskListener) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UserTaskListener.Unmarshal(m, b)
+}
+func (m *UserTaskListener) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UserTaskListener.Marshal(b, m, deterministic)
+}
+func (m *UserTaskListener) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UserTaskListener.Merge(m, src)
+}
+func (m *UserTaskListener) XXX_Size() int {
+	return xxx_messageInfo_UserTaskListener.Size(m)
+}
+func (m *UserTaskListener) XXX_DiscardUnknown() {
+	xxx_messageInfo_UserTaskListener.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UserTaskListener proto.InternalMessageInfo
+
+func (m *UserTaskListener) GetTaskIdentity() string {
+	if m != nil {
+		return m.TaskIdentity
+	}
+	return ""
+}
+
+func (m *UserTaskListener) GetUser() int64 {
 	if m != nil {
 		return m.User
 	}
 	return 0
 }
 
-func (m *UserOfflineListener) GetCreateTime() int64 {
+func (m *UserTaskListener) GetCreateTime() int64 {
 	if m != nil {
 		return m.CreateTime
 	}
 	return 0
 }
 
-func (m *UserOfflineListener) GetType() int32 {
+func (m *UserTaskListener) GetDeadline() int64 {
 	if m != nil {
-		return m.Type
+		return m.Deadline
 	}
 	return 0
-}
-
-func (m *UserOfflineListener) GetStatus() int32 {
-	if m != nil {
-		return m.Status
-	}
-	return 0
-}
-
-func (m *UserOfflineListener) GetPath() string {
-	if m != nil {
-		return m.Path
-	}
-	return ""
 }
 
 func init() {
+	proto.RegisterType((*AddUserOfflineTaskRequest)(nil), "services.AddUserOfflineTaskRequest")
 	proto.RegisterType((*UserOfflineTask)(nil), "services.UserOfflineTask")
-	proto.RegisterType((*UserOfflineListener)(nil), "services.UserOfflineListener")
+	proto.RegisterType((*UserOfflineTaskFile)(nil), "services.UserOfflineTaskFile")
+	proto.RegisterType((*UserOfflineTaskResponse)(nil), "services.UserOfflineTaskResponse")
+	proto.RegisterType((*UserTaskListener)(nil), "services.UserTaskListener")
 }
 
 func init() { proto.RegisterFile("offline/usertask.proto", fileDescriptor_62462ed77fca2601) }
 
 var fileDescriptor_62462ed77fca2601 = []byte{
-	// 371 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x52, 0x4d, 0x6f, 0xe2, 0x30,
-	0x10, 0xdd, 0x10, 0xc8, 0x82, 0x77, 0xa5, 0x56, 0xae, 0x84, 0x5c, 0x0e, 0x15, 0xca, 0x89, 0x4b,
-	0x93, 0x7e, 0x9c, 0x38, 0xa0, 0x56, 0x3d, 0x57, 0xaa, 0x14, 0xe8, 0xa5, 0x37, 0x93, 0x0c, 0x89,
-	0x05, 0x89, 0x23, 0xdb, 0xb4, 0x22, 0x7f, 0xa3, 0xa7, 0xfe, 0x94, 0xfe, 0xbb, 0x6a, 0x1c, 0x40,
-	0x14, 0xc1, 0xa1, 0xbd, 0xbd, 0x79, 0xe3, 0x79, 0x33, 0x7e, 0x33, 0xa4, 0x2b, 0x67, 0xb3, 0x85,
-	0x28, 0x20, 0x5c, 0x6a, 0x50, 0x86, 0xeb, 0x79, 0x50, 0x2a, 0x69, 0x24, 0x6d, 0x6b, 0x50, 0xaf,
-	0x22, 0x06, 0xed, 0xbf, 0x37, 0xc8, 0xc9, 0xb3, 0x06, 0xf5, 0x54, 0x3f, 0x9c, 0x70, 0x3d, 0xa7,
-	0x94, 0x34, 0x33, 0xae, 0x33, 0xe6, 0xf4, 0x9d, 0x41, 0x27, 0xb2, 0x18, 0x39, 0xd4, 0x60, 0x8d,
-	0xbe, 0x33, 0x70, 0x23, 0x8b, 0xe9, 0x05, 0x21, 0xb1, 0x02, 0x6e, 0x60, 0x22, 0x72, 0x60, 0xae,
-	0xcd, 0xec, 0x30, 0x58, 0x53, 0xf0, 0x1c, 0x58, 0xb3, 0xd6, 0x41, 0x8c, 0x9c, 0x59, 0x95, 0xc0,
-	0x5a, 0x7d, 0x67, 0xd0, 0x8a, 0x2c, 0xa6, 0x5d, 0xe2, 0x69, 0xc3, 0xcd, 0x52, 0x33, 0xcf, 0xb2,
-	0xeb, 0x08, 0xdf, 0x6a, 0x51, 0x01, 0xfb, 0x5b, 0xf7, 0x44, 0x4c, 0x7d, 0xf2, 0x3f, 0x91, 0x6f,
-	0xc5, 0x42, 0xf2, 0x64, 0x8c, 0xb9, 0xb6, 0xcd, 0x7d, 0xe3, 0x68, 0x8f, 0xb4, 0x4b, 0x25, 0x53,
-	0x05, 0x5a, 0xb3, 0x8e, 0x55, 0xdc, 0xc6, 0xf4, 0x94, 0xb8, 0xb1, 0x28, 0x19, 0xb1, 0x23, 0x21,
-	0xc4, 0x2e, 0x09, 0x37, 0x9c, 0xfd, 0xab, 0xa7, 0x44, 0xec, 0x7f, 0x3a, 0xe4, 0x6c, 0xc7, 0x95,
-	0x47, 0xa1, 0x0d, 0x14, 0xa0, 0x50, 0x59, 0x24, 0x50, 0x18, 0x61, 0x56, 0xd6, 0x1d, 0x37, 0xda,
-	0xc6, 0x5b, 0xd7, 0x1a, 0x07, 0x5c, 0x73, 0x8f, 0xba, 0xd6, 0x3c, 0xe4, 0xda, 0x4f, 0x1c, 0x2a,
-	0xb9, 0xc9, 0xac, 0x43, 0x9d, 0xc8, 0xe2, 0x9b, 0x0f, 0x87, 0x74, 0xd7, 0x73, 0xe3, 0x17, 0x70,
-	0xa3, 0xe3, 0x7a, 0xdb, 0xf4, 0x9e, 0x78, 0x75, 0x23, 0x7a, 0x1e, 0x6c, 0x2e, 0x20, 0xd8, 0xdb,
-	0x7e, 0xef, 0x78, 0xca, 0xff, 0x43, 0x47, 0xc4, 0x4d, 0xc1, 0xfc, 0xb6, 0xfc, 0xe1, 0xee, 0x65,
-	0x94, 0x0a, 0x93, 0x2d, 0xa7, 0x41, 0x2c, 0xf3, 0xb0, 0xaa, 0xaa, 0x4c, 0x5d, 0x0f, 0x87, 0x57,
-	0x61, 0x2c, 0xf3, 0x5c, 0x16, 0x97, 0xa9, 0x2a, 0xe3, 0x30, 0x95, 0xe1, 0x46, 0x21, 0xdc, 0x3f,
-	0xdf, 0xa9, 0x67, 0xef, 0xf7, 0xf6, 0x2b, 0x00, 0x00, 0xff, 0xff, 0x8f, 0xa7, 0xe8, 0x23, 0xd9,
-	0x02, 0x00, 0x00,
+	// 531 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x54, 0xcd, 0x6e, 0xd3, 0x40,
+	0x10, 0xae, 0xe3, 0x38, 0x4d, 0xa7, 0x91, 0xa8, 0x16, 0x14, 0xb6, 0x91, 0x40, 0xc1, 0x5c, 0x72,
+	0x21, 0xa6, 0xed, 0xa9, 0x87, 0x8a, 0x9f, 0x03, 0x12, 0x12, 0x52, 0x91, 0x53, 0x2e, 0x48, 0x1c,
+	0xb6, 0xde, 0x49, 0xba, 0x6a, 0xe2, 0x35, 0xbb, 0x6b, 0xa2, 0xe6, 0x01, 0x78, 0x09, 0xde, 0x90,
+	0x0b, 0xaf, 0x80, 0x76, 0x1d, 0xbb, 0x75, 0x1a, 0x83, 0xd4, 0xdb, 0xfc, 0x7c, 0xfe, 0xe6, 0x9b,
+	0xf1, 0x67, 0x43, 0x5f, 0x4e, 0xa7, 0x73, 0x91, 0x62, 0x94, 0x6b, 0x54, 0x86, 0xe9, 0xeb, 0x71,
+	0xa6, 0xa4, 0x91, 0xa4, 0xab, 0x51, 0xfd, 0x10, 0x09, 0xea, 0xf0, 0x1b, 0x1c, 0xbe, 0xe3, 0xfc,
+	0x8b, 0x46, 0x75, 0x5e, 0x40, 0x2f, 0x98, 0xbe, 0x8e, 0xf1, 0x7b, 0x8e, 0xda, 0x90, 0x03, 0xf0,
+	0x73, 0x35, 0xa7, 0xde, 0xd0, 0x1b, 0xed, 0xc5, 0x36, 0x24, 0x04, 0xda, 0x96, 0x8a, 0xb6, 0x86,
+	0xde, 0xc8, 0x8f, 0x5d, 0x4c, 0x06, 0xd0, 0xcd, 0x98, 0xd6, 0x4b, 0xa9, 0x38, 0xf5, 0x1d, 0xb4,
+	0xca, 0xc3, 0x5f, 0x2d, 0x78, 0xb4, 0x41, 0x6e, 0xf1, 0x82, 0x63, 0x6a, 0x84, 0xb9, 0x59, 0x53,
+	0x57, 0xf9, 0x56, 0xfe, 0xe7, 0x00, 0x89, 0x42, 0x66, 0xf0, 0x42, 0x2c, 0xd0, 0x4d, 0xf0, 0xe3,
+	0x3b, 0x15, 0xfb, 0x4c, 0xca, 0x16, 0x48, 0xdb, 0x8e, 0xcb, 0xc5, 0xb6, 0x66, 0x6e, 0x32, 0xa4,
+	0xc1, 0xd0, 0x1b, 0x05, 0xb1, 0x8b, 0x49, 0x1f, 0x3a, 0xda, 0x30, 0x93, 0x6b, 0xda, 0x71, 0xd5,
+	0x75, 0x66, 0xb1, 0x5a, 0xac, 0x90, 0xee, 0x16, 0x33, 0x6d, 0x4c, 0x42, 0xe8, 0x71, 0xb9, 0x4c,
+	0xe7, 0x92, 0xf1, 0x89, 0xed, 0x75, 0x5d, 0xaf, 0x56, 0x73, 0x7b, 0x2b, 0x39, 0x53, 0xa8, 0x35,
+	0xdd, 0x73, 0x8c, 0x55, 0x6e, 0x2f, 0x97, 0x88, 0x8c, 0x42, 0x71, 0xb9, 0x44, 0x64, 0x76, 0x0a,
+	0x67, 0x86, 0xd1, 0xfd, 0x42, 0xa5, 0x8d, 0xc3, 0x09, 0x3c, 0xde, 0x38, 0xce, 0x07, 0x31, 0xbf,
+	0x5d, 0xc8, 0xab, 0x2f, 0xe4, 0x44, 0xb6, 0xee, 0x88, 0x7c, 0x02, 0x81, 0x54, 0x1c, 0x95, 0xbb,
+	0x49, 0x10, 0x17, 0x49, 0xf8, 0xc7, 0x83, 0xa7, 0xf7, 0xde, 0xa7, 0xce, 0x64, 0xaa, 0xf1, 0x9f,
+	0xa7, 0x3f, 0x82, 0xb6, 0x48, 0xa7, 0xd2, 0x4d, 0xd8, 0x3f, 0x7e, 0x36, 0x2e, 0x2d, 0x32, 0xde,
+	0x22, 0x31, 0x76, 0x50, 0x42, 0x61, 0x57, 0xe7, 0x49, 0x62, 0x0f, 0x60, 0x25, 0x74, 0xe3, 0x32,
+	0xdd, 0xfa, 0x4e, 0x42, 0xe8, 0xa5, 0x88, 0xcb, 0xcf, 0xa5, 0x57, 0x02, 0xf7, 0x48, 0xad, 0x46,
+	0x4e, 0x20, 0x98, 0x8a, 0x39, 0x6a, 0xda, 0x1b, 0xfa, 0xff, 0x57, 0x51, 0x60, 0xc3, 0x9f, 0x1e,
+	0x1c, 0xd8, 0xb6, 0xad, 0x7f, 0x12, 0xda, 0x60, 0x8a, 0xca, 0x4e, 0xb3, 0x86, 0xff, 0x58, 0x5f,
+	0xb7, 0x56, 0xab, 0xdc, 0xe6, 0x37, 0xba, 0xad, 0x7d, 0xcf, 0x6d, 0x03, 0xe8, 0x72, 0x64, 0xdc,
+	0xea, 0x70, 0x1b, 0xf8, 0x71, 0x95, 0x1f, 0xff, 0xf6, 0xa0, 0xbf, 0xd6, 0x58, 0xea, 0x99, 0x14,
+	0xfa, 0xc9, 0x5b, 0xe8, 0x14, 0x24, 0xe4, 0xb0, 0x71, 0xa7, 0x41, 0x73, 0x2b, 0xdc, 0x21, 0xe7,
+	0xe0, 0x33, 0xce, 0xc9, 0xcb, 0x5b, 0x4c, 0xe3, 0x87, 0x3b, 0x78, 0xd1, 0x48, 0x54, 0x5a, 0x21,
+	0xdc, 0x21, 0x67, 0xe0, 0xcf, 0xd0, 0x3c, 0x54, 0xcf, 0xfb, 0x37, 0x5f, 0xcf, 0x66, 0xc2, 0x5c,
+	0xe5, 0x97, 0xe3, 0x44, 0x2e, 0xa2, 0xd5, 0x6a, 0x75, 0xa5, 0x8e, 0x4e, 0x4f, 0x5f, 0x47, 0x89,
+	0x5c, 0x2c, 0x64, 0xfa, 0x6a, 0xa6, 0xb2, 0x24, 0x9a, 0xc9, 0xa8, 0x64, 0x88, 0x36, 0x7f, 0x45,
+	0x97, 0x1d, 0xf7, 0x2f, 0x3a, 0xf9, 0x1b, 0x00, 0x00, 0xff, 0xff, 0xe1, 0x60, 0x57, 0xa3, 0xa5,
+	0x04, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -278,6 +456,7 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type OfflineUserTaskServiceClient interface {
 	Create(ctx context.Context, in *UserOfflineTask, opts ...grpc.CallOption) (*UserOfflineTask, error)
+	Add(ctx context.Context, in *AddUserOfflineTaskRequest, opts ...grpc.CallOption) (*UserOfflineTaskResponse, error)
 	//rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
 	//rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
 	Get(ctx context.Context, in *UserOfflineTask, opts ...grpc.CallOption) (*UserOfflineTask, error)
@@ -300,6 +479,15 @@ func (c *offlineUserTaskServiceClient) Create(ctx context.Context, in *UserOffli
 	return out, nil
 }
 
+func (c *offlineUserTaskServiceClient) Add(ctx context.Context, in *AddUserOfflineTaskRequest, opts ...grpc.CallOption) (*UserOfflineTaskResponse, error) {
+	out := new(UserOfflineTaskResponse)
+	err := c.cc.Invoke(ctx, "/services.OfflineUserTaskService/add", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *offlineUserTaskServiceClient) Get(ctx context.Context, in *UserOfflineTask, opts ...grpc.CallOption) (*UserOfflineTask, error) {
 	out := new(UserOfflineTask)
 	err := c.cc.Invoke(ctx, "/services.OfflineUserTaskService/get", in, out, opts...)
@@ -312,6 +500,7 @@ func (c *offlineUserTaskServiceClient) Get(ctx context.Context, in *UserOfflineT
 // OfflineUserTaskServiceServer is the server API for OfflineUserTaskService service.
 type OfflineUserTaskServiceServer interface {
 	Create(context.Context, *UserOfflineTask) (*UserOfflineTask, error)
+	Add(context.Context, *AddUserOfflineTaskRequest) (*UserOfflineTaskResponse, error)
 	//rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
 	//rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
 	Get(context.Context, *UserOfflineTask) (*UserOfflineTask, error)
@@ -323,6 +512,9 @@ type UnimplementedOfflineUserTaskServiceServer struct {
 
 func (*UnimplementedOfflineUserTaskServiceServer) Create(ctx context.Context, req *UserOfflineTask) (*UserOfflineTask, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (*UnimplementedOfflineUserTaskServiceServer) Add(ctx context.Context, req *AddUserOfflineTaskRequest) (*UserOfflineTaskResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
 }
 func (*UnimplementedOfflineUserTaskServiceServer) Get(ctx context.Context, req *UserOfflineTask) (*UserOfflineTask, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
@@ -346,6 +538,24 @@ func _OfflineUserTaskService_Create_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OfflineUserTaskServiceServer).Create(ctx, req.(*UserOfflineTask))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OfflineUserTaskService_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddUserOfflineTaskRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OfflineUserTaskServiceServer).Add(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.OfflineUserTaskService/Add",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OfflineUserTaskServiceServer).Add(ctx, req.(*AddUserOfflineTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -375,6 +585,10 @@ var _OfflineUserTaskService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "create",
 			Handler:    _OfflineUserTaskService_Create_Handler,
+		},
+		{
+			MethodName: "add",
+			Handler:    _OfflineUserTaskService_Add_Handler,
 		},
 		{
 			MethodName: "get",

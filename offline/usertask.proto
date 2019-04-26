@@ -4,11 +4,12 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/usertask";
-//import "common/common_entity.proto";
+// import "offline/systemtask.proto";
 
 
 service OfflineUserTaskService {
     rpc create (UserOfflineTask) returns (UserOfflineTask) {}
+    rpc add (AddUserOfflineTaskRequest) returns (UserOfflineTaskResponse) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     rpc get (UserOfflineTask) returns (UserOfflineTask) {}
@@ -20,8 +21,14 @@ service OfflineUserTaskService {
 }
 
 
+message AddUserOfflineTaskRequest {
+    string url = 1;
+    int64 user = 2;
+    string password = 3;
+}
+
 message UserOfflineTask {
-    string hash = 1;
+    string identity = 1;
     int64 user = 2;
     int64 createTime = 3;
     string name = 4;
@@ -34,13 +41,27 @@ message UserOfflineTask {
     string data = 11;
 }
 
-message UserOfflineListener {
-    int64 identity = 1;
-    string hash = 2;
+message UserOfflineTaskFile {
+    string name = 1;
+    int64 size = 2;
+    int32 order = 3;
+}
+
+message UserOfflineTaskResponse {
+    string identity = 1;
+    UserOfflineTaskFile info = 2;
+    bool success = 3;
+    string name = 4;
+    bool neewPassword = 5;
+    repeated UserOfflineTaskFile files = 12;
+}
+
+message UserTaskListener {
+    string taskIdentity = 1;
     int64 user = 3;
     int64 createTime = 4;
-    int32 type = 5;
-    int32 status = 6;
-    string path = 7;
+    int64 deadline = 5;
+    //int32 status = 6;
+    //string path = 7;
 }
 
