@@ -28,8 +28,9 @@ message SystemOfflineTask {
     int32  flag = 8;
     int64 downloadSize = 9;
     //
-    string cip = 10;
-    bool preview = 11;
+    string createIP = 10;
+    string data = 11;
+    bool preview = 12;
     //
     // int32 previewType = 12;
 
