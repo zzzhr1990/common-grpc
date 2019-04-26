@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package services;
+
+//import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/usertask";
+//import "common/common_entity.proto";
+
+
+service OfflineUserTaskService {
+    rpc create (UserOfflineTask) returns (UserOfflineTask) {}
+    //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
+    //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
+    rpc get (UserOfflineTask) returns (UserOfflineTask) {}
+    //rpc change (CloudStore) returns (CloudStore) {}
+    //rpc batchGet (CloudStoreList) returns (CloudStoreList) {}
+    //rpc batchGetByHash (StringListEntity) returns (CloudStoreList) {}
+    //rpc getOrEmpty (CloudStore) returns (CloudStore) {}
+    //rpc getInnerDownloadAddress (StringEntity) returns (StringEntity) {}
+}
+
+
+message UserOfflineTask {
+    string hash = 1;
+    int64 user = 2;
+    int64 createTime = 3;
+    string name = 4;
+    int32 type = 5;
+    int32  status = 6;
+    int64 size = 7;
+    int64 downloadSize = 8;
+    int32 progress = 9;
+    string cip = 10;
+    string data = 11;
+}
+
+message UserOfflineListener {
+    int64 identity = 1;
+    string hash = 2;
+    int64 user = 3;
+    int64 createTime = 4;
+    int32 type = 5;
+    int32 status = 6;
+    string path = 7;
+}
+
