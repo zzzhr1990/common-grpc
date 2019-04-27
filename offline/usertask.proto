@@ -25,6 +25,7 @@ message AddUserOfflineTaskRequest {
     string url = 1;
     int64 user = 2;
     string password = 3;
+    string path = 4;
 }
 
 message UserOfflineTask {
