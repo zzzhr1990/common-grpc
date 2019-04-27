@@ -49,16 +49,9 @@ message UserOfflineTaskFile {
 }
 
 message UserOfflineTaskResponse {
-    string identity = 1;
-    UserOfflineTaskFile info = 2;
-    bool success = 3;
-    string name = 4;
-    bool neewPassword = 5;
-    //bool success = 6;
-    string code = 6;
-    string message = 7;
-    bool parsed = 8;
-    repeated UserOfflineTaskFile files = 9;
+    bool success = 1;
+    int32 count = 2;
+    repeated UserOfflineTaskFile files = 3;
 }
 
 message UserTaskListener {
