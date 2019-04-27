@@ -12,6 +12,7 @@ service SystemOfflineTaskService {
     rpc update (SystemOfflineTaskMeta) returns (SystemOfflineTaskMeta) {}
     rpc get (SystemOfflineTask) returns (SystemOfflineTask) {}
     rpc updateFile (SystemOfflineTaskFile) returns (SystemOfflineTask) {}
+    rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
     rpc finish(SystemOfflineTask) returns (SystemOfflineTask) {}
 }
 
@@ -57,6 +58,11 @@ message SystemOfflineTaskMeta {
     SystemOfflineTask  task = 1;
     repeated SystemOfflineTaskFile files = 2;
 }
+
+message SystemOfflineTaskFiles {
+    repeated SystemOfflineTaskFile files = 2;
+}
+
 
 /*
 message CloudStoreList {
