@@ -114,6 +114,7 @@ message TrashInfo {
     string name = 2;
     string source = 3;
     uint64 size = 4;
+    int64 moveTime = 5;
 }
 
 message TrashList {
