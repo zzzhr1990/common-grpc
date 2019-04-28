@@ -17,6 +17,7 @@ service GrpcUserService {
     rpc getBalance (Balance) returns (Balance) {}
     rpc setSpaceUsed (Balance) returns (Balance) {}
     rpc changePassword (PasswordPair) returns (BoolEntity) {}
+    rpc changeName (GrpcUser) returns (BoolEntity) {}
 }
 
 
