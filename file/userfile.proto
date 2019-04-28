@@ -20,13 +20,19 @@ service UserFileService {
     rpc listDirectoryInteral (ListUserFileRequest) returns (UserFileList) {}
     rpc operate (UserFileOperation) returns (Int32Entity) {}
     rpc deleteByIdentity (DeleteFilesRequest) returns (Int64Entity) {}
-    rpc MoveToTrash (UserFile) returns (Int64Entity) {}
+    rpc moveToTrash (UserFile) returns (Int64Entity) {}
     rpc listTrash (ListTrashRequest) returns (TrashList) {}
     rpc pageTrash (PageTrashRequest) returns (TrashPage) {}
     rpc uploadCallback(StringEntity) returns (UserFile) {}
     rpc tryCreateFile(UserFile) returns (UserFile) {}
     rpc rename (UserFile) returns (BoolEntity) {}
+    rpc moveFromTrash (MoveBackRequest) returns (BoolEntity) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
+}
+
+message MoveBackRequest {
+    UserFile destination = 1;
+    repeated string source = 2;
 }
 
 message UserFile {
