@@ -33,6 +33,7 @@ service UserFileService {
 message MoveBackRequest {
     UserFile destination = 1;
     repeated string source = 2;
+    int64 userIdentity = 3;
 }
 
 message UserFile {
