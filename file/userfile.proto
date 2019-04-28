@@ -25,6 +25,7 @@ service UserFileService {
     rpc pageTrash (PageTrashRequest) returns (TrashPage) {}
     rpc uploadCallback(StringEntity) returns (UserFile) {}
     rpc tryCreateFile(UserFile) returns (UserFile) {}
+    rpc rename (UserFile) returns (BoolEntity) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
