@@ -10,6 +10,8 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/userta
 service OfflineUserTaskService {
     // rpc create (UserOfflineTask) returns (UserOfflineTask) {}
     rpc add (AddUserOfflineTaskRequest) returns (UserOfflineTaskResponse) {}
+    rpc pageUserOfflineTask (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
+    rpc listUserOfflineTask (ListUserOfflineTaskRequest) returns (UserOfflineTaskList) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     // rpc get (UserOfflineTask) returns (UserOfflineTask) {}
@@ -64,3 +66,37 @@ message UserTaskListener {
     //string path = 7;
 }
 
+message PageUserOfflineTaskRequest {
+    int64 userIdentity = 1;
+    int32 orderBy = 2;
+    int32 page = 3;
+    int32 pageSize = 4;
+    int32 filter = 5;
+}
+
+message ListUserOfflineTaskRequest {
+    int64 userIdentity = 1;
+    int32 orderBy = 2;
+    int32 filter = 3;
+}
+
+message UserOfflineTaskPage {
+    repeated UserOfflineTask list = 1;
+    int64 totalCount = 2;
+    int32 totalPage = 3;
+    int32 page = 4;
+    int32 pageSize = 5;
+}
+
+message DeleteFilesRequest {
+    int64 userIdentity = 1;
+    repeated string tasksIdentity = 2;
+}
+
+message UserOfflineTaskList {
+    repeated UserOfflineTask list = 2;
+    // int64 totalCount = 3;
+    // int32 totalPage = 4;
+    // int32 page = 5;
+    // int32 pageSize = 6;
+}
