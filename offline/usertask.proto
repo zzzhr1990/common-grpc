@@ -10,8 +10,8 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/userta
 service OfflineUserTaskService {
     // rpc create (UserOfflineTask) returns (UserOfflineTask) {}
     rpc add (AddUserOfflineTaskRequest) returns (UserOfflineTaskResponse) {}
-    rpc pageUserOfflineTask (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
-    rpc listUserOfflineTask (ListUserOfflineTaskRequest) returns (UserOfflineTaskList) {}
+    //rpc pageUserOfflineTask (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
+    //rpc listUserOfflineTask (ListUserOfflineTaskRequest) returns (UserOfflineTaskList) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     // rpc get (UserOfflineTask) returns (UserOfflineTask) {}
