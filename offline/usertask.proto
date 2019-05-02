@@ -27,7 +27,8 @@ message UserOfflineTaskRequest {
     string identity = 1;
     //int64 user = 2;
     int32 type = 2;
-    string data = 3;
+    string name = 3;
+    string data = 4;
 }
 
 message AddUserOfflineTaskRequest {
