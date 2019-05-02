@@ -10,12 +10,20 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/system
 service SystemOfflineTaskService {
     rpc create (SystemOfflineTask) returns (SystemOfflineTask) {}
     rpc update (SystemOfflineTaskMeta) returns (SystemOfflineTaskMeta) {}
+    rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
     rpc get (SystemOfflineTask) returns (SystemOfflineTask) {}
     rpc updateFile (SystemOfflineTaskFile) returns (SystemOfflineTask) {}
     rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
     rpc finish(SystemOfflineTask) returns (SystemOfflineTask) {}
 }
 
+message BatchGetRequest {
+    repeated string identities = 1;
+}
+
+message BatchGetResponse {
+    repeated SystemOfflineTaskMeta data = 1;
+}
 
 message SystemOfflineTask {
     string  identity = 1;
