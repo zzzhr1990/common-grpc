@@ -33,6 +33,7 @@ message UserOfflineTaskRequest {
 message AddUserOfflineTaskRequest {
     int64 user = 1;
     repeated UserOfflineTaskRequest tasks = 2;
+    string path = 3;
 }
 
 message UserOfflineTask {
