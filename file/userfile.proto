@@ -26,7 +26,7 @@ service UserFileService {
     rpc uploadCallback(StringEntity) returns (UserFile) {}
     rpc tryCreateFile(UserFile) returns (UserFile) {}
     rpc rename (UserFile) returns (BoolEntity) {}
-    rpc moveFromTrash (MoveBackRequest) returns (Int32Entity) {}
+    rpc moveFromTrash (MoveBackRequest) returns (Int64Entity) {}
     rpc truncateTrash (UserFile)returns (Int64Entity) {}
     rpc deleteInTrash (DeleteInTrashRequest)returns (Int64Entity) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
