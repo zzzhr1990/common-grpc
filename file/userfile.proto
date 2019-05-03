@@ -27,8 +27,14 @@ service UserFileService {
     rpc tryCreateFile(UserFile) returns (UserFile) {}
     rpc rename (UserFile) returns (BoolEntity) {}
     rpc moveFromTrash (MoveBackRequest) returns (Int32Entity) {}
-    rpc truncateTrash (UserFile)returns (Int32Entity) {}
+    rpc truncateTrash (UserFile)returns (Int64Entity) {}
+    rpc deleteInTrash (DeleteInTrashRequest)returns (Int64Entity) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
+}
+
+message DeleteInTrashRequest {
+    repeated string source = 1;
+    int64 userIdentity = 2;
 }
 
 message MoveBackRequest {
