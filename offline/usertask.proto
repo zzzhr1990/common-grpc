@@ -4,7 +4,7 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/usertask";
-// import "offline/systemtask.proto";
+import "common/common_entity.proto";
 
 
 service OfflineUserTaskService {
@@ -12,6 +12,7 @@ service OfflineUserTaskService {
     rpc add (AddUserOfflineTaskRequest) returns (UserOfflineTaskResponse) {}
     rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
     rpc list (ListUserOfflineTaskRequest) returns (UserOfflineTaskList) {}
+    rpc delete (DeleteTasksRequest) returns (Int32Entity) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     // rpc get (UserOfflineTask) returns (UserOfflineTask) {}
