@@ -12,7 +12,7 @@ service OfflineUserTaskService {
     rpc add (AddUserOfflineTaskRequest) returns (UserOfflineTaskResponse) {}
     rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
     rpc list (ListUserOfflineTaskRequest) returns (UserOfflineTaskList) {}
-    rpc delete (DeleteTasksRequest) returns (Int32Entity) {}
+    rpc delete (DeleteTasksRequest) returns (Int64Entity) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     // rpc get (UserOfflineTask) returns (UserOfflineTask) {}
