@@ -96,7 +96,7 @@ message UserOfflineTaskPage {
     int32 pageSize = 5;
 }
 
-message DeleteFilesRequest {
+message DeleteTasksRequest {
     int64 userIdentity = 1;
     repeated string tasksIdentity = 2;
 }
