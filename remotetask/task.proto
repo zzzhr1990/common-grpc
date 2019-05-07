@@ -12,6 +12,7 @@ service RemoteTaskService {
     rpc fetch(FetchRequest) returns (FetchResponse) {} // 
     rpc delete(RemoteTask) returns (Int64Entity) {} // del
     rpc list(ListRequest) returns (FetchResponse) {} // del
+    rpc get(RemoteTask) returns (RemoteTask) {} // del
     /*
     rpc tryCreate (CloudStore) returns (CloudStore) {}
     rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
