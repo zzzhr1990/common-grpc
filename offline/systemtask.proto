@@ -4,12 +4,12 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/systemtask";
-//import "common/common_entity.proto";
+import "common/common_entity.proto";
 
 
 service SystemOfflineTaskService {
     rpc create (SystemOfflineTask) returns (SystemOfflineTask) {}
-    rpc update (SystemOfflineTaskMeta) returns (SystemOfflineTaskMeta) {}
+    rpc update (SystemOfflineTaskMeta) returns (Int64Entity) {}
     rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
     rpc get (SystemOfflineTask) returns (SystemOfflineTask) {}
     rpc updateFile (SystemOfflineTaskFile) returns (SystemOfflineTask) {}
