@@ -57,7 +57,7 @@ message SystemOfflineTaskFile {
     int64 downloadSize = 9;
     int32  status = 10;
     int32  flag = 11;
-    int32  order = 12;
+    int32  fileIndex = 12;
     bool  finish = 13;
 }
 
