@@ -10,6 +10,7 @@ import "common/common_entity.proto";
 service SystemOfflineTaskService {
     rpc create (SystemOfflineTask) returns (SystemOfflineTask) {}
     rpc update (SystemOfflineTaskMeta) returns (Int64Entity) {}
+    rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
     rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
     rpc get (SystemOfflineTask) returns (SystemOfflineTask) {}
     rpc updateFile (SystemOfflineTaskFile) returns (SystemOfflineTask) {}
@@ -40,6 +41,15 @@ message SystemOfflineTask {
     string createIP = 10;
     string data = 11;
     bool preview = 12;
+    //
+    // int32 previewType = 12;
+
+}
+
+message UpdateProgressRequest {
+    string  identity = 1;
+    int64 size = 2;
+    int64 downloadSize = 3;
     //
     // int32 previewType = 12;
 
