@@ -46,7 +46,7 @@ message UserOfflineTask {
     int32  status = 6;
     int64 size = 7;
     int64 downloadSize = 8;
-    int32 progress = 9;
+    int64 progress = 9;
     string cip = 10;
     string data = 11;
 }
