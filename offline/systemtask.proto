@@ -14,6 +14,7 @@ service SystemOfflineTaskService {
     rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
     rpc get (SystemOfflineTask) returns (SystemOfflineTask) {}
     rpc updateFile (SystemOfflineTaskFile) returns (SystemOfflineTask) {}
+    rpc uploadFile (SystemOfflineTaskFile) returns (BoolEntity) {}
     rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
     rpc finish(SystemOfflineTask) returns (SystemOfflineTask) {}
 }
