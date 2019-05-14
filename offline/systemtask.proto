@@ -15,7 +15,7 @@ service SystemOfflineTaskService {
     rpc get (SystemOfflineTask) returns (SystemOfflineTask) {}
     rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
     rpc uploadFile (SystemOfflineTaskFile) returns (BoolEntity) {}
-    rpc complete (UpdateProgressRequest) returns (BoolEntity) {}
+    rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
     rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
     rpc finish(SystemOfflineTask) returns (SystemOfflineTask) {}
 }
@@ -57,6 +57,13 @@ message UpdateProgressRequest {
     //
     // int32 previewType = 12;
 
+}
+
+message StatusChangeRequest {
+    string  identity = 1;
+    int64 size = 2;
+    int64 downloadSize = 3;
+    int32 status = 4;
 }
 
 message SystemOfflineTaskFile {
