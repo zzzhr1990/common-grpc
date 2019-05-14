@@ -22,7 +22,7 @@ service CloudStoreService {
 
 message CloudStore {
     string  hash = 1;
-    uint64 size = 2;
+    int64 size = 2;
     string mime = 3;
     int64 uploadUser = 4;
     int64 ctime = 5;

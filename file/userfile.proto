@@ -8,8 +8,6 @@ import "common/common_entity.proto";
 
 
 service UserFileService {
-    // rpc createUser (GrpcUser) returns (BoolEntity) {}
-    // rpc getUser (Uint64Entity) returns (GrpcUser) {}
     rpc create (UserFile) returns (UserFile) {}
     rpc get (UserFile) returns (UserFile) {}
     rpc uploadToken (UserFile) returns (UploadTokenResponse) {}
@@ -50,7 +48,7 @@ message UserFile {
     string path = 4;
     string name = 5;
     string ext = 6;
-    uint64 size = 7;
+    int64 size = 7;
     string  parent = 8;
     int32 type = 9;
     bool directory = 10;
@@ -60,7 +58,6 @@ message UserFile {
     uint32  version = 14;
     bool locking = 15;
     uint32 op = 16;
-    // bool ignoreCase = 17;
     repeated UserFile children = 17;
 }
 
@@ -71,7 +68,7 @@ message UserFileEx {
     string path = 4;
     string name = 5;
     string ext = 6;
-    uint64 size = 7;
+    int64 size = 7;
     string  parent = 8;
     int32 type = 9;
     bool directory = 10;
@@ -120,7 +117,7 @@ message TrashInfo {
     string identity = 1;
     string name = 2;
     string source = 3;
-    uint64 size = 4;
+    int64 size = 4;
     int64 deleteTime = 5;
 }
 
