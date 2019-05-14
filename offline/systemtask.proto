@@ -13,8 +13,9 @@ service SystemOfflineTaskService {
     rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
     rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
     rpc get (SystemOfflineTask) returns (SystemOfflineTask) {}
-    rpc updateFile (SystemOfflineTaskFile) returns (SystemOfflineTask) {}
+    rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
     rpc uploadFile (SystemOfflineTaskFile) returns (BoolEntity) {}
+    rpc complete (UpdateProgressRequest) returns (BoolEntity) {}
     rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
     rpc finish(SystemOfflineTask) returns (SystemOfflineTask) {}
 }
@@ -26,6 +27,8 @@ message BatchGetRequest {
 message BatchGetResponse {
     repeated SystemOfflineTaskMeta data = 1;
 }
+
+
 
 message SystemOfflineTask {
     string  identity = 1;
