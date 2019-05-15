@@ -10,7 +10,8 @@ import "common/common_entity.proto";
 service RemoteTaskService {
     rpc create (RemoteTask) returns (RemoteTask) {}
     rpc fetch(FetchRequest) returns (FetchResponse) {} // 
-    rpc delete(RemoteTask) returns (Int64Entity) {} // del
+    rpc delete(SimpleRemoteTaskRequest) returns (BoolEntity) {} // del
+    rpc complete(SimpleRemoteTaskRequest) returns (BoolEntity) {} // del
     rpc list(ListRequest) returns (FetchResponse) {} // del
     rpc get(RemoteTask) returns (RemoteTask) {} // del
     /*
@@ -23,6 +24,9 @@ service RemoteTaskService {
     */
 }
 
+message SimpleRemoteTaskRequest {
+    int64 identity = 1; //id
+}
 
 message RemoteTask {
     int64 identity = 1; //id
