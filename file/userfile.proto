@@ -119,6 +119,8 @@ message TrashInfo {
     string source = 3;
     int64 size = 4;
     int64 deleteTime = 5;
+    int32 type = 6;
+    bool directory = 7;
 }
 
 message TrashList {
