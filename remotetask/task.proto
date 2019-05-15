@@ -12,6 +12,7 @@ service RemoteTaskService {
     rpc fetch(FetchRequest) returns (FetchResponse) {} // 
     rpc delete(SimpleRemoteTaskRequest) returns (BoolEntity) {} // del
     rpc complete(SimpleRemoteTaskRequest) returns (BoolEntity) {} // del
+    rpc error(SimpleRemoteTaskRequest) returns (BoolEntity) {}
     rpc list(ListRequest) returns (FetchResponse) {} // del
     rpc get(RemoteTask) returns (RemoteTask) {} // del
     /*
@@ -26,6 +27,12 @@ service RemoteTaskService {
 
 message SimpleRemoteTaskRequest {
     int64 identity = 1; //id
+}
+
+message RemoteTaskErrorRequest {
+    int64 identity = 1; //id
+    int32 errorCode = 2; // type
+    string errorMessage = 3; // type
 }
 
 message RemoteTask {
