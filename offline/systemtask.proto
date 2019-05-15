@@ -17,7 +17,7 @@ service SystemOfflineTaskService {
     rpc uploadFile (SystemOfflineTaskFile) returns (BoolEntity) {}
     rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
     rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
-    rpc complete(SystemOfflineTask) returns (SystemOfflineTask) {}
+    rpc complete(SystemOfflineTask) returns (BoolEntity) {}
 }
 
 message BatchGetRequest {
