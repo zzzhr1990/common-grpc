@@ -18,6 +18,8 @@ service SystemOfflineTaskService {
     rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
     rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
     rpc complete(SystemOfflineTask) returns (BoolEntity) {}
+    // ErrorRequest
+    rpc error(ErrorRequest) returns (BoolEntity) {}
 }
 
 message BatchGetRequest {
@@ -64,10 +66,18 @@ message UpdateProgressRequest {
 
 message StatusChangeRequest {
     string  identity = 1;
-    int64 size = 2;
-    int64 downloadSize = 3;
-    int32 status = 4;
-    bool removeListener = 5;
+    // int64 size = 2;
+    // int64 downloadSize = 3;
+    int32 status = 2;
+    bool removeListener = 3;
+}
+
+message ErrorRequest {
+    string  identity = 1;
+    // int64 size = 2;
+    // int64 downloadSize = 3;
+    int32 errorCode = 2;
+    string errorMessage = 3;
 }
 
 message SystemOfflineTaskFile {
