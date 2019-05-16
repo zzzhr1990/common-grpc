@@ -42,9 +42,12 @@ message SystemOfflineTask {
     int32  flag = 8;
     int64 downloadSize = 9;
     //
-    string createIP = 10;
-    string data = 11;
-    bool preview = 12;
+    int32 errorCode = 10;
+    string errorMessage = 11;
+    
+    string createIP = 12;
+    string data = 13;
+    bool preview = 14;
     //
     // int32 previewType = 12;
 

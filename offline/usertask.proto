@@ -35,6 +35,7 @@ message AddUserOfflineTaskRequest {
     int64 userIdentity = 1;
     repeated UserOfflineTaskRequest tasks = 2;
     string path = 3;
+    string createIP = 4;
 }
 
 message UserOfflineTask {
@@ -47,8 +48,14 @@ message UserOfflineTask {
     int64 size = 7;
     int64 downloadSize = 8;
     int64 progress = 9;
-    string cip = 10;
-    string data = 11;
+    int32 errorCode = 10;
+	string errorMessage = 11;
+	string savePath = 12;
+	string accessPath = 13;
+	string fileMime = 14;
+	int32 fileType = 15;
+	string createIP = 16;
+    string data = 17;
 }
 
 message UserOfflineTaskFile {
