@@ -67,6 +67,7 @@ message StatusChangeRequest {
     int64 size = 2;
     int64 downloadSize = 3;
     int32 status = 4;
+    bool removeListener = 5;
 }
 
 message SystemOfflineTaskFile {
