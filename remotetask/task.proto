@@ -12,7 +12,8 @@ service RemoteTaskService {
     rpc fetch(FetchRequest) returns (FetchResponse) {} // 
     rpc delete(SimpleRemoteTaskRequest) returns (BoolEntity) {} // del
     rpc complete(SimpleRemoteTaskRequest) returns (BoolEntity) {} // del
-    rpc error(SimpleRemoteTaskRequest) returns (BoolEntity) {}
+    rpc update(RemoteTask) returns (BoolEntity) {} // del
+    rpc error(RemoteTaskErrorRequest) returns (BoolEntity) {}
     rpc list(ListRequest) returns (FetchResponse) {} // del
     rpc get(RemoteTask) returns (RemoteTask) {} // del
     /*
