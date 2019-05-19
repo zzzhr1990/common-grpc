@@ -49,16 +49,17 @@ message UserFile {
     string name = 5;
     string ext = 6;
     int64 size = 7;
-    string  parent = 8;
-    int32 type = 9;
-    bool directory = 10;
-    int64 atime = 11;
-    int64 ctime = 12;
-    int64 mtime = 13;
-    int32  version = 14;
-    bool locking = 15;
-    int32 op = 16;
-    repeated UserFile children = 17;
+    string  mime = 8;
+    string  parent = 9;
+    int32 type = 10;
+    bool directory = 11;
+    int64 atime = 12;
+    int64 ctime = 13;
+    int64 mtime = 14;
+    int32  version = 15;
+    bool locking = 16;
+    int32 op = 17;
+    repeated UserFile children = 18;
 }
 
 message UserFileEx {
