@@ -59,7 +59,10 @@ message UserFile {
     int32  version = 15;
     bool locking = 16;
     int32 op = 17;
-    repeated UserFile children = 18;
+    bool preview = 18;
+    int32 previewType = 19;
+    int32   flag = 20;
+    repeated UserFile children = 21;
 }
 
 message UserFileEx {
@@ -70,18 +73,23 @@ message UserFileEx {
     string name = 5;
     string ext = 6;
     int64 size = 7;
-    string  parent = 8;
-    int32 type = 9;
-    bool directory = 10;
-    int64 atime = 11;
-    int64 ctime = 12;
-    int64 mtime = 13;
-    uint32  version = 14;
-    bool locking = 15;
-    uint32 op = 16;
-    // bool ignoreCase = 17;
-    repeated UserFile children = 17;
-    string downloadAddress = 18;
+    string  mime = 8;
+    string  parent = 9;
+    int32 type = 10;
+    bool directory = 11;
+    int64 atime = 12;
+    int64 ctime = 13;
+    int64 mtime = 14;
+    int32  version = 15;
+    bool locking = 16;
+    int32 op = 17;
+    bool preview = 18;
+    int32 previewType = 19;
+    int32   flag = 20;
+    repeated UserFile children = 21;
+
+
+    string downloadAddress = 22;
 }
 
 message UserFileOperation {
