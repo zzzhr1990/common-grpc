@@ -55,9 +55,9 @@ message UserFile {
     int64 atime = 11;
     int64 ctime = 12;
     int64 mtime = 13;
-    uint32  version = 14;
+    int32  version = 14;
     bool locking = 15;
-    uint32 op = 16;
+    int32 op = 16;
     repeated UserFile children = 17;
 }
 
