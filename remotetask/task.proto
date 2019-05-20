@@ -48,8 +48,6 @@ message RemoteTask {
     int64 deadline = 8;
     string data = 9;
     int32 status = 10;
-    string comment = 11;
-    string reason = 12;
 }
 
 message FetchRequest {
