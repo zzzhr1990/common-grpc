@@ -16,6 +16,7 @@ service RemoteTaskService {
     rpc error(RemoteTaskErrorRequest) returns (BoolEntity) {}
     rpc list(ListRequest) returns (FetchResponse) {} // del
     rpc get(RemoteTask) returns (RemoteTask) {} // del
+    rpc reset(RemoteTask) returns (BoolEntity) {}
     /*
     rpc tryCreate (CloudStore) returns (CloudStore) {}
     rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
