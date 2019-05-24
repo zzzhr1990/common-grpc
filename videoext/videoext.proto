@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package services;
+
+//import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/ext/video";
+// import "common/common_entity.proto";
+
+
+service VideoExtService {
+    rpc create (VideoExt) returns (VideoExt) {}
+    rpc get (VideoExt) returns (VideoExt) {}
+    rpc getOrEmpty (VideoExt) returns (VideoExt) {}
+    rpc update (VideoExt) returns (VideoExt) {}
+}
+
+
+message VideoExt {
+    string hash = 1;
+    string size = 2;
+    string title = 3;
+    string encoder = 4;
+    int64 duration = 5;
+    int64 width = 6;
+    int64 height = 7;
+    string  previewBucket = 8;
+    string previewKey = 9;
+    string previewType = 10;
+    int64 previewPID = 11;
+    int64 previewPlayKey = 12;
+    int32 status = 13;
+    // bool   ignoreCase = 13;
+    int32 flag = 14;
+    int64  createTime = 15;
+    int64 updateTime = 16;
+}
+
+message Balance {
+    int64  identity = 1;
+    int64  spaceUsed = 2;
+    int64  spaceLimit = 3;
+    int64  trafficUsed = 4;
+    int64  trafficLimit = 5;
+    int64  offlineTaskUsed  = 6;
+	int64  offlineTaskLimit = 7;
+}
+
+message PasswordPair {
+    int64  identity = 1;
+    string  oldPassword = 2;
+    string  newPassword = 3;
+    bool direct = 4;
+}
