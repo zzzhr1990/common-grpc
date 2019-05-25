@@ -17,7 +17,7 @@ service VideoExtService {
 
 message VideoExt {
     string hash = 1;
-    string size = 2;
+    int64 size = 2;
     string title = 3;
     string encoder = 4;
     int64 duration = 5;
@@ -29,7 +29,6 @@ message VideoExt {
     int64 previewPID = 11;
     int64 previewPlayKey = 12;
     int32 status = 13;
-    // bool   ignoreCase = 13;
     int32 flag = 14;
     int64  createTime = 15;
     int64 updateTime = 16;
