@@ -4,11 +4,11 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/ext/video";
-// import "common/common_entity.proto";
+import "common/common_entity.proto";
 
 
 service VideoExtService {
-    rpc create (VideoExt) returns (VideoExt) {}
+    rpc create (VideoExt) returns (BoolEntity) {}
     rpc get (VideoExt) returns (VideoExt) {}
     rpc getOrEmpty (VideoExt) returns (VideoExt) {}
     rpc update (VideoExt) returns (VideoExt) {}
