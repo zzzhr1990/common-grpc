@@ -46,7 +46,7 @@ do
     echo ${file}
     protoc --go_out=plugins=grpc:./go_temp ${file}
 done
-for file in ./videoext/*.proto
+for file in ./ext/*.proto
 do
     echo ${file}
     protoc --go_out=plugins=grpc:./go_temp ${file}
@@ -72,4 +72,4 @@ cp -r ./file ${nodejs_path}
 cp -r ./common ${nodejs_path}
 cp -r ./remotetask ${nodejs_path}
 cp -r ./offline ${nodejs_path}
-cp -r ./videoext ${nodejs_path}
+cp -r ./ext ${nodejs_path}
