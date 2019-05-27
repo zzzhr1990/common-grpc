@@ -12,6 +12,7 @@ service VideoExtService {
     rpc get (VideoExt) returns (VideoExt) {}
     rpc getOrEmpty (VideoExt) returns (VideoExt) {}
     rpc update (VideoExt) returns (VideoExt) {}
+    rpc getPreview (VideoExt) returns (PreviewInfo) {}
 }
 
 
