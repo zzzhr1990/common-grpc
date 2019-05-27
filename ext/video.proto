@@ -47,7 +47,7 @@ message PreviewInfo {
     int64 height = 4;
     string sourceIdentity = 5;
     string sourcePath = 6;
-    string sourceSize = 7;
+    int64 sourceSize = 7;
     string  previewImageAddress = 8;
     string previewHlsAddress = 9;
     int32 status = 10;
