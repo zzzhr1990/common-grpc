@@ -28,13 +28,12 @@ message CloudStore {
     int64 ctime = 5;
     string originalaFilename = 6;
     int32 store = 7;
-    string  bucket = 8;
-    string key = 9;
-    int32 type = 10;
-    bool preview = 11;
-    int32 previewType = 12;
-    int32   flag = 13;
-    string downloadAddress = 14;
+    string key = 8;
+    int32 type = 9;
+    bool preview = 10;
+    int32 previewType = 11;
+    int32   flag = 12;
+    string downloadAddress = 13;
 }
 
 message CloudStoreList {
