@@ -63,6 +63,8 @@ message UserFile {
     int32 previewType = 19;
     int32   flag = 20;
     repeated UserFile children = 21;
+    string shareIdentity = 22;
+    bool share = 23;
 }
 
 message UserFileEx {
@@ -87,9 +89,9 @@ message UserFileEx {
     int32 previewType = 19;
     int32   flag = 20;
     repeated UserFile children = 21;
-
-
     string downloadAddress = 22;
+    string shareIdentity = 23;
+    bool share = 24;
 }
 
 message UserFileOperation {
