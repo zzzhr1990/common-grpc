@@ -17,6 +17,12 @@ service RemoteTaskService {
     rpc list(ListRequest) returns (FetchResponse) {} // del
     rpc get(RemoteTask) returns (RemoteTask) {} // del
     rpc reset(RemoteTask) returns (BoolEntity) {}
+
+    // CallLater
+    rpc createCallLater (CallLater) returns (CallLater) {}
+    rpc fetchCallLater(CallLater) returns (FetchCallLaterResponse) {} 
+    rpc completeCallLater(CallLater) returns (BoolEntity) {}
+    rpc errorCallLater(CallLaterErrorRequest) returns (BoolEntity) {}
     /*
     rpc tryCreate (CloudStore) returns (CloudStore) {}
     rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
@@ -37,8 +43,27 @@ message RemoteTaskErrorRequest {
     string errorMessage = 3; // type
 }
 
+message CallLaterErrorRequest {
+    string identity = 1; //id
+    int32 errorCode = 2; // type
+    string errorMessage = 3; // type
+}
+
 message RemoteTask {
     int64 identity = 1; //id
+    int32 type = 2; // type
+    string source = 3;
+    string consumer = 4;
+    string producer = 5;
+    int64 createTime = 6;
+    int64 consumerTime = 7;
+    int64 deadline = 8;
+    string data = 9;
+    int32 status = 10;
+}
+
+message CallLater {
+    string identity = 1; //id
     int32 type = 2; // type
     string source = 3;
     string consumer = 4;
@@ -71,4 +96,8 @@ message ListRequest {
 
 message FetchResponse {
     repeated RemoteTask data = 1;
+}
+
+message FetchCallLaterResponse {
+    repeated CallLater data = 1;
 }
