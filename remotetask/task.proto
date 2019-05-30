@@ -20,7 +20,7 @@ service RemoteTaskService {
 
     // CallLater
     rpc createCallLater (CallLater) returns (CallLater) {}
-    rpc fetchCallLater(CallLater) returns (FetchCallLaterResponse) {} 
+    rpc fetchCallLater(FetchRequest) returns (FetchCallLaterResponse) {} 
     rpc completeCallLater(CallLater) returns (BoolEntity) {}
     rpc errorCallLater(CallLaterErrorRequest) returns (BoolEntity) {}
     /*
