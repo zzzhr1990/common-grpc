@@ -197,7 +197,7 @@ message UploadTokenResponse {
 }
 
 message FileHistoryResponse {
-    string Identity = 1;
+    string identity = 1;
     repeated FileHistory history = 2;
 }
 
