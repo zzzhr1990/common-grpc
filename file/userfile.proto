@@ -27,6 +27,8 @@ service UserFileService {
     rpc moveFromTrash (MoveBackRequest) returns (Int64Entity) {}
     rpc truncateTrash (UserFile)returns (Int64Entity) {}
     rpc deleteInTrash (DeleteInTrashRequest)returns (Int64Entity) {}
+    rpc history (UserFile)returns (FileHistoryResponse) {}
+    rpc historyDetail (FileHistory)returns (FileHistoryEx) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
@@ -63,7 +65,7 @@ message UserFile {
     int32 previewType = 19;
     int32   flag = 20;
     repeated UserFile children = 21;
-    string shareIdentity = 22;
+    string uniqueIdentity = 22;
     bool share = 23;
 }
 
@@ -90,7 +92,7 @@ message UserFileEx {
     int32   flag = 20;
     repeated UserFile children = 21;
     string downloadAddress = 22;
-    string shareIdentity = 23;
+    string uniqueIdentity = 23;
     bool share = 24;
 }
 
@@ -192,4 +194,22 @@ message UploadTokenResponse {
     string type = 2;
     string uploadUrl = 3;
     string filePath = 4;
+}
+
+message FileHistoryResponse {
+    string Identity = 1;
+    repeated FileHistory history = 2;
+}
+
+message FileHistory {
+    string hash = 1;
+    int64 size = 2;
+    int64 ctime = 3;
+}
+
+message FileHistoryEx {
+    string hash = 1;
+    int64 size = 2;
+    int64 ctime = 3;
+    string downloadAddress = 4;
 }
