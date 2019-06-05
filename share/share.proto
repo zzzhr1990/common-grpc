@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package services;
+
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/share/fileshare";
+// import "common/common_entity.proto";
+
+service FileShareService {
+    rpc create (FileShare) returns (FileShare) {}
+}
+
+// FC
+message FileShare {
+    string  identity = 1; // used for identity file
+    int64 size = 2;  // size
+    string mime = 3; // mime
+    int64 user = 4;  // 
+    int64 ctime = 5;
+    string name = 6;
+    int32  flag = 7;
+    bool passwordEnabled = 8;
+    string password = 9;
+    int64 expireEnabled = 10; 
+    int64 expire = 11; //expire
+    int64 copyCount = 12; //copyCount
+    int64 copyCountLeft = 13;
+    bool copyCountEnabled = 14;
+    bool expired = 15;
+    bool expicopyExceed = 16;
+}
