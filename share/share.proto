@@ -20,7 +20,7 @@ message FileShare {
     int32  flag = 7;
     bool passwordEnabled = 8;
     string password = 9;
-    int64 expireEnabled = 10; 
+    bool expireEnabled = 10; 
     int64 expire = 11; //expire
     int64 copyCount = 12; //copyCount
     int64 copyCountLeft = 13;
