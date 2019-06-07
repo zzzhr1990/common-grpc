@@ -26,6 +26,5 @@ message FileShare {
     int64 copyCount = 12; //copyCount
     int64 copyCountLeft = 13;
     bool copyCountEnabled = 14;
-    bool expired = 15;
-    bool expicopyExceed = 16;
+    int32 status = 15;
 }
