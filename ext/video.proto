@@ -51,4 +51,5 @@ message PreviewInfo {
     repeated string  previewImageAddress = 8;
     string previewHlsAddress = 9;
     int32 status = 10;
+    string previewType = 11;
 }
