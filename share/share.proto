@@ -15,7 +15,7 @@ message FileShare {
     string  identity = 1; // used for identity file
     int64 size = 2;  // size
     string mime = 3; // mime
-    int64 user = 4;  // 
+    int64 userIdentity = 4;  // 
     int64 ctime = 5;
     string name = 6;
     int32  flag = 7;
