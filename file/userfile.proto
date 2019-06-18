@@ -29,6 +29,7 @@ service UserFileService {
     rpc deleteInTrash (DeleteInTrashRequest)returns (Int64Entity) {}
     rpc history (UserFile)returns (FileHistoryResponse) {}
     rpc historyDetail (FileHistory)returns (FileHistoryEx) {}
+    rpc setShare (UserFile) returns (BoolEntity) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
 }
 
