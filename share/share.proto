@@ -3,10 +3,11 @@ syntax = "proto3";
 package services;
 
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/share/fileshare";
-// import "common/common_entity.proto";
+import "common/common_entity.proto";
 
 service FileShareService {
     rpc create (FileShare) returns (FileShare) {}
+    rpc cancel (FileShare) returns (BoolEntity) {}
     rpc getOrEmpty (FileShare) returns (FileShare) {}
 }
 
