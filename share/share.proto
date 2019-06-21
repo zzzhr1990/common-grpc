@@ -9,6 +9,7 @@ service FileShareService {
     rpc create (FileShare) returns (FileShare) {}
     rpc cancel (FileShare) returns (BoolEntity) {}
     rpc getOrEmpty (FileShare) returns (FileShare) {}
+    rpc save (ShareSaveRequest) returns (FileShare) {}
 }
 
 // FC
@@ -29,4 +30,11 @@ message FileShare {
     bool copyCountEnabled = 14;
     int32 status = 15;
     string userName = 16;
+}
+
+message ShareSaveRequest {
+    string  identity = 1; // used for identity file
+    int64 userIdentity = 2;  // 
+    string savePath = 3;
+    string saveIdentity = 4;
 }
