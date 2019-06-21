@@ -172,6 +172,8 @@ message PageUserFileRequest {
     int32 page = 5;
     int32 pageSize = 6;
     int32 filter = 7;
+    int32 type = 8;
+    bool share = 9;
 }
 
 message ListUserFileRequest {
@@ -183,6 +185,8 @@ message ListUserFileRequest {
     int32 start = 5;
     int32 listSize = 6;
     int32 filter = 7;
+    int32 type = 8;
+    bool share = 9;
 }
 
 message ListTrashRequest {
