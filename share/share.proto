@@ -37,4 +37,5 @@ message ShareSaveRequest {
     int64 userIdentity = 2;  // 
     string savePath = 3;
     string saveIdentity = 4;
+    string password = 5;
 }
