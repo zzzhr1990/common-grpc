@@ -31,8 +31,8 @@ service UserFileService {
     rpc historyDetail (FileHistory)returns (FileHistoryEx) {}
     rpc setShare (UserFile) returns (BoolEntity) {}
     // rpc login (GrpcUser) returns (GrpcUser) {}
-    rpc page (PageUserFileRequest) returns (UserFilePage) {}
-    rpc list (ListUserFileRequest) returns (UserFileList) {}
+    rpc pageAll (PageUserFileRequest) returns (UserFilePage) {}
+    rpc listAll (ListUserFileRequest) returns (UserFileList) {}
 }
 
 message DeleteInTrashRequest {
