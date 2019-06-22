@@ -26,7 +26,7 @@ message FileShare {
     bool expireEnabled = 10; 
     int64 expire = 11; //expire
     int64 copyCount = 12; //copyCount
-    int64 copyCountLeft = 13;
+    int64 copyCountLimit = 13;
     bool copyCountEnabled = 14;
     int32 status = 15;
     string userName = 16;
