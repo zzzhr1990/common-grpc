@@ -15,8 +15,9 @@ message Report {
     int64 userIdentity = 2;  // 
     int64 ctime = 3;
     int32 type = 4;
-    string  data = 5;
-    string comment = 6;
-    string feedback = 7;
-    int64 feedbackAdminIdentity = 8; 
+    int32 contentType = 5;
+    string  content = 6;
+    string comment = 7;
+    string feedback = 8;
+    int64 feedbackAdminIdentity = 9; 
 }
