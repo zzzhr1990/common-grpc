@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package services;
+
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/report/report";
+// import "common/common_entity.proto";
+
+service ReportService {
+    rpc create (Report) returns (Report) {}
+    rpc get (Report) returns (Report) {}
+}
+
+message Report {
+    int64  identity = 1; // used for identity file
+    int64 userIdentity = 2;  // 
+    int64 ctime = 3;
+    int32 type = 4;
+    string  data = 5;
+    string comment = 6;
+    string feedback = 7;
+    int64 feedbackAdminIdentity = 8; 
+}

@@ -58,6 +58,12 @@ do
     protoc --go_out=plugins=grpc:./go_temp ${file}
 done
 
+for file in ./report/*.proto
+do
+    echo ${file}
+    protoc --go_out=plugins=grpc:./go_temp ${file}
+done
+
 echo "Clean Go Files"
 rm -rf ./go
 cp -r ./go_temp/github.com/zzzhr1990/common-grpc/go ./
@@ -80,3 +86,4 @@ cp -r ./remotetask ${nodejs_path}
 cp -r ./offline ${nodejs_path}
 cp -r ./share ${nodejs_path}
 cp -r ./ext ${nodejs_path}
+cp -r ./report ${nodejs_path}
