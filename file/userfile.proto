@@ -33,6 +33,7 @@ service UserFileService {
     // rpc login (GrpcUser) returns (GrpcUser) {}
     rpc pageAll (PageUserFileRequest) returns (UserFilePage) {}
     rpc listAll (ListUserFileRequest) returns (UserFileList) {}
+    rpc reCount (Int64Entity) returns (BoolEntity) {}
 }
 
 message DeleteInTrashRequest {
