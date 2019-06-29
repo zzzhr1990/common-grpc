@@ -30,6 +30,7 @@ message FileShare {
     bool copyCountEnabled = 14;
     int32 status = 15;
     string userName = 16;
+    string webURL = 17;
 }
 
 message ShareSaveRequest {
