@@ -175,6 +175,7 @@ message PageUserFileRequest {
     int32 filter = 7;
     int32 type = 8;
     bool share = 9;
+    string name = 10;
 }
 
 message ListUserFileRequest {
@@ -188,6 +189,7 @@ message ListUserFileRequest {
     int32 filter = 7;
     int32 type = 8;
     bool share = 9;
+    string name = 10;
 }
 
 message ListTrashRequest {
