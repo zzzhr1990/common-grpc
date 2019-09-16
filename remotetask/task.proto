@@ -83,6 +83,7 @@ message FetchRequest {
     int32 nextStatus = 5;
     int64 deadline = 6;
     bool recover = 7;
+    bool desc = 8;
 }
 
 message ListRequest {
