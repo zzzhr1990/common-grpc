@@ -1,7 +1,8 @@
 #!/bin/bash
-GOPATH="/Users/zzzhr/go"
+go get -u github.com/golang/protobuf/protoc-gen-go
+GOPATH="/Users/herui/go"
 export PATH=$PATH:$GOPATH/bin
-nodejs_path="/Users/zzzhr/vscode/typescript/ts-api-gateway/src/proto"
+nodejs_path="/Users/herui/vscode/typescript/ts-api-gateway/src/proto"
 #
 # protoc -I ../def --go_out=plugins=grpc:../go ../def/helloworld.proto
 # -I ../common
@@ -71,6 +72,8 @@ rm -rf ./go_temp
 cd ./go
 cp ../main.go ./
 go mod init github.com/zzzhr1990/common-grpc/go
+go get google.golang.org/grpc
+go get github.com/golang/protobuf
 # go get github.com/golang/protobuf@master
 # go mod tidy
 cd ..
