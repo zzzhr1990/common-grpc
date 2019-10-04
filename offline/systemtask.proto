@@ -94,6 +94,7 @@ message SystemOfflineTaskFile {
     int32  flag = 11;
     int32  fileIndex = 12;
     bool  finish = 13;
+    bool  directory = 14;
 }
 
 
