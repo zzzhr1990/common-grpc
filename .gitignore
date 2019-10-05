@@ -31,3 +31,7 @@
 *.out
 *.app
 .DS_Store
+
+ts/node_modules
+ts-api-define/node_modules
+temp

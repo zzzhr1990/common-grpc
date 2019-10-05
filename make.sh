@@ -6,64 +6,43 @@ nodejs_path="/Users/herui/vscode/typescript/ts-api-gateway/src/proto"
 #
 # protoc -I ../def --go_out=plugins=grpc:../go ../def/helloworld.proto
 # -I ../common
+DIRS=("common" "user" "util" "store" "file" "report" "ext" "share" "offline" "remotetask" "system")
+
+
 rm -rf ./go_temp
 mkdir ./go_temp
-for file in ./common/*.proto
+for(( i=0;i<${#DIRS[@]};i++)) 
 do
-    echo ${file}
+    name=${DIRS[i]}
+    rm -rf ./ts-api-define/${name}
+done
+cd ./ts-api-define
+# npm init --silent -y --save
+npm install ts-protoc-gen --save
+npm install grpc --save
+OUT_DIR=`pwd`
+cd ..
+PROTOC_GEN_TS_PATH=${OUT_DIR}/node_modules/ts-protoc-gen/bin/protoc-gen-ts
+echo ${PROTOC_GEN_TS_PATH}
+
+function makeFile(){
+    file=$1
+    echo "Generate: ${file}"
     protoc --go_out=plugins=grpc:./go_temp ${file}
+    protoc --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" --js_out="import_style=commonjs,binary:${OUT_DIR}" --ts_out="service=grpc-node:${OUT_DIR}" ${file}
+}
+
+
+# for name in ${DIRS}
+for(( i=0;i<${#DIRS[@]};i++)) 
+do
+    name=${DIRS[i]}
+    for file in ./${name}/*.proto   
+    do
+        makeFile $file
+    done
 done
 
-echo "Generate User files from ./user"
-for file in ./user/*.proto
-do
-    echo ${file}
-    protoc --go_out=plugins=grpc:./go_temp ${file}
-done
-
-echo "Generate User files from ./user"
-for file in ./util/*.proto
-do
-    echo ${file}
-    protoc --go_out=plugins=grpc:./go_temp ${file}
-done
-for file in ./store/*.proto
-do
-    echo ${file}
-    protoc --go_out=plugins=grpc:./go_temp ${file}
-done
-for file in ./file/*.proto
-do
-    echo ${file}
-    protoc --go_out=plugins=grpc:./go_temp ${file}
-done
-for file in ./remotetask/*.proto
-do
-    echo ${file}
-    protoc --go_out=plugins=grpc:./go_temp ${file}
-done
-for file in ./offline/*.proto
-do
-    echo ${file}
-    protoc --go_out=plugins=grpc:./go_temp ${file}
-done
-for file in ./ext/*.proto
-do
-    echo ${file}
-    protoc --go_out=plugins=grpc:./go_temp ${file}
-done
-
-for file in ./share/*.proto
-do
-    echo ${file}
-    protoc --go_out=plugins=grpc:./go_temp ${file}
-done
-
-for file in ./report/*.proto
-do
-    echo ${file}
-    protoc --go_out=plugins=grpc:./go_temp ${file}
-done
 
 echo "Clean Go Files"
 rm -rf ./go
@@ -90,3 +69,16 @@ cp -r ./offline ${nodejs_path}
 cp -r ./share ${nodejs_path}
 cp -r ./ext ${nodejs_path}
 cp -r ./report ${nodejs_path}
+
+rm -rf ./temp
+mkdir ./temp
+cd ./temp
+git clone https://github.com/zzzhr1990/ts-api-define.git
+cd ./ts-api-define
+cp -R ../../ts-api-define/* ./
+rm -rf ./node_modules
+git add .
+git commit -m "Auto commit"
+git push
+cd ../..
+echo "Done at:"`pwd`

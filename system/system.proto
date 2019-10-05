@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package services;
+
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/system/sysinfo";
+
+service SystemInfoService {
+    rpc create (ClientInfo) returns (SystemInfo) {}
+}
+
+message SystemInfo {
+    int64  requestTime = 1;
+    string  requestUser = 2;
+    string  serverName = 3;
+    int64  serverTime = 4;
+    int64  accessCount = 5;
+}
+
+message ClientInfo {
+    string  clientName = 1;
+}
