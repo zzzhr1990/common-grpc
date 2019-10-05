@@ -4,20 +4,20 @@
 import * as jspb from "google-protobuf";
 
 export class SystemInfo extends jspb.Message {
-  getRequesttime(): number;
-  setRequesttime(value: number): void;
+  getRequestTime(): number;
+  setRequestTime(value: number): void;
 
-  getRequestuser(): string;
-  setRequestuser(value: string): void;
+  getRequestUser(): string;
+  setRequestUser(value: string): void;
 
-  getServername(): string;
-  setServername(value: string): void;
+  getServerName(): string;
+  setServerName(value: string): void;
 
-  getServertime(): number;
-  setServertime(value: number): void;
+  getServerTime(): number;
+  setServerTime(value: number): void;
 
-  getAccesscount(): number;
-  setAccesscount(value: number): void;
+  getAccessCount(): number;
+  setAccessCount(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SystemInfo.AsObject;
@@ -31,17 +31,17 @@ export class SystemInfo extends jspb.Message {
 
 export namespace SystemInfo {
   export type AsObject = {
-    requesttime: number,
-    requestuser: string,
-    servername: string,
-    servertime: number,
-    accesscount: number,
+    requestTime: number,
+    requestUser: string,
+    serverName: string,
+    serverTime: number,
+    accessCount: number,
   }
 }
 
 export class ClientInfo extends jspb.Message {
-  getClientname(): string;
-  setClientname(value: string): void;
+  getClientName(): string;
+  setClientName(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientInfo.AsObject;
@@ -55,7 +55,7 @@ export class ClientInfo extends jspb.Message {
 
 export namespace ClientInfo {
   export type AsObject = {
-    clientname: string,
+    clientName: string,
   }
 }
 

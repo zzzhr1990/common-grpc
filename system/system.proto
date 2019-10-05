@@ -9,13 +9,13 @@ service SystemInfoService {
 }
 
 message SystemInfo {
-    int64  requestTime = 1;
-    string  requestUser = 2;
-    string  serverName = 3;
-    int64  serverTime = 4;
-    int64  accessCount = 5;
+    int64  request_time = 1;
+    string  request_user = 2;
+    string  server_name = 3;
+    int64  server_time = 4;
+    int64  access_count = 5;
 }
 
 message ClientInfo {
-    string  clientName = 1;
+    string  client_name = 1;
 }

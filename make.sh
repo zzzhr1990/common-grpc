@@ -22,14 +22,15 @@ npm install ts-protoc-gen --save
 npm install grpc --save
 OUT_DIR=`pwd`
 cd ..
-PROTOC_GEN_TS_PATH=${OUT_DIR}/node_modules/ts-protoc-gen/bin/protoc-gen-ts
+PROTOC_GEN_TS_PATH=${OUT_DIR}/node_modules/.bin/protoc-gen-ts
+PROTOC_GEN_GRPC_PATH=${OUT_DIR}/node_modules/.bin/grpc_tools_node_protoc_plugin
 echo ${PROTOC_GEN_TS_PATH}
 
 function makeFile(){
     file=$1
     echo "Generate: ${file}"
     protoc --go_out=plugins=grpc:./go_temp ${file}
-    protoc --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" --js_out="import_style=commonjs,binary:${OUT_DIR}" --ts_out="service=grpc-node:${OUT_DIR}" ${file}
+    protoc --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" --plugin=protoc-gen-grpc=${PROTOC_GEN_GRPC_PATH}  --js_out="import_style=commonjs,binary:${OUT_DIR}" --ts_out="service=grpc-node:${OUT_DIR}" --grpc_out="${OUT_DIR}" ${file}
 }
 
 

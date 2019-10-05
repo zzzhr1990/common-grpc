@@ -1,6 +1,6 @@
 {
   "name": "ts-api-define",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "Define of api in GRPC version",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,12 @@
   "author": "zzzhr",
   "license": "ISC",
   "dependencies": {
-    "grpc": "^1.24.0",
-    "ts-protoc-gen": "^0.11.0"
+    "google-protobuf": "^3.10.0",
+    "grpc": "^1.24.0"
   },
-  "repository": "github:zzzhr1990/ts-api-define"
+  "repository": "github:zzzhr1990/ts-api-define",
+  "devDependencies": {
+    "grpc-tools": "^1.8.0",
+    "ts-protoc-gen": "^0.11.0"
+  }
 }

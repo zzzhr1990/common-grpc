@@ -88,11 +88,11 @@ proto.services.SystemInfo.prototype.toObject = function(opt_includeInstance) {
  */
 proto.services.SystemInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    requesttime: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    requestuser: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    servername: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    servertime: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    accesscount: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    requestTime: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    requestUser: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    serverName: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    serverTime: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    accessCount: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -131,23 +131,23 @@ proto.services.SystemInfo.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setRequesttime(value);
+      msg.setRequestTime(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setRequestuser(value);
+      msg.setRequestUser(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setServername(value);
+      msg.setServerName(value);
       break;
     case 4:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setServertime(value);
+      msg.setServerTime(value);
       break;
     case 5:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setAccesscount(value);
+      msg.setAccessCount(value);
       break;
     default:
       reader.skipField();
@@ -178,35 +178,35 @@ proto.services.SystemInfo.prototype.serializeBinary = function() {
  */
 proto.services.SystemInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getRequesttime();
+  f = message.getRequestTime();
   if (f !== 0) {
     writer.writeInt64(
       1,
       f
     );
   }
-  f = message.getRequestuser();
+  f = message.getRequestUser();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = message.getServername();
+  f = message.getServerName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = message.getServertime();
+  f = message.getServerTime();
   if (f !== 0) {
     writer.writeInt64(
       4,
       f
     );
   }
-  f = message.getAccesscount();
+  f = message.getAccessCount();
   if (f !== 0) {
     writer.writeInt64(
       5,
@@ -217,76 +217,76 @@ proto.services.SystemInfo.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional int64 requestTime = 1;
+ * optional int64 request_time = 1;
  * @return {number}
  */
-proto.services.SystemInfo.prototype.getRequesttime = function() {
+proto.services.SystemInfo.prototype.getRequestTime = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /** @param {number} value */
-proto.services.SystemInfo.prototype.setRequesttime = function(value) {
+proto.services.SystemInfo.prototype.setRequestTime = function(value) {
   jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
- * optional string requestUser = 2;
+ * optional string request_user = 2;
  * @return {string}
  */
-proto.services.SystemInfo.prototype.getRequestuser = function() {
+proto.services.SystemInfo.prototype.getRequestUser = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.services.SystemInfo.prototype.setRequestuser = function(value) {
+proto.services.SystemInfo.prototype.setRequestUser = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional string serverName = 3;
+ * optional string server_name = 3;
  * @return {string}
  */
-proto.services.SystemInfo.prototype.getServername = function() {
+proto.services.SystemInfo.prototype.getServerName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.services.SystemInfo.prototype.setServername = function(value) {
+proto.services.SystemInfo.prototype.setServerName = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional int64 serverTime = 4;
+ * optional int64 server_time = 4;
  * @return {number}
  */
-proto.services.SystemInfo.prototype.getServertime = function() {
+proto.services.SystemInfo.prototype.getServerTime = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
 /** @param {number} value */
-proto.services.SystemInfo.prototype.setServertime = function(value) {
+proto.services.SystemInfo.prototype.setServerTime = function(value) {
   jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
 /**
- * optional int64 accessCount = 5;
+ * optional int64 access_count = 5;
  * @return {number}
  */
-proto.services.SystemInfo.prototype.getAccesscount = function() {
+proto.services.SystemInfo.prototype.getAccessCount = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
 /** @param {number} value */
-proto.services.SystemInfo.prototype.setAccesscount = function(value) {
+proto.services.SystemInfo.prototype.setAccessCount = function(value) {
   jspb.Message.setProto3IntField(this, 5, value);
 };
 
@@ -323,7 +323,7 @@ proto.services.ClientInfo.prototype.toObject = function(opt_includeInstance) {
  */
 proto.services.ClientInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientname: jspb.Message.getFieldWithDefault(msg, 1, "")
+    clientName: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -362,7 +362,7 @@ proto.services.ClientInfo.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setClientname(value);
+      msg.setClientName(value);
       break;
     default:
       reader.skipField();
@@ -393,7 +393,7 @@ proto.services.ClientInfo.prototype.serializeBinary = function() {
  */
 proto.services.ClientInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getClientname();
+  f = message.getClientName();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -404,16 +404,16 @@ proto.services.ClientInfo.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string clientName = 1;
+ * optional string client_name = 1;
  * @return {string}
  */
-proto.services.ClientInfo.prototype.getClientname = function() {
+proto.services.ClientInfo.prototype.getClientName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.services.ClientInfo.prototype.setClientname = function(value) {
+proto.services.ClientInfo.prototype.setClientName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
