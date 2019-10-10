@@ -251,9 +251,12 @@ proto.services.Report.prototype.getIdentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.Report} returns this
+ */
 proto.services.Report.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -266,9 +269,12 @@ proto.services.Report.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.Report} returns this
+ */
 proto.services.Report.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -281,9 +287,12 @@ proto.services.Report.prototype.getCtime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.Report} returns this
+ */
 proto.services.Report.prototype.setCtime = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -296,9 +305,12 @@ proto.services.Report.prototype.getType = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.Report} returns this
+ */
 proto.services.Report.prototype.setType = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -311,9 +323,12 @@ proto.services.Report.prototype.getContenttype = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.Report} returns this
+ */
 proto.services.Report.prototype.setContenttype = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -326,9 +341,12 @@ proto.services.Report.prototype.getContent = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.Report} returns this
+ */
 proto.services.Report.prototype.setContent = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -341,9 +359,12 @@ proto.services.Report.prototype.getComment = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.Report} returns this
+ */
 proto.services.Report.prototype.setComment = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -356,9 +377,12 @@ proto.services.Report.prototype.getFeedback = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.Report} returns this
+ */
 proto.services.Report.prototype.setFeedback = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -371,9 +395,12 @@ proto.services.Report.prototype.getFeedbackadminidentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.Report} returns this
+ */
 proto.services.Report.prototype.setFeedbackadminidentity = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  return jspb.Message.setProto3IntField(this, 9, value);
 };
 
 

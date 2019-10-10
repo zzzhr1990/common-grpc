@@ -572,26 +572,31 @@ proto.services.DeleteInTrashRequest.prototype.getSourceList = function() {
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.services.DeleteInTrashRequest} returns this
+ */
 proto.services.DeleteInTrashRequest.prototype.setSourceList = function(value) {
-  jspb.Message.setField(this, 1, value || []);
+  return jspb.Message.setField(this, 1, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.services.DeleteInTrashRequest} returns this
  */
 proto.services.DeleteInTrashRequest.prototype.addSource = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 1, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.DeleteInTrashRequest} returns this
  */
 proto.services.DeleteInTrashRequest.prototype.clearSourceList = function() {
-  this.setSourceList([]);
+  return this.setSourceList([]);
 };
 
 
@@ -604,9 +609,12 @@ proto.services.DeleteInTrashRequest.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.DeleteInTrashRequest} returns this
+ */
 proto.services.DeleteInTrashRequest.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -765,17 +773,21 @@ proto.services.MoveBackRequest.prototype.getDestination = function() {
 };
 
 
-/** @param {?proto.services.UserFile|undefined} value */
+/**
+ * @param {?proto.services.UserFile|undefined} value
+ * @return {!proto.services.MoveBackRequest} returns this
+*/
 proto.services.MoveBackRequest.prototype.setDestination = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.services.MoveBackRequest} returns this
  */
 proto.services.MoveBackRequest.prototype.clearDestination = function() {
-  this.setDestination(undefined);
+  return this.setDestination(undefined);
 };
 
 
@@ -797,26 +809,31 @@ proto.services.MoveBackRequest.prototype.getSourceList = function() {
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.services.MoveBackRequest} returns this
+ */
 proto.services.MoveBackRequest.prototype.setSourceList = function(value) {
-  jspb.Message.setField(this, 2, value || []);
+  return jspb.Message.setField(this, 2, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.services.MoveBackRequest} returns this
  */
 proto.services.MoveBackRequest.prototype.addSource = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.MoveBackRequest} returns this
  */
 proto.services.MoveBackRequest.prototype.clearSourceList = function() {
-  this.setSourceList([]);
+  return this.setSourceList([]);
 };
 
 
@@ -829,9 +846,12 @@ proto.services.MoveBackRequest.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.MoveBackRequest} returns this
+ */
 proto.services.MoveBackRequest.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -1230,9 +1250,12 @@ proto.services.UserFile.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1245,9 +1268,12 @@ proto.services.UserFile.prototype.getHash = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setHash = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1260,9 +1286,12 @@ proto.services.UserFile.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -1275,9 +1304,12 @@ proto.services.UserFile.prototype.getPath = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setPath = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -1290,9 +1322,12 @@ proto.services.UserFile.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -1305,9 +1340,12 @@ proto.services.UserFile.prototype.getExt = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setExt = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -1320,9 +1358,12 @@ proto.services.UserFile.prototype.getSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -1335,9 +1376,12 @@ proto.services.UserFile.prototype.getMime = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setMime = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -1350,9 +1394,12 @@ proto.services.UserFile.prototype.getParent = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setParent = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -1365,9 +1412,12 @@ proto.services.UserFile.prototype.getType = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setType = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -1380,9 +1430,12 @@ proto.services.UserFile.prototype.getDirectory = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setDirectory = function(value) {
-  jspb.Message.setProto3BooleanField(this, 11, value);
+  return jspb.Message.setProto3BooleanField(this, 11, value);
 };
 
 
@@ -1395,9 +1448,12 @@ proto.services.UserFile.prototype.getAtime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setAtime = function(value) {
-  jspb.Message.setProto3IntField(this, 12, value);
+  return jspb.Message.setProto3IntField(this, 12, value);
 };
 
 
@@ -1410,9 +1466,12 @@ proto.services.UserFile.prototype.getCtime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setCtime = function(value) {
-  jspb.Message.setProto3IntField(this, 13, value);
+  return jspb.Message.setProto3IntField(this, 13, value);
 };
 
 
@@ -1425,9 +1484,12 @@ proto.services.UserFile.prototype.getMtime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setMtime = function(value) {
-  jspb.Message.setProto3IntField(this, 14, value);
+  return jspb.Message.setProto3IntField(this, 14, value);
 };
 
 
@@ -1440,9 +1502,12 @@ proto.services.UserFile.prototype.getVersion = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setVersion = function(value) {
-  jspb.Message.setProto3IntField(this, 15, value);
+  return jspb.Message.setProto3IntField(this, 15, value);
 };
 
 
@@ -1455,9 +1520,12 @@ proto.services.UserFile.prototype.getLocking = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setLocking = function(value) {
-  jspb.Message.setProto3BooleanField(this, 16, value);
+  return jspb.Message.setProto3BooleanField(this, 16, value);
 };
 
 
@@ -1470,9 +1538,12 @@ proto.services.UserFile.prototype.getOp = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setOp = function(value) {
-  jspb.Message.setProto3IntField(this, 17, value);
+  return jspb.Message.setProto3IntField(this, 17, value);
 };
 
 
@@ -1485,9 +1556,12 @@ proto.services.UserFile.prototype.getPreview = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setPreview = function(value) {
-  jspb.Message.setProto3BooleanField(this, 18, value);
+  return jspb.Message.setProto3BooleanField(this, 18, value);
 };
 
 
@@ -1500,9 +1574,12 @@ proto.services.UserFile.prototype.getPreviewtype = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setPreviewtype = function(value) {
-  jspb.Message.setProto3IntField(this, 19, value);
+  return jspb.Message.setProto3IntField(this, 19, value);
 };
 
 
@@ -1515,9 +1592,12 @@ proto.services.UserFile.prototype.getFlag = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setFlag = function(value) {
-  jspb.Message.setProto3IntField(this, 20, value);
+  return jspb.Message.setProto3IntField(this, 20, value);
 };
 
 
@@ -1531,9 +1611,12 @@ proto.services.UserFile.prototype.getChildrenList = function() {
 };
 
 
-/** @param {!Array<!proto.services.UserFile>} value */
+/**
+ * @param {!Array<!proto.services.UserFile>} value
+ * @return {!proto.services.UserFile} returns this
+*/
 proto.services.UserFile.prototype.setChildrenList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 21, value);
+  return jspb.Message.setRepeatedWrapperField(this, 21, value);
 };
 
 
@@ -1549,9 +1632,10 @@ proto.services.UserFile.prototype.addChildren = function(opt_value, opt_index) {
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.UserFile} returns this
  */
 proto.services.UserFile.prototype.clearChildrenList = function() {
-  this.setChildrenList([]);
+  return this.setChildrenList([]);
 };
 
 
@@ -1564,9 +1648,12 @@ proto.services.UserFile.prototype.getUniqueidentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setUniqueidentity = function(value) {
-  jspb.Message.setProto3StringField(this, 22, value);
+  return jspb.Message.setProto3StringField(this, 22, value);
 };
 
 
@@ -1579,9 +1666,12 @@ proto.services.UserFile.prototype.getShare = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.UserFile} returns this
+ */
 proto.services.UserFile.prototype.setShare = function(value) {
-  jspb.Message.setProto3BooleanField(this, 23, value);
+  return jspb.Message.setProto3BooleanField(this, 23, value);
 };
 
 
@@ -1992,9 +2082,12 @@ proto.services.UserFileEx.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -2007,9 +2100,12 @@ proto.services.UserFileEx.prototype.getHash = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setHash = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -2022,9 +2118,12 @@ proto.services.UserFileEx.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2037,9 +2136,12 @@ proto.services.UserFileEx.prototype.getPath = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setPath = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -2052,9 +2154,12 @@ proto.services.UserFileEx.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -2067,9 +2172,12 @@ proto.services.UserFileEx.prototype.getExt = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setExt = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -2082,9 +2190,12 @@ proto.services.UserFileEx.prototype.getSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -2097,9 +2208,12 @@ proto.services.UserFileEx.prototype.getMime = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setMime = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -2112,9 +2226,12 @@ proto.services.UserFileEx.prototype.getParent = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setParent = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -2127,9 +2244,12 @@ proto.services.UserFileEx.prototype.getType = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setType = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -2142,9 +2262,12 @@ proto.services.UserFileEx.prototype.getDirectory = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setDirectory = function(value) {
-  jspb.Message.setProto3BooleanField(this, 11, value);
+  return jspb.Message.setProto3BooleanField(this, 11, value);
 };
 
 
@@ -2157,9 +2280,12 @@ proto.services.UserFileEx.prototype.getAtime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setAtime = function(value) {
-  jspb.Message.setProto3IntField(this, 12, value);
+  return jspb.Message.setProto3IntField(this, 12, value);
 };
 
 
@@ -2172,9 +2298,12 @@ proto.services.UserFileEx.prototype.getCtime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setCtime = function(value) {
-  jspb.Message.setProto3IntField(this, 13, value);
+  return jspb.Message.setProto3IntField(this, 13, value);
 };
 
 
@@ -2187,9 +2316,12 @@ proto.services.UserFileEx.prototype.getMtime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setMtime = function(value) {
-  jspb.Message.setProto3IntField(this, 14, value);
+  return jspb.Message.setProto3IntField(this, 14, value);
 };
 
 
@@ -2202,9 +2334,12 @@ proto.services.UserFileEx.prototype.getVersion = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setVersion = function(value) {
-  jspb.Message.setProto3IntField(this, 15, value);
+  return jspb.Message.setProto3IntField(this, 15, value);
 };
 
 
@@ -2217,9 +2352,12 @@ proto.services.UserFileEx.prototype.getLocking = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setLocking = function(value) {
-  jspb.Message.setProto3BooleanField(this, 16, value);
+  return jspb.Message.setProto3BooleanField(this, 16, value);
 };
 
 
@@ -2232,9 +2370,12 @@ proto.services.UserFileEx.prototype.getOp = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setOp = function(value) {
-  jspb.Message.setProto3IntField(this, 17, value);
+  return jspb.Message.setProto3IntField(this, 17, value);
 };
 
 
@@ -2247,9 +2388,12 @@ proto.services.UserFileEx.prototype.getPreview = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setPreview = function(value) {
-  jspb.Message.setProto3BooleanField(this, 18, value);
+  return jspb.Message.setProto3BooleanField(this, 18, value);
 };
 
 
@@ -2262,9 +2406,12 @@ proto.services.UserFileEx.prototype.getPreviewtype = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setPreviewtype = function(value) {
-  jspb.Message.setProto3IntField(this, 19, value);
+  return jspb.Message.setProto3IntField(this, 19, value);
 };
 
 
@@ -2277,9 +2424,12 @@ proto.services.UserFileEx.prototype.getFlag = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setFlag = function(value) {
-  jspb.Message.setProto3IntField(this, 20, value);
+  return jspb.Message.setProto3IntField(this, 20, value);
 };
 
 
@@ -2293,9 +2443,12 @@ proto.services.UserFileEx.prototype.getChildrenList = function() {
 };
 
 
-/** @param {!Array<!proto.services.UserFile>} value */
+/**
+ * @param {!Array<!proto.services.UserFile>} value
+ * @return {!proto.services.UserFileEx} returns this
+*/
 proto.services.UserFileEx.prototype.setChildrenList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 21, value);
+  return jspb.Message.setRepeatedWrapperField(this, 21, value);
 };
 
 
@@ -2311,9 +2464,10 @@ proto.services.UserFileEx.prototype.addChildren = function(opt_value, opt_index)
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.UserFileEx} returns this
  */
 proto.services.UserFileEx.prototype.clearChildrenList = function() {
-  this.setChildrenList([]);
+  return this.setChildrenList([]);
 };
 
 
@@ -2326,9 +2480,12 @@ proto.services.UserFileEx.prototype.getDownloadaddress = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setDownloadaddress = function(value) {
-  jspb.Message.setProto3StringField(this, 22, value);
+  return jspb.Message.setProto3StringField(this, 22, value);
 };
 
 
@@ -2341,9 +2498,12 @@ proto.services.UserFileEx.prototype.getUniqueidentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setUniqueidentity = function(value) {
-  jspb.Message.setProto3StringField(this, 23, value);
+  return jspb.Message.setProto3StringField(this, 23, value);
 };
 
 
@@ -2356,9 +2516,12 @@ proto.services.UserFileEx.prototype.getShare = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.UserFileEx} returns this
+ */
 proto.services.UserFileEx.prototype.setShare = function(value) {
-  jspb.Message.setProto3BooleanField(this, 24, value);
+  return jspb.Message.setProto3BooleanField(this, 24, value);
 };
 
 
@@ -2532,9 +2695,12 @@ proto.services.UserFileOperation.prototype.getSourceList = function() {
 };
 
 
-/** @param {!Array<!proto.services.UserFile>} value */
+/**
+ * @param {!Array<!proto.services.UserFile>} value
+ * @return {!proto.services.UserFileOperation} returns this
+*/
 proto.services.UserFileOperation.prototype.setSourceList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -2550,9 +2716,10 @@ proto.services.UserFileOperation.prototype.addSource = function(opt_value, opt_i
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.UserFileOperation} returns this
  */
 proto.services.UserFileOperation.prototype.clearSourceList = function() {
-  this.setSourceList([]);
+  return this.setSourceList([]);
 };
 
 
@@ -2566,17 +2733,21 @@ proto.services.UserFileOperation.prototype.getDestination = function() {
 };
 
 
-/** @param {?proto.services.UserFile|undefined} value */
+/**
+ * @param {?proto.services.UserFile|undefined} value
+ * @return {!proto.services.UserFileOperation} returns this
+*/
 proto.services.UserFileOperation.prototype.setDestination = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.services.UserFileOperation} returns this
  */
 proto.services.UserFileOperation.prototype.clearDestination = function() {
-  this.setDestination(undefined);
+  return this.setDestination(undefined);
 };
 
 
@@ -2598,9 +2769,12 @@ proto.services.UserFileOperation.prototype.getOperationcode = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileOperation} returns this
+ */
 proto.services.UserFileOperation.prototype.setOperationcode = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2613,9 +2787,12 @@ proto.services.UserFileOperation.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFileOperation} returns this
+ */
 proto.services.UserFileOperation.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -2813,17 +2990,21 @@ proto.services.UserFilePage.prototype.getParent = function() {
 };
 
 
-/** @param {?proto.services.UserFile|undefined} value */
+/**
+ * @param {?proto.services.UserFile|undefined} value
+ * @return {!proto.services.UserFilePage} returns this
+*/
 proto.services.UserFilePage.prototype.setParent = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.services.UserFilePage} returns this
  */
 proto.services.UserFilePage.prototype.clearParent = function() {
-  this.setParent(undefined);
+  return this.setParent(undefined);
 };
 
 
@@ -2846,9 +3027,12 @@ proto.services.UserFilePage.prototype.getListList = function() {
 };
 
 
-/** @param {!Array<!proto.services.UserFile>} value */
+/**
+ * @param {!Array<!proto.services.UserFile>} value
+ * @return {!proto.services.UserFilePage} returns this
+*/
 proto.services.UserFilePage.prototype.setListList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -2864,9 +3048,10 @@ proto.services.UserFilePage.prototype.addList = function(opt_value, opt_index) {
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.UserFilePage} returns this
  */
 proto.services.UserFilePage.prototype.clearListList = function() {
-  this.setListList([]);
+  return this.setListList([]);
 };
 
 
@@ -2879,9 +3064,12 @@ proto.services.UserFilePage.prototype.getTotalcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFilePage} returns this
+ */
 proto.services.UserFilePage.prototype.setTotalcount = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2894,9 +3082,12 @@ proto.services.UserFilePage.prototype.getTotalpage = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFilePage} returns this
+ */
 proto.services.UserFilePage.prototype.setTotalpage = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -2909,9 +3100,12 @@ proto.services.UserFilePage.prototype.getPage = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFilePage} returns this
+ */
 proto.services.UserFilePage.prototype.setPage = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -2924,9 +3118,12 @@ proto.services.UserFilePage.prototype.getPagesize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFilePage} returns this
+ */
 proto.services.UserFilePage.prototype.setPagesize = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -3070,9 +3267,12 @@ proto.services.DeleteFilesRequest.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.DeleteFilesRequest} returns this
+ */
 proto.services.DeleteFilesRequest.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -3085,26 +3285,31 @@ proto.services.DeleteFilesRequest.prototype.getFilesidentityList = function() {
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.services.DeleteFilesRequest} returns this
+ */
 proto.services.DeleteFilesRequest.prototype.setFilesidentityList = function(value) {
-  jspb.Message.setField(this, 2, value || []);
+  return jspb.Message.setField(this, 2, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.services.DeleteFilesRequest} returns this
  */
 proto.services.DeleteFilesRequest.prototype.addFilesidentity = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.DeleteFilesRequest} returns this
  */
 proto.services.DeleteFilesRequest.prototype.clearFilesidentityList = function() {
-  this.setFilesidentityList([]);
+  return this.setFilesidentityList([]);
 };
 
 
@@ -3254,17 +3459,21 @@ proto.services.UserFileList.prototype.getParent = function() {
 };
 
 
-/** @param {?proto.services.UserFile|undefined} value */
+/**
+ * @param {?proto.services.UserFile|undefined} value
+ * @return {!proto.services.UserFileList} returns this
+*/
 proto.services.UserFileList.prototype.setParent = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.services.UserFileList} returns this
  */
 proto.services.UserFileList.prototype.clearParent = function() {
-  this.setParent(undefined);
+  return this.setParent(undefined);
 };
 
 
@@ -3287,9 +3496,12 @@ proto.services.UserFileList.prototype.getListList = function() {
 };
 
 
-/** @param {!Array<!proto.services.UserFile>} value */
+/**
+ * @param {!Array<!proto.services.UserFile>} value
+ * @return {!proto.services.UserFileList} returns this
+*/
 proto.services.UserFileList.prototype.setListList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -3305,9 +3517,10 @@ proto.services.UserFileList.prototype.addList = function(opt_value, opt_index) {
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.UserFileList} returns this
  */
 proto.services.UserFileList.prototype.clearListList = function() {
-  this.setListList([]);
+  return this.setListList([]);
 };
 
 
@@ -3504,9 +3717,12 @@ proto.services.TrashInfo.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.TrashInfo} returns this
+ */
 proto.services.TrashInfo.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -3519,9 +3735,12 @@ proto.services.TrashInfo.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.TrashInfo} returns this
+ */
 proto.services.TrashInfo.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3534,9 +3753,12 @@ proto.services.TrashInfo.prototype.getSource = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.TrashInfo} returns this
+ */
 proto.services.TrashInfo.prototype.setSource = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -3549,9 +3771,12 @@ proto.services.TrashInfo.prototype.getSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.TrashInfo} returns this
+ */
 proto.services.TrashInfo.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -3564,9 +3789,12 @@ proto.services.TrashInfo.prototype.getDeletetime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.TrashInfo} returns this
+ */
 proto.services.TrashInfo.prototype.setDeletetime = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -3579,9 +3807,12 @@ proto.services.TrashInfo.prototype.getType = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.TrashInfo} returns this
+ */
 proto.services.TrashInfo.prototype.setType = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -3594,9 +3825,12 @@ proto.services.TrashInfo.prototype.getDirectory = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.TrashInfo} returns this
+ */
 proto.services.TrashInfo.prototype.setDirectory = function(value) {
-  jspb.Message.setProto3BooleanField(this, 7, value);
+  return jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 
@@ -3732,9 +3966,12 @@ proto.services.TrashList.prototype.getListList = function() {
 };
 
 
-/** @param {!Array<!proto.services.TrashInfo>} value */
+/**
+ * @param {!Array<!proto.services.TrashInfo>} value
+ * @return {!proto.services.TrashList} returns this
+*/
 proto.services.TrashList.prototype.setListList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -3750,9 +3987,10 @@ proto.services.TrashList.prototype.addList = function(opt_value, opt_index) {
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.TrashList} returns this
  */
 proto.services.TrashList.prototype.clearListList = function() {
-  this.setListList([]);
+  return this.setListList([]);
 };
 
 
@@ -3936,9 +4174,12 @@ proto.services.TrashPage.prototype.getListList = function() {
 };
 
 
-/** @param {!Array<!proto.services.TrashInfo>} value */
+/**
+ * @param {!Array<!proto.services.TrashInfo>} value
+ * @return {!proto.services.TrashPage} returns this
+*/
 proto.services.TrashPage.prototype.setListList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -3954,9 +4195,10 @@ proto.services.TrashPage.prototype.addList = function(opt_value, opt_index) {
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.TrashPage} returns this
  */
 proto.services.TrashPage.prototype.clearListList = function() {
-  this.setListList([]);
+  return this.setListList([]);
 };
 
 
@@ -3969,9 +4211,12 @@ proto.services.TrashPage.prototype.getTotalcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.TrashPage} returns this
+ */
 proto.services.TrashPage.prototype.setTotalcount = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -3984,9 +4229,12 @@ proto.services.TrashPage.prototype.getTotalpage = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.TrashPage} returns this
+ */
 proto.services.TrashPage.prototype.setTotalpage = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -3999,9 +4247,12 @@ proto.services.TrashPage.prototype.getPage = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.TrashPage} returns this
+ */
 proto.services.TrashPage.prototype.setPage = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -4014,9 +4265,12 @@ proto.services.TrashPage.prototype.getPagesize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.TrashPage} returns this
+ */
 proto.services.TrashPage.prototype.setPagesize = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -4177,9 +4431,12 @@ proto.services.PageTrashRequest.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PageTrashRequest} returns this
+ */
 proto.services.PageTrashRequest.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -4192,9 +4449,12 @@ proto.services.PageTrashRequest.prototype.getOrderby = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PageTrashRequest} returns this
+ */
 proto.services.PageTrashRequest.prototype.setOrderby = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -4207,9 +4467,12 @@ proto.services.PageTrashRequest.prototype.getPage = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PageTrashRequest} returns this
+ */
 proto.services.PageTrashRequest.prototype.setPage = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -4222,9 +4485,12 @@ proto.services.PageTrashRequest.prototype.getPagesize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PageTrashRequest} returns this
+ */
 proto.services.PageTrashRequest.prototype.setPagesize = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -4457,9 +4723,12 @@ proto.services.PageUserFileRequest.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.PageUserFileRequest} returns this
+ */
 proto.services.PageUserFileRequest.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -4472,9 +4741,12 @@ proto.services.PageUserFileRequest.prototype.getPath = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.PageUserFileRequest} returns this
+ */
 proto.services.PageUserFileRequest.prototype.setPath = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -4487,9 +4759,12 @@ proto.services.PageUserFileRequest.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PageUserFileRequest} returns this
+ */
 proto.services.PageUserFileRequest.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -4502,9 +4777,12 @@ proto.services.PageUserFileRequest.prototype.getOrderby = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PageUserFileRequest} returns this
+ */
 proto.services.PageUserFileRequest.prototype.setOrderby = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -4517,9 +4795,12 @@ proto.services.PageUserFileRequest.prototype.getPage = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PageUserFileRequest} returns this
+ */
 proto.services.PageUserFileRequest.prototype.setPage = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -4532,9 +4813,12 @@ proto.services.PageUserFileRequest.prototype.getPagesize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PageUserFileRequest} returns this
+ */
 proto.services.PageUserFileRequest.prototype.setPagesize = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -4547,9 +4831,12 @@ proto.services.PageUserFileRequest.prototype.getFilter = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PageUserFileRequest} returns this
+ */
 proto.services.PageUserFileRequest.prototype.setFilter = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -4562,9 +4849,12 @@ proto.services.PageUserFileRequest.prototype.getType = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PageUserFileRequest} returns this
+ */
 proto.services.PageUserFileRequest.prototype.setType = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -4577,9 +4867,12 @@ proto.services.PageUserFileRequest.prototype.getShare = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.PageUserFileRequest} returns this
+ */
 proto.services.PageUserFileRequest.prototype.setShare = function(value) {
-  jspb.Message.setProto3BooleanField(this, 9, value);
+  return jspb.Message.setProto3BooleanField(this, 9, value);
 };
 
 
@@ -4592,9 +4885,12 @@ proto.services.PageUserFileRequest.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.PageUserFileRequest} returns this
+ */
 proto.services.PageUserFileRequest.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 10, value);
+  return jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
@@ -4827,9 +5123,12 @@ proto.services.ListUserFileRequest.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.ListUserFileRequest} returns this
+ */
 proto.services.ListUserFileRequest.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -4842,9 +5141,12 @@ proto.services.ListUserFileRequest.prototype.getPath = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.ListUserFileRequest} returns this
+ */
 proto.services.ListUserFileRequest.prototype.setPath = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -4857,9 +5159,12 @@ proto.services.ListUserFileRequest.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListUserFileRequest} returns this
+ */
 proto.services.ListUserFileRequest.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -4872,9 +5177,12 @@ proto.services.ListUserFileRequest.prototype.getOrderby = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListUserFileRequest} returns this
+ */
 proto.services.ListUserFileRequest.prototype.setOrderby = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -4887,9 +5195,12 @@ proto.services.ListUserFileRequest.prototype.getStart = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListUserFileRequest} returns this
+ */
 proto.services.ListUserFileRequest.prototype.setStart = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -4902,9 +5213,12 @@ proto.services.ListUserFileRequest.prototype.getListsize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListUserFileRequest} returns this
+ */
 proto.services.ListUserFileRequest.prototype.setListsize = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -4917,9 +5231,12 @@ proto.services.ListUserFileRequest.prototype.getFilter = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListUserFileRequest} returns this
+ */
 proto.services.ListUserFileRequest.prototype.setFilter = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -4932,9 +5249,12 @@ proto.services.ListUserFileRequest.prototype.getType = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListUserFileRequest} returns this
+ */
 proto.services.ListUserFileRequest.prototype.setType = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -4947,9 +5267,12 @@ proto.services.ListUserFileRequest.prototype.getShare = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.ListUserFileRequest} returns this
+ */
 proto.services.ListUserFileRequest.prototype.setShare = function(value) {
-  jspb.Message.setProto3BooleanField(this, 9, value);
+  return jspb.Message.setProto3BooleanField(this, 9, value);
 };
 
 
@@ -4962,9 +5285,12 @@ proto.services.ListUserFileRequest.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.ListUserFileRequest} returns this
+ */
 proto.services.ListUserFileRequest.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 10, value);
+  return jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
@@ -5125,9 +5451,12 @@ proto.services.ListTrashRequest.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListTrashRequest} returns this
+ */
 proto.services.ListTrashRequest.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -5140,9 +5469,12 @@ proto.services.ListTrashRequest.prototype.getOrderby = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListTrashRequest} returns this
+ */
 proto.services.ListTrashRequest.prototype.setOrderby = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -5155,9 +5487,12 @@ proto.services.ListTrashRequest.prototype.getStart = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListTrashRequest} returns this
+ */
 proto.services.ListTrashRequest.prototype.setStart = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -5170,9 +5505,12 @@ proto.services.ListTrashRequest.prototype.getListsize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListTrashRequest} returns this
+ */
 proto.services.ListTrashRequest.prototype.setListsize = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -5333,9 +5671,12 @@ proto.services.UploadTokenResponse.prototype.getUploadtoken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UploadTokenResponse} returns this
+ */
 proto.services.UploadTokenResponse.prototype.setUploadtoken = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -5348,9 +5689,12 @@ proto.services.UploadTokenResponse.prototype.getType = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UploadTokenResponse} returns this
+ */
 proto.services.UploadTokenResponse.prototype.setType = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -5363,9 +5707,12 @@ proto.services.UploadTokenResponse.prototype.getUploadurl = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UploadTokenResponse} returns this
+ */
 proto.services.UploadTokenResponse.prototype.setUploadurl = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -5378,9 +5725,12 @@ proto.services.UploadTokenResponse.prototype.getFilepath = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UploadTokenResponse} returns this
+ */
 proto.services.UploadTokenResponse.prototype.setFilepath = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -5527,9 +5877,12 @@ proto.services.FileHistoryResponse.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.FileHistoryResponse} returns this
+ */
 proto.services.FileHistoryResponse.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -5543,9 +5896,12 @@ proto.services.FileHistoryResponse.prototype.getHistoryList = function() {
 };
 
 
-/** @param {!Array<!proto.services.FileHistory>} value */
+/**
+ * @param {!Array<!proto.services.FileHistory>} value
+ * @return {!proto.services.FileHistoryResponse} returns this
+*/
 proto.services.FileHistoryResponse.prototype.setHistoryList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -5561,9 +5917,10 @@ proto.services.FileHistoryResponse.prototype.addHistory = function(opt_value, op
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.FileHistoryResponse} returns this
  */
 proto.services.FileHistoryResponse.prototype.clearHistoryList = function() {
-  this.setHistoryList([]);
+  return this.setHistoryList([]);
 };
 
 
@@ -5724,9 +6081,12 @@ proto.services.FileHistory.prototype.getHash = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.FileHistory} returns this
+ */
 proto.services.FileHistory.prototype.setHash = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -5739,9 +6099,12 @@ proto.services.FileHistory.prototype.getSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileHistory} returns this
+ */
 proto.services.FileHistory.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -5754,9 +6117,12 @@ proto.services.FileHistory.prototype.getCtime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileHistory} returns this
+ */
 proto.services.FileHistory.prototype.setCtime = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -5769,9 +6135,12 @@ proto.services.FileHistory.prototype.getVersion = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileHistory} returns this
+ */
 proto.services.FileHistory.prototype.setVersion = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -5944,9 +6313,12 @@ proto.services.FileHistoryEx.prototype.getHash = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.FileHistoryEx} returns this
+ */
 proto.services.FileHistoryEx.prototype.setHash = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -5959,9 +6331,12 @@ proto.services.FileHistoryEx.prototype.getSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileHistoryEx} returns this
+ */
 proto.services.FileHistoryEx.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -5974,9 +6349,12 @@ proto.services.FileHistoryEx.prototype.getCtime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileHistoryEx} returns this
+ */
 proto.services.FileHistoryEx.prototype.setCtime = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -5989,9 +6367,12 @@ proto.services.FileHistoryEx.prototype.getVersion = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileHistoryEx} returns this
+ */
 proto.services.FileHistoryEx.prototype.setVersion = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -6004,9 +6385,12 @@ proto.services.FileHistoryEx.prototype.getDownloadaddress = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.FileHistoryEx} returns this
+ */
 proto.services.FileHistoryEx.prototype.setDownloadaddress = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 

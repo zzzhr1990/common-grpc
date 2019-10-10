@@ -333,9 +333,12 @@ proto.services.SimpleRemoteTaskRequest.prototype.getIdentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SimpleRemoteTaskRequest} returns this
+ */
 proto.services.SimpleRemoteTaskRequest.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -484,9 +487,12 @@ proto.services.RemoteTaskErrorRequest.prototype.getIdentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.RemoteTaskErrorRequest} returns this
+ */
 proto.services.RemoteTaskErrorRequest.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -499,9 +505,12 @@ proto.services.RemoteTaskErrorRequest.prototype.getErrorcode = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.RemoteTaskErrorRequest} returns this
+ */
 proto.services.RemoteTaskErrorRequest.prototype.setErrorcode = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -514,9 +523,12 @@ proto.services.RemoteTaskErrorRequest.prototype.getErrormessage = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.RemoteTaskErrorRequest} returns this
+ */
 proto.services.RemoteTaskErrorRequest.prototype.setErrormessage = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -665,9 +677,12 @@ proto.services.CallLaterErrorRequest.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CallLaterErrorRequest} returns this
+ */
 proto.services.CallLaterErrorRequest.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -680,9 +695,12 @@ proto.services.CallLaterErrorRequest.prototype.getErrorcode = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CallLaterErrorRequest} returns this
+ */
 proto.services.CallLaterErrorRequest.prototype.setErrorcode = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -695,9 +713,12 @@ proto.services.CallLaterErrorRequest.prototype.getErrormessage = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CallLaterErrorRequest} returns this
+ */
 proto.services.CallLaterErrorRequest.prototype.setErrormessage = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -930,9 +951,12 @@ proto.services.RemoteTask.prototype.getIdentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.RemoteTask} returns this
+ */
 proto.services.RemoteTask.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -945,9 +969,12 @@ proto.services.RemoteTask.prototype.getType = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.RemoteTask} returns this
+ */
 proto.services.RemoteTask.prototype.setType = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -960,9 +987,12 @@ proto.services.RemoteTask.prototype.getSource = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.RemoteTask} returns this
+ */
 proto.services.RemoteTask.prototype.setSource = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -975,9 +1005,12 @@ proto.services.RemoteTask.prototype.getConsumer = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.RemoteTask} returns this
+ */
 proto.services.RemoteTask.prototype.setConsumer = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -990,9 +1023,12 @@ proto.services.RemoteTask.prototype.getProducer = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.RemoteTask} returns this
+ */
 proto.services.RemoteTask.prototype.setProducer = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -1005,9 +1041,12 @@ proto.services.RemoteTask.prototype.getCreatetime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.RemoteTask} returns this
+ */
 proto.services.RemoteTask.prototype.setCreatetime = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -1020,9 +1059,12 @@ proto.services.RemoteTask.prototype.getConsumertime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.RemoteTask} returns this
+ */
 proto.services.RemoteTask.prototype.setConsumertime = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -1035,9 +1077,12 @@ proto.services.RemoteTask.prototype.getDeadline = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.RemoteTask} returns this
+ */
 proto.services.RemoteTask.prototype.setDeadline = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -1050,9 +1095,12 @@ proto.services.RemoteTask.prototype.getData = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.RemoteTask} returns this
+ */
 proto.services.RemoteTask.prototype.setData = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -1065,9 +1113,12 @@ proto.services.RemoteTask.prototype.getStatus = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.RemoteTask} returns this
+ */
 proto.services.RemoteTask.prototype.setStatus = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -1300,9 +1351,12 @@ proto.services.CallLater.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CallLater} returns this
+ */
 proto.services.CallLater.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1315,9 +1369,12 @@ proto.services.CallLater.prototype.getType = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CallLater} returns this
+ */
 proto.services.CallLater.prototype.setType = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -1330,9 +1387,12 @@ proto.services.CallLater.prototype.getSource = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CallLater} returns this
+ */
 proto.services.CallLater.prototype.setSource = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -1345,9 +1405,12 @@ proto.services.CallLater.prototype.getConsumer = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CallLater} returns this
+ */
 proto.services.CallLater.prototype.setConsumer = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -1360,9 +1423,12 @@ proto.services.CallLater.prototype.getProducer = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CallLater} returns this
+ */
 proto.services.CallLater.prototype.setProducer = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -1375,9 +1441,12 @@ proto.services.CallLater.prototype.getCreatetime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CallLater} returns this
+ */
 proto.services.CallLater.prototype.setCreatetime = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -1390,9 +1459,12 @@ proto.services.CallLater.prototype.getConsumertime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CallLater} returns this
+ */
 proto.services.CallLater.prototype.setConsumertime = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -1405,9 +1477,12 @@ proto.services.CallLater.prototype.getDeadline = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CallLater} returns this
+ */
 proto.services.CallLater.prototype.setDeadline = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -1420,9 +1495,12 @@ proto.services.CallLater.prototype.getData = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CallLater} returns this
+ */
 proto.services.CallLater.prototype.setData = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -1435,9 +1513,12 @@ proto.services.CallLater.prototype.getStatus = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CallLater} returns this
+ */
 proto.services.CallLater.prototype.setStatus = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -1653,9 +1734,12 @@ proto.services.FetchRequest.prototype.getConsumer = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.FetchRequest} returns this
+ */
 proto.services.FetchRequest.prototype.setConsumer = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1668,26 +1752,31 @@ proto.services.FetchRequest.prototype.getTypeList = function() {
 };
 
 
-/** @param {!Array<number>} value */
+/**
+ * @param {!Array<number>} value
+ * @return {!proto.services.FetchRequest} returns this
+ */
 proto.services.FetchRequest.prototype.setTypeList = function(value) {
-  jspb.Message.setField(this, 2, value || []);
+  return jspb.Message.setField(this, 2, value || []);
 };
 
 
 /**
  * @param {number} value
  * @param {number=} opt_index
+ * @return {!proto.services.FetchRequest} returns this
  */
 proto.services.FetchRequest.prototype.addType = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.FetchRequest} returns this
  */
 proto.services.FetchRequest.prototype.clearTypeList = function() {
-  this.setTypeList([]);
+  return this.setTypeList([]);
 };
 
 
@@ -1700,9 +1789,12 @@ proto.services.FetchRequest.prototype.getCount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FetchRequest} returns this
+ */
 proto.services.FetchRequest.prototype.setCount = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -1715,26 +1807,31 @@ proto.services.FetchRequest.prototype.getStatusList = function() {
 };
 
 
-/** @param {!Array<number>} value */
+/**
+ * @param {!Array<number>} value
+ * @return {!proto.services.FetchRequest} returns this
+ */
 proto.services.FetchRequest.prototype.setStatusList = function(value) {
-  jspb.Message.setField(this, 4, value || []);
+  return jspb.Message.setField(this, 4, value || []);
 };
 
 
 /**
  * @param {number} value
  * @param {number=} opt_index
+ * @return {!proto.services.FetchRequest} returns this
  */
 proto.services.FetchRequest.prototype.addStatus = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 4, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.FetchRequest} returns this
  */
 proto.services.FetchRequest.prototype.clearStatusList = function() {
-  this.setStatusList([]);
+  return this.setStatusList([]);
 };
 
 
@@ -1747,9 +1844,12 @@ proto.services.FetchRequest.prototype.getNextstatus = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FetchRequest} returns this
+ */
 proto.services.FetchRequest.prototype.setNextstatus = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -1762,9 +1862,12 @@ proto.services.FetchRequest.prototype.getDeadline = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FetchRequest} returns this
+ */
 proto.services.FetchRequest.prototype.setDeadline = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -1777,9 +1880,12 @@ proto.services.FetchRequest.prototype.getRecover = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.FetchRequest} returns this
+ */
 proto.services.FetchRequest.prototype.setRecover = function(value) {
-  jspb.Message.setProto3BooleanField(this, 7, value);
+  return jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 
@@ -1792,9 +1898,12 @@ proto.services.FetchRequest.prototype.getDesc = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.FetchRequest} returns this
+ */
 proto.services.FetchRequest.prototype.setDesc = function(value) {
-  jspb.Message.setProto3BooleanField(this, 8, value);
+  return jspb.Message.setProto3BooleanField(this, 8, value);
 };
 
 
@@ -1974,9 +2083,12 @@ proto.services.ListRequest.prototype.getConsumer = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.ListRequest} returns this
+ */
 proto.services.ListRequest.prototype.setConsumer = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1989,9 +2101,12 @@ proto.services.ListRequest.prototype.getType = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListRequest} returns this
+ */
 proto.services.ListRequest.prototype.setType = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -2004,9 +2119,12 @@ proto.services.ListRequest.prototype.getCount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListRequest} returns this
+ */
 proto.services.ListRequest.prototype.setCount = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2019,26 +2137,31 @@ proto.services.ListRequest.prototype.getStatusList = function() {
 };
 
 
-/** @param {!Array<number>} value */
+/**
+ * @param {!Array<number>} value
+ * @return {!proto.services.ListRequest} returns this
+ */
 proto.services.ListRequest.prototype.setStatusList = function(value) {
-  jspb.Message.setField(this, 4, value || []);
+  return jspb.Message.setField(this, 4, value || []);
 };
 
 
 /**
  * @param {number} value
  * @param {number=} opt_index
+ * @return {!proto.services.ListRequest} returns this
  */
 proto.services.ListRequest.prototype.addStatus = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 4, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.ListRequest} returns this
  */
 proto.services.ListRequest.prototype.clearStatusList = function() {
-  this.setStatusList([]);
+  return this.setStatusList([]);
 };
 
 
@@ -2051,9 +2174,12 @@ proto.services.ListRequest.prototype.getDeadline = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ListRequest} returns this
+ */
 proto.services.ListRequest.prototype.setDeadline = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -2189,9 +2315,12 @@ proto.services.FetchResponse.prototype.getDataList = function() {
 };
 
 
-/** @param {!Array<!proto.services.RemoteTask>} value */
+/**
+ * @param {!Array<!proto.services.RemoteTask>} value
+ * @return {!proto.services.FetchResponse} returns this
+*/
 proto.services.FetchResponse.prototype.setDataList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -2207,9 +2336,10 @@ proto.services.FetchResponse.prototype.addData = function(opt_value, opt_index) 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.FetchResponse} returns this
  */
 proto.services.FetchResponse.prototype.clearDataList = function() {
-  this.setDataList([]);
+  return this.setDataList([]);
 };
 
 
@@ -2345,9 +2475,12 @@ proto.services.FetchCallLaterResponse.prototype.getDataList = function() {
 };
 
 
-/** @param {!Array<!proto.services.CallLater>} value */
+/**
+ * @param {!Array<!proto.services.CallLater>} value
+ * @return {!proto.services.FetchCallLaterResponse} returns this
+*/
 proto.services.FetchCallLaterResponse.prototype.setDataList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -2363,9 +2496,10 @@ proto.services.FetchCallLaterResponse.prototype.addData = function(opt_value, op
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.FetchCallLaterResponse} returns this
  */
 proto.services.FetchCallLaterResponse.prototype.clearDataList = function() {
-  this.setDataList([]);
+  return this.setDataList([]);
 };
 
 

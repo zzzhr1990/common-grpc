@@ -177,9 +177,12 @@ proto.services.HelloRequest.prototype.getCid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.HelloRequest} returns this
+ */
 proto.services.HelloRequest.prototype.setCid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -304,9 +307,12 @@ proto.services.HelloResponse.prototype.getSid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.HelloResponse} returns this
+ */
 proto.services.HelloResponse.prototype.setSid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 

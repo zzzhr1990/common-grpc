@@ -7,7 +7,6 @@ import (
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
-	common "github.com/zzzhr1990/common-grpc/go/common"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -25,20 +24,19 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type GrpcUser struct {
-	Identity      int64  `protobuf:"varint,1,opt,name=identity,proto3" json:"identity,omitempty"`
-	Name          string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Password      string `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty"`
-	Salt          string `protobuf:"bytes,4,opt,name=salt,proto3" json:"salt,omitempty"`
-	CountryCode   string `protobuf:"bytes,5,opt,name=countryCode,proto3" json:"countryCode,omitempty"`
-	Phone         string `protobuf:"bytes,6,opt,name=phone,proto3" json:"phone,omitempty"`
-	Email         string `protobuf:"bytes,7,opt,name=email,proto3" json:"email,omitempty"`
-	CreateTime    int64  `protobuf:"varint,8,opt,name=createTime,proto3" json:"createTime,omitempty"`
-	CreateIP      string `protobuf:"bytes,9,opt,name=createIP,proto3" json:"createIP,omitempty"`
-	Icon          string `protobuf:"bytes,10,opt,name=icon,proto3" json:"icon,omitempty"`
-	SpaceUsed     int64  `protobuf:"varint,11,opt,name=spaceUsed,proto3" json:"spaceUsed,omitempty"`
-	SpaceCapacity int64  `protobuf:"varint,12,opt,name=spaceCapacity,proto3" json:"spaceCapacity,omitempty"`
-	// bool   ignoreCase = 13;
+type User struct {
+	Identity             int64    `protobuf:"varint,1,opt,name=identity,proto3" json:"identity,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Password             string   `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty"`
+	Salt                 string   `protobuf:"bytes,4,opt,name=salt,proto3" json:"salt,omitempty"`
+	CountryCode          string   `protobuf:"bytes,5,opt,name=country_code,json=countryCode,proto3" json:"country_code,omitempty"`
+	Phone                string   `protobuf:"bytes,6,opt,name=phone,proto3" json:"phone,omitempty"`
+	Email                string   `protobuf:"bytes,7,opt,name=email,proto3" json:"email,omitempty"`
+	CreateTime           int64    `protobuf:"varint,8,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateIp             string   `protobuf:"bytes,9,opt,name=create_ip,json=createIp,proto3" json:"create_ip,omitempty"`
+	Icon                 string   `protobuf:"bytes,10,opt,name=icon,proto3" json:"icon,omitempty"`
+	SpaceUsed            int64    `protobuf:"varint,11,opt,name=space_used,json=spaceUsed,proto3" json:"space_used,omitempty"`
+	SpaceCapacity        int64    `protobuf:"varint,12,opt,name=space_capacity,json=spaceCapacity,proto3" json:"space_capacity,omitempty"`
 	Type                 int32    `protobuf:"varint,13,opt,name=type,proto3" json:"type,omitempty"`
 	Status               int32    `protobuf:"varint,14,opt,name=status,proto3" json:"status,omitempty"`
 	Version              int32    `protobuf:"varint,15,opt,name=version,proto3" json:"version,omitempty"`
@@ -47,130 +45,130 @@ type GrpcUser struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GrpcUser) Reset()         { *m = GrpcUser{} }
-func (m *GrpcUser) String() string { return proto.CompactTextString(m) }
-func (*GrpcUser) ProtoMessage()    {}
-func (*GrpcUser) Descriptor() ([]byte, []int) {
+func (m *User) Reset()         { *m = User{} }
+func (m *User) String() string { return proto.CompactTextString(m) }
+func (*User) ProtoMessage()    {}
+func (*User) Descriptor() ([]byte, []int) {
 	return fileDescriptor_e397bf9a47fd544a, []int{0}
 }
 
-func (m *GrpcUser) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GrpcUser.Unmarshal(m, b)
+func (m *User) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_User.Unmarshal(m, b)
 }
-func (m *GrpcUser) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GrpcUser.Marshal(b, m, deterministic)
+func (m *User) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_User.Marshal(b, m, deterministic)
 }
-func (m *GrpcUser) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GrpcUser.Merge(m, src)
+func (m *User) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_User.Merge(m, src)
 }
-func (m *GrpcUser) XXX_Size() int {
-	return xxx_messageInfo_GrpcUser.Size(m)
+func (m *User) XXX_Size() int {
+	return xxx_messageInfo_User.Size(m)
 }
-func (m *GrpcUser) XXX_DiscardUnknown() {
-	xxx_messageInfo_GrpcUser.DiscardUnknown(m)
+func (m *User) XXX_DiscardUnknown() {
+	xxx_messageInfo_User.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GrpcUser proto.InternalMessageInfo
+var xxx_messageInfo_User proto.InternalMessageInfo
 
-func (m *GrpcUser) GetIdentity() int64 {
+func (m *User) GetIdentity() int64 {
 	if m != nil {
 		return m.Identity
 	}
 	return 0
 }
 
-func (m *GrpcUser) GetName() string {
+func (m *User) GetName() string {
 	if m != nil {
 		return m.Name
 	}
 	return ""
 }
 
-func (m *GrpcUser) GetPassword() string {
+func (m *User) GetPassword() string {
 	if m != nil {
 		return m.Password
 	}
 	return ""
 }
 
-func (m *GrpcUser) GetSalt() string {
+func (m *User) GetSalt() string {
 	if m != nil {
 		return m.Salt
 	}
 	return ""
 }
 
-func (m *GrpcUser) GetCountryCode() string {
+func (m *User) GetCountryCode() string {
 	if m != nil {
 		return m.CountryCode
 	}
 	return ""
 }
 
-func (m *GrpcUser) GetPhone() string {
+func (m *User) GetPhone() string {
 	if m != nil {
 		return m.Phone
 	}
 	return ""
 }
 
-func (m *GrpcUser) GetEmail() string {
+func (m *User) GetEmail() string {
 	if m != nil {
 		return m.Email
 	}
 	return ""
 }
 
-func (m *GrpcUser) GetCreateTime() int64 {
+func (m *User) GetCreateTime() int64 {
 	if m != nil {
 		return m.CreateTime
 	}
 	return 0
 }
 
-func (m *GrpcUser) GetCreateIP() string {
+func (m *User) GetCreateIp() string {
 	if m != nil {
-		return m.CreateIP
+		return m.CreateIp
 	}
 	return ""
 }
 
-func (m *GrpcUser) GetIcon() string {
+func (m *User) GetIcon() string {
 	if m != nil {
 		return m.Icon
 	}
 	return ""
 }
 
-func (m *GrpcUser) GetSpaceUsed() int64 {
+func (m *User) GetSpaceUsed() int64 {
 	if m != nil {
 		return m.SpaceUsed
 	}
 	return 0
 }
 
-func (m *GrpcUser) GetSpaceCapacity() int64 {
+func (m *User) GetSpaceCapacity() int64 {
 	if m != nil {
 		return m.SpaceCapacity
 	}
 	return 0
 }
 
-func (m *GrpcUser) GetType() int32 {
+func (m *User) GetType() int32 {
 	if m != nil {
 		return m.Type
 	}
 	return 0
 }
 
-func (m *GrpcUser) GetStatus() int32 {
+func (m *User) GetStatus() int32 {
 	if m != nil {
 		return m.Status
 	}
 	return 0
 }
 
-func (m *GrpcUser) GetVersion() int32 {
+func (m *User) GetVersion() int32 {
 	if m != nil {
 		return m.Version
 	}
@@ -179,12 +177,12 @@ func (m *GrpcUser) GetVersion() int32 {
 
 type Balance struct {
 	Identity             int64    `protobuf:"varint,1,opt,name=identity,proto3" json:"identity,omitempty"`
-	SpaceUsed            int64    `protobuf:"varint,2,opt,name=spaceUsed,proto3" json:"spaceUsed,omitempty"`
-	SpaceLimit           int64    `protobuf:"varint,3,opt,name=spaceLimit,proto3" json:"spaceLimit,omitempty"`
-	TrafficUsed          int64    `protobuf:"varint,4,opt,name=trafficUsed,proto3" json:"trafficUsed,omitempty"`
-	TrafficLimit         int64    `protobuf:"varint,5,opt,name=trafficLimit,proto3" json:"trafficLimit,omitempty"`
-	OfflineTaskUsed      int64    `protobuf:"varint,6,opt,name=offlineTaskUsed,proto3" json:"offlineTaskUsed,omitempty"`
-	OfflineTaskLimit     int64    `protobuf:"varint,7,opt,name=offlineTaskLimit,proto3" json:"offlineTaskLimit,omitempty"`
+	SpaceUsed            int64    `protobuf:"varint,2,opt,name=space_used,json=spaceUsed,proto3" json:"space_used,omitempty"`
+	SpaceLimit           int64    `protobuf:"varint,3,opt,name=space_limit,json=spaceLimit,proto3" json:"space_limit,omitempty"`
+	TrafficUsed          int64    `protobuf:"varint,4,opt,name=traffic_used,json=trafficUsed,proto3" json:"traffic_used,omitempty"`
+	TrafficLimit         int64    `protobuf:"varint,5,opt,name=traffic_limit,json=trafficLimit,proto3" json:"traffic_limit,omitempty"`
+	OfflineTaskUsed      int64    `protobuf:"varint,6,opt,name=offline_task_used,json=offlineTaskUsed,proto3" json:"offline_task_used,omitempty"`
+	OfflineTaskLimit     int64    `protobuf:"varint,7,opt,name=offline_task_limit,json=offlineTaskLimit,proto3" json:"offline_task_limit,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -266,8 +264,8 @@ func (m *Balance) GetOfflineTaskLimit() int64 {
 
 type PasswordPair struct {
 	Identity             int64    `protobuf:"varint,1,opt,name=identity,proto3" json:"identity,omitempty"`
-	OldPassword          string   `protobuf:"bytes,2,opt,name=oldPassword,proto3" json:"oldPassword,omitempty"`
-	NewPassword          string   `protobuf:"bytes,3,opt,name=newPassword,proto3" json:"newPassword,omitempty"`
+	OldPassword          string   `protobuf:"bytes,2,opt,name=old_password,json=oldPassword,proto3" json:"old_password,omitempty"`
+	NewPassword          string   `protobuf:"bytes,3,opt,name=new_password,json=newPassword,proto3" json:"new_password,omitempty"`
 	Direct               bool     `protobuf:"varint,4,opt,name=direct,proto3" json:"direct,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -328,7 +326,7 @@ func (m *PasswordPair) GetDirect() bool {
 }
 
 func init() {
-	proto.RegisterType((*GrpcUser)(nil), "services.GrpcUser")
+	proto.RegisterType((*User)(nil), "services.User")
 	proto.RegisterType((*Balance)(nil), "services.Balance")
 	proto.RegisterType((*PasswordPair)(nil), "services.PasswordPair")
 }
@@ -336,45 +334,45 @@ func init() {
 func init() { proto.RegisterFile("user/info.proto", fileDescriptor_e397bf9a47fd544a) }
 
 var fileDescriptor_e397bf9a47fd544a = []byte{
-	// 597 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x94, 0x5f, 0x4b, 0x5b, 0x31,
-	0x18, 0xc6, 0xad, 0xb5, 0x7f, 0x7c, 0xad, 0x76, 0x0b, 0x32, 0x42, 0x19, 0x52, 0x0e, 0xbb, 0x28,
-	0x83, 0xb5, 0x73, 0x0e, 0xd1, 0x5d, 0x0d, 0x45, 0xc6, 0x60, 0x6c, 0xa5, 0xea, 0xcd, 0x6e, 0x46,
-	0x4c, 0xd3, 0xd3, 0xb0, 0x73, 0x92, 0x43, 0x92, 0x2a, 0xfa, 0x01, 0xf6, 0x01, 0xf6, 0xed, 0xf6,
-	0x69, 0x36, 0xf2, 0xe6, 0x9c, 0xf6, 0x54, 0xa7, 0xe8, 0x55, 0xf3, 0xfc, 0xf2, 0xbc, 0xe1, 0xed,
-	0x79, 0x9f, 0x04, 0xda, 0x33, 0x2b, 0xcc, 0x40, 0xaa, 0x89, 0xee, 0x67, 0x46, 0x3b, 0x4d, 0x9a,
-	0x56, 0x98, 0x4b, 0xc9, 0x85, 0xed, 0x74, 0xb8, 0x4e, 0x53, 0xad, 0x06, 0xe1, 0xe7, 0x87, 0x50,
-	0x4e, 0xba, 0xeb, 0xe0, 0x8a, 0x7e, 0x57, 0xa1, 0xf9, 0xc9, 0x64, 0xfc, 0xdc, 0x0a, 0x43, 0x3a,
-	0xd0, 0x94, 0xe3, 0xb0, 0x4d, 0x2b, 0xdd, 0x4a, 0xaf, 0x3a, 0x9a, 0x6b, 0x42, 0x60, 0x4d, 0xb1,
-	0x54, 0xd0, 0xd5, 0x6e, 0xa5, 0xb7, 0x3e, 0xc2, 0xb5, 0xf7, 0x67, 0xcc, 0xda, 0x2b, 0x6d, 0xc6,
-	0xb4, 0x8a, 0x7c, 0xae, 0xbd, 0xdf, 0xb2, 0xc4, 0xd1, 0xb5, 0xe0, 0xf7, 0x6b, 0xd2, 0x85, 0x0d,
-	0xae, 0x67, 0xca, 0x99, 0xeb, 0x63, 0x3d, 0x16, 0xb4, 0x86, 0x5b, 0x65, 0x44, 0xb6, 0xa1, 0x96,
-	0x4d, 0xb5, 0x12, 0xb4, 0x8e, 0x7b, 0x41, 0x78, 0x2a, 0x52, 0x26, 0x13, 0xda, 0x08, 0x14, 0x05,
-	0xd9, 0x01, 0xe0, 0x46, 0x30, 0x27, 0xce, 0x64, 0x2a, 0x68, 0x13, 0xfb, 0x2d, 0x11, 0xdf, 0x5d,
-	0x50, 0x9f, 0x87, 0x74, 0x3d, 0x74, 0x57, 0x68, 0xdf, 0x9d, 0xe4, 0x5a, 0x51, 0x08, 0xdd, 0xf9,
-	0x35, 0x79, 0x09, 0xeb, 0x36, 0x63, 0x5c, 0x9c, 0x5b, 0x31, 0xa6, 0x1b, 0x78, 0xdc, 0x02, 0x90,
-	0x57, 0xb0, 0x89, 0xe2, 0x98, 0x65, 0x8c, 0xfb, 0x0f, 0xd4, 0x42, 0xc7, 0x32, 0xf4, 0xe7, 0xba,
-	0xeb, 0x4c, 0xd0, 0xcd, 0x6e, 0xa5, 0x57, 0x1b, 0xe1, 0x9a, 0xbc, 0x80, 0xba, 0x75, 0xcc, 0xcd,
-	0x2c, 0xdd, 0x42, 0x9a, 0x2b, 0x42, 0xa1, 0x71, 0x29, 0x8c, 0x95, 0x5a, 0xd1, 0x36, 0x6e, 0x14,
-	0x32, 0xfa, 0x5b, 0x81, 0xc6, 0x11, 0x4b, 0x98, 0xe2, 0xe2, 0xc1, 0x99, 0x2c, 0x75, 0xbc, 0x7a,
-	0xbb, 0xe3, 0x1d, 0x00, 0x14, 0x5f, 0x64, 0x2a, 0x1d, 0xce, 0xa7, 0x3a, 0x2a, 0x11, 0x3f, 0x0d,
-	0x67, 0xd8, 0x64, 0x22, 0x39, 0xd6, 0xaf, 0xa1, 0xa1, 0x8c, 0x48, 0x04, 0xad, 0x5c, 0x86, 0x33,
-	0x6a, 0x68, 0x59, 0x62, 0xa4, 0x07, 0x6d, 0x3d, 0x99, 0x24, 0x52, 0x89, 0x33, 0x66, 0x7f, 0xe2,
-	0x49, 0x75, 0xb4, 0xdd, 0xc6, 0xe4, 0x35, 0x3c, 0x2b, 0xa1, 0x70, 0x62, 0x03, 0xad, 0x77, 0x78,
-	0xf4, 0xab, 0x02, 0xad, 0x61, 0x1e, 0xa5, 0x21, 0x93, 0x0f, 0x47, 0xb3, 0x0b, 0x1b, 0x3a, 0x19,
-	0x17, 0xf6, 0x3c, 0xa1, 0x65, 0xe4, 0x1d, 0x4a, 0x5c, 0x0d, 0x97, 0xb3, 0x5a, 0x46, 0x7e, 0x48,
-	0x63, 0x69, 0x04, 0x0f, 0x81, 0x6d, 0x8e, 0x72, 0xf5, 0xee, 0x4f, 0x15, 0xda, 0xc5, 0xfd, 0x38,
-	0x0d, 0x17, 0x8a, 0x1c, 0x14, 0xc1, 0xc3, 0x4b, 0x43, 0xfa, 0xc5, 0x45, 0xeb, 0x17, 0xc6, 0xce,
-	0xf6, 0x82, 0x1d, 0x69, 0x9d, 0x9c, 0x60, 0x9f, 0xd1, 0x0a, 0xd9, 0x83, 0x46, 0x2c, 0xdc, 0xbd,
-	0x65, 0xff, 0x61, 0xd1, 0x0a, 0xf9, 0x00, 0x5b, 0x79, 0xd1, 0x37, 0x73, 0x92, 0x66, 0x3e, 0x65,
-	0x8f, 0xae, 0xdd, 0x85, 0x5a, 0xa2, 0x63, 0xa9, 0x9e, 0x50, 0xf2, 0x1e, 0x20, 0x16, 0xae, 0x88,
-	0xdf, 0xf3, 0xd2, 0x3f, 0x09, 0xa8, 0x73, 0x17, 0x45, 0x2b, 0x64, 0x1f, 0x5a, 0x56, 0xb8, 0xd3,
-	0x79, 0xf8, 0x1e, 0x5b, 0xf7, 0x11, 0xb6, 0xf8, 0x94, 0xa9, 0x58, 0x2c, 0x26, 0xb1, 0xb0, 0x95,
-	0x13, 0x70, 0xef, 0x37, 0xf5, 0xd3, 0xc0, 0x13, 0xbe, 0xfa, 0x27, 0xe9, 0x09, 0xd3, 0x38, 0x3a,
-	0xf8, 0xbe, 0x1f, 0x4b, 0x37, 0x9d, 0x5d, 0xf4, 0xb9, 0x4e, 0x07, 0x37, 0x37, 0x37, 0x53, 0xb3,
-	0x7b, 0x78, 0xf8, 0x36, 0x7f, 0x27, 0xdf, 0xc4, 0x26, 0xe3, 0x83, 0x58, 0x0f, 0x8a, 0xe2, 0xc1,
-	0xfc, 0x85, 0xbd, 0xa8, 0xe3, 0xe3, 0xb9, 0xf7, 0x2f, 0x00, 0x00, 0xff, 0xff, 0x64, 0xbf, 0xad,
-	0xe7, 0x75, 0x05, 0x00, 0x00,
+	// 600 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x94, 0x4f, 0x4f, 0x1b, 0x3d,
+	0x10, 0xc6, 0xdf, 0x90, 0x64, 0x93, 0xcc, 0x86, 0xf0, 0xd6, 0xaa, 0x90, 0x45, 0x55, 0x01, 0xa9,
+	0xaa, 0x52, 0xd4, 0x66, 0xfb, 0x47, 0xaa, 0x4a, 0x8f, 0x44, 0x15, 0x42, 0x42, 0x2d, 0x4a, 0xe1,
+	0xd2, 0x4b, 0x64, 0xbc, 0x93, 0xc4, 0x62, 0xd7, 0x5e, 0xd9, 0x0e, 0x28, 0x7c, 0x80, 0xb6, 0xf7,
+	0x7e, 0xe1, 0xca, 0xf6, 0x26, 0x40, 0x54, 0xd1, 0xdc, 0x3c, 0xcf, 0xfc, 0xe6, 0xc9, 0x64, 0x67,
+	0x6c, 0xd8, 0x98, 0x1a, 0xd4, 0x89, 0x90, 0x23, 0xd5, 0x2b, 0xb4, 0xb2, 0x8a, 0x34, 0x0d, 0xea,
+	0x2b, 0xc1, 0xd1, 0x74, 0x7f, 0x57, 0xa1, 0x76, 0x6e, 0x50, 0x93, 0x2d, 0x68, 0x8a, 0x14, 0xa5,
+	0x15, 0x76, 0x46, 0x2b, 0x3b, 0x95, 0xbd, 0xea, 0x60, 0x11, 0x13, 0x02, 0x35, 0xc9, 0x72, 0xa4,
+	0x6b, 0x3b, 0x95, 0xbd, 0xd6, 0xc0, 0x9f, 0x1d, 0x5f, 0x30, 0x63, 0xae, 0x95, 0x4e, 0x69, 0xd5,
+	0xeb, 0x8b, 0xd8, 0xf1, 0x86, 0x65, 0x96, 0xd6, 0x02, 0xef, 0xce, 0x64, 0x17, 0xda, 0x5c, 0x4d,
+	0xa5, 0xd5, 0xb3, 0x21, 0x57, 0x29, 0xd2, 0xba, 0xcf, 0xc5, 0xa5, 0xd6, 0x57, 0x29, 0x92, 0xc7,
+	0x50, 0x2f, 0x26, 0x4a, 0x22, 0x8d, 0x7c, 0x2e, 0x04, 0x4e, 0xc5, 0x9c, 0x89, 0x8c, 0x36, 0x82,
+	0xea, 0x03, 0xb2, 0x0d, 0x31, 0xd7, 0xc8, 0x2c, 0x0e, 0xad, 0xc8, 0x91, 0x36, 0x7d, 0xc7, 0x10,
+	0xa4, 0x33, 0x91, 0x23, 0x79, 0x02, 0xad, 0x12, 0x10, 0x05, 0x6d, 0x85, 0x06, 0x83, 0x70, 0x5c,
+	0xb8, 0x06, 0x05, 0x57, 0x92, 0x42, 0x68, 0xd0, 0x9d, 0xc9, 0x53, 0x00, 0x53, 0x30, 0x8e, 0xc3,
+	0xa9, 0xc1, 0x94, 0xc6, 0xde, 0xb0, 0xe5, 0x95, 0x73, 0x83, 0x29, 0x79, 0x0e, 0x9d, 0x90, 0xe6,
+	0xac, 0x60, 0xdc, 0x7d, 0xa5, 0xb6, 0x47, 0xd6, 0xbd, 0xda, 0x2f, 0x45, 0xe7, 0x6c, 0x67, 0x05,
+	0xd2, 0xf5, 0x9d, 0xca, 0x5e, 0x7d, 0xe0, 0xcf, 0x64, 0x13, 0x22, 0x63, 0x99, 0x9d, 0x1a, 0xda,
+	0xf1, 0x6a, 0x19, 0x11, 0x0a, 0x8d, 0x2b, 0xd4, 0x46, 0x28, 0x49, 0x37, 0x7c, 0x62, 0x1e, 0x76,
+	0x7f, 0xae, 0x41, 0xe3, 0x90, 0x65, 0x4c, 0x72, 0x7c, 0x70, 0x30, 0xf7, 0x7b, 0x5e, 0x5b, 0xee,
+	0x79, 0x1b, 0xe2, 0x90, 0xce, 0x44, 0x2e, 0xac, 0x1f, 0x53, 0x75, 0x10, 0x2a, 0x4e, 0x9c, 0xe2,
+	0x86, 0x62, 0x35, 0x1b, 0x8d, 0x04, 0x0f, 0x0e, 0x35, 0x4f, 0xc4, 0xa5, 0xe6, 0x3d, 0x9e, 0xc1,
+	0xfa, 0x1c, 0x09, 0x2e, 0x75, 0xcf, 0xcc, 0xeb, 0x82, 0xcf, 0x3e, 0x3c, 0x52, 0xa3, 0x51, 0x26,
+	0x24, 0x0e, 0x2d, 0x33, 0x97, 0xc1, 0x2c, 0xf2, 0xe0, 0x46, 0x99, 0x38, 0x63, 0xe6, 0xd2, 0x1b,
+	0xbe, 0x02, 0x72, 0x8f, 0x0d, 0xae, 0x0d, 0x0f, 0xff, 0x7f, 0x07, 0xf6, 0xce, 0xdd, 0x5f, 0x15,
+	0x68, 0x9f, 0x96, 0x7b, 0x75, 0xca, 0xc4, 0xc3, 0x7b, 0xba, 0x0b, 0x6d, 0x95, 0xa5, 0xc3, 0xc5,
+	0x5e, 0x86, 0x7d, 0x8d, 0x55, 0x96, 0xce, 0x2d, 0x1c, 0x22, 0xf1, 0x7a, 0xb8, 0xb4, 0xba, 0xb1,
+	0xc4, 0xeb, 0x05, 0xb2, 0x09, 0x51, 0x2a, 0x34, 0xf2, 0xb0, 0xbf, 0xcd, 0x41, 0x19, 0xbd, 0xfb,
+	0x51, 0x85, 0xd8, 0x5d, 0x95, 0x6f, 0xe1, 0xee, 0x90, 0x7d, 0x88, 0xfa, 0x7e, 0xa1, 0x48, 0xa7,
+	0x37, 0xbf, 0x4f, 0x3d, 0x07, 0x6c, 0x2d, 0xc5, 0xdd, 0xff, 0xc8, 0x0b, 0xa8, 0x1e, 0xa1, 0x5d,
+	0x01, 0xec, 0x01, 0x1c, 0xa1, 0xfd, 0xaa, 0x3f, 0xe7, 0x85, 0x9d, 0xad, 0xc0, 0xbf, 0x84, 0xfa,
+	0x89, 0x1a, 0x0b, 0xb9, 0x02, 0xba, 0x0f, 0xd1, 0x79, 0x91, 0xae, 0xd6, 0xef, 0x27, 0xe8, 0xf4,
+	0x27, 0x4c, 0x8e, 0xf1, 0xf6, 0xab, 0xdc, 0x32, 0x77, 0xe7, 0xf1, 0xf7, 0xbf, 0x10, 0x6a, 0xbf,
+	0xb8, 0x77, 0xe2, 0xdf, 0xbf, 0x95, 0x40, 0x1c, 0xf8, 0xe3, 0x9c, 0x8d, 0x57, 0x28, 0x38, 0xfc,
+	0xf8, 0xfd, 0xc3, 0x58, 0xd8, 0xc9, 0xf4, 0xa2, 0xc7, 0x55, 0x9e, 0xdc, 0xdc, 0xdc, 0x4c, 0xf4,
+	0xdb, 0x83, 0x83, 0x37, 0x09, 0x57, 0x79, 0xae, 0xe4, 0xeb, 0xb1, 0x2e, 0x78, 0x32, 0x56, 0xc9,
+	0xbc, 0x2c, 0x59, 0xbc, 0x7e, 0x17, 0x91, 0x7f, 0xfe, 0xde, 0xff, 0x09, 0x00, 0x00, 0xff, 0xff,
+	0xb0, 0xa3, 0xad, 0xeb, 0x11, 0x05, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -385,324 +383,328 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// GrpcUserServiceClient is the client API for GrpcUserService service.
+// UserServiceClient is the client API for UserService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type GrpcUserServiceClient interface {
-	CreateUser(ctx context.Context, in *GrpcUser, opts ...grpc.CallOption) (*common.BoolEntity, error)
-	GetUser(ctx context.Context, in *GrpcUser, opts ...grpc.CallOption) (*GrpcUser, error)
-	GetUserOrEmpty(ctx context.Context, in *GrpcUser, opts ...grpc.CallOption) (*GrpcUser, error)
-	Login(ctx context.Context, in *GrpcUser, opts ...grpc.CallOption) (*GrpcUser, error)
-	GetBalance(ctx context.Context, in *Balance, opts ...grpc.CallOption) (*Balance, error)
-	SetSpaceUsed(ctx context.Context, in *Balance, opts ...grpc.CallOption) (*Balance, error)
-	ChangePassword(ctx context.Context, in *PasswordPair, opts ...grpc.CallOption) (*common.BoolEntity, error)
-	ChangeName(ctx context.Context, in *GrpcUser, opts ...grpc.CallOption) (*common.BoolEntity, error)
+type UserServiceClient interface {
+	Create(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
+	Get(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
+	GetOrEmpty(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
+	Login(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
+	Update(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
+	// rpc getBalance (Balance) returns (Balance) {}
+	// rpc setSpaceUsed (Balance) returns (Balance) {}
+	ChangePassword(ctx context.Context, in *PasswordPair, opts ...grpc.CallOption) (*User, error)
+	ChangeName(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
+	ChangeImage(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
 }
 
-type grpcUserServiceClient struct {
+type userServiceClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewGrpcUserServiceClient(cc *grpc.ClientConn) GrpcUserServiceClient {
-	return &grpcUserServiceClient{cc}
+func NewUserServiceClient(cc *grpc.ClientConn) UserServiceClient {
+	return &userServiceClient{cc}
 }
 
-func (c *grpcUserServiceClient) CreateUser(ctx context.Context, in *GrpcUser, opts ...grpc.CallOption) (*common.BoolEntity, error) {
-	out := new(common.BoolEntity)
-	err := c.cc.Invoke(ctx, "/services.GrpcUserService/createUser", in, out, opts...)
+func (c *userServiceClient) Create(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
+	out := new(User)
+	err := c.cc.Invoke(ctx, "/services.UserService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *grpcUserServiceClient) GetUser(ctx context.Context, in *GrpcUser, opts ...grpc.CallOption) (*GrpcUser, error) {
-	out := new(GrpcUser)
-	err := c.cc.Invoke(ctx, "/services.GrpcUserService/getUser", in, out, opts...)
+func (c *userServiceClient) Get(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
+	out := new(User)
+	err := c.cc.Invoke(ctx, "/services.UserService/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *grpcUserServiceClient) GetUserOrEmpty(ctx context.Context, in *GrpcUser, opts ...grpc.CallOption) (*GrpcUser, error) {
-	out := new(GrpcUser)
-	err := c.cc.Invoke(ctx, "/services.GrpcUserService/getUserOrEmpty", in, out, opts...)
+func (c *userServiceClient) GetOrEmpty(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
+	out := new(User)
+	err := c.cc.Invoke(ctx, "/services.UserService/GetOrEmpty", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *grpcUserServiceClient) Login(ctx context.Context, in *GrpcUser, opts ...grpc.CallOption) (*GrpcUser, error) {
-	out := new(GrpcUser)
-	err := c.cc.Invoke(ctx, "/services.GrpcUserService/login", in, out, opts...)
+func (c *userServiceClient) Login(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
+	out := new(User)
+	err := c.cc.Invoke(ctx, "/services.UserService/Login", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *grpcUserServiceClient) GetBalance(ctx context.Context, in *Balance, opts ...grpc.CallOption) (*Balance, error) {
-	out := new(Balance)
-	err := c.cc.Invoke(ctx, "/services.GrpcUserService/getBalance", in, out, opts...)
+func (c *userServiceClient) Update(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
+	out := new(User)
+	err := c.cc.Invoke(ctx, "/services.UserService/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *grpcUserServiceClient) SetSpaceUsed(ctx context.Context, in *Balance, opts ...grpc.CallOption) (*Balance, error) {
-	out := new(Balance)
-	err := c.cc.Invoke(ctx, "/services.GrpcUserService/setSpaceUsed", in, out, opts...)
+func (c *userServiceClient) ChangePassword(ctx context.Context, in *PasswordPair, opts ...grpc.CallOption) (*User, error) {
+	out := new(User)
+	err := c.cc.Invoke(ctx, "/services.UserService/ChangePassword", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *grpcUserServiceClient) ChangePassword(ctx context.Context, in *PasswordPair, opts ...grpc.CallOption) (*common.BoolEntity, error) {
-	out := new(common.BoolEntity)
-	err := c.cc.Invoke(ctx, "/services.GrpcUserService/changePassword", in, out, opts...)
+func (c *userServiceClient) ChangeName(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
+	out := new(User)
+	err := c.cc.Invoke(ctx, "/services.UserService/ChangeName", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *grpcUserServiceClient) ChangeName(ctx context.Context, in *GrpcUser, opts ...grpc.CallOption) (*common.BoolEntity, error) {
-	out := new(common.BoolEntity)
-	err := c.cc.Invoke(ctx, "/services.GrpcUserService/changeName", in, out, opts...)
+func (c *userServiceClient) ChangeImage(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error) {
+	out := new(User)
+	err := c.cc.Invoke(ctx, "/services.UserService/ChangeImage", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// GrpcUserServiceServer is the server API for GrpcUserService service.
-type GrpcUserServiceServer interface {
-	CreateUser(context.Context, *GrpcUser) (*common.BoolEntity, error)
-	GetUser(context.Context, *GrpcUser) (*GrpcUser, error)
-	GetUserOrEmpty(context.Context, *GrpcUser) (*GrpcUser, error)
-	Login(context.Context, *GrpcUser) (*GrpcUser, error)
-	GetBalance(context.Context, *Balance) (*Balance, error)
-	SetSpaceUsed(context.Context, *Balance) (*Balance, error)
-	ChangePassword(context.Context, *PasswordPair) (*common.BoolEntity, error)
-	ChangeName(context.Context, *GrpcUser) (*common.BoolEntity, error)
+// UserServiceServer is the server API for UserService service.
+type UserServiceServer interface {
+	Create(context.Context, *User) (*User, error)
+	Get(context.Context, *User) (*User, error)
+	GetOrEmpty(context.Context, *User) (*User, error)
+	Login(context.Context, *User) (*User, error)
+	Update(context.Context, *User) (*User, error)
+	// rpc getBalance (Balance) returns (Balance) {}
+	// rpc setSpaceUsed (Balance) returns (Balance) {}
+	ChangePassword(context.Context, *PasswordPair) (*User, error)
+	ChangeName(context.Context, *User) (*User, error)
+	ChangeImage(context.Context, *User) (*User, error)
 }
 
-// UnimplementedGrpcUserServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedGrpcUserServiceServer struct {
+// UnimplementedUserServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedUserServiceServer struct {
 }
 
-func (*UnimplementedGrpcUserServiceServer) CreateUser(ctx context.Context, req *GrpcUser) (*common.BoolEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateUser not implemented")
+func (*UnimplementedUserServiceServer) Create(ctx context.Context, req *User) (*User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (*UnimplementedGrpcUserServiceServer) GetUser(ctx context.Context, req *GrpcUser) (*GrpcUser, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
+func (*UnimplementedUserServiceServer) Get(ctx context.Context, req *User) (*User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (*UnimplementedGrpcUserServiceServer) GetUserOrEmpty(ctx context.Context, req *GrpcUser) (*GrpcUser, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUserOrEmpty not implemented")
+func (*UnimplementedUserServiceServer) GetOrEmpty(ctx context.Context, req *User) (*User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrEmpty not implemented")
 }
-func (*UnimplementedGrpcUserServiceServer) Login(ctx context.Context, req *GrpcUser) (*GrpcUser, error) {
+func (*UnimplementedUserServiceServer) Login(ctx context.Context, req *User) (*User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
-func (*UnimplementedGrpcUserServiceServer) GetBalance(ctx context.Context, req *Balance) (*Balance, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetBalance not implemented")
+func (*UnimplementedUserServiceServer) Update(ctx context.Context, req *User) (*User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (*UnimplementedGrpcUserServiceServer) SetSpaceUsed(ctx context.Context, req *Balance) (*Balance, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SetSpaceUsed not implemented")
-}
-func (*UnimplementedGrpcUserServiceServer) ChangePassword(ctx context.Context, req *PasswordPair) (*common.BoolEntity, error) {
+func (*UnimplementedUserServiceServer) ChangePassword(ctx context.Context, req *PasswordPair) (*User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ChangePassword not implemented")
 }
-func (*UnimplementedGrpcUserServiceServer) ChangeName(ctx context.Context, req *GrpcUser) (*common.BoolEntity, error) {
+func (*UnimplementedUserServiceServer) ChangeName(ctx context.Context, req *User) (*User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ChangeName not implemented")
 }
-
-func RegisterGrpcUserServiceServer(s *grpc.Server, srv GrpcUserServiceServer) {
-	s.RegisterService(&_GrpcUserService_serviceDesc, srv)
+func (*UnimplementedUserServiceServer) ChangeImage(ctx context.Context, req *User) (*User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChangeImage not implemented")
 }
 
-func _GrpcUserService_CreateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GrpcUser)
+func RegisterUserServiceServer(s *grpc.Server, srv UserServiceServer) {
+	s.RegisterService(&_UserService_serviceDesc, srv)
+}
+
+func _UserService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GrpcUserServiceServer).CreateUser(ctx, in)
+		return srv.(UserServiceServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.GrpcUserService/CreateUser",
+		FullMethod: "/services.UserService/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GrpcUserServiceServer).CreateUser(ctx, req.(*GrpcUser))
+		return srv.(UserServiceServer).Create(ctx, req.(*User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GrpcUserService_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GrpcUser)
+func _UserService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GrpcUserServiceServer).GetUser(ctx, in)
+		return srv.(UserServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.GrpcUserService/GetUser",
+		FullMethod: "/services.UserService/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GrpcUserServiceServer).GetUser(ctx, req.(*GrpcUser))
+		return srv.(UserServiceServer).Get(ctx, req.(*User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GrpcUserService_GetUserOrEmpty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GrpcUser)
+func _UserService_GetOrEmpty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GrpcUserServiceServer).GetUserOrEmpty(ctx, in)
+		return srv.(UserServiceServer).GetOrEmpty(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.GrpcUserService/GetUserOrEmpty",
+		FullMethod: "/services.UserService/GetOrEmpty",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GrpcUserServiceServer).GetUserOrEmpty(ctx, req.(*GrpcUser))
+		return srv.(UserServiceServer).GetOrEmpty(ctx, req.(*User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GrpcUserService_Login_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GrpcUser)
+func _UserService_Login_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GrpcUserServiceServer).Login(ctx, in)
+		return srv.(UserServiceServer).Login(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.GrpcUserService/Login",
+		FullMethod: "/services.UserService/Login",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GrpcUserServiceServer).Login(ctx, req.(*GrpcUser))
+		return srv.(UserServiceServer).Login(ctx, req.(*User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GrpcUserService_GetBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Balance)
+func _UserService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GrpcUserServiceServer).GetBalance(ctx, in)
+		return srv.(UserServiceServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.GrpcUserService/GetBalance",
+		FullMethod: "/services.UserService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GrpcUserServiceServer).GetBalance(ctx, req.(*Balance))
+		return srv.(UserServiceServer).Update(ctx, req.(*User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GrpcUserService_SetSpaceUsed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Balance)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GrpcUserServiceServer).SetSpaceUsed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/services.GrpcUserService/SetSpaceUsed",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GrpcUserServiceServer).SetSpaceUsed(ctx, req.(*Balance))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GrpcUserService_ChangePassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserService_ChangePassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(PasswordPair)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GrpcUserServiceServer).ChangePassword(ctx, in)
+		return srv.(UserServiceServer).ChangePassword(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.GrpcUserService/ChangePassword",
+		FullMethod: "/services.UserService/ChangePassword",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GrpcUserServiceServer).ChangePassword(ctx, req.(*PasswordPair))
+		return srv.(UserServiceServer).ChangePassword(ctx, req.(*PasswordPair))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GrpcUserService_ChangeName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GrpcUser)
+func _UserService_ChangeName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GrpcUserServiceServer).ChangeName(ctx, in)
+		return srv.(UserServiceServer).ChangeName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.GrpcUserService/ChangeName",
+		FullMethod: "/services.UserService/ChangeName",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GrpcUserServiceServer).ChangeName(ctx, req.(*GrpcUser))
+		return srv.(UserServiceServer).ChangeName(ctx, req.(*User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _GrpcUserService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "services.GrpcUserService",
-	HandlerType: (*GrpcUserServiceServer)(nil),
+func _UserService_ChangeImage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(User)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).ChangeImage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserService/ChangeImage",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).ChangeImage(ctx, req.(*User))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _UserService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "services.UserService",
+	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "createUser",
-			Handler:    _GrpcUserService_CreateUser_Handler,
+			MethodName: "Create",
+			Handler:    _UserService_Create_Handler,
 		},
 		{
-			MethodName: "getUser",
-			Handler:    _GrpcUserService_GetUser_Handler,
+			MethodName: "Get",
+			Handler:    _UserService_Get_Handler,
 		},
 		{
-			MethodName: "getUserOrEmpty",
-			Handler:    _GrpcUserService_GetUserOrEmpty_Handler,
+			MethodName: "GetOrEmpty",
+			Handler:    _UserService_GetOrEmpty_Handler,
 		},
 		{
-			MethodName: "login",
-			Handler:    _GrpcUserService_Login_Handler,
+			MethodName: "Login",
+			Handler:    _UserService_Login_Handler,
 		},
 		{
-			MethodName: "getBalance",
-			Handler:    _GrpcUserService_GetBalance_Handler,
+			MethodName: "Update",
+			Handler:    _UserService_Update_Handler,
 		},
 		{
-			MethodName: "setSpaceUsed",
-			Handler:    _GrpcUserService_SetSpaceUsed_Handler,
+			MethodName: "ChangePassword",
+			Handler:    _UserService_ChangePassword_Handler,
 		},
 		{
-			MethodName: "changePassword",
-			Handler:    _GrpcUserService_ChangePassword_Handler,
+			MethodName: "ChangeName",
+			Handler:    _UserService_ChangeName_Handler,
 		},
 		{
-			MethodName: "changeName",
-			Handler:    _GrpcUserService_ChangeName_Handler,
+			MethodName: "ChangeImage",
+			Handler:    _UserService_ChangeImage_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -390,9 +390,12 @@ proto.services.VideoExt.prototype.getHash = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setHash = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -405,9 +408,12 @@ proto.services.VideoExt.prototype.getSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -420,9 +426,12 @@ proto.services.VideoExt.prototype.getTitle = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setTitle = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -435,9 +444,12 @@ proto.services.VideoExt.prototype.getEncoder = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setEncoder = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -450,9 +462,12 @@ proto.services.VideoExt.prototype.getDuration = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setDuration = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -465,9 +480,12 @@ proto.services.VideoExt.prototype.getWidth = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setWidth = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -480,9 +498,12 @@ proto.services.VideoExt.prototype.getHeight = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setHeight = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -495,9 +516,12 @@ proto.services.VideoExt.prototype.getMaxpreviewwidth = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setMaxpreviewwidth = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -510,9 +534,12 @@ proto.services.VideoExt.prototype.getMaxpreviewheight = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setMaxpreviewheight = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  return jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -525,26 +552,31 @@ proto.services.VideoExt.prototype.getPreviewimagekeyList = function() {
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setPreviewimagekeyList = function(value) {
-  jspb.Message.setField(this, 10, value || []);
+  return jspb.Message.setField(this, 10, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.services.VideoExt} returns this
  */
 proto.services.VideoExt.prototype.addPreviewimagekey = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 10, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 10, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.VideoExt} returns this
  */
 proto.services.VideoExt.prototype.clearPreviewimagekeyList = function() {
-  this.setPreviewimagekeyList([]);
+  return this.setPreviewimagekeyList([]);
 };
 
 
@@ -557,9 +589,12 @@ proto.services.VideoExt.prototype.getPreviewkey = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setPreviewkey = function(value) {
-  jspb.Message.setProto3StringField(this, 11, value);
+  return jspb.Message.setProto3StringField(this, 11, value);
 };
 
 
@@ -572,9 +607,12 @@ proto.services.VideoExt.prototype.getPreviewtype = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setPreviewtype = function(value) {
-  jspb.Message.setProto3IntField(this, 12, value);
+  return jspb.Message.setProto3IntField(this, 12, value);
 };
 
 
@@ -587,9 +625,12 @@ proto.services.VideoExt.prototype.getPreviewpid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setPreviewpid = function(value) {
-  jspb.Message.setProto3StringField(this, 13, value);
+  return jspb.Message.setProto3StringField(this, 13, value);
 };
 
 
@@ -602,9 +643,12 @@ proto.services.VideoExt.prototype.getPreviewplaykey = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setPreviewplaykey = function(value) {
-  jspb.Message.setProto3StringField(this, 14, value);
+  return jspb.Message.setProto3StringField(this, 14, value);
 };
 
 
@@ -617,9 +661,12 @@ proto.services.VideoExt.prototype.getStatus = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setStatus = function(value) {
-  jspb.Message.setProto3IntField(this, 15, value);
+  return jspb.Message.setProto3IntField(this, 15, value);
 };
 
 
@@ -632,9 +679,12 @@ proto.services.VideoExt.prototype.getFlag = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setFlag = function(value) {
-  jspb.Message.setProto3IntField(this, 16, value);
+  return jspb.Message.setProto3IntField(this, 16, value);
 };
 
 
@@ -647,9 +697,12 @@ proto.services.VideoExt.prototype.getCreatetime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setCreatetime = function(value) {
-  jspb.Message.setProto3IntField(this, 17, value);
+  return jspb.Message.setProto3IntField(this, 17, value);
 };
 
 
@@ -662,9 +715,12 @@ proto.services.VideoExt.prototype.getUpdatetime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.VideoExt} returns this
+ */
 proto.services.VideoExt.prototype.setUpdatetime = function(value) {
-  jspb.Message.setProto3IntField(this, 18, value);
+  return jspb.Message.setProto3IntField(this, 18, value);
 };
 
 
@@ -904,9 +960,12 @@ proto.services.PreviewInfo.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.PreviewInfo} returns this
+ */
 proto.services.PreviewInfo.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -919,9 +978,12 @@ proto.services.PreviewInfo.prototype.getDuration = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PreviewInfo} returns this
+ */
 proto.services.PreviewInfo.prototype.setDuration = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -934,9 +996,12 @@ proto.services.PreviewInfo.prototype.getWidth = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PreviewInfo} returns this
+ */
 proto.services.PreviewInfo.prototype.setWidth = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -949,9 +1014,12 @@ proto.services.PreviewInfo.prototype.getHeight = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PreviewInfo} returns this
+ */
 proto.services.PreviewInfo.prototype.setHeight = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -964,9 +1032,12 @@ proto.services.PreviewInfo.prototype.getSourceidentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.PreviewInfo} returns this
+ */
 proto.services.PreviewInfo.prototype.setSourceidentity = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -979,9 +1050,12 @@ proto.services.PreviewInfo.prototype.getSourcepath = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.PreviewInfo} returns this
+ */
 proto.services.PreviewInfo.prototype.setSourcepath = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -994,9 +1068,12 @@ proto.services.PreviewInfo.prototype.getSourcesize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PreviewInfo} returns this
+ */
 proto.services.PreviewInfo.prototype.setSourcesize = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -1009,26 +1086,31 @@ proto.services.PreviewInfo.prototype.getPreviewimageaddressList = function() {
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.services.PreviewInfo} returns this
+ */
 proto.services.PreviewInfo.prototype.setPreviewimageaddressList = function(value) {
-  jspb.Message.setField(this, 8, value || []);
+  return jspb.Message.setField(this, 8, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.services.PreviewInfo} returns this
  */
 proto.services.PreviewInfo.prototype.addPreviewimageaddress = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 8, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 8, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.PreviewInfo} returns this
  */
 proto.services.PreviewInfo.prototype.clearPreviewimageaddressList = function() {
-  this.setPreviewimageaddressList([]);
+  return this.setPreviewimageaddressList([]);
 };
 
 
@@ -1041,9 +1123,12 @@ proto.services.PreviewInfo.prototype.getPreviewhlsaddress = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.PreviewInfo} returns this
+ */
 proto.services.PreviewInfo.prototype.setPreviewhlsaddress = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -1056,9 +1141,12 @@ proto.services.PreviewInfo.prototype.getStatus = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.PreviewInfo} returns this
+ */
 proto.services.PreviewInfo.prototype.setStatus = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 

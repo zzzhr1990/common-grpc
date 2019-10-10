@@ -2,9 +2,8 @@
 // file: user/info.proto
 
 import * as jspb from "google-protobuf";
-import * as common_common_entity_pb from "../common/common_entity_pb";
 
-export class GrpcUser extends jspb.Message {
+export class User extends jspb.Message {
   getIdentity(): number;
   setIdentity(value: number): void;
 
@@ -17,8 +16,8 @@ export class GrpcUser extends jspb.Message {
   getSalt(): string;
   setSalt(value: string): void;
 
-  getCountrycode(): string;
-  setCountrycode(value: string): void;
+  getCountryCode(): string;
+  setCountryCode(value: string): void;
 
   getPhone(): string;
   setPhone(value: string): void;
@@ -26,20 +25,20 @@ export class GrpcUser extends jspb.Message {
   getEmail(): string;
   setEmail(value: string): void;
 
-  getCreatetime(): number;
-  setCreatetime(value: number): void;
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
 
-  getCreateip(): string;
-  setCreateip(value: string): void;
+  getCreateIp(): string;
+  setCreateIp(value: string): void;
 
   getIcon(): string;
   setIcon(value: string): void;
 
-  getSpaceused(): number;
-  setSpaceused(value: number): void;
+  getSpaceUsed(): number;
+  setSpaceUsed(value: number): void;
 
-  getSpacecapacity(): number;
-  setSpacecapacity(value: number): void;
+  getSpaceCapacity(): number;
+  setSpaceCapacity(value: number): void;
 
   getType(): number;
   setType(value: number): void;
@@ -51,29 +50,29 @@ export class GrpcUser extends jspb.Message {
   setVersion(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): GrpcUser.AsObject;
-  static toObject(includeInstance: boolean, msg: GrpcUser): GrpcUser.AsObject;
+  toObject(includeInstance?: boolean): User.AsObject;
+  static toObject(includeInstance: boolean, msg: User): User.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: GrpcUser, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): GrpcUser;
-  static deserializeBinaryFromReader(message: GrpcUser, reader: jspb.BinaryReader): GrpcUser;
+  static serializeBinaryToWriter(message: User, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): User;
+  static deserializeBinaryFromReader(message: User, reader: jspb.BinaryReader): User;
 }
 
-export namespace GrpcUser {
+export namespace User {
   export type AsObject = {
     identity: number,
     name: string,
     password: string,
     salt: string,
-    countrycode: string,
+    countryCode: string,
     phone: string,
     email: string,
-    createtime: number,
-    createip: string,
+    createTime: number,
+    createIp: string,
     icon: string,
-    spaceused: number,
-    spacecapacity: number,
+    spaceUsed: number,
+    spaceCapacity: number,
     type: number,
     status: number,
     version: number,
@@ -84,23 +83,23 @@ export class Balance extends jspb.Message {
   getIdentity(): number;
   setIdentity(value: number): void;
 
-  getSpaceused(): number;
-  setSpaceused(value: number): void;
+  getSpaceUsed(): number;
+  setSpaceUsed(value: number): void;
 
-  getSpacelimit(): number;
-  setSpacelimit(value: number): void;
+  getSpaceLimit(): number;
+  setSpaceLimit(value: number): void;
 
-  getTrafficused(): number;
-  setTrafficused(value: number): void;
+  getTrafficUsed(): number;
+  setTrafficUsed(value: number): void;
 
-  getTrafficlimit(): number;
-  setTrafficlimit(value: number): void;
+  getTrafficLimit(): number;
+  setTrafficLimit(value: number): void;
 
-  getOfflinetaskused(): number;
-  setOfflinetaskused(value: number): void;
+  getOfflineTaskUsed(): number;
+  setOfflineTaskUsed(value: number): void;
 
-  getOfflinetasklimit(): number;
-  setOfflinetasklimit(value: number): void;
+  getOfflineTaskLimit(): number;
+  setOfflineTaskLimit(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Balance.AsObject;
@@ -115,12 +114,12 @@ export class Balance extends jspb.Message {
 export namespace Balance {
   export type AsObject = {
     identity: number,
-    spaceused: number,
-    spacelimit: number,
-    trafficused: number,
-    trafficlimit: number,
-    offlinetaskused: number,
-    offlinetasklimit: number,
+    spaceUsed: number,
+    spaceLimit: number,
+    trafficUsed: number,
+    trafficLimit: number,
+    offlineTaskUsed: number,
+    offlineTaskLimit: number,
   }
 }
 
@@ -128,11 +127,11 @@ export class PasswordPair extends jspb.Message {
   getIdentity(): number;
   setIdentity(value: number): void;
 
-  getOldpassword(): string;
-  setOldpassword(value: string): void;
+  getOldPassword(): string;
+  setOldPassword(value: string): void;
 
-  getNewpassword(): string;
-  setNewpassword(value: string): void;
+  getNewPassword(): string;
+  setNewPassword(value: string): void;
 
   getDirect(): boolean;
   setDirect(value: boolean): void;
@@ -150,8 +149,8 @@ export class PasswordPair extends jspb.Message {
 export namespace PasswordPair {
   export type AsObject = {
     identity: number,
-    oldpassword: string,
-    newpassword: string,
+    oldPassword: string,
+    newPassword: string,
     direct: boolean,
   }
 }

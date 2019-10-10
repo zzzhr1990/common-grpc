@@ -309,9 +309,12 @@ proto.services.BoolEntity.prototype.getData = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.BoolEntity} returns this
+ */
 proto.services.BoolEntity.prototype.setData = function(value) {
-  jspb.Message.setProto3BooleanField(this, 1, value);
+  return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
 
@@ -436,9 +439,12 @@ proto.services.StringEntity.prototype.getData = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.StringEntity} returns this
+ */
 proto.services.StringEntity.prototype.setData = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -570,26 +576,31 @@ proto.services.StringListEntity.prototype.getDataList = function() {
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.services.StringListEntity} returns this
+ */
 proto.services.StringListEntity.prototype.setDataList = function(value) {
-  jspb.Message.setField(this, 1, value || []);
+  return jspb.Message.setField(this, 1, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.services.StringListEntity} returns this
  */
 proto.services.StringListEntity.prototype.addData = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 1, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.StringListEntity} returns this
  */
 proto.services.StringListEntity.prototype.clearDataList = function() {
-  this.setDataList([]);
+  return this.setDataList([]);
 };
 
 
@@ -714,9 +725,12 @@ proto.services.Int32Entity.prototype.getData = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.Int32Entity} returns this
+ */
 proto.services.Int32Entity.prototype.setData = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -848,26 +862,31 @@ proto.services.Int32ListEntity.prototype.getDataList = function() {
 };
 
 
-/** @param {!Array<number>} value */
+/**
+ * @param {!Array<number>} value
+ * @return {!proto.services.Int32ListEntity} returns this
+ */
 proto.services.Int32ListEntity.prototype.setDataList = function(value) {
-  jspb.Message.setField(this, 1, value || []);
+  return jspb.Message.setField(this, 1, value || []);
 };
 
 
 /**
  * @param {number} value
  * @param {number=} opt_index
+ * @return {!proto.services.Int32ListEntity} returns this
  */
 proto.services.Int32ListEntity.prototype.addData = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 1, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.Int32ListEntity} returns this
  */
 proto.services.Int32ListEntity.prototype.clearDataList = function() {
-  this.setDataList([]);
+  return this.setDataList([]);
 };
 
 
@@ -992,9 +1011,12 @@ proto.services.Int64Entity.prototype.getData = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.Int64Entity} returns this
+ */
 proto.services.Int64Entity.prototype.setData = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1119,9 +1141,12 @@ proto.services.Uint32Entity.prototype.getData = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.Uint32Entity} returns this
+ */
 proto.services.Uint32Entity.prototype.setData = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1246,9 +1271,12 @@ proto.services.Uint64Entity.prototype.getData = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.Uint64Entity} returns this
+ */
 proto.services.Uint64Entity.prototype.setData = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 

@@ -323,9 +323,12 @@ proto.services.CloudStore.prototype.getHash = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setHash = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -338,9 +341,12 @@ proto.services.CloudStore.prototype.getSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -353,9 +359,12 @@ proto.services.CloudStore.prototype.getMime = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setMime = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -368,9 +377,12 @@ proto.services.CloudStore.prototype.getUploaduser = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setUploaduser = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -383,9 +395,12 @@ proto.services.CloudStore.prototype.getCtime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setCtime = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -398,9 +413,12 @@ proto.services.CloudStore.prototype.getOriginalafilename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setOriginalafilename = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -413,9 +431,12 @@ proto.services.CloudStore.prototype.getStore = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setStore = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -428,9 +449,12 @@ proto.services.CloudStore.prototype.getKey = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setKey = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -443,9 +467,12 @@ proto.services.CloudStore.prototype.getType = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setType = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  return jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -458,9 +485,12 @@ proto.services.CloudStore.prototype.getPreview = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setPreview = function(value) {
-  jspb.Message.setProto3BooleanField(this, 10, value);
+  return jspb.Message.setProto3BooleanField(this, 10, value);
 };
 
 
@@ -473,9 +503,12 @@ proto.services.CloudStore.prototype.getPreviewtype = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setPreviewtype = function(value) {
-  jspb.Message.setProto3IntField(this, 11, value);
+  return jspb.Message.setProto3IntField(this, 11, value);
 };
 
 
@@ -488,9 +521,12 @@ proto.services.CloudStore.prototype.getFlag = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setFlag = function(value) {
-  jspb.Message.setProto3IntField(this, 12, value);
+  return jspb.Message.setProto3IntField(this, 12, value);
 };
 
 
@@ -503,9 +539,12 @@ proto.services.CloudStore.prototype.getDownloadaddress = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.CloudStore} returns this
+ */
 proto.services.CloudStore.prototype.setDownloadaddress = function(value) {
-  jspb.Message.setProto3StringField(this, 13, value);
+  return jspb.Message.setProto3StringField(this, 13, value);
 };
 
 
@@ -641,9 +680,12 @@ proto.services.CloudStoreList.prototype.getDataList = function() {
 };
 
 
-/** @param {!Array<!proto.services.CloudStore>} value */
+/**
+ * @param {!Array<!proto.services.CloudStore>} value
+ * @return {!proto.services.CloudStoreList} returns this
+*/
 proto.services.CloudStoreList.prototype.setDataList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -659,9 +701,10 @@ proto.services.CloudStoreList.prototype.addData = function(opt_value, opt_index)
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.CloudStoreList} returns this
  */
 proto.services.CloudStoreList.prototype.clearDataList = function() {
-  this.setDataList([]);
+  return this.setDataList([]);
 };
 
 

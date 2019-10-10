@@ -3,40 +3,6 @@
 'use strict';
 var grpc = require('grpc');
 var user_info_pb = require('../user/info_pb.js');
-var common_common_entity_pb = require('../common/common_entity_pb.js');
-
-function serialize_services_Balance(arg) {
-  if (!(arg instanceof user_info_pb.Balance)) {
-    throw new Error('Expected argument of type services.Balance');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_Balance(buffer_arg) {
-  return user_info_pb.Balance.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_BoolEntity(arg) {
-  if (!(arg instanceof common_common_entity_pb.BoolEntity)) {
-    throw new Error('Expected argument of type services.BoolEntity');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_BoolEntity(buffer_arg) {
-  return common_common_entity_pb.BoolEntity.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_GrpcUser(arg) {
-  if (!(arg instanceof user_info_pb.GrpcUser)) {
-    throw new Error('Expected argument of type services.GrpcUser');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_GrpcUser(buffer_arg) {
-  return user_info_pb.GrpcUser.deserializeBinary(new Uint8Array(buffer_arg));
-}
 
 function serialize_services_PasswordPair(arg) {
   if (!(arg instanceof user_info_pb.PasswordPair)) {
@@ -49,96 +15,109 @@ function deserialize_services_PasswordPair(buffer_arg) {
   return user_info_pb.PasswordPair.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_User(arg) {
+  if (!(arg instanceof user_info_pb.User)) {
+    throw new Error('Expected argument of type services.User');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
 
-var GrpcUserServiceService = exports.GrpcUserServiceService = {
-  createUser: {
-    path: '/services.GrpcUserService/createUser',
+function deserialize_services_User(buffer_arg) {
+  return user_info_pb.User.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+
+var UserServiceService = exports.UserServiceService = {
+  create: {
+    path: '/services.UserService/Create',
     requestStream: false,
     responseStream: false,
-    requestType: user_info_pb.GrpcUser,
-    responseType: common_common_entity_pb.BoolEntity,
-    requestSerialize: serialize_services_GrpcUser,
-    requestDeserialize: deserialize_services_GrpcUser,
-    responseSerialize: serialize_services_BoolEntity,
-    responseDeserialize: deserialize_services_BoolEntity,
+    requestType: user_info_pb.User,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_User,
+    requestDeserialize: deserialize_services_User,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
   },
-  getUser: {
-    path: '/services.GrpcUserService/getUser',
+  get: {
+    path: '/services.UserService/Get',
     requestStream: false,
     responseStream: false,
-    requestType: user_info_pb.GrpcUser,
-    responseType: user_info_pb.GrpcUser,
-    requestSerialize: serialize_services_GrpcUser,
-    requestDeserialize: deserialize_services_GrpcUser,
-    responseSerialize: serialize_services_GrpcUser,
-    responseDeserialize: deserialize_services_GrpcUser,
+    requestType: user_info_pb.User,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_User,
+    requestDeserialize: deserialize_services_User,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
   },
-  getUserOrEmpty: {
-    path: '/services.GrpcUserService/getUserOrEmpty',
+  getOrEmpty: {
+    path: '/services.UserService/GetOrEmpty',
     requestStream: false,
     responseStream: false,
-    requestType: user_info_pb.GrpcUser,
-    responseType: user_info_pb.GrpcUser,
-    requestSerialize: serialize_services_GrpcUser,
-    requestDeserialize: deserialize_services_GrpcUser,
-    responseSerialize: serialize_services_GrpcUser,
-    responseDeserialize: deserialize_services_GrpcUser,
+    requestType: user_info_pb.User,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_User,
+    requestDeserialize: deserialize_services_User,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
   },
   login: {
-    path: '/services.GrpcUserService/login',
+    path: '/services.UserService/Login',
     requestStream: false,
     responseStream: false,
-    requestType: user_info_pb.GrpcUser,
-    responseType: user_info_pb.GrpcUser,
-    requestSerialize: serialize_services_GrpcUser,
-    requestDeserialize: deserialize_services_GrpcUser,
-    responseSerialize: serialize_services_GrpcUser,
-    responseDeserialize: deserialize_services_GrpcUser,
+    requestType: user_info_pb.User,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_User,
+    requestDeserialize: deserialize_services_User,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
   },
-  getBalance: {
-    path: '/services.GrpcUserService/getBalance',
+  update: {
+    path: '/services.UserService/Update',
     requestStream: false,
     responseStream: false,
-    requestType: user_info_pb.Balance,
-    responseType: user_info_pb.Balance,
-    requestSerialize: serialize_services_Balance,
-    requestDeserialize: deserialize_services_Balance,
-    responseSerialize: serialize_services_Balance,
-    responseDeserialize: deserialize_services_Balance,
+    requestType: user_info_pb.User,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_User,
+    requestDeserialize: deserialize_services_User,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
   },
-  setSpaceUsed: {
-    path: '/services.GrpcUserService/setSpaceUsed',
-    requestStream: false,
-    responseStream: false,
-    requestType: user_info_pb.Balance,
-    responseType: user_info_pb.Balance,
-    requestSerialize: serialize_services_Balance,
-    requestDeserialize: deserialize_services_Balance,
-    responseSerialize: serialize_services_Balance,
-    responseDeserialize: deserialize_services_Balance,
-  },
+  // rpc getBalance (Balance) returns (Balance) {}
+  // rpc setSpaceUsed (Balance) returns (Balance) {}
   changePassword: {
-    path: '/services.GrpcUserService/changePassword',
+    path: '/services.UserService/ChangePassword',
     requestStream: false,
     responseStream: false,
     requestType: user_info_pb.PasswordPair,
-    responseType: common_common_entity_pb.BoolEntity,
+    responseType: user_info_pb.User,
     requestSerialize: serialize_services_PasswordPair,
     requestDeserialize: deserialize_services_PasswordPair,
-    responseSerialize: serialize_services_BoolEntity,
-    responseDeserialize: deserialize_services_BoolEntity,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
   },
   changeName: {
-    path: '/services.GrpcUserService/changeName',
+    path: '/services.UserService/ChangeName',
     requestStream: false,
     responseStream: false,
-    requestType: user_info_pb.GrpcUser,
-    responseType: common_common_entity_pb.BoolEntity,
-    requestSerialize: serialize_services_GrpcUser,
-    requestDeserialize: deserialize_services_GrpcUser,
-    responseSerialize: serialize_services_BoolEntity,
-    responseDeserialize: deserialize_services_BoolEntity,
+    requestType: user_info_pb.User,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_User,
+    requestDeserialize: deserialize_services_User,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
+  },
+  changeImage: {
+    path: '/services.UserService/ChangeImage',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.User,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_User,
+    requestDeserialize: deserialize_services_User,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
   },
 };
 
-exports.GrpcUserServiceClient = grpc.makeGenericClientConstructor(GrpcUserServiceService);
+exports.UserServiceClient = grpc.makeGenericClientConstructor(UserServiceService);

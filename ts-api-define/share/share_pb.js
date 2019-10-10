@@ -371,9 +371,12 @@ proto.services.FileShare.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -386,9 +389,12 @@ proto.services.FileShare.prototype.getSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -401,9 +407,12 @@ proto.services.FileShare.prototype.getMime = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setMime = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -416,9 +425,12 @@ proto.services.FileShare.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -431,9 +443,12 @@ proto.services.FileShare.prototype.getCtime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setCtime = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -446,9 +461,12 @@ proto.services.FileShare.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -461,9 +479,12 @@ proto.services.FileShare.prototype.getFlag = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setFlag = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -476,9 +497,12 @@ proto.services.FileShare.prototype.getPasswordenabled = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setPasswordenabled = function(value) {
-  jspb.Message.setProto3BooleanField(this, 8, value);
+  return jspb.Message.setProto3BooleanField(this, 8, value);
 };
 
 
@@ -491,9 +515,12 @@ proto.services.FileShare.prototype.getPassword = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setPassword = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -506,9 +533,12 @@ proto.services.FileShare.prototype.getExpireenabled = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setExpireenabled = function(value) {
-  jspb.Message.setProto3BooleanField(this, 10, value);
+  return jspb.Message.setProto3BooleanField(this, 10, value);
 };
 
 
@@ -521,9 +551,12 @@ proto.services.FileShare.prototype.getExpire = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setExpire = function(value) {
-  jspb.Message.setProto3IntField(this, 11, value);
+  return jspb.Message.setProto3IntField(this, 11, value);
 };
 
 
@@ -536,9 +569,12 @@ proto.services.FileShare.prototype.getCopycount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setCopycount = function(value) {
-  jspb.Message.setProto3IntField(this, 12, value);
+  return jspb.Message.setProto3IntField(this, 12, value);
 };
 
 
@@ -551,9 +587,12 @@ proto.services.FileShare.prototype.getCopycountlimit = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setCopycountlimit = function(value) {
-  jspb.Message.setProto3IntField(this, 13, value);
+  return jspb.Message.setProto3IntField(this, 13, value);
 };
 
 
@@ -566,9 +605,12 @@ proto.services.FileShare.prototype.getCopycountenabled = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setCopycountenabled = function(value) {
-  jspb.Message.setProto3BooleanField(this, 14, value);
+  return jspb.Message.setProto3BooleanField(this, 14, value);
 };
 
 
@@ -581,9 +623,12 @@ proto.services.FileShare.prototype.getStatus = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setStatus = function(value) {
-  jspb.Message.setProto3IntField(this, 15, value);
+  return jspb.Message.setProto3IntField(this, 15, value);
 };
 
 
@@ -596,9 +641,12 @@ proto.services.FileShare.prototype.getUsername = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setUsername = function(value) {
-  jspb.Message.setProto3StringField(this, 16, value);
+  return jspb.Message.setProto3StringField(this, 16, value);
 };
 
 
@@ -611,9 +659,12 @@ proto.services.FileShare.prototype.getWeburl = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.FileShare} returns this
+ */
 proto.services.FileShare.prototype.setWeburl = function(value) {
-  jspb.Message.setProto3StringField(this, 17, value);
+  return jspb.Message.setProto3StringField(this, 17, value);
 };
 
 
@@ -786,9 +837,12 @@ proto.services.ShareSaveRequest.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.ShareSaveRequest} returns this
+ */
 proto.services.ShareSaveRequest.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -801,9 +855,12 @@ proto.services.ShareSaveRequest.prototype.getUseridentity = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ShareSaveRequest} returns this
+ */
 proto.services.ShareSaveRequest.prototype.setUseridentity = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -816,9 +873,12 @@ proto.services.ShareSaveRequest.prototype.getSavepath = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.ShareSaveRequest} returns this
+ */
 proto.services.ShareSaveRequest.prototype.setSavepath = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -831,9 +891,12 @@ proto.services.ShareSaveRequest.prototype.getSaveidentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.ShareSaveRequest} returns this
+ */
 proto.services.ShareSaveRequest.prototype.setSaveidentity = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -846,9 +909,12 @@ proto.services.ShareSaveRequest.prototype.getPassword = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.ShareSaveRequest} returns this
+ */
 proto.services.ShareSaveRequest.prototype.setPassword = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 

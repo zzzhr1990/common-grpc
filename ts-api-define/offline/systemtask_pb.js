@@ -340,26 +340,31 @@ proto.services.BatchGetRequest.prototype.getIdentitiesList = function() {
 };
 
 
-/** @param {!Array<string>} value */
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.services.BatchGetRequest} returns this
+ */
 proto.services.BatchGetRequest.prototype.setIdentitiesList = function(value) {
-  jspb.Message.setField(this, 1, value || []);
+  return jspb.Message.setField(this, 1, value || []);
 };
 
 
 /**
  * @param {string} value
  * @param {number=} opt_index
+ * @return {!proto.services.BatchGetRequest} returns this
  */
 proto.services.BatchGetRequest.prototype.addIdentities = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 1, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.BatchGetRequest} returns this
  */
 proto.services.BatchGetRequest.prototype.clearIdentitiesList = function() {
-  this.setIdentitiesList([]);
+  return this.setIdentitiesList([]);
 };
 
 
@@ -495,9 +500,12 @@ proto.services.BatchGetResponse.prototype.getDataList = function() {
 };
 
 
-/** @param {!Array<!proto.services.SystemOfflineTaskMeta>} value */
+/**
+ * @param {!Array<!proto.services.SystemOfflineTaskMeta>} value
+ * @return {!proto.services.BatchGetResponse} returns this
+*/
 proto.services.BatchGetResponse.prototype.setDataList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -513,9 +521,10 @@ proto.services.BatchGetResponse.prototype.addData = function(opt_value, opt_inde
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.BatchGetResponse} returns this
  */
 proto.services.BatchGetResponse.prototype.clearDataList = function() {
-  this.setDataList([]);
+  return this.setDataList([]);
 };
 
 
@@ -796,9 +805,12 @@ proto.services.SystemOfflineTask.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -811,9 +823,12 @@ proto.services.SystemOfflineTask.prototype.getSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -826,9 +841,12 @@ proto.services.SystemOfflineTask.prototype.getCreateuser = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setCreateuser = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -841,9 +859,12 @@ proto.services.SystemOfflineTask.prototype.getCreatetime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setCreatetime = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -856,9 +877,12 @@ proto.services.SystemOfflineTask.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -871,9 +895,12 @@ proto.services.SystemOfflineTask.prototype.getType = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setType = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -886,9 +913,12 @@ proto.services.SystemOfflineTask.prototype.getStatus = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setStatus = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -901,9 +931,12 @@ proto.services.SystemOfflineTask.prototype.getFlag = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setFlag = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -916,9 +949,12 @@ proto.services.SystemOfflineTask.prototype.getDownloadsize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setDownloadsize = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  return jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -931,9 +967,12 @@ proto.services.SystemOfflineTask.prototype.getErrorcode = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setErrorcode = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -946,9 +985,12 @@ proto.services.SystemOfflineTask.prototype.getErrormessage = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setErrormessage = function(value) {
-  jspb.Message.setProto3StringField(this, 11, value);
+  return jspb.Message.setProto3StringField(this, 11, value);
 };
 
 
@@ -961,9 +1003,12 @@ proto.services.SystemOfflineTask.prototype.getCreateip = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setCreateip = function(value) {
-  jspb.Message.setProto3StringField(this, 12, value);
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 
@@ -976,9 +1021,12 @@ proto.services.SystemOfflineTask.prototype.getData = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setData = function(value) {
-  jspb.Message.setProto3StringField(this, 13, value);
+  return jspb.Message.setProto3StringField(this, 13, value);
 };
 
 
@@ -991,9 +1039,12 @@ proto.services.SystemOfflineTask.prototype.getPreview = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.SystemOfflineTask} returns this
+ */
 proto.services.SystemOfflineTask.prototype.setPreview = function(value) {
-  jspb.Message.setProto3BooleanField(this, 14, value);
+  return jspb.Message.setProto3BooleanField(this, 14, value);
 };
 
 
@@ -1142,9 +1193,12 @@ proto.services.UpdateProgressRequest.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.UpdateProgressRequest} returns this
+ */
 proto.services.UpdateProgressRequest.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1157,9 +1211,12 @@ proto.services.UpdateProgressRequest.prototype.getSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UpdateProgressRequest} returns this
+ */
 proto.services.UpdateProgressRequest.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -1172,9 +1229,12 @@ proto.services.UpdateProgressRequest.prototype.getDownloadsize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.UpdateProgressRequest} returns this
+ */
 proto.services.UpdateProgressRequest.prototype.setDownloadsize = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -1323,9 +1383,12 @@ proto.services.StatusChangeRequest.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.StatusChangeRequest} returns this
+ */
 proto.services.StatusChangeRequest.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1338,9 +1401,12 @@ proto.services.StatusChangeRequest.prototype.getStatus = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.StatusChangeRequest} returns this
+ */
 proto.services.StatusChangeRequest.prototype.setStatus = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -1353,9 +1419,12 @@ proto.services.StatusChangeRequest.prototype.getRemovelistener = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.StatusChangeRequest} returns this
+ */
 proto.services.StatusChangeRequest.prototype.setRemovelistener = function(value) {
-  jspb.Message.setProto3BooleanField(this, 3, value);
+  return jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
@@ -1504,9 +1573,12 @@ proto.services.ErrorRequest.prototype.getIdentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.ErrorRequest} returns this
+ */
 proto.services.ErrorRequest.prototype.setIdentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1519,9 +1591,12 @@ proto.services.ErrorRequest.prototype.getErrorcode = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.ErrorRequest} returns this
+ */
 proto.services.ErrorRequest.prototype.setErrorcode = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -1534,9 +1609,12 @@ proto.services.ErrorRequest.prototype.getErrormessage = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.ErrorRequest} returns this
+ */
 proto.services.ErrorRequest.prototype.setErrormessage = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -1805,9 +1883,12 @@ proto.services.SystemOfflineTaskFile.prototype.getDownloadidentity = function() 
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setDownloadidentity = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1820,9 +1901,12 @@ proto.services.SystemOfflineTaskFile.prototype.getPathidentity = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setPathidentity = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1835,9 +1919,12 @@ proto.services.SystemOfflineTaskFile.prototype.getCreatetime = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setCreatetime = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -1850,9 +1937,12 @@ proto.services.SystemOfflineTaskFile.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -1865,9 +1955,12 @@ proto.services.SystemOfflineTaskFile.prototype.getPath = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setPath = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -1880,9 +1973,12 @@ proto.services.SystemOfflineTaskFile.prototype.getHash = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setHash = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -1895,9 +1991,12 @@ proto.services.SystemOfflineTaskFile.prototype.getSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -1910,9 +2009,12 @@ proto.services.SystemOfflineTaskFile.prototype.getDownloadsize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setDownloadsize = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  return jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -1925,9 +2027,12 @@ proto.services.SystemOfflineTaskFile.prototype.getStatus = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setStatus = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -1940,9 +2045,12 @@ proto.services.SystemOfflineTaskFile.prototype.getFlag = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setFlag = function(value) {
-  jspb.Message.setProto3IntField(this, 11, value);
+  return jspb.Message.setProto3IntField(this, 11, value);
 };
 
 
@@ -1955,9 +2063,12 @@ proto.services.SystemOfflineTaskFile.prototype.getFileindex = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setFileindex = function(value) {
-  jspb.Message.setProto3IntField(this, 12, value);
+  return jspb.Message.setProto3IntField(this, 12, value);
 };
 
 
@@ -1970,9 +2081,12 @@ proto.services.SystemOfflineTaskFile.prototype.getFinish = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setFinish = function(value) {
-  jspb.Message.setProto3BooleanField(this, 13, value);
+  return jspb.Message.setProto3BooleanField(this, 13, value);
 };
 
 
@@ -1985,9 +2099,12 @@ proto.services.SystemOfflineTaskFile.prototype.getDirectory = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.services.SystemOfflineTaskFile} returns this
+ */
 proto.services.SystemOfflineTaskFile.prototype.setDirectory = function(value) {
-  jspb.Message.setProto3BooleanField(this, 14, value);
+  return jspb.Message.setProto3BooleanField(this, 14, value);
 };
 
 
@@ -2137,17 +2254,21 @@ proto.services.SystemOfflineTaskMeta.prototype.getTask = function() {
 };
 
 
-/** @param {?proto.services.SystemOfflineTask|undefined} value */
+/**
+ * @param {?proto.services.SystemOfflineTask|undefined} value
+ * @return {!proto.services.SystemOfflineTaskMeta} returns this
+*/
 proto.services.SystemOfflineTaskMeta.prototype.setTask = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.services.SystemOfflineTaskMeta} returns this
  */
 proto.services.SystemOfflineTaskMeta.prototype.clearTask = function() {
-  this.setTask(undefined);
+  return this.setTask(undefined);
 };
 
 
@@ -2170,9 +2291,12 @@ proto.services.SystemOfflineTaskMeta.prototype.getFilesList = function() {
 };
 
 
-/** @param {!Array<!proto.services.SystemOfflineTaskFile>} value */
+/**
+ * @param {!Array<!proto.services.SystemOfflineTaskFile>} value
+ * @return {!proto.services.SystemOfflineTaskMeta} returns this
+*/
 proto.services.SystemOfflineTaskMeta.prototype.setFilesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -2188,9 +2312,10 @@ proto.services.SystemOfflineTaskMeta.prototype.addFiles = function(opt_value, op
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.SystemOfflineTaskMeta} returns this
  */
 proto.services.SystemOfflineTaskMeta.prototype.clearFilesList = function() {
-  this.setFilesList([]);
+  return this.setFilesList([]);
 };
 
 
@@ -2326,9 +2451,12 @@ proto.services.SystemOfflineTaskFiles.prototype.getFilesList = function() {
 };
 
 
-/** @param {!Array<!proto.services.SystemOfflineTaskFile>} value */
+/**
+ * @param {!Array<!proto.services.SystemOfflineTaskFile>} value
+ * @return {!proto.services.SystemOfflineTaskFiles} returns this
+*/
 proto.services.SystemOfflineTaskFiles.prototype.setFilesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -2344,9 +2472,10 @@ proto.services.SystemOfflineTaskFiles.prototype.addFiles = function(opt_value, o
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.services.SystemOfflineTaskFiles} returns this
  */
 proto.services.SystemOfflineTaskFiles.prototype.clearFilesList = function() {
-  this.setFilesList([]);
+  return this.setFilesList([]);
 };
 
 
