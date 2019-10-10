@@ -28,8 +28,8 @@ function deserialize_services_SystemInfo(buffer_arg) {
 
 
 var SystemInfoServiceService = exports.SystemInfoServiceService = {
-  create: {
-    path: '/services.SystemInfoService/create',
+  info: {
+    path: '/services.SystemInfoService/Info',
     requestStream: false,
     responseStream: false,
     requestType: system_system_pb.ClientInfo,

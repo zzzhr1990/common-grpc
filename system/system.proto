@@ -5,7 +5,7 @@ package services;
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/system/sysinfo";
 
 service SystemInfoService {
-    rpc create (ClientInfo) returns (SystemInfo) {}
+    rpc Info (ClientInfo) returns (SystemInfo) {}
 }
 
 message SystemInfo {
