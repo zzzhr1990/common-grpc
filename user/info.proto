@@ -31,7 +31,7 @@ message User {
     string phone = 6;
     string email = 7;
     int64  create_time = 8;
-    string create_ip = 9;
+    string create_addr = 9;
     string icon = 10;
     int64 space_used = 11;
     int64 space_capacity = 12;
