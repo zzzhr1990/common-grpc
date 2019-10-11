@@ -17,8 +17,8 @@ service UserService {
     // rpc getBalance (Balance) returns (Balance) {}
     // rpc setSpaceUsed (Balance) returns (Balance) {}
     rpc ChangePassword (PasswordPair) returns (User) {}
-    rpc ChangeName (User) returns (User) {}
-    rpc ChangeImage (User) returns (User) {}
+    // rpc ChangeName (User) returns (User) {}
+    // rpc ChangeEmail (User) returns (User) {}
 }
 
 

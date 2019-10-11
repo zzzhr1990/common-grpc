@@ -96,28 +96,6 @@ var UserServiceService = exports.UserServiceService = {
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
   },
-  changeName: {
-    path: '/services.UserService/ChangeName',
-    requestStream: false,
-    responseStream: false,
-    requestType: user_info_pb.User,
-    responseType: user_info_pb.User,
-    requestSerialize: serialize_services_User,
-    requestDeserialize: deserialize_services_User,
-    responseSerialize: serialize_services_User,
-    responseDeserialize: deserialize_services_User,
-  },
-  changeImage: {
-    path: '/services.UserService/ChangeImage',
-    requestStream: false,
-    responseStream: false,
-    requestType: user_info_pb.User,
-    responseType: user_info_pb.User,
-    requestSerialize: serialize_services_User,
-    requestDeserialize: deserialize_services_User,
-    responseSerialize: serialize_services_User,
-    responseDeserialize: deserialize_services_User,
-  },
 };
 
 exports.UserServiceClient = grpc.makeGenericClientConstructor(UserServiceService);

@@ -13,8 +13,6 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   login: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
   update: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
   changePassword: grpc.MethodDefinition<user_info_pb.PasswordPair, user_info_pb.User>;
-  changeName: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
-  changeImage: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
 }
 
 export const UserServiceService: IUserServiceService;
@@ -39,10 +37,4 @@ export class UserServiceClient extends grpc.Client {
   changePassword(argument: user_info_pb.PasswordPair, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   changePassword(argument: user_info_pb.PasswordPair, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   changePassword(argument: user_info_pb.PasswordPair, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  changeName(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  changeName(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  changeName(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  changeImage(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  changeImage(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  changeImage(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
 }
