@@ -118,7 +118,7 @@ proto.services.User.toObject = function(includeInstance, msg) {
     phone: jspb.Message.getFieldWithDefault(msg, 6, ""),
     email: jspb.Message.getFieldWithDefault(msg, 7, ""),
     createTime: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    createIp: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    createAddr: jspb.Message.getFieldWithDefault(msg, 9, ""),
     icon: jspb.Message.getFieldWithDefault(msg, 10, ""),
     spaceUsed: jspb.Message.getFieldWithDefault(msg, 11, 0),
     spaceCapacity: jspb.Message.getFieldWithDefault(msg, 12, 0),
@@ -195,7 +195,7 @@ proto.services.User.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 9:
       var value = /** @type {string} */ (reader.readString());
-      msg.setCreateIp(value);
+      msg.setCreateAddr(value);
       break;
     case 10:
       var value = /** @type {string} */ (reader.readString());
@@ -306,7 +306,7 @@ proto.services.User.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCreateIp();
+  f = message.getCreateAddr();
   if (f.length > 0) {
     writer.writeString(
       9,
@@ -503,10 +503,10 @@ proto.services.User.prototype.setCreateTime = function(value) {
 
 
 /**
- * optional string create_ip = 9;
+ * optional string create_addr = 9;
  * @return {string}
  */
-proto.services.User.prototype.getCreateIp = function() {
+proto.services.User.prototype.getCreateAddr = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
@@ -515,7 +515,7 @@ proto.services.User.prototype.getCreateIp = function() {
  * @param {string} value
  * @return {!proto.services.User} returns this
  */
-proto.services.User.prototype.setCreateIp = function(value) {
+proto.services.User.prototype.setCreateAddr = function(value) {
   return jspb.Message.setProto3StringField(this, 9, value);
 };
 

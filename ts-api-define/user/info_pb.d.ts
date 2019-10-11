@@ -28,8 +28,8 @@ export class User extends jspb.Message {
   getCreateTime(): number;
   setCreateTime(value: number): void;
 
-  getCreateIp(): string;
-  setCreateIp(value: string): void;
+  getCreateAddr(): string;
+  setCreateAddr(value: string): void;
 
   getIcon(): string;
   setIcon(value: string): void;
@@ -69,7 +69,7 @@ export namespace User {
     phone: string,
     email: string,
     createTime: number,
-    createIp: string,
+    createAddr: string,
     icon: string,
     spaceUsed: number,
     spaceCapacity: number,
