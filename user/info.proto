@@ -46,7 +46,7 @@ message Log {
     string user_agent = 3;
     string device = 4;
     string country = 5;
-    int32 country_code = 6;
+    string country_code = 6;
     string province = 7;
     string city = 8;
     string city_code = 9;

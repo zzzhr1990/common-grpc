@@ -687,7 +687,7 @@ proto.services.Log.toObject = function(includeInstance, msg) {
     userAgent: jspb.Message.getFieldWithDefault(msg, 3, ""),
     device: jspb.Message.getFieldWithDefault(msg, 4, ""),
     country: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    countryCode: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    countryCode: jspb.Message.getFieldWithDefault(msg, 6, ""),
     province: jspb.Message.getFieldWithDefault(msg, 7, ""),
     city: jspb.Message.getFieldWithDefault(msg, 8, ""),
     cityCode: jspb.Message.getFieldWithDefault(msg, 9, ""),
@@ -754,7 +754,7 @@ proto.services.Log.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCountry(value);
       break;
     case 6:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {string} */ (reader.readString());
       msg.setCountryCode(value);
       break;
     case 7:
@@ -858,8 +858,8 @@ proto.services.Log.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getCountryCode();
-  if (f !== 0) {
-    writer.writeInt32(
+  if (f.length > 0) {
+    writer.writeString(
       6,
       f
     );
@@ -1021,20 +1021,20 @@ proto.services.Log.prototype.setCountry = function(value) {
 
 
 /**
- * optional int32 country_code = 6;
- * @return {number}
+ * optional string country_code = 6;
+ * @return {string}
  */
 proto.services.Log.prototype.getCountryCode = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.services.Log} returns this
  */
 proto.services.Log.prototype.setCountryCode = function(value) {
-  return jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 

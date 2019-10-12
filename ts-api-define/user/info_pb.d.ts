@@ -95,8 +95,8 @@ export class Log extends jspb.Message {
   getCountry(): string;
   setCountry(value: string): void;
 
-  getCountryCode(): number;
-  setCountryCode(value: number): void;
+  getCountryCode(): string;
+  setCountryCode(value: string): void;
 
   getProvince(): string;
   setProvince(value: string): void;
@@ -142,7 +142,7 @@ export namespace Log {
     userAgent: string,
     device: string,
     country: string,
-    countryCode: number,
+    countryCode: string,
     province: string,
     city: string,
     cityCode: string,
