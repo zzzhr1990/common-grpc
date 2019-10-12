@@ -40,6 +40,24 @@ message User {
     int32 version = 15;
 }
 
+message Log {
+    int64  identity = 1;
+    int64 user_identity = 2;
+    string user_agent = 3;
+    string device = 4;
+    string country = 5;
+    int32 country_code = 6;
+    string province = 7;
+    string city = 8;
+    string city_code = 9;
+    string  isp = 10;
+    string create_addr = 11;
+    int64 create_time = 12;
+    int32 type = 13;
+    string info = 14;
+    int32 level = 15;
+}
+
 message Balance {
     int64  identity = 1;
     int64  space_used = 2;

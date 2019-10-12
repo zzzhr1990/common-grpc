@@ -79,6 +79,82 @@ export namespace User {
   }
 }
 
+export class Log extends jspb.Message {
+  getIdentity(): number;
+  setIdentity(value: number): void;
+
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
+  getUserAgent(): string;
+  setUserAgent(value: string): void;
+
+  getDevice(): string;
+  setDevice(value: string): void;
+
+  getCountry(): string;
+  setCountry(value: string): void;
+
+  getCountryCode(): number;
+  setCountryCode(value: number): void;
+
+  getProvince(): string;
+  setProvince(value: string): void;
+
+  getCity(): string;
+  setCity(value: string): void;
+
+  getCityCode(): string;
+  setCityCode(value: string): void;
+
+  getIsp(): string;
+  setIsp(value: string): void;
+
+  getCreateAddr(): string;
+  setCreateAddr(value: string): void;
+
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getInfo(): string;
+  setInfo(value: string): void;
+
+  getLevel(): number;
+  setLevel(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Log.AsObject;
+  static toObject(includeInstance: boolean, msg: Log): Log.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Log, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Log;
+  static deserializeBinaryFromReader(message: Log, reader: jspb.BinaryReader): Log;
+}
+
+export namespace Log {
+  export type AsObject = {
+    identity: number,
+    userIdentity: number,
+    userAgent: string,
+    device: string,
+    country: string,
+    countryCode: number,
+    province: string,
+    city: string,
+    cityCode: string,
+    isp: string,
+    createAddr: string,
+    createTime: number,
+    type: number,
+    info: string,
+    level: number,
+  }
+}
+
 export class Balance extends jspb.Message {
   getIdentity(): number;
   setIdentity(value: number): void;
