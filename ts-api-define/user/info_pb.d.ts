@@ -86,9 +86,6 @@ export class Log extends jspb.Message {
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
 
-  getUserAgent(): string;
-  setUserAgent(value: string): void;
-
   getDevice(): string;
   setDevice(value: string): void;
 
@@ -139,7 +136,6 @@ export namespace Log {
   export type AsObject = {
     identity: number,
     userIdentity: number,
-    userAgent: string,
     device: string,
     country: string,
     countryCode: string,

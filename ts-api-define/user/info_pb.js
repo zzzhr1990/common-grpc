@@ -684,7 +684,6 @@ proto.services.Log.toObject = function(includeInstance, msg) {
   var f, obj = {
     identity: jspb.Message.getFieldWithDefault(msg, 1, 0),
     userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    userAgent: jspb.Message.getFieldWithDefault(msg, 3, ""),
     device: jspb.Message.getFieldWithDefault(msg, 4, ""),
     country: jspb.Message.getFieldWithDefault(msg, 5, ""),
     countryCode: jspb.Message.getFieldWithDefault(msg, 6, ""),
@@ -740,10 +739,6 @@ proto.services.Log.deserializeBinaryFromReader = function(msg, reader) {
     case 2:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setUserIdentity(value);
-      break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserAgent(value);
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
@@ -833,13 +828,6 @@ proto.services.Log.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       2,
-      f
-    );
-  }
-  f = message.getUserAgent();
-  if (f.length > 0) {
-    writer.writeString(
-      3,
       f
     );
   }
@@ -963,24 +951,6 @@ proto.services.Log.prototype.getUserIdentity = function() {
  */
 proto.services.Log.prototype.setUserIdentity = function(value) {
   return jspb.Message.setProto3IntField(this, 2, value);
-};
-
-
-/**
- * optional string user_agent = 3;
- * @return {string}
- */
-proto.services.Log.prototype.getUserAgent = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.services.Log} returns this
- */
-proto.services.Log.prototype.setUserAgent = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
