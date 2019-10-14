@@ -38,6 +38,8 @@ message User {
     int32 type = 13;
     int32  status = 14;
     int32 version = 15;
+    int32 vip = 16;
+    int64  vip_expire_time = 17;
 }
 
 message Log {
