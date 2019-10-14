@@ -1,6 +1,6 @@
 {
   "name": "ts-api-define",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Define of api in GRPC version",
   "main": "index.js",
   "scripts": {
