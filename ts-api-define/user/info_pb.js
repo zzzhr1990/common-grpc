@@ -146,7 +146,9 @@ proto.services.User.toObject = function(includeInstance, msg) {
     spaceCapacity: jspb.Message.getFieldWithDefault(msg, 12, 0),
     type: jspb.Message.getFieldWithDefault(msg, 13, 0),
     status: jspb.Message.getFieldWithDefault(msg, 14, 0),
-    version: jspb.Message.getFieldWithDefault(msg, 15, 0)
+    version: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    vip: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    vipExpireTime: jspb.Message.getFieldWithDefault(msg, 17, 0)
   };
 
   if (includeInstance) {
@@ -242,6 +244,14 @@ proto.services.User.deserializeBinaryFromReader = function(msg, reader) {
     case 15:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setVersion(value);
+      break;
+    case 16:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setVip(value);
+      break;
+    case 17:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setVipExpireTime(value);
       break;
     default:
       reader.skipField();
@@ -374,6 +384,20 @@ proto.services.User.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       15,
+      f
+    );
+  }
+  f = message.getVip();
+  if (f !== 0) {
+    writer.writeInt32(
+      16,
+      f
+    );
+  }
+  f = message.getVipExpireTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      17,
       f
     );
   }
@@ -647,6 +671,42 @@ proto.services.User.prototype.getVersion = function() {
  */
 proto.services.User.prototype.setVersion = function(value) {
   return jspb.Message.setProto3IntField(this, 15, value);
+};
+
+
+/**
+ * optional int32 vip = 16;
+ * @return {number}
+ */
+proto.services.User.prototype.getVip = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.User} returns this
+ */
+proto.services.User.prototype.setVip = function(value) {
+  return jspb.Message.setProto3IntField(this, 16, value);
+};
+
+
+/**
+ * optional int64 vip_expire_time = 17;
+ * @return {number}
+ */
+proto.services.User.prototype.getVipExpireTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.User} returns this
+ */
+proto.services.User.prototype.setVipExpireTime = function(value) {
+  return jspb.Message.setProto3IntField(this, 17, value);
 };
 
 
