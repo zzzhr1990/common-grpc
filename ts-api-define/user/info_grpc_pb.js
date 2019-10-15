@@ -50,8 +50,8 @@ var UserServiceService = exports.UserServiceService = {
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
   },
-  getOrEmpty: {
-    path: '/services.UserService/GetOrEmpty',
+  findOne: {
+    path: '/services.UserService/FindOne',
     requestStream: false,
     responseStream: false,
     requestType: user_info_pb.User,
