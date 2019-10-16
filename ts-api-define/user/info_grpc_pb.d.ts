@@ -11,6 +11,7 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   get: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
   findOne: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
   login: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
+  logoff: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
   update: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
   changePassword: grpc.MethodDefinition<user_info_pb.PasswordPair, user_info_pb.User>;
 }
@@ -31,6 +32,9 @@ export class UserServiceClient extends grpc.Client {
   login(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   login(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   login(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  logoff(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  logoff(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  logoff(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   update(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   update(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   update(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;

@@ -72,6 +72,17 @@ var UserServiceService = exports.UserServiceService = {
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
   },
+  logoff: {
+    path: '/services.UserService/Logoff',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.User,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_User,
+    requestDeserialize: deserialize_services_User,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
+  },
   update: {
     path: '/services.UserService/Update',
     requestStream: false,
