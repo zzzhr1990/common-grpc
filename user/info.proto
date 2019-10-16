@@ -12,6 +12,7 @@ service UserService {
     rpc Get (User) returns (User) {}
     rpc FindOne (User) returns (User) {}
     rpc Login (User) returns (User) {}
+    rpc LoginDirect (User) returns (User) {}
     rpc Logoff (User) returns (User) {}
     rpc Update (User) returns (User) {}
 
