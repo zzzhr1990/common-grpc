@@ -4,58 +4,25 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/file/userfile";
-import "common/common_entity.proto";
+// import "common/common_entity.proto";
 
 
-service UserFileService {
-    rpc create (UserFile) returns (UserFile) {}
-    rpc get (UserFile) returns (UserFile) {}
-    rpc uploadToken (UserFile) returns (UploadTokenResponse) {}
-    rpc getOrEmpty (UserFile) returns (UserFile) {}
-    rpc getOrEmptyEx (UserFile) returns (UserFileEx) {}
-    rpc pageDirectory (PageUserFileRequest) returns (UserFilePage) {}
-    rpc listDirectory (ListUserFileRequest) returns (UserFileList) {}
-    rpc listDirectoryInteral (ListUserFileRequest) returns (UserFileList) {}
-    rpc operate (UserFileOperation) returns (Int32Entity) {}
-    rpc deleteByIdentity (DeleteFilesRequest) returns (Int64Entity) {}
-    rpc moveToTrash (UserFile) returns (Int64Entity) {}
-    rpc listTrash (ListTrashRequest) returns (TrashList) {}
-    rpc pageTrash (PageTrashRequest) returns (TrashPage) {}
-    rpc uploadCallback(StringEntity) returns (UserFile) {}
-    rpc tryCreateFile(UserFile) returns (UserFile) {}
-    rpc rename (UserFile) returns (BoolEntity) {}
-    rpc moveFromTrash (MoveBackRequest) returns (Int64Entity) {}
-    rpc truncateTrash (UserFile)returns (Int64Entity) {}
-    rpc deleteInTrash (DeleteInTrashRequest)returns (Int64Entity) {}
-    rpc history (UserFile)returns (FileHistoryResponse) {}
-    rpc historyDetail (FileHistory)returns (FileHistoryEx) {}
-    rpc setShare (UserFile) returns (BoolEntity) {}
-    // rpc login (GrpcUser) returns (GrpcUser) {}
-    rpc pageAll (PageUserFileRequest) returns (UserFilePage) {}
-    rpc listAll (ListUserFileRequest) returns (UserFileList) {}
-    rpc reCount (Int64Entity) returns (BoolEntity) {}
+service FileService {
+    rpc Create (UserFile) returns (UserFile) {}
+    rpc Get (UserFile) returns (UserFile) {}
+    // rpc FindOne (UserFile) returns (UserFile) {}
 }
 
-message DeleteInTrashRequest {
-    repeated string source = 1;
-    int64 userIdentity = 2;
-}
-
-message MoveBackRequest {
-    UserFile destination = 1;
-    repeated string source = 2;
-    int64 userIdentity = 3;
-}
 
 message UserFile {
     string identity = 1;
     string hash = 2;
-    int64 userIdentity = 3;
+    int64 user_identity = 3;
     string path = 4;
     string name = 5;
     string ext = 6;
     int64 size = 7;
-    string  mime = 8;
+    bool  deleted = 8;
     string  parent = 9;
     int32 type = 10;
     bool directory = 11;
@@ -66,163 +33,8 @@ message UserFile {
     bool locking = 16;
     int32 op = 17;
     bool preview = 18;
-    int32 previewType = 19;
+    int32 preview_type = 19;
     int32   flag = 20;
-    repeated UserFile children = 21;
-    string uniqueIdentity = 22;
-    bool share = 23;
-}
-
-message UserFileEx {
-    string identity = 1;
-    string hash = 2;
-    int64 userIdentity = 3;
-    string path = 4;
-    string name = 5;
-    string ext = 6;
-    int64 size = 7;
-    string  mime = 8;
-    string  parent = 9;
-    int32 type = 10;
-    bool directory = 11;
-    int64 atime = 12;
-    int64 ctime = 13;
-    int64 mtime = 14;
-    int32  version = 15;
-    bool locking = 16;
-    int32 op = 17;
-    bool preview = 18;
-    int32 previewType = 19;
-    int32   flag = 20;
-    repeated UserFile children = 21;
-    string downloadAddress = 22;
-    string uniqueIdentity = 23;
-    bool share = 24;
-}
-
-message UserFileOperation {
-    repeated UserFile source = 1;
-    UserFile destination = 2;
-    int32 operationCode = 3;
-    int64 userIdentity = 4;
-}
-
-message UserFilePage {
-    UserFile parent = 1;
-    repeated UserFile list = 2;
-    int64 totalCount = 3;
-    int32 totalPage = 4;
-    int32 page = 5;
-    int32 pageSize = 6;
-}
-
-message DeleteFilesRequest {
-    int64 userIdentity = 1;
-    repeated string filesIdentity = 2;
-}
-
-message UserFileList {
-    UserFile parent = 1;
-    repeated UserFile list = 2;
-    // int64 totalCount = 3;
-    // int32 totalPage = 4;
-    // int32 page = 5;
-    // int32 pageSize = 6;
-}
-
-message TrashInfo {
-    string identity = 1;
-    string name = 2;
-    string source = 3;
-    int64 size = 4;
-    int64 deleteTime = 5;
-    int32 type = 6;
-    bool directory = 7;
-}
-
-message TrashList {
-    repeated TrashInfo list = 1;
-    // int64 totalCount = 3;
-    // int32 totalPage = 4;
-    // int32 page = 5;
-    // int32 pageSize = 6;
-}
-
-
-message TrashPage {
-    repeated TrashInfo list = 1;
-    int64 totalCount = 2;
-    int32 totalPage = 3;
-    int32 page = 4;
-    int32 pageSize = 5;
-}
-
-message PageTrashRequest {
-    int64 userIdentity = 1;
-    int32 orderBy = 2;
-    int32 page = 3;
-    int32 pageSize = 4;
-}
-
-message PageUserFileRequest {
-    string identity = 1;
-    string path = 2;
-    int64 userIdentity = 3;
-    //bool ignoreCase = 4;
-    int32 orderBy = 4;
-    int32 page = 5;
-    int32 pageSize = 6;
-    int32 filter = 7;
-    int32 type = 8;
-    bool share = 9;
-    string name = 10;
-}
-
-message ListUserFileRequest {
-    string identity = 1;
-    string path = 2;
-    int64 userIdentity = 3;
-    // bool ignoreCase = 4;
-    int32 orderBy = 4;
-    int32 start = 5;
-    int32 listSize = 6;
-    int32 filter = 7;
-    int32 type = 8;
-    bool share = 9;
-    string name = 10;
-}
-
-message ListTrashRequest {
-    int64 userIdentity = 1;
-    int32 orderBy = 2;
-    int32 start = 6;
-    int32 listSize = 7;
-}
-
-message UploadTokenResponse {
-    string uploadToken = 1;
-    string type = 2;
-    string uploadUrl = 3;
-    string filePath = 4;
-}
-
-message FileHistoryResponse {
-    string identity = 1;
-    repeated FileHistory history = 2;
-}
-
-message FileHistory {
-    string hash = 1;
-    int64 size = 2;
-    int64 ctime = 3;
-    int32 version = 4;
-}
-
-message FileHistoryEx {
-    string hash = 1;
-    int64 size = 2;
-    int64 ctime = 3;
-    int32 version = 4;
-    string downloadAddress = 5
-    ;
+    string unique_identity = 21;
+    bool share = 22;
 }
