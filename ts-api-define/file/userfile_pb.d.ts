@@ -25,6 +25,9 @@ export class UserFile extends jspb.Message {
   getSize(): number;
   setSize(value: number): void;
 
+  getMime(): string;
+  setMime(value: string): void;
+
   getDeleted(): boolean;
   setDeleted(value: boolean): void;
 
@@ -89,6 +92,7 @@ export namespace UserFile {
     name: string,
     ext: string,
     size: number,
+    mime: string,
     deleted: boolean,
     parent: string,
     type: number,

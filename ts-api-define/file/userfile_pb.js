@@ -73,21 +73,22 @@ proto.services.UserFile.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 5, ""),
     ext: jspb.Message.getFieldWithDefault(msg, 6, ""),
     size: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    deleted: jspb.Message.getBooleanFieldWithDefault(msg, 8, false),
-    parent: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    type: jspb.Message.getFieldWithDefault(msg, 10, 0),
-    directory: jspb.Message.getBooleanFieldWithDefault(msg, 11, false),
-    atime: jspb.Message.getFieldWithDefault(msg, 12, 0),
-    ctime: jspb.Message.getFieldWithDefault(msg, 13, 0),
-    mtime: jspb.Message.getFieldWithDefault(msg, 14, 0),
-    version: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    locking: jspb.Message.getBooleanFieldWithDefault(msg, 16, false),
-    op: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    preview: jspb.Message.getBooleanFieldWithDefault(msg, 18, false),
-    previewType: jspb.Message.getFieldWithDefault(msg, 19, 0),
-    flag: jspb.Message.getFieldWithDefault(msg, 20, 0),
-    uniqueIdentity: jspb.Message.getFieldWithDefault(msg, 21, ""),
-    share: jspb.Message.getBooleanFieldWithDefault(msg, 22, false)
+    mime: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    deleted: jspb.Message.getBooleanFieldWithDefault(msg, 9, false),
+    parent: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    type: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    directory: jspb.Message.getBooleanFieldWithDefault(msg, 12, false),
+    atime: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    ctime: jspb.Message.getFieldWithDefault(msg, 14, 0),
+    mtime: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    version: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    locking: jspb.Message.getBooleanFieldWithDefault(msg, 17, false),
+    op: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    preview: jspb.Message.getBooleanFieldWithDefault(msg, 19, false),
+    previewType: jspb.Message.getFieldWithDefault(msg, 20, 0),
+    flag: jspb.Message.getFieldWithDefault(msg, 21, 0),
+    uniqueIdentity: jspb.Message.getFieldWithDefault(msg, 22, ""),
+    share: jspb.Message.getBooleanFieldWithDefault(msg, 23, false)
   };
 
   if (includeInstance) {
@@ -153,62 +154,66 @@ proto.services.UserFile.deserializeBinaryFromReader = function(msg, reader) {
       msg.setSize(value);
       break;
     case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMime(value);
+      break;
+    case 9:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setDeleted(value);
       break;
-    case 9:
+    case 10:
       var value = /** @type {string} */ (reader.readString());
       msg.setParent(value);
       break;
-    case 10:
+    case 11:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setType(value);
       break;
-    case 11:
+    case 12:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setDirectory(value);
       break;
-    case 12:
+    case 13:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setAtime(value);
       break;
-    case 13:
+    case 14:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setCtime(value);
       break;
-    case 14:
+    case 15:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setMtime(value);
       break;
-    case 15:
+    case 16:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setVersion(value);
       break;
-    case 16:
+    case 17:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setLocking(value);
       break;
-    case 17:
+    case 18:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setOp(value);
       break;
-    case 18:
+    case 19:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setPreview(value);
       break;
-    case 19:
+    case 20:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setPreviewType(value);
       break;
-    case 20:
+    case 21:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setFlag(value);
       break;
-    case 21:
+    case 22:
       var value = /** @type {string} */ (reader.readString());
       msg.setUniqueIdentity(value);
       break;
-    case 22:
+    case 23:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setShare(value);
       break;
@@ -290,108 +295,115 @@ proto.services.UserFile.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getMime();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
+      f
+    );
+  }
   f = message.getDeleted();
   if (f) {
     writer.writeBool(
-      8,
+      9,
       f
     );
   }
   f = message.getParent();
   if (f.length > 0) {
     writer.writeString(
-      9,
+      10,
       f
     );
   }
   f = message.getType();
   if (f !== 0) {
     writer.writeInt32(
-      10,
+      11,
       f
     );
   }
   f = message.getDirectory();
   if (f) {
     writer.writeBool(
-      11,
+      12,
       f
     );
   }
   f = message.getAtime();
   if (f !== 0) {
     writer.writeInt64(
-      12,
+      13,
       f
     );
   }
   f = message.getCtime();
   if (f !== 0) {
     writer.writeInt64(
-      13,
+      14,
       f
     );
   }
   f = message.getMtime();
   if (f !== 0) {
     writer.writeInt64(
-      14,
+      15,
       f
     );
   }
   f = message.getVersion();
   if (f !== 0) {
     writer.writeInt32(
-      15,
+      16,
       f
     );
   }
   f = message.getLocking();
   if (f) {
     writer.writeBool(
-      16,
+      17,
       f
     );
   }
   f = message.getOp();
   if (f !== 0) {
     writer.writeInt32(
-      17,
+      18,
       f
     );
   }
   f = message.getPreview();
   if (f) {
     writer.writeBool(
-      18,
+      19,
       f
     );
   }
   f = message.getPreviewType();
   if (f !== 0) {
     writer.writeInt32(
-      19,
+      20,
       f
     );
   }
   f = message.getFlag();
   if (f !== 0) {
     writer.writeInt32(
-      20,
+      21,
       f
     );
   }
   f = message.getUniqueIdentity();
   if (f.length > 0) {
     writer.writeString(
-      21,
+      22,
       f
     );
   }
   f = message.getShare();
   if (f) {
     writer.writeBool(
-      22,
+      23,
       f
     );
   }
@@ -525,11 +537,29 @@ proto.services.UserFile.prototype.setSize = function(value) {
 
 
 /**
- * optional bool deleted = 8;
+ * optional string mime = 8;
+ * @return {string}
+ */
+proto.services.UserFile.prototype.getMime = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFile} returns this
+ */
+proto.services.UserFile.prototype.setMime = function(value) {
+  return jspb.Message.setProto3StringField(this, 8, value);
+};
+
+
+/**
+ * optional bool deleted = 9;
  * @return {boolean}
  */
 proto.services.UserFile.prototype.getDeleted = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 8, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 9, false));
 };
 
 
@@ -538,16 +568,16 @@ proto.services.UserFile.prototype.getDeleted = function() {
  * @return {!proto.services.UserFile} returns this
  */
 proto.services.UserFile.prototype.setDeleted = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 8, value);
+  return jspb.Message.setProto3BooleanField(this, 9, value);
 };
 
 
 /**
- * optional string parent = 9;
+ * optional string parent = 10;
  * @return {string}
  */
 proto.services.UserFile.prototype.getParent = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
@@ -556,16 +586,16 @@ proto.services.UserFile.prototype.getParent = function() {
  * @return {!proto.services.UserFile} returns this
  */
 proto.services.UserFile.prototype.setParent = function(value) {
-  return jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
 /**
- * optional int32 type = 10;
+ * optional int32 type = 11;
  * @return {number}
  */
 proto.services.UserFile.prototype.getType = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
 };
 
 
@@ -574,16 +604,16 @@ proto.services.UserFile.prototype.getType = function() {
  * @return {!proto.services.UserFile} returns this
  */
 proto.services.UserFile.prototype.setType = function(value) {
-  return jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 11, value);
 };
 
 
 /**
- * optional bool directory = 11;
+ * optional bool directory = 12;
  * @return {boolean}
  */
 proto.services.UserFile.prototype.getDirectory = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 11, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 12, false));
 };
 
 
@@ -592,33 +622,15 @@ proto.services.UserFile.prototype.getDirectory = function() {
  * @return {!proto.services.UserFile} returns this
  */
 proto.services.UserFile.prototype.setDirectory = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 11, value);
+  return jspb.Message.setProto3BooleanField(this, 12, value);
 };
 
 
 /**
- * optional int64 atime = 12;
+ * optional int64 atime = 13;
  * @return {number}
  */
 proto.services.UserFile.prototype.getAtime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.services.UserFile} returns this
- */
-proto.services.UserFile.prototype.setAtime = function(value) {
-  return jspb.Message.setProto3IntField(this, 12, value);
-};
-
-
-/**
- * optional int64 ctime = 13;
- * @return {number}
- */
-proto.services.UserFile.prototype.getCtime = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
 };
 
@@ -627,16 +639,16 @@ proto.services.UserFile.prototype.getCtime = function() {
  * @param {number} value
  * @return {!proto.services.UserFile} returns this
  */
-proto.services.UserFile.prototype.setCtime = function(value) {
+proto.services.UserFile.prototype.setAtime = function(value) {
   return jspb.Message.setProto3IntField(this, 13, value);
 };
 
 
 /**
- * optional int64 mtime = 14;
+ * optional int64 ctime = 14;
  * @return {number}
  */
-proto.services.UserFile.prototype.getMtime = function() {
+proto.services.UserFile.prototype.getCtime = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
 };
 
@@ -645,16 +657,16 @@ proto.services.UserFile.prototype.getMtime = function() {
  * @param {number} value
  * @return {!proto.services.UserFile} returns this
  */
-proto.services.UserFile.prototype.setMtime = function(value) {
+proto.services.UserFile.prototype.setCtime = function(value) {
   return jspb.Message.setProto3IntField(this, 14, value);
 };
 
 
 /**
- * optional int32 version = 15;
+ * optional int64 mtime = 15;
  * @return {number}
  */
-proto.services.UserFile.prototype.getVersion = function() {
+proto.services.UserFile.prototype.getMtime = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
 };
 
@@ -663,17 +675,35 @@ proto.services.UserFile.prototype.getVersion = function() {
  * @param {number} value
  * @return {!proto.services.UserFile} returns this
  */
-proto.services.UserFile.prototype.setVersion = function(value) {
+proto.services.UserFile.prototype.setMtime = function(value) {
   return jspb.Message.setProto3IntField(this, 15, value);
 };
 
 
 /**
- * optional bool locking = 16;
+ * optional int32 version = 16;
+ * @return {number}
+ */
+proto.services.UserFile.prototype.getVersion = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
+proto.services.UserFile.prototype.setVersion = function(value) {
+  return jspb.Message.setProto3IntField(this, 16, value);
+};
+
+
+/**
+ * optional bool locking = 17;
  * @return {boolean}
  */
 proto.services.UserFile.prototype.getLocking = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 16, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 17, false));
 };
 
 
@@ -682,16 +712,16 @@ proto.services.UserFile.prototype.getLocking = function() {
  * @return {!proto.services.UserFile} returns this
  */
 proto.services.UserFile.prototype.setLocking = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 16, value);
+  return jspb.Message.setProto3BooleanField(this, 17, value);
 };
 
 
 /**
- * optional int32 op = 17;
+ * optional int32 op = 18;
  * @return {number}
  */
 proto.services.UserFile.prototype.getOp = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
 };
 
 
@@ -700,16 +730,16 @@ proto.services.UserFile.prototype.getOp = function() {
  * @return {!proto.services.UserFile} returns this
  */
 proto.services.UserFile.prototype.setOp = function(value) {
-  return jspb.Message.setProto3IntField(this, 17, value);
+  return jspb.Message.setProto3IntField(this, 18, value);
 };
 
 
 /**
- * optional bool preview = 18;
+ * optional bool preview = 19;
  * @return {boolean}
  */
 proto.services.UserFile.prototype.getPreview = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 18, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 19, false));
 };
 
 
@@ -718,33 +748,15 @@ proto.services.UserFile.prototype.getPreview = function() {
  * @return {!proto.services.UserFile} returns this
  */
 proto.services.UserFile.prototype.setPreview = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 18, value);
+  return jspb.Message.setProto3BooleanField(this, 19, value);
 };
 
 
 /**
- * optional int32 preview_type = 19;
+ * optional int32 preview_type = 20;
  * @return {number}
  */
 proto.services.UserFile.prototype.getPreviewType = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 19, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.services.UserFile} returns this
- */
-proto.services.UserFile.prototype.setPreviewType = function(value) {
-  return jspb.Message.setProto3IntField(this, 19, value);
-};
-
-
-/**
- * optional int32 flag = 20;
- * @return {number}
- */
-proto.services.UserFile.prototype.getFlag = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 20, 0));
 };
 
@@ -753,17 +765,35 @@ proto.services.UserFile.prototype.getFlag = function() {
  * @param {number} value
  * @return {!proto.services.UserFile} returns this
  */
-proto.services.UserFile.prototype.setFlag = function(value) {
+proto.services.UserFile.prototype.setPreviewType = function(value) {
   return jspb.Message.setProto3IntField(this, 20, value);
 };
 
 
 /**
- * optional string unique_identity = 21;
+ * optional int32 flag = 21;
+ * @return {number}
+ */
+proto.services.UserFile.prototype.getFlag = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 21, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.UserFile} returns this
+ */
+proto.services.UserFile.prototype.setFlag = function(value) {
+  return jspb.Message.setProto3IntField(this, 21, value);
+};
+
+
+/**
+ * optional string unique_identity = 22;
  * @return {string}
  */
 proto.services.UserFile.prototype.getUniqueIdentity = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 21, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 22, ""));
 };
 
 
@@ -772,16 +802,16 @@ proto.services.UserFile.prototype.getUniqueIdentity = function() {
  * @return {!proto.services.UserFile} returns this
  */
 proto.services.UserFile.prototype.setUniqueIdentity = function(value) {
-  return jspb.Message.setProto3StringField(this, 21, value);
+  return jspb.Message.setProto3StringField(this, 22, value);
 };
 
 
 /**
- * optional bool share = 22;
+ * optional bool share = 23;
  * @return {boolean}
  */
 proto.services.UserFile.prototype.getShare = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 22, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 23, false));
 };
 
 
@@ -790,7 +820,7 @@ proto.services.UserFile.prototype.getShare = function() {
  * @return {!proto.services.UserFile} returns this
  */
 proto.services.UserFile.prototype.setShare = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 22, value);
+  return jspb.Message.setProto3BooleanField(this, 23, value);
 };
 
 
