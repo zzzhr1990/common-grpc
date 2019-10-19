@@ -23,6 +23,62 @@ export namespace BoolEntity {
   }
 }
 
+export class OrderByRequest extends jspb.Message {
+  getName(): string;
+  setName(value: string): void;
+
+  getAsc(): boolean;
+  setAsc(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): OrderByRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: OrderByRequest): OrderByRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: OrderByRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): OrderByRequest;
+  static deserializeBinaryFromReader(message: OrderByRequest, reader: jspb.BinaryReader): OrderByRequest;
+}
+
+export namespace OrderByRequest {
+  export type AsObject = {
+    name: string,
+    asc: boolean,
+  }
+}
+
+export class PageInfo extends jspb.Message {
+  getPage(): number;
+  setPage(value: number): void;
+
+  getPageSize(): number;
+  setPageSize(value: number): void;
+
+  getTotalPage(): number;
+  setTotalPage(value: number): void;
+
+  getTotalRecord(): number;
+  setTotalRecord(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PageInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: PageInfo): PageInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PageInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PageInfo;
+  static deserializeBinaryFromReader(message: PageInfo, reader: jspb.BinaryReader): PageInfo;
+}
+
+export namespace PageInfo {
+  export type AsObject = {
+    page: number,
+    pageSize: number,
+    totalPage: number,
+    totalRecord: number,
+  }
+}
+
 export class StringEntity extends jspb.Message {
   getData(): string;
   setData(value: string): void;

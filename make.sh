@@ -18,8 +18,9 @@ do
 done
 cd ./ts-api-define
 # npm init --silent -y --save
-npm install ts-protoc-gen --save
-npm install grpc --save
+# npm install ts-protoc-gen --save
+# npm install grpc --save
+# npm install
 OUT_DIR=`pwd`
 cd ..
 PROTOC_GEN_TS_PATH=${OUT_DIR}/node_modules/.bin/protoc-gen-ts

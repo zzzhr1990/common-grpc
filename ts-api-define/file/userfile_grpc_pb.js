@@ -3,6 +3,7 @@
 'use strict';
 var grpc = require('grpc');
 var file_userfile_pb = require('../file/userfile_pb.js');
+var common_common_entity_pb = require('../common/common_entity_pb.js');
 
 function serialize_services_UserFile(arg) {
   if (!(arg instanceof file_userfile_pb.UserFile)) {

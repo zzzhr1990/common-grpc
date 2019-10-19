@@ -4,7 +4,7 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/file/userfile";
-// import "common/common_entity.proto";
+import "common/common_entity.proto";
 
 
 service FileService {
@@ -38,4 +38,20 @@ message UserFile {
     int32   flag = 21;
     string unique_identity = 22;
     bool share = 23;
+}
+
+message UserFilePageRequest {
+    string identity = 1;
+    int64 user_identity = 2;
+    string path = 3;
+    int64 page = 4;
+    int64 page_size = 5;
+    repeated OrderByRequest order_by = 6;
+    UserFile filter = 7;
+}
+
+message UserFilePageResponse {
+    UserFile parent = 1;
+    repeated UserFile file = 2;
+    PageInfo page_info = 3;
 }
