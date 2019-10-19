@@ -160,6 +160,82 @@ export namespace UserFilePageRequest {
   }
 }
 
+export class UserFileListRequest extends jspb.Message {
+  getIdentity(): string;
+  setIdentity(value: string): void;
+
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
+  getPath(): string;
+  setPath(value: string): void;
+
+  getStart(): number;
+  setStart(value: number): void;
+
+  getLimit(): number;
+  setLimit(value: number): void;
+
+  clearOrderByList(): void;
+  getOrderByList(): Array<common_common_entity_pb.OrderByRequest>;
+  setOrderByList(value: Array<common_common_entity_pb.OrderByRequest>): void;
+  addOrderBy(value?: common_common_entity_pb.OrderByRequest, index?: number): common_common_entity_pb.OrderByRequest;
+
+  hasFilter(): boolean;
+  clearFilter(): void;
+  getFilter(): UserFile | undefined;
+  setFilter(value?: UserFile): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserFileListRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: UserFileListRequest): UserFileListRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserFileListRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserFileListRequest;
+  static deserializeBinaryFromReader(message: UserFileListRequest, reader: jspb.BinaryReader): UserFileListRequest;
+}
+
+export namespace UserFileListRequest {
+  export type AsObject = {
+    identity: string,
+    userIdentity: number,
+    path: string,
+    start: number,
+    limit: number,
+    orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
+    filter?: UserFile.AsObject,
+  }
+}
+
+export class UserFileListResponse extends jspb.Message {
+  hasParent(): boolean;
+  clearParent(): void;
+  getParent(): UserFile | undefined;
+  setParent(value?: UserFile): void;
+
+  clearFileList(): void;
+  getFileList(): Array<UserFile>;
+  setFileList(value: Array<UserFile>): void;
+  addFile(value?: UserFile, index?: number): UserFile;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserFileListResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: UserFileListResponse): UserFileListResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserFileListResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserFileListResponse;
+  static deserializeBinaryFromReader(message: UserFileListResponse, reader: jspb.BinaryReader): UserFileListResponse;
+}
+
+export namespace UserFileListResponse {
+  export type AsObject = {
+    parent?: UserFile.AsObject,
+    fileList: Array<UserFile.AsObject>,
+  }
+}
+
 export class UserFilePageResponse extends jspb.Message {
   hasParent(): boolean;
   clearParent(): void;

@@ -10,6 +10,8 @@ import "common/common_entity.proto";
 service FileService {
     rpc Create (UserFile) returns (UserFile) {}
     rpc Get (UserFile) returns (UserFile) {}
+    rpc Page (UserFilePageRequest) returns (UserFilePageResponse) {}
+    rpc List (UserFileListRequest) returns (UserFileListResponse) {}
     // rpc FindOne (UserFile) returns (UserFile) {}
 }
 
@@ -48,6 +50,21 @@ message UserFilePageRequest {
     int64 page_size = 5;
     repeated OrderByRequest order_by = 6;
     UserFile filter = 7;
+}
+
+message UserFileListRequest {
+    string identity = 1;
+    int64 user_identity = 2;
+    string path = 3;
+    int64 start = 4;
+    int64 limit = 5;
+    repeated OrderByRequest order_by = 6;
+    UserFile filter = 7;
+}
+
+message UserFileListResponse {
+    UserFile parent = 1;
+    repeated UserFile file = 2;
 }
 
 message UserFilePageResponse {
