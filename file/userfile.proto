@@ -48,7 +48,13 @@ message UserFilePageRequest {
     string path = 3;
     PageInfo page_info = 4;
     repeated OrderByRequest order_by = 5;
-    UserFile filter = 6;
+    FilterRequest filter = 6;
+}
+
+message FilterRequest {
+    repeated string identity = 1;
+    repeated int32 type = 2;
+    int32 directory = 3;
 }
 
 message UserFileListRequest {
@@ -57,7 +63,7 @@ message UserFileListRequest {
     string path = 3;
     ListInfo list_info = 4;
     repeated OrderByRequest order_by = 5;
-    UserFile filter = 6;
+    FilterRequest filter = 6;
 }
 
 message UserFileListResponse {

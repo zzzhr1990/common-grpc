@@ -134,8 +134,8 @@ export class UserFilePageRequest extends jspb.Message {
 
   hasFilter(): boolean;
   clearFilter(): void;
-  getFilter(): UserFile | undefined;
-  setFilter(value?: UserFile): void;
+  getFilter(): FilterRequest | undefined;
+  setFilter(value?: FilterRequest): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserFilePageRequest.AsObject;
@@ -154,7 +154,39 @@ export namespace UserFilePageRequest {
     path: string,
     pageInfo?: common_common_entity_pb.PageInfo.AsObject,
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
-    filter?: UserFile.AsObject,
+    filter?: FilterRequest.AsObject,
+  }
+}
+
+export class FilterRequest extends jspb.Message {
+  clearIdentityList(): void;
+  getIdentityList(): Array<string>;
+  setIdentityList(value: Array<string>): void;
+  addIdentity(value: string, index?: number): string;
+
+  clearTypeList(): void;
+  getTypeList(): Array<number>;
+  setTypeList(value: Array<number>): void;
+  addType(value: number, index?: number): number;
+
+  getDirectory(): number;
+  setDirectory(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): FilterRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: FilterRequest): FilterRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: FilterRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FilterRequest;
+  static deserializeBinaryFromReader(message: FilterRequest, reader: jspb.BinaryReader): FilterRequest;
+}
+
+export namespace FilterRequest {
+  export type AsObject = {
+    identityList: Array<string>,
+    typeList: Array<number>,
+    directory: number,
   }
 }
 
@@ -180,8 +212,8 @@ export class UserFileListRequest extends jspb.Message {
 
   hasFilter(): boolean;
   clearFilter(): void;
-  getFilter(): UserFile | undefined;
-  setFilter(value?: UserFile): void;
+  getFilter(): FilterRequest | undefined;
+  setFilter(value?: FilterRequest): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserFileListRequest.AsObject;
@@ -200,7 +232,7 @@ export namespace UserFileListRequest {
     path: string,
     listInfo?: common_common_entity_pb.ListInfo.AsObject,
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
-    filter?: UserFile.AsObject,
+    filter?: FilterRequest.AsObject,
   }
 }
 
