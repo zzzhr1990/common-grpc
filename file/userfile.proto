@@ -68,11 +68,11 @@ message UserFileListRequest {
 
 message UserFileListResponse {
     UserFile parent = 1;
-    repeated UserFile file = 2;
+    repeated UserFile data = 2;
 }
 
 message UserFilePageResponse {
     UserFile parent = 1;
-    repeated UserFile file = 2;
+    repeated UserFile data = 2;
     PageInfo page_info = 3;
 }

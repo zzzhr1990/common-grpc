@@ -1915,7 +1915,7 @@ proto.services.UserFileListResponse.prototype.toObject = function(opt_includeIns
 proto.services.UserFileListResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     parent: (f = msg.getParent()) && proto.services.UserFile.toObject(includeInstance, f),
-    fileList: jspb.Message.toObjectList(msg.getFileList(),
+    dataList: jspb.Message.toObjectList(msg.getDataList(),
     proto.services.UserFile.toObject, includeInstance)
   };
 
@@ -1961,7 +1961,7 @@ proto.services.UserFileListResponse.deserializeBinaryFromReader = function(msg, 
     case 2:
       var value = new proto.services.UserFile;
       reader.readMessage(value,proto.services.UserFile.deserializeBinaryFromReader);
-      msg.addFile(value);
+      msg.addData(value);
       break;
     default:
       reader.skipField();
@@ -2000,7 +2000,7 @@ proto.services.UserFileListResponse.serializeBinaryToWriter = function(message, 
       proto.services.UserFile.serializeBinaryToWriter
     );
   }
-  f = message.getFileList();
+  f = message.getDataList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -2049,10 +2049,10 @@ proto.services.UserFileListResponse.prototype.hasParent = function() {
 
 
 /**
- * repeated UserFile file = 2;
+ * repeated UserFile data = 2;
  * @return {!Array<!proto.services.UserFile>}
  */
-proto.services.UserFileListResponse.prototype.getFileList = function() {
+proto.services.UserFileListResponse.prototype.getDataList = function() {
   return /** @type{!Array<!proto.services.UserFile>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.services.UserFile, 2));
 };
@@ -2062,7 +2062,7 @@ proto.services.UserFileListResponse.prototype.getFileList = function() {
  * @param {!Array<!proto.services.UserFile>} value
  * @return {!proto.services.UserFileListResponse} returns this
 */
-proto.services.UserFileListResponse.prototype.setFileList = function(value) {
+proto.services.UserFileListResponse.prototype.setDataList = function(value) {
   return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
@@ -2072,7 +2072,7 @@ proto.services.UserFileListResponse.prototype.setFileList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.services.UserFile}
  */
-proto.services.UserFileListResponse.prototype.addFile = function(opt_value, opt_index) {
+proto.services.UserFileListResponse.prototype.addData = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.services.UserFile, opt_index);
 };
 
@@ -2081,8 +2081,8 @@ proto.services.UserFileListResponse.prototype.addFile = function(opt_value, opt_
  * Clears the list making it empty but non-null.
  * @return {!proto.services.UserFileListResponse} returns this
  */
-proto.services.UserFileListResponse.prototype.clearFileList = function() {
-  return this.setFileList([]);
+proto.services.UserFileListResponse.prototype.clearDataList = function() {
+  return this.setDataList([]);
 };
 
 
@@ -2126,7 +2126,7 @@ proto.services.UserFilePageResponse.prototype.toObject = function(opt_includeIns
 proto.services.UserFilePageResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     parent: (f = msg.getParent()) && proto.services.UserFile.toObject(includeInstance, f),
-    fileList: jspb.Message.toObjectList(msg.getFileList(),
+    dataList: jspb.Message.toObjectList(msg.getDataList(),
     proto.services.UserFile.toObject, includeInstance),
     pageInfo: (f = msg.getPageInfo()) && common_common_entity_pb.PageInfo.toObject(includeInstance, f)
   };
@@ -2173,7 +2173,7 @@ proto.services.UserFilePageResponse.deserializeBinaryFromReader = function(msg, 
     case 2:
       var value = new proto.services.UserFile;
       reader.readMessage(value,proto.services.UserFile.deserializeBinaryFromReader);
-      msg.addFile(value);
+      msg.addData(value);
       break;
     case 3:
       var value = new common_common_entity_pb.PageInfo;
@@ -2217,7 +2217,7 @@ proto.services.UserFilePageResponse.serializeBinaryToWriter = function(message, 
       proto.services.UserFile.serializeBinaryToWriter
     );
   }
-  f = message.getFileList();
+  f = message.getDataList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
@@ -2274,10 +2274,10 @@ proto.services.UserFilePageResponse.prototype.hasParent = function() {
 
 
 /**
- * repeated UserFile file = 2;
+ * repeated UserFile data = 2;
  * @return {!Array<!proto.services.UserFile>}
  */
-proto.services.UserFilePageResponse.prototype.getFileList = function() {
+proto.services.UserFilePageResponse.prototype.getDataList = function() {
   return /** @type{!Array<!proto.services.UserFile>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.services.UserFile, 2));
 };
@@ -2287,7 +2287,7 @@ proto.services.UserFilePageResponse.prototype.getFileList = function() {
  * @param {!Array<!proto.services.UserFile>} value
  * @return {!proto.services.UserFilePageResponse} returns this
 */
-proto.services.UserFilePageResponse.prototype.setFileList = function(value) {
+proto.services.UserFilePageResponse.prototype.setDataList = function(value) {
   return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
@@ -2297,7 +2297,7 @@ proto.services.UserFilePageResponse.prototype.setFileList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.services.UserFile}
  */
-proto.services.UserFilePageResponse.prototype.addFile = function(opt_value, opt_index) {
+proto.services.UserFilePageResponse.prototype.addData = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.services.UserFile, opt_index);
 };
 
@@ -2306,8 +2306,8 @@ proto.services.UserFilePageResponse.prototype.addFile = function(opt_value, opt_
  * Clears the list making it empty but non-null.
  * @return {!proto.services.UserFilePageResponse} returns this
  */
-proto.services.UserFilePageResponse.prototype.clearFileList = function() {
-  return this.setFileList([]);
+proto.services.UserFilePageResponse.prototype.clearDataList = function() {
+  return this.setDataList([]);
 };
 
 

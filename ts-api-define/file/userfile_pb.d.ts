@@ -242,10 +242,10 @@ export class UserFileListResponse extends jspb.Message {
   getParent(): UserFile | undefined;
   setParent(value?: UserFile): void;
 
-  clearFileList(): void;
-  getFileList(): Array<UserFile>;
-  setFileList(value: Array<UserFile>): void;
-  addFile(value?: UserFile, index?: number): UserFile;
+  clearDataList(): void;
+  getDataList(): Array<UserFile>;
+  setDataList(value: Array<UserFile>): void;
+  addData(value?: UserFile, index?: number): UserFile;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserFileListResponse.AsObject;
@@ -260,7 +260,7 @@ export class UserFileListResponse extends jspb.Message {
 export namespace UserFileListResponse {
   export type AsObject = {
     parent?: UserFile.AsObject,
-    fileList: Array<UserFile.AsObject>,
+    dataList: Array<UserFile.AsObject>,
   }
 }
 
@@ -270,10 +270,10 @@ export class UserFilePageResponse extends jspb.Message {
   getParent(): UserFile | undefined;
   setParent(value?: UserFile): void;
 
-  clearFileList(): void;
-  getFileList(): Array<UserFile>;
-  setFileList(value: Array<UserFile>): void;
-  addFile(value?: UserFile, index?: number): UserFile;
+  clearDataList(): void;
+  getDataList(): Array<UserFile>;
+  setDataList(value: Array<UserFile>): void;
+  addData(value?: UserFile, index?: number): UserFile;
 
   hasPageInfo(): boolean;
   clearPageInfo(): void;
@@ -293,7 +293,7 @@ export class UserFilePageResponse extends jspb.Message {
 export namespace UserFilePageResponse {
   export type AsObject = {
     parent?: UserFile.AsObject,
-    fileList: Array<UserFile.AsObject>,
+    dataList: Array<UserFile.AsObject>,
     pageInfo?: common_common_entity_pb.PageInfo.AsObject,
   }
 }
