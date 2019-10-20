@@ -79,6 +79,30 @@ export namespace PageInfo {
   }
 }
 
+export class ListInfo extends jspb.Message {
+  getStart(): number;
+  setStart(value: number): void;
+
+  getLimit(): number;
+  setLimit(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ListInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: ListInfo): ListInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ListInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListInfo;
+  static deserializeBinaryFromReader(message: ListInfo, reader: jspb.BinaryReader): ListInfo;
+}
+
+export namespace ListInfo {
+  export type AsObject = {
+    start: number,
+    limit: number,
+  }
+}
+
 export class StringEntity extends jspb.Message {
   getData(): string;
   setData(value: string): void;

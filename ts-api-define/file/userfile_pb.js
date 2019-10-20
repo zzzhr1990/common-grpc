@@ -920,7 +920,7 @@ proto.services.UserFile.prototype.setShare = function(value) {
  * @private {!Array<number>}
  * @const
  */
-proto.services.UserFilePageRequest.repeatedFields_ = [6];
+proto.services.UserFilePageRequest.repeatedFields_ = [5];
 
 
 
@@ -956,8 +956,7 @@ proto.services.UserFilePageRequest.toObject = function(includeInstance, msg) {
     identity: jspb.Message.getFieldWithDefault(msg, 1, ""),
     userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
     path: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    page: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    pageSize: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    pageInfo: (f = msg.getPageInfo()) && common_common_entity_pb.PageInfo.toObject(includeInstance, f),
     orderByList: jspb.Message.toObjectList(msg.getOrderByList(),
     common_common_entity_pb.OrderByRequest.toObject, includeInstance),
     filter: (f = msg.getFilter()) && proto.services.UserFile.toObject(includeInstance, f)
@@ -1010,19 +1009,16 @@ proto.services.UserFilePageRequest.deserializeBinaryFromReader = function(msg, r
       msg.setPath(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setPage(value);
+      var value = new common_common_entity_pb.PageInfo;
+      reader.readMessage(value,common_common_entity_pb.PageInfo.deserializeBinaryFromReader);
+      msg.setPageInfo(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setPageSize(value);
-      break;
-    case 6:
       var value = new common_common_entity_pb.OrderByRequest;
       reader.readMessage(value,common_common_entity_pb.OrderByRequest.deserializeBinaryFromReader);
       msg.addOrderBy(value);
       break;
-    case 7:
+    case 6:
       var value = new proto.services.UserFile;
       reader.readMessage(value,proto.services.UserFile.deserializeBinaryFromReader);
       msg.setFilter(value);
@@ -1077,24 +1073,18 @@ proto.services.UserFilePageRequest.serializeBinaryToWriter = function(message, w
       f
     );
   }
-  f = message.getPage();
-  if (f !== 0) {
-    writer.writeInt64(
+  f = message.getPageInfo();
+  if (f != null) {
+    writer.writeMessage(
       4,
-      f
-    );
-  }
-  f = message.getPageSize();
-  if (f !== 0) {
-    writer.writeInt64(
-      5,
-      f
+      f,
+      common_common_entity_pb.PageInfo.serializeBinaryToWriter
     );
   }
   f = message.getOrderByList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      6,
+      5,
       f,
       common_common_entity_pb.OrderByRequest.serializeBinaryToWriter
     );
@@ -1102,7 +1092,7 @@ proto.services.UserFilePageRequest.serializeBinaryToWriter = function(message, w
   f = message.getFilter();
   if (f != null) {
     writer.writeMessage(
-      7,
+      6,
       f,
       proto.services.UserFile.serializeBinaryToWriter
     );
@@ -1165,48 +1155,49 @@ proto.services.UserFilePageRequest.prototype.setPath = function(value) {
 
 
 /**
- * optional int64 page = 4;
- * @return {number}
+ * optional PageInfo page_info = 4;
+ * @return {?proto.services.PageInfo}
  */
-proto.services.UserFilePageRequest.prototype.getPage = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+proto.services.UserFilePageRequest.prototype.getPageInfo = function() {
+  return /** @type{?proto.services.PageInfo} */ (
+    jspb.Message.getWrapperField(this, common_common_entity_pb.PageInfo, 4));
 };
 
 
 /**
- * @param {number} value
+ * @param {?proto.services.PageInfo|undefined} value
+ * @return {!proto.services.UserFilePageRequest} returns this
+*/
+proto.services.UserFilePageRequest.prototype.setPageInfo = function(value) {
+  return jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
  * @return {!proto.services.UserFilePageRequest} returns this
  */
-proto.services.UserFilePageRequest.prototype.setPage = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+proto.services.UserFilePageRequest.prototype.clearPageInfo = function() {
+  return this.setPageInfo(undefined);
 };
 
 
 /**
- * optional int64 page_size = 5;
- * @return {number}
+ * Returns whether this field is set.
+ * @return {boolean}
  */
-proto.services.UserFilePageRequest.prototype.getPageSize = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+proto.services.UserFilePageRequest.prototype.hasPageInfo = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
 /**
- * @param {number} value
- * @return {!proto.services.UserFilePageRequest} returns this
- */
-proto.services.UserFilePageRequest.prototype.setPageSize = function(value) {
-  return jspb.Message.setProto3IntField(this, 5, value);
-};
-
-
-/**
- * repeated OrderByRequest order_by = 6;
+ * repeated OrderByRequest order_by = 5;
  * @return {!Array<!proto.services.OrderByRequest>}
  */
 proto.services.UserFilePageRequest.prototype.getOrderByList = function() {
   return /** @type{!Array<!proto.services.OrderByRequest>} */ (
-    jspb.Message.getRepeatedWrapperField(this, common_common_entity_pb.OrderByRequest, 6));
+    jspb.Message.getRepeatedWrapperField(this, common_common_entity_pb.OrderByRequest, 5));
 };
 
 
@@ -1215,7 +1206,7 @@ proto.services.UserFilePageRequest.prototype.getOrderByList = function() {
  * @return {!proto.services.UserFilePageRequest} returns this
 */
 proto.services.UserFilePageRequest.prototype.setOrderByList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 6, value);
+  return jspb.Message.setRepeatedWrapperField(this, 5, value);
 };
 
 
@@ -1225,7 +1216,7 @@ proto.services.UserFilePageRequest.prototype.setOrderByList = function(value) {
  * @return {!proto.services.OrderByRequest}
  */
 proto.services.UserFilePageRequest.prototype.addOrderBy = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.services.OrderByRequest, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.services.OrderByRequest, opt_index);
 };
 
 
@@ -1239,12 +1230,12 @@ proto.services.UserFilePageRequest.prototype.clearOrderByList = function() {
 
 
 /**
- * optional UserFile filter = 7;
+ * optional UserFile filter = 6;
  * @return {?proto.services.UserFile}
  */
 proto.services.UserFilePageRequest.prototype.getFilter = function() {
   return /** @type{?proto.services.UserFile} */ (
-    jspb.Message.getWrapperField(this, proto.services.UserFile, 7));
+    jspb.Message.getWrapperField(this, proto.services.UserFile, 6));
 };
 
 
@@ -1253,7 +1244,7 @@ proto.services.UserFilePageRequest.prototype.getFilter = function() {
  * @return {!proto.services.UserFilePageRequest} returns this
 */
 proto.services.UserFilePageRequest.prototype.setFilter = function(value) {
-  return jspb.Message.setWrapperField(this, 7, value);
+  return jspb.Message.setWrapperField(this, 6, value);
 };
 
 
@@ -1271,7 +1262,7 @@ proto.services.UserFilePageRequest.prototype.clearFilter = function() {
  * @return {boolean}
  */
 proto.services.UserFilePageRequest.prototype.hasFilter = function() {
-  return jspb.Message.getField(this, 7) != null;
+  return jspb.Message.getField(this, 6) != null;
 };
 
 
@@ -1281,7 +1272,7 @@ proto.services.UserFilePageRequest.prototype.hasFilter = function() {
  * @private {!Array<number>}
  * @const
  */
-proto.services.UserFileListRequest.repeatedFields_ = [6];
+proto.services.UserFileListRequest.repeatedFields_ = [5];
 
 
 
@@ -1317,8 +1308,7 @@ proto.services.UserFileListRequest.toObject = function(includeInstance, msg) {
     identity: jspb.Message.getFieldWithDefault(msg, 1, ""),
     userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
     path: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    start: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    limit: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    listInfo: (f = msg.getListInfo()) && common_common_entity_pb.ListInfo.toObject(includeInstance, f),
     orderByList: jspb.Message.toObjectList(msg.getOrderByList(),
     common_common_entity_pb.OrderByRequest.toObject, includeInstance),
     filter: (f = msg.getFilter()) && proto.services.UserFile.toObject(includeInstance, f)
@@ -1371,19 +1361,16 @@ proto.services.UserFileListRequest.deserializeBinaryFromReader = function(msg, r
       msg.setPath(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setStart(value);
+      var value = new common_common_entity_pb.ListInfo;
+      reader.readMessage(value,common_common_entity_pb.ListInfo.deserializeBinaryFromReader);
+      msg.setListInfo(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setLimit(value);
-      break;
-    case 6:
       var value = new common_common_entity_pb.OrderByRequest;
       reader.readMessage(value,common_common_entity_pb.OrderByRequest.deserializeBinaryFromReader);
       msg.addOrderBy(value);
       break;
-    case 7:
+    case 6:
       var value = new proto.services.UserFile;
       reader.readMessage(value,proto.services.UserFile.deserializeBinaryFromReader);
       msg.setFilter(value);
@@ -1438,24 +1425,18 @@ proto.services.UserFileListRequest.serializeBinaryToWriter = function(message, w
       f
     );
   }
-  f = message.getStart();
-  if (f !== 0) {
-    writer.writeInt64(
+  f = message.getListInfo();
+  if (f != null) {
+    writer.writeMessage(
       4,
-      f
-    );
-  }
-  f = message.getLimit();
-  if (f !== 0) {
-    writer.writeInt64(
-      5,
-      f
+      f,
+      common_common_entity_pb.ListInfo.serializeBinaryToWriter
     );
   }
   f = message.getOrderByList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      6,
+      5,
       f,
       common_common_entity_pb.OrderByRequest.serializeBinaryToWriter
     );
@@ -1463,7 +1444,7 @@ proto.services.UserFileListRequest.serializeBinaryToWriter = function(message, w
   f = message.getFilter();
   if (f != null) {
     writer.writeMessage(
-      7,
+      6,
       f,
       proto.services.UserFile.serializeBinaryToWriter
     );
@@ -1526,48 +1507,49 @@ proto.services.UserFileListRequest.prototype.setPath = function(value) {
 
 
 /**
- * optional int64 start = 4;
- * @return {number}
+ * optional ListInfo list_info = 4;
+ * @return {?proto.services.ListInfo}
  */
-proto.services.UserFileListRequest.prototype.getStart = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+proto.services.UserFileListRequest.prototype.getListInfo = function() {
+  return /** @type{?proto.services.ListInfo} */ (
+    jspb.Message.getWrapperField(this, common_common_entity_pb.ListInfo, 4));
 };
 
 
 /**
- * @param {number} value
+ * @param {?proto.services.ListInfo|undefined} value
+ * @return {!proto.services.UserFileListRequest} returns this
+*/
+proto.services.UserFileListRequest.prototype.setListInfo = function(value) {
+  return jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
  * @return {!proto.services.UserFileListRequest} returns this
  */
-proto.services.UserFileListRequest.prototype.setStart = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+proto.services.UserFileListRequest.prototype.clearListInfo = function() {
+  return this.setListInfo(undefined);
 };
 
 
 /**
- * optional int64 limit = 5;
- * @return {number}
+ * Returns whether this field is set.
+ * @return {boolean}
  */
-proto.services.UserFileListRequest.prototype.getLimit = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+proto.services.UserFileListRequest.prototype.hasListInfo = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
 /**
- * @param {number} value
- * @return {!proto.services.UserFileListRequest} returns this
- */
-proto.services.UserFileListRequest.prototype.setLimit = function(value) {
-  return jspb.Message.setProto3IntField(this, 5, value);
-};
-
-
-/**
- * repeated OrderByRequest order_by = 6;
+ * repeated OrderByRequest order_by = 5;
  * @return {!Array<!proto.services.OrderByRequest>}
  */
 proto.services.UserFileListRequest.prototype.getOrderByList = function() {
   return /** @type{!Array<!proto.services.OrderByRequest>} */ (
-    jspb.Message.getRepeatedWrapperField(this, common_common_entity_pb.OrderByRequest, 6));
+    jspb.Message.getRepeatedWrapperField(this, common_common_entity_pb.OrderByRequest, 5));
 };
 
 
@@ -1576,7 +1558,7 @@ proto.services.UserFileListRequest.prototype.getOrderByList = function() {
  * @return {!proto.services.UserFileListRequest} returns this
 */
 proto.services.UserFileListRequest.prototype.setOrderByList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 6, value);
+  return jspb.Message.setRepeatedWrapperField(this, 5, value);
 };
 
 
@@ -1586,7 +1568,7 @@ proto.services.UserFileListRequest.prototype.setOrderByList = function(value) {
  * @return {!proto.services.OrderByRequest}
  */
 proto.services.UserFileListRequest.prototype.addOrderBy = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.services.OrderByRequest, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.services.OrderByRequest, opt_index);
 };
 
 
@@ -1600,12 +1582,12 @@ proto.services.UserFileListRequest.prototype.clearOrderByList = function() {
 
 
 /**
- * optional UserFile filter = 7;
+ * optional UserFile filter = 6;
  * @return {?proto.services.UserFile}
  */
 proto.services.UserFileListRequest.prototype.getFilter = function() {
   return /** @type{?proto.services.UserFile} */ (
-    jspb.Message.getWrapperField(this, proto.services.UserFile, 7));
+    jspb.Message.getWrapperField(this, proto.services.UserFile, 6));
 };
 
 
@@ -1614,7 +1596,7 @@ proto.services.UserFileListRequest.prototype.getFilter = function() {
  * @return {!proto.services.UserFileListRequest} returns this
 */
 proto.services.UserFileListRequest.prototype.setFilter = function(value) {
-  return jspb.Message.setWrapperField(this, 7, value);
+  return jspb.Message.setWrapperField(this, 6, value);
 };
 
 
@@ -1632,7 +1614,7 @@ proto.services.UserFileListRequest.prototype.clearFilter = function() {
  * @return {boolean}
  */
 proto.services.UserFileListRequest.prototype.hasFilter = function() {
-  return jspb.Message.getField(this, 7) != null;
+  return jspb.Message.getField(this, 6) != null;
 };
 
 

@@ -122,11 +122,10 @@ export class UserFilePageRequest extends jspb.Message {
   getPath(): string;
   setPath(value: string): void;
 
-  getPage(): number;
-  setPage(value: number): void;
-
-  getPageSize(): number;
-  setPageSize(value: number): void;
+  hasPageInfo(): boolean;
+  clearPageInfo(): void;
+  getPageInfo(): common_common_entity_pb.PageInfo | undefined;
+  setPageInfo(value?: common_common_entity_pb.PageInfo): void;
 
   clearOrderByList(): void;
   getOrderByList(): Array<common_common_entity_pb.OrderByRequest>;
@@ -153,8 +152,7 @@ export namespace UserFilePageRequest {
     identity: string,
     userIdentity: number,
     path: string,
-    page: number,
-    pageSize: number,
+    pageInfo?: common_common_entity_pb.PageInfo.AsObject,
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
     filter?: UserFile.AsObject,
   }
@@ -170,11 +168,10 @@ export class UserFileListRequest extends jspb.Message {
   getPath(): string;
   setPath(value: string): void;
 
-  getStart(): number;
-  setStart(value: number): void;
-
-  getLimit(): number;
-  setLimit(value: number): void;
+  hasListInfo(): boolean;
+  clearListInfo(): void;
+  getListInfo(): common_common_entity_pb.ListInfo | undefined;
+  setListInfo(value?: common_common_entity_pb.ListInfo): void;
 
   clearOrderByList(): void;
   getOrderByList(): Array<common_common_entity_pb.OrderByRequest>;
@@ -201,8 +198,7 @@ export namespace UserFileListRequest {
     identity: string,
     userIdentity: number,
     path: string,
-    start: number,
-    limit: number,
+    listInfo?: common_common_entity_pb.ListInfo.AsObject,
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
     filter?: UserFile.AsObject,
   }
