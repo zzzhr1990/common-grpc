@@ -59,6 +59,8 @@ message TrashInfo {
     int32 type = 7;
     string mime = 8;
     string addon = 9;
+    bool locking = 10;
+    int32 op = 11;
 }
 
 message UserFilePageRequest {
