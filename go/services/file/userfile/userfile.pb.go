@@ -240,6 +240,125 @@ func (m *UserFile) GetShare() bool {
 	return false
 }
 
+type TrashInfo struct {
+	Identity             string   `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
+	UserIdentity         int64    `protobuf:"varint,2,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
+	Path                 string   `protobuf:"bytes,3,opt,name=path,proto3" json:"path,omitempty"`
+	PathIdentity         string   `protobuf:"bytes,4,opt,name=path_identity,json=pathIdentity,proto3" json:"path_identity,omitempty"`
+	CreateTime           int64    `protobuf:"varint,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	Name                 string   `protobuf:"bytes,6,opt,name=name,proto3" json:"name,omitempty"`
+	Type                 int32    `protobuf:"varint,7,opt,name=type,proto3" json:"type,omitempty"`
+	Mime                 string   `protobuf:"bytes,8,opt,name=mime,proto3" json:"mime,omitempty"`
+	Addon                string   `protobuf:"bytes,9,opt,name=addon,proto3" json:"addon,omitempty"`
+	Locking              bool     `protobuf:"varint,10,opt,name=locking,proto3" json:"locking,omitempty"`
+	Op                   int32    `protobuf:"varint,11,opt,name=op,proto3" json:"op,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *TrashInfo) Reset()         { *m = TrashInfo{} }
+func (m *TrashInfo) String() string { return proto.CompactTextString(m) }
+func (*TrashInfo) ProtoMessage()    {}
+func (*TrashInfo) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8869c2ca76fd1758, []int{1}
+}
+
+func (m *TrashInfo) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TrashInfo.Unmarshal(m, b)
+}
+func (m *TrashInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TrashInfo.Marshal(b, m, deterministic)
+}
+func (m *TrashInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TrashInfo.Merge(m, src)
+}
+func (m *TrashInfo) XXX_Size() int {
+	return xxx_messageInfo_TrashInfo.Size(m)
+}
+func (m *TrashInfo) XXX_DiscardUnknown() {
+	xxx_messageInfo_TrashInfo.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TrashInfo proto.InternalMessageInfo
+
+func (m *TrashInfo) GetIdentity() string {
+	if m != nil {
+		return m.Identity
+	}
+	return ""
+}
+
+func (m *TrashInfo) GetUserIdentity() int64 {
+	if m != nil {
+		return m.UserIdentity
+	}
+	return 0
+}
+
+func (m *TrashInfo) GetPath() string {
+	if m != nil {
+		return m.Path
+	}
+	return ""
+}
+
+func (m *TrashInfo) GetPathIdentity() string {
+	if m != nil {
+		return m.PathIdentity
+	}
+	return ""
+}
+
+func (m *TrashInfo) GetCreateTime() int64 {
+	if m != nil {
+		return m.CreateTime
+	}
+	return 0
+}
+
+func (m *TrashInfo) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *TrashInfo) GetType() int32 {
+	if m != nil {
+		return m.Type
+	}
+	return 0
+}
+
+func (m *TrashInfo) GetMime() string {
+	if m != nil {
+		return m.Mime
+	}
+	return ""
+}
+
+func (m *TrashInfo) GetAddon() string {
+	if m != nil {
+		return m.Addon
+	}
+	return ""
+}
+
+func (m *TrashInfo) GetLocking() bool {
+	if m != nil {
+		return m.Locking
+	}
+	return false
+}
+
+func (m *TrashInfo) GetOp() int32 {
+	if m != nil {
+		return m.Op
+	}
+	return 0
+}
+
 type UserFilePageRequest struct {
 	Identity             string                   `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
 	UserIdentity         int64                    `protobuf:"varint,2,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
@@ -256,7 +375,7 @@ func (m *UserFilePageRequest) Reset()         { *m = UserFilePageRequest{} }
 func (m *UserFilePageRequest) String() string { return proto.CompactTextString(m) }
 func (*UserFilePageRequest) ProtoMessage()    {}
 func (*UserFilePageRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_8869c2ca76fd1758, []int{1}
+	return fileDescriptor_8869c2ca76fd1758, []int{2}
 }
 
 func (m *UserFilePageRequest) XXX_Unmarshal(b []byte) error {
@@ -319,6 +438,53 @@ func (m *UserFilePageRequest) GetFilter() *FilterRequest {
 	return nil
 }
 
+type CommonPageRequest struct {
+	UserIdentity         int64            `protobuf:"varint,1,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
+	PageInfo             *common.PageInfo `protobuf:"bytes,2,opt,name=page_info,json=pageInfo,proto3" json:"page_info,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
+}
+
+func (m *CommonPageRequest) Reset()         { *m = CommonPageRequest{} }
+func (m *CommonPageRequest) String() string { return proto.CompactTextString(m) }
+func (*CommonPageRequest) ProtoMessage()    {}
+func (*CommonPageRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8869c2ca76fd1758, []int{3}
+}
+
+func (m *CommonPageRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CommonPageRequest.Unmarshal(m, b)
+}
+func (m *CommonPageRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CommonPageRequest.Marshal(b, m, deterministic)
+}
+func (m *CommonPageRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CommonPageRequest.Merge(m, src)
+}
+func (m *CommonPageRequest) XXX_Size() int {
+	return xxx_messageInfo_CommonPageRequest.Size(m)
+}
+func (m *CommonPageRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CommonPageRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CommonPageRequest proto.InternalMessageInfo
+
+func (m *CommonPageRequest) GetUserIdentity() int64 {
+	if m != nil {
+		return m.UserIdentity
+	}
+	return 0
+}
+
+func (m *CommonPageRequest) GetPageInfo() *common.PageInfo {
+	if m != nil {
+		return m.PageInfo
+	}
+	return nil
+}
+
 type FilterRequest struct {
 	Identity             []string `protobuf:"bytes,1,rep,name=identity,proto3" json:"identity,omitempty"`
 	Type                 []int32  `protobuf:"varint,2,rep,packed,name=type,proto3" json:"type,omitempty"`
@@ -332,7 +498,7 @@ func (m *FilterRequest) Reset()         { *m = FilterRequest{} }
 func (m *FilterRequest) String() string { return proto.CompactTextString(m) }
 func (*FilterRequest) ProtoMessage()    {}
 func (*FilterRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_8869c2ca76fd1758, []int{2}
+	return fileDescriptor_8869c2ca76fd1758, []int{4}
 }
 
 func (m *FilterRequest) XXX_Unmarshal(b []byte) error {
@@ -374,6 +540,53 @@ func (m *FilterRequest) GetDirectory() int32 {
 	return 0
 }
 
+type TrashRequest struct {
+	Identity             []string `protobuf:"bytes,1,rep,name=identity,proto3" json:"identity,omitempty"`
+	Path                 []string `protobuf:"bytes,2,rep,name=path,proto3" json:"path,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *TrashRequest) Reset()         { *m = TrashRequest{} }
+func (m *TrashRequest) String() string { return proto.CompactTextString(m) }
+func (*TrashRequest) ProtoMessage()    {}
+func (*TrashRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8869c2ca76fd1758, []int{5}
+}
+
+func (m *TrashRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TrashRequest.Unmarshal(m, b)
+}
+func (m *TrashRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TrashRequest.Marshal(b, m, deterministic)
+}
+func (m *TrashRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TrashRequest.Merge(m, src)
+}
+func (m *TrashRequest) XXX_Size() int {
+	return xxx_messageInfo_TrashRequest.Size(m)
+}
+func (m *TrashRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_TrashRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TrashRequest proto.InternalMessageInfo
+
+func (m *TrashRequest) GetIdentity() []string {
+	if m != nil {
+		return m.Identity
+	}
+	return nil
+}
+
+func (m *TrashRequest) GetPath() []string {
+	if m != nil {
+		return m.Path
+	}
+	return nil
+}
+
 type UserFileListRequest struct {
 	Identity             string                   `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
 	UserIdentity         int64                    `protobuf:"varint,2,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
@@ -390,7 +603,7 @@ func (m *UserFileListRequest) Reset()         { *m = UserFileListRequest{} }
 func (m *UserFileListRequest) String() string { return proto.CompactTextString(m) }
 func (*UserFileListRequest) ProtoMessage()    {}
 func (*UserFileListRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_8869c2ca76fd1758, []int{3}
+	return fileDescriptor_8869c2ca76fd1758, []int{6}
 }
 
 func (m *UserFileListRequest) XXX_Unmarshal(b []byte) error {
@@ -453,6 +666,53 @@ func (m *UserFileListRequest) GetFilter() *FilterRequest {
 	return nil
 }
 
+type CommonListRequest struct {
+	UserIdentity         int64            `protobuf:"varint,1,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
+	ListInfo             *common.ListInfo `protobuf:"bytes,2,opt,name=list_info,json=listInfo,proto3" json:"list_info,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
+}
+
+func (m *CommonListRequest) Reset()         { *m = CommonListRequest{} }
+func (m *CommonListRequest) String() string { return proto.CompactTextString(m) }
+func (*CommonListRequest) ProtoMessage()    {}
+func (*CommonListRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8869c2ca76fd1758, []int{7}
+}
+
+func (m *CommonListRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CommonListRequest.Unmarshal(m, b)
+}
+func (m *CommonListRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CommonListRequest.Marshal(b, m, deterministic)
+}
+func (m *CommonListRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CommonListRequest.Merge(m, src)
+}
+func (m *CommonListRequest) XXX_Size() int {
+	return xxx_messageInfo_CommonListRequest.Size(m)
+}
+func (m *CommonListRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CommonListRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CommonListRequest proto.InternalMessageInfo
+
+func (m *CommonListRequest) GetUserIdentity() int64 {
+	if m != nil {
+		return m.UserIdentity
+	}
+	return 0
+}
+
+func (m *CommonListRequest) GetListInfo() *common.ListInfo {
+	if m != nil {
+		return m.ListInfo
+	}
+	return nil
+}
+
 type UserFileListResponse struct {
 	Parent               *UserFile   `protobuf:"bytes,1,opt,name=parent,proto3" json:"parent,omitempty"`
 	Data                 []*UserFile `protobuf:"bytes,2,rep,name=data,proto3" json:"data,omitempty"`
@@ -465,7 +725,7 @@ func (m *UserFileListResponse) Reset()         { *m = UserFileListResponse{} }
 func (m *UserFileListResponse) String() string { return proto.CompactTextString(m) }
 func (*UserFileListResponse) ProtoMessage()    {}
 func (*UserFileListResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_8869c2ca76fd1758, []int{4}
+	return fileDescriptor_8869c2ca76fd1758, []int{8}
 }
 
 func (m *UserFileListResponse) XXX_Unmarshal(b []byte) error {
@@ -513,7 +773,7 @@ func (m *UserFilePageResponse) Reset()         { *m = UserFilePageResponse{} }
 func (m *UserFilePageResponse) String() string { return proto.CompactTextString(m) }
 func (*UserFilePageResponse) ProtoMessage()    {}
 func (*UserFilePageResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_8869c2ca76fd1758, []int{5}
+	return fileDescriptor_8869c2ca76fd1758, []int{9}
 }
 
 func (m *UserFilePageResponse) XXX_Unmarshal(b []byte) error {
@@ -555,63 +815,264 @@ func (m *UserFilePageResponse) GetPageInfo() *common.PageInfo {
 	return nil
 }
 
+type TrashListResponse struct {
+	Data                 []*TrashInfo `protobuf:"bytes,2,rep,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *TrashListResponse) Reset()         { *m = TrashListResponse{} }
+func (m *TrashListResponse) String() string { return proto.CompactTextString(m) }
+func (*TrashListResponse) ProtoMessage()    {}
+func (*TrashListResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8869c2ca76fd1758, []int{10}
+}
+
+func (m *TrashListResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TrashListResponse.Unmarshal(m, b)
+}
+func (m *TrashListResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TrashListResponse.Marshal(b, m, deterministic)
+}
+func (m *TrashListResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TrashListResponse.Merge(m, src)
+}
+func (m *TrashListResponse) XXX_Size() int {
+	return xxx_messageInfo_TrashListResponse.Size(m)
+}
+func (m *TrashListResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_TrashListResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TrashListResponse proto.InternalMessageInfo
+
+func (m *TrashListResponse) GetData() []*TrashInfo {
+	if m != nil {
+		return m.Data
+	}
+	return nil
+}
+
+type TrashPageResponse struct {
+	Data                 []*TrashInfo     `protobuf:"bytes,2,rep,name=data,proto3" json:"data,omitempty"`
+	PageInfo             *common.PageInfo `protobuf:"bytes,3,opt,name=page_info,json=pageInfo,proto3" json:"page_info,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
+}
+
+func (m *TrashPageResponse) Reset()         { *m = TrashPageResponse{} }
+func (m *TrashPageResponse) String() string { return proto.CompactTextString(m) }
+func (*TrashPageResponse) ProtoMessage()    {}
+func (*TrashPageResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8869c2ca76fd1758, []int{11}
+}
+
+func (m *TrashPageResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TrashPageResponse.Unmarshal(m, b)
+}
+func (m *TrashPageResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TrashPageResponse.Marshal(b, m, deterministic)
+}
+func (m *TrashPageResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TrashPageResponse.Merge(m, src)
+}
+func (m *TrashPageResponse) XXX_Size() int {
+	return xxx_messageInfo_TrashPageResponse.Size(m)
+}
+func (m *TrashPageResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_TrashPageResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TrashPageResponse proto.InternalMessageInfo
+
+func (m *TrashPageResponse) GetData() []*TrashInfo {
+	if m != nil {
+		return m.Data
+	}
+	return nil
+}
+
+func (m *TrashPageResponse) GetPageInfo() *common.PageInfo {
+	if m != nil {
+		return m.PageInfo
+	}
+	return nil
+}
+
+type OperationQueue struct {
+	Identity             int32    `protobuf:"varint,1,opt,name=identity,proto3" json:"identity,omitempty"`
+	UserIdentity         int64    `protobuf:"varint,2,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
+	CreateTime           int64    `protobuf:"varint,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	Source               string   `protobuf:"bytes,4,opt,name=source,proto3" json:"source,omitempty"`
+	Destination          string   `protobuf:"bytes,5,opt,name=destination,proto3" json:"destination,omitempty"`
+	Addon                string   `protobuf:"bytes,6,opt,name=addon,proto3" json:"addon,omitempty"`
+	Operation            int32    `protobuf:"varint,7,opt,name=operation,proto3" json:"operation,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *OperationQueue) Reset()         { *m = OperationQueue{} }
+func (m *OperationQueue) String() string { return proto.CompactTextString(m) }
+func (*OperationQueue) ProtoMessage()    {}
+func (*OperationQueue) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8869c2ca76fd1758, []int{12}
+}
+
+func (m *OperationQueue) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_OperationQueue.Unmarshal(m, b)
+}
+func (m *OperationQueue) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_OperationQueue.Marshal(b, m, deterministic)
+}
+func (m *OperationQueue) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_OperationQueue.Merge(m, src)
+}
+func (m *OperationQueue) XXX_Size() int {
+	return xxx_messageInfo_OperationQueue.Size(m)
+}
+func (m *OperationQueue) XXX_DiscardUnknown() {
+	xxx_messageInfo_OperationQueue.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_OperationQueue proto.InternalMessageInfo
+
+func (m *OperationQueue) GetIdentity() int32 {
+	if m != nil {
+		return m.Identity
+	}
+	return 0
+}
+
+func (m *OperationQueue) GetUserIdentity() int64 {
+	if m != nil {
+		return m.UserIdentity
+	}
+	return 0
+}
+
+func (m *OperationQueue) GetCreateTime() int64 {
+	if m != nil {
+		return m.CreateTime
+	}
+	return 0
+}
+
+func (m *OperationQueue) GetSource() string {
+	if m != nil {
+		return m.Source
+	}
+	return ""
+}
+
+func (m *OperationQueue) GetDestination() string {
+	if m != nil {
+		return m.Destination
+	}
+	return ""
+}
+
+func (m *OperationQueue) GetAddon() string {
+	if m != nil {
+		return m.Addon
+	}
+	return ""
+}
+
+func (m *OperationQueue) GetOperation() int32 {
+	if m != nil {
+		return m.Operation
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*UserFile)(nil), "services.UserFile")
+	proto.RegisterType((*TrashInfo)(nil), "services.TrashInfo")
 	proto.RegisterType((*UserFilePageRequest)(nil), "services.UserFilePageRequest")
+	proto.RegisterType((*CommonPageRequest)(nil), "services.CommonPageRequest")
 	proto.RegisterType((*FilterRequest)(nil), "services.FilterRequest")
+	proto.RegisterType((*TrashRequest)(nil), "services.TrashRequest")
 	proto.RegisterType((*UserFileListRequest)(nil), "services.UserFileListRequest")
+	proto.RegisterType((*CommonListRequest)(nil), "services.CommonListRequest")
 	proto.RegisterType((*UserFileListResponse)(nil), "services.UserFileListResponse")
 	proto.RegisterType((*UserFilePageResponse)(nil), "services.UserFilePageResponse")
+	proto.RegisterType((*TrashListResponse)(nil), "services.TrashListResponse")
+	proto.RegisterType((*TrashPageResponse)(nil), "services.TrashPageResponse")
+	proto.RegisterType((*OperationQueue)(nil), "services.OperationQueue")
 }
 
 func init() { proto.RegisterFile("file/userfile.proto", fileDescriptor_8869c2ca76fd1758) }
 
 var fileDescriptor_8869c2ca76fd1758 = []byte{
-	// 693 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x55, 0xdd, 0x6e, 0xd3, 0x30,
-	0x14, 0x5e, 0x93, 0xb6, 0x4b, 0x4f, 0xf7, 0x87, 0x57, 0x36, 0xab, 0x02, 0x54, 0x8a, 0x04, 0x15,
-	0x12, 0x0d, 0x74, 0x57, 0x43, 0x5c, 0x0d, 0x69, 0xd3, 0x24, 0x24, 0x50, 0x80, 0x1b, 0x24, 0x54,
-	0x65, 0xe9, 0x69, 0x6a, 0x48, 0xe2, 0xcc, 0x71, 0x07, 0xed, 0x1d, 0x12, 0x6f, 0xc1, 0xa3, 0xf0,
-	0x72, 0xc8, 0x76, 0xd2, 0x9f, 0xad, 0x1b, 0xe2, 0x62, 0x5c, 0xe5, 0x3b, 0xdf, 0xf9, 0xb3, 0xcf,
-	0xf9, 0xac, 0xc0, 0xee, 0x90, 0x45, 0xe8, 0x8e, 0x33, 0x14, 0x0a, 0x74, 0x53, 0xc1, 0x25, 0x27,
-	0x4e, 0x86, 0xe2, 0x82, 0x05, 0x98, 0x35, 0x9b, 0x01, 0x8f, 0x63, 0x9e, 0xb8, 0xe6, 0xd3, 0xc7,
-	0x44, 0x32, 0x39, 0x31, 0x51, 0xed, 0xdf, 0x65, 0x70, 0x3e, 0x66, 0x28, 0x8e, 0x59, 0x84, 0xa4,
-	0x09, 0x0e, 0x1b, 0x18, 0x37, 0x2d, 0xb5, 0x4a, 0x9d, 0x9a, 0x37, 0xb3, 0x09, 0x81, 0xf2, 0xc8,
-	0xcf, 0x46, 0xd4, 0xd2, 0xbc, 0xc6, 0xe4, 0x11, 0x6c, 0xaa, 0xa6, 0xfd, 0x59, 0x92, 0xdd, 0x2a,
-	0x75, 0x6c, 0x6f, 0x43, 0x91, 0xa7, 0x0b, 0x89, 0xa9, 0x2f, 0x47, 0xb4, 0x6c, 0x12, 0x15, 0x56,
-	0x5c, 0xe2, 0xc7, 0x48, 0x2b, 0x86, 0x53, 0x98, 0xec, 0x80, 0x8d, 0xdf, 0x25, 0xad, 0x6a, 0x4a,
-	0x41, 0x15, 0x95, 0xb1, 0x29, 0xd2, 0x75, 0x5d, 0x55, 0x63, 0xc5, 0xc5, 0x2c, 0x46, 0xea, 0x98,
-	0x4c, 0x85, 0x09, 0x85, 0xf5, 0x01, 0x46, 0x28, 0x71, 0x40, 0x6b, 0xad, 0x52, 0xc7, 0xf1, 0x0a,
-	0x93, 0xec, 0x41, 0x35, 0xf5, 0x05, 0x26, 0x92, 0x82, 0x8e, 0xcf, 0x2d, 0x55, 0x45, 0x4e, 0x52,
-	0xa4, 0xf5, 0x56, 0xa9, 0x53, 0xf1, 0x34, 0x26, 0xf7, 0xa0, 0x36, 0x60, 0x02, 0x03, 0xc9, 0xc5,
-	0x84, 0x6e, 0xe8, 0x3a, 0x73, 0x82, 0x34, 0xa0, 0xe2, 0x4b, 0xd5, 0x78, 0x53, 0x1f, 0xc6, 0x18,
-	0x8a, 0x0d, 0x34, 0xbb, 0x65, 0xd8, 0xa0, 0x60, 0x63, 0xcd, 0x6e, 0x1b, 0x56, 0x1b, 0xea, 0x94,
-	0x17, 0x28, 0x32, 0xc6, 0x13, 0xba, 0xa3, 0xdb, 0x16, 0xa6, 0xf2, 0x44, 0x3c, 0xf8, 0xca, 0x92,
-	0x90, 0xde, 0x31, 0xe7, 0xcf, 0x4d, 0xb2, 0x05, 0x16, 0x4f, 0x29, 0xd1, 0xe1, 0x16, 0x4f, 0x55,
-	0x64, 0x2a, 0xf0, 0x82, 0xe1, 0x37, 0xba, 0x6b, 0x22, 0x73, 0x93, 0x3c, 0x84, 0x8d, 0x1c, 0xf6,
-	0xf5, 0xcd, 0x1a, 0x3a, 0xa7, 0x9e, 0x73, 0x1f, 0xd4, 0x05, 0x09, 0x94, 0x87, 0x91, 0x1f, 0xd2,
-	0xbb, 0xe6, 0xd2, 0x0a, 0x93, 0x27, 0xb0, 0x3d, 0x4e, 0xd8, 0xf9, 0x18, 0xe7, 0x3b, 0xdc, 0xd3,
-	0x93, 0xda, 0x32, 0xf4, 0x6c, 0x8b, 0x0d, 0xa8, 0x64, 0x23, 0x5f, 0x20, 0xdd, 0xd7, 0x7d, 0x8d,
-	0xd1, 0xfe, 0x61, 0xc1, 0x6e, 0xa1, 0x9e, 0x77, 0x7e, 0x88, 0x1e, 0x9e, 0x8f, 0x31, 0x93, 0x37,
-	0x0a, 0xe9, 0x8a, 0x68, 0xac, 0x1b, 0x44, 0x63, 0x2f, 0x88, 0xc6, 0x85, 0x5a, 0xea, 0x87, 0xd8,
-	0x67, 0xc9, 0x90, 0x6b, 0x35, 0xd5, 0x7b, 0xa4, 0x5b, 0x88, 0xbc, 0xab, 0xda, 0x9f, 0x26, 0x43,
-	0xee, 0x39, 0x69, 0x8e, 0xc8, 0x01, 0x38, 0x5c, 0x0c, 0x50, 0xf4, 0xcf, 0x26, 0xb4, 0xd2, 0xb2,
-	0x3b, 0xf5, 0x1e, 0x9d, 0xc7, 0xbf, 0x55, 0x9e, 0xa3, 0x49, 0x7e, 0x62, 0x6f, 0x9d, 0x1b, 0x9b,
-	0xb8, 0x50, 0x1d, 0xb2, 0x48, 0xa2, 0xd0, 0x4a, 0xac, 0xf7, 0xf6, 0xe7, 0x29, 0xc7, 0x9a, 0x2f,
-	0x32, 0xf2, 0xb0, 0xf6, 0x67, 0xd8, 0x5c, 0x72, 0x5c, 0xba, 0xbc, 0x7d, 0xf9, 0x15, 0xe9, 0xf5,
-	0x58, 0x2d, 0x7b, 0xb5, 0xf0, 0x6c, 0xbd, 0x9c, 0x39, 0xb1, 0x34, 0xe2, 0x37, 0x2c, 0x93, 0xb7,
-	0x3d, 0xe2, 0x88, 0x65, 0xf2, 0x9a, 0x11, 0xab, 0xf6, 0x66, 0xc4, 0x51, 0x8e, 0xfe, 0xd3, 0x88,
-	0xbf, 0x40, 0x63, 0x79, 0x04, 0x59, 0xca, 0x93, 0x0c, 0xc9, 0xd3, 0xd9, 0xf3, 0x2e, 0x5d, 0x3e,
-	0x6b, 0x11, 0x3f, 0x7b, 0xf2, 0x8f, 0xa1, 0x3c, 0xf0, 0xa5, 0xaf, 0x27, 0xbf, 0x3a, 0x52, 0xfb,
-	0xdb, 0xbf, 0x4a, 0xf3, 0x66, 0x46, 0xd2, 0xb7, 0xd7, 0x6c, 0x59, 0xd2, 0xf6, 0xdf, 0x25, 0xdd,
-	0xfb, 0x69, 0x41, 0x5d, 0xe5, 0xbf, 0x37, 0x31, 0xa4, 0x07, 0xd5, 0xd7, 0x02, 0x7d, 0x89, 0x64,
-	0x45, 0x93, 0xe6, 0x0a, 0xae, 0xbd, 0x46, 0x5c, 0xb0, 0x4f, 0x50, 0xfe, 0x43, 0xc2, 0x09, 0x94,
-	0xd5, 0x51, 0xc8, 0xfd, 0xab, 0xde, 0x85, 0x47, 0xdf, 0x7c, 0x70, 0x9d, 0xdb, 0x0c, 0xd0, 0x14,
-	0x52, 0xfb, 0x5b, 0x55, 0x68, 0x41, 0xda, 0xab, 0x0a, 0x2d, 0xae, 0xbd, 0xbd, 0x76, 0xf4, 0xea,
-	0xd3, 0xcb, 0x90, 0xc9, 0xd1, 0xf8, 0xac, 0x1b, 0xf0, 0xd8, 0x9d, 0x4e, 0xa7, 0x23, 0xf1, 0xe2,
-	0xf0, 0xf0, 0x79, 0xfe, 0x87, 0x7b, 0x16, 0x8a, 0x34, 0x70, 0x43, 0xee, 0x16, 0x65, 0xdc, 0xa5,
-	0xff, 0xe3, 0x59, 0x55, 0xff, 0xfa, 0x0e, 0xfe, 0x04, 0x00, 0x00, 0xff, 0xff, 0x74, 0x1d, 0x64,
-	0xee, 0x37, 0x07, 0x00, 0x00,
+	// 1026 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x57, 0x5f, 0x6f, 0x1b, 0x45,
+	0x10, 0x8f, 0xef, 0x6c, 0xc7, 0x9e, 0x73, 0xd2, 0x66, 0x93, 0xa6, 0x2b, 0xb7, 0x80, 0xb9, 0x4a,
+	0xd4, 0x42, 0x22, 0x06, 0x17, 0x55, 0x2a, 0xaa, 0x2a, 0x48, 0x20, 0x51, 0x24, 0xa4, 0x82, 0x09,
+	0x2f, 0x48, 0xc8, 0xba, 0xdc, 0xad, 0xed, 0x05, 0xfb, 0xf6, 0xba, 0xb7, 0x0e, 0x38, 0x6f, 0x7c,
+	0x0e, 0xde, 0xf8, 0x1a, 0x7c, 0x12, 0xde, 0xf8, 0x28, 0x68, 0x67, 0xef, 0x7c, 0x77, 0xf6, 0xa5,
+	0x4d, 0x14, 0x85, 0x27, 0xcf, 0xfc, 0x76, 0x66, 0x76, 0xfe, 0xfc, 0x76, 0xd7, 0x07, 0xbb, 0x23,
+	0x3e, 0x65, 0xbd, 0x79, 0xcc, 0xa4, 0x16, 0x0e, 0x22, 0x29, 0x94, 0x20, 0x8d, 0x98, 0xc9, 0x0b,
+	0xee, 0xb3, 0xb8, 0xdd, 0xf6, 0xc5, 0x6c, 0x26, 0xc2, 0x9e, 0xf9, 0x19, 0xb2, 0x50, 0x71, 0xb5,
+	0x30, 0x56, 0xee, 0xdf, 0x55, 0x68, 0xfc, 0x18, 0x33, 0x79, 0xcc, 0xa7, 0x8c, 0xb4, 0xa1, 0xc1,
+	0x03, 0xb3, 0x4c, 0x2b, 0x9d, 0x4a, 0xb7, 0x39, 0x58, 0xea, 0x84, 0x40, 0x75, 0xe2, 0xc5, 0x13,
+	0x6a, 0x21, 0x8e, 0x32, 0x79, 0x02, 0x5b, 0x7a, 0xd3, 0xe1, 0xd2, 0xc9, 0xee, 0x54, 0xba, 0xf6,
+	0xa0, 0xa5, 0xc1, 0xd3, 0x9c, 0x63, 0xe4, 0xa9, 0x09, 0xad, 0x1a, 0x47, 0x2d, 0x6b, 0x2c, 0xf4,
+	0x66, 0x8c, 0xd6, 0x0c, 0xa6, 0x65, 0x72, 0x1f, 0x6c, 0xf6, 0xbb, 0xa2, 0x75, 0x84, 0xb4, 0xa8,
+	0xad, 0x62, 0x7e, 0xc9, 0xe8, 0x26, 0x46, 0x45, 0x59, 0x63, 0x33, 0x3e, 0x63, 0xb4, 0x61, 0x3c,
+	0xb5, 0x4c, 0x28, 0x6c, 0x06, 0x6c, 0xca, 0x14, 0x0b, 0x68, 0xb3, 0x53, 0xe9, 0x36, 0x06, 0xa9,
+	0x4a, 0xf6, 0xa1, 0x1e, 0x79, 0x92, 0x85, 0x8a, 0x02, 0xda, 0x27, 0x9a, 0x8e, 0xa2, 0x16, 0x11,
+	0xa3, 0x4e, 0xa7, 0xd2, 0xad, 0x0d, 0x50, 0x26, 0x8f, 0xa1, 0x19, 0x70, 0xc9, 0x7c, 0x25, 0xe4,
+	0x82, 0xb6, 0x30, 0x4e, 0x06, 0x90, 0x3d, 0xa8, 0x79, 0x4a, 0x6f, 0xbc, 0x85, 0xc9, 0x18, 0x45,
+	0xa3, 0x3e, 0xa2, 0xdb, 0x06, 0xf5, 0x53, 0x74, 0x86, 0xe8, 0x3d, 0x83, 0xa2, 0xa2, 0xb3, 0xbc,
+	0x60, 0x32, 0xe6, 0x22, 0xa4, 0xf7, 0x71, 0xdb, 0x54, 0xd5, 0x2b, 0x53, 0xe1, 0xff, 0xca, 0xc3,
+	0x31, 0xdd, 0x31, 0xf9, 0x27, 0x2a, 0xd9, 0x06, 0x4b, 0x44, 0x94, 0xa0, 0xb9, 0x25, 0x22, 0x6d,
+	0x19, 0x49, 0x76, 0xc1, 0xd9, 0x6f, 0x74, 0xd7, 0x58, 0x26, 0x2a, 0xf9, 0x10, 0x5a, 0x89, 0x38,
+	0xc4, 0xca, 0xf6, 0xd0, 0xc7, 0x49, 0xb0, 0x33, 0x5d, 0x20, 0x81, 0xea, 0x68, 0xea, 0x8d, 0xe9,
+	0x03, 0x53, 0xb4, 0x96, 0xc9, 0x53, 0xb8, 0x37, 0x0f, 0xf9, 0x9b, 0x39, 0xcb, 0x66, 0xb8, 0x8f,
+	0x9d, 0xda, 0x36, 0xf0, 0x72, 0x8a, 0x7b, 0x50, 0x8b, 0x27, 0x9e, 0x64, 0xf4, 0x21, 0xee, 0x6b,
+	0x14, 0xf7, 0x2f, 0x0b, 0x9a, 0x67, 0xd2, 0x8b, 0x27, 0xa7, 0xe1, 0x48, 0xbc, 0x95, 0x3e, 0x6b,
+	0x54, 0xb1, 0xde, 0x42, 0x15, 0x3b, 0x47, 0x95, 0x27, 0xb0, 0xa5, 0x7f, 0x33, 0x47, 0xc3, 0xa3,
+	0x96, 0x06, 0x97, 0x8e, 0x1f, 0x80, 0xe3, 0x4b, 0xe6, 0x29, 0x36, 0xc4, 0xbe, 0xd7, 0x30, 0x36,
+	0x18, 0xe8, 0x4c, 0x37, 0x3f, 0x25, 0x5c, 0x3d, 0x47, 0xb8, 0x94, 0x04, 0x9b, 0x39, 0x12, 0x94,
+	0xd1, 0x4b, 0x8f, 0x3e, 0x08, 0x44, 0x88, 0xe4, 0x6a, 0x0e, 0x8c, 0x92, 0x1f, 0x1a, 0x94, 0x0d,
+	0xcd, 0x49, 0x87, 0xe6, 0xfe, 0x61, 0xc1, 0x6e, 0x7a, 0xc4, 0xbe, 0xf3, 0xc6, 0x6c, 0xc0, 0xde,
+	0xcc, 0x59, 0xac, 0xee, 0xa6, 0x5d, 0x3d, 0x68, 0x46, 0xde, 0x98, 0x0d, 0x79, 0x38, 0x12, 0xd8,
+	0x2a, 0xa7, 0x4f, 0x0e, 0xd2, 0x9b, 0xe0, 0x40, 0x6f, 0xaf, 0x47, 0x35, 0x68, 0x44, 0x89, 0x44,
+	0x9e, 0x41, 0x43, 0xc8, 0x80, 0xc9, 0xe1, 0xf9, 0x82, 0xd6, 0x3a, 0x76, 0xd7, 0xe9, 0xd3, 0xcc,
+	0xfe, 0xb5, 0x5e, 0x39, 0x5c, 0x24, 0x19, 0x0f, 0x36, 0x85, 0xd1, 0x49, 0x0f, 0xea, 0x23, 0x3e,
+	0x55, 0x4c, 0x62, 0x43, 0x9d, 0xfe, 0xc3, 0xcc, 0xe5, 0x18, 0xf1, 0xd4, 0x23, 0x31, 0x73, 0x39,
+	0xec, 0x1c, 0xe1, 0xed, 0x93, 0x6f, 0xc0, 0x5a, 0x91, 0x95, 0x92, 0x22, 0x0b, 0x05, 0x59, 0xef,
+	0x2e, 0xc8, 0xfd, 0x19, 0xb6, 0x0a, 0x39, 0xac, 0xf4, 0xd9, 0x5e, 0xbd, 0xd5, 0x90, 0x03, 0x56,
+	0xc7, 0x2e, 0xbf, 0x08, 0x6c, 0x1c, 0x63, 0x06, 0xb8, 0xaf, 0xa0, 0x85, 0x8c, 0xbf, 0x66, 0x74,
+	0x1c, 0x90, 0x85, 0x38, 0xca, 0x05, 0x36, 0x7c, 0xcb, 0x63, 0x75, 0xd7, 0x6c, 0x98, 0xf2, 0x58,
+	0x5d, 0xc1, 0x06, 0xbd, 0xbd, 0x69, 0xde, 0x34, 0x91, 0xfe, 0x6f, 0x36, 0xe4, 0x1b, 0x70, 0x5d,
+	0x36, 0x64, 0x05, 0x59, 0xef, 0x2e, 0xc8, 0xfd, 0x05, 0xf6, 0x8a, 0xdd, 0x8e, 0x23, 0x11, 0xc6,
+	0x8c, 0x7c, 0xbc, 0x7c, 0x19, 0x2a, 0xab, 0x51, 0x52, 0xfb, 0xe5, 0x6b, 0xf1, 0x11, 0x54, 0x03,
+	0x4f, 0x79, 0x38, 0xc6, 0x72, 0x4b, 0x5c, 0x77, 0xff, 0xac, 0x64, 0x9b, 0x19, 0x9e, 0xdf, 0xdd,
+	0x66, 0xc5, 0x73, 0x61, 0x5f, 0xe3, 0x5c, 0xbc, 0x84, 0x1d, 0x24, 0x6e, 0xa1, 0x0d, 0x4f, 0x0b,
+	0xbb, 0xed, 0x66, 0x01, 0x96, 0xb7, 0x7a, 0x52, 0xdb, 0x2c, 0xf1, 0x2e, 0xd4, 0x75, 0x5d, 0xef,
+	0x9b, 0x27, 0xfb, 0x6f, 0x05, 0xb6, 0x5f, 0x47, 0x4c, 0x7a, 0x8a, 0x8b, 0xf0, 0xfb, 0x39, 0x9b,
+	0xaf, 0xff, 0x39, 0xa9, 0xdd, 0xf4, 0x80, 0xac, 0x3c, 0x12, 0xf6, 0xda, 0x23, 0xb1, 0x0f, 0xf5,
+	0x58, 0xcc, 0xa5, 0xcf, 0x92, 0x37, 0x26, 0xd1, 0x48, 0x07, 0x9c, 0x80, 0xc5, 0x8a, 0x87, 0x98,
+	0x4d, 0xf2, 0xa7, 0x25, 0x0f, 0x65, 0x4f, 0x44, 0x3d, 0xff, 0x44, 0x3c, 0x86, 0xa6, 0x48, 0x6b,
+	0x48, 0x5e, 0x99, 0x0c, 0xe8, 0xff, 0x53, 0x03, 0x47, 0xcf, 0xf3, 0x07, 0xd3, 0x06, 0xd2, 0x87,
+	0xfa, 0x11, 0xe6, 0x42, 0x4a, 0x86, 0xde, 0x2e, 0xc1, 0xdc, 0x0d, 0xd2, 0x03, 0xfb, 0x84, 0xa9,
+	0x1b, 0x38, 0x9c, 0x40, 0x55, 0x77, 0x9b, 0xbc, 0xb7, 0xbe, 0x9a, 0xbb, 0x99, 0xdb, 0xef, 0x5f,
+	0xb5, 0x6c, 0x06, 0x6f, 0x02, 0x69, 0x22, 0x95, 0x05, 0xca, 0x1d, 0xea, 0xb2, 0x40, 0x79, 0xfe,
+	0xb9, 0x1b, 0xe4, 0x15, 0x38, 0xa6, 0x6c, 0xe4, 0x0c, 0xd9, 0x5f, 0x21, 0x51, 0x1a, 0xe8, 0x41,
+	0x86, 0x9f, 0x86, 0xea, 0xf9, 0xe7, 0xdf, 0xe0, 0x4c, 0x31, 0x91, 0xa6, 0x4e, 0xcd, 0x78, 0x3f,
+	0xca, 0xac, 0xd6, 0x9e, 0x9b, 0xf6, 0xa3, 0x95, 0xd0, 0x6b, 0x15, 0x35, 0x75, 0x6a, 0x57, 0x04,
+	0xca, 0x17, 0xb5, 0x1a, 0x68, 0xa5, 0xa2, 0xe7, 0xd0, 0x38, 0x61, 0x49, 0x9c, 0xb2, 0x33, 0xd1,
+	0x2e, 0x03, 0xdd, 0x0d, 0xf2, 0x25, 0x34, 0xbe, 0x0a, 0x02, 0x43, 0xf6, 0xfc, 0xad, 0x5b, 0x38,
+	0x06, 0xed, 0x2b, 0x57, 0xdc, 0x0d, 0x72, 0x08, 0x70, 0xcc, 0x94, 0x3f, 0xb9, 0x4d, 0x8c, 0x23,
+	0x70, 0xbe, 0xc6, 0x7f, 0xcf, 0xb7, 0x08, 0x72, 0xf8, 0xf2, 0xa7, 0x2f, 0xc6, 0x5c, 0x4d, 0xe6,
+	0xe7, 0x07, 0xbe, 0x98, 0xf5, 0x2e, 0x2f, 0x2f, 0x27, 0xf2, 0xb3, 0x17, 0x2f, 0x3e, 0x4d, 0xbe,
+	0x40, 0x3e, 0x19, 0xcb, 0xc8, 0xef, 0x8d, 0x45, 0x2f, 0x0d, 0xd0, 0x2b, 0x7c, 0xbf, 0x9c, 0xd7,
+	0xf1, 0xd3, 0xe4, 0xd9, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xd3, 0x2a, 0x23, 0x5c, 0xd7, 0x0c,
+	0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -630,6 +1091,13 @@ type FileServiceClient interface {
 	Get(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
 	Page(ctx context.Context, in *UserFilePageRequest, opts ...grpc.CallOption) (*UserFilePageResponse, error)
 	List(ctx context.Context, in *UserFileListRequest, opts ...grpc.CallOption) (*UserFileListResponse, error)
+	CreateTrash(ctx context.Context, in *TrashRequest, opts ...grpc.CallOption) (*common.Int64Entity, error)
+	PageTrash(ctx context.Context, in *CommonPageRequest, opts ...grpc.CallOption) (*TrashPageResponse, error)
+	ListTrash(ctx context.Context, in *CommonListRequest, opts ...grpc.CallOption) (*TrashListResponse, error)
+	GetTrash(ctx context.Context, in *TrashInfo, opts ...grpc.CallOption) (*TrashInfo, error)
+	AddQueue(ctx context.Context, in *OperationQueue, opts ...grpc.CallOption) (*OperationQueue, error)
+	FetchQueue(ctx context.Context, in *OperationQueue, opts ...grpc.CallOption) (*OperationQueue, error)
+	DeleteQueue(ctx context.Context, in *OperationQueue, opts ...grpc.CallOption) (*OperationQueue, error)
 }
 
 type fileServiceClient struct {
@@ -676,12 +1144,82 @@ func (c *fileServiceClient) List(ctx context.Context, in *UserFileListRequest, o
 	return out, nil
 }
 
+func (c *fileServiceClient) CreateTrash(ctx context.Context, in *TrashRequest, opts ...grpc.CallOption) (*common.Int64Entity, error) {
+	out := new(common.Int64Entity)
+	err := c.cc.Invoke(ctx, "/services.FileService/CreateTrash", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) PageTrash(ctx context.Context, in *CommonPageRequest, opts ...grpc.CallOption) (*TrashPageResponse, error) {
+	out := new(TrashPageResponse)
+	err := c.cc.Invoke(ctx, "/services.FileService/PageTrash", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) ListTrash(ctx context.Context, in *CommonListRequest, opts ...grpc.CallOption) (*TrashListResponse, error) {
+	out := new(TrashListResponse)
+	err := c.cc.Invoke(ctx, "/services.FileService/ListTrash", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) GetTrash(ctx context.Context, in *TrashInfo, opts ...grpc.CallOption) (*TrashInfo, error) {
+	out := new(TrashInfo)
+	err := c.cc.Invoke(ctx, "/services.FileService/GetTrash", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) AddQueue(ctx context.Context, in *OperationQueue, opts ...grpc.CallOption) (*OperationQueue, error) {
+	out := new(OperationQueue)
+	err := c.cc.Invoke(ctx, "/services.FileService/AddQueue", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) FetchQueue(ctx context.Context, in *OperationQueue, opts ...grpc.CallOption) (*OperationQueue, error) {
+	out := new(OperationQueue)
+	err := c.cc.Invoke(ctx, "/services.FileService/FetchQueue", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) DeleteQueue(ctx context.Context, in *OperationQueue, opts ...grpc.CallOption) (*OperationQueue, error) {
+	out := new(OperationQueue)
+	err := c.cc.Invoke(ctx, "/services.FileService/DeleteQueue", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileServiceServer is the server API for FileService service.
 type FileServiceServer interface {
 	Create(context.Context, *UserFile) (*UserFile, error)
 	Get(context.Context, *UserFile) (*UserFile, error)
 	Page(context.Context, *UserFilePageRequest) (*UserFilePageResponse, error)
 	List(context.Context, *UserFileListRequest) (*UserFileListResponse, error)
+	CreateTrash(context.Context, *TrashRequest) (*common.Int64Entity, error)
+	PageTrash(context.Context, *CommonPageRequest) (*TrashPageResponse, error)
+	ListTrash(context.Context, *CommonListRequest) (*TrashListResponse, error)
+	GetTrash(context.Context, *TrashInfo) (*TrashInfo, error)
+	AddQueue(context.Context, *OperationQueue) (*OperationQueue, error)
+	FetchQueue(context.Context, *OperationQueue) (*OperationQueue, error)
+	DeleteQueue(context.Context, *OperationQueue) (*OperationQueue, error)
 }
 
 // UnimplementedFileServiceServer can be embedded to have forward compatible implementations.
@@ -699,6 +1237,27 @@ func (*UnimplementedFileServiceServer) Page(ctx context.Context, req *UserFilePa
 }
 func (*UnimplementedFileServiceServer) List(ctx context.Context, req *UserFileListRequest) (*UserFileListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (*UnimplementedFileServiceServer) CreateTrash(ctx context.Context, req *TrashRequest) (*common.Int64Entity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateTrash not implemented")
+}
+func (*UnimplementedFileServiceServer) PageTrash(ctx context.Context, req *CommonPageRequest) (*TrashPageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PageTrash not implemented")
+}
+func (*UnimplementedFileServiceServer) ListTrash(ctx context.Context, req *CommonListRequest) (*TrashListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListTrash not implemented")
+}
+func (*UnimplementedFileServiceServer) GetTrash(ctx context.Context, req *TrashInfo) (*TrashInfo, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTrash not implemented")
+}
+func (*UnimplementedFileServiceServer) AddQueue(ctx context.Context, req *OperationQueue) (*OperationQueue, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddQueue not implemented")
+}
+func (*UnimplementedFileServiceServer) FetchQueue(ctx context.Context, req *OperationQueue) (*OperationQueue, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FetchQueue not implemented")
+}
+func (*UnimplementedFileServiceServer) DeleteQueue(ctx context.Context, req *OperationQueue) (*OperationQueue, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteQueue not implemented")
 }
 
 func RegisterFileServiceServer(s *grpc.Server, srv FileServiceServer) {
@@ -777,6 +1336,132 @@ func _FileService_List_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_CreateTrash_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrashRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).CreateTrash(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.FileService/CreateTrash",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).CreateTrash(ctx, req.(*TrashRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_PageTrash_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CommonPageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).PageTrash(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.FileService/PageTrash",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).PageTrash(ctx, req.(*CommonPageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_ListTrash_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CommonListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).ListTrash(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.FileService/ListTrash",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).ListTrash(ctx, req.(*CommonListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_GetTrash_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TrashInfo)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).GetTrash(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.FileService/GetTrash",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).GetTrash(ctx, req.(*TrashInfo))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_AddQueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OperationQueue)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).AddQueue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.FileService/AddQueue",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).AddQueue(ctx, req.(*OperationQueue))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_FetchQueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OperationQueue)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).FetchQueue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.FileService/FetchQueue",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).FetchQueue(ctx, req.(*OperationQueue))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_DeleteQueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OperationQueue)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).DeleteQueue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.FileService/DeleteQueue",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).DeleteQueue(ctx, req.(*OperationQueue))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _FileService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "services.FileService",
 	HandlerType: (*FileServiceServer)(nil),
@@ -796,6 +1481,34 @@ var _FileService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "List",
 			Handler:    _FileService_List_Handler,
+		},
+		{
+			MethodName: "CreateTrash",
+			Handler:    _FileService_CreateTrash_Handler,
+		},
+		{
+			MethodName: "PageTrash",
+			Handler:    _FileService_PageTrash_Handler,
+		},
+		{
+			MethodName: "ListTrash",
+			Handler:    _FileService_ListTrash_Handler,
+		},
+		{
+			MethodName: "GetTrash",
+			Handler:    _FileService_GetTrash_Handler,
+		},
+		{
+			MethodName: "AddQueue",
+			Handler:    _FileService_AddQueue_Handler,
+		},
+		{
+			MethodName: "FetchQueue",
+			Handler:    _FileService_FetchQueue_Handler,
+		},
+		{
+			MethodName: "DeleteQueue",
+			Handler:    _FileService_DeleteQueue_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
