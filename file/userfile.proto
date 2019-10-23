@@ -86,6 +86,7 @@ message FilterRequest {
 message TrashRequest {
     repeated string identity = 1;
     repeated string path = 2;
+    int64 user_identity = 3;
 }
 
 message UserFileListRequest {

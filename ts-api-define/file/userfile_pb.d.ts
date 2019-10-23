@@ -287,6 +287,9 @@ export class TrashRequest extends jspb.Message {
   setPathList(value: Array<string>): void;
   addPath(value: string, index?: number): string;
 
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TrashRequest.AsObject;
   static toObject(includeInstance: boolean, msg: TrashRequest): TrashRequest.AsObject;
@@ -301,6 +304,7 @@ export namespace TrashRequest {
   export type AsObject = {
     identityList: Array<string>,
     pathList: Array<string>,
+    userIdentity: number,
   }
 }
 

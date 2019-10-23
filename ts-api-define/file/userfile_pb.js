@@ -2306,7 +2306,8 @@ proto.services.TrashRequest.prototype.toObject = function(opt_includeInstance) {
 proto.services.TrashRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     identityList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
-    pathList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
+    pathList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
+    userIdentity: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -2351,6 +2352,10 @@ proto.services.TrashRequest.deserializeBinaryFromReader = function(msg, reader) 
       var value = /** @type {string} */ (reader.readString());
       msg.addPath(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setUserIdentity(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -2391,6 +2396,13 @@ proto.services.TrashRequest.serializeBinaryToWriter = function(message, writer) 
   if (f.length > 0) {
     writer.writeRepeatedString(
       2,
+      f
+    );
+  }
+  f = message.getUserIdentity();
+  if (f !== 0) {
+    writer.writeInt64(
+      3,
       f
     );
   }
@@ -2468,6 +2480,24 @@ proto.services.TrashRequest.prototype.addPath = function(value, opt_index) {
  */
 proto.services.TrashRequest.prototype.clearPathList = function() {
   return this.setPathList([]);
+};
+
+
+/**
+ * optional int64 user_identity = 3;
+ * @return {number}
+ */
+proto.services.TrashRequest.prototype.getUserIdentity = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.TrashRequest} returns this
+ */
+proto.services.TrashRequest.prototype.setUserIdentity = function(value) {
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
