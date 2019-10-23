@@ -16,9 +16,6 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   pageTrash: grpc.MethodDefinition<file_userfile_pb.CommonPageRequest, file_userfile_pb.TrashPageResponse>;
   listTrash: grpc.MethodDefinition<file_userfile_pb.CommonListRequest, file_userfile_pb.TrashListResponse>;
   getTrash: grpc.MethodDefinition<file_userfile_pb.TrashInfo, file_userfile_pb.TrashInfo>;
-  addQueue: grpc.MethodDefinition<file_userfile_pb.OperationQueue, file_userfile_pb.OperationQueue>;
-  fetchQueue: grpc.MethodDefinition<file_userfile_pb.OperationQueue, file_userfile_pb.OperationQueue>;
-  deleteQueue: grpc.MethodDefinition<file_userfile_pb.OperationQueue, file_userfile_pb.OperationQueue>;
 }
 
 export const FileServiceService: IFileServiceService;
@@ -49,13 +46,4 @@ export class FileServiceClient extends grpc.Client {
   getTrash(argument: file_userfile_pb.TrashInfo, callback: grpc.requestCallback<file_userfile_pb.TrashInfo>): grpc.ClientUnaryCall;
   getTrash(argument: file_userfile_pb.TrashInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.TrashInfo>): grpc.ClientUnaryCall;
   getTrash(argument: file_userfile_pb.TrashInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.TrashInfo>): grpc.ClientUnaryCall;
-  addQueue(argument: file_userfile_pb.OperationQueue, callback: grpc.requestCallback<file_userfile_pb.OperationQueue>): grpc.ClientUnaryCall;
-  addQueue(argument: file_userfile_pb.OperationQueue, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.OperationQueue>): grpc.ClientUnaryCall;
-  addQueue(argument: file_userfile_pb.OperationQueue, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.OperationQueue>): grpc.ClientUnaryCall;
-  fetchQueue(argument: file_userfile_pb.OperationQueue, callback: grpc.requestCallback<file_userfile_pb.OperationQueue>): grpc.ClientUnaryCall;
-  fetchQueue(argument: file_userfile_pb.OperationQueue, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.OperationQueue>): grpc.ClientUnaryCall;
-  fetchQueue(argument: file_userfile_pb.OperationQueue, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.OperationQueue>): grpc.ClientUnaryCall;
-  deleteQueue(argument: file_userfile_pb.OperationQueue, callback: grpc.requestCallback<file_userfile_pb.OperationQueue>): grpc.ClientUnaryCall;
-  deleteQueue(argument: file_userfile_pb.OperationQueue, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.OperationQueue>): grpc.ClientUnaryCall;
-  deleteQueue(argument: file_userfile_pb.OperationQueue, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.OperationQueue>): grpc.ClientUnaryCall;
 }

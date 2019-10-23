@@ -38,17 +38,6 @@ function deserialize_services_Int64Entity(buffer_arg) {
   return common_common_entity_pb.Int64Entity.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_OperationQueue(arg) {
-  if (!(arg instanceof file_userfile_pb.OperationQueue)) {
-    throw new Error('Expected argument of type services.OperationQueue');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_OperationQueue(buffer_arg) {
-  return file_userfile_pb.OperationQueue.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_services_TrashInfo(arg) {
   if (!(arg instanceof file_userfile_pb.TrashInfo)) {
     throw new Error('Expected argument of type services.TrashInfo');
@@ -237,39 +226,6 @@ var FileServiceService = exports.FileServiceService = {
     requestDeserialize: deserialize_services_TrashInfo,
     responseSerialize: serialize_services_TrashInfo,
     responseDeserialize: deserialize_services_TrashInfo,
-  },
-  addQueue: {
-    path: '/services.FileService/AddQueue',
-    requestStream: false,
-    responseStream: false,
-    requestType: file_userfile_pb.OperationQueue,
-    responseType: file_userfile_pb.OperationQueue,
-    requestSerialize: serialize_services_OperationQueue,
-    requestDeserialize: deserialize_services_OperationQueue,
-    responseSerialize: serialize_services_OperationQueue,
-    responseDeserialize: deserialize_services_OperationQueue,
-  },
-  fetchQueue: {
-    path: '/services.FileService/FetchQueue',
-    requestStream: false,
-    responseStream: false,
-    requestType: file_userfile_pb.OperationQueue,
-    responseType: file_userfile_pb.OperationQueue,
-    requestSerialize: serialize_services_OperationQueue,
-    requestDeserialize: deserialize_services_OperationQueue,
-    responseSerialize: serialize_services_OperationQueue,
-    responseDeserialize: deserialize_services_OperationQueue,
-  },
-  deleteQueue: {
-    path: '/services.FileService/DeleteQueue',
-    requestStream: false,
-    responseStream: false,
-    requestType: file_userfile_pb.OperationQueue,
-    responseType: file_userfile_pb.OperationQueue,
-    requestSerialize: serialize_services_OperationQueue,
-    requestDeserialize: deserialize_services_OperationQueue,
-    responseSerialize: serialize_services_OperationQueue,
-    responseDeserialize: deserialize_services_OperationQueue,
   },
 };
 

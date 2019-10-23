@@ -16,9 +16,9 @@ service FileService {
     rpc PageTrash (CommonPageRequest) returns (TrashPageResponse) {}
     rpc ListTrash (CommonListRequest) returns (TrashListResponse) {}
     rpc GetTrash (TrashInfo) returns (TrashInfo) {}
-    rpc AddQueue (OperationQueue) returns (OperationQueue) {}
-    rpc FetchQueue (OperationQueue) returns (OperationQueue) {}
-    rpc DeleteQueue (OperationQueue) returns (OperationQueue) {}
+    // rpc AddQueue (OperationQueue) returns (OperationQueue) {}
+    // rpc FetchQueue (OperationQueue) returns (OperationQueue) {}
+    // rpc DeleteQueue (OperationQueue) returns (OperationQueue) {}
     // rpc FindOne (UserFile) returns (UserFile) {}
 }
 
@@ -122,6 +122,7 @@ message TrashPageResponse {
     PageInfo page_info = 3;
 }
 
+/*
 message OperationQueue {
     int32 identity = 1;
     int64 user_identity = 2;
@@ -131,3 +132,4 @@ message OperationQueue {
     string addon = 6;
     int32 operation = 7;
 }
+*/
