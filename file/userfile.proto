@@ -10,6 +10,7 @@ import "common/common_entity.proto";
 service FileService {
     rpc Create (UserFile) returns (UserFile) {}
     rpc Get (UserFile) returns (UserFile) {}
+    rpc Rename (UserFile) returns (UserFile) {}
     rpc Page (UserFilePageRequest) returns (UserFilePageResponse) {}
     rpc List (UserFileListRequest) returns (UserFileListResponse) {}
     rpc CreateTrash (TrashRequest) returns (Int64Entity) {}
@@ -62,6 +63,7 @@ message TrashInfo {
     bool locking = 10;
     int32 op = 11;
 }
+
 
 message UserFilePageRequest {
     string identity = 1;

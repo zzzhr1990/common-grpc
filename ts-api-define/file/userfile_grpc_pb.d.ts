@@ -10,6 +10,7 @@ import * as grpc from "grpc";
 interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
   create: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
   get: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
+  rename: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
   page: grpc.MethodDefinition<file_userfile_pb.UserFilePageRequest, file_userfile_pb.UserFilePageResponse>;
   list: grpc.MethodDefinition<file_userfile_pb.UserFileListRequest, file_userfile_pb.UserFileListResponse>;
   createTrash: grpc.MethodDefinition<file_userfile_pb.TrashRequest, common_common_entity_pb.Int64Entity>;
@@ -28,6 +29,9 @@ export class FileServiceClient extends grpc.Client {
   get(argument: file_userfile_pb.UserFile, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   get(argument: file_userfile_pb.UserFile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   get(argument: file_userfile_pb.UserFile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
+  rename(argument: file_userfile_pb.UserFile, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
+  rename(argument: file_userfile_pb.UserFile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
+  rename(argument: file_userfile_pb.UserFile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   page(argument: file_userfile_pb.UserFilePageRequest, callback: grpc.requestCallback<file_userfile_pb.UserFilePageResponse>): grpc.ClientUnaryCall;
   page(argument: file_userfile_pb.UserFilePageRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFilePageResponse>): grpc.ClientUnaryCall;
   page(argument: file_userfile_pb.UserFilePageRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFilePageResponse>): grpc.ClientUnaryCall;

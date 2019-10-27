@@ -161,6 +161,17 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_UserFile,
     responseDeserialize: deserialize_services_UserFile,
   },
+  rename: {
+    path: '/services.FileService/Rename',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.UserFile,
+    responseType: file_userfile_pb.UserFile,
+    requestSerialize: serialize_services_UserFile,
+    requestDeserialize: deserialize_services_UserFile,
+    responseSerialize: serialize_services_UserFile,
+    responseDeserialize: deserialize_services_UserFile,
+  },
   page: {
     path: '/services.FileService/Page',
     requestStream: false,
