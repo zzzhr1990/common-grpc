@@ -91,6 +91,12 @@ message TrashRequest {
     int64 user_identity = 3;
 }
 
+message MqRequest {
+    UserFile source = 1;
+    UserFile dest = 2;
+    int32 type = 3;
+}
+
 message UserFileListRequest {
     string identity = 1;
     int64 user_identity = 2;

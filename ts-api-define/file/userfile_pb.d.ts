@@ -308,6 +308,38 @@ export namespace TrashRequest {
   }
 }
 
+export class MqRequest extends jspb.Message {
+  hasSource(): boolean;
+  clearSource(): void;
+  getSource(): UserFile | undefined;
+  setSource(value?: UserFile): void;
+
+  hasDest(): boolean;
+  clearDest(): void;
+  getDest(): UserFile | undefined;
+  setDest(value?: UserFile): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MqRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: MqRequest): MqRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MqRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MqRequest;
+  static deserializeBinaryFromReader(message: MqRequest, reader: jspb.BinaryReader): MqRequest;
+}
+
+export namespace MqRequest {
+  export type AsObject = {
+    source?: UserFile.AsObject,
+    dest?: UserFile.AsObject,
+    type: number,
+  }
+}
+
 export class UserFileListRequest extends jspb.Message {
   getIdentity(): string;
   setIdentity(value: string): void;
