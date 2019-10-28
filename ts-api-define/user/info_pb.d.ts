@@ -91,6 +91,124 @@ export namespace User {
   }
 }
 
+export class SmsRequest extends jspb.Message {
+  getCountryCode(): string;
+  setCountryCode(value: string): void;
+
+  getPhone(): string;
+  setPhone(value: string): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getExpireInMs(): number;
+  setExpireInMs(value: number): void;
+
+  getTpl(): string;
+  setTpl(value: string): void;
+
+  clearParamsList(): void;
+  getParamsList(): Array<string>;
+  setParamsList(value: Array<string>): void;
+  addParams(value: string, index?: number): string;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SmsRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: SmsRequest): SmsRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SmsRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SmsRequest;
+  static deserializeBinaryFromReader(message: SmsRequest, reader: jspb.BinaryReader): SmsRequest;
+}
+
+export namespace SmsRequest {
+  export type AsObject = {
+    countryCode: string,
+    phone: string,
+    type: number,
+    expireInMs: number,
+    tpl: string,
+    paramsList: Array<string>,
+  }
+}
+
+export class SmsResponse extends jspb.Message {
+  getSession(): string;
+  setSession(value: string): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getExpireTime(): number;
+  setExpireTime(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SmsResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: SmsResponse): SmsResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SmsResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SmsResponse;
+  static deserializeBinaryFromReader(message: SmsResponse, reader: jspb.BinaryReader): SmsResponse;
+}
+
+export namespace SmsResponse {
+  export type AsObject = {
+    session: string,
+    type: number,
+    expireTime: number,
+  }
+}
+
+export class SmsValidateRequest extends jspb.Message {
+  getSession(): string;
+  setSession(value: string): void;
+
+  getCode(): string;
+  setCode(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SmsValidateRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: SmsValidateRequest): SmsValidateRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SmsValidateRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SmsValidateRequest;
+  static deserializeBinaryFromReader(message: SmsValidateRequest, reader: jspb.BinaryReader): SmsValidateRequest;
+}
+
+export namespace SmsValidateRequest {
+  export type AsObject = {
+    session: string,
+    code: string,
+  }
+}
+
+export class SmsValidateResponse extends jspb.Message {
+  getSuccess(): boolean;
+  setSuccess(value: boolean): void;
+
+  getLeft(): number;
+  setLeft(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SmsValidateResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: SmsValidateResponse): SmsValidateResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SmsValidateResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SmsValidateResponse;
+  static deserializeBinaryFromReader(message: SmsValidateResponse, reader: jspb.BinaryReader): SmsValidateResponse;
+}
+
+export namespace SmsValidateResponse {
+  export type AsObject = {
+    success: boolean,
+    left: number,
+  }
+}
+
 export class Log extends jspb.Message {
   getIdentity(): number;
   setIdentity(value: number): void;

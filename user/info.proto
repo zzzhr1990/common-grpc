@@ -18,6 +18,8 @@ service UserService {
 
     // rpc getBalance (Balance) returns (Balance) {}
     // rpc setSpaceUsed (Balance) returns (Balance) {}
+    rpc SendSms(SmsRequest) returns (SmsResponse) {}
+    rpc ValidateSms(SmsValidateRequest) returns (SmsValidateResponse) {}
     rpc ChangePassword (PasswordPair) returns (User) {}
     // rpc ChangeName (User) returns (User) {}
     // rpc ChangeEmail (User) returns (User) {}
@@ -43,6 +45,31 @@ message User {
     int32 vip = 16;
     int64  vip_expire_time = 17; // [json_name="payaya"] seems not working for normal json
     int64  last_activate_time = 18; // when last login, activate, ... etc
+}
+
+message SmsRequest {
+    string country_code = 1;
+    string phone = 2;
+    int32 type = 3;
+    int64 expire_in_ms = 4;
+    string tpl = 5;
+    repeated string params = 6;
+}
+
+message SmsResponse {
+    string session = 1;
+    int32 type = 2;
+    int64 expire_time = 3;
+}
+
+message SmsValidateRequest {
+    string session = 1;
+    string code = 2;
+}
+
+message SmsValidateResponse {
+    bool success = 1;
+    int32 left = 2;
 }
 
 message Log {
