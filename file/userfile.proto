@@ -11,9 +11,14 @@ service FileService {
     rpc Create (UserFile) returns (UserFile) {}
     rpc Get (UserFile) returns (UserFile) {}
     rpc Rename (UserFile) returns (UserFile) {}
+    rpc RenameInteral (UserFile) returns (UserFile) {}
+    rpc ReleaseLock (UserFile) returns (BoolEntity) {}
+    rpc Trash (BathFileRequest) returns (Int64Entity) {}
+    rpc Copy (BathFileRequest) returns (Int64Entity) {}
+    rpc Move (BathFileRequest) returns (Int64Entity) {}
     rpc Page (UserFilePageRequest) returns (UserFilePageResponse) {}
     rpc List (UserFileListRequest) returns (UserFileListResponse) {}
-    rpc CreateTrash (TrashRequest) returns (Int64Entity) {}
+    rpc ListInteral (UserFileListRequest) returns (UserFileListResponse) {}
     rpc PageTrash (CommonPageRequest) returns (TrashPageResponse) {}
     rpc ListTrash (CommonListRequest) returns (TrashListResponse) {}
     rpc GetTrash (TrashInfo) returns (TrashInfo) {}
@@ -85,7 +90,7 @@ message FilterRequest {
     int32 directory = 3;
 }
 
-message TrashRequest {
+message BathFileRequest {
     repeated string identity = 1;
     repeated string path = 2;
     int64 user_identity = 3;

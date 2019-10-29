@@ -276,7 +276,7 @@ export namespace FilterRequest {
   }
 }
 
-export class TrashRequest extends jspb.Message {
+export class BathFileRequest extends jspb.Message {
   clearIdentityList(): void;
   getIdentityList(): Array<string>;
   setIdentityList(value: Array<string>): void;
@@ -291,16 +291,16 @@ export class TrashRequest extends jspb.Message {
   setUserIdentity(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): TrashRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: TrashRequest): TrashRequest.AsObject;
+  toObject(includeInstance?: boolean): BathFileRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: BathFileRequest): BathFileRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: TrashRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): TrashRequest;
-  static deserializeBinaryFromReader(message: TrashRequest, reader: jspb.BinaryReader): TrashRequest;
+  static serializeBinaryToWriter(message: BathFileRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BathFileRequest;
+  static deserializeBinaryFromReader(message: BathFileRequest, reader: jspb.BinaryReader): BathFileRequest;
 }
 
-export namespace TrashRequest {
+export namespace BathFileRequest {
   export type AsObject = {
     identityList: Array<string>,
     pathList: Array<string>,

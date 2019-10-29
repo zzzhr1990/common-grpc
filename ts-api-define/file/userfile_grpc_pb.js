@@ -5,6 +5,28 @@ var grpc = require('grpc');
 var file_userfile_pb = require('../file/userfile_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
+function serialize_services_BathFileRequest(arg) {
+  if (!(arg instanceof file_userfile_pb.BathFileRequest)) {
+    throw new Error('Expected argument of type services.BathFileRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_BathFileRequest(buffer_arg) {
+  return file_userfile_pb.BathFileRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_BoolEntity(arg) {
+  if (!(arg instanceof common_common_entity_pb.BoolEntity)) {
+    throw new Error('Expected argument of type services.BoolEntity');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_BoolEntity(buffer_arg) {
+  return common_common_entity_pb.BoolEntity.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_CommonListRequest(arg) {
   if (!(arg instanceof file_userfile_pb.CommonListRequest)) {
     throw new Error('Expected argument of type services.CommonListRequest');
@@ -69,17 +91,6 @@ function serialize_services_TrashPageResponse(arg) {
 
 function deserialize_services_TrashPageResponse(buffer_arg) {
   return file_userfile_pb.TrashPageResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_TrashRequest(arg) {
-  if (!(arg instanceof file_userfile_pb.TrashRequest)) {
-    throw new Error('Expected argument of type services.TrashRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_TrashRequest(buffer_arg) {
-  return file_userfile_pb.TrashRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_UserFile(arg) {
@@ -172,6 +183,61 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_UserFile,
     responseDeserialize: deserialize_services_UserFile,
   },
+  renameInteral: {
+    path: '/services.FileService/RenameInteral',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.UserFile,
+    responseType: file_userfile_pb.UserFile,
+    requestSerialize: serialize_services_UserFile,
+    requestDeserialize: deserialize_services_UserFile,
+    responseSerialize: serialize_services_UserFile,
+    responseDeserialize: deserialize_services_UserFile,
+  },
+  releaseLock: {
+    path: '/services.FileService/ReleaseLock',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.UserFile,
+    responseType: common_common_entity_pb.BoolEntity,
+    requestSerialize: serialize_services_UserFile,
+    requestDeserialize: deserialize_services_UserFile,
+    responseSerialize: serialize_services_BoolEntity,
+    responseDeserialize: deserialize_services_BoolEntity,
+  },
+  trash: {
+    path: '/services.FileService/Trash',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.BathFileRequest,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_BathFileRequest,
+    requestDeserialize: deserialize_services_BathFileRequest,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
+  },
+  copy: {
+    path: '/services.FileService/Copy',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.BathFileRequest,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_BathFileRequest,
+    requestDeserialize: deserialize_services_BathFileRequest,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
+  },
+  move: {
+    path: '/services.FileService/Move',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.BathFileRequest,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_BathFileRequest,
+    requestDeserialize: deserialize_services_BathFileRequest,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
+  },
   page: {
     path: '/services.FileService/Page',
     requestStream: false,
@@ -194,16 +260,16 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_UserFileListResponse,
     responseDeserialize: deserialize_services_UserFileListResponse,
   },
-  createTrash: {
-    path: '/services.FileService/CreateTrash',
+  listInteral: {
+    path: '/services.FileService/ListInteral',
     requestStream: false,
     responseStream: false,
-    requestType: file_userfile_pb.TrashRequest,
-    responseType: common_common_entity_pb.Int64Entity,
-    requestSerialize: serialize_services_TrashRequest,
-    requestDeserialize: deserialize_services_TrashRequest,
-    responseSerialize: serialize_services_Int64Entity,
-    responseDeserialize: deserialize_services_Int64Entity,
+    requestType: file_userfile_pb.UserFileListRequest,
+    responseType: file_userfile_pb.UserFileListResponse,
+    requestSerialize: serialize_services_UserFileListRequest,
+    requestDeserialize: deserialize_services_UserFileListRequest,
+    responseSerialize: serialize_services_UserFileListResponse,
+    responseDeserialize: deserialize_services_UserFileListResponse,
   },
   pageTrash: {
     path: '/services.FileService/PageTrash',
