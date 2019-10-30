@@ -116,6 +116,17 @@ var UserServiceService = exports.UserServiceService = {
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
   },
+  smsLogin: {
+    path: '/services.UserService/SmsLogin',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.SmsValidateRequest,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_SmsValidateRequest,
+    requestDeserialize: deserialize_services_SmsValidateRequest,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
+  },
   loginDirect: {
     path: '/services.UserService/LoginDirect',
     requestStream: false,

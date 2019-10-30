@@ -12,6 +12,8 @@ service UserService {
     rpc Get (User) returns (User) {}
     rpc FindOne (User) returns (User) {}
     rpc Login (User) returns (User) {}
+    // SMS login, send session and code, return empty user info instead of error if not success
+    rpc SmsLogin (SmsValidateRequest) returns (User) {} 
     rpc LoginDirect (User) returns (User) {}
     rpc Logoff (User) returns (User) {}
     rpc Update (User) returns (User) {}
