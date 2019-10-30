@@ -183,8 +183,8 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_UserFile,
     responseDeserialize: deserialize_services_UserFile,
   },
-  renameInteral: {
-    path: '/services.FileService/RenameInteral',
+  changePathInteral: {
+    path: '/services.FileService/ChangePathInteral',
     requestStream: false,
     responseStream: false,
     requestType: file_userfile_pb.UserFile,

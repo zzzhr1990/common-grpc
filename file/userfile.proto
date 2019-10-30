@@ -11,7 +11,7 @@ service FileService {
     rpc Create (UserFile) returns (UserFile) {}
     rpc Get (UserFile) returns (UserFile) {}
     rpc Rename (UserFile) returns (UserFile) {}
-    rpc RenameInteral (UserFile) returns (UserFile) {}
+    rpc ChangePathInteral (UserFile) returns (UserFile) {}
     rpc ReleaseLock (UserFile) returns (BoolEntity) {}
     rpc Trash (BathFileRequest) returns (Int64Entity) {}
     rpc Copy (BathFileRequest) returns (Int64Entity) {}
