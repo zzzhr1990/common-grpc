@@ -2330,7 +2330,7 @@ proto.services.BathFileRequest.toObject = function(includeInstance, msg) {
     identityList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
     pathList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
     userIdentity: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    destIdentity: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    dest: (f = msg.getDest()) && proto.services.UserFile.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2380,8 +2380,9 @@ proto.services.BathFileRequest.deserializeBinaryFromReader = function(msg, reade
       msg.setUserIdentity(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setDestIdentity(value);
+      var value = new proto.services.UserFile;
+      reader.readMessage(value,proto.services.UserFile.deserializeBinaryFromReader);
+      msg.setDest(value);
       break;
     default:
       reader.skipField();
@@ -2433,11 +2434,12 @@ proto.services.BathFileRequest.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getDestIdentity();
-  if (f !== 0) {
-    writer.writeInt64(
+  f = message.getDest();
+  if (f != null) {
+    writer.writeMessage(
       4,
-      f
+      f,
+      proto.services.UserFile.serializeBinaryToWriter
     );
   }
 };
@@ -2536,20 +2538,39 @@ proto.services.BathFileRequest.prototype.setUserIdentity = function(value) {
 
 
 /**
- * optional int64 dest_identity = 4;
- * @return {number}
+ * optional UserFile dest = 4;
+ * @return {?proto.services.UserFile}
  */
-proto.services.BathFileRequest.prototype.getDestIdentity = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+proto.services.BathFileRequest.prototype.getDest = function() {
+  return /** @type{?proto.services.UserFile} */ (
+    jspb.Message.getWrapperField(this, proto.services.UserFile, 4));
 };
 
 
 /**
- * @param {number} value
+ * @param {?proto.services.UserFile|undefined} value
+ * @return {!proto.services.BathFileRequest} returns this
+*/
+proto.services.BathFileRequest.prototype.setDest = function(value) {
+  return jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
  * @return {!proto.services.BathFileRequest} returns this
  */
-proto.services.BathFileRequest.prototype.setDestIdentity = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+proto.services.BathFileRequest.prototype.clearDest = function() {
+  return this.setDest(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.services.BathFileRequest.prototype.hasDest = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 

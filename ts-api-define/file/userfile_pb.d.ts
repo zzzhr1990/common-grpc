@@ -290,8 +290,10 @@ export class BathFileRequest extends jspb.Message {
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
 
-  getDestIdentity(): number;
-  setDestIdentity(value: number): void;
+  hasDest(): boolean;
+  clearDest(): void;
+  getDest(): UserFile | undefined;
+  setDest(value?: UserFile): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): BathFileRequest.AsObject;
@@ -308,7 +310,7 @@ export namespace BathFileRequest {
     identityList: Array<string>,
     pathList: Array<string>,
     userIdentity: number,
-    destIdentity: number,
+    dest?: UserFile.AsObject,
   }
 }
 
