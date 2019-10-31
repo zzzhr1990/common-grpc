@@ -814,6 +814,7 @@ type UserServiceClient interface {
 	Get(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
 	FindOne(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
 	Login(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
+	// SMS login, send session and code, return empty user info instead of error if not success
 	SmsLogin(ctx context.Context, in *SmsValidateRequest, opts ...grpc.CallOption) (*User, error)
 	LoginDirect(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
 	Logoff(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
@@ -938,6 +939,7 @@ type UserServiceServer interface {
 	Get(context.Context, *User) (*User, error)
 	FindOne(context.Context, *User) (*User, error)
 	Login(context.Context, *User) (*User, error)
+	// SMS login, send session and code, return empty user info instead of error if not success
 	SmsLogin(context.Context, *SmsValidateRequest) (*User, error)
 	LoginDirect(context.Context, *User) (*User, error)
 	Logoff(context.Context, *User) (*User, error)

@@ -2329,7 +2329,8 @@ proto.services.BathFileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     identityList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
     pathList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
-    userIdentity: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    userIdentity: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    destIdentity: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -2378,6 +2379,10 @@ proto.services.BathFileRequest.deserializeBinaryFromReader = function(msg, reade
       var value = /** @type {number} */ (reader.readInt64());
       msg.setUserIdentity(value);
       break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setDestIdentity(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -2425,6 +2430,13 @@ proto.services.BathFileRequest.serializeBinaryToWriter = function(message, write
   if (f !== 0) {
     writer.writeInt64(
       3,
+      f
+    );
+  }
+  f = message.getDestIdentity();
+  if (f !== 0) {
+    writer.writeInt64(
+      4,
       f
     );
   }
@@ -2520,6 +2532,24 @@ proto.services.BathFileRequest.prototype.getUserIdentity = function() {
  */
 proto.services.BathFileRequest.prototype.setUserIdentity = function(value) {
   return jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional int64 dest_identity = 4;
+ * @return {number}
+ */
+proto.services.BathFileRequest.prototype.getDestIdentity = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.BathFileRequest} returns this
+ */
+proto.services.BathFileRequest.prototype.setDestIdentity = function(value) {
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 

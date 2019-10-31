@@ -116,6 +116,7 @@ var UserServiceService = exports.UserServiceService = {
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
   },
+  // SMS login, send session and code, return empty user info instead of error if not success
   smsLogin: {
     path: '/services.UserService/SmsLogin',
     requestStream: false,
