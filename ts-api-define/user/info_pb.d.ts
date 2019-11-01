@@ -397,6 +397,9 @@ export class SmsCreateRequest extends jspb.Message {
   getName(): string;
   setName(value: string): void;
 
+  getCreateAddr(): string;
+  setCreateAddr(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SmsCreateRequest.AsObject;
   static toObject(includeInstance: boolean, msg: SmsCreateRequest): SmsCreateRequest.AsObject;
@@ -414,6 +417,7 @@ export namespace SmsCreateRequest {
     password: string,
     email: string,
     name: string,
+    createAddr: string,
   }
 }
 

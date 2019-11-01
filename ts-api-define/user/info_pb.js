@@ -2934,7 +2934,8 @@ proto.services.SmsCreateRequest.toObject = function(includeInstance, msg) {
     code: jspb.Message.getFieldWithDefault(msg, 2, ""),
     password: jspb.Message.getFieldWithDefault(msg, 3, ""),
     email: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    name: jspb.Message.getFieldWithDefault(msg, 5, "")
+    name: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    createAddr: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -2990,6 +2991,10 @@ proto.services.SmsCreateRequest.deserializeBinaryFromReader = function(msg, read
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCreateAddr(value);
       break;
     default:
       reader.skipField();
@@ -3052,6 +3057,13 @@ proto.services.SmsCreateRequest.serializeBinaryToWriter = function(message, writ
   if (f.length > 0) {
     writer.writeString(
       5,
+      f
+    );
+  }
+  f = message.getCreateAddr();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
       f
     );
   }
@@ -3145,6 +3157,24 @@ proto.services.SmsCreateRequest.prototype.getName = function() {
  */
 proto.services.SmsCreateRequest.prototype.setName = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string create_addr = 6;
+ * @return {string}
+ */
+proto.services.SmsCreateRequest.prototype.getCreateAddr = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.SmsCreateRequest} returns this
+ */
+proto.services.SmsCreateRequest.prototype.setCreateAddr = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 

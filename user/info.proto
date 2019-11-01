@@ -139,4 +139,5 @@ message SmsCreateRequest {
     string password = 3;
     string email = 4;
     string name = 5;
+    string create_addr = 6;
 }
