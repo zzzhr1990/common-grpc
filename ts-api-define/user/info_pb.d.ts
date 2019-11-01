@@ -325,7 +325,7 @@ export namespace Balance {
   }
 }
 
-export class PasswordPair extends jspb.Message {
+export class ChangePasswordRequest extends jspb.Message {
   getIdentity(): number;
   setIdentity(value: number): void;
 
@@ -335,25 +335,85 @@ export class PasswordPair extends jspb.Message {
   getNewPassword(): string;
   setNewPassword(value: string): void;
 
-  getDirect(): boolean;
-  setDirect(value: boolean): void;
-
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): PasswordPair.AsObject;
-  static toObject(includeInstance: boolean, msg: PasswordPair): PasswordPair.AsObject;
+  toObject(includeInstance?: boolean): ChangePasswordRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ChangePasswordRequest): ChangePasswordRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: PasswordPair, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): PasswordPair;
-  static deserializeBinaryFromReader(message: PasswordPair, reader: jspb.BinaryReader): PasswordPair;
+  static serializeBinaryToWriter(message: ChangePasswordRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ChangePasswordRequest;
+  static deserializeBinaryFromReader(message: ChangePasswordRequest, reader: jspb.BinaryReader): ChangePasswordRequest;
 }
 
-export namespace PasswordPair {
+export namespace ChangePasswordRequest {
   export type AsObject = {
     identity: number,
     oldPassword: string,
     newPassword: string,
-    direct: boolean,
+  }
+}
+
+export class SmsChangePasswordRequest extends jspb.Message {
+  getSession(): string;
+  setSession(value: string): void;
+
+  getCode(): string;
+  setCode(value: string): void;
+
+  getNewPassword(): string;
+  setNewPassword(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SmsChangePasswordRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: SmsChangePasswordRequest): SmsChangePasswordRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SmsChangePasswordRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SmsChangePasswordRequest;
+  static deserializeBinaryFromReader(message: SmsChangePasswordRequest, reader: jspb.BinaryReader): SmsChangePasswordRequest;
+}
+
+export namespace SmsChangePasswordRequest {
+  export type AsObject = {
+    session: string,
+    code: string,
+    newPassword: string,
+  }
+}
+
+export class SmsCreateRequest extends jspb.Message {
+  getSession(): string;
+  setSession(value: string): void;
+
+  getCode(): string;
+  setCode(value: string): void;
+
+  getPassword(): string;
+  setPassword(value: string): void;
+
+  getEmail(): string;
+  setEmail(value: string): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SmsCreateRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: SmsCreateRequest): SmsCreateRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SmsCreateRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SmsCreateRequest;
+  static deserializeBinaryFromReader(message: SmsCreateRequest, reader: jspb.BinaryReader): SmsCreateRequest;
+}
+
+export namespace SmsCreateRequest {
+  export type AsObject = {
+    session: string,
+    code: string,
+    password: string,
+    email: string,
+    name: string,
   }
 }
 

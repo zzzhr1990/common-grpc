@@ -8,6 +8,7 @@ import * as grpc from "grpc";
 
 interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
   create: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
+  smsCreate: grpc.MethodDefinition<user_info_pb.SmsCreateRequest, user_info_pb.User>;
   get: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
   findOne: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
   login: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
@@ -17,7 +18,8 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   update: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
   sendSms: grpc.MethodDefinition<user_info_pb.SmsRequest, user_info_pb.SmsResponse>;
   validateSms: grpc.MethodDefinition<user_info_pb.SmsValidateRequest, user_info_pb.SmsValidateResponse>;
-  changePassword: grpc.MethodDefinition<user_info_pb.PasswordPair, user_info_pb.User>;
+  changePassword: grpc.MethodDefinition<user_info_pb.ChangePasswordRequest, user_info_pb.User>;
+  smsChangePassword: grpc.MethodDefinition<user_info_pb.SmsChangePasswordRequest, user_info_pb.User>;
 }
 
 export const UserServiceService: IUserServiceService;
@@ -27,6 +29,9 @@ export class UserServiceClient extends grpc.Client {
   create(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   create(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   create(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  smsCreate(argument: user_info_pb.SmsCreateRequest, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  smsCreate(argument: user_info_pb.SmsCreateRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  smsCreate(argument: user_info_pb.SmsCreateRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   get(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   get(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   get(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
@@ -54,7 +59,10 @@ export class UserServiceClient extends grpc.Client {
   validateSms(argument: user_info_pb.SmsValidateRequest, callback: grpc.requestCallback<user_info_pb.SmsValidateResponse>): grpc.ClientUnaryCall;
   validateSms(argument: user_info_pb.SmsValidateRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.SmsValidateResponse>): grpc.ClientUnaryCall;
   validateSms(argument: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.SmsValidateResponse>): grpc.ClientUnaryCall;
-  changePassword(argument: user_info_pb.PasswordPair, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  changePassword(argument: user_info_pb.PasswordPair, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  changePassword(argument: user_info_pb.PasswordPair, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  changePassword(argument: user_info_pb.ChangePasswordRequest, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  changePassword(argument: user_info_pb.ChangePasswordRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  changePassword(argument: user_info_pb.ChangePasswordRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  smsChangePassword(argument: user_info_pb.SmsChangePasswordRequest, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  smsChangePassword(argument: user_info_pb.SmsChangePasswordRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  smsChangePassword(argument: user_info_pb.SmsChangePasswordRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
 }
