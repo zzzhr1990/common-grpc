@@ -942,7 +942,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type UserServiceClient interface {
-	// 强行创建用户（后台使用）
+	// 强行创建用户（仅后台使用）
 	Create(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
 	// 短信创建用户，password、email、name 选填项目，如果不填写，系统会随机生成
 	SmsCreate(ctx context.Context, in *SmsCreateRequest, opts ...grpc.CallOption) (*User, error)
@@ -954,7 +954,7 @@ type UserServiceClient interface {
 	Login(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
 	// SMS login, send session and code, return empty user info instead of error if not success
 	SmsLogin(ctx context.Context, in *SmsValidateRequest, opts ...grpc.CallOption) (*User, error)
-	// 强行登录用户（后台使用）
+	// 强行登录用户（仅后台使用）
 	LoginDirect(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
 	// 登出（记录用户登录操作）
 	Logoff(ctx context.Context, in *User, opts ...grpc.CallOption) (*User, error)
@@ -1099,7 +1099,7 @@ func (c *userServiceClient) SmsChangePassword(ctx context.Context, in *SmsChange
 
 // UserServiceServer is the server API for UserService service.
 type UserServiceServer interface {
-	// 强行创建用户（后台使用）
+	// 强行创建用户（仅后台使用）
 	Create(context.Context, *User) (*User, error)
 	// 短信创建用户，password、email、name 选填项目，如果不填写，系统会随机生成
 	SmsCreate(context.Context, *SmsCreateRequest) (*User, error)
@@ -1111,7 +1111,7 @@ type UserServiceServer interface {
 	Login(context.Context, *User) (*User, error)
 	// SMS login, send session and code, return empty user info instead of error if not success
 	SmsLogin(context.Context, *SmsValidateRequest) (*User, error)
-	// 强行登录用户（后台使用）
+	// 强行登录用户（仅后台使用）
 	LoginDirect(context.Context, *User) (*User, error)
 	// 登出（记录用户登录操作）
 	Logoff(context.Context, *User) (*User, error)

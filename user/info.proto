@@ -8,7 +8,7 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/user/info";
 
 
 service UserService {
-    // 强行创建用户（后台使用）
+    // 强行创建用户（仅后台使用）
     rpc Create (User) returns (User) {}
     // 短信创建用户，password、email、name 选填项目，如果不填写，系统会随机生成
     rpc SmsCreate (SmsCreateRequest) returns (User) {}
@@ -23,7 +23,7 @@ service UserService {
     rpc Login (User) returns (User) {}
     // SMS login, send session and code, return empty user info instead of error if not success
     rpc SmsLogin (SmsValidateRequest) returns (User) {} 
-    // 强行登录用户（后台使用）
+    // 强行登录用户（仅后台使用）
     rpc LoginDirect (User) returns (User) {}
     // 登出（记录用户登录操作）
     rpc Logoff (User) returns (User) {}
@@ -137,7 +137,7 @@ message SmsCreateRequest {
     string session = 1;
     string code = 2;
     string password = 3;
-    string email = 4;
-    string name = 5;
-    string create_addr = 6;
+    string email = 4;       // 邮箱
+    string name = 5;        // 用户名
+    string create_addr = 6; // 用户IP地址
 }

@@ -94,7 +94,7 @@ function deserialize_services_User(buffer_arg) {
 
 
 var UserServiceService = exports.UserServiceService = {
-  // 强行创建用户（后台使用）
+  // 强行创建用户（仅后台使用）
   create: {
     path: '/services.UserService/Create',
     requestStream: false,
@@ -166,7 +166,7 @@ var UserServiceService = exports.UserServiceService = {
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
   },
-  // 强行登录用户（后台使用）
+  // 强行登录用户（仅后台使用）
   loginDirect: {
     path: '/services.UserService/LoginDirect',
     requestStream: false,
