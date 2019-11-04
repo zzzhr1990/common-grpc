@@ -81,6 +81,17 @@ function deserialize_services_SmsValidateResponse(buffer_arg) {
   return user_info_pb.SmsValidateResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_ThirdPartyLoginInfo(arg) {
+  if (!(arg instanceof user_info_pb.ThirdPartyLoginInfo)) {
+    throw new Error('Expected argument of type services.ThirdPartyLoginInfo');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_ThirdPartyLoginInfo(buffer_arg) {
+  return user_info_pb.ThirdPartyLoginInfo.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_User(arg) {
   if (!(arg instanceof user_info_pb.User)) {
     throw new Error('Expected argument of type services.User');
@@ -249,6 +260,43 @@ var UserServiceService = exports.UserServiceService = {
     responseType: user_info_pb.User,
     requestSerialize: serialize_services_SmsChangePasswordRequest,
     requestDeserialize: deserialize_services_SmsChangePasswordRequest,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
+  },
+  // 废弃， 请使用update
+  // rpc ChangeName (User) returns (User) {}
+  // 废弃， 请使用update
+  // rpc ChangeEmail (User) returns (User) {}
+  bindThirdPartyLogin: {
+    path: '/services.UserService/BindThirdPartyLogin',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.ThirdPartyLoginInfo,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_ThirdPartyLoginInfo,
+    requestDeserialize: deserialize_services_ThirdPartyLoginInfo,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
+  },
+  removeThirdPartyLogin: {
+    path: '/services.UserService/RemoveThirdPartyLogin',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.ThirdPartyLoginInfo,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_ThirdPartyLoginInfo,
+    requestDeserialize: deserialize_services_ThirdPartyLoginInfo,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
+  },
+  thirdPartyLogin: {
+    path: '/services.UserService/ThirdPartyLogin',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.ThirdPartyLoginInfo,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_ThirdPartyLoginInfo,
+    requestDeserialize: deserialize_services_ThirdPartyLoginInfo,
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
   },

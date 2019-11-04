@@ -20,6 +20,9 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   validateSms: grpc.MethodDefinition<user_info_pb.SmsValidateRequest, user_info_pb.SmsValidateResponse>;
   changePassword: grpc.MethodDefinition<user_info_pb.ChangePasswordRequest, user_info_pb.User>;
   smsChangePassword: grpc.MethodDefinition<user_info_pb.SmsChangePasswordRequest, user_info_pb.User>;
+  bindThirdPartyLogin: grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
+  removeThirdPartyLogin: grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
+  thirdPartyLogin: grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
 }
 
 export const UserServiceService: IUserServiceService;
@@ -65,4 +68,13 @@ export class UserServiceClient extends grpc.Client {
   smsChangePassword(argument: user_info_pb.SmsChangePasswordRequest, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   smsChangePassword(argument: user_info_pb.SmsChangePasswordRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   smsChangePassword(argument: user_info_pb.SmsChangePasswordRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  bindThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  bindThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  bindThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  removeThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  removeThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  removeThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  thirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  thirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  thirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
 }

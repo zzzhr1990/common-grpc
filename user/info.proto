@@ -44,6 +44,9 @@ service UserService {
     // rpc ChangeName (User) returns (User) {}
     // 废弃， 请使用update
     // rpc ChangeEmail (User) returns (User) {}
+    rpc BindThirdPartyLogin (ThirdPartyLoginInfo) returns (User) {}
+    rpc RemoveThirdPartyLogin (ThirdPartyLoginInfo) returns (User) {}
+    rpc ThirdPartyLogin (ThirdPartyLoginInfo) returns (User) {}
 }
 
 
@@ -141,3 +144,14 @@ message SmsCreateRequest {
     string name = 5;        // 用户名
     string create_addr = 6; // 用户IP地址
 }
+
+
+message ThirdPartyLoginInfo {
+    string open_id = 1;
+    int64 type = 2;
+    int64 user_identity = 3;
+    string access_key = 4;
+    string refresh_key = 5;
+    int64 last_active_time = 6;
+}
+

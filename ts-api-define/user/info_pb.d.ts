@@ -421,3 +421,43 @@ export namespace SmsCreateRequest {
   }
 }
 
+export class ThirdPartyLoginInfo extends jspb.Message {
+  getOpenId(): string;
+  setOpenId(value: string): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
+  getAccessKey(): string;
+  setAccessKey(value: string): void;
+
+  getRefreshKey(): string;
+  setRefreshKey(value: string): void;
+
+  getLastActiveTime(): number;
+  setLastActiveTime(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ThirdPartyLoginInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: ThirdPartyLoginInfo): ThirdPartyLoginInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ThirdPartyLoginInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ThirdPartyLoginInfo;
+  static deserializeBinaryFromReader(message: ThirdPartyLoginInfo, reader: jspb.BinaryReader): ThirdPartyLoginInfo;
+}
+
+export namespace ThirdPartyLoginInfo {
+  export type AsObject = {
+    openId: string,
+    type: number,
+    userIdentity: number,
+    accessKey: string,
+    refreshKey: string,
+    lastActiveTime: number,
+  }
+}
+

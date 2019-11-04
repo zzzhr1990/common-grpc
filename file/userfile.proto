@@ -9,6 +9,7 @@ import "common/common_entity.proto";
 
 service FileService {
     rpc Create (UserFile) returns (UserFile) {}
+    rpc CreateInteral (UserFile) returns (UserFile) {}
     rpc Get (UserFile) returns (UserFile) {}
     rpc Rename (UserFile) returns (UserFile) {}
     rpc ChangePathInteral (UserFile) returns (UserFile) {}
