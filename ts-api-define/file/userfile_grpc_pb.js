@@ -161,8 +161,8 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_UserFile,
     responseDeserialize: deserialize_services_UserFile,
   },
-  createInteral: {
-    path: '/services.FileService/CreateInteral',
+  createInternal: {
+    path: '/services.FileService/CreateInternal',
     requestStream: false,
     responseStream: false,
     requestType: file_userfile_pb.UserFile,
@@ -194,8 +194,8 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_UserFile,
     responseDeserialize: deserialize_services_UserFile,
   },
-  changePathInteral: {
-    path: '/services.FileService/ChangePathInteral',
+  changePathInternal: {
+    path: '/services.FileService/ChangePathInternal',
     requestStream: false,
     responseStream: false,
     requestType: file_userfile_pb.UserFile,
@@ -271,8 +271,8 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_UserFileListResponse,
     responseDeserialize: deserialize_services_UserFileListResponse,
   },
-  listInteral: {
-    path: '/services.FileService/ListInteral',
+  listInternal: {
+    path: '/services.FileService/ListInternal',
     requestStream: false,
     responseStream: false,
     requestType: file_userfile_pb.UserFileListRequest,
