@@ -68,6 +68,8 @@ message TrashInfo {
     string addon = 9;
     bool locking = 10;
     int32 op = 11;
+    int64 size = 12;
+    bool directory = 13;
 }
 
 

@@ -1132,7 +1132,9 @@ proto.services.TrashInfo.toObject = function(includeInstance, msg) {
     mime: jspb.Message.getFieldWithDefault(msg, 8, ""),
     addon: jspb.Message.getFieldWithDefault(msg, 9, ""),
     locking: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
-    op: jspb.Message.getFieldWithDefault(msg, 11, 0)
+    op: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    size: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    directory: jspb.Message.getBooleanFieldWithDefault(msg, 13, false)
   };
 
   if (includeInstance) {
@@ -1212,6 +1214,14 @@ proto.services.TrashInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 11:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setOp(value);
+      break;
+    case 12:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setSize(value);
+      break;
+    case 13:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDirectory(value);
       break;
     default:
       reader.skipField();
@@ -1316,6 +1326,20 @@ proto.services.TrashInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       11,
+      f
+    );
+  }
+  f = message.getSize();
+  if (f !== 0) {
+    writer.writeInt64(
+      12,
+      f
+    );
+  }
+  f = message.getDirectory();
+  if (f) {
+    writer.writeBool(
+      13,
       f
     );
   }
@@ -1517,6 +1541,42 @@ proto.services.TrashInfo.prototype.getOp = function() {
  */
 proto.services.TrashInfo.prototype.setOp = function(value) {
   return jspb.Message.setProto3IntField(this, 11, value);
+};
+
+
+/**
+ * optional int64 size = 12;
+ * @return {number}
+ */
+proto.services.TrashInfo.prototype.getSize = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.TrashInfo} returns this
+ */
+proto.services.TrashInfo.prototype.setSize = function(value) {
+  return jspb.Message.setProto3IntField(this, 12, value);
+};
+
+
+/**
+ * optional bool directory = 13;
+ * @return {boolean}
+ */
+proto.services.TrashInfo.prototype.getDirectory = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 13, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.services.TrashInfo} returns this
+ */
+proto.services.TrashInfo.prototype.setDirectory = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 13, value);
 };
 
 

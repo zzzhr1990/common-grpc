@@ -146,6 +146,12 @@ export class TrashInfo extends jspb.Message {
   getOp(): number;
   setOp(value: number): void;
 
+  getSize(): number;
+  setSize(value: number): void;
+
+  getDirectory(): boolean;
+  setDirectory(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TrashInfo.AsObject;
   static toObject(includeInstance: boolean, msg: TrashInfo): TrashInfo.AsObject;
@@ -169,6 +175,8 @@ export namespace TrashInfo {
     addon: string,
     locking: boolean,
     op: number,
+    size: number,
+    directory: boolean,
   }
 }
 
