@@ -11,6 +11,7 @@ interface ICloudStoreServiceService extends grpc.ServiceDefinition<grpc.UntypedS
   get: grpc.MethodDefinition<store_cloudstore_pb.CloudStore, store_cloudstore_pb.CloudStore>;
   update: grpc.MethodDefinition<store_cloudstore_pb.CloudStore, store_cloudstore_pb.CloudStore>;
   batchGet: grpc.MethodDefinition<store_cloudstore_pb.CloudStoreList, store_cloudstore_pb.CloudStoreList>;
+  getDownloadAddress: grpc.MethodDefinition<store_cloudstore_pb.CloudStore, store_cloudstore_pb.CloudStore>;
 }
 
 export const CloudStoreServiceService: ICloudStoreServiceService;
@@ -29,4 +30,7 @@ export class CloudStoreServiceClient extends grpc.Client {
   batchGet(argument: store_cloudstore_pb.CloudStoreList, callback: grpc.requestCallback<store_cloudstore_pb.CloudStoreList>): grpc.ClientUnaryCall;
   batchGet(argument: store_cloudstore_pb.CloudStoreList, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<store_cloudstore_pb.CloudStoreList>): grpc.ClientUnaryCall;
   batchGet(argument: store_cloudstore_pb.CloudStoreList, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<store_cloudstore_pb.CloudStoreList>): grpc.ClientUnaryCall;
+  getDownloadAddress(argument: store_cloudstore_pb.CloudStore, callback: grpc.requestCallback<store_cloudstore_pb.CloudStore>): grpc.ClientUnaryCall;
+  getDownloadAddress(argument: store_cloudstore_pb.CloudStore, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<store_cloudstore_pb.CloudStore>): grpc.ClientUnaryCall;
+  getDownloadAddress(argument: store_cloudstore_pb.CloudStore, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<store_cloudstore_pb.CloudStore>): grpc.ClientUnaryCall;
 }

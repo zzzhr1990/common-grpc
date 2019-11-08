@@ -104,7 +104,8 @@ proto.services.CloudStore.toObject = function(includeInstance, msg) {
     status: jspb.Message.getFieldWithDefault(msg, 14, 0),
     fetchTime: jspb.Message.getFieldWithDefault(msg, 15, 0),
     md5: jspb.Message.getFieldWithDefault(msg, 16, ""),
-    sha1: jspb.Message.getFieldWithDefault(msg, 17, "")
+    sha1: jspb.Message.getFieldWithDefault(msg, 17, ""),
+    downloadAddress: jspb.Message.getFieldWithDefault(msg, 18, "")
   };
 
   if (includeInstance) {
@@ -208,6 +209,10 @@ proto.services.CloudStore.deserializeBinaryFromReader = function(msg, reader) {
     case 17:
       var value = /** @type {string} */ (reader.readString());
       msg.setSha1(value);
+      break;
+    case 18:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDownloadAddress(value);
       break;
     default:
       reader.skipField();
@@ -354,6 +359,13 @@ proto.services.CloudStore.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       17,
+      f
+    );
+  }
+  f = message.getDownloadAddress();
+  if (f.length > 0) {
+    writer.writeString(
+      18,
       f
     );
   }
@@ -663,6 +675,24 @@ proto.services.CloudStore.prototype.getSha1 = function() {
  */
 proto.services.CloudStore.prototype.setSha1 = function(value) {
   return jspb.Message.setProto3StringField(this, 17, value);
+};
+
+
+/**
+ * optional string download_address = 18;
+ * @return {string}
+ */
+proto.services.CloudStore.prototype.getDownloadAddress = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 18, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.CloudStore} returns this
+ */
+proto.services.CloudStore.prototype.setDownloadAddress = function(value) {
+  return jspb.Message.setProto3StringField(this, 18, value);
 };
 
 
