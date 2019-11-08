@@ -12,8 +12,6 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var common_common_entity_pb = require('../common/common_entity_pb.js');
-goog.object.extend(proto, common_common_entity_pb);
 goog.exportSymbol('proto.services.CloudStore', null, global);
 goog.exportSymbol('proto.services.CloudStoreList', null, global);
 /**
@@ -93,16 +91,20 @@ proto.services.CloudStore.toObject = function(includeInstance, msg) {
     hash: jspb.Message.getFieldWithDefault(msg, 1, ""),
     size: jspb.Message.getFieldWithDefault(msg, 2, 0),
     mime: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    uploaduser: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    uploadUser: jspb.Message.getFieldWithDefault(msg, 4, 0),
     ctime: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    originalafilename: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    originalalFilename: jspb.Message.getFieldWithDefault(msg, 6, ""),
     store: jspb.Message.getFieldWithDefault(msg, 7, 0),
     key: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    type: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    preview: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
-    previewtype: jspb.Message.getFieldWithDefault(msg, 11, 0),
-    flag: jspb.Message.getFieldWithDefault(msg, 12, 0),
-    downloadaddress: jspb.Message.getFieldWithDefault(msg, 13, "")
+    coldKey: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    type: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    preview: jspb.Message.getBooleanFieldWithDefault(msg, 11, false),
+    previewType: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    flag: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    status: jspb.Message.getFieldWithDefault(msg, 14, 0),
+    fetchTime: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    md5: jspb.Message.getFieldWithDefault(msg, 16, ""),
+    sha1: jspb.Message.getFieldWithDefault(msg, 17, "")
   };
 
   if (includeInstance) {
@@ -153,7 +155,7 @@ proto.services.CloudStore.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 4:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setUploaduser(value);
+      msg.setUploadUser(value);
       break;
     case 5:
       var value = /** @type {number} */ (reader.readInt64());
@@ -161,7 +163,7 @@ proto.services.CloudStore.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 6:
       var value = /** @type {string} */ (reader.readString());
-      msg.setOriginalafilename(value);
+      msg.setOriginalalFilename(value);
       break;
     case 7:
       var value = /** @type {number} */ (reader.readInt32());
@@ -172,24 +174,40 @@ proto.services.CloudStore.deserializeBinaryFromReader = function(msg, reader) {
       msg.setKey(value);
       break;
     case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setColdKey(value);
+      break;
+    case 10:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setType(value);
       break;
-    case 10:
+    case 11:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setPreview(value);
       break;
-    case 11:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setPreviewtype(value);
-      break;
     case 12:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPreviewType(value);
+      break;
+    case 13:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setFlag(value);
       break;
-    case 13:
+    case 14:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStatus(value);
+      break;
+    case 15:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setFetchTime(value);
+      break;
+    case 16:
       var value = /** @type {string} */ (reader.readString());
-      msg.setDownloadaddress(value);
+      msg.setMd5(value);
+      break;
+    case 17:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSha1(value);
       break;
     default:
       reader.skipField();
@@ -241,7 +259,7 @@ proto.services.CloudStore.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getUploaduser();
+  f = message.getUploadUser();
   if (f !== 0) {
     writer.writeInt64(
       4,
@@ -255,7 +273,7 @@ proto.services.CloudStore.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getOriginalafilename();
+  f = message.getOriginalalFilename();
   if (f.length > 0) {
     writer.writeString(
       6,
@@ -276,38 +294,66 @@ proto.services.CloudStore.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getColdKey();
+  if (f.length > 0) {
+    writer.writeString(
+      9,
+      f
+    );
+  }
   f = message.getType();
   if (f !== 0) {
     writer.writeInt32(
-      9,
+      10,
       f
     );
   }
   f = message.getPreview();
   if (f) {
     writer.writeBool(
-      10,
-      f
-    );
-  }
-  f = message.getPreviewtype();
-  if (f !== 0) {
-    writer.writeInt32(
       11,
       f
     );
   }
-  f = message.getFlag();
+  f = message.getPreviewType();
   if (f !== 0) {
     writer.writeInt32(
       12,
       f
     );
   }
-  f = message.getDownloadaddress();
+  f = message.getFlag();
+  if (f !== 0) {
+    writer.writeInt32(
+      13,
+      f
+    );
+  }
+  f = message.getStatus();
+  if (f !== 0) {
+    writer.writeInt32(
+      14,
+      f
+    );
+  }
+  f = message.getFetchTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      15,
+      f
+    );
+  }
+  f = message.getMd5();
   if (f.length > 0) {
     writer.writeString(
-      13,
+      16,
+      f
+    );
+  }
+  f = message.getSha1();
+  if (f.length > 0) {
+    writer.writeString(
+      17,
       f
     );
   }
@@ -369,10 +415,10 @@ proto.services.CloudStore.prototype.setMime = function(value) {
 
 
 /**
- * optional int64 uploadUser = 4;
+ * optional int64 upload_user = 4;
  * @return {number}
  */
-proto.services.CloudStore.prototype.getUploaduser = function() {
+proto.services.CloudStore.prototype.getUploadUser = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
@@ -381,7 +427,7 @@ proto.services.CloudStore.prototype.getUploaduser = function() {
  * @param {number} value
  * @return {!proto.services.CloudStore} returns this
  */
-proto.services.CloudStore.prototype.setUploaduser = function(value) {
+proto.services.CloudStore.prototype.setUploadUser = function(value) {
   return jspb.Message.setProto3IntField(this, 4, value);
 };
 
@@ -405,10 +451,10 @@ proto.services.CloudStore.prototype.setCtime = function(value) {
 
 
 /**
- * optional string originalaFilename = 6;
+ * optional string originalal_filename = 6;
  * @return {string}
  */
-proto.services.CloudStore.prototype.getOriginalafilename = function() {
+proto.services.CloudStore.prototype.getOriginalalFilename = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
@@ -417,7 +463,7 @@ proto.services.CloudStore.prototype.getOriginalafilename = function() {
  * @param {string} value
  * @return {!proto.services.CloudStore} returns this
  */
-proto.services.CloudStore.prototype.setOriginalafilename = function(value) {
+proto.services.CloudStore.prototype.setOriginalalFilename = function(value) {
   return jspb.Message.setProto3StringField(this, 6, value);
 };
 
@@ -459,11 +505,29 @@ proto.services.CloudStore.prototype.setKey = function(value) {
 
 
 /**
- * optional int32 type = 9;
+ * optional string cold_key = 9;
+ * @return {string}
+ */
+proto.services.CloudStore.prototype.getColdKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.CloudStore} returns this
+ */
+proto.services.CloudStore.prototype.setColdKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 9, value);
+};
+
+
+/**
+ * optional int32 type = 10;
  * @return {number}
  */
 proto.services.CloudStore.prototype.getType = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
 };
 
 
@@ -472,16 +536,16 @@ proto.services.CloudStore.prototype.getType = function() {
  * @return {!proto.services.CloudStore} returns this
  */
 proto.services.CloudStore.prototype.setType = function(value) {
-  return jspb.Message.setProto3IntField(this, 9, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
 /**
- * optional bool preview = 10;
+ * optional bool preview = 11;
  * @return {boolean}
  */
 proto.services.CloudStore.prototype.getPreview = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 10, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 11, false));
 };
 
 
@@ -490,33 +554,15 @@ proto.services.CloudStore.prototype.getPreview = function() {
  * @return {!proto.services.CloudStore} returns this
  */
 proto.services.CloudStore.prototype.setPreview = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 10, value);
+  return jspb.Message.setProto3BooleanField(this, 11, value);
 };
 
 
 /**
- * optional int32 previewType = 11;
+ * optional int32 preview_type = 12;
  * @return {number}
  */
-proto.services.CloudStore.prototype.getPreviewtype = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.services.CloudStore} returns this
- */
-proto.services.CloudStore.prototype.setPreviewtype = function(value) {
-  return jspb.Message.setProto3IntField(this, 11, value);
-};
-
-
-/**
- * optional int32 flag = 12;
- * @return {number}
- */
-proto.services.CloudStore.prototype.getFlag = function() {
+proto.services.CloudStore.prototype.getPreviewType = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
 };
 
@@ -525,17 +571,71 @@ proto.services.CloudStore.prototype.getFlag = function() {
  * @param {number} value
  * @return {!proto.services.CloudStore} returns this
  */
-proto.services.CloudStore.prototype.setFlag = function(value) {
+proto.services.CloudStore.prototype.setPreviewType = function(value) {
   return jspb.Message.setProto3IntField(this, 12, value);
 };
 
 
 /**
- * optional string downloadAddress = 13;
+ * optional int32 flag = 13;
+ * @return {number}
+ */
+proto.services.CloudStore.prototype.getFlag = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
+proto.services.CloudStore.prototype.setFlag = function(value) {
+  return jspb.Message.setProto3IntField(this, 13, value);
+};
+
+
+/**
+ * optional int32 status = 14;
+ * @return {number}
+ */
+proto.services.CloudStore.prototype.getStatus = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
+proto.services.CloudStore.prototype.setStatus = function(value) {
+  return jspb.Message.setProto3IntField(this, 14, value);
+};
+
+
+/**
+ * optional int64 fetch_time = 15;
+ * @return {number}
+ */
+proto.services.CloudStore.prototype.getFetchTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
+proto.services.CloudStore.prototype.setFetchTime = function(value) {
+  return jspb.Message.setProto3IntField(this, 15, value);
+};
+
+
+/**
+ * optional string md5 = 16;
  * @return {string}
  */
-proto.services.CloudStore.prototype.getDownloadaddress = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 13, ""));
+proto.services.CloudStore.prototype.getMd5 = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 16, ""));
 };
 
 
@@ -543,8 +643,26 @@ proto.services.CloudStore.prototype.getDownloadaddress = function() {
  * @param {string} value
  * @return {!proto.services.CloudStore} returns this
  */
-proto.services.CloudStore.prototype.setDownloadaddress = function(value) {
-  return jspb.Message.setProto3StringField(this, 13, value);
+proto.services.CloudStore.prototype.setMd5 = function(value) {
+  return jspb.Message.setProto3StringField(this, 16, value);
+};
+
+
+/**
+ * optional string sha1 = 17;
+ * @return {string}
+ */
+proto.services.CloudStore.prototype.getSha1 = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 17, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.CloudStore} returns this
+ */
+proto.services.CloudStore.prototype.setSha1 = function(value) {
+  return jspb.Message.setProto3StringField(this, 17, value);
 };
 
 

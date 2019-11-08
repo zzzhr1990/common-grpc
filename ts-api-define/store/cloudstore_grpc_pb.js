@@ -3,7 +3,6 @@
 'use strict';
 var grpc = require('grpc');
 var store_cloudstore_pb = require('../store/cloudstore_pb.js');
-var common_common_entity_pb = require('../common/common_entity_pb.js');
 
 function serialize_services_CloudStore(arg) {
   if (!(arg instanceof store_cloudstore_pb.CloudStore)) {
@@ -16,21 +15,21 @@ function deserialize_services_CloudStore(buffer_arg) {
   return store_cloudstore_pb.CloudStore.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_StringEntity(arg) {
-  if (!(arg instanceof common_common_entity_pb.StringEntity)) {
-    throw new Error('Expected argument of type services.StringEntity');
+function serialize_services_CloudStoreList(arg) {
+  if (!(arg instanceof store_cloudstore_pb.CloudStoreList)) {
+    throw new Error('Expected argument of type services.CloudStoreList');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_StringEntity(buffer_arg) {
-  return common_common_entity_pb.StringEntity.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_CloudStoreList(buffer_arg) {
+  return store_cloudstore_pb.CloudStoreList.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
 var CloudStoreServiceService = exports.CloudStoreServiceService = {
   create: {
-    path: '/services.CloudStoreService/create',
+    path: '/services.CloudStoreService/Create',
     requestStream: false,
     responseStream: false,
     requestType: store_cloudstore_pb.CloudStore,
@@ -40,20 +39,10 @@ var CloudStoreServiceService = exports.CloudStoreServiceService = {
     responseSerialize: serialize_services_CloudStore,
     responseDeserialize: deserialize_services_CloudStore,
   },
-  tryCreate: {
-    path: '/services.CloudStoreService/tryCreate',
-    requestStream: false,
-    responseStream: false,
-    requestType: store_cloudstore_pb.CloudStore,
-    responseType: store_cloudstore_pb.CloudStore,
-    requestSerialize: serialize_services_CloudStore,
-    requestDeserialize: deserialize_services_CloudStore,
-    responseSerialize: serialize_services_CloudStore,
-    responseDeserialize: deserialize_services_CloudStore,
-  },
+  // rpc tryCreate (CloudStore) returns (CloudStore) {}
   // rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
   get: {
-    path: '/services.CloudStoreService/get',
+    path: '/services.CloudStoreService/Get',
     requestStream: false,
     responseStream: false,
     requestType: store_cloudstore_pb.CloudStore,
@@ -63,8 +52,8 @@ var CloudStoreServiceService = exports.CloudStoreServiceService = {
     responseSerialize: serialize_services_CloudStore,
     responseDeserialize: deserialize_services_CloudStore,
   },
-  change: {
-    path: '/services.CloudStoreService/change',
+  update: {
+    path: '/services.CloudStoreService/Update',
     requestStream: false,
     responseStream: false,
     requestType: store_cloudstore_pb.CloudStore,
@@ -74,29 +63,16 @@ var CloudStoreServiceService = exports.CloudStoreServiceService = {
     responseSerialize: serialize_services_CloudStore,
     responseDeserialize: deserialize_services_CloudStore,
   },
-  // rpc batchGet (CloudStoreList) returns (CloudStoreList) {}
-  // rpc batchGetByHash (StringListEntity) returns (CloudStoreList) {}
-  getOrEmpty: {
-    path: '/services.CloudStoreService/getOrEmpty',
+  batchGet: {
+    path: '/services.CloudStoreService/BatchGet',
     requestStream: false,
     responseStream: false,
-    requestType: store_cloudstore_pb.CloudStore,
-    responseType: store_cloudstore_pb.CloudStore,
-    requestSerialize: serialize_services_CloudStore,
-    requestDeserialize: deserialize_services_CloudStore,
-    responseSerialize: serialize_services_CloudStore,
-    responseDeserialize: deserialize_services_CloudStore,
-  },
-  getInnerDownloadAddress: {
-    path: '/services.CloudStoreService/getInnerDownloadAddress',
-    requestStream: false,
-    responseStream: false,
-    requestType: common_common_entity_pb.StringEntity,
-    responseType: common_common_entity_pb.StringEntity,
-    requestSerialize: serialize_services_StringEntity,
-    requestDeserialize: deserialize_services_StringEntity,
-    responseSerialize: serialize_services_StringEntity,
-    responseDeserialize: deserialize_services_StringEntity,
+    requestType: store_cloudstore_pb.CloudStoreList,
+    responseType: store_cloudstore_pb.CloudStoreList,
+    requestSerialize: serialize_services_CloudStoreList,
+    requestDeserialize: deserialize_services_CloudStoreList,
+    responseSerialize: serialize_services_CloudStoreList,
+    responseDeserialize: deserialize_services_CloudStoreList,
   },
 };
 

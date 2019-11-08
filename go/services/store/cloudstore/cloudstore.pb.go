@@ -7,7 +7,6 @@ import (
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
-	common "github.com/zzzhr1990/common-grpc/go/common"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -29,16 +28,20 @@ type CloudStore struct {
 	Hash                 string   `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
 	Size                 int64    `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
 	Mime                 string   `protobuf:"bytes,3,opt,name=mime,proto3" json:"mime,omitempty"`
-	UploadUser           int64    `protobuf:"varint,4,opt,name=uploadUser,proto3" json:"uploadUser,omitempty"`
+	UploadUser           int64    `protobuf:"varint,4,opt,name=upload_user,json=uploadUser,proto3" json:"upload_user,omitempty"`
 	Ctime                int64    `protobuf:"varint,5,opt,name=ctime,proto3" json:"ctime,omitempty"`
-	OriginalaFilename    string   `protobuf:"bytes,6,opt,name=originalaFilename,proto3" json:"originalaFilename,omitempty"`
+	OriginalalFilename   string   `protobuf:"bytes,6,opt,name=originalal_filename,json=originalalFilename,proto3" json:"originalal_filename,omitempty"`
 	Store                int32    `protobuf:"varint,7,opt,name=store,proto3" json:"store,omitempty"`
 	Key                  string   `protobuf:"bytes,8,opt,name=key,proto3" json:"key,omitempty"`
-	Type                 int32    `protobuf:"varint,9,opt,name=type,proto3" json:"type,omitempty"`
-	Preview              bool     `protobuf:"varint,10,opt,name=preview,proto3" json:"preview,omitempty"`
-	PreviewType          int32    `protobuf:"varint,11,opt,name=previewType,proto3" json:"previewType,omitempty"`
-	Flag                 int32    `protobuf:"varint,12,opt,name=flag,proto3" json:"flag,omitempty"`
-	DownloadAddress      string   `protobuf:"bytes,13,opt,name=downloadAddress,proto3" json:"downloadAddress,omitempty"`
+	ColdKey              string   `protobuf:"bytes,9,opt,name=cold_key,json=coldKey,proto3" json:"cold_key,omitempty"`
+	Type                 int32    `protobuf:"varint,10,opt,name=type,proto3" json:"type,omitempty"`
+	Preview              bool     `protobuf:"varint,11,opt,name=preview,proto3" json:"preview,omitempty"`
+	PreviewType          int32    `protobuf:"varint,12,opt,name=preview_type,json=previewType,proto3" json:"preview_type,omitempty"`
+	Flag                 int32    `protobuf:"varint,13,opt,name=flag,proto3" json:"flag,omitempty"`
+	Status               int32    `protobuf:"varint,14,opt,name=status,proto3" json:"status,omitempty"`
+	FetchTime            int64    `protobuf:"varint,15,opt,name=fetch_time,json=fetchTime,proto3" json:"fetch_time,omitempty"`
+	Md5                  string   `protobuf:"bytes,16,opt,name=md5,proto3" json:"md5,omitempty"`
+	Sha1                 string   `protobuf:"bytes,17,opt,name=sha1,proto3" json:"sha1,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -104,9 +107,9 @@ func (m *CloudStore) GetCtime() int64 {
 	return 0
 }
 
-func (m *CloudStore) GetOriginalaFilename() string {
+func (m *CloudStore) GetOriginalalFilename() string {
 	if m != nil {
-		return m.OriginalaFilename
+		return m.OriginalalFilename
 	}
 	return ""
 }
@@ -121,6 +124,13 @@ func (m *CloudStore) GetStore() int32 {
 func (m *CloudStore) GetKey() string {
 	if m != nil {
 		return m.Key
+	}
+	return ""
+}
+
+func (m *CloudStore) GetColdKey() string {
+	if m != nil {
+		return m.ColdKey
 	}
 	return ""
 }
@@ -153,9 +163,30 @@ func (m *CloudStore) GetFlag() int32 {
 	return 0
 }
 
-func (m *CloudStore) GetDownloadAddress() string {
+func (m *CloudStore) GetStatus() int32 {
 	if m != nil {
-		return m.DownloadAddress
+		return m.Status
+	}
+	return 0
+}
+
+func (m *CloudStore) GetFetchTime() int64 {
+	if m != nil {
+		return m.FetchTime
+	}
+	return 0
+}
+
+func (m *CloudStore) GetMd5() string {
+	if m != nil {
+		return m.Md5
+	}
+	return ""
+}
+
+func (m *CloudStore) GetSha1() string {
+	if m != nil {
+		return m.Sha1
 	}
 	return ""
 }
@@ -207,35 +238,36 @@ func init() {
 func init() { proto.RegisterFile("store/cloudstore.proto", fileDescriptor_e406880dd1e5ea92) }
 
 var fileDescriptor_e406880dd1e5ea92 = []byte{
-	// 447 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x93, 0xcf, 0x6f, 0xd3, 0x30,
-	0x14, 0xc7, 0x97, 0xa6, 0xed, 0xda, 0x57, 0x7e, 0xcd, 0x9a, 0x86, 0xd5, 0x03, 0x8a, 0x7a, 0xca,
-	0x01, 0x1a, 0xd8, 0x24, 0xa4, 0x4e, 0x42, 0x08, 0xc6, 0x90, 0x10, 0x48, 0x48, 0x29, 0x5c, 0xb8,
-	0x20, 0x2f, 0x79, 0x38, 0x16, 0x89, 0x1d, 0xd9, 0xee, 0xa6, 0xf4, 0xcf, 0xe5, 0xef, 0xe0, 0x80,
-	0xec, 0xac, 0xca, 0x18, 0xe5, 0xd0, 0x9d, 0xfa, 0x7d, 0x5f, 0x7f, 0x3f, 0xaf, 0xcf, 0xb1, 0x1e,
-	0x1c, 0x19, 0xab, 0x34, 0x26, 0x59, 0xa9, 0x56, 0xb9, 0x97, 0xf3, 0x5a, 0x2b, 0xab, 0xc8, 0xc8,
-	0xa0, 0xbe, 0x14, 0x19, 0x9a, 0xe9, 0x34, 0x53, 0x55, 0xa5, 0x64, 0xd2, 0xfe, 0x7c, 0x47, 0x69,
-	0x85, 0x6d, 0xda, 0xd4, 0xec, 0x57, 0x0f, 0xe0, 0xcc, 0xa1, 0x4b, 0x87, 0x12, 0x02, 0xfd, 0x82,
-	0x99, 0x82, 0x06, 0x51, 0x10, 0x8f, 0x53, 0xaf, 0x9d, 0x67, 0xc4, 0x1a, 0x69, 0x2f, 0x0a, 0xe2,
-	0x30, 0xf5, 0xda, 0x79, 0x95, 0xa8, 0x90, 0x86, 0x6d, 0xce, 0x69, 0xf2, 0x04, 0x60, 0x55, 0x97,
-	0x8a, 0xe5, 0x5f, 0x0d, 0x6a, 0xda, 0xf7, 0xe9, 0x1b, 0x0e, 0x39, 0x84, 0x41, 0x66, 0x1d, 0x34,
-	0xf0, 0x47, 0x6d, 0x41, 0x9e, 0xc2, 0x81, 0xd2, 0x82, 0x0b, 0xc9, 0x4a, 0xf6, 0x5e, 0x94, 0x28,
-	0x59, 0x85, 0x74, 0xe8, 0xdb, 0xfe, 0x7b, 0xe0, 0x7a, 0xf8, 0x3b, 0xd2, 0xfd, 0x28, 0x88, 0x07,
-	0x69, 0x5b, 0x90, 0x47, 0x10, 0xfe, 0xc4, 0x86, 0x8e, 0x3c, 0xe5, 0xa4, 0x9b, 0xcf, 0x36, 0x35,
-	0xd2, 0xb1, 0x8f, 0x79, 0x4d, 0x28, 0xec, 0xd7, 0x1a, 0x2f, 0x05, 0x5e, 0x51, 0x88, 0x82, 0x78,
-	0x94, 0x6e, 0x4a, 0x12, 0xc1, 0xe4, 0x5a, 0x7e, 0x71, 0xd0, 0xc4, 0x43, 0x37, 0x2d, 0xd7, 0xef,
-	0x47, 0xc9, 0x38, 0xbd, 0xd7, 0xf6, 0x73, 0x9a, 0xc4, 0xf0, 0x30, 0x57, 0x57, 0xd2, 0xdd, 0xef,
-	0x4d, 0x9e, 0x6b, 0x34, 0x86, 0xde, 0xf7, 0x13, 0xdc, 0xb6, 0x67, 0xa7, 0xf0, 0xa0, 0xfb, 0xc6,
-	0x9f, 0x84, 0xb1, 0x24, 0x86, 0x7e, 0xce, 0x2c, 0xa3, 0x41, 0x14, 0xc6, 0x93, 0xe3, 0xc3, 0xf9,
-	0xe6, 0xad, 0xe6, 0x5d, 0x2e, 0xf5, 0x89, 0xe3, 0xdf, 0x3d, 0x38, 0xe8, 0xcc, 0x65, 0x9b, 0x23,
-	0x2f, 0x61, 0x98, 0x69, 0x64, 0x16, 0xc9, 0x56, 0x76, 0xba, 0xd5, 0x9d, 0xed, 0x91, 0x05, 0x8c,
-	0xad, 0x6e, 0xce, 0xee, 0x82, 0x9e, 0x40, 0xc8, 0xd1, 0xee, 0x08, 0xb9, 0x39, 0x0b, 0x26, 0xf9,
-	0xae, 0x7f, 0x76, 0x0a, 0xc0, 0xd1, 0x7e, 0xd6, 0xe7, 0x55, 0x6d, 0x9b, 0x1d, 0xd9, 0x8f, 0xf0,
-	0x98, 0xa3, 0xfd, 0x20, 0x25, 0xea, 0x77, 0x7f, 0x3f, 0x04, 0x39, 0xea, 0x90, 0xa5, 0xd5, 0x42,
-	0xf2, 0x73, 0xbf, 0x0b, 0xd3, 0xff, 0xf8, 0xb3, 0xbd, 0xb7, 0xaf, 0xbf, 0xbd, 0xe2, 0xc2, 0x16,
-	0xab, 0x8b, 0x79, 0xa6, 0xaa, 0x64, 0xbd, 0x5e, 0x17, 0xfa, 0xc5, 0x62, 0xf1, 0xfc, 0x7a, 0x97,
-	0x9e, 0x71, 0x5d, 0x67, 0x09, 0x57, 0xc9, 0x06, 0x4f, 0x6e, 0x2f, 0xe3, 0xc5, 0xd0, 0xef, 0xd9,
-	0xc9, 0x9f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xe3, 0x7f, 0x12, 0xbc, 0xa7, 0x03, 0x00, 0x00,
+	// 460 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x53, 0x4f, 0x6f, 0xd3, 0x30,
+	0x14, 0x5f, 0x48, 0xff, 0xa4, 0xaf, 0x63, 0x74, 0x66, 0x9a, 0xcc, 0x24, 0x44, 0xe8, 0x29, 0x17,
+	0x1a, 0xb6, 0x69, 0x93, 0x86, 0x84, 0x40, 0x9b, 0x04, 0x07, 0x38, 0x65, 0xdb, 0x85, 0x4b, 0xe4,
+	0x25, 0xaf, 0x89, 0x45, 0x52, 0x47, 0xb6, 0x33, 0xd4, 0x7e, 0x2f, 0xbe, 0x1c, 0x27, 0xe4, 0x97,
+	0x56, 0x95, 0x50, 0x39, 0xec, 0xf6, 0x7b, 0xbf, 0x3f, 0xcf, 0xf6, 0x7b, 0x32, 0x1c, 0x1b, 0xab,
+	0x34, 0xc6, 0x59, 0xa5, 0xda, 0x9c, 0xe0, 0xac, 0xd1, 0xca, 0x2a, 0x16, 0x18, 0xd4, 0x8f, 0x32,
+	0x43, 0x33, 0xfd, 0xed, 0x03, 0xdc, 0x38, 0xf9, 0xd6, 0xc9, 0x8c, 0x41, 0xaf, 0x14, 0xa6, 0xe4,
+	0x5e, 0xe8, 0x45, 0xa3, 0x84, 0xb0, 0xe3, 0x8c, 0x5c, 0x21, 0x7f, 0x16, 0x7a, 0x91, 0x9f, 0x10,
+	0x76, 0x5c, 0x2d, 0x6b, 0xe4, 0x7e, 0xe7, 0x73, 0x98, 0xbd, 0x81, 0x71, 0xdb, 0x54, 0x4a, 0xe4,
+	0x69, 0x6b, 0x50, 0xf3, 0x1e, 0xd9, 0xa1, 0xa3, 0xee, 0x0d, 0x6a, 0x76, 0x04, 0xfd, 0xcc, 0xba,
+	0x54, 0x9f, 0xa4, 0xae, 0x60, 0x31, 0xbc, 0x54, 0x5a, 0x16, 0x72, 0x21, 0x2a, 0x51, 0xa5, 0x73,
+	0x59, 0xe1, 0x42, 0xd4, 0xc8, 0x07, 0xd4, 0x99, 0x6d, 0xa5, 0x2f, 0x6b, 0xc5, 0xb5, 0xa1, 0xb7,
+	0xf0, 0x61, 0xe8, 0x45, 0xfd, 0xa4, 0x2b, 0xd8, 0x04, 0xfc, 0x9f, 0xb8, 0xe4, 0x01, 0xc5, 0x1c,
+	0x64, 0xaf, 0x20, 0xc8, 0x54, 0x95, 0xa7, 0x8e, 0x1e, 0x11, 0x3d, 0x74, 0xf5, 0x37, 0x5c, 0xba,
+	0xeb, 0xdb, 0x65, 0x83, 0x1c, 0xa8, 0x03, 0x61, 0xc6, 0x61, 0xd8, 0x68, 0x7c, 0x94, 0xf8, 0x8b,
+	0x8f, 0x43, 0x2f, 0x0a, 0x92, 0x4d, 0xc9, 0xde, 0xc2, 0xfe, 0x1a, 0xa6, 0x94, 0xda, 0xa7, 0xd4,
+	0x78, 0xcd, 0xdd, 0xb9, 0x30, 0x83, 0xde, 0xbc, 0x12, 0x05, 0x7f, 0xde, 0x35, 0x74, 0x98, 0x1d,
+	0xc3, 0xc0, 0x58, 0x61, 0x5b, 0xc3, 0x0f, 0x88, 0x5d, 0x57, 0xec, 0x35, 0xc0, 0x1c, 0x6d, 0x56,
+	0xa6, 0x34, 0x8b, 0x17, 0x34, 0x8b, 0x11, 0x31, 0x77, 0x6e, 0x1e, 0x13, 0xf0, 0xeb, 0xfc, 0x82,
+	0x4f, 0xba, 0x87, 0xd4, 0xf9, 0x05, 0x2d, 0xa0, 0x14, 0xa7, 0xfc, 0xb0, 0x1b, 0xb6, 0xc3, 0xd3,
+	0x0f, 0x70, 0xb0, 0x5d, 0xdb, 0x77, 0x69, 0x2c, 0x8b, 0xa0, 0x97, 0x0b, 0x2b, 0xb8, 0x17, 0xfa,
+	0xd1, 0xf8, 0xec, 0x68, 0xb6, 0x59, 0xf1, 0x6c, 0xeb, 0x4b, 0xc8, 0x71, 0xf6, 0xc7, 0x83, 0xc3,
+	0x2d, 0x79, 0xdb, 0xf9, 0xd8, 0x25, 0x0c, 0x6e, 0x34, 0x0a, 0x8b, 0x6c, 0x67, 0xf6, 0x64, 0x27,
+	0x3b, 0xdd, 0x63, 0xe7, 0xe0, 0x7f, 0x45, 0xfb, 0xc4, 0xd0, 0x25, 0x0c, 0xee, 0x9b, 0xfc, 0xe9,
+	0x87, 0x7d, 0x86, 0xe0, 0x5a, 0xd8, 0xac, 0x74, 0x27, 0xf2, 0x5d, 0x1e, 0x37, 0x8a, 0x93, 0xff,
+	0x2a, 0xd3, 0xbd, 0xeb, 0x4f, 0x3f, 0x3e, 0x16, 0xd2, 0x96, 0xed, 0xc3, 0x2c, 0x53, 0x75, 0xbc,
+	0x5a, 0xad, 0x4a, 0x7d, 0x7a, 0x75, 0xf5, 0x3e, 0xce, 0x54, 0x5d, 0xab, 0xc5, 0xbb, 0x42, 0x37,
+	0x59, 0x5c, 0xa8, 0x78, 0xd3, 0x20, 0xfe, 0xf7, 0x07, 0x3d, 0x0c, 0xe8, 0x0b, 0x9d, 0xff, 0x0d,
+	0x00, 0x00, 0xff, 0xff, 0x42, 0x34, 0xa3, 0xa2, 0x5c, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -251,14 +283,11 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type CloudStoreServiceClient interface {
 	Create(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error)
-	TryCreate(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error)
+	// rpc tryCreate (CloudStore) returns (CloudStore) {}
 	// rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
 	Get(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error)
-	Change(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error)
-	// rpc batchGet (CloudStoreList) returns (CloudStoreList) {}
-	// rpc batchGetByHash (StringListEntity) returns (CloudStoreList) {}
-	GetOrEmpty(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error)
-	GetInnerDownloadAddress(ctx context.Context, in *common.StringEntity, opts ...grpc.CallOption) (*common.StringEntity, error)
+	Update(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error)
+	BatchGet(ctx context.Context, in *CloudStoreList, opts ...grpc.CallOption) (*CloudStoreList, error)
 }
 
 type cloudStoreServiceClient struct {
@@ -271,16 +300,7 @@ func NewCloudStoreServiceClient(cc *grpc.ClientConn) CloudStoreServiceClient {
 
 func (c *cloudStoreServiceClient) Create(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error) {
 	out := new(CloudStore)
-	err := c.cc.Invoke(ctx, "/services.CloudStoreService/create", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cloudStoreServiceClient) TryCreate(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error) {
-	out := new(CloudStore)
-	err := c.cc.Invoke(ctx, "/services.CloudStoreService/tryCreate", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/services.CloudStoreService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -289,34 +309,25 @@ func (c *cloudStoreServiceClient) TryCreate(ctx context.Context, in *CloudStore,
 
 func (c *cloudStoreServiceClient) Get(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error) {
 	out := new(CloudStore)
-	err := c.cc.Invoke(ctx, "/services.CloudStoreService/get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/services.CloudStoreService/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cloudStoreServiceClient) Change(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error) {
+func (c *cloudStoreServiceClient) Update(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error) {
 	out := new(CloudStore)
-	err := c.cc.Invoke(ctx, "/services.CloudStoreService/change", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/services.CloudStoreService/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cloudStoreServiceClient) GetOrEmpty(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error) {
-	out := new(CloudStore)
-	err := c.cc.Invoke(ctx, "/services.CloudStoreService/getOrEmpty", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cloudStoreServiceClient) GetInnerDownloadAddress(ctx context.Context, in *common.StringEntity, opts ...grpc.CallOption) (*common.StringEntity, error) {
-	out := new(common.StringEntity)
-	err := c.cc.Invoke(ctx, "/services.CloudStoreService/getInnerDownloadAddress", in, out, opts...)
+func (c *cloudStoreServiceClient) BatchGet(ctx context.Context, in *CloudStoreList, opts ...grpc.CallOption) (*CloudStoreList, error) {
+	out := new(CloudStoreList)
+	err := c.cc.Invoke(ctx, "/services.CloudStoreService/BatchGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -326,14 +337,11 @@ func (c *cloudStoreServiceClient) GetInnerDownloadAddress(ctx context.Context, i
 // CloudStoreServiceServer is the server API for CloudStoreService service.
 type CloudStoreServiceServer interface {
 	Create(context.Context, *CloudStore) (*CloudStore, error)
-	TryCreate(context.Context, *CloudStore) (*CloudStore, error)
+	// rpc tryCreate (CloudStore) returns (CloudStore) {}
 	// rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
 	Get(context.Context, *CloudStore) (*CloudStore, error)
-	Change(context.Context, *CloudStore) (*CloudStore, error)
-	// rpc batchGet (CloudStoreList) returns (CloudStoreList) {}
-	// rpc batchGetByHash (StringListEntity) returns (CloudStoreList) {}
-	GetOrEmpty(context.Context, *CloudStore) (*CloudStore, error)
-	GetInnerDownloadAddress(context.Context, *common.StringEntity) (*common.StringEntity, error)
+	Update(context.Context, *CloudStore) (*CloudStore, error)
+	BatchGet(context.Context, *CloudStoreList) (*CloudStoreList, error)
 }
 
 // UnimplementedCloudStoreServiceServer can be embedded to have forward compatible implementations.
@@ -343,20 +351,14 @@ type UnimplementedCloudStoreServiceServer struct {
 func (*UnimplementedCloudStoreServiceServer) Create(ctx context.Context, req *CloudStore) (*CloudStore, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (*UnimplementedCloudStoreServiceServer) TryCreate(ctx context.Context, req *CloudStore) (*CloudStore, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method TryCreate not implemented")
-}
 func (*UnimplementedCloudStoreServiceServer) Get(ctx context.Context, req *CloudStore) (*CloudStore, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (*UnimplementedCloudStoreServiceServer) Change(ctx context.Context, req *CloudStore) (*CloudStore, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Change not implemented")
+func (*UnimplementedCloudStoreServiceServer) Update(ctx context.Context, req *CloudStore) (*CloudStore, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (*UnimplementedCloudStoreServiceServer) GetOrEmpty(ctx context.Context, req *CloudStore) (*CloudStore, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetOrEmpty not implemented")
-}
-func (*UnimplementedCloudStoreServiceServer) GetInnerDownloadAddress(ctx context.Context, req *common.StringEntity) (*common.StringEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetInnerDownloadAddress not implemented")
+func (*UnimplementedCloudStoreServiceServer) BatchGet(ctx context.Context, req *CloudStoreList) (*CloudStoreList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchGet not implemented")
 }
 
 func RegisterCloudStoreServiceServer(s *grpc.Server, srv CloudStoreServiceServer) {
@@ -381,24 +383,6 @@ func _CloudStoreService_Create_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudStoreService_TryCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudStore)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CloudStoreServiceServer).TryCreate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/services.CloudStoreService/TryCreate",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudStoreServiceServer).TryCreate(ctx, req.(*CloudStore))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _CloudStoreService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudStore)
 	if err := dec(in); err != nil {
@@ -417,56 +401,38 @@ func _CloudStoreService_Get_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudStoreService_Change_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CloudStoreService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudStore)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudStoreServiceServer).Change(ctx, in)
+		return srv.(CloudStoreServiceServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.CloudStoreService/Change",
+		FullMethod: "/services.CloudStoreService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudStoreServiceServer).Change(ctx, req.(*CloudStore))
+		return srv.(CloudStoreServiceServer).Update(ctx, req.(*CloudStore))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudStoreService_GetOrEmpty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudStore)
+func _CloudStoreService_BatchGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudStoreList)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudStoreServiceServer).GetOrEmpty(ctx, in)
+		return srv.(CloudStoreServiceServer).BatchGet(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.CloudStoreService/GetOrEmpty",
+		FullMethod: "/services.CloudStoreService/BatchGet",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudStoreServiceServer).GetOrEmpty(ctx, req.(*CloudStore))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CloudStoreService_GetInnerDownloadAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(common.StringEntity)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CloudStoreServiceServer).GetInnerDownloadAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/services.CloudStoreService/GetInnerDownloadAddress",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudStoreServiceServer).GetInnerDownloadAddress(ctx, req.(*common.StringEntity))
+		return srv.(CloudStoreServiceServer).BatchGet(ctx, req.(*CloudStoreList))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -476,28 +442,20 @@ var _CloudStoreService_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*CloudStoreServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "create",
+			MethodName: "Create",
 			Handler:    _CloudStoreService_Create_Handler,
 		},
 		{
-			MethodName: "tryCreate",
-			Handler:    _CloudStoreService_TryCreate_Handler,
-		},
-		{
-			MethodName: "get",
+			MethodName: "Get",
 			Handler:    _CloudStoreService_Get_Handler,
 		},
 		{
-			MethodName: "change",
-			Handler:    _CloudStoreService_Change_Handler,
+			MethodName: "Update",
+			Handler:    _CloudStoreService_Update_Handler,
 		},
 		{
-			MethodName: "getOrEmpty",
-			Handler:    _CloudStoreService_GetOrEmpty_Handler,
-		},
-		{
-			MethodName: "getInnerDownloadAddress",
-			Handler:    _CloudStoreService_GetInnerDownloadAddress_Handler,
+			MethodName: "BatchGet",
+			Handler:    _CloudStoreService_BatchGet_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
