@@ -105,7 +105,9 @@ proto.services.CloudStore.toObject = function(includeInstance, msg) {
     fetchTime: jspb.Message.getFieldWithDefault(msg, 15, 0),
     md5: jspb.Message.getFieldWithDefault(msg, 16, ""),
     sha1: jspb.Message.getFieldWithDefault(msg, 17, ""),
-    downloadAddress: jspb.Message.getFieldWithDefault(msg, 18, "")
+    downloadAddress: jspb.Message.getFieldWithDefault(msg, 18, ""),
+    ref: jspb.Message.getFieldWithDefault(msg, 19, 0),
+    lastDown: jspb.Message.getFieldWithDefault(msg, 20, 0)
   };
 
   if (includeInstance) {
@@ -213,6 +215,14 @@ proto.services.CloudStore.deserializeBinaryFromReader = function(msg, reader) {
     case 18:
       var value = /** @type {string} */ (reader.readString());
       msg.setDownloadAddress(value);
+      break;
+    case 19:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setRef(value);
+      break;
+    case 20:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setLastDown(value);
       break;
     default:
       reader.skipField();
@@ -366,6 +376,20 @@ proto.services.CloudStore.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       18,
+      f
+    );
+  }
+  f = message.getRef();
+  if (f !== 0) {
+    writer.writeInt64(
+      19,
+      f
+    );
+  }
+  f = message.getLastDown();
+  if (f !== 0) {
+    writer.writeInt64(
+      20,
       f
     );
   }
@@ -693,6 +717,42 @@ proto.services.CloudStore.prototype.getDownloadAddress = function() {
  */
 proto.services.CloudStore.prototype.setDownloadAddress = function(value) {
   return jspb.Message.setProto3StringField(this, 18, value);
+};
+
+
+/**
+ * optional int64 ref = 19;
+ * @return {number}
+ */
+proto.services.CloudStore.prototype.getRef = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 19, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
+proto.services.CloudStore.prototype.setRef = function(value) {
+  return jspb.Message.setProto3IntField(this, 19, value);
+};
+
+
+/**
+ * optional int64 last_down = 20;
+ * @return {number}
+ */
+proto.services.CloudStore.prototype.getLastDown = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 20, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
+proto.services.CloudStore.prototype.setLastDown = function(value) {
+  return jspb.Message.setProto3IntField(this, 20, value);
 };
 
 

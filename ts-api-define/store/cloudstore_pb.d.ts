@@ -58,6 +58,12 @@ export class CloudStore extends jspb.Message {
   getDownloadAddress(): string;
   setDownloadAddress(value: string): void;
 
+  getRef(): number;
+  setRef(value: number): void;
+
+  getLastDown(): number;
+  setLastDown(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CloudStore.AsObject;
   static toObject(includeInstance: boolean, msg: CloudStore): CloudStore.AsObject;
@@ -88,6 +94,8 @@ export namespace CloudStore {
     md5: string,
     sha1: string,
     downloadAddress: string,
+    ref: number,
+    lastDown: number,
   }
 }
 

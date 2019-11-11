@@ -51,7 +51,7 @@ message UserFile {
     int32 op = 18;
     bool preview = 19;
     int32 preview_type = 20;
-    int32   flag = 21;
+    int32  flag = 21;
     string unique_identity = 22;
     bool share = 23;
 }

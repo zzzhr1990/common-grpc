@@ -40,6 +40,8 @@ message CloudStore {
     string md5 = 16;
     string sha1 = 17;
     string download_address = 18;
+    int64 ref = 19;
+    int64 last_down = 20;
 }
 
 message CloudStoreList {
