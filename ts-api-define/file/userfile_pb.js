@@ -354,7 +354,8 @@ proto.services.UserFile.toObject = function(includeInstance, msg) {
     previewType: jspb.Message.getFieldWithDefault(msg, 20, 0),
     flag: jspb.Message.getFieldWithDefault(msg, 21, 0),
     uniqueIdentity: jspb.Message.getFieldWithDefault(msg, 22, ""),
-    share: jspb.Message.getBooleanFieldWithDefault(msg, 23, false)
+    share: jspb.Message.getBooleanFieldWithDefault(msg, 23, false),
+    downloadAddress: jspb.Message.getFieldWithDefault(msg, 24, "")
   };
 
   if (includeInstance) {
@@ -482,6 +483,10 @@ proto.services.UserFile.deserializeBinaryFromReader = function(msg, reader) {
     case 23:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setShare(value);
+      break;
+    case 24:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDownloadAddress(value);
       break;
     default:
       reader.skipField();
@@ -670,6 +675,13 @@ proto.services.UserFile.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       23,
+      f
+    );
+  }
+  f = message.getDownloadAddress();
+  if (f.length > 0) {
+    writer.writeString(
+      24,
       f
     );
   }
@@ -1087,6 +1099,24 @@ proto.services.UserFile.prototype.getShare = function() {
  */
 proto.services.UserFile.prototype.setShare = function(value) {
   return jspb.Message.setProto3BooleanField(this, 23, value);
+};
+
+
+/**
+ * optional string download_address = 24;
+ * @return {string}
+ */
+proto.services.UserFile.prototype.getDownloadAddress = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 24, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFile} returns this
+ */
+proto.services.UserFile.prototype.setDownloadAddress = function(value) {
+  return jspb.Message.setProto3StringField(this, 24, value);
 };
 
 

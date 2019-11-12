@@ -74,6 +74,9 @@ export class UserFile extends jspb.Message {
   getShare(): boolean;
   setShare(value: boolean): void;
 
+  getDownloadAddress(): string;
+  setDownloadAddress(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserFile.AsObject;
   static toObject(includeInstance: boolean, msg: UserFile): UserFile.AsObject;
@@ -109,6 +112,7 @@ export namespace UserFile {
     flag: number,
     uniqueIdentity: string,
     share: boolean,
+    downloadAddress: string,
   }
 }
 

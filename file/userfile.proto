@@ -54,6 +54,7 @@ message UserFile {
     int32  flag = 21;
     string unique_identity = 22;
     bool share = 23;
+    string download_address = 24;
 }
 
 message TrashInfo {
