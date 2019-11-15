@@ -2,6 +2,35 @@
 // file: store/cloudstore.proto
 
 import * as jspb from "google-protobuf";
+import * as common_common_entity_pb from "../common/common_entity_pb";
+
+export class WcsUploadToken extends jspb.Message {
+  getToken(): string;
+  setToken(value: string): void;
+
+  getPartUploadUrl(): string;
+  setPartUploadUrl(value: string): void;
+
+  getDirectUploadUrl(): string;
+  setDirectUploadUrl(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): WcsUploadToken.AsObject;
+  static toObject(includeInstance: boolean, msg: WcsUploadToken): WcsUploadToken.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: WcsUploadToken, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): WcsUploadToken;
+  static deserializeBinaryFromReader(message: WcsUploadToken, reader: jspb.BinaryReader): WcsUploadToken;
+}
+
+export namespace WcsUploadToken {
+  export type AsObject = {
+    token: string,
+    partUploadUrl: string,
+    directUploadUrl: string,
+  }
+}
 
 export class CloudStore extends jspb.Message {
   getHash(): string;

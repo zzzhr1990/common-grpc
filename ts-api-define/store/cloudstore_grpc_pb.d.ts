@@ -4,6 +4,7 @@
 // file: store/cloudstore.proto
 
 import * as store_cloudstore_pb from "../store/cloudstore_pb";
+import * as common_common_entity_pb from "../common/common_entity_pb";
 import * as grpc from "grpc";
 
 interface ICloudStoreServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
@@ -12,7 +13,7 @@ interface ICloudStoreServiceService extends grpc.ServiceDefinition<grpc.UntypedS
   update: grpc.MethodDefinition<store_cloudstore_pb.CloudStore, store_cloudstore_pb.CloudStore>;
   batchGet: grpc.MethodDefinition<store_cloudstore_pb.CloudStoreList, store_cloudstore_pb.CloudStoreList>;
   getDownloadAddress: grpc.MethodDefinition<store_cloudstore_pb.CloudStore, store_cloudstore_pb.CloudStore>;
-  uploadToken: grpc.MethodDefinition<store_cloudstore_pb.CloudStore, store_cloudstore_pb.CloudStore>;
+  createWcsUploadToken: grpc.MethodDefinition<common_common_entity_pb.StringEntity, store_cloudstore_pb.WcsUploadToken>;
 }
 
 export const CloudStoreServiceService: ICloudStoreServiceService;
@@ -34,7 +35,7 @@ export class CloudStoreServiceClient extends grpc.Client {
   getDownloadAddress(argument: store_cloudstore_pb.CloudStore, callback: grpc.requestCallback<store_cloudstore_pb.CloudStore>): grpc.ClientUnaryCall;
   getDownloadAddress(argument: store_cloudstore_pb.CloudStore, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<store_cloudstore_pb.CloudStore>): grpc.ClientUnaryCall;
   getDownloadAddress(argument: store_cloudstore_pb.CloudStore, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<store_cloudstore_pb.CloudStore>): grpc.ClientUnaryCall;
-  uploadToken(argument: store_cloudstore_pb.CloudStore, callback: grpc.requestCallback<store_cloudstore_pb.CloudStore>): grpc.ClientUnaryCall;
-  uploadToken(argument: store_cloudstore_pb.CloudStore, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<store_cloudstore_pb.CloudStore>): grpc.ClientUnaryCall;
-  uploadToken(argument: store_cloudstore_pb.CloudStore, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<store_cloudstore_pb.CloudStore>): grpc.ClientUnaryCall;
+  createWcsUploadToken(argument: common_common_entity_pb.StringEntity, callback: grpc.requestCallback<store_cloudstore_pb.WcsUploadToken>): grpc.ClientUnaryCall;
+  createWcsUploadToken(argument: common_common_entity_pb.StringEntity, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<store_cloudstore_pb.WcsUploadToken>): grpc.ClientUnaryCall;
+  createWcsUploadToken(argument: common_common_entity_pb.StringEntity, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<store_cloudstore_pb.WcsUploadToken>): grpc.ClientUnaryCall;
 }
