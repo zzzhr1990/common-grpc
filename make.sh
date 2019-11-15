@@ -2,7 +2,7 @@
 go get -u github.com/golang/protobuf/protoc-gen-go
 GOPATH="/Users/herui/go"
 export PATH=$PATH:$GOPATH/bin
-nodejs_path="/Users/herui/vscode/typescript/ts-api-gateway/src/proto"
+# nodejs_path="/Users/herui/vscode/typescript/ts-api-gateway/src/proto"
 #
 # protoc -I ../def --go_out=plugins=grpc:../go ../def/helloworld.proto
 # -I ../common
@@ -59,18 +59,18 @@ go get github.com/golang/protobuf
 # go mod tidy
 cd ..
 
-echo "Copy JavaScript Files"
-rm -rf ${nodejs_path}
-mkdir ${nodejs_path}
-cp -r ./user ${nodejs_path}
-cp -r ./store ${nodejs_path}
-cp -r ./file ${nodejs_path}
-cp -r ./common ${nodejs_path}
-cp -r ./remotetask ${nodejs_path}
-cp -r ./offline ${nodejs_path}
-cp -r ./share ${nodejs_path}
-cp -r ./ext ${nodejs_path}
-cp -r ./report ${nodejs_path}
+# echo "Copy JavaScript Files"
+# rm -rf ${nodejs_path}
+# mkdir ${nodejs_path}
+# cp -r ./user ${nodejs_path}
+# cp -r ./store ${nodejs_path}
+# cp -r ./file ${nodejs_path}
+# cp -r ./common ${nodejs_path}
+# cp -r ./remotetask ${nodejs_path}
+# cp -r ./offline ${nodejs_path}
+# cp -r ./share ${nodejs_path}
+# cp -r ./ext ${nodejs_path}
+# cp -r ./report ${nodejs_path}
 
 rm -rf ./temp
 mkdir ./temp

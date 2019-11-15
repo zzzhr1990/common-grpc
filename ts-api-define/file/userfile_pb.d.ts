@@ -542,3 +542,45 @@ export namespace TrashPageResponse {
   }
 }
 
+export class UploadTokenResponse extends jspb.Message {
+  getUploadToken(): string;
+  setUploadToken(value: string): void;
+
+  getType(): string;
+  setType(value: string): void;
+
+  getUploadUrl(): string;
+  setUploadUrl(value: string): void;
+
+  getFilePath(): string;
+  setFilePath(value: string): void;
+
+  getCreated(): boolean;
+  setCreated(value: boolean): void;
+
+  hasCreateInfo(): boolean;
+  clearCreateInfo(): void;
+  getCreateInfo(): UserFile | undefined;
+  setCreateInfo(value?: UserFile): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UploadTokenResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: UploadTokenResponse): UploadTokenResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UploadTokenResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UploadTokenResponse;
+  static deserializeBinaryFromReader(message: UploadTokenResponse, reader: jspb.BinaryReader): UploadTokenResponse;
+}
+
+export namespace UploadTokenResponse {
+  export type AsObject = {
+    uploadToken: string,
+    type: string,
+    uploadUrl: string,
+    filePath: string,
+    created: boolean,
+    createInfo?: UserFile.AsObject,
+  }
+}
+

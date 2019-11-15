@@ -93,6 +93,17 @@ function deserialize_services_TrashPageResponse(buffer_arg) {
   return file_userfile_pb.TrashPageResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_UploadTokenResponse(arg) {
+  if (!(arg instanceof file_userfile_pb.UploadTokenResponse)) {
+    throw new Error('Expected argument of type services.UploadTokenResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_UploadTokenResponse(buffer_arg) {
+  return file_userfile_pb.UploadTokenResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_UserFile(arg) {
   if (!(arg instanceof file_userfile_pb.UserFile)) {
     throw new Error('Expected argument of type services.UserFile');
@@ -182,6 +193,17 @@ var FileServiceService = exports.FileServiceService = {
     requestDeserialize: deserialize_services_UserFile,
     responseSerialize: serialize_services_UserFile,
     responseDeserialize: deserialize_services_UserFile,
+  },
+  uploadToken: {
+    path: '/services.FileService/UploadToken',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.UserFile,
+    responseType: file_userfile_pb.UploadTokenResponse,
+    requestSerialize: serialize_services_UserFile,
+    requestDeserialize: deserialize_services_UserFile,
+    responseSerialize: serialize_services_UploadTokenResponse,
+    responseDeserialize: deserialize_services_UploadTokenResponse,
   },
   rename: {
     path: '/services.FileService/Rename',

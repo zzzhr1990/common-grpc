@@ -11,6 +11,7 @@ service FileService {
     rpc Create (UserFile) returns (UserFile) {}
     rpc CreateInternal (UserFile) returns (UserFile) {}
     rpc Get (UserFile) returns (UserFile) {}
+    rpc UploadToken (UserFile) returns (UploadTokenResponse) {}
     rpc Rename (UserFile) returns (UserFile) {}
     rpc ChangePathInternal (UserFile) returns (UserFile) {}
     rpc ReleaseLock (UserFile) returns (BoolEntity) {}
@@ -139,6 +140,15 @@ message TrashListResponse {
 message TrashPageResponse {
     repeated TrashInfo data = 2;
     PageInfo page_info = 3;
+}
+
+message UploadTokenResponse {
+    string upload_token = 1;
+    string type = 2;
+    string upload_url = 3;
+    string file_path = 4;
+    bool created = 5;
+    UserFile create_info = 6;
 }
 
 /*

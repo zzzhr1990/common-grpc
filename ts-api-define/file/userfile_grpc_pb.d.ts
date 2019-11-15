@@ -11,6 +11,7 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   create: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
   createInternal: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
   get: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
+  uploadToken: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UploadTokenResponse>;
   rename: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
   changePathInternal: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
   releaseLock: grpc.MethodDefinition<file_userfile_pb.UserFile, common_common_entity_pb.BoolEntity>;
@@ -38,6 +39,9 @@ export class FileServiceClient extends grpc.Client {
   get(argument: file_userfile_pb.UserFile, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   get(argument: file_userfile_pb.UserFile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   get(argument: file_userfile_pb.UserFile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
+  uploadToken(argument: file_userfile_pb.UserFile, callback: grpc.requestCallback<file_userfile_pb.UploadTokenResponse>): grpc.ClientUnaryCall;
+  uploadToken(argument: file_userfile_pb.UserFile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UploadTokenResponse>): grpc.ClientUnaryCall;
+  uploadToken(argument: file_userfile_pb.UserFile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UploadTokenResponse>): grpc.ClientUnaryCall;
   rename(argument: file_userfile_pb.UserFile, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   rename(argument: file_userfile_pb.UserFile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   rename(argument: file_userfile_pb.UserFile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
