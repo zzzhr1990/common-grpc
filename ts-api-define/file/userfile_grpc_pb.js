@@ -172,6 +172,17 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_UserFile,
     responseDeserialize: deserialize_services_UserFile,
   },
+  updateCount: {
+    path: '/services.FileService/UpdateCount',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.UserFile,
+    responseType: file_userfile_pb.UserFile,
+    requestSerialize: serialize_services_UserFile,
+    requestDeserialize: deserialize_services_UserFile,
+    responseSerialize: serialize_services_UserFile,
+    responseDeserialize: deserialize_services_UserFile,
+  },
   createInternal: {
     path: '/services.FileService/CreateInternal',
     requestStream: false,

@@ -9,6 +9,7 @@ import * as grpc from "grpc";
 
 interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
   create: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
+  updateCount: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
   createInternal: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
   get: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
   uploadToken: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UploadTokenResponse>;
@@ -33,6 +34,9 @@ export class FileServiceClient extends grpc.Client {
   create(argument: file_userfile_pb.UserFile, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   create(argument: file_userfile_pb.UserFile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   create(argument: file_userfile_pb.UserFile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
+  updateCount(argument: file_userfile_pb.UserFile, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
+  updateCount(argument: file_userfile_pb.UserFile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
+  updateCount(argument: file_userfile_pb.UserFile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   createInternal(argument: file_userfile_pb.UserFile, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   createInternal(argument: file_userfile_pb.UserFile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
   createInternal(argument: file_userfile_pb.UserFile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFile>): grpc.ClientUnaryCall;
