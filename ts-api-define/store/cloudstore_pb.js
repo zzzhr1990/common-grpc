@@ -12,8 +12,6 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var common_common_entity_pb = require('../common/common_entity_pb.js');
-goog.object.extend(proto, common_common_entity_pb);
 goog.exportSymbol('proto.services.CloudStore', null, global);
 goog.exportSymbol('proto.services.CloudStoreList', null, global);
 goog.exportSymbol('proto.services.UploadTokenRequest', null, global);
