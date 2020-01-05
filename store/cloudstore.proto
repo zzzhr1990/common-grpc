@@ -22,9 +22,18 @@ service CloudStoreService {
 }
 
 message WcsUploadToken {
-    string token = 1;
-    string part_upload_url = 2;
-    string direct_upload_url = 3;
+    bool exists = 1;
+    string key = 2;
+    string token = 3;
+    string part_upload_url = 4;
+    string direct_upload_url = 5;
+}
+
+message UploadTokenRequest {
+    string type = 1;
+    string key = 2;
+    int64 user_identity = 3;
+    string hash = 4;
 }
 
 message CloudStore {

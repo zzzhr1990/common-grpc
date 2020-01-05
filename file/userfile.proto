@@ -146,10 +146,12 @@ message TrashPageResponse {
 message UploadTokenResponse {
     string upload_token = 1;
     string type = 2;
-    string upload_url = 3;
-    string file_path = 4;
-    bool created = 5;
-    UserFile create_info = 6;
+    // string upload_url = 3;
+    string file_path = 3;
+    bool created = 4;
+    UserFile create_info = 5;
+    string part_upload_url = 6;
+    string direct_upload_url = 7;
 }
 
 /*

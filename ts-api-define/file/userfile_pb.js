@@ -4329,10 +4329,11 @@ proto.services.UploadTokenResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     uploadToken: jspb.Message.getFieldWithDefault(msg, 1, ""),
     type: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    uploadUrl: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    filePath: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    created: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
-    createInfo: (f = msg.getCreateInfo()) && proto.services.UserFile.toObject(includeInstance, f)
+    filePath: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    created: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
+    createInfo: (f = msg.getCreateInfo()) && proto.services.UserFile.toObject(includeInstance, f),
+    partUploadUrl: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    directUploadUrl: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
 
   if (includeInstance) {
@@ -4379,20 +4380,24 @@ proto.services.UploadTokenResponse.deserializeBinaryFromReader = function(msg, r
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setUploadUrl(value);
-      break;
-    case 4:
-      var value = /** @type {string} */ (reader.readString());
       msg.setFilePath(value);
       break;
-    case 5:
+    case 4:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setCreated(value);
       break;
-    case 6:
+    case 5:
       var value = new proto.services.UserFile;
       reader.readMessage(value,proto.services.UserFile.deserializeBinaryFromReader);
       msg.setCreateInfo(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPartUploadUrl(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDirectUploadUrl(value);
       break;
     default:
       reader.skipField();
@@ -4437,33 +4442,40 @@ proto.services.UploadTokenResponse.serializeBinaryToWriter = function(message, w
       f
     );
   }
-  f = message.getUploadUrl();
+  f = message.getFilePath();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = message.getFilePath();
-  if (f.length > 0) {
-    writer.writeString(
-      4,
-      f
-    );
-  }
   f = message.getCreated();
   if (f) {
     writer.writeBool(
-      5,
+      4,
       f
     );
   }
   f = message.getCreateInfo();
   if (f != null) {
     writer.writeMessage(
-      6,
+      5,
       f,
       proto.services.UserFile.serializeBinaryToWriter
+    );
+  }
+  f = message.getPartUploadUrl();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
+      f
+    );
+  }
+  f = message.getDirectUploadUrl();
+  if (f.length > 0) {
+    writer.writeString(
+      7,
+      f
     );
   }
 };
@@ -4506,10 +4518,10 @@ proto.services.UploadTokenResponse.prototype.setType = function(value) {
 
 
 /**
- * optional string upload_url = 3;
+ * optional string file_path = 3;
  * @return {string}
  */
-proto.services.UploadTokenResponse.prototype.getUploadUrl = function() {
+proto.services.UploadTokenResponse.prototype.getFilePath = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -4518,35 +4530,17 @@ proto.services.UploadTokenResponse.prototype.getUploadUrl = function() {
  * @param {string} value
  * @return {!proto.services.UploadTokenResponse} returns this
  */
-proto.services.UploadTokenResponse.prototype.setUploadUrl = function(value) {
+proto.services.UploadTokenResponse.prototype.setFilePath = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional string file_path = 4;
- * @return {string}
- */
-proto.services.UploadTokenResponse.prototype.getFilePath = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.services.UploadTokenResponse} returns this
- */
-proto.services.UploadTokenResponse.prototype.setFilePath = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
-};
-
-
-/**
- * optional bool created = 5;
+ * optional bool created = 4;
  * @return {boolean}
  */
 proto.services.UploadTokenResponse.prototype.getCreated = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 5, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
 };
 
 
@@ -4555,17 +4549,17 @@ proto.services.UploadTokenResponse.prototype.getCreated = function() {
  * @return {!proto.services.UploadTokenResponse} returns this
  */
 proto.services.UploadTokenResponse.prototype.setCreated = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 5, value);
+  return jspb.Message.setProto3BooleanField(this, 4, value);
 };
 
 
 /**
- * optional UserFile create_info = 6;
+ * optional UserFile create_info = 5;
  * @return {?proto.services.UserFile}
  */
 proto.services.UploadTokenResponse.prototype.getCreateInfo = function() {
   return /** @type{?proto.services.UserFile} */ (
-    jspb.Message.getWrapperField(this, proto.services.UserFile, 6));
+    jspb.Message.getWrapperField(this, proto.services.UserFile, 5));
 };
 
 
@@ -4574,7 +4568,7 @@ proto.services.UploadTokenResponse.prototype.getCreateInfo = function() {
  * @return {!proto.services.UploadTokenResponse} returns this
 */
 proto.services.UploadTokenResponse.prototype.setCreateInfo = function(value) {
-  return jspb.Message.setWrapperField(this, 6, value);
+  return jspb.Message.setWrapperField(this, 5, value);
 };
 
 
@@ -4592,7 +4586,43 @@ proto.services.UploadTokenResponse.prototype.clearCreateInfo = function() {
  * @return {boolean}
  */
 proto.services.UploadTokenResponse.prototype.hasCreateInfo = function() {
-  return jspb.Message.getField(this, 6) != null;
+  return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional string part_upload_url = 6;
+ * @return {string}
+ */
+proto.services.UploadTokenResponse.prototype.getPartUploadUrl = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.UploadTokenResponse} returns this
+ */
+proto.services.UploadTokenResponse.prototype.setPartUploadUrl = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
+};
+
+
+/**
+ * optional string direct_upload_url = 7;
+ * @return {string}
+ */
+proto.services.UploadTokenResponse.prototype.getDirectUploadUrl = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.UploadTokenResponse} returns this
+ */
+proto.services.UploadTokenResponse.prototype.setDirectUploadUrl = function(value) {
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 

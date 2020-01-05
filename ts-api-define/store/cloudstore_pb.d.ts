@@ -5,6 +5,12 @@ import * as jspb from "google-protobuf";
 import * as common_common_entity_pb from "../common/common_entity_pb";
 
 export class WcsUploadToken extends jspb.Message {
+  getExists(): boolean;
+  setExists(value: boolean): void;
+
+  getKey(): string;
+  setKey(value: string): void;
+
   getToken(): string;
   setToken(value: string): void;
 
@@ -26,9 +32,43 @@ export class WcsUploadToken extends jspb.Message {
 
 export namespace WcsUploadToken {
   export type AsObject = {
+    exists: boolean,
+    key: string,
     token: string,
     partUploadUrl: string,
     directUploadUrl: string,
+  }
+}
+
+export class UploadTokenRequest extends jspb.Message {
+  getType(): string;
+  setType(value: string): void;
+
+  getKey(): string;
+  setKey(value: string): void;
+
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
+  getHash(): string;
+  setHash(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UploadTokenRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: UploadTokenRequest): UploadTokenRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UploadTokenRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UploadTokenRequest;
+  static deserializeBinaryFromReader(message: UploadTokenRequest, reader: jspb.BinaryReader): UploadTokenRequest;
+}
+
+export namespace UploadTokenRequest {
+  export type AsObject = {
+    type: string,
+    key: string,
+    userIdentity: number,
+    hash: string,
   }
 }
 

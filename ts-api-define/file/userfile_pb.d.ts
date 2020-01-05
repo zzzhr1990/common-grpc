@@ -549,9 +549,6 @@ export class UploadTokenResponse extends jspb.Message {
   getType(): string;
   setType(value: string): void;
 
-  getUploadUrl(): string;
-  setUploadUrl(value: string): void;
-
   getFilePath(): string;
   setFilePath(value: string): void;
 
@@ -562,6 +559,12 @@ export class UploadTokenResponse extends jspb.Message {
   clearCreateInfo(): void;
   getCreateInfo(): UserFile | undefined;
   setCreateInfo(value?: UserFile): void;
+
+  getPartUploadUrl(): string;
+  setPartUploadUrl(value: string): void;
+
+  getDirectUploadUrl(): string;
+  setDirectUploadUrl(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UploadTokenResponse.AsObject;
@@ -577,10 +580,11 @@ export namespace UploadTokenResponse {
   export type AsObject = {
     uploadToken: string,
     type: string,
-    uploadUrl: string,
     filePath: string,
     created: boolean,
     createInfo?: UserFile.AsObject,
+    partUploadUrl: string,
+    directUploadUrl: string,
   }
 }
 
