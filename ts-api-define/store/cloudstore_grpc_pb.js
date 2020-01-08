@@ -118,6 +118,17 @@ var CloudStoreServiceService = exports.CloudStoreServiceService = {
     responseSerialize: serialize_services_WcsUploadToken,
     responseDeserialize: deserialize_services_WcsUploadToken,
   },
+  onFileUpload: {
+    path: '/services.CloudStoreService/OnFileUpload',
+    requestStream: false,
+    responseStream: false,
+    requestType: store_cloudstore_pb.CloudStore,
+    responseType: store_cloudstore_pb.CloudStore,
+    requestSerialize: serialize_services_CloudStore,
+    requestDeserialize: deserialize_services_CloudStore,
+    responseSerialize: serialize_services_CloudStore,
+    responseDeserialize: deserialize_services_CloudStore,
+  },
 };
 
 exports.CloudStoreServiceClient = grpc.makeGenericClientConstructor(CloudStoreServiceService);
