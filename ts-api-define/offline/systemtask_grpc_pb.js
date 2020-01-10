@@ -82,6 +82,17 @@ function deserialize_services_SystemOfflineTask(buffer_arg) {
   return offline_systemtask_pb.SystemOfflineTask.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_SystemOfflineTaskDetail(arg) {
+  if (!(arg instanceof offline_systemtask_pb.SystemOfflineTaskDetail)) {
+    throw new Error('Expected argument of type services.SystemOfflineTaskDetail');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_SystemOfflineTaskDetail(buffer_arg) {
+  return offline_systemtask_pb.SystemOfflineTaskDetail.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_SystemOfflineTaskFile(arg) {
   if (!(arg instanceof offline_systemtask_pb.SystemOfflineTaskFile)) {
     throw new Error('Expected argument of type services.SystemOfflineTaskFile');
@@ -91,28 +102,6 @@ function serialize_services_SystemOfflineTaskFile(arg) {
 
 function deserialize_services_SystemOfflineTaskFile(buffer_arg) {
   return offline_systemtask_pb.SystemOfflineTaskFile.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_SystemOfflineTaskFiles(arg) {
-  if (!(arg instanceof offline_systemtask_pb.SystemOfflineTaskFiles)) {
-    throw new Error('Expected argument of type services.SystemOfflineTaskFiles');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_SystemOfflineTaskFiles(buffer_arg) {
-  return offline_systemtask_pb.SystemOfflineTaskFiles.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_SystemOfflineTaskMeta(arg) {
-  if (!(arg instanceof offline_systemtask_pb.SystemOfflineTaskMeta)) {
-    throw new Error('Expected argument of type services.SystemOfflineTaskMeta');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_SystemOfflineTaskMeta(buffer_arg) {
-  return offline_systemtask_pb.SystemOfflineTaskMeta.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_UpdateProgressRequest(arg) {
@@ -143,10 +132,10 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/update',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.SystemOfflineTaskMeta,
+    requestType: offline_systemtask_pb.SystemOfflineTaskDetail,
     responseType: common_common_entity_pb.Int64Entity,
-    requestSerialize: serialize_services_SystemOfflineTaskMeta,
-    requestDeserialize: deserialize_services_SystemOfflineTaskMeta,
+    requestSerialize: serialize_services_SystemOfflineTaskDetail,
+    requestDeserialize: deserialize_services_SystemOfflineTaskDetail,
     responseSerialize: serialize_services_Int64Entity,
     responseDeserialize: deserialize_services_Int64Entity,
   },
@@ -183,6 +172,17 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     responseSerialize: serialize_services_SystemOfflineTask,
     responseDeserialize: deserialize_services_SystemOfflineTask,
   },
+  getDetail: {
+    path: '/services.SystemOfflineTaskService/getDetail',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_systemtask_pb.SystemOfflineTask,
+    responseType: offline_systemtask_pb.SystemOfflineTaskDetail,
+    requestSerialize: serialize_services_SystemOfflineTask,
+    requestDeserialize: deserialize_services_SystemOfflineTask,
+    responseSerialize: serialize_services_SystemOfflineTaskDetail,
+    responseDeserialize: deserialize_services_SystemOfflineTaskDetail,
+  },
   updateFile: {
     path: '/services.SystemOfflineTaskService/updateFile',
     requestStream: false,
@@ -216,17 +216,7 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     responseSerialize: serialize_services_BoolEntity,
     responseDeserialize: deserialize_services_BoolEntity,
   },
-  getFiles: {
-    path: '/services.SystemOfflineTaskService/getFiles',
-    requestStream: false,
-    responseStream: false,
-    requestType: offline_systemtask_pb.SystemOfflineTask,
-    responseType: offline_systemtask_pb.SystemOfflineTaskFiles,
-    requestSerialize: serialize_services_SystemOfflineTask,
-    requestDeserialize: deserialize_services_SystemOfflineTask,
-    responseSerialize: serialize_services_SystemOfflineTaskFiles,
-    responseDeserialize: deserialize_services_SystemOfflineTaskFiles,
-  },
+  // rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
   complete: {
     path: '/services.SystemOfflineTaskService/complete',
     requestStream: false,

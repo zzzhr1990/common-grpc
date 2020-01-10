@@ -65,10 +65,10 @@ func (m *BatchGetRequest) GetIdentities() []string {
 }
 
 type BatchGetResponse struct {
-	Data                 []*SystemOfflineTaskMeta `protobuf:"bytes,1,rep,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                 `json:"-"`
-	XXX_unrecognized     []byte                   `json:"-"`
-	XXX_sizecache        int32                    `json:"-"`
+	Data                 []*SystemOfflineTaskDetail `protobuf:"bytes,1,rep,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
+	XXX_unrecognized     []byte                     `json:"-"`
+	XXX_sizecache        int32                      `json:"-"`
 }
 
 func (m *BatchGetResponse) Reset()         { *m = BatchGetResponse{} }
@@ -96,7 +96,7 @@ func (m *BatchGetResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BatchGetResponse proto.InternalMessageInfo
 
-func (m *BatchGetResponse) GetData() []*SystemOfflineTaskMeta {
+func (m *BatchGetResponse) GetData() []*SystemOfflineTaskDetail {
 	if m != nil {
 		return m.Data
 	}
@@ -104,22 +104,20 @@ func (m *BatchGetResponse) GetData() []*SystemOfflineTaskMeta {
 }
 
 type SystemOfflineTask struct {
-	Identity   string `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
-	Size       int64  `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
-	CreateUser int64  `protobuf:"varint,3,opt,name=createUser,proto3" json:"createUser,omitempty"`
-	CreateTime int64  `protobuf:"varint,4,opt,name=createTime,proto3" json:"createTime,omitempty"`
-	Name       string `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
-	//tring originalaFilename = 6;
-	Type         int32 `protobuf:"varint,6,opt,name=type,proto3" json:"type,omitempty"`
-	Status       int32 `protobuf:"varint,7,opt,name=status,proto3" json:"status,omitempty"`
-	Flag         int32 `protobuf:"varint,8,opt,name=flag,proto3" json:"flag,omitempty"`
-	DownloadSize int64 `protobuf:"varint,9,opt,name=downloadSize,proto3" json:"downloadSize,omitempty"`
-	//
-	ErrorCode            int32    `protobuf:"varint,10,opt,name=errorCode,proto3" json:"errorCode,omitempty"`
-	ErrorMessage         string   `protobuf:"bytes,11,opt,name=errorMessage,proto3" json:"errorMessage,omitempty"`
-	CreateIP             string   `protobuf:"bytes,12,opt,name=createIP,proto3" json:"createIP,omitempty"`
+	Identity             string   `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
+	Size                 int64    `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
+	CreateUser           int64    `protobuf:"varint,3,opt,name=create_user,json=createUser,proto3" json:"create_user,omitempty"`
+	CreateTime           int64    `protobuf:"varint,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	Name                 string   `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
+	Type                 int32    `protobuf:"varint,6,opt,name=type,proto3" json:"type,omitempty"`
+	Status               int32    `protobuf:"varint,7,opt,name=status,proto3" json:"status,omitempty"`
+	Flag                 int32    `protobuf:"varint,8,opt,name=flag,proto3" json:"flag,omitempty"`
+	DownloadSize         int64    `protobuf:"varint,9,opt,name=download_size,json=downloadSize,proto3" json:"download_size,omitempty"`
+	ErrorCode            int32    `protobuf:"varint,10,opt,name=error_code,json=errorCode,proto3" json:"error_code,omitempty"`
+	ErrorMessage         string   `protobuf:"bytes,11,opt,name=error_message,json=errorMessage,proto3" json:"error_message,omitempty"`
+	CreateIp             string   `protobuf:"bytes,12,opt,name=create_ip,json=createIp,proto3" json:"create_ip,omitempty"`
 	Data                 string   `protobuf:"bytes,13,opt,name=data,proto3" json:"data,omitempty"`
-	Preview              bool     `protobuf:"varint,14,opt,name=preview,proto3" json:"preview,omitempty"`
+	TextLink             string   `protobuf:"bytes,14,opt,name=text_link,json=textLink,proto3" json:"text_link,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -227,9 +225,9 @@ func (m *SystemOfflineTask) GetErrorMessage() string {
 	return ""
 }
 
-func (m *SystemOfflineTask) GetCreateIP() string {
+func (m *SystemOfflineTask) GetCreateIp() string {
 	if m != nil {
-		return m.CreateIP
+		return m.CreateIp
 	}
 	return ""
 }
@@ -241,11 +239,11 @@ func (m *SystemOfflineTask) GetData() string {
 	return ""
 }
 
-func (m *SystemOfflineTask) GetPreview() bool {
+func (m *SystemOfflineTask) GetTextLink() string {
 	if m != nil {
-		return m.Preview
+		return m.TextLink
 	}
-	return false
+	return ""
 }
 
 type UpdateProgressRequest struct {
@@ -304,11 +302,8 @@ func (m *UpdateProgressRequest) GetDownloadSize() int64 {
 }
 
 type StatusChangeRequest struct {
-	Identity string `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
-	// int64 size = 2;
-	// int64 downloadSize = 3;
+	Identity             string   `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
 	Status               int32    `protobuf:"varint,2,opt,name=status,proto3" json:"status,omitempty"`
-	RemoveListener       bool     `protobuf:"varint,3,opt,name=removeListener,proto3" json:"removeListener,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -353,17 +348,8 @@ func (m *StatusChangeRequest) GetStatus() int32 {
 	return 0
 }
 
-func (m *StatusChangeRequest) GetRemoveListener() bool {
-	if m != nil {
-		return m.RemoveListener
-	}
-	return false
-}
-
 type ErrorRequest struct {
-	Identity string `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
-	// int64 size = 2;
-	// int64 downloadSize = 3;
+	Identity             string   `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
 	ErrorCode            int32    `protobuf:"varint,2,opt,name=errorCode,proto3" json:"errorCode,omitempty"`
 	ErrorMessage         string   `protobuf:"bytes,3,opt,name=errorMessage,proto3" json:"errorMessage,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -418,17 +404,17 @@ func (m *ErrorRequest) GetErrorMessage() string {
 }
 
 type SystemOfflineTaskFile struct {
-	DownloadIdentity     string   `protobuf:"bytes,1,opt,name=downloadIdentity,proto3" json:"downloadIdentity,omitempty"`
-	PathIdentity         string   `protobuf:"bytes,2,opt,name=pathIdentity,proto3" json:"pathIdentity,omitempty"`
-	CreateTime           int64    `protobuf:"varint,3,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	DownloadIdentity     string   `protobuf:"bytes,1,opt,name=download_identity,json=downloadIdentity,proto3" json:"download_identity,omitempty"`
+	PathIdentity         string   `protobuf:"bytes,2,opt,name=path_identity,json=pathIdentity,proto3" json:"path_identity,omitempty"`
+	CreateTime           int64    `protobuf:"varint,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	Name                 string   `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
 	Path                 string   `protobuf:"bytes,6,opt,name=path,proto3" json:"path,omitempty"`
 	Hash                 string   `protobuf:"bytes,7,opt,name=hash,proto3" json:"hash,omitempty"`
 	Size                 int64    `protobuf:"varint,8,opt,name=size,proto3" json:"size,omitempty"`
-	DownloadSize         int64    `protobuf:"varint,9,opt,name=downloadSize,proto3" json:"downloadSize,omitempty"`
+	DownloadSize         int64    `protobuf:"varint,9,opt,name=download_size,json=downloadSize,proto3" json:"download_size,omitempty"`
 	Status               int32    `protobuf:"varint,10,opt,name=status,proto3" json:"status,omitempty"`
 	Flag                 int32    `protobuf:"varint,11,opt,name=flag,proto3" json:"flag,omitempty"`
-	FileIndex            int32    `protobuf:"varint,12,opt,name=fileIndex,proto3" json:"fileIndex,omitempty"`
+	FileIndex            int32    `protobuf:"varint,12,opt,name=file_index,json=fileIndex,proto3" json:"file_index,omitempty"`
 	Finish               bool     `protobuf:"varint,13,opt,name=finish,proto3" json:"finish,omitempty"`
 	Directory            bool     `protobuf:"varint,14,opt,name=directory,proto3" json:"directory,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -552,86 +538,55 @@ func (m *SystemOfflineTaskFile) GetDirectory() bool {
 	return false
 }
 
-type SystemOfflineTaskMeta struct {
-	Task                 *SystemOfflineTask       `protobuf:"bytes,1,opt,name=task,proto3" json:"task,omitempty"`
-	Files                []*SystemOfflineTaskFile `protobuf:"bytes,2,rep,name=files,proto3" json:"files,omitempty"`
+type SystemOfflineTaskDetail struct {
+	Identity             string                   `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
+	Task                 *SystemOfflineTask       `protobuf:"bytes,2,opt,name=task,proto3" json:"task,omitempty"`
+	Files                []*SystemOfflineTaskFile `protobuf:"bytes,3,rep,name=files,proto3" json:"files,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                 `json:"-"`
 	XXX_unrecognized     []byte                   `json:"-"`
 	XXX_sizecache        int32                    `json:"-"`
 }
 
-func (m *SystemOfflineTaskMeta) Reset()         { *m = SystemOfflineTaskMeta{} }
-func (m *SystemOfflineTaskMeta) String() string { return proto.CompactTextString(m) }
-func (*SystemOfflineTaskMeta) ProtoMessage()    {}
-func (*SystemOfflineTaskMeta) Descriptor() ([]byte, []int) {
+func (m *SystemOfflineTaskDetail) Reset()         { *m = SystemOfflineTaskDetail{} }
+func (m *SystemOfflineTaskDetail) String() string { return proto.CompactTextString(m) }
+func (*SystemOfflineTaskDetail) ProtoMessage()    {}
+func (*SystemOfflineTaskDetail) Descriptor() ([]byte, []int) {
 	return fileDescriptor_d0cace4e80a04fad, []int{7}
 }
 
-func (m *SystemOfflineTaskMeta) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SystemOfflineTaskMeta.Unmarshal(m, b)
+func (m *SystemOfflineTaskDetail) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SystemOfflineTaskDetail.Unmarshal(m, b)
 }
-func (m *SystemOfflineTaskMeta) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SystemOfflineTaskMeta.Marshal(b, m, deterministic)
+func (m *SystemOfflineTaskDetail) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SystemOfflineTaskDetail.Marshal(b, m, deterministic)
 }
-func (m *SystemOfflineTaskMeta) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SystemOfflineTaskMeta.Merge(m, src)
+func (m *SystemOfflineTaskDetail) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SystemOfflineTaskDetail.Merge(m, src)
 }
-func (m *SystemOfflineTaskMeta) XXX_Size() int {
-	return xxx_messageInfo_SystemOfflineTaskMeta.Size(m)
+func (m *SystemOfflineTaskDetail) XXX_Size() int {
+	return xxx_messageInfo_SystemOfflineTaskDetail.Size(m)
 }
-func (m *SystemOfflineTaskMeta) XXX_DiscardUnknown() {
-	xxx_messageInfo_SystemOfflineTaskMeta.DiscardUnknown(m)
+func (m *SystemOfflineTaskDetail) XXX_DiscardUnknown() {
+	xxx_messageInfo_SystemOfflineTaskDetail.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_SystemOfflineTaskMeta proto.InternalMessageInfo
+var xxx_messageInfo_SystemOfflineTaskDetail proto.InternalMessageInfo
 
-func (m *SystemOfflineTaskMeta) GetTask() *SystemOfflineTask {
+func (m *SystemOfflineTaskDetail) GetIdentity() string {
+	if m != nil {
+		return m.Identity
+	}
+	return ""
+}
+
+func (m *SystemOfflineTaskDetail) GetTask() *SystemOfflineTask {
 	if m != nil {
 		return m.Task
 	}
 	return nil
 }
 
-func (m *SystemOfflineTaskMeta) GetFiles() []*SystemOfflineTaskFile {
-	if m != nil {
-		return m.Files
-	}
-	return nil
-}
-
-type SystemOfflineTaskFiles struct {
-	Files                []*SystemOfflineTaskFile `protobuf:"bytes,2,rep,name=files,proto3" json:"files,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                 `json:"-"`
-	XXX_unrecognized     []byte                   `json:"-"`
-	XXX_sizecache        int32                    `json:"-"`
-}
-
-func (m *SystemOfflineTaskFiles) Reset()         { *m = SystemOfflineTaskFiles{} }
-func (m *SystemOfflineTaskFiles) String() string { return proto.CompactTextString(m) }
-func (*SystemOfflineTaskFiles) ProtoMessage()    {}
-func (*SystemOfflineTaskFiles) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d0cace4e80a04fad, []int{8}
-}
-
-func (m *SystemOfflineTaskFiles) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SystemOfflineTaskFiles.Unmarshal(m, b)
-}
-func (m *SystemOfflineTaskFiles) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SystemOfflineTaskFiles.Marshal(b, m, deterministic)
-}
-func (m *SystemOfflineTaskFiles) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SystemOfflineTaskFiles.Merge(m, src)
-}
-func (m *SystemOfflineTaskFiles) XXX_Size() int {
-	return xxx_messageInfo_SystemOfflineTaskFiles.Size(m)
-}
-func (m *SystemOfflineTaskFiles) XXX_DiscardUnknown() {
-	xxx_messageInfo_SystemOfflineTaskFiles.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SystemOfflineTaskFiles proto.InternalMessageInfo
-
-func (m *SystemOfflineTaskFiles) GetFiles() []*SystemOfflineTaskFile {
+func (m *SystemOfflineTaskDetail) GetFiles() []*SystemOfflineTaskFile {
 	if m != nil {
 		return m.Files
 	}
@@ -646,66 +601,66 @@ func init() {
 	proto.RegisterType((*StatusChangeRequest)(nil), "services.StatusChangeRequest")
 	proto.RegisterType((*ErrorRequest)(nil), "services.ErrorRequest")
 	proto.RegisterType((*SystemOfflineTaskFile)(nil), "services.SystemOfflineTaskFile")
-	proto.RegisterType((*SystemOfflineTaskMeta)(nil), "services.SystemOfflineTaskMeta")
-	proto.RegisterType((*SystemOfflineTaskFiles)(nil), "services.SystemOfflineTaskFiles")
+	proto.RegisterType((*SystemOfflineTaskDetail)(nil), "services.SystemOfflineTaskDetail")
 }
 
 func init() { proto.RegisterFile("offline/systemtask.proto", fileDescriptor_d0cace4e80a04fad) }
 
 var fileDescriptor_d0cace4e80a04fad = []byte{
-	// 818 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x56, 0x4d, 0x8f, 0xdb, 0x44,
-	0x18, 0x4e, 0xe2, 0x24, 0x75, 0xde, 0x84, 0xa5, 0x0c, 0xec, 0x6a, 0x30, 0x05, 0x22, 0x1f, 0x50,
-	0x84, 0x44, 0x42, 0xb7, 0x7c, 0xa8, 0xa7, 0xaa, 0x59, 0x96, 0x2a, 0x82, 0xaa, 0x95, 0xd3, 0x5e,
-	0xb8, 0xa0, 0x59, 0xfb, 0x8d, 0x6d, 0xad, 0xed, 0x71, 0x3d, 0x93, 0x2d, 0xc9, 0x85, 0x23, 0x3f,
-	0x80, 0x9f, 0xcb, 0x05, 0xcd, 0x38, 0x89, 0x9d, 0x75, 0x3e, 0x16, 0xf6, 0x94, 0x99, 0x67, 0x9e,
-	0x79, 0x3f, 0x9f, 0x79, 0x63, 0xa0, 0x7c, 0x36, 0x8b, 0xc2, 0x04, 0x47, 0x62, 0x21, 0x24, 0xc6,
-	0x92, 0x89, 0xeb, 0x61, 0x9a, 0x71, 0xc9, 0x89, 0x29, 0x30, 0xbb, 0x09, 0x5d, 0x14, 0x96, 0xe5,
-	0xf2, 0x38, 0xe6, 0xc9, 0x28, 0xff, 0xf9, 0x1d, 0x13, 0x19, 0xca, 0x45, 0xce, 0xb2, 0x1f, 0xc3,
-	0x87, 0x63, 0x26, 0xdd, 0xe0, 0x05, 0x4a, 0x07, 0xdf, 0xcd, 0x51, 0x48, 0xf2, 0x05, 0x40, 0xe8,
-	0x69, 0x52, 0x88, 0x82, 0xd6, 0xfb, 0xc6, 0xa0, 0xe3, 0x94, 0x10, 0xfb, 0x05, 0x3c, 0x2c, 0xae,
-	0x88, 0x94, 0x27, 0x02, 0xc9, 0x13, 0x68, 0x7a, 0x4c, 0x32, 0xcd, 0xee, 0x9e, 0x7f, 0x39, 0x5c,
-	0xfb, 0x1e, 0x4e, 0x75, 0x58, 0xaf, 0xf2, 0x20, 0xdf, 0x30, 0x71, 0xfd, 0x12, 0x25, 0x73, 0x34,
-	0xd9, 0xfe, 0xcb, 0x80, 0x8f, 0x2a, 0xe7, 0xc4, 0x02, 0x73, 0xe5, 0x6c, 0x41, 0xeb, 0xfd, 0xfa,
-	0xa0, 0xe3, 0x6c, 0xf6, 0x84, 0x40, 0x53, 0x84, 0x4b, 0xa4, 0x8d, 0x7e, 0x7d, 0x60, 0x38, 0x7a,
-	0xad, 0xc2, 0x75, 0x33, 0x64, 0x12, 0xdf, 0x0a, 0xcc, 0xa8, 0xa1, 0x4f, 0x4a, 0x48, 0x71, 0xfe,
-	0x26, 0x8c, 0x91, 0x36, 0xcb, 0xe7, 0x0a, 0x51, 0x36, 0x13, 0x16, 0x23, 0x6d, 0x69, 0x5f, 0x7a,
-	0xad, 0x30, 0xb9, 0x48, 0x91, 0xb6, 0xfb, 0xf5, 0x41, 0xcb, 0xd1, 0x6b, 0x72, 0x06, 0x6d, 0x21,
-	0x99, 0x9c, 0x0b, 0xfa, 0x40, 0xa3, 0xab, 0x9d, 0xe2, 0xce, 0x22, 0xe6, 0x53, 0x33, 0xe7, 0xaa,
-	0x35, 0xb1, 0xa1, 0xe7, 0xf1, 0xf7, 0x49, 0xc4, 0x99, 0x37, 0x55, 0xf1, 0x76, 0xb4, 0xd7, 0x2d,
-	0x8c, 0x3c, 0x82, 0x0e, 0x66, 0x19, 0xcf, 0x2e, 0xb8, 0x87, 0x14, 0xf4, 0xe5, 0x02, 0x50, 0x16,
-	0xf4, 0xe6, 0x25, 0x0a, 0xc1, 0x7c, 0xa4, 0x5d, 0x1d, 0xdd, 0x16, 0xa6, 0x2a, 0x95, 0xe7, 0x31,
-	0x79, 0x4d, 0x7b, 0x79, 0xa5, 0xd6, 0x7b, 0x15, 0x95, 0x6e, 0xc8, 0x07, 0x79, 0x56, 0x6a, 0x4d,
-	0x28, 0x3c, 0x48, 0x33, 0xbc, 0x09, 0xf1, 0x3d, 0x3d, 0xe9, 0xd7, 0x07, 0xa6, 0xb3, 0xde, 0xda,
-	0xd7, 0x70, 0xfa, 0x36, 0xf5, 0x98, 0xc4, 0xd7, 0x19, 0xf7, 0x33, 0x14, 0x62, 0xad, 0x85, 0xff,
-	0xda, 0x8c, 0xdb, 0x89, 0x1b, 0xd5, 0xc4, 0xed, 0x77, 0xf0, 0xf1, 0x54, 0x97, 0xee, 0x22, 0x60,
-	0x89, 0x8f, 0x77, 0x71, 0x55, 0xd4, 0xbe, 0xb1, 0x55, 0xfb, 0xaf, 0xe0, 0x24, 0xc3, 0x98, 0xdf,
-	0xe0, 0xaf, 0xa1, 0x90, 0x98, 0xac, 0xfa, 0x6f, 0x3a, 0xb7, 0x50, 0x3b, 0x82, 0xde, 0xa5, 0xaa,
-	0xdc, 0x5d, 0x7c, 0x6d, 0xf5, 0xa5, 0x71, 0xac, 0x2f, 0x46, 0xb5, 0x2f, 0xf6, 0x3f, 0x0d, 0x38,
-	0xad, 0xe8, 0xfa, 0xe7, 0x30, 0x42, 0xf2, 0x35, 0x3c, 0x5c, 0x97, 0x62, 0xb2, 0xed, 0xbf, 0x82,
-	0x2b, 0x4f, 0x29, 0x93, 0xc1, 0x86, 0xd7, 0xc8, 0x3d, 0x95, 0xb1, 0x5b, 0xda, 0x36, 0xee, 0xaa,
-	0x6d, 0x65, 0x43, 0x6b, 0xbb, 0xe3, 0xe8, 0xb5, 0xc2, 0x02, 0x26, 0x02, 0xad, 0xec, 0x8e, 0xa3,
-	0xd7, 0x9b, 0xf6, 0x9a, 0x07, 0xda, 0xbb, 0x4b, 0xd7, 0x45, 0xaf, 0x60, 0xe7, 0x3b, 0xe9, 0x96,
-	0xde, 0xc9, 0x23, 0xe8, 0xcc, 0xc2, 0x08, 0x27, 0x89, 0x87, 0x7f, 0x68, 0x09, 0xb7, 0x9c, 0x02,
-	0x50, 0x96, 0x66, 0x61, 0x12, 0x8a, 0x40, 0xab, 0xd8, 0x74, 0x56, 0x3b, 0x75, 0xcb, 0x0b, 0x33,
-	0x74, 0x25, 0xcf, 0x16, 0x2b, 0x25, 0x17, 0x80, 0xfd, 0xe7, 0x8e, 0xe2, 0xab, 0xa1, 0x43, 0x46,
-	0xd0, 0x54, 0xe3, 0x51, 0x17, 0xbc, 0x7b, 0xfe, 0xd9, 0x81, 0x19, 0xe5, 0x68, 0x22, 0xf9, 0x1e,
-	0x5a, 0x2a, 0x18, 0x25, 0xba, 0x63, 0x53, 0x4d, 0x75, 0xd7, 0xc9, 0xd9, 0xf6, 0x2b, 0x38, 0xdb,
-	0x79, 0x2e, 0xfe, 0xa7, 0xc1, 0xf3, 0xbf, 0xdb, 0x40, 0x2b, 0x84, 0x69, 0x7e, 0x95, 0xfc, 0x04,
-	0xed, 0xbc, 0xe1, 0xe4, 0x50, 0x46, 0xd6, 0xa1, 0x43, 0xbb, 0x46, 0xc6, 0xd0, 0x9e, 0xeb, 0x01,
-	0x40, 0x8e, 0xcd, 0x6e, 0xeb, 0xb4, 0x20, 0x4c, 0x12, 0xf9, 0xc3, 0x77, 0x97, 0x5a, 0x8a, 0x76,
-	0x8d, 0x4c, 0xe0, 0x64, 0xbe, 0x35, 0x44, 0xca, 0xb6, 0x76, 0x8e, 0x17, 0xeb, 0x93, 0x82, 0x30,
-	0xe6, 0x3c, 0xda, 0x98, 0xba, 0x00, 0xf3, 0x6a, 0xf5, 0x17, 0x43, 0x3e, 0x2d, 0x71, 0xb6, 0xff,
-	0xa9, 0x2c, 0x6b, 0xd7, 0x51, 0xfe, 0x8f, 0x64, 0xd7, 0xc8, 0x73, 0x30, 0x7c, 0x94, 0xf7, 0x2a,
-	0xcb, 0x25, 0x40, 0x9e, 0x92, 0x7e, 0xbd, 0xc7, 0xfa, 0xb5, 0x37, 0x1d, 0x6d, 0x46, 0x3d, 0x90,
-	0xfb, 0x9a, 0xe9, 0xb9, 0x7a, 0x64, 0xe6, 0xe3, 0x93, 0x7c, 0x5e, 0x32, 0x54, 0x1d, 0xa8, 0x7b,
-	0xcd, 0xfc, 0x02, 0xa6, 0x8f, 0x32, 0x57, 0xe4, 0xc1, 0xe2, 0xf4, 0x8f, 0x04, 0x2a, 0xec, 0x1a,
-	0x79, 0x06, 0xa6, 0xcb, 0xe3, 0x34, 0xc2, 0x63, 0x02, 0xdc, 0x17, 0xcd, 0x8f, 0xd0, 0xd2, 0xc3,
-	0x93, 0x9c, 0x15, 0x84, 0xf2, 0xac, 0xde, 0x77, 0x71, 0xfc, 0xfc, 0xb7, 0x67, 0x7e, 0x28, 0x83,
-	0xf9, 0xd5, 0xd0, 0xe5, 0xf1, 0x68, 0xb9, 0x5c, 0x06, 0xd9, 0xe3, 0xa7, 0x4f, 0xbf, 0x5d, 0x7d,
-	0xe5, 0x7c, 0xe3, 0x67, 0xa9, 0x3b, 0xf2, 0xf9, 0x68, 0x7d, 0x79, 0x54, 0xfd, 0x50, 0xba, 0x6a,
-	0xeb, 0x6f, 0xa0, 0x27, 0xff, 0x06, 0x00, 0x00, 0xff, 0xff, 0x6f, 0x84, 0x49, 0xbb, 0x45, 0x09,
-	0x00, 0x00,
+	// 836 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x56, 0x51, 0x73, 0xdb, 0x44,
+	0x10, 0x8e, 0xe3, 0xd8, 0x58, 0x6b, 0xa7, 0xb4, 0x07, 0x29, 0xc2, 0x25, 0x34, 0xa8, 0x2f, 0x99,
+	0x61, 0x88, 0x69, 0xa0, 0x30, 0x7d, 0xea, 0x34, 0x69, 0x60, 0x3c, 0x43, 0x07, 0x46, 0x69, 0x5f,
+	0x78, 0xf1, 0x5c, 0xa4, 0xb5, 0x74, 0x63, 0x49, 0x27, 0x74, 0x67, 0xa8, 0xf3, 0xc4, 0x4f, 0xe0,
+	0x8d, 0x27, 0xfe, 0x2b, 0x73, 0x7b, 0xb2, 0x25, 0xc7, 0xb1, 0xe3, 0x4e, 0x9f, 0xb4, 0xfa, 0xee,
+	0xdb, 0xbd, 0xbd, 0xdd, 0xef, 0x56, 0x02, 0x57, 0x8e, 0xc7, 0x89, 0xc8, 0x70, 0xa0, 0x66, 0x4a,
+	0x63, 0xaa, 0xb9, 0x9a, 0x9c, 0xe4, 0x85, 0xd4, 0x92, 0x75, 0x14, 0x16, 0x7f, 0x8a, 0x00, 0x55,
+	0xbf, 0x1f, 0xc8, 0x34, 0x95, 0xd9, 0xc0, 0x3e, 0x46, 0x98, 0x69, 0xa1, 0x67, 0x96, 0xe5, 0x3d,
+	0x85, 0x8f, 0xcf, 0xb8, 0x0e, 0xe2, 0x9f, 0x51, 0xfb, 0xf8, 0xc7, 0x14, 0x95, 0x66, 0x5f, 0x02,
+	0x88, 0x90, 0x48, 0x02, 0x95, 0xdb, 0x38, 0x6a, 0x1e, 0x3b, 0x7e, 0x0d, 0xf1, 0x86, 0x70, 0xbf,
+	0x72, 0x51, 0xb9, 0xcc, 0x14, 0xb2, 0x67, 0xb0, 0x17, 0x72, 0xcd, 0x89, 0xdd, 0x3d, 0xfd, 0xea,
+	0x64, 0xbe, 0xf7, 0xc9, 0x25, 0xa5, 0xf5, 0xab, 0x4d, 0xf2, 0x0d, 0x57, 0x93, 0x57, 0xa8, 0xb9,
+	0x48, 0x7c, 0xa2, 0x7b, 0xff, 0x34, 0xe1, 0xc1, 0x0a, 0x83, 0xf5, 0xa1, 0x53, 0x6e, 0x37, 0x73,
+	0x1b, 0x47, 0x8d, 0x63, 0xc7, 0x5f, 0xbc, 0x33, 0x06, 0x7b, 0x4a, 0x5c, 0xa3, 0xbb, 0x7b, 0xd4,
+	0x38, 0x6e, 0xfa, 0x64, 0xb3, 0xc7, 0xd0, 0x0d, 0x0a, 0xe4, 0x1a, 0x47, 0x53, 0x85, 0x85, 0xdb,
+	0xa4, 0x25, 0xb0, 0xd0, 0x5b, 0x85, 0x45, 0x8d, 0xa0, 0x45, 0x8a, 0xee, 0x5e, 0x9d, 0xf0, 0x46,
+	0xa4, 0x68, 0xa2, 0x66, 0x3c, 0x45, 0xb7, 0x45, 0xbb, 0x91, 0x6d, 0x30, 0x3d, 0xcb, 0xd1, 0x6d,
+	0x1f, 0x35, 0x8e, 0x5b, 0x3e, 0xd9, 0xec, 0x21, 0xb4, 0x95, 0xe6, 0x7a, 0xaa, 0xdc, 0x8f, 0x08,
+	0x2d, 0xdf, 0x0c, 0x77, 0x9c, 0xf0, 0xc8, 0xed, 0x58, 0xae, 0xb1, 0xd9, 0x13, 0xd8, 0x0f, 0xe5,
+	0x5f, 0x59, 0x22, 0x79, 0x38, 0xa2, 0x94, 0x1d, 0xda, 0xb6, 0x37, 0x07, 0x2f, 0x4d, 0xea, 0x87,
+	0x00, 0x58, 0x14, 0xb2, 0x18, 0x05, 0x32, 0x44, 0x17, 0xc8, 0xdd, 0x21, 0xe4, 0x5c, 0x86, 0x68,
+	0x62, 0xd8, 0xe5, 0x14, 0x95, 0xe2, 0x11, 0xba, 0x5d, 0x4a, 0xb0, 0x47, 0xe0, 0x6b, 0x8b, 0xb1,
+	0x47, 0xe0, 0x94, 0xa7, 0x13, 0xb9, 0xdb, 0xb3, 0xf5, 0xb2, 0xc0, 0x30, 0x37, 0x99, 0x51, 0x63,
+	0xf6, 0xed, 0xc9, 0x8c, 0x6d, 0x1c, 0x34, 0xbe, 0xd3, 0xa3, 0x44, 0x64, 0x13, 0xf7, 0x9e, 0x75,
+	0x30, 0xc0, 0x2f, 0x22, 0x9b, 0x78, 0x13, 0x38, 0x78, 0x9b, 0x87, 0x5c, 0xe3, 0x6f, 0x85, 0x8c,
+	0x0a, 0x54, 0x6a, 0x2e, 0x8b, 0xf7, 0xed, 0x8a, 0x07, 0x4b, 0x47, 0x2d, 0xdb, 0xb2, 0x84, 0x79,
+	0x43, 0xf8, 0xe4, 0x92, 0x2a, 0x78, 0x1e, 0xf3, 0x2c, 0xc2, 0x6d, 0xb6, 0xaa, 0x5a, 0xb0, 0x5b,
+	0x6f, 0x81, 0x97, 0x40, 0xef, 0xc2, 0x54, 0x65, 0x9b, 0x18, 0x5f, 0x40, 0x55, 0xe3, 0x32, 0x4c,
+	0xad, 0xe8, 0x1e, 0x2c, 0xd5, 0x97, 0x12, 0xbf, 0x51, 0x73, 0xef, 0xef, 0x26, 0x1c, 0xac, 0x08,
+	0xf7, 0x27, 0x91, 0x20, 0xfb, 0x1a, 0x1e, 0x2c, 0xda, 0x7e, 0x23, 0x81, 0xfb, 0xf3, 0x85, 0xe1,
+	0x3c, 0x91, 0x27, 0xb0, 0x9f, 0x73, 0x1d, 0x57, 0xc4, 0x5d, 0xbb, 0x97, 0x01, 0x17, 0xa4, 0x1b,
+	0xea, 0x6d, 0x6e, 0xab, 0x5e, 0x13, 0x84, 0xd4, 0xeb, 0xf8, 0x64, 0x1b, 0x2c, 0xe6, 0x2a, 0x26,
+	0xed, 0x3a, 0x3e, 0xd9, 0x8b, 0xce, 0x75, 0x6a, 0x9d, 0xdb, 0x4a, 0xb9, 0x55, 0x1f, 0xe0, 0xd6,
+	0xab, 0xd0, 0xad, 0x5d, 0x85, 0x43, 0x80, 0xb1, 0x48, 0x70, 0x24, 0xb2, 0x10, 0xdf, 0x91, 0x44,
+	0x5b, 0xbe, 0x63, 0x90, 0xa1, 0x01, 0x4c, 0xa8, 0xb1, 0xc8, 0x84, 0x8a, 0x49, 0xa5, 0x1d, 0xbf,
+	0x7c, 0x33, 0x6d, 0x0a, 0x45, 0x81, 0x81, 0x96, 0xc5, 0x8c, 0x74, 0xda, 0xf1, 0x2b, 0xc0, 0xfb,
+	0xaf, 0x01, 0x9f, 0xad, 0x99, 0x2e, 0x1b, 0x9b, 0x3f, 0x80, 0x3d, 0x33, 0x25, 0xa9, 0xd4, 0xdd,
+	0xd3, 0x47, 0x1b, 0x46, 0x95, 0x4f, 0x44, 0xf6, 0x0c, 0x5a, 0x26, 0x57, 0xe5, 0x36, 0x69, 0xb8,
+	0x3d, 0xde, 0xe0, 0x61, 0x14, 0xe0, 0x5b, 0xf6, 0xe9, 0xbf, 0x6d, 0x70, 0x57, 0x08, 0x97, 0xd6,
+	0x95, 0xbd, 0x82, 0xb6, 0x6d, 0x20, 0xdb, 0x94, 0x40, 0x7f, 0xd3, 0xa2, 0xb7, 0x63, 0xa2, 0x4c,
+	0xe9, 0xae, 0xb2, 0xbb, 0x27, 0x6e, 0xff, 0xa0, 0xa2, 0x0c, 0x33, 0xfd, 0xc3, 0xf7, 0x17, 0x54,
+	0x0e, 0x6f, 0x87, 0x0d, 0xe1, 0xde, 0x74, 0xe9, 0xc6, 0xb3, 0xda, 0x11, 0x6f, 0x9d, 0x05, 0xfd,
+	0x4f, 0x2b, 0xc2, 0x99, 0x94, 0xc9, 0x22, 0xd4, 0x39, 0x74, 0xae, 0xca, 0x4f, 0x03, 0xfb, 0xbc,
+	0xc6, 0x59, 0xfe, 0xc2, 0xf4, 0xfb, 0xb7, 0x2d, 0xd9, 0x2f, 0x89, 0xb7, 0xc3, 0x5e, 0x42, 0x33,
+	0x42, 0xfd, 0x41, 0x85, 0x79, 0x0d, 0x4e, 0x84, 0xba, 0x14, 0xc3, 0xc6, 0x40, 0x77, 0x17, 0xce,
+	0xdb, 0x61, 0x17, 0x00, 0xb6, 0x42, 0x74, 0xc3, 0xef, 0x12, 0xc0, 0xda, 0xea, 0x50, 0x18, 0x73,
+	0x81, 0x3e, 0x34, 0x4c, 0x2f, 0xa0, 0x71, 0x69, 0x47, 0x27, 0x3b, 0xac, 0x05, 0x5a, 0x1d, 0xa6,
+	0x6b, 0xc3, 0xbc, 0x80, 0x4e, 0x20, 0xd3, 0x3c, 0xc1, 0xbb, 0x44, 0xb8, 0x2e, 0xc0, 0x8f, 0xd0,
+	0xa2, 0x99, 0xc8, 0x1e, 0x56, 0x84, 0xfa, 0x08, 0x5e, 0xe7, 0x78, 0xf6, 0xf2, 0xf7, 0x17, 0x91,
+	0xd0, 0xf1, 0xf4, 0xea, 0x24, 0x90, 0xe9, 0xe0, 0xfa, 0xfa, 0x3a, 0x2e, 0x9e, 0x3e, 0x7f, 0xfe,
+	0x6d, 0xf9, 0x7f, 0xf2, 0x4d, 0x54, 0xe4, 0xc1, 0x20, 0x92, 0x83, 0xb9, 0xf3, 0x60, 0xf5, 0x17,
+	0xe7, 0xaa, 0x4d, 0x7f, 0x2f, 0xdf, 0xfd, 0x1f, 0x00, 0x00, 0xff, 0xff, 0xeb, 0x69, 0xd3, 0x2e,
+	0xff, 0x08, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -721,14 +676,15 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type SystemOfflineTaskServiceClient interface {
 	Create(ctx context.Context, in *SystemOfflineTask, opts ...grpc.CallOption) (*SystemOfflineTask, error)
-	Update(ctx context.Context, in *SystemOfflineTaskMeta, opts ...grpc.CallOption) (*common.Int64Entity, error)
+	Update(ctx context.Context, in *SystemOfflineTaskDetail, opts ...grpc.CallOption) (*common.Int64Entity, error)
 	UpdateProgress(ctx context.Context, in *UpdateProgressRequest, opts ...grpc.CallOption) (*common.BoolEntity, error)
 	BatchGet(ctx context.Context, in *BatchGetRequest, opts ...grpc.CallOption) (*BatchGetResponse, error)
 	Get(ctx context.Context, in *SystemOfflineTask, opts ...grpc.CallOption) (*SystemOfflineTask, error)
+	GetDetail(ctx context.Context, in *SystemOfflineTask, opts ...grpc.CallOption) (*SystemOfflineTaskDetail, error)
 	UpdateFile(ctx context.Context, in *SystemOfflineTaskFile, opts ...grpc.CallOption) (*common.BoolEntity, error)
 	UploadFile(ctx context.Context, in *SystemOfflineTaskFile, opts ...grpc.CallOption) (*common.BoolEntity, error)
 	ChangeStatus(ctx context.Context, in *StatusChangeRequest, opts ...grpc.CallOption) (*common.BoolEntity, error)
-	GetFiles(ctx context.Context, in *SystemOfflineTask, opts ...grpc.CallOption) (*SystemOfflineTaskFiles, error)
+	// rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
 	Complete(ctx context.Context, in *SystemOfflineTask, opts ...grpc.CallOption) (*common.BoolEntity, error)
 	// ErrorRequest
 	Error(ctx context.Context, in *ErrorRequest, opts ...grpc.CallOption) (*common.BoolEntity, error)
@@ -751,7 +707,7 @@ func (c *systemOfflineTaskServiceClient) Create(ctx context.Context, in *SystemO
 	return out, nil
 }
 
-func (c *systemOfflineTaskServiceClient) Update(ctx context.Context, in *SystemOfflineTaskMeta, opts ...grpc.CallOption) (*common.Int64Entity, error) {
+func (c *systemOfflineTaskServiceClient) Update(ctx context.Context, in *SystemOfflineTaskDetail, opts ...grpc.CallOption) (*common.Int64Entity, error) {
 	out := new(common.Int64Entity)
 	err := c.cc.Invoke(ctx, "/services.SystemOfflineTaskService/update", in, out, opts...)
 	if err != nil {
@@ -787,6 +743,15 @@ func (c *systemOfflineTaskServiceClient) Get(ctx context.Context, in *SystemOffl
 	return out, nil
 }
 
+func (c *systemOfflineTaskServiceClient) GetDetail(ctx context.Context, in *SystemOfflineTask, opts ...grpc.CallOption) (*SystemOfflineTaskDetail, error) {
+	out := new(SystemOfflineTaskDetail)
+	err := c.cc.Invoke(ctx, "/services.SystemOfflineTaskService/getDetail", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *systemOfflineTaskServiceClient) UpdateFile(ctx context.Context, in *SystemOfflineTaskFile, opts ...grpc.CallOption) (*common.BoolEntity, error) {
 	out := new(common.BoolEntity)
 	err := c.cc.Invoke(ctx, "/services.SystemOfflineTaskService/updateFile", in, out, opts...)
@@ -814,15 +779,6 @@ func (c *systemOfflineTaskServiceClient) ChangeStatus(ctx context.Context, in *S
 	return out, nil
 }
 
-func (c *systemOfflineTaskServiceClient) GetFiles(ctx context.Context, in *SystemOfflineTask, opts ...grpc.CallOption) (*SystemOfflineTaskFiles, error) {
-	out := new(SystemOfflineTaskFiles)
-	err := c.cc.Invoke(ctx, "/services.SystemOfflineTaskService/getFiles", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *systemOfflineTaskServiceClient) Complete(ctx context.Context, in *SystemOfflineTask, opts ...grpc.CallOption) (*common.BoolEntity, error) {
 	out := new(common.BoolEntity)
 	err := c.cc.Invoke(ctx, "/services.SystemOfflineTaskService/complete", in, out, opts...)
@@ -844,14 +800,15 @@ func (c *systemOfflineTaskServiceClient) Error(ctx context.Context, in *ErrorReq
 // SystemOfflineTaskServiceServer is the server API for SystemOfflineTaskService service.
 type SystemOfflineTaskServiceServer interface {
 	Create(context.Context, *SystemOfflineTask) (*SystemOfflineTask, error)
-	Update(context.Context, *SystemOfflineTaskMeta) (*common.Int64Entity, error)
+	Update(context.Context, *SystemOfflineTaskDetail) (*common.Int64Entity, error)
 	UpdateProgress(context.Context, *UpdateProgressRequest) (*common.BoolEntity, error)
 	BatchGet(context.Context, *BatchGetRequest) (*BatchGetResponse, error)
 	Get(context.Context, *SystemOfflineTask) (*SystemOfflineTask, error)
+	GetDetail(context.Context, *SystemOfflineTask) (*SystemOfflineTaskDetail, error)
 	UpdateFile(context.Context, *SystemOfflineTaskFile) (*common.BoolEntity, error)
 	UploadFile(context.Context, *SystemOfflineTaskFile) (*common.BoolEntity, error)
 	ChangeStatus(context.Context, *StatusChangeRequest) (*common.BoolEntity, error)
-	GetFiles(context.Context, *SystemOfflineTask) (*SystemOfflineTaskFiles, error)
+	// rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
 	Complete(context.Context, *SystemOfflineTask) (*common.BoolEntity, error)
 	// ErrorRequest
 	Error(context.Context, *ErrorRequest) (*common.BoolEntity, error)
@@ -864,7 +821,7 @@ type UnimplementedSystemOfflineTaskServiceServer struct {
 func (*UnimplementedSystemOfflineTaskServiceServer) Create(ctx context.Context, req *SystemOfflineTask) (*SystemOfflineTask, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (*UnimplementedSystemOfflineTaskServiceServer) Update(ctx context.Context, req *SystemOfflineTaskMeta) (*common.Int64Entity, error) {
+func (*UnimplementedSystemOfflineTaskServiceServer) Update(ctx context.Context, req *SystemOfflineTaskDetail) (*common.Int64Entity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
 func (*UnimplementedSystemOfflineTaskServiceServer) UpdateProgress(ctx context.Context, req *UpdateProgressRequest) (*common.BoolEntity, error) {
@@ -876,6 +833,9 @@ func (*UnimplementedSystemOfflineTaskServiceServer) BatchGet(ctx context.Context
 func (*UnimplementedSystemOfflineTaskServiceServer) Get(ctx context.Context, req *SystemOfflineTask) (*SystemOfflineTask, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
+func (*UnimplementedSystemOfflineTaskServiceServer) GetDetail(ctx context.Context, req *SystemOfflineTask) (*SystemOfflineTaskDetail, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetDetail not implemented")
+}
 func (*UnimplementedSystemOfflineTaskServiceServer) UpdateFile(ctx context.Context, req *SystemOfflineTaskFile) (*common.BoolEntity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateFile not implemented")
 }
@@ -884,9 +844,6 @@ func (*UnimplementedSystemOfflineTaskServiceServer) UploadFile(ctx context.Conte
 }
 func (*UnimplementedSystemOfflineTaskServiceServer) ChangeStatus(ctx context.Context, req *StatusChangeRequest) (*common.BoolEntity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ChangeStatus not implemented")
-}
-func (*UnimplementedSystemOfflineTaskServiceServer) GetFiles(ctx context.Context, req *SystemOfflineTask) (*SystemOfflineTaskFiles, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetFiles not implemented")
 }
 func (*UnimplementedSystemOfflineTaskServiceServer) Complete(ctx context.Context, req *SystemOfflineTask) (*common.BoolEntity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Complete not implemented")
@@ -918,7 +875,7 @@ func _SystemOfflineTaskService_Create_Handler(srv interface{}, ctx context.Conte
 }
 
 func _SystemOfflineTaskService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SystemOfflineTaskMeta)
+	in := new(SystemOfflineTaskDetail)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -930,7 +887,7 @@ func _SystemOfflineTaskService_Update_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/services.SystemOfflineTaskService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemOfflineTaskServiceServer).Update(ctx, req.(*SystemOfflineTaskMeta))
+		return srv.(SystemOfflineTaskServiceServer).Update(ctx, req.(*SystemOfflineTaskDetail))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -989,6 +946,24 @@ func _SystemOfflineTaskService_Get_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SystemOfflineTaskService_GetDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SystemOfflineTask)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemOfflineTaskServiceServer).GetDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.SystemOfflineTaskService/GetDetail",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemOfflineTaskServiceServer).GetDetail(ctx, req.(*SystemOfflineTask))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _SystemOfflineTaskService_UpdateFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SystemOfflineTaskFile)
 	if err := dec(in); err != nil {
@@ -1039,24 +1014,6 @@ func _SystemOfflineTaskService_ChangeStatus_Handler(srv interface{}, ctx context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemOfflineTaskServiceServer).ChangeStatus(ctx, req.(*StatusChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SystemOfflineTaskService_GetFiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SystemOfflineTask)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SystemOfflineTaskServiceServer).GetFiles(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/services.SystemOfflineTaskService/GetFiles",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemOfflineTaskServiceServer).GetFiles(ctx, req.(*SystemOfflineTask))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1122,6 +1079,10 @@ var _SystemOfflineTaskService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _SystemOfflineTaskService_Get_Handler,
 		},
 		{
+			MethodName: "getDetail",
+			Handler:    _SystemOfflineTaskService_GetDetail_Handler,
+		},
+		{
 			MethodName: "updateFile",
 			Handler:    _SystemOfflineTaskService_UpdateFile_Handler,
 		},
@@ -1132,10 +1093,6 @@ var _SystemOfflineTaskService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "changeStatus",
 			Handler:    _SystemOfflineTaskService_ChangeStatus_Handler,
-		},
-		{
-			MethodName: "getFiles",
-			Handler:    _SystemOfflineTaskService_GetFiles_Handler,
 		},
 		{
 			MethodName: "complete",

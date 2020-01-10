@@ -9,14 +9,14 @@ import * as grpc from "grpc";
 
 interface ISystemOfflineTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
   create: grpc.MethodDefinition<offline_systemtask_pb.SystemOfflineTask, offline_systemtask_pb.SystemOfflineTask>;
-  update: grpc.MethodDefinition<offline_systemtask_pb.SystemOfflineTaskMeta, common_common_entity_pb.Int64Entity>;
+  update: grpc.MethodDefinition<offline_systemtask_pb.SystemOfflineTaskDetail, common_common_entity_pb.Int64Entity>;
   updateProgress: grpc.MethodDefinition<offline_systemtask_pb.UpdateProgressRequest, common_common_entity_pb.BoolEntity>;
   batchGet: grpc.MethodDefinition<offline_systemtask_pb.BatchGetRequest, offline_systemtask_pb.BatchGetResponse>;
   get: grpc.MethodDefinition<offline_systemtask_pb.SystemOfflineTask, offline_systemtask_pb.SystemOfflineTask>;
+  getDetail: grpc.MethodDefinition<offline_systemtask_pb.SystemOfflineTask, offline_systemtask_pb.SystemOfflineTaskDetail>;
   updateFile: grpc.MethodDefinition<offline_systemtask_pb.SystemOfflineTaskFile, common_common_entity_pb.BoolEntity>;
   uploadFile: grpc.MethodDefinition<offline_systemtask_pb.SystemOfflineTaskFile, common_common_entity_pb.BoolEntity>;
   changeStatus: grpc.MethodDefinition<offline_systemtask_pb.StatusChangeRequest, common_common_entity_pb.BoolEntity>;
-  getFiles: grpc.MethodDefinition<offline_systemtask_pb.SystemOfflineTask, offline_systemtask_pb.SystemOfflineTaskFiles>;
   complete: grpc.MethodDefinition<offline_systemtask_pb.SystemOfflineTask, common_common_entity_pb.BoolEntity>;
   error: grpc.MethodDefinition<offline_systemtask_pb.ErrorRequest, common_common_entity_pb.BoolEntity>;
 }
@@ -28,9 +28,9 @@ export class SystemOfflineTaskServiceClient extends grpc.Client {
   create(argument: offline_systemtask_pb.SystemOfflineTask, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTask>): grpc.ClientUnaryCall;
   create(argument: offline_systemtask_pb.SystemOfflineTask, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTask>): grpc.ClientUnaryCall;
   create(argument: offline_systemtask_pb.SystemOfflineTask, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTask>): grpc.ClientUnaryCall;
-  update(argument: offline_systemtask_pb.SystemOfflineTaskMeta, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
-  update(argument: offline_systemtask_pb.SystemOfflineTaskMeta, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
-  update(argument: offline_systemtask_pb.SystemOfflineTaskMeta, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
+  update(argument: offline_systemtask_pb.SystemOfflineTaskDetail, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
+  update(argument: offline_systemtask_pb.SystemOfflineTaskDetail, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
+  update(argument: offline_systemtask_pb.SystemOfflineTaskDetail, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
   updateProgress(argument: offline_systemtask_pb.UpdateProgressRequest, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
   updateProgress(argument: offline_systemtask_pb.UpdateProgressRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
   updateProgress(argument: offline_systemtask_pb.UpdateProgressRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
@@ -40,6 +40,9 @@ export class SystemOfflineTaskServiceClient extends grpc.Client {
   get(argument: offline_systemtask_pb.SystemOfflineTask, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTask>): grpc.ClientUnaryCall;
   get(argument: offline_systemtask_pb.SystemOfflineTask, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTask>): grpc.ClientUnaryCall;
   get(argument: offline_systemtask_pb.SystemOfflineTask, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTask>): grpc.ClientUnaryCall;
+  getDetail(argument: offline_systemtask_pb.SystemOfflineTask, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTaskDetail>): grpc.ClientUnaryCall;
+  getDetail(argument: offline_systemtask_pb.SystemOfflineTask, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTaskDetail>): grpc.ClientUnaryCall;
+  getDetail(argument: offline_systemtask_pb.SystemOfflineTask, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTaskDetail>): grpc.ClientUnaryCall;
   updateFile(argument: offline_systemtask_pb.SystemOfflineTaskFile, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
   updateFile(argument: offline_systemtask_pb.SystemOfflineTaskFile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
   updateFile(argument: offline_systemtask_pb.SystemOfflineTaskFile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
@@ -49,9 +52,6 @@ export class SystemOfflineTaskServiceClient extends grpc.Client {
   changeStatus(argument: offline_systemtask_pb.StatusChangeRequest, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
   changeStatus(argument: offline_systemtask_pb.StatusChangeRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
   changeStatus(argument: offline_systemtask_pb.StatusChangeRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
-  getFiles(argument: offline_systemtask_pb.SystemOfflineTask, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTaskFiles>): grpc.ClientUnaryCall;
-  getFiles(argument: offline_systemtask_pb.SystemOfflineTask, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTaskFiles>): grpc.ClientUnaryCall;
-  getFiles(argument: offline_systemtask_pb.SystemOfflineTask, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<offline_systemtask_pb.SystemOfflineTaskFiles>): grpc.ClientUnaryCall;
   complete(argument: offline_systemtask_pb.SystemOfflineTask, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
   complete(argument: offline_systemtask_pb.SystemOfflineTask, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
   complete(argument: offline_systemtask_pb.SystemOfflineTask, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;

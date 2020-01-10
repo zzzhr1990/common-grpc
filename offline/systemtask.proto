@@ -9,14 +9,15 @@ import "common/common_entity.proto";
 
 service SystemOfflineTaskService {
     rpc create (SystemOfflineTask) returns (SystemOfflineTask) {}
-    rpc update (SystemOfflineTaskMeta) returns (Int64Entity) {}
+    rpc update (SystemOfflineTaskDetail) returns (Int64Entity) {}
     rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
     rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
     rpc get (SystemOfflineTask) returns (SystemOfflineTask) {}
+    rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
     rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
     rpc uploadFile (SystemOfflineTaskFile) returns (BoolEntity) {}
     rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
-    rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
+    // rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
     rpc complete(SystemOfflineTask) returns (BoolEntity) {}
     // ErrorRequest
     rpc error(ErrorRequest) returns (BoolEntity) {}
@@ -27,7 +28,7 @@ message BatchGetRequest {
 }
 
 message BatchGetResponse {
-    repeated SystemOfflineTaskMeta data = 1;
+    repeated SystemOfflineTaskDetail data = 1;
 }
 
 
@@ -35,81 +36,56 @@ message BatchGetResponse {
 message SystemOfflineTask {
     string  identity = 1;
     int64 size = 2;
-    int64 createUser = 3;
-    int64 createTime = 4;
+    int64 create_user = 3;
+    int64 create_time = 4;
     string name = 5;
-    //tring originalaFilename = 6;
     int32 type = 6;
     int32  status = 7;
     int32  flag = 8;
-    int64 downloadSize = 9;
-    //
-    int32 errorCode = 10;
-    string errorMessage = 11;
-    
-    string createIP = 12;
+    int64 download_size = 9;
+    int32 error_code = 10;
+    string error_message = 11;
+    string create_ip = 12;
     string data = 13;
-    bool preview = 14;
-    //
-    // int32 previewType = 12;
-
+    string text_link = 14;
 }
 
 message UpdateProgressRequest {
     string  identity = 1;
     int64 size = 2;
     int64 downloadSize = 3;
-    //
-    // int32 previewType = 12;
-
 }
 
 message StatusChangeRequest {
     string  identity = 1;
-    // int64 size = 2;
-    // int64 downloadSize = 3;
     int32 status = 2;
-    bool removeListener = 3;
 }
 
 message ErrorRequest {
     string  identity = 1;
-    // int64 size = 2;
-    // int64 downloadSize = 3;
     int32 errorCode = 2;
     string errorMessage = 3;
 }
 
 message SystemOfflineTaskFile {
-    string  downloadIdentity = 1;
-    string pathIdentity = 2;
-    int64 createTime = 3;
-
+    string  download_identity = 1;
+    string path_identity = 2;
+    int64 create_time = 3;
     string name = 5;
     string path = 6;
     string hash = 7;
     int64 size = 8;
-    int64 downloadSize = 9;
+    int64 download_size = 9;
     int32  status = 10;
     int32  flag = 11;
-    int32  fileIndex = 12;
+    int32  file_index = 12;
     bool  finish = 13;
     bool  directory = 14;
 }
 
 
-message SystemOfflineTaskMeta {
-    SystemOfflineTask  task = 1;
-    repeated SystemOfflineTaskFile files = 2;
+message SystemOfflineTaskDetail {
+    string  identity = 1;
+    SystemOfflineTask  task = 2;
+    repeated SystemOfflineTaskFile files = 3;
 }
-
-message SystemOfflineTaskFiles {
-    repeated SystemOfflineTaskFile files = 2;
-}
-
-
-/*
-message CloudStoreList {
-    repeated CloudStore data = 1;
-}
-*/
