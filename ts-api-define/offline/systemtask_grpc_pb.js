@@ -216,7 +216,6 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     responseSerialize: serialize_services_BoolEntity,
     responseDeserialize: deserialize_services_BoolEntity,
   },
-  // rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
   complete: {
     path: '/services.SystemOfflineTaskService/complete',
     requestStream: false,

@@ -17,7 +17,6 @@ service SystemOfflineTaskService {
     rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
     rpc uploadFile (SystemOfflineTaskFile) returns (BoolEntity) {}
     rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
-    // rpc getFiles (SystemOfflineTask) returns (SystemOfflineTaskFiles) {}
     rpc complete(SystemOfflineTask) returns (BoolEntity) {}
     // ErrorRequest
     rpc error(ErrorRequest) returns (BoolEntity) {}
@@ -45,7 +44,7 @@ message SystemOfflineTask {
     int64 download_size = 9;
     int32 error_code = 10;
     string error_message = 11;
-    string create_ip = 12;
+    string create_addr = 12;
     string data = 13;
     string text_link = 14;
 }

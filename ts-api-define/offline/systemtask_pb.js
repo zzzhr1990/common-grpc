@@ -549,7 +549,7 @@ proto.services.SystemOfflineTask.toObject = function(includeInstance, msg) {
     downloadSize: jspb.Message.getFieldWithDefault(msg, 9, 0),
     errorCode: jspb.Message.getFieldWithDefault(msg, 10, 0),
     errorMessage: jspb.Message.getFieldWithDefault(msg, 11, ""),
-    createIp: jspb.Message.getFieldWithDefault(msg, 12, ""),
+    createAddr: jspb.Message.getFieldWithDefault(msg, 12, ""),
     data: jspb.Message.getFieldWithDefault(msg, 13, ""),
     textLink: jspb.Message.getFieldWithDefault(msg, 14, "")
   };
@@ -634,7 +634,7 @@ proto.services.SystemOfflineTask.deserializeBinaryFromReader = function(msg, rea
       break;
     case 12:
       var value = /** @type {string} */ (reader.readString());
-      msg.setCreateIp(value);
+      msg.setCreateAddr(value);
       break;
     case 13:
       var value = /** @type {string} */ (reader.readString());
@@ -750,7 +750,7 @@ proto.services.SystemOfflineTask.serializeBinaryToWriter = function(message, wri
       f
     );
   }
-  f = message.getCreateIp();
+  f = message.getCreateAddr();
   if (f.length > 0) {
     writer.writeString(
       12,
@@ -973,10 +973,10 @@ proto.services.SystemOfflineTask.prototype.setErrorMessage = function(value) {
 
 
 /**
- * optional string create_ip = 12;
+ * optional string create_addr = 12;
  * @return {string}
  */
-proto.services.SystemOfflineTask.prototype.getCreateIp = function() {
+proto.services.SystemOfflineTask.prototype.getCreateAddr = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
 };
 
@@ -985,7 +985,7 @@ proto.services.SystemOfflineTask.prototype.getCreateIp = function() {
  * @param {string} value
  * @return {!proto.services.SystemOfflineTask} returns this
  */
-proto.services.SystemOfflineTask.prototype.setCreateIp = function(value) {
+proto.services.SystemOfflineTask.prototype.setCreateAddr = function(value) {
   return jspb.Message.setProto3StringField(this, 12, value);
 };
 

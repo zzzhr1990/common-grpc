@@ -82,8 +82,8 @@ export class SystemOfflineTask extends jspb.Message {
   getErrorMessage(): string;
   setErrorMessage(value: string): void;
 
-  getCreateIp(): string;
-  setCreateIp(value: string): void;
+  getCreateAddr(): string;
+  setCreateAddr(value: string): void;
 
   getData(): string;
   setData(value: string): void;
@@ -114,7 +114,7 @@ export namespace SystemOfflineTask {
     downloadSize: number,
     errorCode: number,
     errorMessage: string,
-    createIp: string,
+    createAddr: string,
     data: string,
     textLink: string,
   }
