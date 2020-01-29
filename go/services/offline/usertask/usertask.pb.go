@@ -89,10 +89,10 @@ func (m *UserOfflineTaskRequest) GetData() string {
 }
 
 type AddUserOfflineTaskRequest struct {
-	UserIdentity         int64                     `protobuf:"varint,1,opt,name=userIdentity,proto3" json:"userIdentity,omitempty"`
+	UserIdentity         int64                     `protobuf:"varint,1,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
 	Tasks                []*UserOfflineTaskRequest `protobuf:"bytes,2,rep,name=tasks,proto3" json:"tasks,omitempty"`
 	Path                 string                    `protobuf:"bytes,3,opt,name=path,proto3" json:"path,omitempty"`
-	CreateIP             string                    `protobuf:"bytes,4,opt,name=createIP,proto3" json:"createIP,omitempty"`
+	CreateAddress        string                    `protobuf:"bytes,4,opt,name=create_address,json=createAddress,proto3" json:"create_address,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
 	XXX_unrecognized     []byte                    `json:"-"`
 	XXX_sizecache        int32                     `json:"-"`
@@ -144,30 +144,30 @@ func (m *AddUserOfflineTaskRequest) GetPath() string {
 	return ""
 }
 
-func (m *AddUserOfflineTaskRequest) GetCreateIP() string {
+func (m *AddUserOfflineTaskRequest) GetCreateAddress() string {
 	if m != nil {
-		return m.CreateIP
+		return m.CreateAddress
 	}
 	return ""
 }
 
 type UserOfflineTask struct {
 	Identity             string   `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
-	UserIdentity         int64    `protobuf:"varint,2,opt,name=userIdentity,proto3" json:"userIdentity,omitempty"`
-	CreateTime           int64    `protobuf:"varint,3,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	UserIdentity         int64    `protobuf:"varint,2,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
+	CreateTime           int64    `protobuf:"varint,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	Name                 string   `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	Type                 int32    `protobuf:"varint,5,opt,name=type,proto3" json:"type,omitempty"`
 	Status               int32    `protobuf:"varint,6,opt,name=status,proto3" json:"status,omitempty"`
 	Size                 int64    `protobuf:"varint,7,opt,name=size,proto3" json:"size,omitempty"`
-	DownloadSize         int64    `protobuf:"varint,8,opt,name=downloadSize,proto3" json:"downloadSize,omitempty"`
+	DownloadSize         int64    `protobuf:"varint,8,opt,name=download_size,json=downloadSize,proto3" json:"download_size,omitempty"`
 	Progress             int64    `protobuf:"varint,9,opt,name=progress,proto3" json:"progress,omitempty"`
-	ErrorCode            int32    `protobuf:"varint,10,opt,name=errorCode,proto3" json:"errorCode,omitempty"`
-	ErrorMessage         string   `protobuf:"bytes,11,opt,name=errorMessage,proto3" json:"errorMessage,omitempty"`
-	SavePath             string   `protobuf:"bytes,12,opt,name=savePath,proto3" json:"savePath,omitempty"`
-	AccessPath           string   `protobuf:"bytes,13,opt,name=accessPath,proto3" json:"accessPath,omitempty"`
-	FileMime             string   `protobuf:"bytes,14,opt,name=fileMime,proto3" json:"fileMime,omitempty"`
-	FileType             int32    `protobuf:"varint,15,opt,name=fileType,proto3" json:"fileType,omitempty"`
-	CreateIP             string   `protobuf:"bytes,16,opt,name=createIP,proto3" json:"createIP,omitempty"`
+	ErrorCode            int32    `protobuf:"varint,10,opt,name=error_code,json=errorCode,proto3" json:"error_code,omitempty"`
+	ErrorMessage         string   `protobuf:"bytes,11,opt,name=error_message,json=errorMessage,proto3" json:"error_message,omitempty"`
+	SavePath             string   `protobuf:"bytes,12,opt,name=save_path,json=savePath,proto3" json:"save_path,omitempty"`
+	AccessPath           string   `protobuf:"bytes,13,opt,name=access_path,json=accessPath,proto3" json:"access_path,omitempty"`
+	FileMime             string   `protobuf:"bytes,14,opt,name=file_mime,json=fileMime,proto3" json:"file_mime,omitempty"`
+	FileType             int32    `protobuf:"varint,15,opt,name=file_type,json=fileType,proto3" json:"file_type,omitempty"`
+	CreateAddress        string   `protobuf:"bytes,16,opt,name=create_address,json=createAddress,proto3" json:"create_address,omitempty"`
 	Data                 string   `protobuf:"bytes,17,opt,name=data,proto3" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -304,9 +304,9 @@ func (m *UserOfflineTask) GetFileType() int32 {
 	return 0
 }
 
-func (m *UserOfflineTask) GetCreateIP() string {
+func (m *UserOfflineTask) GetCreateAddress() string {
 	if m != nil {
-		return m.CreateIP
+		return m.CreateAddress
 	}
 	return ""
 }
@@ -428,74 +428,11 @@ func (m *UserOfflineTaskResponse) GetCount() int32 {
 	return 0
 }
 
-type UserTaskListener struct {
-	TaskIdentity         string   `protobuf:"bytes,1,opt,name=taskIdentity,proto3" json:"taskIdentity,omitempty"`
-	UserIdentity         int64    `protobuf:"varint,3,opt,name=userIdentity,proto3" json:"userIdentity,omitempty"`
-	CreateTime           int64    `protobuf:"varint,4,opt,name=createTime,proto3" json:"createTime,omitempty"`
-	Deadline             int64    `protobuf:"varint,5,opt,name=deadline,proto3" json:"deadline,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *UserTaskListener) Reset()         { *m = UserTaskListener{} }
-func (m *UserTaskListener) String() string { return proto.CompactTextString(m) }
-func (*UserTaskListener) ProtoMessage()    {}
-func (*UserTaskListener) Descriptor() ([]byte, []int) {
-	return fileDescriptor_62462ed77fca2601, []int{5}
-}
-
-func (m *UserTaskListener) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_UserTaskListener.Unmarshal(m, b)
-}
-func (m *UserTaskListener) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_UserTaskListener.Marshal(b, m, deterministic)
-}
-func (m *UserTaskListener) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UserTaskListener.Merge(m, src)
-}
-func (m *UserTaskListener) XXX_Size() int {
-	return xxx_messageInfo_UserTaskListener.Size(m)
-}
-func (m *UserTaskListener) XXX_DiscardUnknown() {
-	xxx_messageInfo_UserTaskListener.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_UserTaskListener proto.InternalMessageInfo
-
-func (m *UserTaskListener) GetTaskIdentity() string {
-	if m != nil {
-		return m.TaskIdentity
-	}
-	return ""
-}
-
-func (m *UserTaskListener) GetUserIdentity() int64 {
-	if m != nil {
-		return m.UserIdentity
-	}
-	return 0
-}
-
-func (m *UserTaskListener) GetCreateTime() int64 {
-	if m != nil {
-		return m.CreateTime
-	}
-	return 0
-}
-
-func (m *UserTaskListener) GetDeadline() int64 {
-	if m != nil {
-		return m.Deadline
-	}
-	return 0
-}
-
 type PageUserOfflineTaskRequest struct {
-	UserIdentity         int64    `protobuf:"varint,1,opt,name=userIdentity,proto3" json:"userIdentity,omitempty"`
-	OrderBy              int32    `protobuf:"varint,2,opt,name=orderBy,proto3" json:"orderBy,omitempty"`
+	UserIdentity         int64    `protobuf:"varint,1,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
+	OrderBy              int32    `protobuf:"varint,2,opt,name=order_by,json=orderBy,proto3" json:"order_by,omitempty"`
 	Page                 int32    `protobuf:"varint,3,opt,name=page,proto3" json:"page,omitempty"`
-	PageSize             int32    `protobuf:"varint,4,opt,name=pageSize,proto3" json:"pageSize,omitempty"`
+	PageSize             int32    `protobuf:"varint,4,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
 	Filter               int32    `protobuf:"varint,5,opt,name=filter,proto3" json:"filter,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -506,7 +443,7 @@ func (m *PageUserOfflineTaskRequest) Reset()         { *m = PageUserOfflineTaskR
 func (m *PageUserOfflineTaskRequest) String() string { return proto.CompactTextString(m) }
 func (*PageUserOfflineTaskRequest) ProtoMessage()    {}
 func (*PageUserOfflineTaskRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_62462ed77fca2601, []int{6}
+	return fileDescriptor_62462ed77fca2601, []int{5}
 }
 
 func (m *PageUserOfflineTaskRequest) XXX_Unmarshal(b []byte) error {
@@ -563,11 +500,11 @@ func (m *PageUserOfflineTaskRequest) GetFilter() int32 {
 }
 
 type ListUserOfflineTaskRequest struct {
-	UserIdentity         int64    `protobuf:"varint,1,opt,name=userIdentity,proto3" json:"userIdentity,omitempty"`
-	OrderBy              int32    `protobuf:"varint,2,opt,name=orderBy,proto3" json:"orderBy,omitempty"`
+	UserIdentity         int64    `protobuf:"varint,1,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
+	OrderBy              int32    `protobuf:"varint,2,opt,name=order_by,json=orderBy,proto3" json:"order_by,omitempty"`
 	Filter               int32    `protobuf:"varint,3,opt,name=filter,proto3" json:"filter,omitempty"`
 	Start                int32    `protobuf:"varint,4,opt,name=start,proto3" json:"start,omitempty"`
-	ListSize             int32    `protobuf:"varint,5,opt,name=listSize,proto3" json:"listSize,omitempty"`
+	ListSize             int32    `protobuf:"varint,5,opt,name=list_size,json=listSize,proto3" json:"list_size,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -577,7 +514,7 @@ func (m *ListUserOfflineTaskRequest) Reset()         { *m = ListUserOfflineTaskR
 func (m *ListUserOfflineTaskRequest) String() string { return proto.CompactTextString(m) }
 func (*ListUserOfflineTaskRequest) ProtoMessage()    {}
 func (*ListUserOfflineTaskRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_62462ed77fca2601, []int{7}
+	return fileDescriptor_62462ed77fca2601, []int{6}
 }
 
 func (m *ListUserOfflineTaskRequest) XXX_Unmarshal(b []byte) error {
@@ -635,10 +572,10 @@ func (m *ListUserOfflineTaskRequest) GetListSize() int32 {
 
 type UserOfflineTaskPage struct {
 	List                 []*UserOfflineTask `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
-	TotalCount           int64              `protobuf:"varint,2,opt,name=totalCount,proto3" json:"totalCount,omitempty"`
-	TotalPage            int32              `protobuf:"varint,3,opt,name=totalPage,proto3" json:"totalPage,omitempty"`
+	TotalCount           int64              `protobuf:"varint,2,opt,name=total_count,json=totalCount,proto3" json:"total_count,omitempty"`
+	TotalPage            int32              `protobuf:"varint,3,opt,name=total_page,json=totalPage,proto3" json:"total_page,omitempty"`
 	Page                 int32              `protobuf:"varint,4,opt,name=page,proto3" json:"page,omitempty"`
-	PageSize             int32              `protobuf:"varint,5,opt,name=pageSize,proto3" json:"pageSize,omitempty"`
+	PageSize             int32              `protobuf:"varint,5,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
@@ -648,7 +585,7 @@ func (m *UserOfflineTaskPage) Reset()         { *m = UserOfflineTaskPage{} }
 func (m *UserOfflineTaskPage) String() string { return proto.CompactTextString(m) }
 func (*UserOfflineTaskPage) ProtoMessage()    {}
 func (*UserOfflineTaskPage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_62462ed77fca2601, []int{8}
+	return fileDescriptor_62462ed77fca2601, []int{7}
 }
 
 func (m *UserOfflineTaskPage) XXX_Unmarshal(b []byte) error {
@@ -705,8 +642,8 @@ func (m *UserOfflineTaskPage) GetPageSize() int32 {
 }
 
 type DeleteTasksRequest struct {
-	UserIdentity         int64    `protobuf:"varint,1,opt,name=userIdentity,proto3" json:"userIdentity,omitempty"`
-	TasksIdentity        []string `protobuf:"bytes,2,rep,name=tasksIdentity,proto3" json:"tasksIdentity,omitempty"`
+	UserIdentity         int64    `protobuf:"varint,1,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
+	TasksIdentity        []string `protobuf:"bytes,2,rep,name=tasks_identity,json=tasksIdentity,proto3" json:"tasks_identity,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -716,7 +653,7 @@ func (m *DeleteTasksRequest) Reset()         { *m = DeleteTasksRequest{} }
 func (m *DeleteTasksRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteTasksRequest) ProtoMessage()    {}
 func (*DeleteTasksRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_62462ed77fca2601, []int{9}
+	return fileDescriptor_62462ed77fca2601, []int{8}
 }
 
 func (m *DeleteTasksRequest) XXX_Unmarshal(b []byte) error {
@@ -762,7 +699,7 @@ func (m *UserOfflineTaskList) Reset()         { *m = UserOfflineTaskList{} }
 func (m *UserOfflineTaskList) String() string { return proto.CompactTextString(m) }
 func (*UserOfflineTaskList) ProtoMessage()    {}
 func (*UserOfflineTaskList) Descriptor() ([]byte, []int) {
-	return fileDescriptor_62462ed77fca2601, []int{10}
+	return fileDescriptor_62462ed77fca2601, []int{9}
 }
 
 func (m *UserOfflineTaskList) XXX_Unmarshal(b []byte) error {
@@ -796,7 +733,6 @@ func init() {
 	proto.RegisterType((*UserOfflineTask)(nil), "services.UserOfflineTask")
 	proto.RegisterType((*UserOfflineTaskFile)(nil), "services.UserOfflineTaskFile")
 	proto.RegisterType((*UserOfflineTaskResponse)(nil), "services.UserOfflineTaskResponse")
-	proto.RegisterType((*UserTaskListener)(nil), "services.UserTaskListener")
 	proto.RegisterType((*PageUserOfflineTaskRequest)(nil), "services.PageUserOfflineTaskRequest")
 	proto.RegisterType((*ListUserOfflineTaskRequest)(nil), "services.ListUserOfflineTaskRequest")
 	proto.RegisterType((*UserOfflineTaskPage)(nil), "services.UserOfflineTaskPage")
@@ -807,59 +743,59 @@ func init() {
 func init() { proto.RegisterFile("offline/usertask.proto", fileDescriptor_62462ed77fca2601) }
 
 var fileDescriptor_62462ed77fca2601 = []byte{
-	// 825 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x56, 0xcd, 0x6e, 0x23, 0x45,
-	0x10, 0xce, 0x78, 0x6c, 0xc7, 0xee, 0xdd, 0x65, 0x97, 0x01, 0xcc, 0xec, 0x68, 0x41, 0x66, 0xd8,
-	0x83, 0x2f, 0x6b, 0xc3, 0x82, 0x56, 0xca, 0x01, 0x45, 0x24, 0x01, 0xc9, 0x12, 0x51, 0xac, 0x49,
-	0xb8, 0x70, 0x00, 0x75, 0x66, 0xca, 0x93, 0x51, 0xc6, 0xd3, 0xa6, 0xbb, 0x1d, 0x14, 0x3f, 0x08,
-	0x0f, 0x80, 0x90, 0xb8, 0xf3, 0x14, 0xbc, 0x0b, 0x2f, 0x81, 0xaa, 0x7a, 0x7e, 0xed, 0x38, 0x01,
-	0xa1, 0x3d, 0xb9, 0xbf, 0xea, 0xea, 0xea, 0xaa, 0xef, 0xab, 0x6a, 0x0f, 0x1b, 0x88, 0xf9, 0x3c,
-	0x4d, 0x32, 0x98, 0xac, 0x14, 0x48, 0xcd, 0xd5, 0xf5, 0x78, 0x29, 0x85, 0x16, 0x4e, 0x4f, 0x81,
-	0xbc, 0x49, 0x42, 0x50, 0x9e, 0x17, 0x8a, 0xc5, 0x42, 0x64, 0x13, 0xf3, 0xf3, 0x13, 0x64, 0x3a,
-	0xd1, 0xb7, 0xc6, 0xcb, 0x5f, 0xb2, 0xc1, 0xf7, 0x0a, 0xe4, 0x99, 0x89, 0x71, 0xc1, 0xd5, 0x75,
-	0x00, 0x3f, 0xaf, 0x40, 0x69, 0xc7, 0x63, 0xbd, 0x24, 0x32, 0xbe, 0xae, 0x35, 0xb4, 0x46, 0xfd,
-	0xa0, 0xc4, 0x8e, 0xc3, 0xda, 0xfa, 0x76, 0x09, 0x6e, 0x6b, 0x68, 0x8d, 0x3a, 0x01, 0xad, 0xd1,
-	0x96, 0xf1, 0x05, 0xb8, 0x36, 0xf9, 0xd2, 0x1a, 0x6d, 0x11, 0xd7, 0xdc, 0x6d, 0x1b, 0x1b, 0xae,
-	0xfd, 0x3f, 0x2c, 0xf6, 0xfc, 0xeb, 0x28, 0xda, 0x71, 0xab, 0xcf, 0x1e, 0x63, 0x1d, 0xd3, 0xfa,
-	0xcd, 0x76, 0xd0, 0xb0, 0x39, 0x6f, 0x58, 0x07, 0xeb, 0x54, 0x6e, 0x6b, 0x68, 0x8f, 0x1e, 0xbd,
-	0x1e, 0x8e, 0x8b, 0x4a, 0xc7, 0x77, 0x07, 0x0d, 0x8c, 0x3b, 0x66, 0xb3, 0xe4, 0xfa, 0xaa, 0xc8,
-	0x10, 0xd7, 0x58, 0x65, 0x28, 0x81, 0x6b, 0x98, 0xce, 0xf2, 0x2c, 0x4b, 0xec, 0xff, 0x6d, 0xb3,
-	0xa7, 0x1b, 0x11, 0xef, 0x65, 0x65, 0x33, 0xf7, 0xd6, 0x1d, 0xb9, 0x7f, 0xcc, 0x98, 0x89, 0x7f,
-	0x91, 0xe4, 0x5c, 0xd9, 0x41, 0xcd, 0x52, 0xb2, 0xd8, 0x6e, 0xb2, 0x48, 0x6c, 0x77, 0x6a, 0x6c,
-	0x0f, 0x58, 0x57, 0x69, 0xae, 0x57, 0xca, 0xed, 0x92, 0x35, 0x47, 0xe8, 0xab, 0x92, 0x35, 0xb8,
-	0xfb, 0x14, 0x99, 0xd6, 0x98, 0x57, 0x24, 0x7e, 0xc9, 0x52, 0xc1, 0xa3, 0x73, 0xdc, 0xeb, 0x99,
-	0xbc, 0xea, 0x36, 0xac, 0x6b, 0x29, 0x45, 0x2c, 0x41, 0x29, 0xb7, 0x4f, 0xfb, 0x25, 0x76, 0x5e,
-	0xb0, 0x3e, 0x48, 0x29, 0xe4, 0xb1, 0x88, 0xc0, 0x65, 0x74, 0x5d, 0x65, 0xc0, 0xe8, 0x04, 0x4e,
-	0x41, 0x29, 0x1e, 0x83, 0xfb, 0x88, 0x32, 0x6f, 0xd8, 0x30, 0xba, 0xe2, 0x37, 0x30, 0x43, 0xf6,
-	0x1f, 0x1b, 0xd6, 0x0a, 0x8c, 0x8c, 0xf0, 0x30, 0x04, 0xa5, 0x68, 0xf7, 0x09, 0xed, 0xd6, 0x2c,
-	0x78, 0x76, 0x9e, 0xa4, 0x70, 0x8a, 0x7c, 0xbd, 0x63, 0xce, 0x16, 0xb8, 0xd8, 0xbb, 0x40, 0x76,
-	0x9e, 0x52, 0x62, 0x25, 0x6e, 0x28, 0xfb, 0xac, 0xa9, 0x6c, 0xd9, 0x97, 0xef, 0xd6, 0xfa, 0x52,
-	0xb0, 0xf7, 0x36, 0xc4, 0xfe, 0x36, 0x49, 0xe1, 0xa1, 0x31, 0x20, 0xb1, 0x5a, 0x4d, 0xb1, 0x48,
-	0x00, 0xbb, 0x26, 0xc0, 0xfb, 0xac, 0x23, 0x64, 0x04, 0x92, 0x54, 0xed, 0x04, 0x06, 0xf8, 0x53,
-	0xf6, 0xe1, 0x56, 0xbf, 0xaa, 0xa5, 0xc8, 0x14, 0x38, 0x2e, 0xdb, 0x57, 0x2b, 0xa2, 0x80, 0xee,
-	0xec, 0x05, 0x05, 0xc4, 0x50, 0xa1, 0x58, 0x65, 0x3a, 0x1f, 0x3d, 0x03, 0xfc, 0x5f, 0x2d, 0xf6,
-	0x0c, 0x63, 0x61, 0x90, 0xef, 0x12, 0xa5, 0x21, 0x03, 0x89, 0xc2, 0x60, 0xdf, 0x4f, 0x9b, 0xd9,
-	0x37, 0x6c, 0x5b, 0x2d, 0x6b, 0x3f, 0xd8, 0xb2, 0xed, 0xad, 0x96, 0xf5, 0x58, 0x2f, 0x02, 0x1e,
-	0x61, 0x11, 0xd4, 0xa2, 0x76, 0x50, 0x62, 0xff, 0x37, 0x8b, 0x79, 0x33, 0x1e, 0xc3, 0xff, 0x98,
-	0x76, 0x97, 0xed, 0x13, 0x5f, 0x47, 0xb7, 0x79, 0xcd, 0x05, 0x34, 0xf3, 0x1c, 0x1b, 0xaa, 0x3b,
-	0x01, 0xad, 0xa9, 0x8f, 0x79, 0x0c, 0xd4, 0xe7, 0x86, 0xed, 0x12, 0xe3, 0xcc, 0xcc, 0x93, 0x54,
-	0x83, 0xcc, 0x27, 0x29, 0x47, 0xfe, 0xef, 0x16, 0xf3, 0x90, 0xb5, 0xb7, 0x92, 0x64, 0x75, 0xa9,
-	0x5d, 0xbf, 0x14, 0x85, 0x54, 0x9a, 0x4b, 0x5d, 0xf4, 0x04, 0x01, 0x4c, 0x3f, 0x4d, 0x94, 0xa6,
-	0xf4, 0x4d, 0x92, 0x25, 0xf6, 0xff, 0xb4, 0xb6, 0x3a, 0x14, 0xa9, 0x75, 0x5e, 0xb1, 0x36, 0xfa,
-	0xb8, 0x16, 0xbd, 0x86, 0xcf, 0x77, 0xbf, 0x86, 0xe4, 0x86, 0x72, 0x6a, 0xa1, 0x79, 0x7a, 0x5c,
-	0xb6, 0x91, 0x1d, 0xd4, 0x2c, 0x38, 0xed, 0x84, 0x66, 0x15, 0xb5, 0x95, 0xa1, 0xe4, 0xbc, 0xbd,
-	0x83, 0xf3, 0x4e, 0x93, 0x73, 0xff, 0x47, 0xe6, 0x9c, 0x40, 0x0a, 0x9a, 0x32, 0x50, 0xff, 0x85,
-	0xd2, 0x97, 0xec, 0x09, 0x3d, 0xdb, 0xb5, 0xe7, 0xd4, 0x1e, 0xf5, 0x83, 0xa6, 0xd1, 0x3f, 0xd9,
-	0xe2, 0x04, 0x95, 0x2c, 0x39, 0x69, 0xfd, 0x2b, 0x4e, 0x5e, 0xff, 0xd5, 0x62, 0x83, 0xdc, 0x5a,
-	0x8c, 0xd1, 0xb9, 0x39, 0xe1, 0x9c, 0x31, 0x9b, 0x47, 0x91, 0xf3, 0x69, 0x15, 0x62, 0xe7, 0x9f,
-	0x97, 0xf7, 0xc9, 0x3d, 0xff, 0x44, 0x66, 0xb2, 0xfd, 0x3d, 0xe7, 0xd4, 0x30, 0xe8, 0xbc, 0xac,
-	0x9c, 0x77, 0x4f, 0x88, 0xf7, 0xd1, 0xce, 0x90, 0x78, 0xc8, 0x84, 0x23, 0x59, 0x6b, 0xe1, 0x76,
-	0xf7, 0xf2, 0x3d, 0xe1, 0xf0, 0x90, 0xbf, 0xe7, 0x1c, 0xb2, 0x6e, 0x44, 0x7a, 0x39, 0x2f, 0x2a,
-	0xd7, 0x6d, 0x05, 0xbd, 0x0f, 0xaa, 0xdd, 0x69, 0xa6, 0xdf, 0x7c, 0xf9, 0x8d, 0x91, 0x63, 0xef,
-	0xe8, 0xf0, 0x87, 0xaf, 0xe2, 0x44, 0x5f, 0xad, 0x2e, 0xc7, 0xa1, 0x58, 0x4c, 0xd6, 0xeb, 0xf5,
-	0x95, 0xfc, 0xfc, 0xe0, 0xe0, 0xb3, 0xfc, 0xe3, 0xe3, 0x55, 0x2c, 0x97, 0xe1, 0x24, 0x16, 0x93,
-	0xe2, 0xf4, 0x64, 0xf3, 0xeb, 0xe5, 0xb2, 0x4b, 0x1f, 0x26, 0x5f, 0xfc, 0x13, 0x00, 0x00, 0xff,
-	0xff, 0x4c, 0xe6, 0x89, 0xb7, 0xd8, 0x08, 0x00, 0x00,
+	// 827 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x56, 0x5f, 0x6f, 0xe3, 0x44,
+	0x10, 0xaf, 0xe3, 0x24, 0x75, 0x26, 0x6d, 0x0f, 0x16, 0x08, 0xae, 0x8f, 0xd3, 0x05, 0x1f, 0x27,
+	0xf5, 0xe5, 0x12, 0x38, 0xd0, 0x49, 0xf7, 0x80, 0x4e, 0xfd, 0x03, 0x52, 0x25, 0xaa, 0x56, 0x6e,
+	0x79, 0xe1, 0xc5, 0x6c, 0xed, 0x4d, 0x6a, 0xd5, 0xf1, 0x86, 0xdd, 0x4d, 0x51, 0xf2, 0x7d, 0x10,
+	0x1f, 0x00, 0xf1, 0x1d, 0xf8, 0x56, 0xa0, 0x99, 0xb5, 0xf3, 0xa7, 0x69, 0x0a, 0x08, 0xf1, 0xe4,
+	0x9d, 0xdf, 0xcc, 0xce, 0x9f, 0xdf, 0xcc, 0xd8, 0x86, 0x8e, 0x1c, 0x0c, 0xf2, 0xac, 0x10, 0xfd,
+	0x89, 0x16, 0xca, 0x70, 0x7d, 0xdb, 0x1b, 0x2b, 0x69, 0x24, 0xf3, 0xb4, 0x50, 0x77, 0x59, 0x22,
+	0x74, 0x10, 0x24, 0x72, 0x34, 0x92, 0x45, 0xdf, 0x3e, 0x62, 0x51, 0x98, 0xcc, 0x4c, 0xad, 0x55,
+	0x38, 0x86, 0xce, 0xf7, 0x5a, 0xa8, 0x73, 0xeb, 0xe3, 0x8a, 0xeb, 0xdb, 0x48, 0xfc, 0x34, 0x11,
+	0xda, 0xb0, 0x00, 0xbc, 0x2c, 0xb5, 0xb6, 0xbe, 0xd3, 0x75, 0x0e, 0x5a, 0xd1, 0x5c, 0x66, 0x0c,
+	0xea, 0x66, 0x3a, 0x16, 0x7e, 0xad, 0xeb, 0x1c, 0x34, 0x22, 0x3a, 0x23, 0x56, 0xf0, 0x91, 0xf0,
+	0x5d, 0xb2, 0xa5, 0x33, 0x62, 0x29, 0x37, 0xdc, 0xaf, 0x5b, 0x0c, 0xcf, 0xe1, 0x6f, 0x0e, 0xec,
+	0x1f, 0xa6, 0xe9, 0x86, 0xa8, 0x2f, 0x60, 0x17, 0xeb, 0x88, 0x57, 0x42, 0xbb, 0xd1, 0x0e, 0x82,
+	0xa7, 0x55, 0xf8, 0x37, 0xd0, 0xc0, 0x42, 0xb5, 0x5f, 0xeb, 0xba, 0x07, 0xed, 0xd7, 0xdd, 0x5e,
+	0x55, 0x6a, 0xef, 0x61, 0xaf, 0x91, 0x35, 0xc7, 0x74, 0xc6, 0xdc, 0xdc, 0x54, 0x29, 0xe2, 0x99,
+	0xbd, 0x84, 0xbd, 0x44, 0x09, 0x6e, 0x44, 0xcc, 0xd3, 0x54, 0x09, 0xad, 0xcb, 0x64, 0x77, 0x2d,
+	0x7a, 0x68, 0xc1, 0xf0, 0x4f, 0x17, 0x9e, 0xdc, 0x73, 0xfe, 0x28, 0x43, 0x6b, 0x75, 0xd4, 0x1e,
+	0xa8, 0xe3, 0x39, 0xb4, 0xcb, 0xd8, 0x26, 0x2b, 0x99, 0x73, 0x23, 0xb0, 0xd0, 0x55, 0x36, 0x5a,
+	0x70, 0x5a, 0x5f, 0xe5, 0x94, 0xb8, 0x6f, 0x2c, 0x71, 0xdf, 0x81, 0xa6, 0x36, 0xdc, 0x4c, 0xb4,
+	0xdf, 0x24, 0xb4, 0x94, 0xd0, 0x56, 0x67, 0x33, 0xe1, 0x6f, 0x93, 0x67, 0x3a, 0x63, 0x66, 0xa9,
+	0xfc, 0xb9, 0xc8, 0x25, 0x4f, 0x63, 0x52, 0x7a, 0x36, 0xb3, 0x0a, 0xbc, 0x44, 0xa3, 0x00, 0xbc,
+	0xb1, 0x92, 0x43, 0xe2, 0xa3, 0x45, 0xfa, 0xb9, 0xcc, 0x9e, 0x01, 0x08, 0xa5, 0xa4, 0x8a, 0x13,
+	0x99, 0x0a, 0x1f, 0x28, 0x60, 0x8b, 0x90, 0x63, 0x99, 0x92, 0x7f, 0xab, 0x1e, 0x09, 0xad, 0xf9,
+	0x50, 0xf8, 0x6d, 0x4a, 0x7e, 0x87, 0xc0, 0x33, 0x8b, 0xb1, 0xa7, 0xd0, 0xd2, 0xfc, 0x4e, 0xc4,
+	0xd4, 0x8e, 0x1d, 0xcb, 0x1d, 0x02, 0x17, 0xd8, 0x92, 0xe7, 0xd0, 0xe6, 0x49, 0x22, 0xb4, 0xb6,
+	0xea, 0x5d, 0x52, 0x83, 0x85, 0xc8, 0xe0, 0x29, 0xb4, 0x06, 0x59, 0x2e, 0xe2, 0x11, 0xb2, 0xb6,
+	0x67, 0x6f, 0x23, 0x70, 0x86, 0x9c, 0x55, 0x4a, 0x22, 0xe9, 0x09, 0x65, 0x47, 0xca, 0x2b, 0x24,
+	0x6a, 0xbd, 0xdb, 0xef, 0x3d, 0xd0, 0xed, 0xf9, 0xdc, 0xbe, 0xbf, 0x34, 0xb7, 0x12, 0x3e, 0xb8,
+	0x37, 0x00, 0xdf, 0x66, 0xb9, 0xf8, 0xbb, 0x35, 0xa1, 0xf6, 0xd5, 0x56, 0xdb, 0x47, 0xac, 0xbb,
+	0x4b, 0x2d, 0xf9, 0x10, 0x1a, 0x52, 0xa5, 0x42, 0x51, 0x9f, 0x1b, 0x91, 0x15, 0xc2, 0x53, 0xf8,
+	0x78, 0x6d, 0x9c, 0xf5, 0x58, 0x16, 0x5a, 0x30, 0x1f, 0xb6, 0xf5, 0x84, 0xf8, 0xa0, 0x98, 0x5e,
+	0x54, 0x89, 0xe8, 0x2a, 0x91, 0x93, 0xc2, 0x94, 0xab, 0x69, 0x85, 0xf0, 0x17, 0x07, 0x82, 0x0b,
+	0x3e, 0x14, 0xff, 0x65, 0xe9, 0xf6, 0xc1, 0xa3, 0xbc, 0xe2, 0xeb, 0x69, 0xe9, 0x7c, 0x9b, 0xe4,
+	0xa3, 0xa9, 0xdd, 0xab, 0xa1, 0xad, 0xa9, 0x11, 0xd1, 0x19, 0xdb, 0x80, 0x4f, 0x3b, 0x62, 0xb6,
+	0x2e, 0x0f, 0x01, 0x1a, 0xaf, 0x0e, 0x34, 0x07, 0x59, 0x6e, 0x84, 0x2a, 0xa7, 0xb8, 0x94, 0xc2,
+	0x5f, 0x1d, 0x08, 0xbe, 0xcb, 0xb4, 0xf9, 0x9f, 0xf2, 0x5c, 0x84, 0x75, 0x97, 0xc3, 0x22, 0x69,
+	0xda, 0x70, 0x65, 0x2a, 0xfe, 0x49, 0xc0, 0x0a, 0xf2, 0x4c, 0x1b, 0x5b, 0x81, 0xcd, 0xd3, 0x43,
+	0x00, 0x2b, 0x08, 0x7f, 0x77, 0xd6, 0xc6, 0x01, 0x09, 0x66, 0xaf, 0xa0, 0x8e, 0x36, 0xbe, 0x43,
+	0x6f, 0xa6, 0xfd, 0xcd, 0x6f, 0x26, 0x32, 0xc3, 0x51, 0x37, 0xd2, 0xf0, 0x3c, 0x5e, 0x34, 0xcd,
+	0x8d, 0x80, 0xa0, 0x63, 0x44, 0x70, 0xd9, 0xac, 0xc1, 0x12, 0xc1, 0x2d, 0x42, 0x28, 0x5c, 0xc5,
+	0x7c, 0x7d, 0x13, 0xf3, 0x8d, 0x55, 0xe6, 0xc3, 0x1f, 0x81, 0x9d, 0x88, 0x5c, 0x18, 0x4a, 0x42,
+	0xff, 0x2b, 0x62, 0x5f, 0xc2, 0x1e, 0xbd, 0x46, 0x97, 0xdf, 0x69, 0x2e, 0xee, 0x0e, 0xa1, 0x95,
+	0x59, 0x78, 0xb2, 0x46, 0x0c, 0x76, 0x74, 0x4e, 0x4c, 0xed, 0x1f, 0x11, 0xf3, 0xfa, 0x8f, 0xda,
+	0xda, 0x87, 0xe9, 0xd2, 0xde, 0x60, 0xe7, 0xe0, 0xf2, 0x34, 0x65, 0x2f, 0x16, 0x2e, 0x36, 0x7e,
+	0x4e, 0x82, 0x4f, 0x1f, 0xf9, 0x34, 0xd8, 0x5d, 0x0a, 0xb7, 0xd8, 0x99, 0x25, 0x91, 0x7d, 0xb6,
+	0x30, 0xde, 0xbc, 0x2c, 0xc1, 0xb3, 0x8d, 0x2e, 0xf1, 0x92, 0x75, 0x47, 0xbd, 0x5d, 0x72, 0xb7,
+	0x79, 0xa6, 0x1f, 0x71, 0x87, 0x97, 0xc2, 0x2d, 0xf6, 0x0e, 0x9a, 0x29, 0x75, 0x8c, 0x7d, 0xb2,
+	0x30, 0x5d, 0xef, 0x61, 0xf0, 0xd1, 0x42, 0x7b, 0x5a, 0x98, 0x37, 0x5f, 0x7d, 0x63, 0xdb, 0xb1,
+	0x75, 0xf4, 0xee, 0x87, 0xaf, 0x87, 0x99, 0xb9, 0x99, 0x5c, 0xf7, 0x12, 0x39, 0xea, 0xcf, 0x66,
+	0xb3, 0x1b, 0xf5, 0xc5, 0xdb, 0xb7, 0x9f, 0x97, 0xbf, 0x03, 0xaf, 0x86, 0x6a, 0x9c, 0xf4, 0x87,
+	0xb2, 0x5f, 0xdd, 0xee, 0xdf, 0xff, 0x9f, 0xb8, 0x6e, 0xd2, 0xaf, 0xc2, 0x97, 0x7f, 0x05, 0x00,
+	0x00, 0xff, 0xff, 0xe2, 0x27, 0x53, 0x40, 0x6a, 0x08, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -870,10 +806,10 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// OfflineUserTaskServiceClient is the client API for OfflineUserTaskService service.
+// UserOfflineTaskServiceClient is the client API for UserOfflineTaskService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type OfflineUserTaskServiceClient interface {
+type UserOfflineTaskServiceClient interface {
 	// rpc create (UserOfflineTask) returns (UserOfflineTask) {}
 	Add(ctx context.Context, in *AddUserOfflineTaskRequest, opts ...grpc.CallOption) (*UserOfflineTaskResponse, error)
 	Page(ctx context.Context, in *PageUserOfflineTaskRequest, opts ...grpc.CallOption) (*UserOfflineTaskPage, error)
@@ -881,52 +817,52 @@ type OfflineUserTaskServiceClient interface {
 	Delete(ctx context.Context, in *DeleteTasksRequest, opts ...grpc.CallOption) (*common.Int64Entity, error)
 }
 
-type offlineUserTaskServiceClient struct {
+type userOfflineTaskServiceClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewOfflineUserTaskServiceClient(cc *grpc.ClientConn) OfflineUserTaskServiceClient {
-	return &offlineUserTaskServiceClient{cc}
+func NewUserOfflineTaskServiceClient(cc *grpc.ClientConn) UserOfflineTaskServiceClient {
+	return &userOfflineTaskServiceClient{cc}
 }
 
-func (c *offlineUserTaskServiceClient) Add(ctx context.Context, in *AddUserOfflineTaskRequest, opts ...grpc.CallOption) (*UserOfflineTaskResponse, error) {
+func (c *userOfflineTaskServiceClient) Add(ctx context.Context, in *AddUserOfflineTaskRequest, opts ...grpc.CallOption) (*UserOfflineTaskResponse, error) {
 	out := new(UserOfflineTaskResponse)
-	err := c.cc.Invoke(ctx, "/services.OfflineUserTaskService/add", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/services.UserOfflineTaskService/add", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *offlineUserTaskServiceClient) Page(ctx context.Context, in *PageUserOfflineTaskRequest, opts ...grpc.CallOption) (*UserOfflineTaskPage, error) {
+func (c *userOfflineTaskServiceClient) Page(ctx context.Context, in *PageUserOfflineTaskRequest, opts ...grpc.CallOption) (*UserOfflineTaskPage, error) {
 	out := new(UserOfflineTaskPage)
-	err := c.cc.Invoke(ctx, "/services.OfflineUserTaskService/page", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/services.UserOfflineTaskService/page", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *offlineUserTaskServiceClient) List(ctx context.Context, in *ListUserOfflineTaskRequest, opts ...grpc.CallOption) (*UserOfflineTaskList, error) {
+func (c *userOfflineTaskServiceClient) List(ctx context.Context, in *ListUserOfflineTaskRequest, opts ...grpc.CallOption) (*UserOfflineTaskList, error) {
 	out := new(UserOfflineTaskList)
-	err := c.cc.Invoke(ctx, "/services.OfflineUserTaskService/list", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/services.UserOfflineTaskService/list", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *offlineUserTaskServiceClient) Delete(ctx context.Context, in *DeleteTasksRequest, opts ...grpc.CallOption) (*common.Int64Entity, error) {
+func (c *userOfflineTaskServiceClient) Delete(ctx context.Context, in *DeleteTasksRequest, opts ...grpc.CallOption) (*common.Int64Entity, error) {
 	out := new(common.Int64Entity)
-	err := c.cc.Invoke(ctx, "/services.OfflineUserTaskService/delete", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/services.UserOfflineTaskService/delete", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// OfflineUserTaskServiceServer is the server API for OfflineUserTaskService service.
-type OfflineUserTaskServiceServer interface {
+// UserOfflineTaskServiceServer is the server API for UserOfflineTaskService service.
+type UserOfflineTaskServiceServer interface {
 	// rpc create (UserOfflineTask) returns (UserOfflineTask) {}
 	Add(context.Context, *AddUserOfflineTaskRequest) (*UserOfflineTaskResponse, error)
 	Page(context.Context, *PageUserOfflineTaskRequest) (*UserOfflineTaskPage, error)
@@ -934,118 +870,118 @@ type OfflineUserTaskServiceServer interface {
 	Delete(context.Context, *DeleteTasksRequest) (*common.Int64Entity, error)
 }
 
-// UnimplementedOfflineUserTaskServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedOfflineUserTaskServiceServer struct {
+// UnimplementedUserOfflineTaskServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedUserOfflineTaskServiceServer struct {
 }
 
-func (*UnimplementedOfflineUserTaskServiceServer) Add(ctx context.Context, req *AddUserOfflineTaskRequest) (*UserOfflineTaskResponse, error) {
+func (*UnimplementedUserOfflineTaskServiceServer) Add(ctx context.Context, req *AddUserOfflineTaskRequest) (*UserOfflineTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
 }
-func (*UnimplementedOfflineUserTaskServiceServer) Page(ctx context.Context, req *PageUserOfflineTaskRequest) (*UserOfflineTaskPage, error) {
+func (*UnimplementedUserOfflineTaskServiceServer) Page(ctx context.Context, req *PageUserOfflineTaskRequest) (*UserOfflineTaskPage, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Page not implemented")
 }
-func (*UnimplementedOfflineUserTaskServiceServer) List(ctx context.Context, req *ListUserOfflineTaskRequest) (*UserOfflineTaskList, error) {
+func (*UnimplementedUserOfflineTaskServiceServer) List(ctx context.Context, req *ListUserOfflineTaskRequest) (*UserOfflineTaskList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
-func (*UnimplementedOfflineUserTaskServiceServer) Delete(ctx context.Context, req *DeleteTasksRequest) (*common.Int64Entity, error) {
+func (*UnimplementedUserOfflineTaskServiceServer) Delete(ctx context.Context, req *DeleteTasksRequest) (*common.Int64Entity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 
-func RegisterOfflineUserTaskServiceServer(s *grpc.Server, srv OfflineUserTaskServiceServer) {
-	s.RegisterService(&_OfflineUserTaskService_serviceDesc, srv)
+func RegisterUserOfflineTaskServiceServer(s *grpc.Server, srv UserOfflineTaskServiceServer) {
+	s.RegisterService(&_UserOfflineTaskService_serviceDesc, srv)
 }
 
-func _OfflineUserTaskService_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserOfflineTaskService_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddUserOfflineTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OfflineUserTaskServiceServer).Add(ctx, in)
+		return srv.(UserOfflineTaskServiceServer).Add(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.OfflineUserTaskService/Add",
+		FullMethod: "/services.UserOfflineTaskService/Add",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OfflineUserTaskServiceServer).Add(ctx, req.(*AddUserOfflineTaskRequest))
+		return srv.(UserOfflineTaskServiceServer).Add(ctx, req.(*AddUserOfflineTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OfflineUserTaskService_Page_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserOfflineTaskService_Page_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(PageUserOfflineTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OfflineUserTaskServiceServer).Page(ctx, in)
+		return srv.(UserOfflineTaskServiceServer).Page(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.OfflineUserTaskService/Page",
+		FullMethod: "/services.UserOfflineTaskService/Page",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OfflineUserTaskServiceServer).Page(ctx, req.(*PageUserOfflineTaskRequest))
+		return srv.(UserOfflineTaskServiceServer).Page(ctx, req.(*PageUserOfflineTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OfflineUserTaskService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserOfflineTaskService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListUserOfflineTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OfflineUserTaskServiceServer).List(ctx, in)
+		return srv.(UserOfflineTaskServiceServer).List(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.OfflineUserTaskService/List",
+		FullMethod: "/services.UserOfflineTaskService/List",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OfflineUserTaskServiceServer).List(ctx, req.(*ListUserOfflineTaskRequest))
+		return srv.(UserOfflineTaskServiceServer).List(ctx, req.(*ListUserOfflineTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OfflineUserTaskService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserOfflineTaskService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteTasksRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OfflineUserTaskServiceServer).Delete(ctx, in)
+		return srv.(UserOfflineTaskServiceServer).Delete(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.OfflineUserTaskService/Delete",
+		FullMethod: "/services.UserOfflineTaskService/Delete",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OfflineUserTaskServiceServer).Delete(ctx, req.(*DeleteTasksRequest))
+		return srv.(UserOfflineTaskServiceServer).Delete(ctx, req.(*DeleteTasksRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _OfflineUserTaskService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "services.OfflineUserTaskService",
-	HandlerType: (*OfflineUserTaskServiceServer)(nil),
+var _UserOfflineTaskService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "services.UserOfflineTaskService",
+	HandlerType: (*UserOfflineTaskServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "add",
-			Handler:    _OfflineUserTaskService_Add_Handler,
+			Handler:    _UserOfflineTaskService_Add_Handler,
 		},
 		{
 			MethodName: "page",
-			Handler:    _OfflineUserTaskService_Page_Handler,
+			Handler:    _UserOfflineTaskService_Page_Handler,
 		},
 		{
 			MethodName: "list",
-			Handler:    _OfflineUserTaskService_List_Handler,
+			Handler:    _UserOfflineTaskService_List_Handler,
 		},
 		{
 			MethodName: "delete",
-			Handler:    _OfflineUserTaskService_Delete_Handler,
+			Handler:    _UserOfflineTaskService_Delete_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

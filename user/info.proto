@@ -47,6 +47,9 @@ service UserService {
     rpc BindThirdPartyLogin (ThirdPartyLoginInfo) returns (User) {}
     rpc RemoveThirdPartyLogin (ThirdPartyLoginInfo) returns (User) {}
     rpc ThirdPartyLogin (ThirdPartyLoginInfo) returns (User) {}
+    rpc CreateOauthInfo(OauthInfo)returns (OauthInfo) {}
+    rpc RefreshOauthToken(OauthInfo)returns (OauthInfo) {}
+    rpc CheckAccessToken(OauthInfo)returns (OauthInfo) {}
 }
 
 
@@ -69,6 +72,14 @@ message User {
     int32 vip = 16;
     int64  vip_expire_time = 17; // [json_name="payaya"] seems not working for normal json
     int64  last_activate_time = 18; // when last login, activate, ... etc
+}
+
+message OauthInfo {
+    string access_token = 1;
+    string refresh_token = 2;
+    int64 expires_in = 3;
+    int64 user_id = 4;
+    string scope = 5; 
 }
 
 message SmsRequest {

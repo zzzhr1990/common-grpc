@@ -23,6 +23,9 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   bindThirdPartyLogin: grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
   removeThirdPartyLogin: grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
   thirdPartyLogin: grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
+  createOauthInfo: grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
+  refreshOauthToken: grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
+  checkAccessToken: grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
 }
 
 export const UserServiceService: IUserServiceService;
@@ -77,4 +80,13 @@ export class UserServiceClient extends grpc.Client {
   thirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   thirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   thirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
+  createOauthInfo(argument: user_info_pb.OauthInfo, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
+  createOauthInfo(argument: user_info_pb.OauthInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
+  createOauthInfo(argument: user_info_pb.OauthInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
+  refreshOauthToken(argument: user_info_pb.OauthInfo, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
+  refreshOauthToken(argument: user_info_pb.OauthInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
+  refreshOauthToken(argument: user_info_pb.OauthInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
+  checkAccessToken(argument: user_info_pb.OauthInfo, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
+  checkAccessToken(argument: user_info_pb.OauthInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
+  checkAccessToken(argument: user_info_pb.OauthInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
 }

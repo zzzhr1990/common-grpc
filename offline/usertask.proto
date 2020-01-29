@@ -7,7 +7,7 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/userta
 import "common/common_entity.proto";
 
 
-service OfflineUserTaskService {
+service UserOfflineTaskService {
     // rpc create (UserOfflineTask) returns (UserOfflineTask) {}
     rpc add (AddUserOfflineTaskRequest) returns (UserOfflineTaskResponse) {}
     rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
@@ -32,29 +32,29 @@ message UserOfflineTaskRequest {
 }
 
 message AddUserOfflineTaskRequest {
-    int64 userIdentity = 1;
+    int64 user_identity = 1;
     repeated UserOfflineTaskRequest tasks = 2;
     string path = 3;
-    string createIP = 4;
+    string create_address = 4;
 }
 
 message UserOfflineTask {
     string identity = 1;
-    int64 userIdentity = 2;
-    int64 createTime = 3;
+    int64 user_identity = 2;
+    int64 create_time = 3;
     string name = 4;
     int32 type = 5;
     int32  status = 6;
     int64 size = 7;
-    int64 downloadSize = 8;
+    int64 download_size = 8;
     int64 progress = 9;
-    int32 errorCode = 10;
-	string errorMessage = 11;
-	string savePath = 12;
-	string accessPath = 13;
-	string fileMime = 14;
-	int32 fileType = 15;
-	string createIP = 16;
+    int32 error_code = 10;
+	string error_message = 11;
+	string save_path = 12;
+	string access_path = 13;
+	string file_mime = 14;
+	int32 file_type = 15;
+	string create_address = 16;
     string data = 17;
 }
 
@@ -71,42 +71,34 @@ message UserOfflineTaskResponse {
     // repeated UserOfflineTaskFile files = 3;
 }
 
-message UserTaskListener {
-    string taskIdentity = 1;
-    int64 userIdentity = 3;
-    int64 createTime = 4;
-    int64 deadline = 5;
-    //int32 status = 6;
-    //string path = 7;
-}
 
 message PageUserOfflineTaskRequest {
-    int64 userIdentity = 1;
-    int32 orderBy = 2;
+    int64 user_identity = 1;
+    int32 order_by = 2;
     int32 page = 3;
-    int32 pageSize = 4;
+    int32 page_size = 4;
     int32 filter = 5;
 }
 
 message ListUserOfflineTaskRequest {
-    int64 userIdentity = 1;
-    int32 orderBy = 2;
+    int64 user_identity = 1;
+    int32 order_by = 2;
     int32 filter = 3;
     int32 start = 4;
-    int32 listSize = 5;
+    int32 list_size = 5;
 }
 
 message UserOfflineTaskPage {
     repeated UserOfflineTask list = 1;
-    int64 totalCount = 2;
-    int32 totalPage = 3;
+    int64 total_count = 2;
+    int32 total_page = 3;
     int32 page = 4;
-    int32 pageSize = 5;
+    int32 page_size = 5;
 }
 
 message DeleteTasksRequest {
-    int64 userIdentity = 1;
-    repeated string tasksIdentity = 2;
+    int64 user_identity = 1;
+    repeated string tasks_identity = 2;
 }
 
 message UserOfflineTaskList {

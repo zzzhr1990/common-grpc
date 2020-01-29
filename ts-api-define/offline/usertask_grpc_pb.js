@@ -94,10 +94,10 @@ function deserialize_services_UserOfflineTaskResponse(buffer_arg) {
 }
 
 
-var OfflineUserTaskServiceService = exports.OfflineUserTaskServiceService = {
+var UserOfflineTaskServiceService = exports.UserOfflineTaskServiceService = {
   // rpc create (UserOfflineTask) returns (UserOfflineTask) {}
   add: {
-    path: '/services.OfflineUserTaskService/add',
+    path: '/services.UserOfflineTaskService/add',
     requestStream: false,
     responseStream: false,
     requestType: offline_usertask_pb.AddUserOfflineTaskRequest,
@@ -108,7 +108,7 @@ var OfflineUserTaskServiceService = exports.OfflineUserTaskServiceService = {
     responseDeserialize: deserialize_services_UserOfflineTaskResponse,
   },
   page: {
-    path: '/services.OfflineUserTaskService/page',
+    path: '/services.UserOfflineTaskService/page',
     requestStream: false,
     responseStream: false,
     requestType: offline_usertask_pb.PageUserOfflineTaskRequest,
@@ -119,7 +119,7 @@ var OfflineUserTaskServiceService = exports.OfflineUserTaskServiceService = {
     responseDeserialize: deserialize_services_UserOfflineTaskPage,
   },
   list: {
-    path: '/services.OfflineUserTaskService/list',
+    path: '/services.UserOfflineTaskService/list',
     requestStream: false,
     responseStream: false,
     requestType: offline_usertask_pb.ListUserOfflineTaskRequest,
@@ -130,7 +130,7 @@ var OfflineUserTaskServiceService = exports.OfflineUserTaskServiceService = {
     responseDeserialize: deserialize_services_UserOfflineTaskList,
   },
   delete: {
-    path: '/services.OfflineUserTaskService/delete',
+    path: '/services.UserOfflineTaskService/delete',
     requestStream: false,
     responseStream: false,
     requestType: offline_usertask_pb.DeleteTasksRequest,
@@ -142,4 +142,4 @@ var OfflineUserTaskServiceService = exports.OfflineUserTaskServiceService = {
   },
 };
 
-exports.OfflineUserTaskServiceClient = grpc.makeGenericClientConstructor(OfflineUserTaskServiceService);
+exports.UserOfflineTaskServiceClient = grpc.makeGenericClientConstructor(UserOfflineTaskServiceService);

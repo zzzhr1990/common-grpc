@@ -91,6 +91,42 @@ export namespace User {
   }
 }
 
+export class OauthInfo extends jspb.Message {
+  getAccessToken(): string;
+  setAccessToken(value: string): void;
+
+  getRefreshToken(): string;
+  setRefreshToken(value: string): void;
+
+  getExpiresIn(): number;
+  setExpiresIn(value: number): void;
+
+  getUserId(): number;
+  setUserId(value: number): void;
+
+  getScope(): string;
+  setScope(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): OauthInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: OauthInfo): OauthInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: OauthInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): OauthInfo;
+  static deserializeBinaryFromReader(message: OauthInfo, reader: jspb.BinaryReader): OauthInfo;
+}
+
+export namespace OauthInfo {
+  export type AsObject = {
+    accessToken: string,
+    refreshToken: string,
+    expiresIn: number,
+    userId: number,
+    scope: string,
+  }
+}
+
 export class SmsRequest extends jspb.Message {
   getCountryCode(): string;
   setCountryCode(value: string): void;

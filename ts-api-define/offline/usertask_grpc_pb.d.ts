@@ -7,16 +7,16 @@ import * as offline_usertask_pb from "../offline/usertask_pb";
 import * as common_common_entity_pb from "../common/common_entity_pb";
 import * as grpc from "grpc";
 
-interface IOfflineUserTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
+interface IUserOfflineTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
   add: grpc.MethodDefinition<offline_usertask_pb.AddUserOfflineTaskRequest, offline_usertask_pb.UserOfflineTaskResponse>;
   page: grpc.MethodDefinition<offline_usertask_pb.PageUserOfflineTaskRequest, offline_usertask_pb.UserOfflineTaskPage>;
   list: grpc.MethodDefinition<offline_usertask_pb.ListUserOfflineTaskRequest, offline_usertask_pb.UserOfflineTaskList>;
   delete: grpc.MethodDefinition<offline_usertask_pb.DeleteTasksRequest, common_common_entity_pb.Int64Entity>;
 }
 
-export const OfflineUserTaskServiceService: IOfflineUserTaskServiceService;
+export const UserOfflineTaskServiceService: IUserOfflineTaskServiceService;
 
-export class OfflineUserTaskServiceClient extends grpc.Client {
+export class UserOfflineTaskServiceClient extends grpc.Client {
   constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
   add(argument: offline_usertask_pb.AddUserOfflineTaskRequest, callback: grpc.requestCallback<offline_usertask_pb.UserOfflineTaskResponse>): grpc.ClientUnaryCall;
   add(argument: offline_usertask_pb.AddUserOfflineTaskRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_usertask_pb.UserOfflineTaskResponse>): grpc.ClientUnaryCall;

@@ -37,8 +37,8 @@ export namespace UserOfflineTaskRequest {
 }
 
 export class AddUserOfflineTaskRequest extends jspb.Message {
-  getUseridentity(): number;
-  setUseridentity(value: number): void;
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
 
   clearTasksList(): void;
   getTasksList(): Array<UserOfflineTaskRequest>;
@@ -48,8 +48,8 @@ export class AddUserOfflineTaskRequest extends jspb.Message {
   getPath(): string;
   setPath(value: string): void;
 
-  getCreateip(): string;
-  setCreateip(value: string): void;
+  getCreateAddress(): string;
+  setCreateAddress(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): AddUserOfflineTaskRequest.AsObject;
@@ -63,10 +63,10 @@ export class AddUserOfflineTaskRequest extends jspb.Message {
 
 export namespace AddUserOfflineTaskRequest {
   export type AsObject = {
-    useridentity: number,
+    userIdentity: number,
     tasksList: Array<UserOfflineTaskRequest.AsObject>,
     path: string,
-    createip: string,
+    createAddress: string,
   }
 }
 
@@ -74,11 +74,11 @@ export class UserOfflineTask extends jspb.Message {
   getIdentity(): string;
   setIdentity(value: string): void;
 
-  getUseridentity(): number;
-  setUseridentity(value: number): void;
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
 
-  getCreatetime(): number;
-  setCreatetime(value: number): void;
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
 
   getName(): string;
   setName(value: string): void;
@@ -92,32 +92,32 @@ export class UserOfflineTask extends jspb.Message {
   getSize(): number;
   setSize(value: number): void;
 
-  getDownloadsize(): number;
-  setDownloadsize(value: number): void;
+  getDownloadSize(): number;
+  setDownloadSize(value: number): void;
 
   getProgress(): number;
   setProgress(value: number): void;
 
-  getErrorcode(): number;
-  setErrorcode(value: number): void;
+  getErrorCode(): number;
+  setErrorCode(value: number): void;
 
-  getErrormessage(): string;
-  setErrormessage(value: string): void;
+  getErrorMessage(): string;
+  setErrorMessage(value: string): void;
 
-  getSavepath(): string;
-  setSavepath(value: string): void;
+  getSavePath(): string;
+  setSavePath(value: string): void;
 
-  getAccesspath(): string;
-  setAccesspath(value: string): void;
+  getAccessPath(): string;
+  setAccessPath(value: string): void;
 
-  getFilemime(): string;
-  setFilemime(value: string): void;
+  getFileMime(): string;
+  setFileMime(value: string): void;
 
-  getFiletype(): number;
-  setFiletype(value: number): void;
+  getFileType(): number;
+  setFileType(value: number): void;
 
-  getCreateip(): string;
-  setCreateip(value: string): void;
+  getCreateAddress(): string;
+  setCreateAddress(value: string): void;
 
   getData(): string;
   setData(value: string): void;
@@ -135,21 +135,21 @@ export class UserOfflineTask extends jspb.Message {
 export namespace UserOfflineTask {
   export type AsObject = {
     identity: string,
-    useridentity: number,
-    createtime: number,
+    userIdentity: number,
+    createTime: number,
     name: string,
     type: number,
     status: number,
     size: number,
-    downloadsize: number,
+    downloadSize: number,
     progress: number,
-    errorcode: number,
-    errormessage: string,
-    savepath: string,
-    accesspath: string,
-    filemime: string,
-    filetype: number,
-    createip: string,
+    errorCode: number,
+    errorMessage: string,
+    savePath: string,
+    accessPath: string,
+    fileMime: string,
+    fileType: number,
+    createAddress: string,
     data: string,
   }
 }
@@ -210,50 +210,18 @@ export namespace UserOfflineTaskResponse {
   }
 }
 
-export class UserTaskListener extends jspb.Message {
-  getTaskidentity(): string;
-  setTaskidentity(value: string): void;
-
-  getUseridentity(): number;
-  setUseridentity(value: number): void;
-
-  getCreatetime(): number;
-  setCreatetime(value: number): void;
-
-  getDeadline(): number;
-  setDeadline(value: number): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserTaskListener.AsObject;
-  static toObject(includeInstance: boolean, msg: UserTaskListener): UserTaskListener.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UserTaskListener, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserTaskListener;
-  static deserializeBinaryFromReader(message: UserTaskListener, reader: jspb.BinaryReader): UserTaskListener;
-}
-
-export namespace UserTaskListener {
-  export type AsObject = {
-    taskidentity: string,
-    useridentity: number,
-    createtime: number,
-    deadline: number,
-  }
-}
-
 export class PageUserOfflineTaskRequest extends jspb.Message {
-  getUseridentity(): number;
-  setUseridentity(value: number): void;
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
 
-  getOrderby(): number;
-  setOrderby(value: number): void;
+  getOrderBy(): number;
+  setOrderBy(value: number): void;
 
   getPage(): number;
   setPage(value: number): void;
 
-  getPagesize(): number;
-  setPagesize(value: number): void;
+  getPageSize(): number;
+  setPageSize(value: number): void;
 
   getFilter(): number;
   setFilter(value: number): void;
@@ -270,20 +238,20 @@ export class PageUserOfflineTaskRequest extends jspb.Message {
 
 export namespace PageUserOfflineTaskRequest {
   export type AsObject = {
-    useridentity: number,
-    orderby: number,
+    userIdentity: number,
+    orderBy: number,
     page: number,
-    pagesize: number,
+    pageSize: number,
     filter: number,
   }
 }
 
 export class ListUserOfflineTaskRequest extends jspb.Message {
-  getUseridentity(): number;
-  setUseridentity(value: number): void;
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
 
-  getOrderby(): number;
-  setOrderby(value: number): void;
+  getOrderBy(): number;
+  setOrderBy(value: number): void;
 
   getFilter(): number;
   setFilter(value: number): void;
@@ -291,8 +259,8 @@ export class ListUserOfflineTaskRequest extends jspb.Message {
   getStart(): number;
   setStart(value: number): void;
 
-  getListsize(): number;
-  setListsize(value: number): void;
+  getListSize(): number;
+  setListSize(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListUserOfflineTaskRequest.AsObject;
@@ -306,11 +274,11 @@ export class ListUserOfflineTaskRequest extends jspb.Message {
 
 export namespace ListUserOfflineTaskRequest {
   export type AsObject = {
-    useridentity: number,
-    orderby: number,
+    userIdentity: number,
+    orderBy: number,
     filter: number,
     start: number,
-    listsize: number,
+    listSize: number,
   }
 }
 
@@ -320,17 +288,17 @@ export class UserOfflineTaskPage extends jspb.Message {
   setListList(value: Array<UserOfflineTask>): void;
   addList(value?: UserOfflineTask, index?: number): UserOfflineTask;
 
-  getTotalcount(): number;
-  setTotalcount(value: number): void;
+  getTotalCount(): number;
+  setTotalCount(value: number): void;
 
-  getTotalpage(): number;
-  setTotalpage(value: number): void;
+  getTotalPage(): number;
+  setTotalPage(value: number): void;
 
   getPage(): number;
   setPage(value: number): void;
 
-  getPagesize(): number;
-  setPagesize(value: number): void;
+  getPageSize(): number;
+  setPageSize(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserOfflineTaskPage.AsObject;
@@ -345,21 +313,21 @@ export class UserOfflineTaskPage extends jspb.Message {
 export namespace UserOfflineTaskPage {
   export type AsObject = {
     listList: Array<UserOfflineTask.AsObject>,
-    totalcount: number,
-    totalpage: number,
+    totalCount: number,
+    totalPage: number,
     page: number,
-    pagesize: number,
+    pageSize: number,
   }
 }
 
 export class DeleteTasksRequest extends jspb.Message {
-  getUseridentity(): number;
-  setUseridentity(value: number): void;
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
 
-  clearTasksidentityList(): void;
-  getTasksidentityList(): Array<string>;
-  setTasksidentityList(value: Array<string>): void;
-  addTasksidentity(value: string, index?: number): string;
+  clearTasksIdentityList(): void;
+  getTasksIdentityList(): Array<string>;
+  setTasksIdentityList(value: Array<string>): void;
+  addTasksIdentity(value: string, index?: number): string;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): DeleteTasksRequest.AsObject;
@@ -373,8 +341,8 @@ export class DeleteTasksRequest extends jspb.Message {
 
 export namespace DeleteTasksRequest {
   export type AsObject = {
-    useridentity: number,
-    tasksidentityList: Array<string>,
+    userIdentity: number,
+    tasksIdentityList: Array<string>,
   }
 }
 

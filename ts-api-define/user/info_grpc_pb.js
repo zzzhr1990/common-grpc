@@ -15,6 +15,17 @@ function deserialize_services_ChangePasswordRequest(buffer_arg) {
   return user_info_pb.ChangePasswordRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_OauthInfo(arg) {
+  if (!(arg instanceof user_info_pb.OauthInfo)) {
+    throw new Error('Expected argument of type services.OauthInfo');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_OauthInfo(buffer_arg) {
+  return user_info_pb.OauthInfo.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_SmsChangePasswordRequest(arg) {
   if (!(arg instanceof user_info_pb.SmsChangePasswordRequest)) {
     throw new Error('Expected argument of type services.SmsChangePasswordRequest');
@@ -299,6 +310,39 @@ var UserServiceService = exports.UserServiceService = {
     requestDeserialize: deserialize_services_ThirdPartyLoginInfo,
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
+  },
+  createOauthInfo: {
+    path: '/services.UserService/CreateOauthInfo',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.OauthInfo,
+    responseType: user_info_pb.OauthInfo,
+    requestSerialize: serialize_services_OauthInfo,
+    requestDeserialize: deserialize_services_OauthInfo,
+    responseSerialize: serialize_services_OauthInfo,
+    responseDeserialize: deserialize_services_OauthInfo,
+  },
+  refreshOauthToken: {
+    path: '/services.UserService/RefreshOauthToken',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.OauthInfo,
+    responseType: user_info_pb.OauthInfo,
+    requestSerialize: serialize_services_OauthInfo,
+    requestDeserialize: deserialize_services_OauthInfo,
+    responseSerialize: serialize_services_OauthInfo,
+    responseDeserialize: deserialize_services_OauthInfo,
+  },
+  checkAccessToken: {
+    path: '/services.UserService/CheckAccessToken',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.OauthInfo,
+    responseType: user_info_pb.OauthInfo,
+    requestSerialize: serialize_services_OauthInfo,
+    requestDeserialize: deserialize_services_OauthInfo,
+    responseSerialize: serialize_services_OauthInfo,
+    responseDeserialize: deserialize_services_OauthInfo,
   },
 };
 
