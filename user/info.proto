@@ -78,7 +78,7 @@ message OauthInfo {
     string access_token = 1;
     string refresh_token = 2;
     int64 expires_in = 3;
-    int64 user_id = 4;
+    int64 user_identity = 4;
     string scope = 5; 
 }
 

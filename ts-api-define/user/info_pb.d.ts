@@ -101,8 +101,8 @@ export class OauthInfo extends jspb.Message {
   getExpiresIn(): number;
   setExpiresIn(value: number): void;
 
-  getUserId(): number;
-  setUserId(value: number): void;
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
 
   getScope(): string;
   setScope(value: string): void;
@@ -122,7 +122,7 @@ export namespace OauthInfo {
     accessToken: string,
     refreshToken: string,
     expiresIn: number,
-    userId: number,
+    userIdentity: number,
     scope: string,
   }
 }

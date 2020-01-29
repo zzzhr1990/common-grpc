@@ -951,7 +951,7 @@ proto.services.OauthInfo.toObject = function(includeInstance, msg) {
     accessToken: jspb.Message.getFieldWithDefault(msg, 1, ""),
     refreshToken: jspb.Message.getFieldWithDefault(msg, 2, ""),
     expiresIn: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    userId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    userIdentity: jspb.Message.getFieldWithDefault(msg, 4, 0),
     scope: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
@@ -1003,7 +1003,7 @@ proto.services.OauthInfo.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 4:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setUserId(value);
+      msg.setUserIdentity(value);
       break;
     case 5:
       var value = /** @type {string} */ (reader.readString());
@@ -1059,7 +1059,7 @@ proto.services.OauthInfo.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getUserId();
+  f = message.getUserIdentity();
   if (f !== 0) {
     writer.writeInt64(
       4,
@@ -1131,10 +1131,10 @@ proto.services.OauthInfo.prototype.setExpiresIn = function(value) {
 
 
 /**
- * optional int64 user_id = 4;
+ * optional int64 user_identity = 4;
  * @return {number}
  */
-proto.services.OauthInfo.prototype.getUserId = function() {
+proto.services.OauthInfo.prototype.getUserIdentity = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
@@ -1143,7 +1143,7 @@ proto.services.OauthInfo.prototype.getUserId = function() {
  * @param {number} value
  * @return {!proto.services.OauthInfo} returns this
  */
-proto.services.OauthInfo.prototype.setUserId = function(value) {
+proto.services.OauthInfo.prototype.setUserIdentity = function(value) {
   return jspb.Message.setProto3IntField(this, 4, value);
 };
 
