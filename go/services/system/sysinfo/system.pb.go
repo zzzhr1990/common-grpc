@@ -164,11 +164,11 @@ var fileDescriptor_746080b643370b3b = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConn
+var _ grpc.ClientConnInterface
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion4
+const _ = grpc.SupportPackageIsVersion6
 
 // SystemInfoServiceClient is the client API for SystemInfoService service.
 //
@@ -178,10 +178,10 @@ type SystemInfoServiceClient interface {
 }
 
 type systemInfoServiceClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewSystemInfoServiceClient(cc *grpc.ClientConn) SystemInfoServiceClient {
+func NewSystemInfoServiceClient(cc grpc.ClientConnInterface) SystemInfoServiceClient {
 	return &systemInfoServiceClient{cc}
 }
 

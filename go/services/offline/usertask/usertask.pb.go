@@ -800,11 +800,11 @@ var fileDescriptor_62462ed77fca2601 = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConn
+var _ grpc.ClientConnInterface
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion4
+const _ = grpc.SupportPackageIsVersion6
 
 // UserOfflineTaskServiceClient is the client API for UserOfflineTaskService service.
 //
@@ -818,10 +818,10 @@ type UserOfflineTaskServiceClient interface {
 }
 
 type userOfflineTaskServiceClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewUserOfflineTaskServiceClient(cc *grpc.ClientConn) UserOfflineTaskServiceClient {
+func NewUserOfflineTaskServiceClient(cc grpc.ClientConnInterface) UserOfflineTaskServiceClient {
 	return &userOfflineTaskServiceClient{cc}
 }
 

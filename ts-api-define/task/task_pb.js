@@ -145,7 +145,7 @@ proto.services.FetchRequest.toObject = function(includeInstance, msg) {
     typeList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
     count: jspb.Message.getFieldWithDefault(msg, 3, 0),
     statusList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f,
-    nextStatus: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    next: jspb.Message.getFieldWithDefault(msg, 5, 0),
     deadline: jspb.Message.getFieldWithDefault(msg, 6, 0),
     recover: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
     desc: jspb.Message.getBooleanFieldWithDefault(msg, 8, false)
@@ -203,7 +203,7 @@ proto.services.FetchRequest.deserializeBinaryFromReader = function(msg, reader) 
       break;
     case 5:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setNextStatus(value);
+      msg.setNext(value);
       break;
     case 6:
       var value = /** @type {number} */ (reader.readInt64());
@@ -274,7 +274,7 @@ proto.services.FetchRequest.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
-  f = message.getNextStatus();
+  f = message.getNext();
   if (f !== 0) {
     writer.writeInt32(
       5,
@@ -416,10 +416,10 @@ proto.services.FetchRequest.prototype.clearStatusList = function() {
 
 
 /**
- * optional int32 next_status = 5;
+ * optional int32 next = 5;
  * @return {number}
  */
-proto.services.FetchRequest.prototype.getNextStatus = function() {
+proto.services.FetchRequest.prototype.getNext = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
@@ -428,7 +428,7 @@ proto.services.FetchRequest.prototype.getNextStatus = function() {
  * @param {number} value
  * @return {!proto.services.FetchRequest} returns this
  */
-proto.services.FetchRequest.prototype.setNextStatus = function(value) {
+proto.services.FetchRequest.prototype.setNext = function(value) {
   return jspb.Message.setProto3IntField(this, 5, value);
 };
 

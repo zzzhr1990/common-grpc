@@ -21,8 +21,8 @@ export class FetchRequest extends jspb.Message {
   setStatusList(value: Array<number>): void;
   addStatus(value: number, index?: number): number;
 
-  getNextStatus(): number;
-  setNextStatus(value: number): void;
+  getNext(): number;
+  setNext(value: number): void;
 
   getDeadline(): number;
   setDeadline(value: number): void;
@@ -49,7 +49,7 @@ export namespace FetchRequest {
     typeList: Array<number>,
     count: number,
     statusList: Array<number>,
-    nextStatus: number,
+    next: number,
     deadline: number,
     recover: boolean,
     desc: boolean,
