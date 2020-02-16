@@ -931,7 +931,7 @@ proto.services.ErrorTask.toObject = function(includeInstance, msg) {
     data: jspb.Message.getFieldWithDefault(msg, 10, ""),
     status: jspb.Message.getFieldWithDefault(msg, 11, 0),
     errorCode: jspb.Message.getFieldWithDefault(msg, 12, 0),
-    errorMessage: jspb.Message.getFieldWithDefault(msg, 13, 0)
+    errorMessage: jspb.Message.getFieldWithDefault(msg, 13, "")
   };
 
   if (includeInstance) {
@@ -1017,7 +1017,7 @@ proto.services.ErrorTask.deserializeBinaryFromReader = function(msg, reader) {
       msg.setErrorCode(value);
       break;
     case 13:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {string} */ (reader.readString());
       msg.setErrorMessage(value);
       break;
     default:
@@ -1134,8 +1134,8 @@ proto.services.ErrorTask.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getErrorMessage();
-  if (f !== 0) {
-    writer.writeInt32(
+  if (f.length > 0) {
+    writer.writeString(
       13,
       f
     );
@@ -1360,20 +1360,20 @@ proto.services.ErrorTask.prototype.setErrorCode = function(value) {
 
 
 /**
- * optional int32 error_message = 13;
- * @return {number}
+ * optional string error_message = 13;
+ * @return {string}
  */
 proto.services.ErrorTask.prototype.getErrorMessage = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 13, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.services.ErrorTask} returns this
  */
 proto.services.ErrorTask.prototype.setErrorMessage = function(value) {
-  return jspb.Message.setProto3IntField(this, 13, value);
+  return jspb.Message.setProto3StringField(this, 13, value);
 };
 
 

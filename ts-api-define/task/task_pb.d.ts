@@ -149,8 +149,8 @@ export class ErrorTask extends jspb.Message {
   getErrorCode(): number;
   setErrorCode(value: number): void;
 
-  getErrorMessage(): number;
-  setErrorMessage(value: number): void;
+  getErrorMessage(): string;
+  setErrorMessage(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ErrorTask.AsObject;
@@ -176,7 +176,7 @@ export namespace ErrorTask {
     data: string,
     status: number,
     errorCode: number,
-    errorMessage: number,
+    errorMessage: string,
   }
 }
 
