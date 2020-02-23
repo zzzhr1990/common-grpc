@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package services;
+
+// import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/store/preview";
+// import "common/common_entity.proto";
+service PreviewService {
+    rpc Create (Preview) returns (Preview) {}
+    // rpc tryCreate (CloudStore) returns (CloudStore) {}
+    // rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
+    rpc Get (Preview) returns (Preview) {}
+    rpc Update (Preview) returns (Preview) {}
+    rpc BatchGet (Preview) returns (Preview) {}
+    rpc GetPreviewAddress (Preview) returns (Preview) {}
+}
+
+message Preview {
+    string  hash = 1;
+    int32 type = 2;
+    int32 status = 3;
+    string access_code = 4;
+    string access_address = 5;
+    string file = 6;
+    string addon = 7;
+    int32 create_address = 8;
+    int32 flag = 9;
+}
