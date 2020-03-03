@@ -316,7 +316,9 @@ func init() {
 	proto.RegisterType((*PreviewInfo)(nil), "services.PreviewInfo")
 }
 
-func init() { proto.RegisterFile("ext/video.proto", fileDescriptor_6cb22786206a6562) }
+func init() {
+	proto.RegisterFile("ext/video.proto", fileDescriptor_6cb22786206a6562)
+}
 
 var fileDescriptor_6cb22786206a6562 = []byte{
 	// 571 bytes of a gzipped FileDescriptorProto

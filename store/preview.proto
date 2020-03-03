@@ -11,8 +11,8 @@ service PreviewService {
     // rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     rpc Get (Preview) returns (Preview) {}
     rpc Update (Preview) returns (Preview) {}
-    rpc BatchGet (Preview) returns (Preview) {}
-    rpc GetPreviewAddress (Preview) returns (Preview) {}
+    // rpc BatchGet (Preview) returns (Preview) {}
+     //rpc GetPreviewAddress (Preview) returns (Preview) {}
 }
 
 message Preview {

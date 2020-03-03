@@ -1101,7 +1101,9 @@ func init() {
 	proto.RegisterType((*UploadTokenResponse)(nil), "services.UploadTokenResponse")
 }
 
-func init() { proto.RegisterFile("file/userfile.proto", fileDescriptor_8869c2ca76fd1758) }
+func init() {
+	proto.RegisterFile("file/userfile.proto", fileDescriptor_8869c2ca76fd1758)
+}
 
 var fileDescriptor_8869c2ca76fd1758 = []byte{
 	// 1225 bytes of a gzipped FileDescriptorProto

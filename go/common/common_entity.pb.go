@@ -503,7 +503,9 @@ func init() {
 	proto.RegisterType((*Uint64Entity)(nil), "services.Uint64Entity")
 }
 
-func init() { proto.RegisterFile("common/common_entity.proto", fileDescriptor_6c0686b0c1e0f70e) }
+func init() {
+	proto.RegisterFile("common/common_entity.proto", fileDescriptor_6c0686b0c1e0f70e)
+}
 
 var fileDescriptor_6c0686b0c1e0f70e = []byte{
 	// 342 bytes of a gzipped FileDescriptorProto

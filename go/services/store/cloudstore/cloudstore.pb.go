@@ -395,7 +395,9 @@ func init() {
 	proto.RegisterType((*CloudStoreList)(nil), "services.CloudStoreList")
 }
 
-func init() { proto.RegisterFile("store/cloudstore.proto", fileDescriptor_e406880dd1e5ea92) }
+func init() {
+	proto.RegisterFile("store/cloudstore.proto", fileDescriptor_e406880dd1e5ea92)
+}
 
 var fileDescriptor_e406880dd1e5ea92 = []byte{
 	// 671 bytes of a gzipped FileDescriptorProto

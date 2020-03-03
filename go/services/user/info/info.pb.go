@@ -1011,7 +1011,9 @@ func init() {
 	proto.RegisterType((*ThirdPartyLoginInfo)(nil), "services.ThirdPartyLoginInfo")
 }
 
-func init() { proto.RegisterFile("user/info.proto", fileDescriptor_e397bf9a47fd544a) }
+func init() {
+	proto.RegisterFile("user/info.proto", fileDescriptor_e397bf9a47fd544a)
+}
 
 var fileDescriptor_e397bf9a47fd544a = []byte{
 	// 1274 bytes of a gzipped FileDescriptorProto

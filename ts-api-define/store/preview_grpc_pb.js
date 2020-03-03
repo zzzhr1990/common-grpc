@@ -53,28 +53,6 @@ var PreviewServiceService = exports.PreviewServiceService = {
     responseSerialize: serialize_services_Preview,
     responseDeserialize: deserialize_services_Preview,
   },
-  batchGet: {
-    path: '/services.PreviewService/BatchGet',
-    requestStream: false,
-    responseStream: false,
-    requestType: store_preview_pb.Preview,
-    responseType: store_preview_pb.Preview,
-    requestSerialize: serialize_services_Preview,
-    requestDeserialize: deserialize_services_Preview,
-    responseSerialize: serialize_services_Preview,
-    responseDeserialize: deserialize_services_Preview,
-  },
-  getPreviewAddress: {
-    path: '/services.PreviewService/GetPreviewAddress',
-    requestStream: false,
-    responseStream: false,
-    requestType: store_preview_pb.Preview,
-    responseType: store_preview_pb.Preview,
-    requestSerialize: serialize_services_Preview,
-    requestDeserialize: deserialize_services_Preview,
-    responseSerialize: serialize_services_Preview,
-    responseDeserialize: deserialize_services_Preview,
-  },
 };
 
 exports.PreviewServiceClient = grpc.makeGenericClientConstructor(PreviewServiceService);

@@ -10,8 +10,6 @@ interface IPreviewServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
   create: grpc.MethodDefinition<store_preview_pb.Preview, store_preview_pb.Preview>;
   get: grpc.MethodDefinition<store_preview_pb.Preview, store_preview_pb.Preview>;
   update: grpc.MethodDefinition<store_preview_pb.Preview, store_preview_pb.Preview>;
-  batchGet: grpc.MethodDefinition<store_preview_pb.Preview, store_preview_pb.Preview>;
-  getPreviewAddress: grpc.MethodDefinition<store_preview_pb.Preview, store_preview_pb.Preview>;
 }
 
 export const PreviewServiceService: IPreviewServiceService;
@@ -27,10 +25,4 @@ export class PreviewServiceClient extends grpc.Client {
   update(argument: store_preview_pb.Preview, callback: grpc.requestCallback<store_preview_pb.Preview>): grpc.ClientUnaryCall;
   update(argument: store_preview_pb.Preview, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<store_preview_pb.Preview>): grpc.ClientUnaryCall;
   update(argument: store_preview_pb.Preview, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<store_preview_pb.Preview>): grpc.ClientUnaryCall;
-  batchGet(argument: store_preview_pb.Preview, callback: grpc.requestCallback<store_preview_pb.Preview>): grpc.ClientUnaryCall;
-  batchGet(argument: store_preview_pb.Preview, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<store_preview_pb.Preview>): grpc.ClientUnaryCall;
-  batchGet(argument: store_preview_pb.Preview, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<store_preview_pb.Preview>): grpc.ClientUnaryCall;
-  getPreviewAddress(argument: store_preview_pb.Preview, callback: grpc.requestCallback<store_preview_pb.Preview>): grpc.ClientUnaryCall;
-  getPreviewAddress(argument: store_preview_pb.Preview, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<store_preview_pb.Preview>): grpc.ClientUnaryCall;
-  getPreviewAddress(argument: store_preview_pb.Preview, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<store_preview_pb.Preview>): grpc.ClientUnaryCall;
 }

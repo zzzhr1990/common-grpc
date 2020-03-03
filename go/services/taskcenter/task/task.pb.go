@@ -412,7 +412,9 @@ func init() {
 	proto.RegisterType((*FetchResponse)(nil), "services.FetchResponse")
 }
 
-func init() { proto.RegisterFile("task/task.proto", fileDescriptor_8e8f2b86464a95fe) }
+func init() {
+	proto.RegisterFile("task/task.proto", fileDescriptor_8e8f2b86464a95fe)
+}
 
 var fileDescriptor_8e8f2b86464a95fe = []byte{
 	// 595 bytes of a gzipped FileDescriptorProto

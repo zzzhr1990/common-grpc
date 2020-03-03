@@ -604,7 +604,9 @@ func init() {
 	proto.RegisterType((*SystemOfflineTaskDetail)(nil), "services.SystemOfflineTaskDetail")
 }
 
-func init() { proto.RegisterFile("offline/systemtask.proto", fileDescriptor_d0cace4e80a04fad) }
+func init() {
+	proto.RegisterFile("offline/systemtask.proto", fileDescriptor_d0cace4e80a04fad)
+}
 
 var fileDescriptor_d0cace4e80a04fad = []byte{
 	// 838 bytes of a gzipped FileDescriptorProto

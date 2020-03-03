@@ -269,7 +269,9 @@ func init() {
 	proto.RegisterType((*ShareSaveRequest)(nil), "services.ShareSaveRequest")
 }
 
-func init() { proto.RegisterFile("share/share.proto", fileDescriptor_fa89f5b0d847a47e) }
+func init() {
+	proto.RegisterFile("share/share.proto", fileDescriptor_fa89f5b0d847a47e)
+}
 
 var fileDescriptor_fa89f5b0d847a47e = []byte{
 	// 502 bytes of a gzipped FileDescriptorProto

@@ -740,7 +740,9 @@ func init() {
 	proto.RegisterType((*UserOfflineTaskList)(nil), "services.UserOfflineTaskList")
 }
 
-func init() { proto.RegisterFile("offline/usertask.proto", fileDescriptor_62462ed77fca2601) }
+func init() {
+	proto.RegisterFile("offline/usertask.proto", fileDescriptor_62462ed77fca2601)
+}
 
 var fileDescriptor_62462ed77fca2601 = []byte{
 	// 827 bytes of a gzipped FileDescriptorProto
