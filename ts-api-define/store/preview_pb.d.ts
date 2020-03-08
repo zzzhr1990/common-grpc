@@ -49,11 +49,11 @@ export class MediaPreview extends jspb.Message {
   getRotate(): number;
   setRotate(value: number): void;
 
-  getAddon(): number;
-  setAddon(value: number): void;
+  getAddon(): string;
+  setAddon(value: string): void;
 
-  getCreateAddress(): number;
-  setCreateAddress(value: number): void;
+  getCreateAddress(): string;
+  setCreateAddress(value: string): void;
 
   getFlag(): number;
   setFlag(value: number): void;
@@ -91,8 +91,8 @@ export namespace MediaPreview {
     subtitle: string,
     file: string,
     rotate: number,
-    addon: number,
-    createAddress: number,
+    addon: string,
+    createAddress: string,
     flag: number,
     createTime: number,
     updateTime: number,

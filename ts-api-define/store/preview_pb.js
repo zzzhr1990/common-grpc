@@ -81,8 +81,8 @@ proto.services.MediaPreview.toObject = function(includeInstance, msg) {
     subtitle: jspb.Message.getFieldWithDefault(msg, 13, ""),
     file: jspb.Message.getFieldWithDefault(msg, 14, ""),
     rotate: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    addon: jspb.Message.getFieldWithDefault(msg, 16, 0),
-    createAddress: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    addon: jspb.Message.getFieldWithDefault(msg, 16, ""),
+    createAddress: jspb.Message.getFieldWithDefault(msg, 17, ""),
     flag: jspb.Message.getFieldWithDefault(msg, 18, 0),
     createTime: jspb.Message.getFieldWithDefault(msg, 19, 0),
     updateTime: jspb.Message.getFieldWithDefault(msg, 20, 0)
@@ -183,11 +183,11 @@ proto.services.MediaPreview.deserializeBinaryFromReader = function(msg, reader) 
       msg.setRotate(value);
       break;
     case 16:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {string} */ (reader.readString());
       msg.setAddon(value);
       break;
     case 17:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {string} */ (reader.readString());
       msg.setCreateAddress(value);
       break;
     case 18:
@@ -337,15 +337,15 @@ proto.services.MediaPreview.serializeBinaryToWriter = function(message, writer) 
     );
   }
   f = message.getAddon();
-  if (f !== 0) {
-    writer.writeInt32(
+  if (f.length > 0) {
+    writer.writeString(
       16,
       f
     );
   }
   f = message.getCreateAddress();
-  if (f !== 0) {
-    writer.writeInt32(
+  if (f.length > 0) {
+    writer.writeString(
       17,
       f
     );
@@ -645,38 +645,38 @@ proto.services.MediaPreview.prototype.setRotate = function(value) {
 
 
 /**
- * optional int32 addon = 16;
- * @return {number}
+ * optional string addon = 16;
+ * @return {string}
  */
 proto.services.MediaPreview.prototype.getAddon = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 16, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.services.MediaPreview} returns this
  */
 proto.services.MediaPreview.prototype.setAddon = function(value) {
-  return jspb.Message.setProto3IntField(this, 16, value);
+  return jspb.Message.setProto3StringField(this, 16, value);
 };
 
 
 /**
- * optional int32 create_address = 17;
- * @return {number}
+ * optional string create_address = 17;
+ * @return {string}
  */
 proto.services.MediaPreview.prototype.getCreateAddress = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 17, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.services.MediaPreview} returns this
  */
 proto.services.MediaPreview.prototype.setCreateAddress = function(value) {
-  return jspb.Message.setProto3IntField(this, 17, value);
+  return jspb.Message.setProto3StringField(this, 17, value);
 };
 
 
