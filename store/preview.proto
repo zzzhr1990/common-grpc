@@ -6,23 +6,34 @@ package services;
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/store/preview";
 // import "common/common_entity.proto";
 service PreviewService {
-    rpc Create (Preview) returns (Preview) {}
+    rpc Create (MediaPreview) returns (MediaPreview) {}
     // rpc tryCreate (CloudStore) returns (CloudStore) {}
     // rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
-    rpc Get (Preview) returns (Preview) {}
-    rpc Update (Preview) returns (Preview) {}
+    rpc Get (MediaPreview) returns (MediaPreview) {}
+    rpc Update (MediaPreview) returns (MediaPreview) {}
     // rpc BatchGet (Preview) returns (Preview) {}
      //rpc GetPreviewAddress (Preview) returns (Preview) {}
 }
 
-message Preview {
+message MediaPreview {
     string  hash = 1;
     int32 type = 2;
     int32 status = 3;
-    string access_code = 4;
-    string access_address = 5;
-    string file = 6;
-    string addon = 7;
-    int32 create_address = 8;
-    int32 flag = 9;
+    string title = 4;
+    int64 duration = 5;
+    int32 width = 6;
+    int32 height = 7;
+    int32 source_width = 8;
+    int32 source_height = 9;
+    string access_code = 10;
+    string access_address = 11;
+    string screenshot = 12;
+    string subtitle = 13;
+    string file = 14;
+    int32 rotate  = 15;
+    int32 addon = 16;
+    int32 create_address = 17;
+    int32 flag = 18;
+    int64 create_time = 19;
+    int64 update_time = 20;
 }

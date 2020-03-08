@@ -24,111 +24,199 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type Preview struct {
+type MediaPreview struct {
 	Hash                 string   `protobuf:"bytes,1,opt,name=hash,proto3" json:"hash,omitempty"`
 	Type                 int32    `protobuf:"varint,2,opt,name=type,proto3" json:"type,omitempty"`
 	Status               int32    `protobuf:"varint,3,opt,name=status,proto3" json:"status,omitempty"`
-	AccessCode           string   `protobuf:"bytes,4,opt,name=access_code,json=accessCode,proto3" json:"access_code,omitempty"`
-	AccessAddress        string   `protobuf:"bytes,5,opt,name=access_address,json=accessAddress,proto3" json:"access_address,omitempty"`
-	File                 string   `protobuf:"bytes,6,opt,name=file,proto3" json:"file,omitempty"`
-	Addon                string   `protobuf:"bytes,7,opt,name=addon,proto3" json:"addon,omitempty"`
-	CreateAddress        int32    `protobuf:"varint,8,opt,name=create_address,json=createAddress,proto3" json:"create_address,omitempty"`
-	Flag                 int32    `protobuf:"varint,9,opt,name=flag,proto3" json:"flag,omitempty"`
+	Title                string   `protobuf:"bytes,4,opt,name=title,proto3" json:"title,omitempty"`
+	Duration             int64    `protobuf:"varint,5,opt,name=duration,proto3" json:"duration,omitempty"`
+	Width                int32    `protobuf:"varint,6,opt,name=width,proto3" json:"width,omitempty"`
+	Height               int32    `protobuf:"varint,7,opt,name=height,proto3" json:"height,omitempty"`
+	SourceWidth          int32    `protobuf:"varint,8,opt,name=source_width,json=sourceWidth,proto3" json:"source_width,omitempty"`
+	SourceHeight         int32    `protobuf:"varint,9,opt,name=source_height,json=sourceHeight,proto3" json:"source_height,omitempty"`
+	AccessCode           string   `protobuf:"bytes,10,opt,name=access_code,json=accessCode,proto3" json:"access_code,omitempty"`
+	AccessAddress        string   `protobuf:"bytes,11,opt,name=access_address,json=accessAddress,proto3" json:"access_address,omitempty"`
+	Screenshot           string   `protobuf:"bytes,12,opt,name=screenshot,proto3" json:"screenshot,omitempty"`
+	Subtitle             string   `protobuf:"bytes,13,opt,name=subtitle,proto3" json:"subtitle,omitempty"`
+	File                 string   `protobuf:"bytes,14,opt,name=file,proto3" json:"file,omitempty"`
+	Rotate               int32    `protobuf:"varint,15,opt,name=rotate,proto3" json:"rotate,omitempty"`
+	Addon                int32    `protobuf:"varint,16,opt,name=addon,proto3" json:"addon,omitempty"`
+	CreateAddress        int32    `protobuf:"varint,17,opt,name=create_address,json=createAddress,proto3" json:"create_address,omitempty"`
+	Flag                 int32    `protobuf:"varint,18,opt,name=flag,proto3" json:"flag,omitempty"`
+	CreateTime           int64    `protobuf:"varint,19,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	UpdateTime           int64    `protobuf:"varint,20,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Preview) Reset()         { *m = Preview{} }
-func (m *Preview) String() string { return proto.CompactTextString(m) }
-func (*Preview) ProtoMessage()    {}
-func (*Preview) Descriptor() ([]byte, []int) {
+func (m *MediaPreview) Reset()         { *m = MediaPreview{} }
+func (m *MediaPreview) String() string { return proto.CompactTextString(m) }
+func (*MediaPreview) ProtoMessage()    {}
+func (*MediaPreview) Descriptor() ([]byte, []int) {
 	return fileDescriptor_4742a5b8366d6439, []int{0}
 }
 
-func (m *Preview) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Preview.Unmarshal(m, b)
+func (m *MediaPreview) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MediaPreview.Unmarshal(m, b)
 }
-func (m *Preview) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Preview.Marshal(b, m, deterministic)
+func (m *MediaPreview) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MediaPreview.Marshal(b, m, deterministic)
 }
-func (m *Preview) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Preview.Merge(m, src)
+func (m *MediaPreview) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MediaPreview.Merge(m, src)
 }
-func (m *Preview) XXX_Size() int {
-	return xxx_messageInfo_Preview.Size(m)
+func (m *MediaPreview) XXX_Size() int {
+	return xxx_messageInfo_MediaPreview.Size(m)
 }
-func (m *Preview) XXX_DiscardUnknown() {
-	xxx_messageInfo_Preview.DiscardUnknown(m)
+func (m *MediaPreview) XXX_DiscardUnknown() {
+	xxx_messageInfo_MediaPreview.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Preview proto.InternalMessageInfo
+var xxx_messageInfo_MediaPreview proto.InternalMessageInfo
 
-func (m *Preview) GetHash() string {
+func (m *MediaPreview) GetHash() string {
 	if m != nil {
 		return m.Hash
 	}
 	return ""
 }
 
-func (m *Preview) GetType() int32 {
+func (m *MediaPreview) GetType() int32 {
 	if m != nil {
 		return m.Type
 	}
 	return 0
 }
 
-func (m *Preview) GetStatus() int32 {
+func (m *MediaPreview) GetStatus() int32 {
 	if m != nil {
 		return m.Status
 	}
 	return 0
 }
 
-func (m *Preview) GetAccessCode() string {
+func (m *MediaPreview) GetTitle() string {
+	if m != nil {
+		return m.Title
+	}
+	return ""
+}
+
+func (m *MediaPreview) GetDuration() int64 {
+	if m != nil {
+		return m.Duration
+	}
+	return 0
+}
+
+func (m *MediaPreview) GetWidth() int32 {
+	if m != nil {
+		return m.Width
+	}
+	return 0
+}
+
+func (m *MediaPreview) GetHeight() int32 {
+	if m != nil {
+		return m.Height
+	}
+	return 0
+}
+
+func (m *MediaPreview) GetSourceWidth() int32 {
+	if m != nil {
+		return m.SourceWidth
+	}
+	return 0
+}
+
+func (m *MediaPreview) GetSourceHeight() int32 {
+	if m != nil {
+		return m.SourceHeight
+	}
+	return 0
+}
+
+func (m *MediaPreview) GetAccessCode() string {
 	if m != nil {
 		return m.AccessCode
 	}
 	return ""
 }
 
-func (m *Preview) GetAccessAddress() string {
+func (m *MediaPreview) GetAccessAddress() string {
 	if m != nil {
 		return m.AccessAddress
 	}
 	return ""
 }
 
-func (m *Preview) GetFile() string {
+func (m *MediaPreview) GetScreenshot() string {
+	if m != nil {
+		return m.Screenshot
+	}
+	return ""
+}
+
+func (m *MediaPreview) GetSubtitle() string {
+	if m != nil {
+		return m.Subtitle
+	}
+	return ""
+}
+
+func (m *MediaPreview) GetFile() string {
 	if m != nil {
 		return m.File
 	}
 	return ""
 }
 
-func (m *Preview) GetAddon() string {
+func (m *MediaPreview) GetRotate() int32 {
+	if m != nil {
+		return m.Rotate
+	}
+	return 0
+}
+
+func (m *MediaPreview) GetAddon() int32 {
 	if m != nil {
 		return m.Addon
 	}
-	return ""
+	return 0
 }
 
-func (m *Preview) GetCreateAddress() int32 {
+func (m *MediaPreview) GetCreateAddress() int32 {
 	if m != nil {
 		return m.CreateAddress
 	}
 	return 0
 }
 
-func (m *Preview) GetFlag() int32 {
+func (m *MediaPreview) GetFlag() int32 {
 	if m != nil {
 		return m.Flag
 	}
 	return 0
 }
 
+func (m *MediaPreview) GetCreateTime() int64 {
+	if m != nil {
+		return m.CreateTime
+	}
+	return 0
+}
+
+func (m *MediaPreview) GetUpdateTime() int64 {
+	if m != nil {
+		return m.UpdateTime
+	}
+	return 0
+}
+
 func init() {
-	proto.RegisterType((*Preview)(nil), "services.Preview")
+	proto.RegisterType((*MediaPreview)(nil), "services.MediaPreview")
 }
 
 func init() {
@@ -136,26 +224,36 @@ func init() {
 }
 
 var fileDescriptor_4742a5b8366d6439 = []byte{
-	// 302 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x91, 0x4f, 0x4b, 0xc3, 0x30,
-	0x18, 0xc6, 0xad, 0x5b, 0xbb, 0xed, 0x95, 0x0d, 0x8c, 0x22, 0xc1, 0x8b, 0x63, 0x20, 0xec, 0xb2,
-	0xa6, 0xea, 0x69, 0xe2, 0x45, 0x77, 0xf0, 0x2a, 0x13, 0x2f, 0x5e, 0x24, 0x4b, 0x5e, 0xdb, 0xc2,
-	0xba, 0x94, 0x24, 0x9b, 0xd8, 0xaf, 0xe3, 0x77, 0xf4, 0x2c, 0x4d, 0x3a, 0x51, 0xbc, 0xb8, 0xdb,
-	0x93, 0x5f, 0x9e, 0x3c, 0x79, 0xff, 0xc0, 0x91, 0xb1, 0x4a, 0x23, 0x2b, 0x35, 0x6e, 0x72, 0x7c,
-	0x8b, 0x4b, 0xad, 0xac, 0x22, 0x5d, 0x83, 0x7a, 0x93, 0x0b, 0x34, 0xa3, 0xcf, 0x00, 0x3a, 0x0f,
-	0xfe, 0x8e, 0x10, 0x68, 0x67, 0xdc, 0x64, 0x34, 0x18, 0x06, 0xe3, 0xde, 0xdc, 0xe9, 0x9a, 0xd9,
-	0xf7, 0x12, 0xe9, 0xfe, 0x30, 0x18, 0x87, 0x73, 0xa7, 0xc9, 0x09, 0x44, 0xc6, 0x72, 0xbb, 0x36,
-	0xb4, 0xe5, 0x68, 0x73, 0x22, 0x67, 0x70, 0xc0, 0x85, 0x40, 0x63, 0x5e, 0x84, 0x92, 0x48, 0xdb,
-	0x2e, 0x06, 0x3c, 0x9a, 0x29, 0x89, 0xe4, 0x1c, 0x06, 0x8d, 0x81, 0x4b, 0xa9, 0xd1, 0x18, 0x1a,
-	0x3a, 0x4f, 0xdf, 0xd3, 0x5b, 0x0f, 0xeb, 0x3f, 0x5f, 0xf3, 0x25, 0xd2, 0xc8, 0xd7, 0x51, 0x6b,
-	0x72, 0x0c, 0x21, 0x97, 0x52, 0xad, 0x68, 0xc7, 0x41, 0x7f, 0xa8, 0x03, 0x85, 0x46, 0x6e, 0xf1,
-	0x3b, 0xb0, 0xeb, 0x2a, 0xea, 0x7b, 0xfa, 0x33, 0x70, 0xc9, 0x53, 0xda, 0xf3, 0x4d, 0xd4, 0xfa,
-	0xf2, 0x23, 0x80, 0x41, 0xd3, 0xf8, 0xa3, 0x1f, 0x06, 0x49, 0x20, 0x9a, 0xb9, 0x77, 0xe4, 0x30,
-	0xde, 0x0e, 0x28, 0x6e, 0x3c, 0xa7, 0x7f, 0xd1, 0x68, 0x8f, 0x4c, 0xa0, 0x75, 0x8f, 0xf6, 0xdf,
-	0xf6, 0x04, 0xa2, 0xa7, 0x52, 0xee, 0xf0, 0xc1, 0xdd, 0xcd, 0xf3, 0x75, 0x9a, 0xdb, 0x6c, 0xbd,
-	0x88, 0x85, 0x2a, 0x58, 0x55, 0x55, 0x99, 0xbe, 0x98, 0x4e, 0x13, 0x26, 0x54, 0x51, 0xa8, 0xd5,
-	0x24, 0xd5, 0xa5, 0x60, 0xa9, 0x62, 0xdb, 0x97, 0xec, 0xd7, 0xb2, 0x17, 0x91, 0xdb, 0xf6, 0xd5,
-	0x57, 0x00, 0x00, 0x00, 0xff, 0xff, 0x23, 0x3b, 0xbc, 0xa4, 0x04, 0x02, 0x00, 0x00,
+	// 454 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x53, 0x4d, 0x6f, 0x13, 0x31,
+	0x10, 0x65, 0x69, 0xb2, 0xa4, 0x93, 0x0f, 0xc0, 0xad, 0x2a, 0xab, 0x07, 0x08, 0x45, 0x48, 0xb9,
+	0x90, 0xe5, 0xe3, 0x80, 0x1a, 0x71, 0x81, 0x1e, 0xe0, 0x82, 0x84, 0x02, 0x08, 0x89, 0x4b, 0xe5,
+	0xd8, 0xc3, 0xae, 0xa5, 0x6c, 0xbc, 0xb2, 0xbd, 0xad, 0xc8, 0x3f, 0xe3, 0xc8, 0x3f, 0x43, 0x9e,
+	0xd9, 0x04, 0x38, 0x70, 0x80, 0xdb, 0xbc, 0xe7, 0xf7, 0xde, 0x8e, 0x67, 0xc7, 0x70, 0x14, 0xa2,
+	0xf3, 0x58, 0x34, 0x1e, 0xaf, 0x2c, 0x5e, 0xcf, 0x1b, 0xef, 0xa2, 0x13, 0x83, 0x80, 0xfe, 0xca,
+	0x6a, 0x0c, 0x67, 0xdf, 0x7b, 0x30, 0x7a, 0x87, 0xc6, 0xaa, 0xf7, 0x2c, 0x10, 0x02, 0x7a, 0x95,
+	0x0a, 0x95, 0xcc, 0xa6, 0xd9, 0xec, 0x70, 0x49, 0x75, 0xe2, 0xe2, 0xb7, 0x06, 0xe5, 0xcd, 0x69,
+	0x36, 0xeb, 0x2f, 0xa9, 0x16, 0x27, 0x90, 0x87, 0xa8, 0x62, 0x1b, 0xe4, 0x01, 0xb1, 0x1d, 0x12,
+	0xc7, 0xd0, 0x8f, 0x36, 0xae, 0x51, 0xf6, 0x28, 0x80, 0x81, 0x38, 0x85, 0x81, 0x69, 0xbd, 0x8a,
+	0xd6, 0x6d, 0x64, 0x7f, 0x9a, 0xcd, 0x0e, 0x96, 0x7b, 0x9c, 0x1c, 0xd7, 0xd6, 0xc4, 0x4a, 0xe6,
+	0x14, 0xc4, 0x20, 0xe5, 0x57, 0x68, 0xcb, 0x2a, 0xca, 0x5b, 0x9c, 0xcf, 0x48, 0x3c, 0x80, 0x51,
+	0x70, 0xad, 0xd7, 0x78, 0xc9, 0xa6, 0x01, 0x9d, 0x0e, 0x99, 0xfb, 0x4c, 0xd6, 0x87, 0x30, 0xee,
+	0x24, 0x5d, 0xc2, 0x21, 0x69, 0x3a, 0xdf, 0x5b, 0xce, 0xb9, 0x0f, 0x43, 0xa5, 0x35, 0x86, 0x70,
+	0xa9, 0x9d, 0x41, 0x09, 0xd4, 0x2d, 0x30, 0x75, 0xe1, 0x0c, 0x8a, 0x47, 0x30, 0xe9, 0x04, 0xca,
+	0x18, 0x8f, 0x21, 0xc8, 0x21, 0x69, 0xc6, 0xcc, 0xbe, 0x62, 0x52, 0xdc, 0x03, 0x08, 0xda, 0x23,
+	0x6e, 0x42, 0xe5, 0xa2, 0x1c, 0x71, 0xcc, 0x2f, 0x26, 0xdd, 0x3c, 0xb4, 0x2b, 0x1e, 0xc9, 0x98,
+	0x4e, 0xf7, 0x38, 0xcd, 0xf5, 0xab, 0x5d, 0xa3, 0x9c, 0xf0, 0xac, 0x53, 0x9d, 0xee, 0xed, 0x5d,
+	0x54, 0x11, 0xe5, 0x6d, 0xbe, 0x37, 0xa3, 0x34, 0x25, 0x65, 0x8c, 0xdb, 0xc8, 0x3b, 0x3c, 0x25,
+	0x02, 0xa9, 0x49, 0xed, 0x51, 0x45, 0xdc, 0x37, 0x79, 0x97, 0x8e, 0xc7, 0xcc, 0xee, 0x9a, 0x4c,
+	0x1f, 0x5a, 0xab, 0x52, 0x0a, 0xfe, 0x81, 0xa9, 0x4e, 0x03, 0xe8, 0xac, 0xd1, 0xd6, 0x28, 0x8f,
+	0xe8, 0xaf, 0x00, 0x53, 0x1f, 0x6d, 0x8d, 0x49, 0xd0, 0x36, 0x66, 0x2f, 0x38, 0x66, 0x01, 0x53,
+	0x49, 0xf0, 0xec, 0x47, 0x06, 0x93, 0x6e, 0x6d, 0x3e, 0xf0, 0x3e, 0x89, 0x05, 0xe4, 0x17, 0x94,
+	0x20, 0x4e, 0xe6, 0xbb, 0x1d, 0x9b, 0xff, 0xbe, 0x5f, 0xa7, 0x7f, 0xe1, 0xcf, 0x6e, 0x88, 0x17,
+	0x70, 0xf0, 0x06, 0xe3, 0x7f, 0x18, 0x17, 0x90, 0x7f, 0xa2, 0xae, 0xfe, 0xdd, 0xfb, 0xfa, 0xe5,
+	0x97, 0x45, 0x69, 0x63, 0xd5, 0xae, 0xe6, 0xda, 0xd5, 0xc5, 0x76, 0xbb, 0xad, 0xfc, 0xd3, 0xf3,
+	0xf3, 0x27, 0x85, 0x76, 0x75, 0xed, 0x36, 0x8f, 0x4b, 0xdf, 0xe8, 0xa2, 0x74, 0xc5, 0xce, 0x5e,
+	0xfc, 0xf1, 0x9a, 0x56, 0x39, 0x3d, 0xa7, 0xe7, 0x3f, 0x03, 0x00, 0x00, 0xff, 0xff, 0x8f, 0xc7,
+	0x04, 0x7e, 0x65, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -170,11 +268,11 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type PreviewServiceClient interface {
-	Create(ctx context.Context, in *Preview, opts ...grpc.CallOption) (*Preview, error)
+	Create(ctx context.Context, in *MediaPreview, opts ...grpc.CallOption) (*MediaPreview, error)
 	// rpc tryCreate (CloudStore) returns (CloudStore) {}
 	// rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
-	Get(ctx context.Context, in *Preview, opts ...grpc.CallOption) (*Preview, error)
-	Update(ctx context.Context, in *Preview, opts ...grpc.CallOption) (*Preview, error)
+	Get(ctx context.Context, in *MediaPreview, opts ...grpc.CallOption) (*MediaPreview, error)
+	Update(ctx context.Context, in *MediaPreview, opts ...grpc.CallOption) (*MediaPreview, error)
 }
 
 type previewServiceClient struct {
@@ -185,8 +283,8 @@ func NewPreviewServiceClient(cc grpc.ClientConnInterface) PreviewServiceClient {
 	return &previewServiceClient{cc}
 }
 
-func (c *previewServiceClient) Create(ctx context.Context, in *Preview, opts ...grpc.CallOption) (*Preview, error) {
-	out := new(Preview)
+func (c *previewServiceClient) Create(ctx context.Context, in *MediaPreview, opts ...grpc.CallOption) (*MediaPreview, error) {
+	out := new(MediaPreview)
 	err := c.cc.Invoke(ctx, "/services.PreviewService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -194,8 +292,8 @@ func (c *previewServiceClient) Create(ctx context.Context, in *Preview, opts ...
 	return out, nil
 }
 
-func (c *previewServiceClient) Get(ctx context.Context, in *Preview, opts ...grpc.CallOption) (*Preview, error) {
-	out := new(Preview)
+func (c *previewServiceClient) Get(ctx context.Context, in *MediaPreview, opts ...grpc.CallOption) (*MediaPreview, error) {
+	out := new(MediaPreview)
 	err := c.cc.Invoke(ctx, "/services.PreviewService/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -203,8 +301,8 @@ func (c *previewServiceClient) Get(ctx context.Context, in *Preview, opts ...grp
 	return out, nil
 }
 
-func (c *previewServiceClient) Update(ctx context.Context, in *Preview, opts ...grpc.CallOption) (*Preview, error) {
-	out := new(Preview)
+func (c *previewServiceClient) Update(ctx context.Context, in *MediaPreview, opts ...grpc.CallOption) (*MediaPreview, error) {
+	out := new(MediaPreview)
 	err := c.cc.Invoke(ctx, "/services.PreviewService/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -214,24 +312,24 @@ func (c *previewServiceClient) Update(ctx context.Context, in *Preview, opts ...
 
 // PreviewServiceServer is the server API for PreviewService service.
 type PreviewServiceServer interface {
-	Create(context.Context, *Preview) (*Preview, error)
+	Create(context.Context, *MediaPreview) (*MediaPreview, error)
 	// rpc tryCreate (CloudStore) returns (CloudStore) {}
 	// rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
-	Get(context.Context, *Preview) (*Preview, error)
-	Update(context.Context, *Preview) (*Preview, error)
+	Get(context.Context, *MediaPreview) (*MediaPreview, error)
+	Update(context.Context, *MediaPreview) (*MediaPreview, error)
 }
 
 // UnimplementedPreviewServiceServer can be embedded to have forward compatible implementations.
 type UnimplementedPreviewServiceServer struct {
 }
 
-func (*UnimplementedPreviewServiceServer) Create(ctx context.Context, req *Preview) (*Preview, error) {
+func (*UnimplementedPreviewServiceServer) Create(ctx context.Context, req *MediaPreview) (*MediaPreview, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (*UnimplementedPreviewServiceServer) Get(ctx context.Context, req *Preview) (*Preview, error) {
+func (*UnimplementedPreviewServiceServer) Get(ctx context.Context, req *MediaPreview) (*MediaPreview, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (*UnimplementedPreviewServiceServer) Update(ctx context.Context, req *Preview) (*Preview, error) {
+func (*UnimplementedPreviewServiceServer) Update(ctx context.Context, req *MediaPreview) (*MediaPreview, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
 
@@ -240,7 +338,7 @@ func RegisterPreviewServiceServer(s *grpc.Server, srv PreviewServiceServer) {
 }
 
 func _PreviewService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Preview)
+	in := new(MediaPreview)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -252,13 +350,13 @@ func _PreviewService_Create_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: "/services.PreviewService/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreviewServiceServer).Create(ctx, req.(*Preview))
+		return srv.(PreviewServiceServer).Create(ctx, req.(*MediaPreview))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _PreviewService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Preview)
+	in := new(MediaPreview)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -270,13 +368,13 @@ func _PreviewService_Get_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: "/services.PreviewService/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreviewServiceServer).Get(ctx, req.(*Preview))
+		return srv.(PreviewServiceServer).Get(ctx, req.(*MediaPreview))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _PreviewService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Preview)
+	in := new(MediaPreview)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -288,7 +386,7 @@ func _PreviewService_Update_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: "/services.PreviewService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreviewServiceServer).Update(ctx, req.(*Preview))
+		return srv.(PreviewServiceServer).Update(ctx, req.(*MediaPreview))
 	}
 	return interceptor(ctx, in, info, handler)
 }

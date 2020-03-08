@@ -4,15 +4,15 @@
 var grpc = require('grpc');
 var store_preview_pb = require('../store/preview_pb.js');
 
-function serialize_services_Preview(arg) {
-  if (!(arg instanceof store_preview_pb.Preview)) {
-    throw new Error('Expected argument of type services.Preview');
+function serialize_services_MediaPreview(arg) {
+  if (!(arg instanceof store_preview_pb.MediaPreview)) {
+    throw new Error('Expected argument of type services.MediaPreview');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_Preview(buffer_arg) {
-  return store_preview_pb.Preview.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_MediaPreview(buffer_arg) {
+  return store_preview_pb.MediaPreview.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
@@ -22,12 +22,12 @@ var PreviewServiceService = exports.PreviewServiceService = {
     path: '/services.PreviewService/Create',
     requestStream: false,
     responseStream: false,
-    requestType: store_preview_pb.Preview,
-    responseType: store_preview_pb.Preview,
-    requestSerialize: serialize_services_Preview,
-    requestDeserialize: deserialize_services_Preview,
-    responseSerialize: serialize_services_Preview,
-    responseDeserialize: deserialize_services_Preview,
+    requestType: store_preview_pb.MediaPreview,
+    responseType: store_preview_pb.MediaPreview,
+    requestSerialize: serialize_services_MediaPreview,
+    requestDeserialize: deserialize_services_MediaPreview,
+    responseSerialize: serialize_services_MediaPreview,
+    responseDeserialize: deserialize_services_MediaPreview,
   },
   // rpc tryCreate (CloudStore) returns (CloudStore) {}
   // rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
@@ -35,23 +35,23 @@ var PreviewServiceService = exports.PreviewServiceService = {
     path: '/services.PreviewService/Get',
     requestStream: false,
     responseStream: false,
-    requestType: store_preview_pb.Preview,
-    responseType: store_preview_pb.Preview,
-    requestSerialize: serialize_services_Preview,
-    requestDeserialize: deserialize_services_Preview,
-    responseSerialize: serialize_services_Preview,
-    responseDeserialize: deserialize_services_Preview,
+    requestType: store_preview_pb.MediaPreview,
+    responseType: store_preview_pb.MediaPreview,
+    requestSerialize: serialize_services_MediaPreview,
+    requestDeserialize: deserialize_services_MediaPreview,
+    responseSerialize: serialize_services_MediaPreview,
+    responseDeserialize: deserialize_services_MediaPreview,
   },
   update: {
     path: '/services.PreviewService/Update',
     requestStream: false,
     responseStream: false,
-    requestType: store_preview_pb.Preview,
-    responseType: store_preview_pb.Preview,
-    requestSerialize: serialize_services_Preview,
-    requestDeserialize: deserialize_services_Preview,
-    responseSerialize: serialize_services_Preview,
-    responseDeserialize: deserialize_services_Preview,
+    requestType: store_preview_pb.MediaPreview,
+    responseType: store_preview_pb.MediaPreview,
+    requestSerialize: serialize_services_MediaPreview,
+    requestDeserialize: deserialize_services_MediaPreview,
+    responseSerialize: serialize_services_MediaPreview,
+    responseDeserialize: deserialize_services_MediaPreview,
   },
 };
 
