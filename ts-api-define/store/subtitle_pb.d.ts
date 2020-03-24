@@ -4,6 +4,9 @@
 import * as jspb from "google-protobuf";
 
 export class Subtitle extends jspb.Message {
+  getIdentity(): string;
+  setIdentity(value: string): void;
+
   getHash(): string;
   setHash(value: string): void;
 
@@ -43,6 +46,7 @@ export class Subtitle extends jspb.Message {
 
 export namespace Subtitle {
   export type AsObject = {
+    identity: string,
     hash: string,
     type: number,
     index: number,
@@ -56,6 +60,9 @@ export namespace Subtitle {
 }
 
 export class SubtitleListResponse extends jspb.Message {
+  getHash(): string;
+  setHash(value: string): void;
+
   clearDataList(): void;
   getDataList(): Array<Subtitle>;
   setDataList(value: Array<Subtitle>): void;
@@ -73,6 +80,7 @@ export class SubtitleListResponse extends jspb.Message {
 
 export namespace SubtitleListResponse {
   export type AsObject = {
+    hash: string,
     dataList: Array<Subtitle.AsObject>,
   }
 }

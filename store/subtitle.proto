@@ -17,17 +17,19 @@ service SubtitleService {
 }
 
 message Subtitle {
-    string  hash = 1;
-    int32 type = 2;
-    int32 index = 3;
-    string title = 4;
-    string language = 5;
-    string handler_name = 6;
-    string codec_name = 7;
-    int64 create_time = 8;
-    int64 update_time = 9;
+    string identity = 1;
+    string  hash = 2;
+    int32 type = 3;
+    int32 index = 4;
+    string title = 5;
+    string language = 6;
+    string handler_name = 7;
+    string codec_name = 8;
+    int64 create_time = 9;
+    int64 update_time = 10;
 }
 
 message SubtitleListResponse {
+    string  hash = 1;
     repeated Subtitle data = 2;
 }

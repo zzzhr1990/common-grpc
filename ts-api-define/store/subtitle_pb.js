@@ -88,15 +88,16 @@ proto.services.Subtitle.prototype.toObject = function(opt_includeInstance) {
  */
 proto.services.Subtitle.toObject = function(includeInstance, msg) {
   var f, obj = {
-    hash: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    type: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    index: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    title: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    language: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    handlerName: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    codecName: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    createTime: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    updateTime: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    identity: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    hash: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    type: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    index: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    title: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    language: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    handlerName: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    codecName: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    createTime: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    updateTime: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -135,37 +136,41 @@ proto.services.Subtitle.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setHash(value);
+      msg.setIdentity(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setType(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setHash(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setIndex(value);
+      msg.setType(value);
       break;
     case 4:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTitle(value);
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setIndex(value);
       break;
     case 5:
       var value = /** @type {string} */ (reader.readString());
-      msg.setLanguage(value);
+      msg.setTitle(value);
       break;
     case 6:
       var value = /** @type {string} */ (reader.readString());
-      msg.setHandlerName(value);
+      msg.setLanguage(value);
       break;
     case 7:
       var value = /** @type {string} */ (reader.readString());
-      msg.setCodecName(value);
+      msg.setHandlerName(value);
       break;
     case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCodecName(value);
+      break;
+    case 9:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setCreateTime(value);
       break;
-    case 9:
+    case 10:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setUpdateTime(value);
       break;
@@ -198,66 +203,73 @@ proto.services.Subtitle.prototype.serializeBinary = function() {
  */
 proto.services.Subtitle.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getHash();
+  f = message.getIdentity();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getType();
-  if (f !== 0) {
-    writer.writeInt32(
+  f = message.getHash();
+  if (f.length > 0) {
+    writer.writeString(
       2,
       f
     );
   }
-  f = message.getIndex();
+  f = message.getType();
   if (f !== 0) {
     writer.writeInt32(
       3,
       f
     );
   }
-  f = message.getTitle();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getIndex();
+  if (f !== 0) {
+    writer.writeInt32(
       4,
       f
     );
   }
-  f = message.getLanguage();
+  f = message.getTitle();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = message.getHandlerName();
+  f = message.getLanguage();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = message.getCodecName();
+  f = message.getHandlerName();
   if (f.length > 0) {
     writer.writeString(
       7,
       f
     );
   }
+  f = message.getCodecName();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
+      f
+    );
+  }
   f = message.getCreateTime();
   if (f !== 0) {
     writer.writeInt64(
-      8,
+      9,
       f
     );
   }
   f = message.getUpdateTime();
   if (f !== 0) {
     writer.writeInt64(
-      9,
+      10,
       f
     );
   }
@@ -265,10 +277,10 @@ proto.services.Subtitle.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string hash = 1;
+ * optional string identity = 1;
  * @return {string}
  */
-proto.services.Subtitle.prototype.getHash = function() {
+proto.services.Subtitle.prototype.getIdentity = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -277,34 +289,34 @@ proto.services.Subtitle.prototype.getHash = function() {
  * @param {string} value
  * @return {!proto.services.Subtitle} returns this
  */
-proto.services.Subtitle.prototype.setHash = function(value) {
+proto.services.Subtitle.prototype.setIdentity = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional int32 type = 2;
+ * optional string hash = 2;
+ * @return {string}
+ */
+proto.services.Subtitle.prototype.getHash = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.Subtitle} returns this
+ */
+proto.services.Subtitle.prototype.setHash = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional int32 type = 3;
  * @return {number}
  */
 proto.services.Subtitle.prototype.getType = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.services.Subtitle} returns this
- */
-proto.services.Subtitle.prototype.setType = function(value) {
-  return jspb.Message.setProto3IntField(this, 2, value);
-};
-
-
-/**
- * optional int32 index = 3;
- * @return {number}
- */
-proto.services.Subtitle.prototype.getIndex = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
@@ -313,34 +325,34 @@ proto.services.Subtitle.prototype.getIndex = function() {
  * @param {number} value
  * @return {!proto.services.Subtitle} returns this
  */
-proto.services.Subtitle.prototype.setIndex = function(value) {
+proto.services.Subtitle.prototype.setType = function(value) {
   return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
 /**
- * optional string title = 4;
+ * optional int32 index = 4;
+ * @return {number}
+ */
+proto.services.Subtitle.prototype.getIndex = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.Subtitle} returns this
+ */
+proto.services.Subtitle.prototype.setIndex = function(value) {
+  return jspb.Message.setProto3IntField(this, 4, value);
+};
+
+
+/**
+ * optional string title = 5;
  * @return {string}
  */
 proto.services.Subtitle.prototype.getTitle = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.services.Subtitle} returns this
- */
-proto.services.Subtitle.prototype.setTitle = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
-};
-
-
-/**
- * optional string language = 5;
- * @return {string}
- */
-proto.services.Subtitle.prototype.getLanguage = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
@@ -349,16 +361,16 @@ proto.services.Subtitle.prototype.getLanguage = function() {
  * @param {string} value
  * @return {!proto.services.Subtitle} returns this
  */
-proto.services.Subtitle.prototype.setLanguage = function(value) {
+proto.services.Subtitle.prototype.setTitle = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
 /**
- * optional string handler_name = 6;
+ * optional string language = 6;
  * @return {string}
  */
-proto.services.Subtitle.prototype.getHandlerName = function() {
+proto.services.Subtitle.prototype.getLanguage = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
@@ -367,16 +379,16 @@ proto.services.Subtitle.prototype.getHandlerName = function() {
  * @param {string} value
  * @return {!proto.services.Subtitle} returns this
  */
-proto.services.Subtitle.prototype.setHandlerName = function(value) {
+proto.services.Subtitle.prototype.setLanguage = function(value) {
   return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
 /**
- * optional string codec_name = 7;
+ * optional string handler_name = 7;
  * @return {string}
  */
-proto.services.Subtitle.prototype.getCodecName = function() {
+proto.services.Subtitle.prototype.getHandlerName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
@@ -385,34 +397,34 @@ proto.services.Subtitle.prototype.getCodecName = function() {
  * @param {string} value
  * @return {!proto.services.Subtitle} returns this
  */
-proto.services.Subtitle.prototype.setCodecName = function(value) {
+proto.services.Subtitle.prototype.setHandlerName = function(value) {
   return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
 /**
- * optional int64 create_time = 8;
+ * optional string codec_name = 8;
+ * @return {string}
+ */
+proto.services.Subtitle.prototype.getCodecName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.Subtitle} returns this
+ */
+proto.services.Subtitle.prototype.setCodecName = function(value) {
+  return jspb.Message.setProto3StringField(this, 8, value);
+};
+
+
+/**
+ * optional int64 create_time = 9;
  * @return {number}
  */
 proto.services.Subtitle.prototype.getCreateTime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.services.Subtitle} returns this
- */
-proto.services.Subtitle.prototype.setCreateTime = function(value) {
-  return jspb.Message.setProto3IntField(this, 8, value);
-};
-
-
-/**
- * optional int64 update_time = 9;
- * @return {number}
- */
-proto.services.Subtitle.prototype.getUpdateTime = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
@@ -421,8 +433,26 @@ proto.services.Subtitle.prototype.getUpdateTime = function() {
  * @param {number} value
  * @return {!proto.services.Subtitle} returns this
  */
-proto.services.Subtitle.prototype.setUpdateTime = function(value) {
+proto.services.Subtitle.prototype.setCreateTime = function(value) {
   return jspb.Message.setProto3IntField(this, 9, value);
+};
+
+
+/**
+ * optional int64 update_time = 10;
+ * @return {number}
+ */
+proto.services.Subtitle.prototype.getUpdateTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.Subtitle} returns this
+ */
+proto.services.Subtitle.prototype.setUpdateTime = function(value) {
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -465,6 +495,7 @@ proto.services.SubtitleListResponse.prototype.toObject = function(opt_includeIns
  */
 proto.services.SubtitleListResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
+    hash: jspb.Message.getFieldWithDefault(msg, 1, ""),
     dataList: jspb.Message.toObjectList(msg.getDataList(),
     proto.services.Subtitle.toObject, includeInstance)
   };
@@ -503,6 +534,10 @@ proto.services.SubtitleListResponse.deserializeBinaryFromReader = function(msg, 
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setHash(value);
+      break;
     case 2:
       var value = new proto.services.Subtitle;
       reader.readMessage(value,proto.services.Subtitle.deserializeBinaryFromReader);
@@ -537,6 +572,13 @@ proto.services.SubtitleListResponse.prototype.serializeBinary = function() {
  */
 proto.services.SubtitleListResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getHash();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
   f = message.getDataList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
@@ -545,6 +587,24 @@ proto.services.SubtitleListResponse.serializeBinaryToWriter = function(message, 
       proto.services.Subtitle.serializeBinaryToWriter
     );
   }
+};
+
+
+/**
+ * optional string hash = 1;
+ * @return {string}
+ */
+proto.services.SubtitleListResponse.prototype.getHash = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.SubtitleListResponse} returns this
+ */
+proto.services.SubtitleListResponse.prototype.setHash = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
