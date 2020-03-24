@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package services;
+
+// import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/store/subtitle";
+// import "common/common_entity.proto";
+service SubtitleService {
+    rpc Create (Subtitle) returns (Subtitle) {}
+    // rpc tryCreate (CloudStore) returns (CloudStore) {}
+    // rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
+    rpc Get (Subtitle) returns (Subtitle) {}
+    rpc GetList (Subtitle) returns (SubtitleListResponse) {}
+    rpc Update (Subtitle) returns (Subtitle) {}
+    // rpc BatchGet (Preview) returns (Preview) {}
+     //rpc GetPreviewAddress (Preview) returns (Preview) {}
+}
+
+message Subtitle {
+    string  hash = 1;
+    int32 type = 2;
+    int32 index = 3;
+    string title = 4;
+    string language = 5;
+    string handler_name = 6;
+    string codec_name = 7;
+    int64 create_time = 8;
+    int64 update_time = 9;
+}
+
+message SubtitleListResponse {
+    repeated Subtitle data = 2;
+}
