@@ -4,7 +4,7 @@ package services;
 
 // import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/store/cloudstore";
-// import "common/common_entity.proto";
+import "common/common_entity.proto";
 
 
 service CloudStoreService {
@@ -15,6 +15,7 @@ service CloudStoreService {
     rpc Update (CloudStore) returns (CloudStore) {}
     rpc BatchGet (CloudStoreList) returns (CloudStoreList) {}
     rpc GetDownloadAddress (CloudStore) returns (CloudStore) {}
+    rpc BatchDownloadAddress(StringListEntity)returns (CloudStoreList) {}
     rpc CreateWcsUploadToken (UploadTokenRequest) returns (WcsUploadToken) {}
     rpc OnFileUpload (CloudStore) returns (CloudStore) {}
     // rpc batchGetByHash (StringListEntity) returns (CloudStoreList) {}

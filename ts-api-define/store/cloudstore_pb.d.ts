@@ -2,6 +2,7 @@
 // file: store/cloudstore.proto
 
 import * as jspb from "google-protobuf";
+import * as common_common_entity_pb from "../common/common_entity_pb";
 
 export class WcsUploadToken extends jspb.Message {
   getExists(): boolean;

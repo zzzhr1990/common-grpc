@@ -3,6 +3,7 @@
 'use strict';
 var grpc = require('grpc');
 var store_cloudstore_pb = require('../store/cloudstore_pb.js');
+var common_common_entity_pb = require('../common/common_entity_pb.js');
 
 function serialize_services_CloudStore(arg) {
   if (!(arg instanceof store_cloudstore_pb.CloudStore)) {
@@ -24,6 +25,17 @@ function serialize_services_CloudStoreList(arg) {
 
 function deserialize_services_CloudStoreList(buffer_arg) {
   return store_cloudstore_pb.CloudStoreList.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_StringListEntity(arg) {
+  if (!(arg instanceof common_common_entity_pb.StringListEntity)) {
+    throw new Error('Expected argument of type services.StringListEntity');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_StringListEntity(buffer_arg) {
+  return common_common_entity_pb.StringListEntity.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_UploadTokenRequest(arg) {
@@ -106,6 +118,17 @@ var CloudStoreServiceService = exports.CloudStoreServiceService = {
     requestDeserialize: deserialize_services_CloudStore,
     responseSerialize: serialize_services_CloudStore,
     responseDeserialize: deserialize_services_CloudStore,
+  },
+  batchDownloadAddress: {
+    path: '/services.CloudStoreService/BatchDownloadAddress',
+    requestStream: false,
+    responseStream: false,
+    requestType: common_common_entity_pb.StringListEntity,
+    responseType: store_cloudstore_pb.CloudStoreList,
+    requestSerialize: serialize_services_StringListEntity,
+    requestDeserialize: deserialize_services_StringListEntity,
+    responseSerialize: serialize_services_CloudStoreList,
+    responseDeserialize: deserialize_services_CloudStoreList,
   },
   createWcsUploadToken: {
     path: '/services.CloudStoreService/CreateWcsUploadToken',
