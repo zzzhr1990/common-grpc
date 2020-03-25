@@ -34,6 +34,9 @@ export class Subtitle extends jspb.Message {
   getUpdateTime(): number;
   setUpdateTime(value: number): void;
 
+  getKey(): string;
+  setKey(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Subtitle.AsObject;
   static toObject(includeInstance: boolean, msg: Subtitle): Subtitle.AsObject;
@@ -56,6 +59,7 @@ export namespace Subtitle {
     codecName: string,
     createTime: number,
     updateTime: number,
+    key: string,
   }
 }
 

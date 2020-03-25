@@ -97,7 +97,8 @@ proto.services.Subtitle.toObject = function(includeInstance, msg) {
     handlerName: jspb.Message.getFieldWithDefault(msg, 7, ""),
     codecName: jspb.Message.getFieldWithDefault(msg, 8, ""),
     createTime: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    updateTime: jspb.Message.getFieldWithDefault(msg, 10, 0)
+    updateTime: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    key: jspb.Message.getFieldWithDefault(msg, 11, "")
   };
 
   if (includeInstance) {
@@ -173,6 +174,10 @@ proto.services.Subtitle.deserializeBinaryFromReader = function(msg, reader) {
     case 10:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setUpdateTime(value);
+      break;
+    case 11:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setKey(value);
       break;
     default:
       reader.skipField();
@@ -270,6 +275,13 @@ proto.services.Subtitle.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       10,
+      f
+    );
+  }
+  f = message.getKey();
+  if (f.length > 0) {
+    writer.writeString(
+      11,
       f
     );
   }
@@ -453,6 +465,24 @@ proto.services.Subtitle.prototype.getUpdateTime = function() {
  */
 proto.services.Subtitle.prototype.setUpdateTime = function(value) {
   return jspb.Message.setProto3IntField(this, 10, value);
+};
+
+
+/**
+ * optional string key = 11;
+ * @return {string}
+ */
+proto.services.Subtitle.prototype.getKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.Subtitle} returns this
+ */
+proto.services.Subtitle.prototype.setKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 11, value);
 };
 
 

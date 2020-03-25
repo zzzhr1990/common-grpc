@@ -27,6 +27,7 @@ message Subtitle {
     string codec_name = 8;
     int64 create_time = 9;
     int64 update_time = 10;
+    string key = 11;
 }
 
 message SubtitleListResponse {
