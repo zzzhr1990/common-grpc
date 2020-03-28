@@ -952,7 +952,11 @@ proto.services.OauthInfo.toObject = function(includeInstance, msg) {
     refreshToken: jspb.Message.getFieldWithDefault(msg, 2, ""),
     expiresIn: jspb.Message.getFieldWithDefault(msg, 3, 0),
     userIdentity: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    scope: jspb.Message.getFieldWithDefault(msg, 5, "")
+    scope: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    appIdentity: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    appName: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    loginTime: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    loginAddress: jspb.Message.getFieldWithDefault(msg, 9, "")
   };
 
   if (includeInstance) {
@@ -1008,6 +1012,22 @@ proto.services.OauthInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setScope(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAppIdentity(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAppName(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setLoginTime(value);
+      break;
+    case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLoginAddress(value);
       break;
     default:
       reader.skipField();
@@ -1070,6 +1090,34 @@ proto.services.OauthInfo.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       5,
+      f
+    );
+  }
+  f = message.getAppIdentity();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
+      f
+    );
+  }
+  f = message.getAppName();
+  if (f.length > 0) {
+    writer.writeString(
+      7,
+      f
+    );
+  }
+  f = message.getLoginTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      8,
+      f
+    );
+  }
+  f = message.getLoginAddress();
+  if (f.length > 0) {
+    writer.writeString(
+      9,
       f
     );
   }
@@ -1163,6 +1211,78 @@ proto.services.OauthInfo.prototype.getScope = function() {
  */
 proto.services.OauthInfo.prototype.setScope = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string app_identity = 6;
+ * @return {string}
+ */
+proto.services.OauthInfo.prototype.getAppIdentity = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.OauthInfo} returns this
+ */
+proto.services.OauthInfo.prototype.setAppIdentity = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
+};
+
+
+/**
+ * optional string app_name = 7;
+ * @return {string}
+ */
+proto.services.OauthInfo.prototype.getAppName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.OauthInfo} returns this
+ */
+proto.services.OauthInfo.prototype.setAppName = function(value) {
+  return jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional int64 login_time = 8;
+ * @return {number}
+ */
+proto.services.OauthInfo.prototype.getLoginTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.OauthInfo} returns this
+ */
+proto.services.OauthInfo.prototype.setLoginTime = function(value) {
+  return jspb.Message.setProto3IntField(this, 8, value);
+};
+
+
+/**
+ * optional string login_address = 9;
+ * @return {string}
+ */
+proto.services.OauthInfo.prototype.getLoginAddress = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.OauthInfo} returns this
+ */
+proto.services.OauthInfo.prototype.setLoginAddress = function(value) {
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 

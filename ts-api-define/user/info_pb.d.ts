@@ -107,6 +107,18 @@ export class OauthInfo extends jspb.Message {
   getScope(): string;
   setScope(value: string): void;
 
+  getAppIdentity(): string;
+  setAppIdentity(value: string): void;
+
+  getAppName(): string;
+  setAppName(value: string): void;
+
+  getLoginTime(): number;
+  setLoginTime(value: number): void;
+
+  getLoginAddress(): string;
+  setLoginAddress(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OauthInfo.AsObject;
   static toObject(includeInstance: boolean, msg: OauthInfo): OauthInfo.AsObject;
@@ -124,6 +136,10 @@ export namespace OauthInfo {
     expiresIn: number,
     userIdentity: number,
     scope: string,
+    appIdentity: string,
+    appName: string,
+    loginTime: number,
+    loginAddress: string,
   }
 }
 
