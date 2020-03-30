@@ -9,6 +9,7 @@ import "common/common_entity.proto";
 
 service FileService {
     rpc Create (UserFile) returns (UserFile) {}
+    rpc FlushStore (UserFile) returns (UserFile) {}
     rpc UpdateCount (UserFile) returns (UserFile) {}
     rpc CreateInternal (UserFile) returns (UserFile) {}
     rpc Get (UserFile) returns (UserFile) {}
