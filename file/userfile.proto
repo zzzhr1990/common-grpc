@@ -17,6 +17,7 @@ service FileService {
     rpc Rename (UserFile) returns (UserFile) {}
     rpc ChangePathInternal (UserFile) returns (UserFile) {}
     rpc ReleaseLock (UserFile) returns (BoolEntity) {}
+    rpc Lock (UserFile) returns (BoolEntity) {}
     rpc Trash (BathFileRequest) returns (Int64Entity) {}
     rpc Copy (BathFileRequest) returns (Int64Entity) {}
     rpc Move (BathFileRequest) returns (Int64Entity) {}
@@ -58,6 +59,7 @@ message UserFile {
     string unique_identity = 22;
     bool share = 23;
     string download_address = 24;
+    int64 lock_time = 25;
 }
 
 message TrashInfo {

@@ -17,6 +17,7 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   rename: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
   changePathInternal: grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
   releaseLock: grpc.MethodDefinition<file_userfile_pb.UserFile, common_common_entity_pb.BoolEntity>;
+  lock: grpc.MethodDefinition<file_userfile_pb.UserFile, common_common_entity_pb.BoolEntity>;
   trash: grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity>;
   copy: grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity>;
   move: grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity>;
@@ -59,6 +60,9 @@ export class FileServiceClient extends grpc.Client {
   releaseLock(argument: file_userfile_pb.UserFile, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
   releaseLock(argument: file_userfile_pb.UserFile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
   releaseLock(argument: file_userfile_pb.UserFile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
+  lock(argument: file_userfile_pb.UserFile, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
+  lock(argument: file_userfile_pb.UserFile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
+  lock(argument: file_userfile_pb.UserFile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.BoolEntity>): grpc.ClientUnaryCall;
   trash(argument: file_userfile_pb.BathFileRequest, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
   trash(argument: file_userfile_pb.BathFileRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
   trash(argument: file_userfile_pb.BathFileRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;

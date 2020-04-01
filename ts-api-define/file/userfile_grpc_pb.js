@@ -260,6 +260,17 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_BoolEntity,
     responseDeserialize: deserialize_services_BoolEntity,
   },
+  lock: {
+    path: '/services.FileService/Lock',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.UserFile,
+    responseType: common_common_entity_pb.BoolEntity,
+    requestSerialize: serialize_services_UserFile,
+    requestDeserialize: deserialize_services_UserFile,
+    responseSerialize: serialize_services_BoolEntity,
+    responseDeserialize: deserialize_services_BoolEntity,
+  },
   trash: {
     path: '/services.FileService/Trash',
     requestStream: false,
