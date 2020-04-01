@@ -59,7 +59,7 @@ message UserFile {
     string unique_identity = 22;
     bool share = 23;
     string download_address = 24;
-    int64 lock_time = 25;
+    int64 unlock_time = 25;
 }
 
 message TrashInfo {
