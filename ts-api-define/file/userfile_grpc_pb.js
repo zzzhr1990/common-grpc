@@ -263,6 +263,17 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_Int64Entity,
     responseDeserialize: deserialize_services_Int64Entity,
   },
+  delete: {
+    path: '/services.FileService/Delete',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.BathFileRequest,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_BathFileRequest,
+    requestDeserialize: deserialize_services_BathFileRequest,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
+  },
   copy: {
     path: '/services.FileService/Copy',
     requestStream: false,
@@ -350,6 +361,17 @@ var FileServiceService = exports.FileServiceService = {
     requestDeserialize: deserialize_services_TrashInfo,
     responseSerialize: serialize_services_TrashInfo,
     responseDeserialize: deserialize_services_TrashInfo,
+  },
+  clearTrash: {
+    path: '/services.FileService/ClearTrash',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.BathFileRequest,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_BathFileRequest,
+    requestDeserialize: deserialize_services_BathFileRequest,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
   },
 };
 
