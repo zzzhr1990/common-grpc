@@ -8,16 +8,18 @@ import "common/common_entity.proto";
 
 
 service FileService {
+    // Create create a file
     rpc Create (UserFile) returns (UserFile) {}
     rpc FlushStore (UserFile) returns (UserFile) {}
     rpc UpdateCount (UserFile) returns (UserFile) {}
-    rpc CreateInternal (UserFile) returns (UserFile) {}
+    // rpc CreateInternal (UserFile) returns (UserFile) {}
     rpc Get (UserFile) returns (UserFile) {}
+
     rpc UploadToken (UserFile) returns (UploadTokenResponse) {}
     rpc Rename (UserFile) returns (UserFile) {}
-    rpc ChangePathInternal (UserFile) returns (UserFile) {}
-    rpc ReleaseLock (UserFile) returns (BoolEntity) {}
+    // rpc ChangePathInternal (UserFile) returns (UserFile) {}
     rpc Lock (UserFile) returns (BoolEntity) {}
+    rpc ReleaseLock (UserFile) returns (BoolEntity) {}
     rpc Trash (BathFileRequest) returns (Int64Entity) {}
     rpc Copy (BathFileRequest) returns (Int64Entity) {}
     rpc Move (BathFileRequest) returns (Int64Entity) {}
