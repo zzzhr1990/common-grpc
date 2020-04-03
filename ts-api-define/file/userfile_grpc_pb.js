@@ -161,6 +161,7 @@ function deserialize_services_UserFilePageResponse(buffer_arg) {
 
 
 var FileServiceService = exports.FileServiceService = {
+  // Create create a file
   create: {
     path: '/services.FileService/Create',
     requestStream: false,
@@ -194,17 +195,7 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_UserFile,
     responseDeserialize: deserialize_services_UserFile,
   },
-  createInternal: {
-    path: '/services.FileService/CreateInternal',
-    requestStream: false,
-    responseStream: false,
-    requestType: file_userfile_pb.UserFile,
-    responseType: file_userfile_pb.UserFile,
-    requestSerialize: serialize_services_UserFile,
-    requestDeserialize: deserialize_services_UserFile,
-    responseSerialize: serialize_services_UserFile,
-    responseDeserialize: deserialize_services_UserFile,
-  },
+  // rpc CreateInternal (UserFile) returns (UserFile) {}
   get: {
     path: '/services.FileService/Get',
     requestStream: false,
@@ -238,19 +229,9 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_UserFile,
     responseDeserialize: deserialize_services_UserFile,
   },
-  changePathInternal: {
-    path: '/services.FileService/ChangePathInternal',
-    requestStream: false,
-    responseStream: false,
-    requestType: file_userfile_pb.UserFile,
-    responseType: file_userfile_pb.UserFile,
-    requestSerialize: serialize_services_UserFile,
-    requestDeserialize: deserialize_services_UserFile,
-    responseSerialize: serialize_services_UserFile,
-    responseDeserialize: deserialize_services_UserFile,
-  },
-  releaseLock: {
-    path: '/services.FileService/ReleaseLock',
+  // rpc ChangePathInternal (UserFile) returns (UserFile) {}
+  lock: {
+    path: '/services.FileService/Lock',
     requestStream: false,
     responseStream: false,
     requestType: file_userfile_pb.UserFile,
@@ -260,8 +241,8 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_BoolEntity,
     responseDeserialize: deserialize_services_BoolEntity,
   },
-  lock: {
-    path: '/services.FileService/Lock',
+  releaseLock: {
+    path: '/services.FileService/ReleaseLock',
     requestStream: false,
     responseStream: false,
     requestType: file_userfile_pb.UserFile,

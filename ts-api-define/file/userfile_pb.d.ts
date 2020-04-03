@@ -77,8 +77,8 @@ export class UserFile extends jspb.Message {
   getDownloadAddress(): string;
   setDownloadAddress(value: string): void;
 
-  getLockTime(): number;
-  setLockTime(value: number): void;
+  getUnlockTime(): number;
+  setUnlockTime(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserFile.AsObject;
@@ -116,7 +116,7 @@ export namespace UserFile {
     uniqueIdentity: string,
     share: boolean,
     downloadAddress: string,
-    lockTime: number,
+    unlockTime: number,
   }
 }
 
