@@ -2472,7 +2472,8 @@ proto.services.BathFileRequest.toObject = function(includeInstance, msg) {
     identityList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
     pathList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
     userIdentity: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    dest: (f = msg.getDest()) && proto.services.UserFile.toObject(includeInstance, f)
+    dest: (f = msg.getDest()) && proto.services.UserFile.toObject(includeInstance, f),
+    op: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -2525,6 +2526,10 @@ proto.services.BathFileRequest.deserializeBinaryFromReader = function(msg, reade
       var value = new proto.services.UserFile;
       reader.readMessage(value,proto.services.UserFile.deserializeBinaryFromReader);
       msg.setDest(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setOp(value);
       break;
     default:
       reader.skipField();
@@ -2582,6 +2587,13 @@ proto.services.BathFileRequest.serializeBinaryToWriter = function(message, write
       4,
       f,
       proto.services.UserFile.serializeBinaryToWriter
+    );
+  }
+  f = message.getOp();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
+      f
     );
   }
 };
@@ -2713,6 +2725,24 @@ proto.services.BathFileRequest.prototype.clearDest = function() {
  */
 proto.services.BathFileRequest.prototype.hasDest = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional int32 op = 5;
+ * @return {number}
+ */
+proto.services.BathFileRequest.prototype.getOp = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.BathFileRequest} returns this
+ */
+proto.services.BathFileRequest.prototype.setOp = function(value) {
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 

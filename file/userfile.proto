@@ -106,6 +106,7 @@ message BathFileRequest {
     repeated string path = 2;
     int64 user_identity = 3;
     UserFile dest = 4;
+    int32 op = 5;
 }
 
 message MqRequest {
