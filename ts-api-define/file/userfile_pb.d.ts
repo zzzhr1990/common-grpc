@@ -188,78 +188,6 @@ export namespace TrashInfo {
   }
 }
 
-export class UserFilePageRequest extends jspb.Message {
-  getIdentity(): string;
-  setIdentity(value: string): void;
-
-  getUserIdentity(): number;
-  setUserIdentity(value: number): void;
-
-  getPath(): string;
-  setPath(value: string): void;
-
-  hasPageInfo(): boolean;
-  clearPageInfo(): void;
-  getPageInfo(): common_common_entity_pb.PageInfo | undefined;
-  setPageInfo(value?: common_common_entity_pb.PageInfo): void;
-
-  clearOrderByList(): void;
-  getOrderByList(): Array<common_common_entity_pb.OrderByRequest>;
-  setOrderByList(value: Array<common_common_entity_pb.OrderByRequest>): void;
-  addOrderBy(value?: common_common_entity_pb.OrderByRequest, index?: number): common_common_entity_pb.OrderByRequest;
-
-  hasFilter(): boolean;
-  clearFilter(): void;
-  getFilter(): FilterRequest | undefined;
-  setFilter(value?: FilterRequest): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserFilePageRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: UserFilePageRequest): UserFilePageRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UserFilePageRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserFilePageRequest;
-  static deserializeBinaryFromReader(message: UserFilePageRequest, reader: jspb.BinaryReader): UserFilePageRequest;
-}
-
-export namespace UserFilePageRequest {
-  export type AsObject = {
-    identity: string,
-    userIdentity: number,
-    path: string,
-    pageInfo?: common_common_entity_pb.PageInfo.AsObject,
-    orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
-    filter?: FilterRequest.AsObject,
-  }
-}
-
-export class CommonPageRequest extends jspb.Message {
-  getUserIdentity(): number;
-  setUserIdentity(value: number): void;
-
-  hasPageInfo(): boolean;
-  clearPageInfo(): void;
-  getPageInfo(): common_common_entity_pb.PageInfo | undefined;
-  setPageInfo(value?: common_common_entity_pb.PageInfo): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): CommonPageRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: CommonPageRequest): CommonPageRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: CommonPageRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): CommonPageRequest;
-  static deserializeBinaryFromReader(message: CommonPageRequest, reader: jspb.BinaryReader): CommonPageRequest;
-}
-
-export namespace CommonPageRequest {
-  export type AsObject = {
-    userIdentity: number,
-    pageInfo?: common_common_entity_pb.PageInfo.AsObject,
-  }
-}
-
 export class FilterRequest extends jspb.Message {
   clearIdentityList(): void;
   getIdentityList(): Array<string>;
@@ -391,6 +319,9 @@ export class UserFileListRequest extends jspb.Message {
   getFilter(): FilterRequest | undefined;
   setFilter(value?: FilterRequest): void;
 
+  getOp(): number;
+  setOp(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserFileListRequest.AsObject;
   static toObject(includeInstance: boolean, msg: UserFileListRequest): UserFileListRequest.AsObject;
@@ -409,6 +340,7 @@ export namespace UserFileListRequest {
     listInfo?: common_common_entity_pb.ListInfo.AsObject,
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
     filter?: FilterRequest.AsObject,
+    op: number,
   }
 }
 
@@ -466,40 +398,6 @@ export namespace UserFileListResponse {
   }
 }
 
-export class UserFilePageResponse extends jspb.Message {
-  hasParent(): boolean;
-  clearParent(): void;
-  getParent(): UserFile | undefined;
-  setParent(value?: UserFile): void;
-
-  clearDataList(): void;
-  getDataList(): Array<UserFile>;
-  setDataList(value: Array<UserFile>): void;
-  addData(value?: UserFile, index?: number): UserFile;
-
-  hasPageInfo(): boolean;
-  clearPageInfo(): void;
-  getPageInfo(): common_common_entity_pb.PageInfo | undefined;
-  setPageInfo(value?: common_common_entity_pb.PageInfo): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserFilePageResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: UserFilePageResponse): UserFilePageResponse.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UserFilePageResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserFilePageResponse;
-  static deserializeBinaryFromReader(message: UserFilePageResponse, reader: jspb.BinaryReader): UserFilePageResponse;
-}
-
-export namespace UserFilePageResponse {
-  export type AsObject = {
-    parent?: UserFile.AsObject,
-    dataList: Array<UserFile.AsObject>,
-    pageInfo?: common_common_entity_pb.PageInfo.AsObject,
-  }
-}
-
 export class TrashListResponse extends jspb.Message {
   clearDataList(): void;
   getDataList(): Array<TrashInfo>;
@@ -519,34 +417,6 @@ export class TrashListResponse extends jspb.Message {
 export namespace TrashListResponse {
   export type AsObject = {
     dataList: Array<TrashInfo.AsObject>,
-  }
-}
-
-export class TrashPageResponse extends jspb.Message {
-  clearDataList(): void;
-  getDataList(): Array<TrashInfo>;
-  setDataList(value: Array<TrashInfo>): void;
-  addData(value?: TrashInfo, index?: number): TrashInfo;
-
-  hasPageInfo(): boolean;
-  clearPageInfo(): void;
-  getPageInfo(): common_common_entity_pb.PageInfo | undefined;
-  setPageInfo(value?: common_common_entity_pb.PageInfo): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): TrashPageResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: TrashPageResponse): TrashPageResponse.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: TrashPageResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): TrashPageResponse;
-  static deserializeBinaryFromReader(message: TrashPageResponse, reader: jspb.BinaryReader): TrashPageResponse;
-}
-
-export namespace TrashPageResponse {
-  export type AsObject = {
-    dataList: Array<TrashInfo.AsObject>,
-    pageInfo?: common_common_entity_pb.PageInfo.AsObject,
   }
 }
 

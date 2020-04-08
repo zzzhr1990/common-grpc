@@ -24,10 +24,10 @@ service FileService {
     rpc Delete (BathFileRequest) returns (Int64Entity) {}
     rpc Copy (BathFileRequest) returns (Int64Entity) {}
     rpc Move (BathFileRequest) returns (Int64Entity) {}
-    rpc Page (UserFilePageRequest) returns (UserFilePageResponse) {}
+    // rpc Page (UserFilePageRequest) returns (UserFilePageResponse) {}
     rpc List (UserFileListRequest) returns (UserFileListResponse) {}
     rpc ListInternal (UserFileListRequest) returns (UserFileListResponse) {}
-    rpc PageTrash (CommonPageRequest) returns (TrashPageResponse) {}
+    // rpc PageTrash (CommonPageRequest) returns (TrashPageResponse) {}
     rpc ListTrash (CommonListRequest) returns (TrashListResponse) {}
     rpc GetTrash (TrashInfo) returns (TrashInfo) {}
     rpc ClearTrash (BathFileRequest) returns (Int64Entity) {}
@@ -83,6 +83,7 @@ message TrashInfo {
 }
 
 
+/*
 message UserFilePageRequest {
     string identity = 1;
     int64 user_identity = 2;
@@ -91,12 +92,14 @@ message UserFilePageRequest {
     repeated OrderByRequest order_by = 5;
     FilterRequest filter = 6;
 }
+*/
 
+/*
 message CommonPageRequest {
     int64 user_identity = 1;
     PageInfo page_info = 2;
 }
-
+*/
 message FilterRequest {
     repeated string identity = 1;
     repeated int32 type = 2;
@@ -124,6 +127,7 @@ message UserFileListRequest {
     ListInfo list_info = 4;
     repeated OrderByRequest order_by = 5;
     FilterRequest filter = 6;
+    int32 op = 7;
 }
 
 message CommonListRequest {
@@ -136,20 +140,24 @@ message UserFileListResponse {
     repeated UserFile data = 2;
 }
 
+/*
 message UserFilePageResponse {
     UserFile parent = 1;
     repeated UserFile data = 2;
     PageInfo page_info = 3;
 }
+*/
 
 message TrashListResponse {
     repeated TrashInfo data = 2;
 }
 
+/*
 message TrashPageResponse {
     repeated TrashInfo data = 2;
     PageInfo page_info = 3;
 }
+*/
 
 message UploadTokenResponse {
     string upload_token = 1;

@@ -38,17 +38,6 @@ function deserialize_services_CommonListRequest(buffer_arg) {
   return file_userfile_pb.CommonListRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_CommonPageRequest(arg) {
-  if (!(arg instanceof file_userfile_pb.CommonPageRequest)) {
-    throw new Error('Expected argument of type services.CommonPageRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_CommonPageRequest(buffer_arg) {
-  return file_userfile_pb.CommonPageRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_services_Int64Entity(arg) {
   if (!(arg instanceof common_common_entity_pb.Int64Entity)) {
     throw new Error('Expected argument of type services.Int64Entity');
@@ -80,17 +69,6 @@ function serialize_services_TrashListResponse(arg) {
 
 function deserialize_services_TrashListResponse(buffer_arg) {
   return file_userfile_pb.TrashListResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_TrashPageResponse(arg) {
-  if (!(arg instanceof file_userfile_pb.TrashPageResponse)) {
-    throw new Error('Expected argument of type services.TrashPageResponse');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_TrashPageResponse(buffer_arg) {
-  return file_userfile_pb.TrashPageResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_UploadTokenResponse(arg) {
@@ -135,28 +113,6 @@ function serialize_services_UserFileListResponse(arg) {
 
 function deserialize_services_UserFileListResponse(buffer_arg) {
   return file_userfile_pb.UserFileListResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_UserFilePageRequest(arg) {
-  if (!(arg instanceof file_userfile_pb.UserFilePageRequest)) {
-    throw new Error('Expected argument of type services.UserFilePageRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_UserFilePageRequest(buffer_arg) {
-  return file_userfile_pb.UserFilePageRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_UserFilePageResponse(arg) {
-  if (!(arg instanceof file_userfile_pb.UserFilePageResponse)) {
-    throw new Error('Expected argument of type services.UserFilePageResponse');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_UserFilePageResponse(buffer_arg) {
-  return file_userfile_pb.UserFilePageResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
@@ -296,17 +252,7 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_Int64Entity,
     responseDeserialize: deserialize_services_Int64Entity,
   },
-  page: {
-    path: '/services.FileService/Page',
-    requestStream: false,
-    responseStream: false,
-    requestType: file_userfile_pb.UserFilePageRequest,
-    responseType: file_userfile_pb.UserFilePageResponse,
-    requestSerialize: serialize_services_UserFilePageRequest,
-    requestDeserialize: deserialize_services_UserFilePageRequest,
-    responseSerialize: serialize_services_UserFilePageResponse,
-    responseDeserialize: deserialize_services_UserFilePageResponse,
-  },
+  // rpc Page (UserFilePageRequest) returns (UserFilePageResponse) {}
   list: {
     path: '/services.FileService/List',
     requestStream: false,
@@ -329,17 +275,7 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_UserFileListResponse,
     responseDeserialize: deserialize_services_UserFileListResponse,
   },
-  pageTrash: {
-    path: '/services.FileService/PageTrash',
-    requestStream: false,
-    responseStream: false,
-    requestType: file_userfile_pb.CommonPageRequest,
-    responseType: file_userfile_pb.TrashPageResponse,
-    requestSerialize: serialize_services_CommonPageRequest,
-    requestDeserialize: deserialize_services_CommonPageRequest,
-    responseSerialize: serialize_services_TrashPageResponse,
-    responseDeserialize: deserialize_services_TrashPageResponse,
-  },
+  // rpc PageTrash (CommonPageRequest) returns (TrashPageResponse) {}
   listTrash: {
     path: '/services.FileService/ListTrash',
     requestStream: false,
