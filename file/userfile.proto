@@ -24,6 +24,7 @@ service FileService {
     rpc Delete (BathFileRequest) returns (Int64Entity) {}
     rpc Copy (BathFileRequest) returns (Int64Entity) {}
     rpc Move (BathFileRequest) returns (Int64Entity) {}
+    rpc Recover (BathFileRequest) returns (Int64Entity) {}
     // rpc Page (UserFilePageRequest) returns (UserFilePageResponse) {}
     rpc List (UserFileListRequest) returns (UserFileListResponse) {}
     rpc ListInternal (UserFileListRequest) returns (UserFileListResponse) {}

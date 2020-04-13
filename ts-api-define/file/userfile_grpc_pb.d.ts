@@ -20,6 +20,7 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   delete: grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity>;
   copy: grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity>;
   move: grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity>;
+  recover: grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity>;
   list: grpc.MethodDefinition<file_userfile_pb.UserFileListRequest, file_userfile_pb.UserFileListResponse>;
   listInternal: grpc.MethodDefinition<file_userfile_pb.UserFileListRequest, file_userfile_pb.UserFileListResponse>;
   listTrash: grpc.MethodDefinition<file_userfile_pb.CommonListRequest, file_userfile_pb.TrashListResponse>;
@@ -67,6 +68,9 @@ export class FileServiceClient extends grpc.Client {
   move(argument: file_userfile_pb.BathFileRequest, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
   move(argument: file_userfile_pb.BathFileRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
   move(argument: file_userfile_pb.BathFileRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
+  recover(argument: file_userfile_pb.BathFileRequest, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
+  recover(argument: file_userfile_pb.BathFileRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
+  recover(argument: file_userfile_pb.BathFileRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
   list(argument: file_userfile_pb.UserFileListRequest, callback: grpc.requestCallback<file_userfile_pb.UserFileListResponse>): grpc.ClientUnaryCall;
   list(argument: file_userfile_pb.UserFileListRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFileListResponse>): grpc.ClientUnaryCall;
   list(argument: file_userfile_pb.UserFileListRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFileListResponse>): grpc.ClientUnaryCall;
