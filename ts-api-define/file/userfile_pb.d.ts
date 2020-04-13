@@ -202,6 +202,9 @@ export class FilterRequest extends jspb.Message {
   getDirectory(): number;
   setDirectory(value: number): void;
 
+  getName(): string;
+  setName(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): FilterRequest.AsObject;
   static toObject(includeInstance: boolean, msg: FilterRequest): FilterRequest.AsObject;
@@ -217,6 +220,7 @@ export namespace FilterRequest {
     identityList: Array<string>,
     typeList: Array<number>,
     directory: number,
+    name: string,
   }
 }
 
@@ -322,9 +326,6 @@ export class UserFileListRequest extends jspb.Message {
   getOp(): number;
   setOp(value: number): void;
 
-  getName(): string;
-  setName(value: string): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserFileListRequest.AsObject;
   static toObject(includeInstance: boolean, msg: UserFileListRequest): UserFileListRequest.AsObject;
@@ -344,7 +345,6 @@ export namespace UserFileListRequest {
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
     filter?: FilterRequest.AsObject,
     op: number,
-    name: string,
   }
 }
 

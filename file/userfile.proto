@@ -105,6 +105,7 @@ message FilterRequest {
     repeated string identity = 1;
     repeated int32 type = 2;
     int32 directory = 3;
+    string name = 4;
 }
 
 message BathFileRequest {
@@ -129,7 +130,6 @@ message UserFileListRequest {
     repeated OrderByRequest order_by = 5;
     FilterRequest filter = 6;
     int32 op = 7;
-    string name = 8;
 }
 
 message CommonListRequest {
