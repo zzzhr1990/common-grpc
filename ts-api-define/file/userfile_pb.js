@@ -2403,7 +2403,8 @@ proto.services.UserFileListRequest.toObject = function(includeInstance, msg) {
     orderByList: jspb.Message.toObjectList(msg.getOrderByList(),
     common_common_entity_pb.OrderByRequest.toObject, includeInstance),
     filter: (f = msg.getFilter()) && proto.services.FilterRequest.toObject(includeInstance, f),
-    op: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    op: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -2470,6 +2471,10 @@ proto.services.UserFileListRequest.deserializeBinaryFromReader = function(msg, r
     case 7:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setOp(value);
+      break;
+    case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
       break;
     default:
       reader.skipField();
@@ -2549,6 +2554,13 @@ proto.services.UserFileListRequest.serializeBinaryToWriter = function(message, w
   if (f !== 0) {
     writer.writeInt32(
       7,
+      f
+    );
+  }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
       f
     );
   }
@@ -2736,6 +2748,24 @@ proto.services.UserFileListRequest.prototype.getOp = function() {
  */
 proto.services.UserFileListRequest.prototype.setOp = function(value) {
   return jspb.Message.setProto3IntField(this, 7, value);
+};
+
+
+/**
+ * optional string name = 8;
+ * @return {string}
+ */
+proto.services.UserFileListRequest.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.UserFileListRequest} returns this
+ */
+proto.services.UserFileListRequest.prototype.setName = function(value) {
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 

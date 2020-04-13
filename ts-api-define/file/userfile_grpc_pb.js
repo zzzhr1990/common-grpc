@@ -27,17 +27,6 @@ function deserialize_services_BoolEntity(buffer_arg) {
   return common_common_entity_pb.BoolEntity.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_CommonListRequest(arg) {
-  if (!(arg instanceof file_userfile_pb.CommonListRequest)) {
-    throw new Error('Expected argument of type services.CommonListRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_CommonListRequest(buffer_arg) {
-  return file_userfile_pb.CommonListRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_services_Int64Entity(arg) {
   if (!(arg instanceof common_common_entity_pb.Int64Entity)) {
     throw new Error('Expected argument of type services.Int64Entity');
@@ -291,10 +280,10 @@ var FileServiceService = exports.FileServiceService = {
     path: '/services.FileService/ListTrash',
     requestStream: false,
     responseStream: false,
-    requestType: file_userfile_pb.CommonListRequest,
+    requestType: file_userfile_pb.UserFileListRequest,
     responseType: file_userfile_pb.TrashListResponse,
-    requestSerialize: serialize_services_CommonListRequest,
-    requestDeserialize: deserialize_services_CommonListRequest,
+    requestSerialize: serialize_services_UserFileListRequest,
+    requestDeserialize: deserialize_services_UserFileListRequest,
     responseSerialize: serialize_services_TrashListResponse,
     responseDeserialize: deserialize_services_TrashListResponse,
   },

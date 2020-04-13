@@ -322,6 +322,9 @@ export class UserFileListRequest extends jspb.Message {
   getOp(): number;
   setOp(value: number): void;
 
+  getName(): string;
+  setName(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserFileListRequest.AsObject;
   static toObject(includeInstance: boolean, msg: UserFileListRequest): UserFileListRequest.AsObject;
@@ -341,6 +344,7 @@ export namespace UserFileListRequest {
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
     filter?: FilterRequest.AsObject,
     op: number,
+    name: string,
   }
 }
 

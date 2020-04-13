@@ -23,7 +23,7 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   recover: grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity>;
   list: grpc.MethodDefinition<file_userfile_pb.UserFileListRequest, file_userfile_pb.UserFileListResponse>;
   listInternal: grpc.MethodDefinition<file_userfile_pb.UserFileListRequest, file_userfile_pb.UserFileListResponse>;
-  listTrash: grpc.MethodDefinition<file_userfile_pb.CommonListRequest, file_userfile_pb.TrashListResponse>;
+  listTrash: grpc.MethodDefinition<file_userfile_pb.UserFileListRequest, file_userfile_pb.TrashListResponse>;
   getTrash: grpc.MethodDefinition<file_userfile_pb.TrashInfo, file_userfile_pb.TrashInfo>;
   clearTrash: grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity>;
 }
@@ -77,9 +77,9 @@ export class FileServiceClient extends grpc.Client {
   listInternal(argument: file_userfile_pb.UserFileListRequest, callback: grpc.requestCallback<file_userfile_pb.UserFileListResponse>): grpc.ClientUnaryCall;
   listInternal(argument: file_userfile_pb.UserFileListRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFileListResponse>): grpc.ClientUnaryCall;
   listInternal(argument: file_userfile_pb.UserFileListRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.UserFileListResponse>): grpc.ClientUnaryCall;
-  listTrash(argument: file_userfile_pb.CommonListRequest, callback: grpc.requestCallback<file_userfile_pb.TrashListResponse>): grpc.ClientUnaryCall;
-  listTrash(argument: file_userfile_pb.CommonListRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.TrashListResponse>): grpc.ClientUnaryCall;
-  listTrash(argument: file_userfile_pb.CommonListRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.TrashListResponse>): grpc.ClientUnaryCall;
+  listTrash(argument: file_userfile_pb.UserFileListRequest, callback: grpc.requestCallback<file_userfile_pb.TrashListResponse>): grpc.ClientUnaryCall;
+  listTrash(argument: file_userfile_pb.UserFileListRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.TrashListResponse>): grpc.ClientUnaryCall;
+  listTrash(argument: file_userfile_pb.UserFileListRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.TrashListResponse>): grpc.ClientUnaryCall;
   getTrash(argument: file_userfile_pb.TrashInfo, callback: grpc.requestCallback<file_userfile_pb.TrashInfo>): grpc.ClientUnaryCall;
   getTrash(argument: file_userfile_pb.TrashInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.TrashInfo>): grpc.ClientUnaryCall;
   getTrash(argument: file_userfile_pb.TrashInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_userfile_pb.TrashInfo>): grpc.ClientUnaryCall;

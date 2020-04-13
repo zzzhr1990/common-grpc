@@ -29,7 +29,7 @@ service FileService {
     rpc List (UserFileListRequest) returns (UserFileListResponse) {}
     rpc ListInternal (UserFileListRequest) returns (UserFileListResponse) {}
     // rpc PageTrash (CommonPageRequest) returns (TrashPageResponse) {}
-    rpc ListTrash (CommonListRequest) returns (TrashListResponse) {}
+    rpc ListTrash (UserFileListRequest) returns (TrashListResponse) {}
     rpc GetTrash (TrashInfo) returns (TrashInfo) {}
     rpc ClearTrash (BathFileRequest) returns (Int64Entity) {}
     // rpc AddQueue (OperationQueue) returns (OperationQueue) {}
@@ -129,6 +129,7 @@ message UserFileListRequest {
     repeated OrderByRequest order_by = 5;
     FilterRequest filter = 6;
     int32 op = 7;
+    string name = 8;
 }
 
 message CommonListRequest {
