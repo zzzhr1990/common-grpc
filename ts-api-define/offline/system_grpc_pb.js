@@ -3,242 +3,159 @@
 'use strict';
 var grpc = require('grpc');
 var offline_system_pb = require('../offline/system_pb.js');
-var common_common_entity_pb = require('../common/common_entity_pb.js');
 
-function serialize_services_BatchGetRequest(arg) {
-  if (!(arg instanceof offline_system_pb.BatchGetRequest)) {
-    throw new Error('Expected argument of type services.BatchGetRequest');
+function serialize_services_SystemTask(arg) {
+  if (!(arg instanceof offline_system_pb.SystemTask)) {
+    throw new Error('Expected argument of type services.SystemTask');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_BatchGetRequest(buffer_arg) {
-  return offline_system_pb.BatchGetRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_SystemTask(buffer_arg) {
+  return offline_system_pb.SystemTask.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_BatchGetResponse(arg) {
-  if (!(arg instanceof offline_system_pb.BatchGetResponse)) {
-    throw new Error('Expected argument of type services.BatchGetResponse');
+function serialize_services_SystemTaskDetail(arg) {
+  if (!(arg instanceof offline_system_pb.SystemTaskDetail)) {
+    throw new Error('Expected argument of type services.SystemTaskDetail');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_BatchGetResponse(buffer_arg) {
-  return offline_system_pb.BatchGetResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_SystemTaskDetail(buffer_arg) {
+  return offline_system_pb.SystemTaskDetail.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_BoolEntity(arg) {
-  if (!(arg instanceof common_common_entity_pb.BoolEntity)) {
-    throw new Error('Expected argument of type services.BoolEntity');
+function serialize_services_SystemTaskFetchRequest(arg) {
+  if (!(arg instanceof offline_system_pb.SystemTaskFetchRequest)) {
+    throw new Error('Expected argument of type services.SystemTaskFetchRequest');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_BoolEntity(buffer_arg) {
-  return common_common_entity_pb.BoolEntity.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_SystemTaskFetchRequest(buffer_arg) {
+  return offline_system_pb.SystemTaskFetchRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_ErrorRequest(arg) {
-  if (!(arg instanceof offline_system_pb.ErrorRequest)) {
-    throw new Error('Expected argument of type services.ErrorRequest');
+function serialize_services_SystemTaskList(arg) {
+  if (!(arg instanceof offline_system_pb.SystemTaskList)) {
+    throw new Error('Expected argument of type services.SystemTaskList');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_ErrorRequest(buffer_arg) {
-  return offline_system_pb.ErrorRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_SystemTaskList(buffer_arg) {
+  return offline_system_pb.SystemTaskList.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_Int64Entity(arg) {
-  if (!(arg instanceof common_common_entity_pb.Int64Entity)) {
-    throw new Error('Expected argument of type services.Int64Entity');
+function serialize_services_TaskFile(arg) {
+  if (!(arg instanceof offline_system_pb.TaskFile)) {
+    throw new Error('Expected argument of type services.TaskFile');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_Int64Entity(buffer_arg) {
-  return common_common_entity_pb.Int64Entity.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_StatusChangeRequest(arg) {
-  if (!(arg instanceof offline_system_pb.StatusChangeRequest)) {
-    throw new Error('Expected argument of type services.StatusChangeRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_StatusChangeRequest(buffer_arg) {
-  return offline_system_pb.StatusChangeRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_SystemOfflineTask(arg) {
-  if (!(arg instanceof offline_system_pb.SystemOfflineTask)) {
-    throw new Error('Expected argument of type services.SystemOfflineTask');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_SystemOfflineTask(buffer_arg) {
-  return offline_system_pb.SystemOfflineTask.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_SystemOfflineTaskDetail(arg) {
-  if (!(arg instanceof offline_system_pb.SystemOfflineTaskDetail)) {
-    throw new Error('Expected argument of type services.SystemOfflineTaskDetail');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_SystemOfflineTaskDetail(buffer_arg) {
-  return offline_system_pb.SystemOfflineTaskDetail.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_SystemOfflineTaskFile(arg) {
-  if (!(arg instanceof offline_system_pb.SystemOfflineTaskFile)) {
-    throw new Error('Expected argument of type services.SystemOfflineTaskFile');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_SystemOfflineTaskFile(buffer_arg) {
-  return offline_system_pb.SystemOfflineTaskFile.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_UpdateProgressRequest(arg) {
-  if (!(arg instanceof offline_system_pb.UpdateProgressRequest)) {
-    throw new Error('Expected argument of type services.UpdateProgressRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_UpdateProgressRequest(buffer_arg) {
-  return offline_system_pb.UpdateProgressRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_TaskFile(buffer_arg) {
+  return offline_system_pb.TaskFile.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
-var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = {
+var SystemTaskServiceService = exports.SystemTaskServiceService = {
   create: {
-    path: '/services.SystemOfflineTaskService/create',
+    path: '/services.SystemTaskService/create',
     requestStream: false,
     responseStream: false,
-    requestType: offline_system_pb.SystemOfflineTask,
-    responseType: offline_system_pb.SystemOfflineTask,
-    requestSerialize: serialize_services_SystemOfflineTask,
-    requestDeserialize: deserialize_services_SystemOfflineTask,
-    responseSerialize: serialize_services_SystemOfflineTask,
-    responseDeserialize: deserialize_services_SystemOfflineTask,
+    requestType: offline_system_pb.SystemTask,
+    responseType: offline_system_pb.SystemTask,
+    requestSerialize: serialize_services_SystemTask,
+    requestDeserialize: deserialize_services_SystemTask,
+    responseSerialize: serialize_services_SystemTask,
+    responseDeserialize: deserialize_services_SystemTask,
   },
   update: {
-    path: '/services.SystemOfflineTaskService/update',
+    path: '/services.SystemTaskService/update',
     requestStream: false,
     responseStream: false,
-    requestType: offline_system_pb.SystemOfflineTaskDetail,
-    responseType: common_common_entity_pb.Int64Entity,
-    requestSerialize: serialize_services_SystemOfflineTaskDetail,
-    requestDeserialize: deserialize_services_SystemOfflineTaskDetail,
-    responseSerialize: serialize_services_Int64Entity,
-    responseDeserialize: deserialize_services_Int64Entity,
+    requestType: offline_system_pb.SystemTask,
+    responseType: offline_system_pb.SystemTask,
+    requestSerialize: serialize_services_SystemTask,
+    requestDeserialize: deserialize_services_SystemTask,
+    responseSerialize: serialize_services_SystemTask,
+    responseDeserialize: deserialize_services_SystemTask,
   },
-  updateProgress: {
-    path: '/services.SystemOfflineTaskService/updateProgress',
-    requestStream: false,
-    responseStream: false,
-    requestType: offline_system_pb.UpdateProgressRequest,
-    responseType: common_common_entity_pb.BoolEntity,
-    requestSerialize: serialize_services_UpdateProgressRequest,
-    requestDeserialize: deserialize_services_UpdateProgressRequest,
-    responseSerialize: serialize_services_BoolEntity,
-    responseDeserialize: deserialize_services_BoolEntity,
-  },
-  batchGet: {
-    path: '/services.SystemOfflineTaskService/batchGet',
-    requestStream: false,
-    responseStream: false,
-    requestType: offline_system_pb.BatchGetRequest,
-    responseType: offline_system_pb.BatchGetResponse,
-    requestSerialize: serialize_services_BatchGetRequest,
-    requestDeserialize: deserialize_services_BatchGetRequest,
-    responseSerialize: serialize_services_BatchGetResponse,
-    responseDeserialize: deserialize_services_BatchGetResponse,
-  },
+  // rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
+  // rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
   get: {
-    path: '/services.SystemOfflineTaskService/get',
+    path: '/services.SystemTaskService/get',
     requestStream: false,
     responseStream: false,
-    requestType: offline_system_pb.SystemOfflineTask,
-    responseType: offline_system_pb.SystemOfflineTask,
-    requestSerialize: serialize_services_SystemOfflineTask,
-    requestDeserialize: deserialize_services_SystemOfflineTask,
-    responseSerialize: serialize_services_SystemOfflineTask,
-    responseDeserialize: deserialize_services_SystemOfflineTask,
+    requestType: offline_system_pb.SystemTask,
+    responseType: offline_system_pb.SystemTask,
+    requestSerialize: serialize_services_SystemTask,
+    requestDeserialize: deserialize_services_SystemTask,
+    responseSerialize: serialize_services_SystemTask,
+    responseDeserialize: deserialize_services_SystemTask,
   },
+  // getDetail detail
   getDetail: {
-    path: '/services.SystemOfflineTaskService/getDetail',
+    path: '/services.SystemTaskService/getDetail',
     requestStream: false,
     responseStream: false,
-    requestType: offline_system_pb.SystemOfflineTask,
-    responseType: offline_system_pb.SystemOfflineTaskDetail,
-    requestSerialize: serialize_services_SystemOfflineTask,
-    requestDeserialize: deserialize_services_SystemOfflineTask,
-    responseSerialize: serialize_services_SystemOfflineTaskDetail,
-    responseDeserialize: deserialize_services_SystemOfflineTaskDetail,
+    requestType: offline_system_pb.SystemTask,
+    responseType: offline_system_pb.SystemTaskDetail,
+    requestSerialize: serialize_services_SystemTask,
+    requestDeserialize: deserialize_services_SystemTask,
+    responseSerialize: serialize_services_SystemTaskDetail,
+    responseDeserialize: deserialize_services_SystemTaskDetail,
   },
-  updateFile: {
-    path: '/services.SystemOfflineTaskService/updateFile',
+  fetch: {
+    path: '/services.SystemTaskService/fetch',
     requestStream: false,
     responseStream: false,
-    requestType: offline_system_pb.SystemOfflineTaskFile,
-    responseType: common_common_entity_pb.BoolEntity,
-    requestSerialize: serialize_services_SystemOfflineTaskFile,
-    requestDeserialize: deserialize_services_SystemOfflineTaskFile,
-    responseSerialize: serialize_services_BoolEntity,
-    responseDeserialize: deserialize_services_BoolEntity,
+    requestType: offline_system_pb.SystemTaskFetchRequest,
+    responseType: offline_system_pb.SystemTaskList,
+    requestSerialize: serialize_services_SystemTaskFetchRequest,
+    requestDeserialize: deserialize_services_SystemTaskFetchRequest,
+    responseSerialize: serialize_services_SystemTaskList,
+    responseDeserialize: deserialize_services_SystemTaskList,
   },
+  // rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
+  // rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
   uploadFile: {
-    path: '/services.SystemOfflineTaskService/uploadFile',
+    path: '/services.SystemTaskService/uploadFile',
     requestStream: false,
     responseStream: false,
-    requestType: offline_system_pb.SystemOfflineTaskFile,
-    responseType: common_common_entity_pb.BoolEntity,
-    requestSerialize: serialize_services_SystemOfflineTaskFile,
-    requestDeserialize: deserialize_services_SystemOfflineTaskFile,
-    responseSerialize: serialize_services_BoolEntity,
-    responseDeserialize: deserialize_services_BoolEntity,
+    requestType: offline_system_pb.TaskFile,
+    responseType: offline_system_pb.TaskFile,
+    requestSerialize: serialize_services_TaskFile,
+    requestDeserialize: deserialize_services_TaskFile,
+    responseSerialize: serialize_services_TaskFile,
+    responseDeserialize: deserialize_services_TaskFile,
   },
-  changeStatus: {
-    path: '/services.SystemOfflineTaskService/changeStatus',
-    requestStream: false,
-    responseStream: false,
-    requestType: offline_system_pb.StatusChangeRequest,
-    responseType: common_common_entity_pb.BoolEntity,
-    requestSerialize: serialize_services_StatusChangeRequest,
-    requestDeserialize: deserialize_services_StatusChangeRequest,
-    responseSerialize: serialize_services_BoolEntity,
-    responseDeserialize: deserialize_services_BoolEntity,
-  },
+  // rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
   complete: {
-    path: '/services.SystemOfflineTaskService/complete',
+    path: '/services.SystemTaskService/complete',
     requestStream: false,
     responseStream: false,
-    requestType: offline_system_pb.SystemOfflineTask,
-    responseType: common_common_entity_pb.BoolEntity,
-    requestSerialize: serialize_services_SystemOfflineTask,
-    requestDeserialize: deserialize_services_SystemOfflineTask,
-    responseSerialize: serialize_services_BoolEntity,
-    responseDeserialize: deserialize_services_BoolEntity,
+    requestType: offline_system_pb.SystemTask,
+    responseType: offline_system_pb.SystemTask,
+    requestSerialize: serialize_services_SystemTask,
+    requestDeserialize: deserialize_services_SystemTask,
+    responseSerialize: serialize_services_SystemTask,
+    responseDeserialize: deserialize_services_SystemTask,
   },
   // ErrorRequest
   error: {
-    path: '/services.SystemOfflineTaskService/error',
+    path: '/services.SystemTaskService/error',
     requestStream: false,
     responseStream: false,
-    requestType: offline_system_pb.ErrorRequest,
-    responseType: common_common_entity_pb.BoolEntity,
-    requestSerialize: serialize_services_ErrorRequest,
-    requestDeserialize: deserialize_services_ErrorRequest,
-    responseSerialize: serialize_services_BoolEntity,
-    responseDeserialize: deserialize_services_BoolEntity,
+    requestType: offline_system_pb.SystemTask,
+    responseType: offline_system_pb.SystemTask,
+    requestSerialize: serialize_services_SystemTask,
+    requestDeserialize: deserialize_services_SystemTask,
+    responseSerialize: serialize_services_SystemTask,
+    responseDeserialize: deserialize_services_SystemTask,
   },
 };
 
-exports.SystemOfflineTaskServiceClient = grpc.makeGenericClientConstructor(SystemOfflineTaskServiceService);
+exports.SystemTaskServiceClient = grpc.makeGenericClientConstructor(SystemTaskServiceService);

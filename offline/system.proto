@@ -4,24 +4,29 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/systemtask";
-import "common/common_entity.proto";
+// import "common/common_entity.proto";
 
 
-service SystemOfflineTaskService {
-    rpc create (SystemOfflineTask) returns (SystemOfflineTask) {}
-    rpc update (SystemOfflineTaskDetail) returns (Int64Entity) {}
-    rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
-    rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
-    rpc get (SystemOfflineTask) returns (SystemOfflineTask) {}
-    rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
-    rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
-    rpc uploadFile (SystemOfflineTaskFile) returns (BoolEntity) {}
-    rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
-    rpc complete(SystemOfflineTask) returns (BoolEntity) {}
+service SystemTaskService {
+    rpc create (SystemTask) returns (SystemTask) {}
+    rpc update (SystemTask) returns (SystemTask) {}
+    // rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
+    // rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
+    rpc get (SystemTask) returns (SystemTask) {}
+    // getDetail detail
+    rpc getDetail (SystemTask) returns (SystemTaskDetail) {}
+    
+    rpc fetch (SystemTaskFetchRequest) returns (SystemTaskList) {}
+    //rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
+    // rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
+    rpc uploadFile (TaskFile) returns (TaskFile) {}
+    // rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
+    rpc complete(SystemTask) returns (SystemTask) {}
     // ErrorRequest
-    rpc error(ErrorRequest) returns (BoolEntity) {}
+    rpc error(SystemTask) returns (SystemTask) {}
 }
 
+/*
 message BatchGetRequest {
     repeated string identities = 1;
 }
@@ -30,9 +35,33 @@ message BatchGetResponse {
     repeated SystemOfflineTaskDetail data = 1;
 }
 
+*/
+message SystemTaskFetchRequest {
+    int32  status = 1;
+    int32  next_status = 2;
+}
 
+message SystemTaskList {
+    repeated SystemTask data = 1;
+}
 
-message SystemOfflineTask {
+message TaskFile {
+    string  download_identity = 1;
+    string path_identity = 2;
+    int64 create_time = 3;
+    string name = 5;
+    string path = 6;
+    string hash = 7;
+    int64 size = 8;
+    int64 download_size = 9;
+    int32  status = 10;
+    int32  flag = 11;
+    int32  file_index = 12;
+    bool  finish = 13;
+    bool  directory = 14;
+}
+
+message SystemTask {
     string  identity = 1;
     int64 size = 2;
     int64 create_user = 3;
@@ -49,6 +78,13 @@ message SystemOfflineTask {
     string text_link = 14;
 }
 
+message SystemTaskDetail {
+    string  identity = 1;
+    SystemTask  task = 2;
+    repeated TaskFile data = 3;
+}
+
+/*
 message UpdateProgressRequest {
     string  identity = 1;
     int64 size = 2;
@@ -66,21 +102,6 @@ message ErrorRequest {
     string errorMessage = 3;
 }
 
-message SystemOfflineTaskFile {
-    string  download_identity = 1;
-    string path_identity = 2;
-    int64 create_time = 3;
-    string name = 5;
-    string path = 6;
-    string hash = 7;
-    int64 size = 8;
-    int64 download_size = 9;
-    int32  status = 10;
-    int32  flag = 11;
-    int32  file_index = 12;
-    bool  finish = 13;
-    bool  directory = 14;
-}
 
 
 message SystemOfflineTaskDetail {
@@ -88,3 +109,4 @@ message SystemOfflineTaskDetail {
     SystemOfflineTask  task = 2;
     repeated SystemOfflineTaskFile files = 3;
 }
+*/

@@ -2,53 +2,122 @@
 // file: offline/system.proto
 
 import * as jspb from "google-protobuf";
-import * as common_common_entity_pb from "../common/common_entity_pb";
 
-export class BatchGetRequest extends jspb.Message {
-  clearIdentitiesList(): void;
-  getIdentitiesList(): Array<string>;
-  setIdentitiesList(value: Array<string>): void;
-  addIdentities(value: string, index?: number): string;
+export class SystemTaskFetchRequest extends jspb.Message {
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getNextStatus(): number;
+  setNextStatus(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): BatchGetRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: BatchGetRequest): BatchGetRequest.AsObject;
+  toObject(includeInstance?: boolean): SystemTaskFetchRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: SystemTaskFetchRequest): SystemTaskFetchRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: BatchGetRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): BatchGetRequest;
-  static deserializeBinaryFromReader(message: BatchGetRequest, reader: jspb.BinaryReader): BatchGetRequest;
+  static serializeBinaryToWriter(message: SystemTaskFetchRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SystemTaskFetchRequest;
+  static deserializeBinaryFromReader(message: SystemTaskFetchRequest, reader: jspb.BinaryReader): SystemTaskFetchRequest;
 }
 
-export namespace BatchGetRequest {
+export namespace SystemTaskFetchRequest {
   export type AsObject = {
-    identitiesList: Array<string>,
+    status: number,
+    nextStatus: number,
   }
 }
 
-export class BatchGetResponse extends jspb.Message {
+export class SystemTaskList extends jspb.Message {
   clearDataList(): void;
-  getDataList(): Array<SystemOfflineTaskDetail>;
-  setDataList(value: Array<SystemOfflineTaskDetail>): void;
-  addData(value?: SystemOfflineTaskDetail, index?: number): SystemOfflineTaskDetail;
+  getDataList(): Array<SystemTask>;
+  setDataList(value: Array<SystemTask>): void;
+  addData(value?: SystemTask, index?: number): SystemTask;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): BatchGetResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: BatchGetResponse): BatchGetResponse.AsObject;
+  toObject(includeInstance?: boolean): SystemTaskList.AsObject;
+  static toObject(includeInstance: boolean, msg: SystemTaskList): SystemTaskList.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: BatchGetResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): BatchGetResponse;
-  static deserializeBinaryFromReader(message: BatchGetResponse, reader: jspb.BinaryReader): BatchGetResponse;
+  static serializeBinaryToWriter(message: SystemTaskList, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SystemTaskList;
+  static deserializeBinaryFromReader(message: SystemTaskList, reader: jspb.BinaryReader): SystemTaskList;
 }
 
-export namespace BatchGetResponse {
+export namespace SystemTaskList {
   export type AsObject = {
-    dataList: Array<SystemOfflineTaskDetail.AsObject>,
+    dataList: Array<SystemTask.AsObject>,
   }
 }
 
-export class SystemOfflineTask extends jspb.Message {
+export class TaskFile extends jspb.Message {
+  getDownloadIdentity(): string;
+  setDownloadIdentity(value: string): void;
+
+  getPathIdentity(): string;
+  setPathIdentity(value: string): void;
+
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getPath(): string;
+  setPath(value: string): void;
+
+  getHash(): string;
+  setHash(value: string): void;
+
+  getSize(): number;
+  setSize(value: number): void;
+
+  getDownloadSize(): number;
+  setDownloadSize(value: number): void;
+
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getFlag(): number;
+  setFlag(value: number): void;
+
+  getFileIndex(): number;
+  setFileIndex(value: number): void;
+
+  getFinish(): boolean;
+  setFinish(value: boolean): void;
+
+  getDirectory(): boolean;
+  setDirectory(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TaskFile.AsObject;
+  static toObject(includeInstance: boolean, msg: TaskFile): TaskFile.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: TaskFile, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TaskFile;
+  static deserializeBinaryFromReader(message: TaskFile, reader: jspb.BinaryReader): TaskFile;
+}
+
+export namespace TaskFile {
+  export type AsObject = {
+    downloadIdentity: string,
+    pathIdentity: string,
+    createTime: number,
+    name: string,
+    path: string,
+    hash: string,
+    size: number,
+    downloadSize: number,
+    status: number,
+    flag: number,
+    fileIndex: number,
+    finish: boolean,
+    directory: boolean,
+  }
+}
+
+export class SystemTask extends jspb.Message {
   getIdentity(): string;
   setIdentity(value: string): void;
 
@@ -92,16 +161,16 @@ export class SystemOfflineTask extends jspb.Message {
   setTextLink(value: string): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SystemOfflineTask.AsObject;
-  static toObject(includeInstance: boolean, msg: SystemOfflineTask): SystemOfflineTask.AsObject;
+  toObject(includeInstance?: boolean): SystemTask.AsObject;
+  static toObject(includeInstance: boolean, msg: SystemTask): SystemTask.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SystemOfflineTask, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SystemOfflineTask;
-  static deserializeBinaryFromReader(message: SystemOfflineTask, reader: jspb.BinaryReader): SystemOfflineTask;
+  static serializeBinaryToWriter(message: SystemTask, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SystemTask;
+  static deserializeBinaryFromReader(message: SystemTask, reader: jspb.BinaryReader): SystemTask;
 }
 
-export namespace SystemOfflineTask {
+export namespace SystemTask {
   export type AsObject = {
     identity: string,
     size: number,
@@ -120,183 +189,35 @@ export namespace SystemOfflineTask {
   }
 }
 
-export class UpdateProgressRequest extends jspb.Message {
-  getIdentity(): string;
-  setIdentity(value: string): void;
-
-  getSize(): number;
-  setSize(value: number): void;
-
-  getDownloadsize(): number;
-  setDownloadsize(value: number): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UpdateProgressRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: UpdateProgressRequest): UpdateProgressRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UpdateProgressRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UpdateProgressRequest;
-  static deserializeBinaryFromReader(message: UpdateProgressRequest, reader: jspb.BinaryReader): UpdateProgressRequest;
-}
-
-export namespace UpdateProgressRequest {
-  export type AsObject = {
-    identity: string,
-    size: number,
-    downloadsize: number,
-  }
-}
-
-export class StatusChangeRequest extends jspb.Message {
-  getIdentity(): string;
-  setIdentity(value: string): void;
-
-  getStatus(): number;
-  setStatus(value: number): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): StatusChangeRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: StatusChangeRequest): StatusChangeRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: StatusChangeRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): StatusChangeRequest;
-  static deserializeBinaryFromReader(message: StatusChangeRequest, reader: jspb.BinaryReader): StatusChangeRequest;
-}
-
-export namespace StatusChangeRequest {
-  export type AsObject = {
-    identity: string,
-    status: number,
-  }
-}
-
-export class ErrorRequest extends jspb.Message {
-  getIdentity(): string;
-  setIdentity(value: string): void;
-
-  getErrorcode(): number;
-  setErrorcode(value: number): void;
-
-  getErrormessage(): string;
-  setErrormessage(value: string): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ErrorRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: ErrorRequest): ErrorRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ErrorRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ErrorRequest;
-  static deserializeBinaryFromReader(message: ErrorRequest, reader: jspb.BinaryReader): ErrorRequest;
-}
-
-export namespace ErrorRequest {
-  export type AsObject = {
-    identity: string,
-    errorcode: number,
-    errormessage: string,
-  }
-}
-
-export class SystemOfflineTaskFile extends jspb.Message {
-  getDownloadIdentity(): string;
-  setDownloadIdentity(value: string): void;
-
-  getPathIdentity(): string;
-  setPathIdentity(value: string): void;
-
-  getCreateTime(): number;
-  setCreateTime(value: number): void;
-
-  getName(): string;
-  setName(value: string): void;
-
-  getPath(): string;
-  setPath(value: string): void;
-
-  getHash(): string;
-  setHash(value: string): void;
-
-  getSize(): number;
-  setSize(value: number): void;
-
-  getDownloadSize(): number;
-  setDownloadSize(value: number): void;
-
-  getStatus(): number;
-  setStatus(value: number): void;
-
-  getFlag(): number;
-  setFlag(value: number): void;
-
-  getFileIndex(): number;
-  setFileIndex(value: number): void;
-
-  getFinish(): boolean;
-  setFinish(value: boolean): void;
-
-  getDirectory(): boolean;
-  setDirectory(value: boolean): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SystemOfflineTaskFile.AsObject;
-  static toObject(includeInstance: boolean, msg: SystemOfflineTaskFile): SystemOfflineTaskFile.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SystemOfflineTaskFile, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SystemOfflineTaskFile;
-  static deserializeBinaryFromReader(message: SystemOfflineTaskFile, reader: jspb.BinaryReader): SystemOfflineTaskFile;
-}
-
-export namespace SystemOfflineTaskFile {
-  export type AsObject = {
-    downloadIdentity: string,
-    pathIdentity: string,
-    createTime: number,
-    name: string,
-    path: string,
-    hash: string,
-    size: number,
-    downloadSize: number,
-    status: number,
-    flag: number,
-    fileIndex: number,
-    finish: boolean,
-    directory: boolean,
-  }
-}
-
-export class SystemOfflineTaskDetail extends jspb.Message {
+export class SystemTaskDetail extends jspb.Message {
   getIdentity(): string;
   setIdentity(value: string): void;
 
   hasTask(): boolean;
   clearTask(): void;
-  getTask(): SystemOfflineTask | undefined;
-  setTask(value?: SystemOfflineTask): void;
+  getTask(): SystemTask | undefined;
+  setTask(value?: SystemTask): void;
 
-  clearFilesList(): void;
-  getFilesList(): Array<SystemOfflineTaskFile>;
-  setFilesList(value: Array<SystemOfflineTaskFile>): void;
-  addFiles(value?: SystemOfflineTaskFile, index?: number): SystemOfflineTaskFile;
+  clearDataList(): void;
+  getDataList(): Array<TaskFile>;
+  setDataList(value: Array<TaskFile>): void;
+  addData(value?: TaskFile, index?: number): TaskFile;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SystemOfflineTaskDetail.AsObject;
-  static toObject(includeInstance: boolean, msg: SystemOfflineTaskDetail): SystemOfflineTaskDetail.AsObject;
+  toObject(includeInstance?: boolean): SystemTaskDetail.AsObject;
+  static toObject(includeInstance: boolean, msg: SystemTaskDetail): SystemTaskDetail.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SystemOfflineTaskDetail, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SystemOfflineTaskDetail;
-  static deserializeBinaryFromReader(message: SystemOfflineTaskDetail, reader: jspb.BinaryReader): SystemOfflineTaskDetail;
+  static serializeBinaryToWriter(message: SystemTaskDetail, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SystemTaskDetail;
+  static deserializeBinaryFromReader(message: SystemTaskDetail, reader: jspb.BinaryReader): SystemTaskDetail;
 }
 
-export namespace SystemOfflineTaskDetail {
+export namespace SystemTaskDetail {
   export type AsObject = {
     identity: string,
-    task?: SystemOfflineTask.AsObject,
-    filesList: Array<SystemOfflineTaskFile.AsObject>,
+    task?: SystemTask.AsObject,
+    dataList: Array<TaskFile.AsObject>,
   }
 }
 
