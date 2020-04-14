@@ -1,4 +1,4 @@
-// source: offline/systemtask.proto
+// source: offline/system.proto
 /**
  * @fileoverview
  * @enhanceable

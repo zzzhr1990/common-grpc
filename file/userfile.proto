@@ -29,6 +29,7 @@ service FileService {
     rpc List (UserFileListRequest) returns (UserFileListResponse) {}
     rpc ListInternal (UserFileListRequest) returns (UserFileListResponse) {}
     // rpc PageTrash (CommonPageRequest) returns (TrashPageResponse) {}
+    rpc DeleteTrash (BathFileRequest) returns (Int64Entity) {}
     rpc ListTrash (UserFileListRequest) returns (TrashListResponse) {}
     rpc GetTrash (TrashInfo) returns (TrashInfo) {}
     rpc ClearTrash (BathFileRequest) returns (Int64Entity) {}

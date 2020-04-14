@@ -276,6 +276,17 @@ var FileServiceService = exports.FileServiceService = {
     responseDeserialize: deserialize_services_UserFileListResponse,
   },
   // rpc PageTrash (CommonPageRequest) returns (TrashPageResponse) {}
+  deleteTrash: {
+    path: '/services.FileService/DeleteTrash',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.BathFileRequest,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_BathFileRequest,
+    requestDeserialize: deserialize_services_BathFileRequest,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
+  },
   listTrash: {
     path: '/services.FileService/ListTrash',
     requestStream: false,

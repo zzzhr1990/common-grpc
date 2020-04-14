@@ -2,29 +2,29 @@
 
 'use strict';
 var grpc = require('grpc');
-var offline_systemtask_pb = require('../offline/systemtask_pb.js');
+var offline_system_pb = require('../offline/system_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
 function serialize_services_BatchGetRequest(arg) {
-  if (!(arg instanceof offline_systemtask_pb.BatchGetRequest)) {
+  if (!(arg instanceof offline_system_pb.BatchGetRequest)) {
     throw new Error('Expected argument of type services.BatchGetRequest');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_services_BatchGetRequest(buffer_arg) {
-  return offline_systemtask_pb.BatchGetRequest.deserializeBinary(new Uint8Array(buffer_arg));
+  return offline_system_pb.BatchGetRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_BatchGetResponse(arg) {
-  if (!(arg instanceof offline_systemtask_pb.BatchGetResponse)) {
+  if (!(arg instanceof offline_system_pb.BatchGetResponse)) {
     throw new Error('Expected argument of type services.BatchGetResponse');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_services_BatchGetResponse(buffer_arg) {
-  return offline_systemtask_pb.BatchGetResponse.deserializeBinary(new Uint8Array(buffer_arg));
+  return offline_system_pb.BatchGetResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_BoolEntity(arg) {
@@ -39,14 +39,14 @@ function deserialize_services_BoolEntity(buffer_arg) {
 }
 
 function serialize_services_ErrorRequest(arg) {
-  if (!(arg instanceof offline_systemtask_pb.ErrorRequest)) {
+  if (!(arg instanceof offline_system_pb.ErrorRequest)) {
     throw new Error('Expected argument of type services.ErrorRequest');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_services_ErrorRequest(buffer_arg) {
-  return offline_systemtask_pb.ErrorRequest.deserializeBinary(new Uint8Array(buffer_arg));
+  return offline_system_pb.ErrorRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_Int64Entity(arg) {
@@ -61,58 +61,58 @@ function deserialize_services_Int64Entity(buffer_arg) {
 }
 
 function serialize_services_StatusChangeRequest(arg) {
-  if (!(arg instanceof offline_systemtask_pb.StatusChangeRequest)) {
+  if (!(arg instanceof offline_system_pb.StatusChangeRequest)) {
     throw new Error('Expected argument of type services.StatusChangeRequest');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_services_StatusChangeRequest(buffer_arg) {
-  return offline_systemtask_pb.StatusChangeRequest.deserializeBinary(new Uint8Array(buffer_arg));
+  return offline_system_pb.StatusChangeRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_SystemOfflineTask(arg) {
-  if (!(arg instanceof offline_systemtask_pb.SystemOfflineTask)) {
+  if (!(arg instanceof offline_system_pb.SystemOfflineTask)) {
     throw new Error('Expected argument of type services.SystemOfflineTask');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_services_SystemOfflineTask(buffer_arg) {
-  return offline_systemtask_pb.SystemOfflineTask.deserializeBinary(new Uint8Array(buffer_arg));
+  return offline_system_pb.SystemOfflineTask.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_SystemOfflineTaskDetail(arg) {
-  if (!(arg instanceof offline_systemtask_pb.SystemOfflineTaskDetail)) {
+  if (!(arg instanceof offline_system_pb.SystemOfflineTaskDetail)) {
     throw new Error('Expected argument of type services.SystemOfflineTaskDetail');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_services_SystemOfflineTaskDetail(buffer_arg) {
-  return offline_systemtask_pb.SystemOfflineTaskDetail.deserializeBinary(new Uint8Array(buffer_arg));
+  return offline_system_pb.SystemOfflineTaskDetail.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_SystemOfflineTaskFile(arg) {
-  if (!(arg instanceof offline_systemtask_pb.SystemOfflineTaskFile)) {
+  if (!(arg instanceof offline_system_pb.SystemOfflineTaskFile)) {
     throw new Error('Expected argument of type services.SystemOfflineTaskFile');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_services_SystemOfflineTaskFile(buffer_arg) {
-  return offline_systemtask_pb.SystemOfflineTaskFile.deserializeBinary(new Uint8Array(buffer_arg));
+  return offline_system_pb.SystemOfflineTaskFile.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_UpdateProgressRequest(arg) {
-  if (!(arg instanceof offline_systemtask_pb.UpdateProgressRequest)) {
+  if (!(arg instanceof offline_system_pb.UpdateProgressRequest)) {
     throw new Error('Expected argument of type services.UpdateProgressRequest');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
 function deserialize_services_UpdateProgressRequest(buffer_arg) {
-  return offline_systemtask_pb.UpdateProgressRequest.deserializeBinary(new Uint8Array(buffer_arg));
+  return offline_system_pb.UpdateProgressRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
@@ -121,8 +121,8 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/create',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.SystemOfflineTask,
-    responseType: offline_systemtask_pb.SystemOfflineTask,
+    requestType: offline_system_pb.SystemOfflineTask,
+    responseType: offline_system_pb.SystemOfflineTask,
     requestSerialize: serialize_services_SystemOfflineTask,
     requestDeserialize: deserialize_services_SystemOfflineTask,
     responseSerialize: serialize_services_SystemOfflineTask,
@@ -132,7 +132,7 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/update',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.SystemOfflineTaskDetail,
+    requestType: offline_system_pb.SystemOfflineTaskDetail,
     responseType: common_common_entity_pb.Int64Entity,
     requestSerialize: serialize_services_SystemOfflineTaskDetail,
     requestDeserialize: deserialize_services_SystemOfflineTaskDetail,
@@ -143,7 +143,7 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/updateProgress',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.UpdateProgressRequest,
+    requestType: offline_system_pb.UpdateProgressRequest,
     responseType: common_common_entity_pb.BoolEntity,
     requestSerialize: serialize_services_UpdateProgressRequest,
     requestDeserialize: deserialize_services_UpdateProgressRequest,
@@ -154,8 +154,8 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/batchGet',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.BatchGetRequest,
-    responseType: offline_systemtask_pb.BatchGetResponse,
+    requestType: offline_system_pb.BatchGetRequest,
+    responseType: offline_system_pb.BatchGetResponse,
     requestSerialize: serialize_services_BatchGetRequest,
     requestDeserialize: deserialize_services_BatchGetRequest,
     responseSerialize: serialize_services_BatchGetResponse,
@@ -165,8 +165,8 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/get',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.SystemOfflineTask,
-    responseType: offline_systemtask_pb.SystemOfflineTask,
+    requestType: offline_system_pb.SystemOfflineTask,
+    responseType: offline_system_pb.SystemOfflineTask,
     requestSerialize: serialize_services_SystemOfflineTask,
     requestDeserialize: deserialize_services_SystemOfflineTask,
     responseSerialize: serialize_services_SystemOfflineTask,
@@ -176,8 +176,8 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/getDetail',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.SystemOfflineTask,
-    responseType: offline_systemtask_pb.SystemOfflineTaskDetail,
+    requestType: offline_system_pb.SystemOfflineTask,
+    responseType: offline_system_pb.SystemOfflineTaskDetail,
     requestSerialize: serialize_services_SystemOfflineTask,
     requestDeserialize: deserialize_services_SystemOfflineTask,
     responseSerialize: serialize_services_SystemOfflineTaskDetail,
@@ -187,7 +187,7 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/updateFile',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.SystemOfflineTaskFile,
+    requestType: offline_system_pb.SystemOfflineTaskFile,
     responseType: common_common_entity_pb.BoolEntity,
     requestSerialize: serialize_services_SystemOfflineTaskFile,
     requestDeserialize: deserialize_services_SystemOfflineTaskFile,
@@ -198,7 +198,7 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/uploadFile',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.SystemOfflineTaskFile,
+    requestType: offline_system_pb.SystemOfflineTaskFile,
     responseType: common_common_entity_pb.BoolEntity,
     requestSerialize: serialize_services_SystemOfflineTaskFile,
     requestDeserialize: deserialize_services_SystemOfflineTaskFile,
@@ -209,7 +209,7 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/changeStatus',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.StatusChangeRequest,
+    requestType: offline_system_pb.StatusChangeRequest,
     responseType: common_common_entity_pb.BoolEntity,
     requestSerialize: serialize_services_StatusChangeRequest,
     requestDeserialize: deserialize_services_StatusChangeRequest,
@@ -220,7 +220,7 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/complete',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.SystemOfflineTask,
+    requestType: offline_system_pb.SystemOfflineTask,
     responseType: common_common_entity_pb.BoolEntity,
     requestSerialize: serialize_services_SystemOfflineTask,
     requestDeserialize: deserialize_services_SystemOfflineTask,
@@ -232,7 +232,7 @@ var SystemOfflineTaskServiceService = exports.SystemOfflineTaskServiceService = 
     path: '/services.SystemOfflineTaskService/error',
     requestStream: false,
     responseStream: false,
-    requestType: offline_systemtask_pb.ErrorRequest,
+    requestType: offline_system_pb.ErrorRequest,
     responseType: common_common_entity_pb.BoolEntity,
     requestSerialize: serialize_services_ErrorRequest,
     requestDeserialize: deserialize_services_ErrorRequest,
