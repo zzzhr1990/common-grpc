@@ -77,6 +77,8 @@ message SystemTask {
     string create_addr = 12;
     string data = 13;
     string text_link = 14;
+    int32 error_count = 15;
+    int64 error_time = 16;
 }
 
 message SystemTaskDetail {

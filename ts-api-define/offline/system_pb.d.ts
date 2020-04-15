@@ -166,6 +166,12 @@ export class SystemTask extends jspb.Message {
   getTextLink(): string;
   setTextLink(value: string): void;
 
+  getErrorCount(): number;
+  setErrorCount(value: number): void;
+
+  getErrorTime(): number;
+  setErrorTime(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SystemTask.AsObject;
   static toObject(includeInstance: boolean, msg: SystemTask): SystemTask.AsObject;
@@ -192,6 +198,8 @@ export namespace SystemTask {
     createAddr: string,
     data: string,
     textLink: string,
+    errorCount: number,
+    errorTime: number,
   }
 }
 

@@ -1033,7 +1033,9 @@ proto.services.SystemTask.toObject = function(includeInstance, msg) {
     errorMessage: jspb.Message.getFieldWithDefault(msg, 11, ""),
     createAddr: jspb.Message.getFieldWithDefault(msg, 12, ""),
     data: jspb.Message.getFieldWithDefault(msg, 13, ""),
-    textLink: jspb.Message.getFieldWithDefault(msg, 14, "")
+    textLink: jspb.Message.getFieldWithDefault(msg, 14, ""),
+    errorCount: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    errorTime: jspb.Message.getFieldWithDefault(msg, 16, 0)
   };
 
   if (includeInstance) {
@@ -1125,6 +1127,14 @@ proto.services.SystemTask.deserializeBinaryFromReader = function(msg, reader) {
     case 14:
       var value = /** @type {string} */ (reader.readString());
       msg.setTextLink(value);
+      break;
+    case 15:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setErrorCount(value);
+      break;
+    case 16:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setErrorTime(value);
       break;
     default:
       reader.skipField();
@@ -1250,6 +1260,20 @@ proto.services.SystemTask.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       14,
+      f
+    );
+  }
+  f = message.getErrorCount();
+  if (f !== 0) {
+    writer.writeInt32(
+      15,
+      f
+    );
+  }
+  f = message.getErrorTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      16,
       f
     );
   }
@@ -1505,6 +1529,42 @@ proto.services.SystemTask.prototype.getTextLink = function() {
  */
 proto.services.SystemTask.prototype.setTextLink = function(value) {
   return jspb.Message.setProto3StringField(this, 14, value);
+};
+
+
+/**
+ * optional int32 error_count = 15;
+ * @return {number}
+ */
+proto.services.SystemTask.prototype.getErrorCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemTask} returns this
+ */
+proto.services.SystemTask.prototype.setErrorCount = function(value) {
+  return jspb.Message.setProto3IntField(this, 15, value);
+};
+
+
+/**
+ * optional int64 error_time = 16;
+ * @return {number}
+ */
+proto.services.SystemTask.prototype.getErrorTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemTask} returns this
+ */
+proto.services.SystemTask.prototype.setErrorTime = function(value) {
+  return jspb.Message.setProto3IntField(this, 16, value);
 };
 
 
