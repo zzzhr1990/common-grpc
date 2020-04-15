@@ -15,7 +15,7 @@ service SystemTaskService {
     rpc get (SystemTask) returns (SystemTask) {}
     // getDetail detail
     rpc getDetail (SystemTask) returns (SystemTaskDetail) {}
-    
+
     rpc fetch (SystemTaskFetchRequest) returns (SystemTaskList) {}
     //rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
     // rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
@@ -37,8 +37,9 @@ message BatchGetResponse {
 
 */
 message SystemTaskFetchRequest {
-    int32  status = 1;
-    int32  next_status = 2;
+    repeated int32 type = 1;
+    int32  status = 2;
+    int32  next_status = 3;
 }
 
 message SystemTaskList {

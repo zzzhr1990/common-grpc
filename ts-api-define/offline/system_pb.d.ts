@@ -4,6 +4,11 @@
 import * as jspb from "google-protobuf";
 
 export class SystemTaskFetchRequest extends jspb.Message {
+  clearTypeList(): void;
+  getTypeList(): Array<number>;
+  setTypeList(value: Array<number>): void;
+  addType(value: number, index?: number): number;
+
   getStatus(): number;
   setStatus(value: number): void;
 
@@ -22,6 +27,7 @@ export class SystemTaskFetchRequest extends jspb.Message {
 
 export namespace SystemTaskFetchRequest {
   export type AsObject = {
+    typeList: Array<number>,
     status: number,
     nextStatus: number,
   }
