@@ -217,7 +217,7 @@ proto.services.SystemTaskFetchRequest.deserializeBinaryFromReader = function(msg
       msg.setNextStatus(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setLimit(value);
       break;
     case 5:
@@ -284,7 +284,7 @@ proto.services.SystemTaskFetchRequest.serializeBinaryToWriter = function(message
   }
   f = message.getLimit();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       4,
       f
     );
@@ -406,7 +406,7 @@ proto.services.SystemTaskFetchRequest.prototype.setNextStatus = function(value) 
 
 
 /**
- * optional int32 limit = 4;
+ * optional int64 limit = 4;
  * @return {number}
  */
 proto.services.SystemTaskFetchRequest.prototype.getLimit = function() {
