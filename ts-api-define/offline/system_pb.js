@@ -165,7 +165,8 @@ proto.services.SystemTaskFetchRequest.toObject = function(includeInstance, msg) 
     status: jspb.Message.getFieldWithDefault(msg, 2, 0),
     nextStatus: jspb.Message.getFieldWithDefault(msg, 3, 0),
     size: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    consumer: jspb.Message.getFieldWithDefault(msg, 5, "")
+    consumer: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    recover: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
   };
 
   if (includeInstance) {
@@ -221,6 +222,10 @@ proto.services.SystemTaskFetchRequest.deserializeBinaryFromReader = function(msg
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setConsumer(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setRecover(value);
       break;
     default:
       reader.skipField();
@@ -283,6 +288,13 @@ proto.services.SystemTaskFetchRequest.serializeBinaryToWriter = function(message
   if (f.length > 0) {
     writer.writeString(
       5,
+      f
+    );
+  }
+  f = message.getRecover();
+  if (f) {
+    writer.writeBool(
+      6,
       f
     );
   }
@@ -395,6 +407,24 @@ proto.services.SystemTaskFetchRequest.prototype.getConsumer = function() {
  */
 proto.services.SystemTaskFetchRequest.prototype.setConsumer = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional bool recover = 6;
+ * @return {boolean}
+ */
+proto.services.SystemTaskFetchRequest.prototype.getRecover = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.services.SystemTaskFetchRequest} returns this
+ */
+proto.services.SystemTaskFetchRequest.prototype.setRecover = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 
