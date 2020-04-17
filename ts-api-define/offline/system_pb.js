@@ -1035,7 +1035,8 @@ proto.services.SystemTask.toObject = function(includeInstance, msg) {
     data: jspb.Message.getFieldWithDefault(msg, 13, ""),
     textLink: jspb.Message.getFieldWithDefault(msg, 14, ""),
     errorCount: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    errorTime: jspb.Message.getFieldWithDefault(msg, 16, 0)
+    errorTime: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    op: jspb.Message.getFieldWithDefault(msg, 17, 0)
   };
 
   if (includeInstance) {
@@ -1135,6 +1136,10 @@ proto.services.SystemTask.deserializeBinaryFromReader = function(msg, reader) {
     case 16:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setErrorTime(value);
+      break;
+    case 17:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setOp(value);
       break;
     default:
       reader.skipField();
@@ -1274,6 +1279,13 @@ proto.services.SystemTask.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       16,
+      f
+    );
+  }
+  f = message.getOp();
+  if (f !== 0) {
+    writer.writeInt32(
+      17,
       f
     );
   }
@@ -1565,6 +1577,24 @@ proto.services.SystemTask.prototype.getErrorTime = function() {
  */
 proto.services.SystemTask.prototype.setErrorTime = function(value) {
   return jspb.Message.setProto3IntField(this, 16, value);
+};
+
+
+/**
+ * optional int32 op = 17;
+ * @return {number}
+ */
+proto.services.SystemTask.prototype.getOp = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemTask} returns this
+ */
+proto.services.SystemTask.prototype.setOp = function(value) {
+  return jspb.Message.setProto3IntField(this, 17, value);
 };
 
 
