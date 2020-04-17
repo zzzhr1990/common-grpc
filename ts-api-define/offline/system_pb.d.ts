@@ -17,14 +17,17 @@ export class SystemTaskFetchRequest extends jspb.Message {
   getNextStatus(): number;
   setNextStatus(value: number): void;
 
-  getSize(): number;
-  setSize(value: number): void;
+  getLimit(): number;
+  setLimit(value: number): void;
 
   getConsumer(): string;
   setConsumer(value: string): void;
 
   getRecover(): boolean;
   setRecover(value: boolean): void;
+
+  getDesc(): boolean;
+  setDesc(value: boolean): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SystemTaskFetchRequest.AsObject;
@@ -41,9 +44,10 @@ export namespace SystemTaskFetchRequest {
     typeList: Array<number>,
     statusList: Array<number>,
     nextStatus: number,
-    size: number,
+    limit: number,
     consumer: string,
     recover: boolean,
+    desc: boolean,
   }
 }
 

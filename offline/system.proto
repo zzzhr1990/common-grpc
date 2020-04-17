@@ -40,9 +40,10 @@ message SystemTaskFetchRequest {
     repeated int32 type = 1;
     repeated int32  status = 2;
     int32  next_status = 3;
-    int32  size = 4;
+    int32  limit = 4;
     string consumer = 5;
     bool recover = 6;
+    bool desc = 7;
 }
 
 message SystemTaskList {

@@ -164,9 +164,10 @@ proto.services.SystemTaskFetchRequest.toObject = function(includeInstance, msg) 
     typeList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
     statusList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
     nextStatus: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    size: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    limit: jspb.Message.getFieldWithDefault(msg, 4, 0),
     consumer: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    recover: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
+    recover: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
+    desc: jspb.Message.getBooleanFieldWithDefault(msg, 7, false)
   };
 
   if (includeInstance) {
@@ -217,7 +218,7 @@ proto.services.SystemTaskFetchRequest.deserializeBinaryFromReader = function(msg
       break;
     case 4:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setSize(value);
+      msg.setLimit(value);
       break;
     case 5:
       var value = /** @type {string} */ (reader.readString());
@@ -226,6 +227,10 @@ proto.services.SystemTaskFetchRequest.deserializeBinaryFromReader = function(msg
     case 6:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setRecover(value);
+      break;
+    case 7:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDesc(value);
       break;
     default:
       reader.skipField();
@@ -277,7 +282,7 @@ proto.services.SystemTaskFetchRequest.serializeBinaryToWriter = function(message
       f
     );
   }
-  f = message.getSize();
+  f = message.getLimit();
   if (f !== 0) {
     writer.writeInt32(
       4,
@@ -295,6 +300,13 @@ proto.services.SystemTaskFetchRequest.serializeBinaryToWriter = function(message
   if (f) {
     writer.writeBool(
       6,
+      f
+    );
+  }
+  f = message.getDesc();
+  if (f) {
+    writer.writeBool(
+      7,
       f
     );
   }
@@ -394,10 +406,10 @@ proto.services.SystemTaskFetchRequest.prototype.setNextStatus = function(value) 
 
 
 /**
- * optional int32 size = 4;
+ * optional int32 limit = 4;
  * @return {number}
  */
-proto.services.SystemTaskFetchRequest.prototype.getSize = function() {
+proto.services.SystemTaskFetchRequest.prototype.getLimit = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
@@ -406,7 +418,7 @@ proto.services.SystemTaskFetchRequest.prototype.getSize = function() {
  * @param {number} value
  * @return {!proto.services.SystemTaskFetchRequest} returns this
  */
-proto.services.SystemTaskFetchRequest.prototype.setSize = function(value) {
+proto.services.SystemTaskFetchRequest.prototype.setLimit = function(value) {
   return jspb.Message.setProto3IntField(this, 4, value);
 };
 
@@ -444,6 +456,24 @@ proto.services.SystemTaskFetchRequest.prototype.getRecover = function() {
  */
 proto.services.SystemTaskFetchRequest.prototype.setRecover = function(value) {
   return jspb.Message.setProto3BooleanField(this, 6, value);
+};
+
+
+/**
+ * optional bool desc = 7;
+ * @return {boolean}
+ */
+proto.services.SystemTaskFetchRequest.prototype.getDesc = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 7, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.services.SystemTaskFetchRequest} returns this
+ */
+proto.services.SystemTaskFetchRequest.prototype.setDesc = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 
