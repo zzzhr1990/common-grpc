@@ -163,7 +163,8 @@ proto.services.SystemTaskFetchRequest.toObject = function(includeInstance, msg) 
   var f, obj = {
     typeList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
     status: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    nextStatus: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    nextStatus: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    size: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -212,6 +213,10 @@ proto.services.SystemTaskFetchRequest.deserializeBinaryFromReader = function(msg
       var value = /** @type {number} */ (reader.readInt32());
       msg.setNextStatus(value);
       break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSize(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -259,6 +264,13 @@ proto.services.SystemTaskFetchRequest.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeInt32(
       3,
+      f
+    );
+  }
+  f = message.getSize();
+  if (f !== 0) {
+    writer.writeInt32(
+      4,
       f
     );
   }
@@ -335,6 +347,24 @@ proto.services.SystemTaskFetchRequest.prototype.getNextStatus = function() {
  */
 proto.services.SystemTaskFetchRequest.prototype.setNextStatus = function(value) {
   return jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional int32 size = 4;
+ * @return {number}
+ */
+proto.services.SystemTaskFetchRequest.prototype.getSize = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.SystemTaskFetchRequest} returns this
+ */
+proto.services.SystemTaskFetchRequest.prototype.setSize = function(value) {
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 

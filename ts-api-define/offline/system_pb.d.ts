@@ -15,6 +15,9 @@ export class SystemTaskFetchRequest extends jspb.Message {
   getNextStatus(): number;
   setNextStatus(value: number): void;
 
+  getSize(): number;
+  setSize(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SystemTaskFetchRequest.AsObject;
   static toObject(includeInstance: boolean, msg: SystemTaskFetchRequest): SystemTaskFetchRequest.AsObject;
@@ -30,6 +33,7 @@ export namespace SystemTaskFetchRequest {
     typeList: Array<number>,
     status: number,
     nextStatus: number,
+    size: number,
   }
 }
 
