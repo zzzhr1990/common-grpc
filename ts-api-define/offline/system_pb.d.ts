@@ -18,6 +18,9 @@ export class SystemTaskFetchRequest extends jspb.Message {
   getSize(): number;
   setSize(value: number): void;
 
+  getConsumer(): string;
+  setConsumer(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SystemTaskFetchRequest.AsObject;
   static toObject(includeInstance: boolean, msg: SystemTaskFetchRequest): SystemTaskFetchRequest.AsObject;
@@ -34,6 +37,7 @@ export namespace SystemTaskFetchRequest {
     status: number,
     nextStatus: number,
     size: number,
+    consumer: string,
   }
 }
 
