@@ -9,8 +9,10 @@ export class SystemTaskFetchRequest extends jspb.Message {
   setTypeList(value: Array<number>): void;
   addType(value: number, index?: number): number;
 
-  getStatus(): number;
-  setStatus(value: number): void;
+  clearStatusList(): void;
+  getStatusList(): Array<number>;
+  setStatusList(value: Array<number>): void;
+  addStatus(value: number, index?: number): number;
 
   getNextStatus(): number;
   setNextStatus(value: number): void;
@@ -37,7 +39,7 @@ export class SystemTaskFetchRequest extends jspb.Message {
 export namespace SystemTaskFetchRequest {
   export type AsObject = {
     typeList: Array<number>,
-    status: number,
+    statusList: Array<number>,
     nextStatus: number,
     size: number,
     consumer: string,

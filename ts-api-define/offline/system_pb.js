@@ -128,7 +128,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.services.SystemTaskFetchRequest.repeatedFields_ = [1];
+proto.services.SystemTaskFetchRequest.repeatedFields_ = [1,2];
 
 
 
@@ -162,7 +162,7 @@ proto.services.SystemTaskFetchRequest.prototype.toObject = function(opt_includeI
 proto.services.SystemTaskFetchRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     typeList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
-    status: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    statusList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
     nextStatus: jspb.Message.getFieldWithDefault(msg, 3, 0),
     size: jspb.Message.getFieldWithDefault(msg, 4, 0),
     consumer: jspb.Message.getFieldWithDefault(msg, 5, ""),
@@ -208,8 +208,8 @@ proto.services.SystemTaskFetchRequest.deserializeBinaryFromReader = function(msg
       msg.setTypeList(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setStatus(value);
+      var value = /** @type {!Array<number>} */ (reader.readPackedInt32());
+      msg.setStatusList(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt32());
@@ -263,9 +263,9 @@ proto.services.SystemTaskFetchRequest.serializeBinaryToWriter = function(message
       f
     );
   }
-  f = message.getStatus();
-  if (f !== 0) {
-    writer.writeInt32(
+  f = message.getStatusList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
       2,
       f
     );
@@ -339,20 +339,39 @@ proto.services.SystemTaskFetchRequest.prototype.clearTypeList = function() {
 
 
 /**
- * optional int32 status = 2;
- * @return {number}
+ * repeated int32 status = 2;
+ * @return {!Array<number>}
  */
-proto.services.SystemTaskFetchRequest.prototype.getStatus = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+proto.services.SystemTaskFetchRequest.prototype.getStatusList = function() {
+  return /** @type {!Array<number>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/**
+ * @param {!Array<number>} value
+ * @return {!proto.services.SystemTaskFetchRequest} returns this
+ */
+proto.services.SystemTaskFetchRequest.prototype.setStatusList = function(value) {
+  return jspb.Message.setField(this, 2, value || []);
 };
 
 
 /**
  * @param {number} value
+ * @param {number=} opt_index
  * @return {!proto.services.SystemTaskFetchRequest} returns this
  */
-proto.services.SystemTaskFetchRequest.prototype.setStatus = function(value) {
-  return jspb.Message.setProto3IntField(this, 2, value);
+proto.services.SystemTaskFetchRequest.prototype.addStatus = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.services.SystemTaskFetchRequest} returns this
+ */
+proto.services.SystemTaskFetchRequest.prototype.clearStatusList = function() {
+  return this.setStatusList([]);
 };
 
 
