@@ -74,11 +74,11 @@ export namespace SystemTaskList {
 }
 
 export class TaskFile extends jspb.Message {
+  getIdentity(): string;
+  setIdentity(value: string): void;
+
   getDownloadIdentity(): string;
   setDownloadIdentity(value: string): void;
-
-  getPathIdentity(): string;
-  setPathIdentity(value: string): void;
 
   getCreateTime(): number;
   setCreateTime(value: number): void;
@@ -125,8 +125,8 @@ export class TaskFile extends jspb.Message {
 
 export namespace TaskFile {
   export type AsObject = {
+    identity: string,
     downloadIdentity: string,
-    pathIdentity: string,
     createTime: number,
     name: string,
     path: string,

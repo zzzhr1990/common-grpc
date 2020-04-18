@@ -143,6 +143,17 @@ var SystemTaskServiceService = exports.SystemTaskServiceService = {
     responseSerialize: serialize_services_TaskFile,
     responseDeserialize: deserialize_services_TaskFile,
   },
+  updateFile: {
+    path: '/services.SystemTaskService/updateFile',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_system_pb.TaskFile,
+    responseType: offline_system_pb.TaskFile,
+    requestSerialize: serialize_services_TaskFile,
+    requestDeserialize: deserialize_services_TaskFile,
+    responseSerialize: serialize_services_TaskFile,
+    responseDeserialize: deserialize_services_TaskFile,
+  },
   // rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
   complete: {
     path: '/services.SystemTaskService/complete',
