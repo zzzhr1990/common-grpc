@@ -8,6 +8,7 @@ import * as grpc from "grpc";
 
 interface ISystemTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
   create: grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTask>;
+  parse: grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTaskDetail>;
   update: grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTask>;
   get: grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTask>;
   getDetail: grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTaskDetail>;
@@ -24,6 +25,9 @@ export class SystemTaskServiceClient extends grpc.Client {
   create(argument: offline_system_pb.SystemTask, callback: grpc.requestCallback<offline_system_pb.SystemTask>): grpc.ClientUnaryCall;
   create(argument: offline_system_pb.SystemTask, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTask>): grpc.ClientUnaryCall;
   create(argument: offline_system_pb.SystemTask, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTask>): grpc.ClientUnaryCall;
+  parse(argument: offline_system_pb.SystemTask, callback: grpc.requestCallback<offline_system_pb.SystemTaskDetail>): grpc.ClientUnaryCall;
+  parse(argument: offline_system_pb.SystemTask, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTaskDetail>): grpc.ClientUnaryCall;
+  parse(argument: offline_system_pb.SystemTask, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTaskDetail>): grpc.ClientUnaryCall;
   update(argument: offline_system_pb.SystemTask, callback: grpc.requestCallback<offline_system_pb.SystemTask>): grpc.ClientUnaryCall;
   update(argument: offline_system_pb.SystemTask, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTask>): grpc.ClientUnaryCall;
   update(argument: offline_system_pb.SystemTask, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTask>): grpc.ClientUnaryCall;

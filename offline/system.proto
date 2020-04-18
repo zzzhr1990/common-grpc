@@ -9,6 +9,7 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/system
 
 service SystemTaskService {
     rpc create (SystemTask) returns (SystemTask) {}
+    rpc parse (SystemTask) returns (SystemTaskDetail) {}
     rpc update (SystemTask) returns (SystemTask) {}
     // rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
     // rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
@@ -84,6 +85,7 @@ message SystemTask {
     int32 error_count = 15;
     int64 error_time = 16;
     int32 op = 17;
+    string file_hash = 18;
 }
 
 message SystemTaskDetail {

@@ -1175,7 +1175,8 @@ proto.services.SystemTask.toObject = function(includeInstance, msg) {
     textLink: jspb.Message.getFieldWithDefault(msg, 14, ""),
     errorCount: jspb.Message.getFieldWithDefault(msg, 15, 0),
     errorTime: jspb.Message.getFieldWithDefault(msg, 16, 0),
-    op: jspb.Message.getFieldWithDefault(msg, 17, 0)
+    op: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    fileHash: jspb.Message.getFieldWithDefault(msg, 18, "")
   };
 
   if (includeInstance) {
@@ -1279,6 +1280,10 @@ proto.services.SystemTask.deserializeBinaryFromReader = function(msg, reader) {
     case 17:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setOp(value);
+      break;
+    case 18:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFileHash(value);
       break;
     default:
       reader.skipField();
@@ -1425,6 +1430,13 @@ proto.services.SystemTask.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       17,
+      f
+    );
+  }
+  f = message.getFileHash();
+  if (f.length > 0) {
+    writer.writeString(
+      18,
       f
     );
   }
@@ -1734,6 +1746,24 @@ proto.services.SystemTask.prototype.getOp = function() {
  */
 proto.services.SystemTask.prototype.setOp = function(value) {
   return jspb.Message.setProto3IntField(this, 17, value);
+};
+
+
+/**
+ * optional string file_hash = 18;
+ * @return {string}
+ */
+proto.services.SystemTask.prototype.getFileHash = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 18, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemTask} returns this
+ */
+proto.services.SystemTask.prototype.setFileHash = function(value) {
+  return jspb.Message.setProto3StringField(this, 18, value);
 };
 
 
