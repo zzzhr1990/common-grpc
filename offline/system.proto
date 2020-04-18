@@ -21,6 +21,7 @@ service SystemTaskService {
     //rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
     // rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
     rpc uploadFile (TaskFile) returns (TaskFile) {}
+    rpc updateFile (TaskFile) returns (TaskFile) {}
     // rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
     rpc complete(SystemTask) returns (SystemTask) {}
     // ErrorRequest
@@ -52,8 +53,8 @@ message SystemTaskList {
 }
 
 message TaskFile {
-    string  download_identity = 1;
-    string path_identity = 2;
+    string identity = 1;
+    string  download_identity = 2;
     int64 create_time = 3;
     string name = 5;
     string path = 6;
