@@ -670,7 +670,7 @@ proto.services.TaskFile.prototype.toObject = function(opt_includeInstance) {
 proto.services.TaskFile.toObject = function(includeInstance, msg) {
   var f, obj = {
     identity: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    downloadIdentity: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    taskIdentity: jspb.Message.getFieldWithDefault(msg, 2, ""),
     createTime: jspb.Message.getFieldWithDefault(msg, 3, 0),
     name: jspb.Message.getFieldWithDefault(msg, 5, ""),
     path: jspb.Message.getFieldWithDefault(msg, 6, ""),
@@ -724,7 +724,7 @@ proto.services.TaskFile.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setDownloadIdentity(value);
+      msg.setTaskIdentity(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt64());
@@ -806,7 +806,7 @@ proto.services.TaskFile.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getDownloadIdentity();
+  f = message.getTaskIdentity();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -912,10 +912,10 @@ proto.services.TaskFile.prototype.setIdentity = function(value) {
 
 
 /**
- * optional string download_identity = 2;
+ * optional string task_identity = 2;
  * @return {string}
  */
-proto.services.TaskFile.prototype.getDownloadIdentity = function() {
+proto.services.TaskFile.prototype.getTaskIdentity = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -924,7 +924,7 @@ proto.services.TaskFile.prototype.getDownloadIdentity = function() {
  * @param {string} value
  * @return {!proto.services.TaskFile} returns this
  */
-proto.services.TaskFile.prototype.setDownloadIdentity = function(value) {
+proto.services.TaskFile.prototype.setTaskIdentity = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
