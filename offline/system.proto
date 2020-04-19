@@ -54,7 +54,7 @@ message SystemTaskList {
 
 message TaskFile {
     string identity = 1;
-    string  download_identity = 2;
+    string  task_identity = 2;
     int64 create_time = 3;
     string name = 5;
     string path = 6;
