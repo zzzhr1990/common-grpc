@@ -36,41 +36,45 @@ export namespace UserOfflineTaskRequest {
   }
 }
 
-export class AddUserOfflineTaskRequest extends jspb.Message {
+export class AddUserTaskRequest extends jspb.Message {
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
 
-  clearTasksList(): void;
-  getTasksList(): Array<UserOfflineTaskRequest>;
-  setTasksList(value: Array<UserOfflineTaskRequest>): void;
-  addTasks(value?: UserOfflineTaskRequest, index?: number): UserOfflineTaskRequest;
+  clearDataList(): void;
+  getDataList(): Array<UserTask>;
+  setDataList(value: Array<UserTask>): void;
+  addData(value?: UserTask, index?: number): UserTask;
 
   getPath(): string;
   setPath(value: string): void;
+
+  getIdentity(): string;
+  setIdentity(value: string): void;
 
   getCreateAddress(): string;
   setCreateAddress(value: string): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): AddUserOfflineTaskRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: AddUserOfflineTaskRequest): AddUserOfflineTaskRequest.AsObject;
+  toObject(includeInstance?: boolean): AddUserTaskRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: AddUserTaskRequest): AddUserTaskRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: AddUserOfflineTaskRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): AddUserOfflineTaskRequest;
-  static deserializeBinaryFromReader(message: AddUserOfflineTaskRequest, reader: jspb.BinaryReader): AddUserOfflineTaskRequest;
+  static serializeBinaryToWriter(message: AddUserTaskRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AddUserTaskRequest;
+  static deserializeBinaryFromReader(message: AddUserTaskRequest, reader: jspb.BinaryReader): AddUserTaskRequest;
 }
 
-export namespace AddUserOfflineTaskRequest {
+export namespace AddUserTaskRequest {
   export type AsObject = {
     userIdentity: number,
-    tasksList: Array<UserOfflineTaskRequest.AsObject>,
+    dataList: Array<UserTask.AsObject>,
     path: string,
+    identity: string,
     createAddress: string,
   }
 }
 
-export class UserOfflineTask extends jspb.Message {
+export class UserTask extends jspb.Message {
   getIdentity(): string;
   setIdentity(value: string): void;
 
@@ -107,8 +111,14 @@ export class UserOfflineTask extends jspb.Message {
   getSavePath(): string;
   setSavePath(value: string): void;
 
+  getSaveIdentity(): string;
+  setSaveIdentity(value: string): void;
+
   getAccessPath(): string;
   setAccessPath(value: string): void;
+
+  getAccessIdentity(): string;
+  setAccessIdentity(value: string): void;
 
   getFileMime(): string;
   setFileMime(value: string): void;
@@ -122,17 +132,26 @@ export class UserOfflineTask extends jspb.Message {
   getData(): string;
   setData(value: string): void;
 
+  getTextLink(): string;
+  setTextLink(value: string): void;
+
+  getFileHash(): string;
+  setFileHash(value: string): void;
+
+  getOp(): number;
+  setOp(value: number): void;
+
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserOfflineTask.AsObject;
-  static toObject(includeInstance: boolean, msg: UserOfflineTask): UserOfflineTask.AsObject;
+  toObject(includeInstance?: boolean): UserTask.AsObject;
+  static toObject(includeInstance: boolean, msg: UserTask): UserTask.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UserOfflineTask, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserOfflineTask;
-  static deserializeBinaryFromReader(message: UserOfflineTask, reader: jspb.BinaryReader): UserOfflineTask;
+  static serializeBinaryToWriter(message: UserTask, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserTask;
+  static deserializeBinaryFromReader(message: UserTask, reader: jspb.BinaryReader): UserTask;
 }
 
-export namespace UserOfflineTask {
+export namespace UserTask {
   export type AsObject = {
     identity: string,
     userIdentity: number,
@@ -146,11 +165,16 @@ export namespace UserOfflineTask {
     errorCode: number,
     errorMessage: string,
     savePath: string,
+    saveIdentity: string,
     accessPath: string,
+    accessIdentity: string,
     fileMime: string,
     fileType: number,
     createAddress: string,
     data: string,
+    textLink: string,
+    fileHash: string,
+    op: number,
   }
 }
 
@@ -186,67 +210,7 @@ export namespace UserOfflineTaskFile {
   }
 }
 
-export class UserOfflineTaskResponse extends jspb.Message {
-  getSuccess(): boolean;
-  setSuccess(value: boolean): void;
-
-  getCount(): number;
-  setCount(value: number): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserOfflineTaskResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: UserOfflineTaskResponse): UserOfflineTaskResponse.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UserOfflineTaskResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserOfflineTaskResponse;
-  static deserializeBinaryFromReader(message: UserOfflineTaskResponse, reader: jspb.BinaryReader): UserOfflineTaskResponse;
-}
-
-export namespace UserOfflineTaskResponse {
-  export type AsObject = {
-    success: boolean,
-    count: number,
-  }
-}
-
-export class PageUserOfflineTaskRequest extends jspb.Message {
-  getUserIdentity(): number;
-  setUserIdentity(value: number): void;
-
-  getOrderBy(): number;
-  setOrderBy(value: number): void;
-
-  getPage(): number;
-  setPage(value: number): void;
-
-  getPageSize(): number;
-  setPageSize(value: number): void;
-
-  getFilter(): number;
-  setFilter(value: number): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): PageUserOfflineTaskRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: PageUserOfflineTaskRequest): PageUserOfflineTaskRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: PageUserOfflineTaskRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): PageUserOfflineTaskRequest;
-  static deserializeBinaryFromReader(message: PageUserOfflineTaskRequest, reader: jspb.BinaryReader): PageUserOfflineTaskRequest;
-}
-
-export namespace PageUserOfflineTaskRequest {
-  export type AsObject = {
-    userIdentity: number,
-    orderBy: number,
-    page: number,
-    pageSize: number,
-    filter: number,
-  }
-}
-
-export class ListUserOfflineTaskRequest extends jspb.Message {
+export class ListUserTaskRequest extends jspb.Message {
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
 
@@ -263,16 +227,16 @@ export class ListUserOfflineTaskRequest extends jspb.Message {
   setListSize(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ListUserOfflineTaskRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: ListUserOfflineTaskRequest): ListUserOfflineTaskRequest.AsObject;
+  toObject(includeInstance?: boolean): ListUserTaskRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ListUserTaskRequest): ListUserTaskRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ListUserOfflineTaskRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ListUserOfflineTaskRequest;
-  static deserializeBinaryFromReader(message: ListUserOfflineTaskRequest, reader: jspb.BinaryReader): ListUserOfflineTaskRequest;
+  static serializeBinaryToWriter(message: ListUserTaskRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListUserTaskRequest;
+  static deserializeBinaryFromReader(message: ListUserTaskRequest, reader: jspb.BinaryReader): ListUserTaskRequest;
 }
 
-export namespace ListUserOfflineTaskRequest {
+export namespace ListUserTaskRequest {
   export type AsObject = {
     userIdentity: number,
     orderBy: number,
@@ -282,89 +246,51 @@ export namespace ListUserOfflineTaskRequest {
   }
 }
 
-export class UserOfflineTaskPage extends jspb.Message {
-  clearListList(): void;
-  getListList(): Array<UserOfflineTask>;
-  setListList(value: Array<UserOfflineTask>): void;
-  addList(value?: UserOfflineTask, index?: number): UserOfflineTask;
-
-  getTotalCount(): number;
-  setTotalCount(value: number): void;
-
-  getTotalPage(): number;
-  setTotalPage(value: number): void;
-
-  getPage(): number;
-  setPage(value: number): void;
-
-  getPageSize(): number;
-  setPageSize(value: number): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserOfflineTaskPage.AsObject;
-  static toObject(includeInstance: boolean, msg: UserOfflineTaskPage): UserOfflineTaskPage.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UserOfflineTaskPage, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserOfflineTaskPage;
-  static deserializeBinaryFromReader(message: UserOfflineTaskPage, reader: jspb.BinaryReader): UserOfflineTaskPage;
-}
-
-export namespace UserOfflineTaskPage {
-  export type AsObject = {
-    listList: Array<UserOfflineTask.AsObject>,
-    totalCount: number,
-    totalPage: number,
-    page: number,
-    pageSize: number,
-  }
-}
-
-export class DeleteTasksRequest extends jspb.Message {
+export class DeleteUserTaskRequest extends jspb.Message {
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
 
-  clearTasksIdentityList(): void;
-  getTasksIdentityList(): Array<string>;
-  setTasksIdentityList(value: Array<string>): void;
-  addTasksIdentity(value: string, index?: number): string;
+  clearIdentityList(): void;
+  getIdentityList(): Array<string>;
+  setIdentityList(value: Array<string>): void;
+  addIdentity(value: string, index?: number): string;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): DeleteTasksRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: DeleteTasksRequest): DeleteTasksRequest.AsObject;
+  toObject(includeInstance?: boolean): DeleteUserTaskRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: DeleteUserTaskRequest): DeleteUserTaskRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: DeleteTasksRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): DeleteTasksRequest;
-  static deserializeBinaryFromReader(message: DeleteTasksRequest, reader: jspb.BinaryReader): DeleteTasksRequest;
+  static serializeBinaryToWriter(message: DeleteUserTaskRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DeleteUserTaskRequest;
+  static deserializeBinaryFromReader(message: DeleteUserTaskRequest, reader: jspb.BinaryReader): DeleteUserTaskRequest;
 }
 
-export namespace DeleteTasksRequest {
+export namespace DeleteUserTaskRequest {
   export type AsObject = {
     userIdentity: number,
-    tasksIdentityList: Array<string>,
+    identityList: Array<string>,
   }
 }
 
-export class UserOfflineTaskList extends jspb.Message {
-  clearListList(): void;
-  getListList(): Array<UserOfflineTask>;
-  setListList(value: Array<UserOfflineTask>): void;
-  addList(value?: UserOfflineTask, index?: number): UserOfflineTask;
+export class UserTaskList extends jspb.Message {
+  clearDataList(): void;
+  getDataList(): Array<UserTask>;
+  setDataList(value: Array<UserTask>): void;
+  addData(value?: UserTask, index?: number): UserTask;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserOfflineTaskList.AsObject;
-  static toObject(includeInstance: boolean, msg: UserOfflineTaskList): UserOfflineTaskList.AsObject;
+  toObject(includeInstance?: boolean): UserTaskList.AsObject;
+  static toObject(includeInstance: boolean, msg: UserTaskList): UserTaskList.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UserOfflineTaskList, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserOfflineTaskList;
-  static deserializeBinaryFromReader(message: UserOfflineTaskList, reader: jspb.BinaryReader): UserOfflineTaskList;
+  static serializeBinaryToWriter(message: UserTaskList, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserTaskList;
+  static deserializeBinaryFromReader(message: UserTaskList, reader: jspb.BinaryReader): UserTaskList;
 }
 
-export namespace UserOfflineTaskList {
+export namespace UserTaskList {
   export type AsObject = {
-    listList: Array<UserOfflineTask.AsObject>,
+    dataList: Array<UserTask.AsObject>,
   }
 }
 

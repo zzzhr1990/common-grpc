@@ -7,12 +7,14 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/userta
 import "common/common_entity.proto";
 
 
-service UserOfflineTaskService {
+service UserTaskService {
     // rpc create (UserOfflineTask) returns (UserOfflineTask) {}
-    rpc add (AddUserOfflineTaskRequest) returns (UserOfflineTaskResponse) {}
-    rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
-    rpc list (ListUserOfflineTaskRequest) returns (UserOfflineTaskList) {}
-    rpc delete (DeleteTasksRequest) returns (Int64Entity) {}
+    rpc add (AddUserTaskRequest) returns (Int64Entity) {}
+    //rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
+    rpc list (ListUserTaskRequest) returns (UserTaskList) {}
+    rpc delete (DeleteUserTaskRequest) returns (Int64Entity) {}
+    rpc getListeners (UserTask) returns (UserTaskList) {}
+    rpc deleteListener (UserTask) returns (BoolEntity) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     // rpc get (UserOfflineTask) returns (UserOfflineTask) {}
@@ -31,14 +33,15 @@ message UserOfflineTaskRequest {
     string data = 4;
 }
 
-message AddUserOfflineTaskRequest {
+message AddUserTaskRequest {
     int64 user_identity = 1;
-    repeated UserOfflineTaskRequest tasks = 2;
+    repeated UserTask data = 2;
     string path = 3;
-    string create_address = 4;
+    string identity = 4;
+    string create_address = 5;
 }
 
-message UserOfflineTask {
+message UserTask {
     string identity = 1;
     int64 user_identity = 2;
     int64 create_time = 3;
@@ -50,12 +53,17 @@ message UserOfflineTask {
     int64 progress = 9;
     int32 error_code = 10;
 	string error_message = 11;
-	string save_path = 12;
-	string access_path = 13;
-	string file_mime = 14;
-	int32 file_type = 15;
-	string create_address = 16;
-    string data = 17;
+    string save_path = 12;
+    string save_identity = 13;
+    string access_path = 14;
+    string access_identity = 15;
+	string file_mime = 16;
+	int32 file_type = 17;
+	string create_address = 18;
+    string data = 19;
+    string text_link = 20;
+    string file_hash = 21;
+    int32 op = 22;
 }
 
 message UserOfflineTaskFile {
@@ -65,13 +73,9 @@ message UserOfflineTaskFile {
     int32 order = 4;
 }
 
-message UserOfflineTaskResponse {
-    bool success = 1;
-    int32 count = 2;
-    // repeated UserOfflineTaskFile files = 3;
-}
 
 
+/*
 message PageUserOfflineTaskRequest {
     int64 user_identity = 1;
     int32 order_by = 2;
@@ -79,8 +83,9 @@ message PageUserOfflineTaskRequest {
     int32 page_size = 4;
     int32 filter = 5;
 }
+*/
 
-message ListUserOfflineTaskRequest {
+message ListUserTaskRequest {
     int64 user_identity = 1;
     int32 order_by = 2;
     int32 filter = 3;
@@ -88,21 +93,15 @@ message ListUserOfflineTaskRequest {
     int32 list_size = 5;
 }
 
-message UserOfflineTaskPage {
-    repeated UserOfflineTask list = 1;
-    int64 total_count = 2;
-    int32 total_page = 3;
-    int32 page = 4;
-    int32 page_size = 5;
-}
 
-message DeleteTasksRequest {
+
+message DeleteUserTaskRequest {
     int64 user_identity = 1;
-    repeated string tasks_identity = 2;
+    repeated string identity = 2;
 }
 
-message UserOfflineTaskList {
-    repeated UserOfflineTask list = 2;
+message UserTaskList {
+    repeated UserTask data = 2;
     // int64 totalCount = 3;
     // int32 totalPage = 4;
     // int32 page = 5;

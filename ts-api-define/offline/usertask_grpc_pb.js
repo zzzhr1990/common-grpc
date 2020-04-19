@@ -5,26 +5,37 @@ var grpc = require('grpc');
 var offline_usertask_pb = require('../offline/usertask_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
-function serialize_services_AddUserOfflineTaskRequest(arg) {
-  if (!(arg instanceof offline_usertask_pb.AddUserOfflineTaskRequest)) {
-    throw new Error('Expected argument of type services.AddUserOfflineTaskRequest');
+function serialize_services_AddUserTaskRequest(arg) {
+  if (!(arg instanceof offline_usertask_pb.AddUserTaskRequest)) {
+    throw new Error('Expected argument of type services.AddUserTaskRequest');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_AddUserOfflineTaskRequest(buffer_arg) {
-  return offline_usertask_pb.AddUserOfflineTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_AddUserTaskRequest(buffer_arg) {
+  return offline_usertask_pb.AddUserTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_DeleteTasksRequest(arg) {
-  if (!(arg instanceof offline_usertask_pb.DeleteTasksRequest)) {
-    throw new Error('Expected argument of type services.DeleteTasksRequest');
+function serialize_services_BoolEntity(arg) {
+  if (!(arg instanceof common_common_entity_pb.BoolEntity)) {
+    throw new Error('Expected argument of type services.BoolEntity');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_DeleteTasksRequest(buffer_arg) {
-  return offline_usertask_pb.DeleteTasksRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_BoolEntity(buffer_arg) {
+  return common_common_entity_pb.BoolEntity.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_DeleteUserTaskRequest(arg) {
+  if (!(arg instanceof offline_usertask_pb.DeleteUserTaskRequest)) {
+    throw new Error('Expected argument of type services.DeleteUserTaskRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_DeleteUserTaskRequest(buffer_arg) {
+  return offline_usertask_pb.DeleteUserTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_Int64Entity(arg) {
@@ -38,108 +49,98 @@ function deserialize_services_Int64Entity(buffer_arg) {
   return common_common_entity_pb.Int64Entity.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_ListUserOfflineTaskRequest(arg) {
-  if (!(arg instanceof offline_usertask_pb.ListUserOfflineTaskRequest)) {
-    throw new Error('Expected argument of type services.ListUserOfflineTaskRequest');
+function serialize_services_ListUserTaskRequest(arg) {
+  if (!(arg instanceof offline_usertask_pb.ListUserTaskRequest)) {
+    throw new Error('Expected argument of type services.ListUserTaskRequest');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_ListUserOfflineTaskRequest(buffer_arg) {
-  return offline_usertask_pb.ListUserOfflineTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_ListUserTaskRequest(buffer_arg) {
+  return offline_usertask_pb.ListUserTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_PageUserOfflineTaskRequest(arg) {
-  if (!(arg instanceof offline_usertask_pb.PageUserOfflineTaskRequest)) {
-    throw new Error('Expected argument of type services.PageUserOfflineTaskRequest');
+function serialize_services_UserTask(arg) {
+  if (!(arg instanceof offline_usertask_pb.UserTask)) {
+    throw new Error('Expected argument of type services.UserTask');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_PageUserOfflineTaskRequest(buffer_arg) {
-  return offline_usertask_pb.PageUserOfflineTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_UserTask(buffer_arg) {
+  return offline_usertask_pb.UserTask.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_UserOfflineTaskList(arg) {
-  if (!(arg instanceof offline_usertask_pb.UserOfflineTaskList)) {
-    throw new Error('Expected argument of type services.UserOfflineTaskList');
+function serialize_services_UserTaskList(arg) {
+  if (!(arg instanceof offline_usertask_pb.UserTaskList)) {
+    throw new Error('Expected argument of type services.UserTaskList');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_services_UserOfflineTaskList(buffer_arg) {
-  return offline_usertask_pb.UserOfflineTaskList.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_UserOfflineTaskPage(arg) {
-  if (!(arg instanceof offline_usertask_pb.UserOfflineTaskPage)) {
-    throw new Error('Expected argument of type services.UserOfflineTaskPage');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_UserOfflineTaskPage(buffer_arg) {
-  return offline_usertask_pb.UserOfflineTaskPage.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_UserOfflineTaskResponse(arg) {
-  if (!(arg instanceof offline_usertask_pb.UserOfflineTaskResponse)) {
-    throw new Error('Expected argument of type services.UserOfflineTaskResponse');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_UserOfflineTaskResponse(buffer_arg) {
-  return offline_usertask_pb.UserOfflineTaskResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_services_UserTaskList(buffer_arg) {
+  return offline_usertask_pb.UserTaskList.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
-var UserOfflineTaskServiceService = exports.UserOfflineTaskServiceService = {
+var UserTaskServiceService = exports.UserTaskServiceService = {
   // rpc create (UserOfflineTask) returns (UserOfflineTask) {}
   add: {
-    path: '/services.UserOfflineTaskService/add',
+    path: '/services.UserTaskService/add',
     requestStream: false,
     responseStream: false,
-    requestType: offline_usertask_pb.AddUserOfflineTaskRequest,
-    responseType: offline_usertask_pb.UserOfflineTaskResponse,
-    requestSerialize: serialize_services_AddUserOfflineTaskRequest,
-    requestDeserialize: deserialize_services_AddUserOfflineTaskRequest,
-    responseSerialize: serialize_services_UserOfflineTaskResponse,
-    responseDeserialize: deserialize_services_UserOfflineTaskResponse,
-  },
-  page: {
-    path: '/services.UserOfflineTaskService/page',
-    requestStream: false,
-    responseStream: false,
-    requestType: offline_usertask_pb.PageUserOfflineTaskRequest,
-    responseType: offline_usertask_pb.UserOfflineTaskPage,
-    requestSerialize: serialize_services_PageUserOfflineTaskRequest,
-    requestDeserialize: deserialize_services_PageUserOfflineTaskRequest,
-    responseSerialize: serialize_services_UserOfflineTaskPage,
-    responseDeserialize: deserialize_services_UserOfflineTaskPage,
-  },
-  list: {
-    path: '/services.UserOfflineTaskService/list',
-    requestStream: false,
-    responseStream: false,
-    requestType: offline_usertask_pb.ListUserOfflineTaskRequest,
-    responseType: offline_usertask_pb.UserOfflineTaskList,
-    requestSerialize: serialize_services_ListUserOfflineTaskRequest,
-    requestDeserialize: deserialize_services_ListUserOfflineTaskRequest,
-    responseSerialize: serialize_services_UserOfflineTaskList,
-    responseDeserialize: deserialize_services_UserOfflineTaskList,
-  },
-  delete: {
-    path: '/services.UserOfflineTaskService/delete',
-    requestStream: false,
-    responseStream: false,
-    requestType: offline_usertask_pb.DeleteTasksRequest,
+    requestType: offline_usertask_pb.AddUserTaskRequest,
     responseType: common_common_entity_pb.Int64Entity,
-    requestSerialize: serialize_services_DeleteTasksRequest,
-    requestDeserialize: deserialize_services_DeleteTasksRequest,
+    requestSerialize: serialize_services_AddUserTaskRequest,
+    requestDeserialize: deserialize_services_AddUserTaskRequest,
     responseSerialize: serialize_services_Int64Entity,
     responseDeserialize: deserialize_services_Int64Entity,
   },
+  // rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
+  list: {
+    path: '/services.UserTaskService/list',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.ListUserTaskRequest,
+    responseType: offline_usertask_pb.UserTaskList,
+    requestSerialize: serialize_services_ListUserTaskRequest,
+    requestDeserialize: deserialize_services_ListUserTaskRequest,
+    responseSerialize: serialize_services_UserTaskList,
+    responseDeserialize: deserialize_services_UserTaskList,
+  },
+  delete: {
+    path: '/services.UserTaskService/delete',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.DeleteUserTaskRequest,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_DeleteUserTaskRequest,
+    requestDeserialize: deserialize_services_DeleteUserTaskRequest,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
+  },
+  getListeners: {
+    path: '/services.UserTaskService/getListeners',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.UserTask,
+    responseType: offline_usertask_pb.UserTaskList,
+    requestSerialize: serialize_services_UserTask,
+    requestDeserialize: deserialize_services_UserTask,
+    responseSerialize: serialize_services_UserTaskList,
+    responseDeserialize: deserialize_services_UserTaskList,
+  },
+  deleteListener: {
+    path: '/services.UserTaskService/deleteListener',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.UserTask,
+    responseType: common_common_entity_pb.BoolEntity,
+    requestSerialize: serialize_services_UserTask,
+    requestDeserialize: deserialize_services_UserTask,
+    responseSerialize: serialize_services_BoolEntity,
+    responseDeserialize: deserialize_services_BoolEntity,
+  },
 };
 
-exports.UserOfflineTaskServiceClient = grpc.makeGenericClientConstructor(UserOfflineTaskServiceService);
+exports.UserTaskServiceClient = grpc.makeGenericClientConstructor(UserTaskServiceService);
