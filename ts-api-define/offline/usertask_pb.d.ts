@@ -214,17 +214,23 @@ export class ListUserTaskRequest extends jspb.Message {
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
 
-  getOrderBy(): number;
-  setOrderBy(value: number): void;
+  hasListInfo(): boolean;
+  clearListInfo(): void;
+  getListInfo(): common_common_entity_pb.ListInfo | undefined;
+  setListInfo(value?: common_common_entity_pb.ListInfo): void;
 
-  getFilter(): number;
-  setFilter(value: number): void;
+  clearOrderByList(): void;
+  getOrderByList(): Array<common_common_entity_pb.OrderByRequest>;
+  setOrderByList(value: Array<common_common_entity_pb.OrderByRequest>): void;
+  addOrderBy(value?: common_common_entity_pb.OrderByRequest, index?: number): common_common_entity_pb.OrderByRequest;
 
-  getStart(): number;
-  setStart(value: number): void;
+  hasFilter(): boolean;
+  clearFilter(): void;
+  getFilter(): FilterRequest | undefined;
+  setFilter(value?: FilterRequest): void;
 
-  getListSize(): number;
-  setListSize(value: number): void;
+  getOp(): number;
+  setOp(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListUserTaskRequest.AsObject;
@@ -239,10 +245,10 @@ export class ListUserTaskRequest extends jspb.Message {
 export namespace ListUserTaskRequest {
   export type AsObject = {
     userIdentity: number,
-    orderBy: number,
-    filter: number,
-    start: number,
-    listSize: number,
+    listInfo?: common_common_entity_pb.ListInfo.AsObject,
+    orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
+    filter?: FilterRequest.AsObject,
+    op: number,
   }
 }
 
@@ -291,6 +297,38 @@ export class UserTaskList extends jspb.Message {
 export namespace UserTaskList {
   export type AsObject = {
     dataList: Array<UserTask.AsObject>,
+  }
+}
+
+export class FilterRequest extends jspb.Message {
+  clearIdentityList(): void;
+  getIdentityList(): Array<string>;
+  setIdentityList(value: Array<string>): void;
+  addIdentity(value: string, index?: number): string;
+
+  clearTypeList(): void;
+  getTypeList(): Array<number>;
+  setTypeList(value: Array<number>): void;
+  addType(value: number, index?: number): number;
+
+  getName(): string;
+  setName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): FilterRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: FilterRequest): FilterRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: FilterRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FilterRequest;
+  static deserializeBinaryFromReader(message: FilterRequest, reader: jspb.BinaryReader): FilterRequest;
+}
+
+export namespace FilterRequest {
+  export type AsObject = {
+    identityList: Array<string>,
+    typeList: Array<number>,
+    name: string,
   }
 }
 

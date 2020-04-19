@@ -87,10 +87,10 @@ message PageUserOfflineTaskRequest {
 
 message ListUserTaskRequest {
     int64 user_identity = 1;
-    int32 order_by = 2;
-    int32 filter = 3;
-    int32 start = 4;
-    int32 list_size = 5;
+    ListInfo list_info = 2;
+    repeated OrderByRequest order_by = 3;
+    FilterRequest filter = 4;
+    int32 op = 5;
 }
 
 
@@ -106,4 +106,10 @@ message UserTaskList {
     // int32 totalPage = 4;
     // int32 page = 5;
     // int32 pageSize = 6;
+}
+
+message FilterRequest {
+    repeated string identity = 1;
+    repeated int32 type = 2;
+    string name = 3;
 }
