@@ -26,23 +26,17 @@ service UserTaskService {
 }
 
 
-message UserOfflineTaskRequest {
-    string identity = 1;
-    int32 type = 2;
-    string name = 3;
-    string data = 4;
-}
 
 message AddUserTaskRequest {
     int64 user_identity = 1;
     repeated UserTask data = 2;
-    string path = 3;
-    string identity = 4;
+    string save_path = 3;
+    string save_identity = 4;
     string create_address = 5;
 }
 
 message UserTask {
-    string identity = 1;
+    string task_identity = 1;
     int64 user_identity = 2;
     int64 create_time = 3;
     string name = 4;
@@ -66,12 +60,6 @@ message UserTask {
     int32 op = 22;
 }
 
-message UserOfflineTaskFile {
-    string identity = 1;
-    string name = 2;
-    int64 size = 3;
-    int32 order = 4;
-}
 
 
 
@@ -97,7 +85,7 @@ message ListUserTaskRequest {
 
 message DeleteUserTaskRequest {
     int64 user_identity = 1;
-    repeated string identity = 2;
+    repeated string task_identity = 2;
 }
 
 message UserTaskList {
@@ -109,7 +97,7 @@ message UserTaskList {
 }
 
 message FilterRequest {
-    repeated string identity = 1;
+    repeated string task_identity = 1;
     repeated int32 type = 2;
     string name = 3;
 }

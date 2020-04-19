@@ -4,38 +4,6 @@
 import * as jspb from "google-protobuf";
 import * as common_common_entity_pb from "../common/common_entity_pb";
 
-export class UserOfflineTaskRequest extends jspb.Message {
-  getIdentity(): string;
-  setIdentity(value: string): void;
-
-  getType(): number;
-  setType(value: number): void;
-
-  getName(): string;
-  setName(value: string): void;
-
-  getData(): string;
-  setData(value: string): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserOfflineTaskRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: UserOfflineTaskRequest): UserOfflineTaskRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UserOfflineTaskRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserOfflineTaskRequest;
-  static deserializeBinaryFromReader(message: UserOfflineTaskRequest, reader: jspb.BinaryReader): UserOfflineTaskRequest;
-}
-
-export namespace UserOfflineTaskRequest {
-  export type AsObject = {
-    identity: string,
-    type: number,
-    name: string,
-    data: string,
-  }
-}
-
 export class AddUserTaskRequest extends jspb.Message {
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
@@ -45,11 +13,11 @@ export class AddUserTaskRequest extends jspb.Message {
   setDataList(value: Array<UserTask>): void;
   addData(value?: UserTask, index?: number): UserTask;
 
-  getPath(): string;
-  setPath(value: string): void;
+  getSavePath(): string;
+  setSavePath(value: string): void;
 
-  getIdentity(): string;
-  setIdentity(value: string): void;
+  getSaveIdentity(): string;
+  setSaveIdentity(value: string): void;
 
   getCreateAddress(): string;
   setCreateAddress(value: string): void;
@@ -68,15 +36,15 @@ export namespace AddUserTaskRequest {
   export type AsObject = {
     userIdentity: number,
     dataList: Array<UserTask.AsObject>,
-    path: string,
-    identity: string,
+    savePath: string,
+    saveIdentity: string,
     createAddress: string,
   }
 }
 
 export class UserTask extends jspb.Message {
-  getIdentity(): string;
-  setIdentity(value: string): void;
+  getTaskIdentity(): string;
+  setTaskIdentity(value: string): void;
 
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
@@ -153,7 +121,7 @@ export class UserTask extends jspb.Message {
 
 export namespace UserTask {
   export type AsObject = {
-    identity: string,
+    taskIdentity: string,
     userIdentity: number,
     createTime: number,
     name: string,
@@ -175,38 +143,6 @@ export namespace UserTask {
     textLink: string,
     fileHash: string,
     op: number,
-  }
-}
-
-export class UserOfflineTaskFile extends jspb.Message {
-  getIdentity(): string;
-  setIdentity(value: string): void;
-
-  getName(): string;
-  setName(value: string): void;
-
-  getSize(): number;
-  setSize(value: number): void;
-
-  getOrder(): number;
-  setOrder(value: number): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserOfflineTaskFile.AsObject;
-  static toObject(includeInstance: boolean, msg: UserOfflineTaskFile): UserOfflineTaskFile.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UserOfflineTaskFile, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserOfflineTaskFile;
-  static deserializeBinaryFromReader(message: UserOfflineTaskFile, reader: jspb.BinaryReader): UserOfflineTaskFile;
-}
-
-export namespace UserOfflineTaskFile {
-  export type AsObject = {
-    identity: string,
-    name: string,
-    size: number,
-    order: number,
   }
 }
 
@@ -256,10 +192,10 @@ export class DeleteUserTaskRequest extends jspb.Message {
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
 
-  clearIdentityList(): void;
-  getIdentityList(): Array<string>;
-  setIdentityList(value: Array<string>): void;
-  addIdentity(value: string, index?: number): string;
+  clearTaskIdentityList(): void;
+  getTaskIdentityList(): Array<string>;
+  setTaskIdentityList(value: Array<string>): void;
+  addTaskIdentity(value: string, index?: number): string;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): DeleteUserTaskRequest.AsObject;
@@ -274,7 +210,7 @@ export class DeleteUserTaskRequest extends jspb.Message {
 export namespace DeleteUserTaskRequest {
   export type AsObject = {
     userIdentity: number,
-    identityList: Array<string>,
+    taskIdentityList: Array<string>,
   }
 }
 
@@ -301,10 +237,10 @@ export namespace UserTaskList {
 }
 
 export class FilterRequest extends jspb.Message {
-  clearIdentityList(): void;
-  getIdentityList(): Array<string>;
-  setIdentityList(value: Array<string>): void;
-  addIdentity(value: string, index?: number): string;
+  clearTaskIdentityList(): void;
+  getTaskIdentityList(): Array<string>;
+  setTaskIdentityList(value: Array<string>): void;
+  addTaskIdentity(value: string, index?: number): string;
 
   clearTypeList(): void;
   getTypeList(): Array<number>;
@@ -326,7 +262,7 @@ export class FilterRequest extends jspb.Message {
 
 export namespace FilterRequest {
   export type AsObject = {
-    identityList: Array<string>,
+    taskIdentityList: Array<string>,
     typeList: Array<number>,
     name: string,
   }
