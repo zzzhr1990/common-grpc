@@ -53,8 +53,8 @@ rm -rf ./go_temp
 cd ./go
 cp ../main.go ./
 go mod init github.com/zzzhr1990/common-grpc/go
-go get google.golang.org/grpc
-go get github.com/golang/protobuf
+# go get google.golang.org/grpc
+go get
 # go get github.com/golang/protobuf@master
 # go mod tidy
 cd ..

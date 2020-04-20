@@ -96,6 +96,17 @@ var UserTaskServiceService = exports.UserTaskServiceService = {
     responseSerialize: serialize_services_Int64Entity,
     responseDeserialize: deserialize_services_Int64Entity,
   },
+  parse: {
+    path: '/services.UserTaskService/parse',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.UserTask,
+    responseType: offline_usertask_pb.UserTask,
+    requestSerialize: serialize_services_UserTask,
+    requestDeserialize: deserialize_services_UserTask,
+    responseSerialize: serialize_services_UserTask,
+    responseDeserialize: deserialize_services_UserTask,
+  },
   // rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
   list: {
     path: '/services.UserTaskService/list',

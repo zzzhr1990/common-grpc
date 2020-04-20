@@ -10,6 +10,7 @@ import "common/common_entity.proto";
 service UserTaskService {
     // rpc create (UserOfflineTask) returns (UserOfflineTask) {}
     rpc add (AddUserTaskRequest) returns (Int64Entity) {}
+    rpc parse (UserTask) returns (UserTask) {}
     //rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
     rpc list (ListUserTaskRequest) returns (UserTaskList) {}
     rpc delete (DeleteUserTaskRequest) returns (Int64Entity) {}
