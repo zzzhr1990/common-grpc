@@ -72,7 +72,17 @@ var SystemTaskServiceService = exports.SystemTaskServiceService = {
     responseSerialize: serialize_services_SystemTask,
     responseDeserialize: deserialize_services_SystemTask,
   },
-  // rpc parse (SystemTask) returns (SystemTaskDetail) {}
+  parse: {
+    path: '/services.SystemTaskService/parse',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_system_pb.SystemTask,
+    responseType: offline_system_pb.SystemTaskDetail,
+    requestSerialize: serialize_services_SystemTask,
+    requestDeserialize: deserialize_services_SystemTask,
+    responseSerialize: serialize_services_SystemTaskDetail,
+    responseDeserialize: deserialize_services_SystemTaskDetail,
+  },
   update: {
     path: '/services.SystemTaskService/update',
     requestStream: false,

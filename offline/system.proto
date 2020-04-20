@@ -9,7 +9,7 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/system
 
 service SystemTaskService {
     rpc create (SystemTask) returns (SystemTask) {}
-    // rpc parse (SystemTask) returns (SystemTaskDetail) {}
+    rpc parse (SystemTask) returns (SystemTaskDetail) {}
     rpc update (SystemTask) returns (SystemTask) {}
     // rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
     // rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
