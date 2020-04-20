@@ -78,7 +78,7 @@ message ListUserTaskRequest {
     int64 user_identity = 1;
     ListInfo list_info = 2;
     repeated OrderByRequest order_by = 3;
-    FilterRequest filter = 4;
+    UserTaskFilterRequest filter = 4;
     int32 op = 5;
 }
 
@@ -97,7 +97,7 @@ message UserTaskList {
     // int32 pageSize = 6;
 }
 
-message FilterRequest {
+message UserTaskFilterRequest {
     repeated string task_identity = 1;
     repeated int32 type = 2;
     string name = 3;

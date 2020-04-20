@@ -162,8 +162,8 @@ export class ListUserTaskRequest extends jspb.Message {
 
   hasFilter(): boolean;
   clearFilter(): void;
-  getFilter(): FilterRequest | undefined;
-  setFilter(value?: FilterRequest): void;
+  getFilter(): UserTaskFilterRequest | undefined;
+  setFilter(value?: UserTaskFilterRequest): void;
 
   getOp(): number;
   setOp(value: number): void;
@@ -183,7 +183,7 @@ export namespace ListUserTaskRequest {
     userIdentity: number,
     listInfo?: common_common_entity_pb.ListInfo.AsObject,
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
-    filter?: FilterRequest.AsObject,
+    filter?: UserTaskFilterRequest.AsObject,
     op: number,
   }
 }
@@ -236,7 +236,7 @@ export namespace UserTaskList {
   }
 }
 
-export class FilterRequest extends jspb.Message {
+export class UserTaskFilterRequest extends jspb.Message {
   clearTaskIdentityList(): void;
   getTaskIdentityList(): Array<string>;
   setTaskIdentityList(value: Array<string>): void;
@@ -251,16 +251,16 @@ export class FilterRequest extends jspb.Message {
   setName(value: string): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): FilterRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: FilterRequest): FilterRequest.AsObject;
+  toObject(includeInstance?: boolean): UserTaskFilterRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: UserTaskFilterRequest): UserTaskFilterRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: FilterRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): FilterRequest;
-  static deserializeBinaryFromReader(message: FilterRequest, reader: jspb.BinaryReader): FilterRequest;
+  static serializeBinaryToWriter(message: UserTaskFilterRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserTaskFilterRequest;
+  static deserializeBinaryFromReader(message: UserTaskFilterRequest, reader: jspb.BinaryReader): UserTaskFilterRequest;
 }
 
-export namespace FilterRequest {
+export namespace UserTaskFilterRequest {
   export type AsObject = {
     taskIdentityList: Array<string>,
     typeList: Array<number>,
