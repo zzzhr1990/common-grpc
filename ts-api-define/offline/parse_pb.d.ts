@@ -96,8 +96,8 @@ export class ParseTaskFile extends jspb.Message {
   getPath(): string;
   setPath(value: string): void;
 
-  getSize(): string;
-  setSize(value: string): void;
+  getSize(): number;
+  setSize(value: number): void;
 
   getName(): string;
   setName(value: string): void;
@@ -116,7 +116,7 @@ export namespace ParseTaskFile {
   export type AsObject = {
     identity: string,
     path: string,
-    size: string,
+    size: number,
     name: string,
   }
 }

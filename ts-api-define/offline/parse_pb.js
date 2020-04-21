@@ -732,7 +732,7 @@ proto.services.ParseTaskFile.toObject = function(includeInstance, msg) {
   var f, obj = {
     identity: jspb.Message.getFieldWithDefault(msg, 1, ""),
     path: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    size: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    size: jspb.Message.getFieldWithDefault(msg, 3, 0),
     name: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
@@ -779,7 +779,7 @@ proto.services.ParseTaskFile.deserializeBinaryFromReader = function(msg, reader)
       msg.setPath(value);
       break;
     case 3:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setSize(value);
       break;
     case 4:
@@ -830,8 +830,8 @@ proto.services.ParseTaskFile.serializeBinaryToWriter = function(message, writer)
     );
   }
   f = message.getSize();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt64(
       3,
       f
     );
@@ -883,20 +883,20 @@ proto.services.ParseTaskFile.prototype.setPath = function(value) {
 
 
 /**
- * optional string size = 3;
- * @return {string}
+ * optional int64 size = 3;
+ * @return {number}
  */
 proto.services.ParseTaskFile.prototype.getSize = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.services.ParseTaskFile} returns this
  */
 proto.services.ParseTaskFile.prototype.setSize = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
