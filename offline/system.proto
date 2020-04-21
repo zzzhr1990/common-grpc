@@ -87,6 +87,8 @@ message SystemTask {
     int64 error_time = 16;
     int32 op = 17;
     string file_hash = 18;
+    string username = 19;
+    string password = 20;
 }
 
 message SystemTaskDetail {

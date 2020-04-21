@@ -1176,7 +1176,9 @@ proto.services.SystemTask.toObject = function(includeInstance, msg) {
     errorCount: jspb.Message.getFieldWithDefault(msg, 15, 0),
     errorTime: jspb.Message.getFieldWithDefault(msg, 16, 0),
     op: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    fileHash: jspb.Message.getFieldWithDefault(msg, 18, "")
+    fileHash: jspb.Message.getFieldWithDefault(msg, 18, ""),
+    username: jspb.Message.getFieldWithDefault(msg, 19, ""),
+    password: jspb.Message.getFieldWithDefault(msg, 20, "")
   };
 
   if (includeInstance) {
@@ -1284,6 +1286,14 @@ proto.services.SystemTask.deserializeBinaryFromReader = function(msg, reader) {
     case 18:
       var value = /** @type {string} */ (reader.readString());
       msg.setFileHash(value);
+      break;
+    case 19:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUsername(value);
+      break;
+    case 20:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPassword(value);
       break;
     default:
       reader.skipField();
@@ -1437,6 +1447,20 @@ proto.services.SystemTask.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       18,
+      f
+    );
+  }
+  f = message.getUsername();
+  if (f.length > 0) {
+    writer.writeString(
+      19,
+      f
+    );
+  }
+  f = message.getPassword();
+  if (f.length > 0) {
+    writer.writeString(
+      20,
       f
     );
   }
@@ -1764,6 +1788,42 @@ proto.services.SystemTask.prototype.getFileHash = function() {
  */
 proto.services.SystemTask.prototype.setFileHash = function(value) {
   return jspb.Message.setProto3StringField(this, 18, value);
+};
+
+
+/**
+ * optional string username = 19;
+ * @return {string}
+ */
+proto.services.SystemTask.prototype.getUsername = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 19, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemTask} returns this
+ */
+proto.services.SystemTask.prototype.setUsername = function(value) {
+  return jspb.Message.setProto3StringField(this, 19, value);
+};
+
+
+/**
+ * optional string password = 20;
+ * @return {string}
+ */
+proto.services.SystemTask.prototype.getPassword = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 20, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemTask} returns this
+ */
+proto.services.SystemTask.prototype.setPassword = function(value) {
+  return jspb.Message.setProto3StringField(this, 20, value);
 };
 
 

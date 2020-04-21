@@ -1,0 +1,81 @@
+// package: services
+// file: offline/parse.proto
+
+import * as jspb from "google-protobuf";
+
+export class ParseTaskRequest extends jspb.Message {
+  getTextLink(): string;
+  setTextLink(value: string): void;
+
+  getFileHash(): string;
+  setFileHash(value: string): void;
+
+  getUsername(): string;
+  setUsername(value: string): void;
+
+  getPassword(): string;
+  setPassword(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ParseTaskRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ParseTaskRequest): ParseTaskRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ParseTaskRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ParseTaskRequest;
+  static deserializeBinaryFromReader(message: ParseTaskRequest, reader: jspb.BinaryReader): ParseTaskRequest;
+}
+
+export namespace ParseTaskRequest {
+  export type AsObject = {
+    textLink: string,
+    fileHash: string,
+    username: string,
+    password: string,
+  }
+}
+
+export class ParseTaskResponse extends jspb.Message {
+  getTextLink(): string;
+  setTextLink(value: string): void;
+
+  getFileHash(): string;
+  setFileHash(value: string): void;
+
+  getUsername(): string;
+  setUsername(value: string): void;
+
+  getPassword(): string;
+  setPassword(value: string): void;
+
+  getIdentity(): string;
+  setIdentity(value: string): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getSize(): number;
+  setSize(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ParseTaskResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ParseTaskResponse): ParseTaskResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ParseTaskResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ParseTaskResponse;
+  static deserializeBinaryFromReader(message: ParseTaskResponse, reader: jspb.BinaryReader): ParseTaskResponse;
+}
+
+export namespace ParseTaskResponse {
+  export type AsObject = {
+    textLink: string,
+    fileHash: string,
+    username: string,
+    password: string,
+    identity: string,
+    name: string,
+    size: number,
+  }
+}
+

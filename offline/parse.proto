@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package services;
+
+//import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/parse";
+// import "common/common_entity.proto";
+service TaskParseService {
+    rpc parse (ParseTaskRequest) returns (ParseTaskResponse) {}
+}
+
+message ParseTaskRequest {
+    string text_link = 1;
+    string file_hash = 2;
+    string username = 3;
+    string password = 4;
+}
+
+message ParseTaskResponse {
+    string text_link = 1;
+    string file_hash = 2;
+    string username = 3;
+    string password = 4;
+    string identity = 5;
+    string name = 6;
+    int64 size = 7;
+}

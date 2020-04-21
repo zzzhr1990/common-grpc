@@ -196,6 +196,12 @@ export class SystemTask extends jspb.Message {
   getFileHash(): string;
   setFileHash(value: string): void;
 
+  getUsername(): string;
+  setUsername(value: string): void;
+
+  getPassword(): string;
+  setPassword(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SystemTask.AsObject;
   static toObject(includeInstance: boolean, msg: SystemTask): SystemTask.AsObject;
@@ -226,6 +232,8 @@ export namespace SystemTask {
     errorTime: number,
     op: number,
     fileHash: string,
+    username: string,
+    password: string,
   }
 }
 
