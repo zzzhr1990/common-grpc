@@ -16,6 +16,9 @@ export class ParseTaskRequest extends jspb.Message {
   getPassword(): string;
   setPassword(value: string): void;
 
+  getOp(): number;
+  setOp(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ParseTaskRequest.AsObject;
   static toObject(includeInstance: boolean, msg: ParseTaskRequest): ParseTaskRequest.AsObject;
@@ -32,6 +35,7 @@ export namespace ParseTaskRequest {
     fileHash: string,
     username: string,
     password: string,
+    op: number,
   }
 }
 
@@ -57,6 +61,11 @@ export class ParseTaskResponse extends jspb.Message {
   getSize(): number;
   setSize(value: number): void;
 
+  clearDataList(): void;
+  getDataList(): Array<ParseTaskFile>;
+  setDataList(value: Array<ParseTaskFile>): void;
+  addData(value?: ParseTaskFile, index?: number): ParseTaskFile;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ParseTaskResponse.AsObject;
   static toObject(includeInstance: boolean, msg: ParseTaskResponse): ParseTaskResponse.AsObject;
@@ -76,6 +85,39 @@ export namespace ParseTaskResponse {
     identity: string,
     name: string,
     size: number,
+    dataList: Array<ParseTaskFile.AsObject>,
+  }
+}
+
+export class ParseTaskFile extends jspb.Message {
+  getIdentity(): string;
+  setIdentity(value: string): void;
+
+  getPath(): string;
+  setPath(value: string): void;
+
+  getSize(): string;
+  setSize(value: string): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ParseTaskFile.AsObject;
+  static toObject(includeInstance: boolean, msg: ParseTaskFile): ParseTaskFile.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ParseTaskFile, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ParseTaskFile;
+  static deserializeBinaryFromReader(message: ParseTaskFile, reader: jspb.BinaryReader): ParseTaskFile;
+}
+
+export namespace ParseTaskFile {
+  export type AsObject = {
+    identity: string,
+    path: string,
+    size: string,
+    name: string,
   }
 }
 

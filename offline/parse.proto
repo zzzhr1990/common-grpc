@@ -14,6 +14,7 @@ message ParseTaskRequest {
     string file_hash = 2;
     string username = 3;
     string password = 4;
+    int32 op = 5;
 }
 
 message ParseTaskResponse {
@@ -24,4 +25,12 @@ message ParseTaskResponse {
     string identity = 5;
     string name = 6;
     int64 size = 7;
+    repeated ParseTaskFile data = 8;
+}
+
+message ParseTaskFile {
+    string identity = 1;
+    string path = 2;
+    string size = 3;
+    string name = 4;
 }
