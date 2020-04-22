@@ -26,7 +26,7 @@ message ParseTaskResponse {
     string name = 6;
     int64 size = 7;
     repeated ParseTaskFile data = 8;
-    int64 type = 9;
+    int32 type = 9;
 }
 
 message ParseTaskFile {

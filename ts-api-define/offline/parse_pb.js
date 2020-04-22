@@ -447,7 +447,7 @@ proto.services.ParseTaskResponse.deserializeBinaryFromReader = function(msg, rea
       msg.addData(value);
       break;
     case 9:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setType(value);
       break;
     default:
@@ -538,7 +538,7 @@ proto.services.ParseTaskResponse.serializeBinaryToWriter = function(message, wri
   }
   f = message.getType();
   if (f !== 0) {
-    writer.writeInt64(
+    writer.writeInt32(
       9,
       f
     );
@@ -711,7 +711,7 @@ proto.services.ParseTaskResponse.prototype.clearDataList = function() {
 
 
 /**
- * optional int64 type = 9;
+ * optional int32 type = 9;
  * @return {number}
  */
 proto.services.ParseTaskResponse.prototype.getType = function() {
