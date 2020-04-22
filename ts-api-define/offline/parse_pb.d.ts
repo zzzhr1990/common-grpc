@@ -66,6 +66,9 @@ export class ParseTaskResponse extends jspb.Message {
   setDataList(value: Array<ParseTaskFile>): void;
   addData(value?: ParseTaskFile, index?: number): ParseTaskFile;
 
+  getType(): number;
+  setType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ParseTaskResponse.AsObject;
   static toObject(includeInstance: boolean, msg: ParseTaskResponse): ParseTaskResponse.AsObject;
@@ -86,6 +89,7 @@ export namespace ParseTaskResponse {
     name: string,
     size: number,
     dataList: Array<ParseTaskFile.AsObject>,
+    type: number,
   }
 }
 

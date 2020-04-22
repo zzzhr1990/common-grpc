@@ -375,7 +375,8 @@ proto.services.ParseTaskResponse.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 6, ""),
     size: jspb.Message.getFieldWithDefault(msg, 7, 0),
     dataList: jspb.Message.toObjectList(msg.getDataList(),
-    proto.services.ParseTaskFile.toObject, includeInstance)
+    proto.services.ParseTaskFile.toObject, includeInstance),
+    type: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -444,6 +445,10 @@ proto.services.ParseTaskResponse.deserializeBinaryFromReader = function(msg, rea
       var value = new proto.services.ParseTaskFile;
       reader.readMessage(value,proto.services.ParseTaskFile.deserializeBinaryFromReader);
       msg.addData(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setType(value);
       break;
     default:
       reader.skipField();
@@ -529,6 +534,13 @@ proto.services.ParseTaskResponse.serializeBinaryToWriter = function(message, wri
       8,
       f,
       proto.services.ParseTaskFile.serializeBinaryToWriter
+    );
+  }
+  f = message.getType();
+  if (f !== 0) {
+    writer.writeInt64(
+      9,
+      f
     );
   }
 };
@@ -695,6 +707,24 @@ proto.services.ParseTaskResponse.prototype.addData = function(opt_value, opt_ind
  */
 proto.services.ParseTaskResponse.prototype.clearDataList = function() {
   return this.setDataList([]);
+};
+
+
+/**
+ * optional int64 type = 9;
+ * @return {number}
+ */
+proto.services.ParseTaskResponse.prototype.getType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.ParseTaskResponse} returns this
+ */
+proto.services.ParseTaskResponse.prototype.setType = function(value) {
+  return jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
