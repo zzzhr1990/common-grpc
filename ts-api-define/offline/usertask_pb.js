@@ -479,7 +479,9 @@ proto.services.UserTask.toObject = function(includeInstance, msg) {
     data: jspb.Message.getFieldWithDefault(msg, 19, ""),
     textLink: jspb.Message.getFieldWithDefault(msg, 20, ""),
     fileHash: jspb.Message.getFieldWithDefault(msg, 21, ""),
-    op: jspb.Message.getFieldWithDefault(msg, 22, 0)
+    op: jspb.Message.getFieldWithDefault(msg, 22, 0),
+    username: jspb.Message.getFieldWithDefault(msg, 23, ""),
+    password: jspb.Message.getFieldWithDefault(msg, 24, "")
   };
 
   if (includeInstance) {
@@ -603,6 +605,14 @@ proto.services.UserTask.deserializeBinaryFromReader = function(msg, reader) {
     case 22:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setOp(value);
+      break;
+    case 23:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUsername(value);
+      break;
+    case 24:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPassword(value);
       break;
     default:
       reader.skipField();
@@ -784,6 +794,20 @@ proto.services.UserTask.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       22,
+      f
+    );
+  }
+  f = message.getUsername();
+  if (f.length > 0) {
+    writer.writeString(
+      23,
+      f
+    );
+  }
+  f = message.getPassword();
+  if (f.length > 0) {
+    writer.writeString(
+      24,
       f
     );
   }
@@ -1183,6 +1207,42 @@ proto.services.UserTask.prototype.getOp = function() {
  */
 proto.services.UserTask.prototype.setOp = function(value) {
   return jspb.Message.setProto3IntField(this, 22, value);
+};
+
+
+/**
+ * optional string username = 23;
+ * @return {string}
+ */
+proto.services.UserTask.prototype.getUsername = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 23, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.UserTask} returns this
+ */
+proto.services.UserTask.prototype.setUsername = function(value) {
+  return jspb.Message.setProto3StringField(this, 23, value);
+};
+
+
+/**
+ * optional string password = 24;
+ * @return {string}
+ */
+proto.services.UserTask.prototype.getPassword = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 24, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.UserTask} returns this
+ */
+proto.services.UserTask.prototype.setPassword = function(value) {
+  return jspb.Message.setProto3StringField(this, 24, value);
 };
 
 

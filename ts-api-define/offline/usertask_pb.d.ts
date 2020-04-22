@@ -109,6 +109,12 @@ export class UserTask extends jspb.Message {
   getOp(): number;
   setOp(value: number): void;
 
+  getUsername(): string;
+  setUsername(value: string): void;
+
+  getPassword(): string;
+  setPassword(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserTask.AsObject;
   static toObject(includeInstance: boolean, msg: UserTask): UserTask.AsObject;
@@ -143,6 +149,8 @@ export namespace UserTask {
     textLink: string,
     fileHash: string,
     op: number,
+    username: string,
+    password: string,
   }
 }
 

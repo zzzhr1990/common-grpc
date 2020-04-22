@@ -59,6 +59,8 @@ message UserTask {
     string text_link = 20;
     string file_hash = 21;
     int32 op = 22;
+    string username = 23;
+    string password = 24;
 }
 
 
