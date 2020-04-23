@@ -14,8 +14,11 @@ service UserTaskService {
     //rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
     rpc list (ListUserTaskRequest) returns (UserTaskList) {}
     rpc delete (DeleteUserTaskRequest) returns (Int64Entity) {}
+    rpc get(UserTask) returns (UserTask) {}
+
     rpc getListeners (UserTask) returns (UserTaskList) {}
-    rpc deleteListener (UserTask) returns (BoolEntity) {}
+    rpc updateListener (TaskListener) returns (TaskListener) {}
+    rpc deleteListeners (UserTask) returns (Int64Entity) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     // rpc get (UserOfflineTask) returns (UserOfflineTask) {}
@@ -63,6 +66,20 @@ message UserTask {
     string password = 24;
 }
 
+
+message TaskListener {
+    string identity = 1;
+	string task_identity = 2;
+	int64 user_identity = 3;
+	// CreateTime   time.Time `bson:"create_time"`
+	int64 update_time = 4;
+	int64 precent    = 5;
+	bool completed  = 6;
+}
+
+message TaskListenerList {
+    repeated TaskListener data = 1;
+}
 
 
 

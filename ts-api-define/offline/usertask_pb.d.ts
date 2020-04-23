@@ -154,6 +154,68 @@ export namespace UserTask {
   }
 }
 
+export class TaskListener extends jspb.Message {
+  getIdentity(): string;
+  setIdentity(value: string): void;
+
+  getTaskIdentity(): string;
+  setTaskIdentity(value: string): void;
+
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
+  getUpdateTime(): number;
+  setUpdateTime(value: number): void;
+
+  getPrecent(): number;
+  setPrecent(value: number): void;
+
+  getCompleted(): boolean;
+  setCompleted(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TaskListener.AsObject;
+  static toObject(includeInstance: boolean, msg: TaskListener): TaskListener.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: TaskListener, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TaskListener;
+  static deserializeBinaryFromReader(message: TaskListener, reader: jspb.BinaryReader): TaskListener;
+}
+
+export namespace TaskListener {
+  export type AsObject = {
+    identity: string,
+    taskIdentity: string,
+    userIdentity: number,
+    updateTime: number,
+    precent: number,
+    completed: boolean,
+  }
+}
+
+export class TaskListenerList extends jspb.Message {
+  clearDataList(): void;
+  getDataList(): Array<TaskListener>;
+  setDataList(value: Array<TaskListener>): void;
+  addData(value?: TaskListener, index?: number): TaskListener;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TaskListenerList.AsObject;
+  static toObject(includeInstance: boolean, msg: TaskListenerList): TaskListenerList.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: TaskListenerList, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TaskListenerList;
+  static deserializeBinaryFromReader(message: TaskListenerList, reader: jspb.BinaryReader): TaskListenerList;
+}
+
+export namespace TaskListenerList {
+  export type AsObject = {
+    dataList: Array<TaskListener.AsObject>,
+  }
+}
+
 export class ListUserTaskRequest extends jspb.Message {
   getUserIdentity(): number;
   setUserIdentity(value: number): void;

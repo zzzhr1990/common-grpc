@@ -16,17 +16,6 @@ function deserialize_services_AddUserTaskRequest(buffer_arg) {
   return offline_usertask_pb.AddUserTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_BoolEntity(arg) {
-  if (!(arg instanceof common_common_entity_pb.BoolEntity)) {
-    throw new Error('Expected argument of type services.BoolEntity');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_BoolEntity(buffer_arg) {
-  return common_common_entity_pb.BoolEntity.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_services_DeleteUserTaskRequest(arg) {
   if (!(arg instanceof offline_usertask_pb.DeleteUserTaskRequest)) {
     throw new Error('Expected argument of type services.DeleteUserTaskRequest');
@@ -58,6 +47,17 @@ function serialize_services_ListUserTaskRequest(arg) {
 
 function deserialize_services_ListUserTaskRequest(buffer_arg) {
   return offline_usertask_pb.ListUserTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_TaskListener(arg) {
+  if (!(arg instanceof offline_usertask_pb.TaskListener)) {
+    throw new Error('Expected argument of type services.TaskListener');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_TaskListener(buffer_arg) {
+  return offline_usertask_pb.TaskListener.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_UserTask(arg) {
@@ -120,6 +120,17 @@ var UserTaskServiceService = exports.UserTaskServiceService = {
     responseSerialize: serialize_services_Int64Entity,
     responseDeserialize: deserialize_services_Int64Entity,
   },
+  get: {
+    path: '/services.UserTaskService/get',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.UserTask,
+    responseType: offline_usertask_pb.UserTask,
+    requestSerialize: serialize_services_UserTask,
+    requestDeserialize: deserialize_services_UserTask,
+    responseSerialize: serialize_services_UserTask,
+    responseDeserialize: deserialize_services_UserTask,
+  },
   getListeners: {
     path: '/services.UserTaskService/getListeners',
     requestStream: false,
@@ -131,16 +142,27 @@ var UserTaskServiceService = exports.UserTaskServiceService = {
     responseSerialize: serialize_services_UserTaskList,
     responseDeserialize: deserialize_services_UserTaskList,
   },
-  deleteListener: {
-    path: '/services.UserTaskService/deleteListener',
+  updateListener: {
+    path: '/services.UserTaskService/updateListener',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.TaskListener,
+    responseType: offline_usertask_pb.TaskListener,
+    requestSerialize: serialize_services_TaskListener,
+    requestDeserialize: deserialize_services_TaskListener,
+    responseSerialize: serialize_services_TaskListener,
+    responseDeserialize: deserialize_services_TaskListener,
+  },
+  deleteListeners: {
+    path: '/services.UserTaskService/deleteListeners',
     requestStream: false,
     responseStream: false,
     requestType: offline_usertask_pb.UserTask,
-    responseType: common_common_entity_pb.BoolEntity,
+    responseType: common_common_entity_pb.Int64Entity,
     requestSerialize: serialize_services_UserTask,
     requestDeserialize: deserialize_services_UserTask,
-    responseSerialize: serialize_services_BoolEntity,
-    responseDeserialize: deserialize_services_BoolEntity,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
   },
 };
 

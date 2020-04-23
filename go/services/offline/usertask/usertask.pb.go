@@ -340,6 +340,141 @@ func (x *UserTask) GetPassword() string {
 	return ""
 }
 
+type TaskListener struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Identity     string `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
+	TaskIdentity string `protobuf:"bytes,2,opt,name=task_identity,json=taskIdentity,proto3" json:"task_identity,omitempty"`
+	UserIdentity int64  `protobuf:"varint,3,opt,name=user_identity,json=userIdentity,proto3" json:"user_identity,omitempty"`
+	// CreateTime   time.Time `bson:"create_time"`
+	UpdateTime int64 `protobuf:"varint,4,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	Precent    int64 `protobuf:"varint,5,opt,name=precent,proto3" json:"precent,omitempty"`
+	Completed  bool  `protobuf:"varint,6,opt,name=completed,proto3" json:"completed,omitempty"`
+}
+
+func (x *TaskListener) Reset() {
+	*x = TaskListener{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_offline_usertask_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TaskListener) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TaskListener) ProtoMessage() {}
+
+func (x *TaskListener) ProtoReflect() protoreflect.Message {
+	mi := &file_offline_usertask_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TaskListener.ProtoReflect.Descriptor instead.
+func (*TaskListener) Descriptor() ([]byte, []int) {
+	return file_offline_usertask_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *TaskListener) GetIdentity() string {
+	if x != nil {
+		return x.Identity
+	}
+	return ""
+}
+
+func (x *TaskListener) GetTaskIdentity() string {
+	if x != nil {
+		return x.TaskIdentity
+	}
+	return ""
+}
+
+func (x *TaskListener) GetUserIdentity() int64 {
+	if x != nil {
+		return x.UserIdentity
+	}
+	return 0
+}
+
+func (x *TaskListener) GetUpdateTime() int64 {
+	if x != nil {
+		return x.UpdateTime
+	}
+	return 0
+}
+
+func (x *TaskListener) GetPrecent() int64 {
+	if x != nil {
+		return x.Precent
+	}
+	return 0
+}
+
+func (x *TaskListener) GetCompleted() bool {
+	if x != nil {
+		return x.Completed
+	}
+	return false
+}
+
+type TaskListenerList struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Data []*TaskListener `protobuf:"bytes,1,rep,name=data,proto3" json:"data,omitempty"`
+}
+
+func (x *TaskListenerList) Reset() {
+	*x = TaskListenerList{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_offline_usertask_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TaskListenerList) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TaskListenerList) ProtoMessage() {}
+
+func (x *TaskListenerList) ProtoReflect() protoreflect.Message {
+	mi := &file_offline_usertask_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TaskListenerList.ProtoReflect.Descriptor instead.
+func (*TaskListenerList) Descriptor() ([]byte, []int) {
+	return file_offline_usertask_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *TaskListenerList) GetData() []*TaskListener {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
 type ListUserTaskRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -355,7 +490,7 @@ type ListUserTaskRequest struct {
 func (x *ListUserTaskRequest) Reset() {
 	*x = ListUserTaskRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_offline_usertask_proto_msgTypes[2]
+		mi := &file_offline_usertask_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -368,7 +503,7 @@ func (x *ListUserTaskRequest) String() string {
 func (*ListUserTaskRequest) ProtoMessage() {}
 
 func (x *ListUserTaskRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_offline_usertask_proto_msgTypes[2]
+	mi := &file_offline_usertask_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -381,7 +516,7 @@ func (x *ListUserTaskRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListUserTaskRequest.ProtoReflect.Descriptor instead.
 func (*ListUserTaskRequest) Descriptor() ([]byte, []int) {
-	return file_offline_usertask_proto_rawDescGZIP(), []int{2}
+	return file_offline_usertask_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ListUserTaskRequest) GetUserIdentity() int64 {
@@ -431,7 +566,7 @@ type DeleteUserTaskRequest struct {
 func (x *DeleteUserTaskRequest) Reset() {
 	*x = DeleteUserTaskRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_offline_usertask_proto_msgTypes[3]
+		mi := &file_offline_usertask_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -444,7 +579,7 @@ func (x *DeleteUserTaskRequest) String() string {
 func (*DeleteUserTaskRequest) ProtoMessage() {}
 
 func (x *DeleteUserTaskRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_offline_usertask_proto_msgTypes[3]
+	mi := &file_offline_usertask_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -457,7 +592,7 @@ func (x *DeleteUserTaskRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteUserTaskRequest.ProtoReflect.Descriptor instead.
 func (*DeleteUserTaskRequest) Descriptor() ([]byte, []int) {
-	return file_offline_usertask_proto_rawDescGZIP(), []int{3}
+	return file_offline_usertask_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *DeleteUserTaskRequest) GetUserIdentity() int64 {
@@ -485,7 +620,7 @@ type UserTaskList struct {
 func (x *UserTaskList) Reset() {
 	*x = UserTaskList{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_offline_usertask_proto_msgTypes[4]
+		mi := &file_offline_usertask_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -498,7 +633,7 @@ func (x *UserTaskList) String() string {
 func (*UserTaskList) ProtoMessage() {}
 
 func (x *UserTaskList) ProtoReflect() protoreflect.Message {
-	mi := &file_offline_usertask_proto_msgTypes[4]
+	mi := &file_offline_usertask_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -511,7 +646,7 @@ func (x *UserTaskList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserTaskList.ProtoReflect.Descriptor instead.
 func (*UserTaskList) Descriptor() ([]byte, []int) {
-	return file_offline_usertask_proto_rawDescGZIP(), []int{4}
+	return file_offline_usertask_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *UserTaskList) GetData() []*UserTask {
@@ -534,7 +669,7 @@ type UserTaskFilterRequest struct {
 func (x *UserTaskFilterRequest) Reset() {
 	*x = UserTaskFilterRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_offline_usertask_proto_msgTypes[5]
+		mi := &file_offline_usertask_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -547,7 +682,7 @@ func (x *UserTaskFilterRequest) String() string {
 func (*UserTaskFilterRequest) ProtoMessage() {}
 
 func (x *UserTaskFilterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_offline_usertask_proto_msgTypes[5]
+	mi := &file_offline_usertask_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -560,7 +695,7 @@ func (x *UserTaskFilterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserTaskFilterRequest.ProtoReflect.Descriptor instead.
 func (*UserTaskFilterRequest) Descriptor() ([]byte, []int) {
-	return file_offline_usertask_proto_rawDescGZIP(), []int{5}
+	return file_offline_usertask_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *UserTaskFilterRequest) GetTaskIdentity() []string {
@@ -649,6 +784,23 @@ var file_offline_usertask_proto_rawDesc = []byte{
 	0x61, 0x6d, 0x65, 0x18, 0x17, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e,
 	0x61, 0x6d, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x18,
 	0x18, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x22,
+	0xcd, 0x01, 0x0a, 0x0c, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72,
+	0x12, 0x1a, 0x0a, 0x08, 0x69, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x08, 0x69, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x12, 0x23, 0x0a, 0x0d,
+	0x74, 0x61, 0x73, 0x6b, 0x5f, 0x69, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x0c, 0x74, 0x61, 0x73, 0x6b, 0x49, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74,
+	0x79, 0x12, 0x23, 0x0a, 0x0d, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x65, 0x6e, 0x74, 0x69,
+	0x74, 0x79, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0c, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64,
+	0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x12, 0x1f, 0x0a, 0x0b, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x5f, 0x74, 0x69, 0x6d, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0a, 0x75, 0x70, 0x64,
+	0x61, 0x74, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x70, 0x72, 0x65, 0x63, 0x65,
+	0x6e, 0x74, 0x18, 0x05, 0x20, 0x01, 0x28, 0x03, 0x52, 0x07, 0x70, 0x72, 0x65, 0x63, 0x65, 0x6e,
+	0x74, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x6f, 0x6d, 0x70, 0x6c, 0x65, 0x74, 0x65, 0x64, 0x18, 0x06,
+	0x20, 0x01, 0x28, 0x08, 0x52, 0x09, 0x63, 0x6f, 0x6d, 0x70, 0x6c, 0x65, 0x74, 0x65, 0x64, 0x22,
+	0x3e, 0x0a, 0x10, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x4c,
+	0x69, 0x73, 0x74, 0x12, 0x2a, 0x0a, 0x04, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x03, 0x28,
+	0x0b, 0x32, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x61, 0x73,
+	0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x52, 0x04, 0x64, 0x61, 0x74, 0x61, 0x22,
 	0xe9, 0x01, 0x0a, 0x13, 0x4c, 0x69, 0x73, 0x74, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b,
 	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x23, 0x0a, 0x0d, 0x75, 0x73, 0x65, 0x72, 0x5f,
 	0x69, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0c,
@@ -679,7 +831,7 @@ var file_offline_usertask_proto_rawDesc = []byte{
 	0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0c, 0x74, 0x61, 0x73, 0x6b, 0x49, 0x64, 0x65, 0x6e,
 	0x74, 0x69, 0x74, 0x79, 0x12, 0x12, 0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x02, 0x20, 0x03,
 	0x28, 0x05, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65,
-	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x32, 0xd0, 0x02, 0x0a,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x32, 0xc7, 0x03, 0x0a,
 	0x0f, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
 	0x12, 0x3c, 0x0a, 0x03, 0x61, 0x64, 0x64, 0x12, 0x1c, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
 	0x65, 0x73, 0x2e, 0x41, 0x64, 0x64, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65,
@@ -693,19 +845,26 @@ var file_offline_usertask_proto_rawDesc = []byte{
 	0x69, 0x63, 0x65, 0x73, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x54,
 	0x61, 0x73, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x73, 0x65, 0x72,
 	0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x45, 0x6e, 0x74, 0x69, 0x74,
-	0x79, 0x22, 0x00, 0x12, 0x3c, 0x0a, 0x0c, 0x67, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e,
-	0x65, 0x72, 0x73, 0x12, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55,
-	0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x1a, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x73, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x22,
-	0x00, 0x12, 0x3c, 0x0a, 0x0e, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x65,
-	0x6e, 0x65, 0x72, 0x12, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55,
-	0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x1a, 0x14, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x73, 0x2e, 0x42, 0x6f, 0x6f, 0x6c, 0x45, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x22, 0x00, 0x42,
-	0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x7a, 0x7a,
-	0x7a, 0x68, 0x72, 0x31, 0x39, 0x39, 0x30, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2d, 0x67,
-	0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2f,
-	0x6f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x74, 0x61, 0x73, 0x6b,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x79, 0x22, 0x00, 0x12, 0x2f, 0x0a, 0x03, 0x67, 0x65, 0x74, 0x12, 0x12, 0x2e, 0x73, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x1a, 0x12,
+	0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61,
+	0x73, 0x6b, 0x22, 0x00, 0x12, 0x3c, 0x0a, 0x0c, 0x67, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x65,
+	0x6e, 0x65, 0x72, 0x73, 0x12, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e,
+	0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x1a, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x73, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74,
+	0x22, 0x00, 0x12, 0x42, 0x0a, 0x0e, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4c, 0x69, 0x73, 0x74,
+	0x65, 0x6e, 0x65, 0x72, 0x12, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e,
+	0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x1a, 0x16, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74,
+	0x65, 0x6e, 0x65, 0x72, 0x22, 0x00, 0x12, 0x3e, 0x0a, 0x0f, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x65,
+	0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x73, 0x12, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76,
+	0x69, 0x63, 0x65, 0x73, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x1a, 0x15, 0x2e,
+	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x45, 0x6e,
+	0x74, 0x69, 0x74, 0x79, 0x22, 0x00, 0x42, 0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62,
+	0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x7a, 0x7a, 0x7a, 0x68, 0x72, 0x31, 0x39, 0x39, 0x30, 0x2f, 0x63,
+	0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2d, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2f, 0x6f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x2f, 0x75,
+	0x73, 0x65, 0x72, 0x74, 0x61, 0x73, 0x6b, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -720,40 +879,46 @@ func file_offline_usertask_proto_rawDescGZIP() []byte {
 	return file_offline_usertask_proto_rawDescData
 }
 
-var file_offline_usertask_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_offline_usertask_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_offline_usertask_proto_goTypes = []interface{}{
 	(*AddUserTaskRequest)(nil),    // 0: services.AddUserTaskRequest
 	(*UserTask)(nil),              // 1: services.UserTask
-	(*ListUserTaskRequest)(nil),   // 2: services.ListUserTaskRequest
-	(*DeleteUserTaskRequest)(nil), // 3: services.DeleteUserTaskRequest
-	(*UserTaskList)(nil),          // 4: services.UserTaskList
-	(*UserTaskFilterRequest)(nil), // 5: services.UserTaskFilterRequest
-	(*common.ListInfo)(nil),       // 6: services.ListInfo
-	(*common.OrderByRequest)(nil), // 7: services.OrderByRequest
-	(*common.Int64Entity)(nil),    // 8: services.Int64Entity
-	(*common.BoolEntity)(nil),     // 9: services.BoolEntity
+	(*TaskListener)(nil),          // 2: services.TaskListener
+	(*TaskListenerList)(nil),      // 3: services.TaskListenerList
+	(*ListUserTaskRequest)(nil),   // 4: services.ListUserTaskRequest
+	(*DeleteUserTaskRequest)(nil), // 5: services.DeleteUserTaskRequest
+	(*UserTaskList)(nil),          // 6: services.UserTaskList
+	(*UserTaskFilterRequest)(nil), // 7: services.UserTaskFilterRequest
+	(*common.ListInfo)(nil),       // 8: services.ListInfo
+	(*common.OrderByRequest)(nil), // 9: services.OrderByRequest
+	(*common.Int64Entity)(nil),    // 10: services.Int64Entity
 }
 var file_offline_usertask_proto_depIdxs = []int32{
 	1,  // 0: services.AddUserTaskRequest.data:type_name -> services.UserTask
-	6,  // 1: services.ListUserTaskRequest.list_info:type_name -> services.ListInfo
-	7,  // 2: services.ListUserTaskRequest.order_by:type_name -> services.OrderByRequest
-	5,  // 3: services.ListUserTaskRequest.filter:type_name -> services.UserTaskFilterRequest
-	1,  // 4: services.UserTaskList.data:type_name -> services.UserTask
-	0,  // 5: services.UserTaskService.add:input_type -> services.AddUserTaskRequest
-	2,  // 6: services.UserTaskService.list:input_type -> services.ListUserTaskRequest
-	3,  // 7: services.UserTaskService.delete:input_type -> services.DeleteUserTaskRequest
-	1,  // 8: services.UserTaskService.getListeners:input_type -> services.UserTask
-	1,  // 9: services.UserTaskService.deleteListener:input_type -> services.UserTask
-	8,  // 10: services.UserTaskService.add:output_type -> services.Int64Entity
-	4,  // 11: services.UserTaskService.list:output_type -> services.UserTaskList
-	8,  // 12: services.UserTaskService.delete:output_type -> services.Int64Entity
-	4,  // 13: services.UserTaskService.getListeners:output_type -> services.UserTaskList
-	9,  // 14: services.UserTaskService.deleteListener:output_type -> services.BoolEntity
-	10, // [10:15] is the sub-list for method output_type
-	5,  // [5:10] is the sub-list for method input_type
-	5,  // [5:5] is the sub-list for extension type_name
-	5,  // [5:5] is the sub-list for extension extendee
-	0,  // [0:5] is the sub-list for field type_name
+	2,  // 1: services.TaskListenerList.data:type_name -> services.TaskListener
+	8,  // 2: services.ListUserTaskRequest.list_info:type_name -> services.ListInfo
+	9,  // 3: services.ListUserTaskRequest.order_by:type_name -> services.OrderByRequest
+	7,  // 4: services.ListUserTaskRequest.filter:type_name -> services.UserTaskFilterRequest
+	1,  // 5: services.UserTaskList.data:type_name -> services.UserTask
+	0,  // 6: services.UserTaskService.add:input_type -> services.AddUserTaskRequest
+	4,  // 7: services.UserTaskService.list:input_type -> services.ListUserTaskRequest
+	5,  // 8: services.UserTaskService.delete:input_type -> services.DeleteUserTaskRequest
+	1,  // 9: services.UserTaskService.get:input_type -> services.UserTask
+	1,  // 10: services.UserTaskService.getListeners:input_type -> services.UserTask
+	2,  // 11: services.UserTaskService.updateListener:input_type -> services.TaskListener
+	1,  // 12: services.UserTaskService.deleteListeners:input_type -> services.UserTask
+	10, // 13: services.UserTaskService.add:output_type -> services.Int64Entity
+	6,  // 14: services.UserTaskService.list:output_type -> services.UserTaskList
+	10, // 15: services.UserTaskService.delete:output_type -> services.Int64Entity
+	1,  // 16: services.UserTaskService.get:output_type -> services.UserTask
+	6,  // 17: services.UserTaskService.getListeners:output_type -> services.UserTaskList
+	2,  // 18: services.UserTaskService.updateListener:output_type -> services.TaskListener
+	10, // 19: services.UserTaskService.deleteListeners:output_type -> services.Int64Entity
+	13, // [13:20] is the sub-list for method output_type
+	6,  // [6:13] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_offline_usertask_proto_init() }
@@ -787,7 +952,7 @@ func file_offline_usertask_proto_init() {
 			}
 		}
 		file_offline_usertask_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ListUserTaskRequest); i {
+			switch v := v.(*TaskListener); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -799,7 +964,7 @@ func file_offline_usertask_proto_init() {
 			}
 		}
 		file_offline_usertask_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteUserTaskRequest); i {
+			switch v := v.(*TaskListenerList); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -811,7 +976,7 @@ func file_offline_usertask_proto_init() {
 			}
 		}
 		file_offline_usertask_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UserTaskList); i {
+			switch v := v.(*ListUserTaskRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -823,6 +988,30 @@ func file_offline_usertask_proto_init() {
 			}
 		}
 		file_offline_usertask_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteUserTaskRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_offline_usertask_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UserTaskList); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_offline_usertask_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UserTaskFilterRequest); i {
 			case 0:
 				return &v.state
@@ -841,7 +1030,7 @@ func file_offline_usertask_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_offline_usertask_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -873,8 +1062,10 @@ type UserTaskServiceClient interface {
 	//rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
 	List(ctx context.Context, in *ListUserTaskRequest, opts ...grpc.CallOption) (*UserTaskList, error)
 	Delete(ctx context.Context, in *DeleteUserTaskRequest, opts ...grpc.CallOption) (*common.Int64Entity, error)
+	Get(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*UserTask, error)
 	GetListeners(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*UserTaskList, error)
-	DeleteListener(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*common.BoolEntity, error)
+	UpdateListener(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*TaskListener, error)
+	DeleteListeners(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*common.Int64Entity, error)
 }
 
 type userTaskServiceClient struct {
@@ -912,6 +1103,15 @@ func (c *userTaskServiceClient) Delete(ctx context.Context, in *DeleteUserTaskRe
 	return out, nil
 }
 
+func (c *userTaskServiceClient) Get(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*UserTask, error) {
+	out := new(UserTask)
+	err := c.cc.Invoke(ctx, "/services.UserTaskService/get", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *userTaskServiceClient) GetListeners(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*UserTaskList, error) {
 	out := new(UserTaskList)
 	err := c.cc.Invoke(ctx, "/services.UserTaskService/getListeners", in, out, opts...)
@@ -921,9 +1121,18 @@ func (c *userTaskServiceClient) GetListeners(ctx context.Context, in *UserTask, 
 	return out, nil
 }
 
-func (c *userTaskServiceClient) DeleteListener(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*common.BoolEntity, error) {
-	out := new(common.BoolEntity)
-	err := c.cc.Invoke(ctx, "/services.UserTaskService/deleteListener", in, out, opts...)
+func (c *userTaskServiceClient) UpdateListener(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*TaskListener, error) {
+	out := new(TaskListener)
+	err := c.cc.Invoke(ctx, "/services.UserTaskService/updateListener", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userTaskServiceClient) DeleteListeners(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*common.Int64Entity, error) {
+	out := new(common.Int64Entity)
+	err := c.cc.Invoke(ctx, "/services.UserTaskService/deleteListeners", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -938,8 +1147,10 @@ type UserTaskServiceServer interface {
 	//rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
 	List(context.Context, *ListUserTaskRequest) (*UserTaskList, error)
 	Delete(context.Context, *DeleteUserTaskRequest) (*common.Int64Entity, error)
+	Get(context.Context, *UserTask) (*UserTask, error)
 	GetListeners(context.Context, *UserTask) (*UserTaskList, error)
-	DeleteListener(context.Context, *UserTask) (*common.BoolEntity, error)
+	UpdateListener(context.Context, *TaskListener) (*TaskListener, error)
+	DeleteListeners(context.Context, *UserTask) (*common.Int64Entity, error)
 }
 
 // UnimplementedUserTaskServiceServer can be embedded to have forward compatible implementations.
@@ -955,11 +1166,17 @@ func (*UnimplementedUserTaskServiceServer) List(context.Context, *ListUserTaskRe
 func (*UnimplementedUserTaskServiceServer) Delete(context.Context, *DeleteUserTaskRequest) (*common.Int64Entity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
+func (*UnimplementedUserTaskServiceServer) Get(context.Context, *UserTask) (*UserTask, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
 func (*UnimplementedUserTaskServiceServer) GetListeners(context.Context, *UserTask) (*UserTaskList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetListeners not implemented")
 }
-func (*UnimplementedUserTaskServiceServer) DeleteListener(context.Context, *UserTask) (*common.BoolEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteListener not implemented")
+func (*UnimplementedUserTaskServiceServer) UpdateListener(context.Context, *TaskListener) (*TaskListener, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateListener not implemented")
+}
+func (*UnimplementedUserTaskServiceServer) DeleteListeners(context.Context, *UserTask) (*common.Int64Entity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteListeners not implemented")
 }
 
 func RegisterUserTaskServiceServer(s *grpc.Server, srv UserTaskServiceServer) {
@@ -1020,6 +1237,24 @@ func _UserTaskService_Delete_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UserTaskService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserTask)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserTaskServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserTaskService/Get",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserTaskServiceServer).Get(ctx, req.(*UserTask))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _UserTaskService_GetListeners_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserTask)
 	if err := dec(in); err != nil {
@@ -1038,20 +1273,38 @@ func _UserTaskService_GetListeners_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserTaskService_DeleteListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserTaskService_UpdateListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskListener)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserTaskServiceServer).UpdateListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserTaskService/UpdateListener",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserTaskServiceServer).UpdateListener(ctx, req.(*TaskListener))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserTaskService_DeleteListeners_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserTask)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserTaskServiceServer).DeleteListener(ctx, in)
+		return srv.(UserTaskServiceServer).DeleteListeners(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.UserTaskService/DeleteListener",
+		FullMethod: "/services.UserTaskService/DeleteListeners",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserTaskServiceServer).DeleteListener(ctx, req.(*UserTask))
+		return srv.(UserTaskServiceServer).DeleteListeners(ctx, req.(*UserTask))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1073,12 +1326,20 @@ var _UserTaskService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _UserTaskService_Delete_Handler,
 		},
 		{
+			MethodName: "get",
+			Handler:    _UserTaskService_Get_Handler,
+		},
+		{
 			MethodName: "getListeners",
 			Handler:    _UserTaskService_GetListeners_Handler,
 		},
 		{
-			MethodName: "deleteListener",
-			Handler:    _UserTaskService_DeleteListener_Handler,
+			MethodName: "updateListener",
+			Handler:    _UserTaskService_UpdateListener_Handler,
+		},
+		{
+			MethodName: "deleteListeners",
+			Handler:    _UserTaskService_DeleteListeners_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
