@@ -64,6 +64,7 @@ message UserTask {
     int32 op = 22;
     string username = 23;
     string password = 24;
+    int32 kind = 25;
 }
 
 
@@ -120,4 +121,5 @@ message UserTaskFilterRequest {
     repeated string task_identity = 1;
     repeated int32 type = 2;
     string name = 3;
+    int32 kind = 4;
 }

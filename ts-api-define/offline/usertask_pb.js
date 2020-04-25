@@ -525,7 +525,8 @@ proto.services.UserTask.toObject = function(includeInstance, msg) {
     fileHash: jspb.Message.getFieldWithDefault(msg, 21, ""),
     op: jspb.Message.getFieldWithDefault(msg, 22, 0),
     username: jspb.Message.getFieldWithDefault(msg, 23, ""),
-    password: jspb.Message.getFieldWithDefault(msg, 24, "")
+    password: jspb.Message.getFieldWithDefault(msg, 24, ""),
+    kind: jspb.Message.getFieldWithDefault(msg, 25, 0)
   };
 
   if (includeInstance) {
@@ -657,6 +658,10 @@ proto.services.UserTask.deserializeBinaryFromReader = function(msg, reader) {
     case 24:
       var value = /** @type {string} */ (reader.readString());
       msg.setPassword(value);
+      break;
+    case 25:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setKind(value);
       break;
     default:
       reader.skipField();
@@ -852,6 +857,13 @@ proto.services.UserTask.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       24,
+      f
+    );
+  }
+  f = message.getKind();
+  if (f !== 0) {
+    writer.writeInt32(
+      25,
       f
     );
   }
@@ -1287,6 +1299,24 @@ proto.services.UserTask.prototype.getPassword = function() {
  */
 proto.services.UserTask.prototype.setPassword = function(value) {
   return jspb.Message.setProto3StringField(this, 24, value);
+};
+
+
+/**
+ * optional int32 kind = 25;
+ * @return {number}
+ */
+proto.services.UserTask.prototype.getKind = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 25, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.UserTask} returns this
+ */
+proto.services.UserTask.prototype.setKind = function(value) {
+  return jspb.Message.setProto3IntField(this, 25, value);
 };
 
 
@@ -2439,7 +2469,8 @@ proto.services.UserTaskFilterRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     taskIdentityList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
     typeList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
-    name: jspb.Message.getFieldWithDefault(msg, 3, "")
+    name: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    kind: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -2488,6 +2519,10 @@ proto.services.UserTaskFilterRequest.deserializeBinaryFromReader = function(msg,
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
       break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setKind(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -2535,6 +2570,13 @@ proto.services.UserTaskFilterRequest.serializeBinaryToWriter = function(message,
   if (f.length > 0) {
     writer.writeString(
       3,
+      f
+    );
+  }
+  f = message.getKind();
+  if (f !== 0) {
+    writer.writeInt32(
+      4,
       f
     );
   }
@@ -2630,6 +2672,24 @@ proto.services.UserTaskFilterRequest.prototype.getName = function() {
  */
 proto.services.UserTaskFilterRequest.prototype.setName = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional int32 kind = 4;
+ * @return {number}
+ */
+proto.services.UserTaskFilterRequest.prototype.getKind = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.UserTaskFilterRequest} returns this
+ */
+proto.services.UserTaskFilterRequest.prototype.setKind = function(value) {
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 

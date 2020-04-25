@@ -115,6 +115,9 @@ export class UserTask extends jspb.Message {
   getPassword(): string;
   setPassword(value: string): void;
 
+  getKind(): number;
+  setKind(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserTask.AsObject;
   static toObject(includeInstance: boolean, msg: UserTask): UserTask.AsObject;
@@ -151,6 +154,7 @@ export namespace UserTask {
     op: number,
     username: string,
     password: string,
+    kind: number,
   }
 }
 
@@ -320,6 +324,9 @@ export class UserTaskFilterRequest extends jspb.Message {
   getName(): string;
   setName(value: string): void;
 
+  getKind(): number;
+  setKind(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserTaskFilterRequest.AsObject;
   static toObject(includeInstance: boolean, msg: UserTaskFilterRequest): UserTaskFilterRequest.AsObject;
@@ -335,6 +342,7 @@ export namespace UserTaskFilterRequest {
     taskIdentityList: Array<string>,
     typeList: Array<number>,
     name: string,
+    kind: number,
   }
 }
 
