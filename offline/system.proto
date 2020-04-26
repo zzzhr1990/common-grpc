@@ -14,7 +14,7 @@ service SystemTaskService {
     // rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
     // rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
     rpc get (SystemTask) returns (SystemTask) {}
-    rpc getList (StringEntity) returns (SystemTaskList) {}
+    rpc getList (StringListEntity) returns (SystemTaskList) {}
     // getDetail detail
     rpc getDetail (SystemTask) returns (SystemTaskDetail) {}
 
