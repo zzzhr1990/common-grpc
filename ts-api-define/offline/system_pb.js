@@ -12,6 +12,8 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var common_common_entity_pb = require('../common/common_entity_pb.js');
+goog.object.extend(proto, common_common_entity_pb);
 goog.exportSymbol('proto.services.SystemTask', null, global);
 goog.exportSymbol('proto.services.SystemTaskDetail', null, global);
 goog.exportSymbol('proto.services.SystemTaskFetchRequest', null, global);

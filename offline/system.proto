@@ -4,7 +4,7 @@ package services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/systemtask";
-// import "common/common_entity.proto";
+import "common/common_entity.proto";
 
 
 service SystemTaskService {
@@ -14,6 +14,7 @@ service SystemTaskService {
     // rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
     // rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
     rpc get (SystemTask) returns (SystemTask) {}
+    rpc getList (StringEntity) returns (SystemTaskList) {}
     // getDetail detail
     rpc getDetail (SystemTask) returns (SystemTaskDetail) {}
 

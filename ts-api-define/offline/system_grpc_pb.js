@@ -3,6 +3,18 @@
 'use strict';
 var grpc = require('grpc');
 var offline_system_pb = require('../offline/system_pb.js');
+var common_common_entity_pb = require('../common/common_entity_pb.js');
+
+function serialize_services_StringEntity(arg) {
+  if (!(arg instanceof common_common_entity_pb.StringEntity)) {
+    throw new Error('Expected argument of type services.StringEntity');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_StringEntity(buffer_arg) {
+  return common_common_entity_pb.StringEntity.deserializeBinary(new Uint8Array(buffer_arg));
+}
 
 function serialize_services_SystemTask(arg) {
   if (!(arg instanceof offline_system_pb.SystemTask)) {
@@ -96,6 +108,17 @@ var SystemTaskServiceService = exports.SystemTaskServiceService = {
     requestDeserialize: deserialize_services_SystemTask,
     responseSerialize: serialize_services_SystemTask,
     responseDeserialize: deserialize_services_SystemTask,
+  },
+  getList: {
+    path: '/services.SystemTaskService/getList',
+    requestStream: false,
+    responseStream: false,
+    requestType: common_common_entity_pb.StringEntity,
+    responseType: offline_system_pb.SystemTaskList,
+    requestSerialize: serialize_services_StringEntity,
+    requestDeserialize: deserialize_services_StringEntity,
+    responseSerialize: serialize_services_SystemTaskList,
+    responseDeserialize: deserialize_services_SystemTaskList,
   },
   // getDetail detail
   getDetail: {

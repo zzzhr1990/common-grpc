@@ -4,12 +4,14 @@
 // file: offline/system.proto
 
 import * as offline_system_pb from "../offline/system_pb";
+import * as common_common_entity_pb from "../common/common_entity_pb";
 import * as grpc from "grpc";
 
 interface ISystemTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
   create: grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTask>;
   update: grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTask>;
   get: grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTask>;
+  getList: grpc.MethodDefinition<common_common_entity_pb.StringEntity, offline_system_pb.SystemTaskList>;
   getDetail: grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTaskDetail>;
   fetch: grpc.MethodDefinition<offline_system_pb.SystemTaskFetchRequest, offline_system_pb.SystemTaskList>;
   uploadFile: grpc.MethodDefinition<offline_system_pb.TaskFile, offline_system_pb.TaskFile>;
@@ -31,6 +33,9 @@ export class SystemTaskServiceClient extends grpc.Client {
   get(argument: offline_system_pb.SystemTask, callback: grpc.requestCallback<offline_system_pb.SystemTask>): grpc.ClientUnaryCall;
   get(argument: offline_system_pb.SystemTask, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTask>): grpc.ClientUnaryCall;
   get(argument: offline_system_pb.SystemTask, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTask>): grpc.ClientUnaryCall;
+  getList(argument: common_common_entity_pb.StringEntity, callback: grpc.requestCallback<offline_system_pb.SystemTaskList>): grpc.ClientUnaryCall;
+  getList(argument: common_common_entity_pb.StringEntity, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTaskList>): grpc.ClientUnaryCall;
+  getList(argument: common_common_entity_pb.StringEntity, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTaskList>): grpc.ClientUnaryCall;
   getDetail(argument: offline_system_pb.SystemTask, callback: grpc.requestCallback<offline_system_pb.SystemTaskDetail>): grpc.ClientUnaryCall;
   getDetail(argument: offline_system_pb.SystemTask, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTaskDetail>): grpc.ClientUnaryCall;
   getDetail(argument: offline_system_pb.SystemTask, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<offline_system_pb.SystemTaskDetail>): grpc.ClientUnaryCall;
