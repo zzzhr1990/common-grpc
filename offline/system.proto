@@ -99,11 +99,7 @@ message SystemTaskDetail {
 }
 
 /*
-message UpdateProgressRequest {
-    string  identity = 1;
-    int64 size = 2;
-    int64 downloadSize = 3;
-}
+
 
 message StatusChangeRequest {
     string  identity = 1;

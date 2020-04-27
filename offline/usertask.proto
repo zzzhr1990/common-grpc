@@ -15,10 +15,13 @@ service UserTaskService {
     rpc list (ListUserTaskRequest) returns (UserTaskList) {}
     rpc delete (DeleteUserTaskRequest) returns (Int64Entity) {}
     rpc get(UserTask) returns (UserTask) {}
+    rpc complete(UserTask) returns (UserTask) {}
+    rpc error(UserTask) returns (UserTask) {}
 
-    rpc getListeners (UserTask) returns (UserTaskList) {}
+    rpc syncTask (TaskListener) returns (Int64Entity) {}
+    rpc getListeners (TaskListener) returns (TaskListenerList) {}
     rpc updateListener (TaskListener) returns (TaskListener) {}
-    rpc deleteListeners (UserTask) returns (Int64Entity) {}
+    rpc deleteListeners (TaskListener) returns (Int64Entity) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     // rpc get (UserOfflineTask) returns (UserOfflineTask) {}

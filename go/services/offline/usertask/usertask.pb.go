@@ -850,7 +850,7 @@ var file_offline_usertask_proto_rawDesc = []byte{
 	0x70, 0x65, 0x18, 0x02, 0x20, 0x03, 0x28, 0x05, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x12,
 	0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61,
 	0x6d, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x18, 0x04, 0x20, 0x01, 0x28, 0x05,
-	0x52, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x32, 0xc7, 0x03, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x72, 0x54,
+	0x52, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x32, 0xf9, 0x04, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x72, 0x54,
 	0x61, 0x73, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x03, 0x61, 0x64,
 	0x64, 0x12, 0x1c, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x41, 0x64, 0x64,
 	0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
@@ -866,24 +866,35 @@ var file_offline_usertask_proto_rawDesc = []byte{
 	0x49, 0x6e, 0x74, 0x36, 0x34, 0x45, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x22, 0x00, 0x12, 0x2f, 0x0a,
 	0x03, 0x67, 0x65, 0x74, 0x12, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e,
 	0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x1a, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x73, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x22, 0x00, 0x12, 0x3c,
-	0x0a, 0x0c, 0x67, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x73, 0x12, 0x12,
+	0x63, 0x65, 0x73, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x22, 0x00, 0x12, 0x34,
+	0x0a, 0x08, 0x63, 0x6f, 0x6d, 0x70, 0x6c, 0x65, 0x74, 0x65, 0x12, 0x12, 0x2e, 0x73, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x1a, 0x12,
 	0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61,
-	0x73, 0x6b, 0x1a, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55, 0x73,
-	0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x22, 0x00, 0x12, 0x42, 0x0a, 0x0e,
-	0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x12, 0x16,
-	0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69,
-	0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x1a, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x22, 0x00,
-	0x12, 0x3e, 0x0a, 0x0f, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e,
-	0x65, 0x72, 0x73, 0x12, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55,
-	0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x1a, 0x15, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x73, 0x2e, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x45, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x22, 0x00,
-	0x42, 0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x7a,
-	0x7a, 0x7a, 0x68, 0x72, 0x31, 0x39, 0x39, 0x30, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2d,
-	0x67, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73,
-	0x2f, 0x6f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x74, 0x61, 0x73,
-	0x6b, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x73, 0x6b, 0x22, 0x00, 0x12, 0x31, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x2e,
+	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73,
+	0x6b, 0x1a, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55, 0x73, 0x65,
+	0x72, 0x54, 0x61, 0x73, 0x6b, 0x22, 0x00, 0x12, 0x3b, 0x0a, 0x08, 0x73, 0x79, 0x6e, 0x63, 0x54,
+	0x61, 0x73, 0x6b, 0x12, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54,
+	0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x1a, 0x15, 0x2e, 0x73, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x45, 0x6e, 0x74, 0x69,
+	0x74, 0x79, 0x22, 0x00, 0x12, 0x44, 0x0a, 0x0c, 0x67, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x65,
+	0x6e, 0x65, 0x72, 0x73, 0x12, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e,
+	0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x1a, 0x1a, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74,
+	0x65, 0x6e, 0x65, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x22, 0x00, 0x12, 0x42, 0x0a, 0x0e, 0x75, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x12, 0x16, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74,
+	0x65, 0x6e, 0x65, 0x72, 0x1a, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e,
+	0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x22, 0x00, 0x12, 0x42,
+	0x0a, 0x0f, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72,
+	0x73, 0x12, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x61, 0x73,
+	0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x1a, 0x15, 0x2e, 0x73, 0x65, 0x72, 0x76,
+	0x69, 0x63, 0x65, 0x73, 0x2e, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x45, 0x6e, 0x74, 0x69, 0x74, 0x79,
+	0x22, 0x00, 0x42, 0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
+	0x2f, 0x7a, 0x7a, 0x7a, 0x68, 0x72, 0x31, 0x39, 0x39, 0x30, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f,
+	0x6e, 0x2d, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x73, 0x2f, 0x6f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x74,
+	0x61, 0x73, 0x6b, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -923,18 +934,24 @@ var file_offline_usertask_proto_depIdxs = []int32{
 	4,  // 7: services.UserTaskService.list:input_type -> services.ListUserTaskRequest
 	5,  // 8: services.UserTaskService.delete:input_type -> services.DeleteUserTaskRequest
 	1,  // 9: services.UserTaskService.get:input_type -> services.UserTask
-	1,  // 10: services.UserTaskService.getListeners:input_type -> services.UserTask
-	2,  // 11: services.UserTaskService.updateListener:input_type -> services.TaskListener
-	1,  // 12: services.UserTaskService.deleteListeners:input_type -> services.UserTask
-	10, // 13: services.UserTaskService.add:output_type -> services.Int64Entity
-	6,  // 14: services.UserTaskService.list:output_type -> services.UserTaskList
-	10, // 15: services.UserTaskService.delete:output_type -> services.Int64Entity
-	1,  // 16: services.UserTaskService.get:output_type -> services.UserTask
-	6,  // 17: services.UserTaskService.getListeners:output_type -> services.UserTaskList
-	2,  // 18: services.UserTaskService.updateListener:output_type -> services.TaskListener
-	10, // 19: services.UserTaskService.deleteListeners:output_type -> services.Int64Entity
-	13, // [13:20] is the sub-list for method output_type
-	6,  // [6:13] is the sub-list for method input_type
+	1,  // 10: services.UserTaskService.complete:input_type -> services.UserTask
+	1,  // 11: services.UserTaskService.error:input_type -> services.UserTask
+	2,  // 12: services.UserTaskService.syncTask:input_type -> services.TaskListener
+	2,  // 13: services.UserTaskService.getListeners:input_type -> services.TaskListener
+	2,  // 14: services.UserTaskService.updateListener:input_type -> services.TaskListener
+	2,  // 15: services.UserTaskService.deleteListeners:input_type -> services.TaskListener
+	10, // 16: services.UserTaskService.add:output_type -> services.Int64Entity
+	6,  // 17: services.UserTaskService.list:output_type -> services.UserTaskList
+	10, // 18: services.UserTaskService.delete:output_type -> services.Int64Entity
+	1,  // 19: services.UserTaskService.get:output_type -> services.UserTask
+	1,  // 20: services.UserTaskService.complete:output_type -> services.UserTask
+	1,  // 21: services.UserTaskService.error:output_type -> services.UserTask
+	10, // 22: services.UserTaskService.syncTask:output_type -> services.Int64Entity
+	3,  // 23: services.UserTaskService.getListeners:output_type -> services.TaskListenerList
+	2,  // 24: services.UserTaskService.updateListener:output_type -> services.TaskListener
+	10, // 25: services.UserTaskService.deleteListeners:output_type -> services.Int64Entity
+	16, // [16:26] is the sub-list for method output_type
+	6,  // [6:16] is the sub-list for method input_type
 	6,  // [6:6] is the sub-list for extension type_name
 	6,  // [6:6] is the sub-list for extension extendee
 	0,  // [0:6] is the sub-list for field type_name
@@ -1082,9 +1099,12 @@ type UserTaskServiceClient interface {
 	List(ctx context.Context, in *ListUserTaskRequest, opts ...grpc.CallOption) (*UserTaskList, error)
 	Delete(ctx context.Context, in *DeleteUserTaskRequest, opts ...grpc.CallOption) (*common.Int64Entity, error)
 	Get(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*UserTask, error)
-	GetListeners(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*UserTaskList, error)
+	Complete(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*UserTask, error)
+	Error(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*UserTask, error)
+	SyncTask(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*common.Int64Entity, error)
+	GetListeners(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*TaskListenerList, error)
 	UpdateListener(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*TaskListener, error)
-	DeleteListeners(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*common.Int64Entity, error)
+	DeleteListeners(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*common.Int64Entity, error)
 }
 
 type userTaskServiceClient struct {
@@ -1131,8 +1151,35 @@ func (c *userTaskServiceClient) Get(ctx context.Context, in *UserTask, opts ...g
 	return out, nil
 }
 
-func (c *userTaskServiceClient) GetListeners(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*UserTaskList, error) {
-	out := new(UserTaskList)
+func (c *userTaskServiceClient) Complete(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*UserTask, error) {
+	out := new(UserTask)
+	err := c.cc.Invoke(ctx, "/services.UserTaskService/complete", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userTaskServiceClient) Error(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*UserTask, error) {
+	out := new(UserTask)
+	err := c.cc.Invoke(ctx, "/services.UserTaskService/error", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userTaskServiceClient) SyncTask(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*common.Int64Entity, error) {
+	out := new(common.Int64Entity)
+	err := c.cc.Invoke(ctx, "/services.UserTaskService/syncTask", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userTaskServiceClient) GetListeners(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*TaskListenerList, error) {
+	out := new(TaskListenerList)
 	err := c.cc.Invoke(ctx, "/services.UserTaskService/getListeners", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1149,7 +1196,7 @@ func (c *userTaskServiceClient) UpdateListener(ctx context.Context, in *TaskList
 	return out, nil
 }
 
-func (c *userTaskServiceClient) DeleteListeners(ctx context.Context, in *UserTask, opts ...grpc.CallOption) (*common.Int64Entity, error) {
+func (c *userTaskServiceClient) DeleteListeners(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*common.Int64Entity, error) {
 	out := new(common.Int64Entity)
 	err := c.cc.Invoke(ctx, "/services.UserTaskService/deleteListeners", in, out, opts...)
 	if err != nil {
@@ -1167,9 +1214,12 @@ type UserTaskServiceServer interface {
 	List(context.Context, *ListUserTaskRequest) (*UserTaskList, error)
 	Delete(context.Context, *DeleteUserTaskRequest) (*common.Int64Entity, error)
 	Get(context.Context, *UserTask) (*UserTask, error)
-	GetListeners(context.Context, *UserTask) (*UserTaskList, error)
+	Complete(context.Context, *UserTask) (*UserTask, error)
+	Error(context.Context, *UserTask) (*UserTask, error)
+	SyncTask(context.Context, *TaskListener) (*common.Int64Entity, error)
+	GetListeners(context.Context, *TaskListener) (*TaskListenerList, error)
 	UpdateListener(context.Context, *TaskListener) (*TaskListener, error)
-	DeleteListeners(context.Context, *UserTask) (*common.Int64Entity, error)
+	DeleteListeners(context.Context, *TaskListener) (*common.Int64Entity, error)
 }
 
 // UnimplementedUserTaskServiceServer can be embedded to have forward compatible implementations.
@@ -1188,13 +1238,22 @@ func (*UnimplementedUserTaskServiceServer) Delete(context.Context, *DeleteUserTa
 func (*UnimplementedUserTaskServiceServer) Get(context.Context, *UserTask) (*UserTask, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (*UnimplementedUserTaskServiceServer) GetListeners(context.Context, *UserTask) (*UserTaskList, error) {
+func (*UnimplementedUserTaskServiceServer) Complete(context.Context, *UserTask) (*UserTask, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Complete not implemented")
+}
+func (*UnimplementedUserTaskServiceServer) Error(context.Context, *UserTask) (*UserTask, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Error not implemented")
+}
+func (*UnimplementedUserTaskServiceServer) SyncTask(context.Context, *TaskListener) (*common.Int64Entity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SyncTask not implemented")
+}
+func (*UnimplementedUserTaskServiceServer) GetListeners(context.Context, *TaskListener) (*TaskListenerList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetListeners not implemented")
 }
 func (*UnimplementedUserTaskServiceServer) UpdateListener(context.Context, *TaskListener) (*TaskListener, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateListener not implemented")
 }
-func (*UnimplementedUserTaskServiceServer) DeleteListeners(context.Context, *UserTask) (*common.Int64Entity, error) {
+func (*UnimplementedUserTaskServiceServer) DeleteListeners(context.Context, *TaskListener) (*common.Int64Entity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteListeners not implemented")
 }
 
@@ -1274,8 +1333,62 @@ func _UserTaskService_Get_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserTaskService_GetListeners_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserTaskService_Complete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserTask)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserTaskServiceServer).Complete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserTaskService/Complete",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserTaskServiceServer).Complete(ctx, req.(*UserTask))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserTaskService_Error_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserTask)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserTaskServiceServer).Error(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserTaskService/Error",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserTaskServiceServer).Error(ctx, req.(*UserTask))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserTaskService_SyncTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskListener)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserTaskServiceServer).SyncTask(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserTaskService/SyncTask",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserTaskServiceServer).SyncTask(ctx, req.(*TaskListener))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserTaskService_GetListeners_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskListener)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1287,7 +1400,7 @@ func _UserTaskService_GetListeners_Handler(srv interface{}, ctx context.Context,
 		FullMethod: "/services.UserTaskService/GetListeners",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserTaskServiceServer).GetListeners(ctx, req.(*UserTask))
+		return srv.(UserTaskServiceServer).GetListeners(ctx, req.(*TaskListener))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1311,7 +1424,7 @@ func _UserTaskService_UpdateListener_Handler(srv interface{}, ctx context.Contex
 }
 
 func _UserTaskService_DeleteListeners_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserTask)
+	in := new(TaskListener)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1323,7 +1436,7 @@ func _UserTaskService_DeleteListeners_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/services.UserTaskService/DeleteListeners",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserTaskServiceServer).DeleteListeners(ctx, req.(*UserTask))
+		return srv.(UserTaskServiceServer).DeleteListeners(ctx, req.(*TaskListener))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1347,6 +1460,18 @@ var _UserTaskService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "get",
 			Handler:    _UserTaskService_Get_Handler,
+		},
+		{
+			MethodName: "complete",
+			Handler:    _UserTaskService_Complete_Handler,
+		},
+		{
+			MethodName: "error",
+			Handler:    _UserTaskService_Error_Handler,
+		},
+		{
+			MethodName: "syncTask",
+			Handler:    _UserTaskService_SyncTask_Handler,
 		},
 		{
 			MethodName: "getListeners",
