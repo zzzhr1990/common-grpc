@@ -47,7 +47,7 @@ message UserTask {
     int32 type = 5;
     int32  status = 6;
     int64 size = 7;
-    int64 download_size = 8;
+    int64 processed_size = 8;
     int64 progress = 9;
     int32 error_code = 10;
 	string error_message = 11;

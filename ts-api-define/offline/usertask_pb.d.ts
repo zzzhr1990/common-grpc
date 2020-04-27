@@ -64,8 +64,8 @@ export class UserTask extends jspb.Message {
   getSize(): number;
   setSize(value: number): void;
 
-  getDownloadSize(): number;
-  setDownloadSize(value: number): void;
+  getProcessedSize(): number;
+  setProcessedSize(value: number): void;
 
   getProgress(): number;
   setProgress(value: number): void;
@@ -137,7 +137,7 @@ export namespace UserTask {
     type: number,
     status: number,
     size: number,
-    downloadSize: number,
+    processedSize: number,
     progress: number,
     errorCode: number,
     errorMessage: string,

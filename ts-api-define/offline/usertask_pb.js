@@ -509,7 +509,7 @@ proto.services.UserTask.toObject = function(includeInstance, msg) {
     type: jspb.Message.getFieldWithDefault(msg, 5, 0),
     status: jspb.Message.getFieldWithDefault(msg, 6, 0),
     size: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    downloadSize: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    processedSize: jspb.Message.getFieldWithDefault(msg, 8, 0),
     progress: jspb.Message.getFieldWithDefault(msg, 9, 0),
     errorCode: jspb.Message.getFieldWithDefault(msg, 10, 0),
     errorMessage: jspb.Message.getFieldWithDefault(msg, 11, ""),
@@ -593,7 +593,7 @@ proto.services.UserTask.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 8:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setDownloadSize(value);
+      msg.setProcessedSize(value);
       break;
     case 9:
       var value = /** @type {number} */ (reader.readInt64());
@@ -741,7 +741,7 @@ proto.services.UserTask.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getDownloadSize();
+  f = message.getProcessedSize();
   if (f !== 0) {
     writer.writeInt64(
       8,
@@ -997,10 +997,10 @@ proto.services.UserTask.prototype.setSize = function(value) {
 
 
 /**
- * optional int64 download_size = 8;
+ * optional int64 processed_size = 8;
  * @return {number}
  */
-proto.services.UserTask.prototype.getDownloadSize = function() {
+proto.services.UserTask.prototype.getProcessedSize = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
@@ -1009,7 +1009,7 @@ proto.services.UserTask.prototype.getDownloadSize = function() {
  * @param {number} value
  * @return {!proto.services.UserTask} returns this
  */
-proto.services.UserTask.prototype.setDownloadSize = function(value) {
+proto.services.UserTask.prototype.setProcessedSize = function(value) {
   return jspb.Message.setProto3IntField(this, 8, value);
 };
 
