@@ -96,8 +96,8 @@ export class TaskFile extends jspb.Message {
   getSize(): number;
   setSize(value: number): void;
 
-  getDownloadSize(): number;
-  setDownloadSize(value: number): void;
+  getProcessedSize(): number;
+  setProcessedSize(value: number): void;
 
   getStatus(): number;
   setStatus(value: number): void;
@@ -133,7 +133,7 @@ export namespace TaskFile {
     path: string,
     hash: string,
     size: number,
-    downloadSize: number,
+    processedSize: number,
     status: number,
     flag: number,
     fileIndex: number,
@@ -167,8 +167,8 @@ export class SystemTask extends jspb.Message {
   getFlag(): number;
   setFlag(value: number): void;
 
-  getDownloadSize(): number;
-  setDownloadSize(value: number): void;
+  getProcessedSize(): number;
+  setProcessedSize(value: number): void;
 
   getErrorCode(): number;
   setErrorCode(value: number): void;
@@ -223,7 +223,7 @@ export namespace SystemTask {
     type: number,
     status: number,
     flag: number,
-    downloadSize: number,
+    processedSize: number,
     errorCode: number,
     errorMessage: string,
     createAddr: string,
