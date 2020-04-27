@@ -850,7 +850,7 @@ var file_offline_usertask_proto_rawDesc = []byte{
 	0x70, 0x65, 0x18, 0x02, 0x20, 0x03, 0x28, 0x05, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x12,
 	0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61,
 	0x6d, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x18, 0x04, 0x20, 0x01, 0x28, 0x05,
-	0x52, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x32, 0xf9, 0x04, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x72, 0x54,
+	0x52, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x32, 0xb7, 0x05, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x72, 0x54,
 	0x61, 0x73, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x03, 0x61, 0x64,
 	0x64, 0x12, 0x1c, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x41, 0x64, 0x64,
 	0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
@@ -890,11 +890,15 @@ var file_offline_usertask_proto_rawDesc = []byte{
 	0x73, 0x12, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x61, 0x73,
 	0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x1a, 0x15, 0x2e, 0x73, 0x65, 0x72, 0x76,
 	0x69, 0x63, 0x65, 0x73, 0x2e, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x45, 0x6e, 0x74, 0x69, 0x74, 0x79,
-	0x22, 0x00, 0x42, 0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
-	0x2f, 0x7a, 0x7a, 0x7a, 0x68, 0x72, 0x31, 0x39, 0x39, 0x30, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f,
-	0x6e, 0x2d, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x73, 0x2f, 0x6f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x74,
-	0x61, 0x73, 0x6b, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x22, 0x00, 0x12, 0x3c, 0x0a, 0x08, 0x66, 0x61, 0x6b, 0x65, 0x43, 0x6f, 0x70, 0x79, 0x12, 0x16,
+	0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69,
+	0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x1a, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x22, 0x00,
+	0x42, 0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x7a,
+	0x7a, 0x7a, 0x68, 0x72, 0x31, 0x39, 0x39, 0x30, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2d,
+	0x67, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73,
+	0x2f, 0x6f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x74, 0x61, 0x73,
+	0x6b, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -940,18 +944,20 @@ var file_offline_usertask_proto_depIdxs = []int32{
 	2,  // 13: services.UserTaskService.getListeners:input_type -> services.TaskListener
 	2,  // 14: services.UserTaskService.updateListener:input_type -> services.TaskListener
 	2,  // 15: services.UserTaskService.deleteListeners:input_type -> services.TaskListener
-	10, // 16: services.UserTaskService.add:output_type -> services.Int64Entity
-	6,  // 17: services.UserTaskService.list:output_type -> services.UserTaskList
-	10, // 18: services.UserTaskService.delete:output_type -> services.Int64Entity
-	1,  // 19: services.UserTaskService.get:output_type -> services.UserTask
-	1,  // 20: services.UserTaskService.complete:output_type -> services.UserTask
-	1,  // 21: services.UserTaskService.error:output_type -> services.UserTask
-	10, // 22: services.UserTaskService.syncTask:output_type -> services.Int64Entity
-	3,  // 23: services.UserTaskService.getListeners:output_type -> services.TaskListenerList
-	2,  // 24: services.UserTaskService.updateListener:output_type -> services.TaskListener
-	10, // 25: services.UserTaskService.deleteListeners:output_type -> services.Int64Entity
-	16, // [16:26] is the sub-list for method output_type
-	6,  // [6:16] is the sub-list for method input_type
+	2,  // 16: services.UserTaskService.fakeCopy:input_type -> services.TaskListener
+	10, // 17: services.UserTaskService.add:output_type -> services.Int64Entity
+	6,  // 18: services.UserTaskService.list:output_type -> services.UserTaskList
+	10, // 19: services.UserTaskService.delete:output_type -> services.Int64Entity
+	1,  // 20: services.UserTaskService.get:output_type -> services.UserTask
+	1,  // 21: services.UserTaskService.complete:output_type -> services.UserTask
+	1,  // 22: services.UserTaskService.error:output_type -> services.UserTask
+	10, // 23: services.UserTaskService.syncTask:output_type -> services.Int64Entity
+	3,  // 24: services.UserTaskService.getListeners:output_type -> services.TaskListenerList
+	2,  // 25: services.UserTaskService.updateListener:output_type -> services.TaskListener
+	10, // 26: services.UserTaskService.deleteListeners:output_type -> services.Int64Entity
+	2,  // 27: services.UserTaskService.fakeCopy:output_type -> services.TaskListener
+	17, // [17:28] is the sub-list for method output_type
+	6,  // [6:17] is the sub-list for method input_type
 	6,  // [6:6] is the sub-list for extension type_name
 	6,  // [6:6] is the sub-list for extension extendee
 	0,  // [0:6] is the sub-list for field type_name
@@ -1105,6 +1111,7 @@ type UserTaskServiceClient interface {
 	GetListeners(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*TaskListenerList, error)
 	UpdateListener(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*TaskListener, error)
 	DeleteListeners(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*common.Int64Entity, error)
+	FakeCopy(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*TaskListener, error)
 }
 
 type userTaskServiceClient struct {
@@ -1205,6 +1212,15 @@ func (c *userTaskServiceClient) DeleteListeners(ctx context.Context, in *TaskLis
 	return out, nil
 }
 
+func (c *userTaskServiceClient) FakeCopy(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*TaskListener, error) {
+	out := new(TaskListener)
+	err := c.cc.Invoke(ctx, "/services.UserTaskService/fakeCopy", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserTaskServiceServer is the server API for UserTaskService service.
 type UserTaskServiceServer interface {
 	// rpc create (UserOfflineTask) returns (UserOfflineTask) {}
@@ -1220,6 +1236,7 @@ type UserTaskServiceServer interface {
 	GetListeners(context.Context, *TaskListener) (*TaskListenerList, error)
 	UpdateListener(context.Context, *TaskListener) (*TaskListener, error)
 	DeleteListeners(context.Context, *TaskListener) (*common.Int64Entity, error)
+	FakeCopy(context.Context, *TaskListener) (*TaskListener, error)
 }
 
 // UnimplementedUserTaskServiceServer can be embedded to have forward compatible implementations.
@@ -1255,6 +1272,9 @@ func (*UnimplementedUserTaskServiceServer) UpdateListener(context.Context, *Task
 }
 func (*UnimplementedUserTaskServiceServer) DeleteListeners(context.Context, *TaskListener) (*common.Int64Entity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteListeners not implemented")
+}
+func (*UnimplementedUserTaskServiceServer) FakeCopy(context.Context, *TaskListener) (*TaskListener, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FakeCopy not implemented")
 }
 
 func RegisterUserTaskServiceServer(s *grpc.Server, srv UserTaskServiceServer) {
@@ -1441,6 +1461,24 @@ func _UserTaskService_DeleteListeners_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UserTaskService_FakeCopy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskListener)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserTaskServiceServer).FakeCopy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserTaskService/FakeCopy",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserTaskServiceServer).FakeCopy(ctx, req.(*TaskListener))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _UserTaskService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "services.UserTaskService",
 	HandlerType: (*UserTaskServiceServer)(nil),
@@ -1484,6 +1522,10 @@ var _UserTaskService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "deleteListeners",
 			Handler:    _UserTaskService_DeleteListeners_Handler,
+		},
+		{
+			MethodName: "fakeCopy",
+			Handler:    _UserTaskService_FakeCopy_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

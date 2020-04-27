@@ -18,6 +18,7 @@ interface IUserTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedSer
   getListeners: grpc.MethodDefinition<offline_usertask_pb.TaskListener, offline_usertask_pb.TaskListenerList>;
   updateListener: grpc.MethodDefinition<offline_usertask_pb.TaskListener, offline_usertask_pb.TaskListener>;
   deleteListeners: grpc.MethodDefinition<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity>;
+  fakeCopy: grpc.MethodDefinition<offline_usertask_pb.TaskListener, offline_usertask_pb.TaskListener>;
 }
 
 export const UserTaskServiceService: IUserTaskServiceService;
@@ -54,4 +55,7 @@ export class UserTaskServiceClient extends grpc.Client {
   deleteListeners(argument: offline_usertask_pb.TaskListener, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
   deleteListeners(argument: offline_usertask_pb.TaskListener, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
   deleteListeners(argument: offline_usertask_pb.TaskListener, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<common_common_entity_pb.Int64Entity>): grpc.ClientUnaryCall;
+  fakeCopy(argument: offline_usertask_pb.TaskListener, callback: grpc.requestCallback<offline_usertask_pb.TaskListener>): grpc.ClientUnaryCall;
+  fakeCopy(argument: offline_usertask_pb.TaskListener, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<offline_usertask_pb.TaskListener>): grpc.ClientUnaryCall;
+  fakeCopy(argument: offline_usertask_pb.TaskListener, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<offline_usertask_pb.TaskListener>): grpc.ClientUnaryCall;
 }

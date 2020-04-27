@@ -208,6 +208,17 @@ var UserTaskServiceService = exports.UserTaskServiceService = {
     responseSerialize: serialize_services_Int64Entity,
     responseDeserialize: deserialize_services_Int64Entity,
   },
+  fakeCopy: {
+    path: '/services.UserTaskService/fakeCopy',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.TaskListener,
+    responseType: offline_usertask_pb.TaskListener,
+    requestSerialize: serialize_services_TaskListener,
+    requestDeserialize: deserialize_services_TaskListener,
+    responseSerialize: serialize_services_TaskListener,
+    responseDeserialize: deserialize_services_TaskListener,
+  },
 };
 
 exports.UserTaskServiceClient = grpc.makeGenericClientConstructor(UserTaskServiceService);
