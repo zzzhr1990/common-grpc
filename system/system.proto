@@ -5,7 +5,8 @@ package services;
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/system/sysinfo";
 
 service SystemInfoService {
-    rpc Info (ClientInfo) returns (SystemInfo) {}
+    rpc info (ClientInfo) returns (SystemInfo) {}
+    rpc listUpdate (ClientInfo) returns (UpdateInfoList) {}
 }
 
 message SystemInfo {
@@ -14,6 +15,30 @@ message SystemInfo {
     string  server_name = 3;
     int64  server_time = 4;
     int64  access_count = 5;
+}
+
+message UpdateInfoList {
+    repeated SystemInfo data = 1;
+}
+
+message UpdateInfo {
+    int64  identity = 1;
+    int32  major = 2;
+    int32  minor = 3;
+    int32  patch = 4;
+    int32  prepatch = 5;
+    string  version = 6;
+    string  platform = 7;
+    bool debug = 8;
+    string lang = 9;
+    string download_address = 10;
+    string store_address = 11;
+    string website_address = 12;
+    string title = 13;
+    string description = 14;
+    string create_time = 15;
+    int64  size = 16;
+    bool latest = 17;
 }
 
 message ClientInfo {

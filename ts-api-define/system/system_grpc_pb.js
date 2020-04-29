@@ -26,10 +26,21 @@ function deserialize_services_SystemInfo(buffer_arg) {
   return system_system_pb.SystemInfo.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_UpdateInfoList(arg) {
+  if (!(arg instanceof system_system_pb.UpdateInfoList)) {
+    throw new Error('Expected argument of type services.UpdateInfoList');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_UpdateInfoList(buffer_arg) {
+  return system_system_pb.UpdateInfoList.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 var SystemInfoServiceService = exports.SystemInfoServiceService = {
   info: {
-    path: '/services.SystemInfoService/Info',
+    path: '/services.SystemInfoService/info',
     requestStream: false,
     responseStream: false,
     requestType: system_system_pb.ClientInfo,
@@ -38,6 +49,17 @@ var SystemInfoServiceService = exports.SystemInfoServiceService = {
     requestDeserialize: deserialize_services_ClientInfo,
     responseSerialize: serialize_services_SystemInfo,
     responseDeserialize: deserialize_services_SystemInfo,
+  },
+  listUpdate: {
+    path: '/services.SystemInfoService/listUpdate',
+    requestStream: false,
+    responseStream: false,
+    requestType: system_system_pb.ClientInfo,
+    responseType: system_system_pb.UpdateInfoList,
+    requestSerialize: serialize_services_ClientInfo,
+    requestDeserialize: deserialize_services_ClientInfo,
+    responseSerialize: serialize_services_UpdateInfoList,
+    responseDeserialize: deserialize_services_UpdateInfoList,
   },
 };
 
