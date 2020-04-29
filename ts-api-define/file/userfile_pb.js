@@ -290,8 +290,7 @@ proto.services.UserFile.toObject = function(includeInstance, msg) {
     uniqueIdentity: jspb.Message.getFieldWithDefault(msg, 22, ""),
     share: jspb.Message.getBooleanFieldWithDefault(msg, 23, false),
     downloadAddress: jspb.Message.getFieldWithDefault(msg, 24, ""),
-    unlockTime: jspb.Message.getFieldWithDefault(msg, 25, 0),
-    nameLower: jspb.Message.getFieldWithDefault(msg, 26, "")
+    unlockTime: jspb.Message.getFieldWithDefault(msg, 25, 0)
   };
 
   if (includeInstance) {
@@ -427,10 +426,6 @@ proto.services.UserFile.deserializeBinaryFromReader = function(msg, reader) {
     case 25:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setUnlockTime(value);
-      break;
-    case 26:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setNameLower(value);
       break;
     default:
       reader.skipField();
@@ -633,13 +628,6 @@ proto.services.UserFile.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       25,
-      f
-    );
-  }
-  f = message.getNameLower();
-  if (f.length > 0) {
-    writer.writeString(
-      26,
       f
     );
   }
@@ -1093,24 +1081,6 @@ proto.services.UserFile.prototype.getUnlockTime = function() {
  */
 proto.services.UserFile.prototype.setUnlockTime = function(value) {
   return jspb.Message.setProto3IntField(this, 25, value);
-};
-
-
-/**
- * optional string name_lower = 26;
- * @return {string}
- */
-proto.services.UserFile.prototype.getNameLower = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 26, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.services.UserFile} returns this
- */
-proto.services.UserFile.prototype.setNameLower = function(value) {
-  return jspb.Message.setProto3StringField(this, 26, value);
 };
 
 
