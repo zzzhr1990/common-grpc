@@ -49,17 +49,6 @@ function deserialize_services_ListUserTaskRequest(buffer_arg) {
   return offline_usertask_pb.ListUserTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_StringListEntity(arg) {
-  if (!(arg instanceof common_common_entity_pb.StringListEntity)) {
-    throw new Error('Expected argument of type services.StringListEntity');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_StringListEntity(buffer_arg) {
-  return common_common_entity_pb.StringListEntity.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_services_TaskListener(arg) {
   if (!(arg instanceof offline_usertask_pb.TaskListener)) {
     throw new Error('Expected argument of type services.TaskListener');
@@ -112,11 +101,11 @@ var UserTaskServiceService = exports.UserTaskServiceService = {
     requestStream: false,
     responseStream: false,
     requestType: offline_usertask_pb.AddUserTaskRequest,
-    responseType: common_common_entity_pb.StringListEntity,
+    responseType: offline_usertask_pb.UserTaskList,
     requestSerialize: serialize_services_AddUserTaskRequest,
     requestDeserialize: deserialize_services_AddUserTaskRequest,
-    responseSerialize: serialize_services_StringListEntity,
-    responseDeserialize: deserialize_services_StringListEntity,
+    responseSerialize: serialize_services_UserTaskList,
+    responseDeserialize: deserialize_services_UserTaskList,
   },
   // rpc parse (UserTask) returns (UserTask) {}
   // rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
