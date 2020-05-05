@@ -543,10 +543,10 @@ proto.services.UpdateInfo.prototype.toObject = function(opt_includeInstance) {
 proto.services.UpdateInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
     identity: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    major: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    minor: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    patch: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    prepatch: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    numberVersion: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    sha1: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    md5: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    force: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
     version: jspb.Message.getFieldWithDefault(msg, 6, ""),
     platform: jspb.Message.getFieldWithDefault(msg, 7, ""),
     debug: jspb.Message.getBooleanFieldWithDefault(msg, 8, false),
@@ -600,20 +600,20 @@ proto.services.UpdateInfo.deserializeBinaryFromReader = function(msg, reader) {
       msg.setIdentity(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setMajor(value);
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setNumberVersion(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setMinor(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSha1(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setPatch(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMd5(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setPrepatch(value);
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setForce(value);
       break;
     case 6:
       var value = /** @type {string} */ (reader.readString());
@@ -699,30 +699,30 @@ proto.services.UpdateInfo.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getMajor();
+  f = message.getNumberVersion();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       2,
       f
     );
   }
-  f = message.getMinor();
-  if (f !== 0) {
-    writer.writeInt32(
+  f = message.getSha1();
+  if (f.length > 0) {
+    writer.writeString(
       3,
       f
     );
   }
-  f = message.getPatch();
-  if (f !== 0) {
-    writer.writeInt32(
+  f = message.getMd5();
+  if (f.length > 0) {
+    writer.writeString(
       4,
       f
     );
   }
-  f = message.getPrepatch();
-  if (f !== 0) {
-    writer.writeInt32(
+  f = message.getForce();
+  if (f) {
+    writer.writeBool(
       5,
       f
     );
@@ -833,10 +833,10 @@ proto.services.UpdateInfo.prototype.setIdentity = function(value) {
 
 
 /**
- * optional int32 major = 2;
+ * optional int64 number_version = 2;
  * @return {number}
  */
-proto.services.UpdateInfo.prototype.getMajor = function() {
+proto.services.UpdateInfo.prototype.getNumberVersion = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
@@ -845,62 +845,62 @@ proto.services.UpdateInfo.prototype.getMajor = function() {
  * @param {number} value
  * @return {!proto.services.UpdateInfo} returns this
  */
-proto.services.UpdateInfo.prototype.setMajor = function(value) {
+proto.services.UpdateInfo.prototype.setNumberVersion = function(value) {
   return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
 /**
- * optional int32 minor = 3;
- * @return {number}
+ * optional string sha1 = 3;
+ * @return {string}
  */
-proto.services.UpdateInfo.prototype.getMinor = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+proto.services.UpdateInfo.prototype.getSha1 = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.services.UpdateInfo} returns this
  */
-proto.services.UpdateInfo.prototype.setMinor = function(value) {
-  return jspb.Message.setProto3IntField(this, 3, value);
+proto.services.UpdateInfo.prototype.setSha1 = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional int32 patch = 4;
- * @return {number}
+ * optional string md5 = 4;
+ * @return {string}
  */
-proto.services.UpdateInfo.prototype.getPatch = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+proto.services.UpdateInfo.prototype.getMd5 = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.services.UpdateInfo} returns this
  */
-proto.services.UpdateInfo.prototype.setPatch = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+proto.services.UpdateInfo.prototype.setMd5 = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional int32 prepatch = 5;
- * @return {number}
+ * optional bool force = 5;
+ * @return {boolean}
  */
-proto.services.UpdateInfo.prototype.getPrepatch = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+proto.services.UpdateInfo.prototype.getForce = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 5, false));
 };
 
 
 /**
- * @param {number} value
+ * @param {boolean} value
  * @return {!proto.services.UpdateInfo} returns this
  */
-proto.services.UpdateInfo.prototype.setPrepatch = function(value) {
-  return jspb.Message.setProto3IntField(this, 5, value);
+proto.services.UpdateInfo.prototype.setForce = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 5, value);
 };
 
 

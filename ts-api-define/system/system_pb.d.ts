@@ -65,17 +65,17 @@ export class UpdateInfo extends jspb.Message {
   getIdentity(): number;
   setIdentity(value: number): void;
 
-  getMajor(): number;
-  setMajor(value: number): void;
+  getNumberVersion(): number;
+  setNumberVersion(value: number): void;
 
-  getMinor(): number;
-  setMinor(value: number): void;
+  getSha1(): string;
+  setSha1(value: string): void;
 
-  getPatch(): number;
-  setPatch(value: number): void;
+  getMd5(): string;
+  setMd5(value: string): void;
 
-  getPrepatch(): number;
-  setPrepatch(value: number): void;
+  getForce(): boolean;
+  setForce(value: boolean): void;
 
   getVersion(): string;
   setVersion(value: string): void;
@@ -126,10 +126,10 @@ export class UpdateInfo extends jspb.Message {
 export namespace UpdateInfo {
   export type AsObject = {
     identity: number,
-    major: number,
-    minor: number,
-    patch: number,
-    prepatch: number,
+    numberVersion: number,
+    sha1: string,
+    md5: string,
+    force: boolean,
     version: string,
     platform: string,
     debug: boolean,
