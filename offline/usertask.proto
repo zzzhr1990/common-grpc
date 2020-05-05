@@ -23,6 +23,7 @@ service UserTaskService {
     rpc updateListener (TaskListener) returns (TaskListener) {}
     rpc deleteListeners (TaskListener) returns (Int64Entity) {}
     rpc fakeCopy(TaskListener)returns (TaskListener) {}
+    rpc clear(ClearTaskRequest)returns (Int64Entity) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     // rpc get (UserOfflineTask) returns (UserOfflineTask) {}
@@ -86,6 +87,10 @@ message TaskListenerList {
     repeated TaskListener data = 1;
 }
 
+message ClearTaskRequest {
+    int64 user_identity = 1;
+    int32 type = 2;
+}
 
 
 /*

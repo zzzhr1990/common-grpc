@@ -220,6 +220,30 @@ export namespace TaskListenerList {
   }
 }
 
+export class ClearTaskRequest extends jspb.Message {
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ClearTaskRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ClearTaskRequest): ClearTaskRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ClearTaskRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ClearTaskRequest;
+  static deserializeBinaryFromReader(message: ClearTaskRequest, reader: jspb.BinaryReader): ClearTaskRequest;
+}
+
+export namespace ClearTaskRequest {
+  export type AsObject = {
+    userIdentity: number,
+    type: number,
+  }
+}
+
 export class ListUserTaskRequest extends jspb.Message {
   getUserIdentity(): number;
   setUserIdentity(value: number): void;

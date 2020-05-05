@@ -16,6 +16,17 @@ function deserialize_services_AddUserTaskRequest(buffer_arg) {
   return offline_usertask_pb.AddUserTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_ClearTaskRequest(arg) {
+  if (!(arg instanceof offline_usertask_pb.ClearTaskRequest)) {
+    throw new Error('Expected argument of type services.ClearTaskRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_ClearTaskRequest(buffer_arg) {
+  return offline_usertask_pb.ClearTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_DeleteUserTaskRequest(arg) {
   if (!(arg instanceof offline_usertask_pb.DeleteUserTaskRequest)) {
     throw new Error('Expected argument of type services.DeleteUserTaskRequest');
@@ -218,6 +229,17 @@ var UserTaskServiceService = exports.UserTaskServiceService = {
     requestDeserialize: deserialize_services_TaskListener,
     responseSerialize: serialize_services_TaskListener,
     responseDeserialize: deserialize_services_TaskListener,
+  },
+  clear: {
+    path: '/services.UserTaskService/clear',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.ClearTaskRequest,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_ClearTaskRequest,
+    requestDeserialize: deserialize_services_ClearTaskRequest,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
   },
 };
 
