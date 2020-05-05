@@ -42,6 +42,7 @@ message AddUserTaskRequest {
     string save_path = 3;
     string save_identity = 4;
     string create_address = 5;
+    int32 op = 6;
 }
 
 message UserTask {

@@ -22,6 +22,9 @@ export class AddUserTaskRequest extends jspb.Message {
   getCreateAddress(): string;
   setCreateAddress(value: string): void;
 
+  getOp(): number;
+  setOp(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): AddUserTaskRequest.AsObject;
   static toObject(includeInstance: boolean, msg: AddUserTaskRequest): AddUserTaskRequest.AsObject;
@@ -39,6 +42,7 @@ export namespace AddUserTaskRequest {
     savePath: string,
     saveIdentity: string,
     createAddress: string,
+    op: number,
   }
 }
 

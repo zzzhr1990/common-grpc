@@ -256,7 +256,8 @@ proto.services.AddUserTaskRequest.toObject = function(includeInstance, msg) {
     proto.services.UserTask.toObject, includeInstance),
     savePath: jspb.Message.getFieldWithDefault(msg, 3, ""),
     saveIdentity: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    createAddress: jspb.Message.getFieldWithDefault(msg, 5, "")
+    createAddress: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    op: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -313,6 +314,10 @@ proto.services.AddUserTaskRequest.deserializeBinaryFromReader = function(msg, re
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setCreateAddress(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setOp(value);
       break;
     default:
       reader.skipField();
@@ -376,6 +381,13 @@ proto.services.AddUserTaskRequest.serializeBinaryToWriter = function(message, wr
   if (f.length > 0) {
     writer.writeString(
       5,
+      f
+    );
+  }
+  f = message.getOp();
+  if (f !== 0) {
+    writer.writeInt32(
+      6,
       f
     );
   }
@@ -489,6 +501,24 @@ proto.services.AddUserTaskRequest.prototype.getCreateAddress = function() {
  */
 proto.services.AddUserTaskRequest.prototype.setCreateAddress = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional int32 op = 6;
+ * @return {number}
+ */
+proto.services.AddUserTaskRequest.prototype.getOp = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.AddUserTaskRequest} returns this
+ */
+proto.services.AddUserTaskRequest.prototype.setOp = function(value) {
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
