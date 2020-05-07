@@ -104,8 +104,8 @@ export class UpdateInfo extends jspb.Message {
   getDescription(): string;
   setDescription(value: string): void;
 
-  getCreateTime(): string;
-  setCreateTime(value: string): void;
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
 
   getSize(): number;
   setSize(value: number): void;
@@ -139,7 +139,7 @@ export namespace UpdateInfo {
     websiteAddress: string,
     title: string,
     description: string,
-    createTime: string,
+    createTime: number,
     size: number,
     latest: boolean,
   }

@@ -556,7 +556,7 @@ proto.services.UpdateInfo.toObject = function(includeInstance, msg) {
     websiteAddress: jspb.Message.getFieldWithDefault(msg, 12, ""),
     title: jspb.Message.getFieldWithDefault(msg, 13, ""),
     description: jspb.Message.getFieldWithDefault(msg, 14, ""),
-    createTime: jspb.Message.getFieldWithDefault(msg, 15, ""),
+    createTime: jspb.Message.getFieldWithDefault(msg, 15, 0),
     size: jspb.Message.getFieldWithDefault(msg, 16, 0),
     latest: jspb.Message.getBooleanFieldWithDefault(msg, 17, false)
   };
@@ -652,7 +652,7 @@ proto.services.UpdateInfo.deserializeBinaryFromReader = function(msg, reader) {
       msg.setDescription(value);
       break;
     case 15:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCreateTime(value);
       break;
     case 16:
@@ -791,8 +791,8 @@ proto.services.UpdateInfo.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getCreateTime();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt64(
       15,
       f
     );
@@ -1067,20 +1067,20 @@ proto.services.UpdateInfo.prototype.setDescription = function(value) {
 
 
 /**
- * optional string create_time = 15;
- * @return {string}
+ * optional int64 create_time = 15;
+ * @return {number}
  */
 proto.services.UpdateInfo.prototype.getCreateTime = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.services.UpdateInfo} returns this
  */
 proto.services.UpdateInfo.prototype.setCreateTime = function(value) {
-  return jspb.Message.setProto3StringField(this, 15, value);
+  return jspb.Message.setProto3IntField(this, 15, value);
 };
 
 
