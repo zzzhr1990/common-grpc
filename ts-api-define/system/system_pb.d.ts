@@ -41,9 +41,9 @@ export namespace SystemInfo {
 
 export class UpdateInfoList extends jspb.Message {
   clearDataList(): void;
-  getDataList(): Array<SystemInfo>;
-  setDataList(value: Array<SystemInfo>): void;
-  addData(value?: SystemInfo, index?: number): SystemInfo;
+  getDataList(): Array<UpdateInfo>;
+  setDataList(value: Array<UpdateInfo>): void;
+  addData(value?: UpdateInfo, index?: number): UpdateInfo;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpdateInfoList.AsObject;
@@ -57,7 +57,7 @@ export class UpdateInfoList extends jspb.Message {
 
 export namespace UpdateInfoList {
   export type AsObject = {
-    dataList: Array<SystemInfo.AsObject>,
+    dataList: Array<UpdateInfo.AsObject>,
   }
 }
 

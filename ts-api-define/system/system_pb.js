@@ -390,7 +390,7 @@ proto.services.UpdateInfoList.prototype.toObject = function(opt_includeInstance)
 proto.services.UpdateInfoList.toObject = function(includeInstance, msg) {
   var f, obj = {
     dataList: jspb.Message.toObjectList(msg.getDataList(),
-    proto.services.SystemInfo.toObject, includeInstance)
+    proto.services.UpdateInfo.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -428,8 +428,8 @@ proto.services.UpdateInfoList.deserializeBinaryFromReader = function(msg, reader
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto.services.SystemInfo;
-      reader.readMessage(value,proto.services.SystemInfo.deserializeBinaryFromReader);
+      var value = new proto.services.UpdateInfo;
+      reader.readMessage(value,proto.services.UpdateInfo.deserializeBinaryFromReader);
       msg.addData(value);
       break;
     default:
@@ -466,24 +466,24 @@ proto.services.UpdateInfoList.serializeBinaryToWriter = function(message, writer
     writer.writeRepeatedMessage(
       1,
       f,
-      proto.services.SystemInfo.serializeBinaryToWriter
+      proto.services.UpdateInfo.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * repeated SystemInfo data = 1;
- * @return {!Array<!proto.services.SystemInfo>}
+ * repeated UpdateInfo data = 1;
+ * @return {!Array<!proto.services.UpdateInfo>}
  */
 proto.services.UpdateInfoList.prototype.getDataList = function() {
-  return /** @type{!Array<!proto.services.SystemInfo>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.services.SystemInfo, 1));
+  return /** @type{!Array<!proto.services.UpdateInfo>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.services.UpdateInfo, 1));
 };
 
 
 /**
- * @param {!Array<!proto.services.SystemInfo>} value
+ * @param {!Array<!proto.services.UpdateInfo>} value
  * @return {!proto.services.UpdateInfoList} returns this
 */
 proto.services.UpdateInfoList.prototype.setDataList = function(value) {
@@ -492,12 +492,12 @@ proto.services.UpdateInfoList.prototype.setDataList = function(value) {
 
 
 /**
- * @param {!proto.services.SystemInfo=} opt_value
+ * @param {!proto.services.UpdateInfo=} opt_value
  * @param {number=} opt_index
- * @return {!proto.services.SystemInfo}
+ * @return {!proto.services.UpdateInfo}
  */
 proto.services.UpdateInfoList.prototype.addData = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.services.SystemInfo, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.services.UpdateInfo, opt_index);
 };
 
 
