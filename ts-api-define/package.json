@@ -13,9 +13,16 @@
     "google-protobuf": "^3.10.0",
     "grpc": "^1.24.2"
   },
-  "repository": "github:zzzhr1990/ts-api-define",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzzhr1990/ts-api-define.git"
+  },
   "devDependencies": {
     "grpc-tools": "^1.8.0",
     "ts-protoc-gen": "^0.11.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/zzzhr1990/ts-api-define/issues"
+  },
+  "homepage": "https://github.com/zzzhr1990/ts-api-define#readme"
 }

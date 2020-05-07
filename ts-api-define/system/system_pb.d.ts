@@ -68,11 +68,8 @@ export class UpdateInfo extends jspb.Message {
   getNumberVersion(): number;
   setNumberVersion(value: number): void;
 
-  getSha1(): string;
-  setSha1(value: string): void;
-
-  getMd5(): string;
-  setMd5(value: string): void;
+  getHash(): string;
+  setHash(value: string): void;
 
   getForce(): boolean;
   setForce(value: boolean): void;
@@ -110,9 +107,6 @@ export class UpdateInfo extends jspb.Message {
   getSize(): number;
   setSize(value: number): void;
 
-  getLatest(): boolean;
-  setLatest(value: boolean): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpdateInfo.AsObject;
   static toObject(includeInstance: boolean, msg: UpdateInfo): UpdateInfo.AsObject;
@@ -127,8 +121,7 @@ export namespace UpdateInfo {
   export type AsObject = {
     identity: number,
     numberVersion: number,
-    sha1: string,
-    md5: string,
+    hash: string,
     force: boolean,
     version: string,
     platform: string,
@@ -141,7 +134,6 @@ export namespace UpdateInfo {
     description: string,
     createTime: number,
     size: number,
-    latest: boolean,
   }
 }
 
