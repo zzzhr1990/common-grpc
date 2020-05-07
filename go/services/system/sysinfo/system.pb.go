@@ -437,7 +437,7 @@ var file_system_system_proto_rawDesc = []byte{
 	0x49, 0x6e, 0x66, 0x6f, 0x1a, 0x14, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e,
 	0x53, 0x79, 0x73, 0x74, 0x65, 0x6d, 0x49, 0x6e, 0x66, 0x6f, 0x22, 0x00, 0x12, 0x3e, 0x0a, 0x0a,
 	0x6c, 0x69, 0x73, 0x74, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12, 0x14, 0x2e, 0x73, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x43, 0x6c, 0x69, 0x65, 0x6e, 0x74, 0x49, 0x6e, 0x66, 0x6f,
+	0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x66, 0x6f,
 	0x1a, 0x18, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55, 0x70, 0x64, 0x61,
 	0x74, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x4c, 0x69, 0x73, 0x74, 0x22, 0x00, 0x42, 0x3d, 0x5a, 0x3b,
 	0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x7a, 0x7a, 0x7a, 0x68, 0x72,
@@ -469,7 +469,7 @@ var file_system_system_proto_goTypes = []interface{}{
 var file_system_system_proto_depIdxs = []int32{
 	0, // 0: services.UpdateInfoList.data:type_name -> services.SystemInfo
 	3, // 1: services.SystemInfoService.info:input_type -> services.ClientInfo
-	3, // 2: services.SystemInfoService.listUpdate:input_type -> services.ClientInfo
+	2, // 2: services.SystemInfoService.listUpdate:input_type -> services.UpdateInfo
 	0, // 3: services.SystemInfoService.info:output_type -> services.SystemInfo
 	1, // 4: services.SystemInfoService.listUpdate:output_type -> services.UpdateInfoList
 	3, // [3:5] is the sub-list for method output_type
@@ -567,7 +567,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type SystemInfoServiceClient interface {
 	Info(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*SystemInfo, error)
-	ListUpdate(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*UpdateInfoList, error)
+	ListUpdate(ctx context.Context, in *UpdateInfo, opts ...grpc.CallOption) (*UpdateInfoList, error)
 }
 
 type systemInfoServiceClient struct {
@@ -587,7 +587,7 @@ func (c *systemInfoServiceClient) Info(ctx context.Context, in *ClientInfo, opts
 	return out, nil
 }
 
-func (c *systemInfoServiceClient) ListUpdate(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*UpdateInfoList, error) {
+func (c *systemInfoServiceClient) ListUpdate(ctx context.Context, in *UpdateInfo, opts ...grpc.CallOption) (*UpdateInfoList, error) {
 	out := new(UpdateInfoList)
 	err := c.cc.Invoke(ctx, "/services.SystemInfoService/listUpdate", in, out, opts...)
 	if err != nil {
@@ -599,7 +599,7 @@ func (c *systemInfoServiceClient) ListUpdate(ctx context.Context, in *ClientInfo
 // SystemInfoServiceServer is the server API for SystemInfoService service.
 type SystemInfoServiceServer interface {
 	Info(context.Context, *ClientInfo) (*SystemInfo, error)
-	ListUpdate(context.Context, *ClientInfo) (*UpdateInfoList, error)
+	ListUpdate(context.Context, *UpdateInfo) (*UpdateInfoList, error)
 }
 
 // UnimplementedSystemInfoServiceServer can be embedded to have forward compatible implementations.
@@ -609,7 +609,7 @@ type UnimplementedSystemInfoServiceServer struct {
 func (*UnimplementedSystemInfoServiceServer) Info(context.Context, *ClientInfo) (*SystemInfo, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Info not implemented")
 }
-func (*UnimplementedSystemInfoServiceServer) ListUpdate(context.Context, *ClientInfo) (*UpdateInfoList, error) {
+func (*UnimplementedSystemInfoServiceServer) ListUpdate(context.Context, *UpdateInfo) (*UpdateInfoList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListUpdate not implemented")
 }
 
@@ -636,7 +636,7 @@ func _SystemInfoService_Info_Handler(srv interface{}, ctx context.Context, dec f
 }
 
 func _SystemInfoService_ListUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClientInfo)
+	in := new(UpdateInfo)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -648,7 +648,7 @@ func _SystemInfoService_ListUpdate_Handler(srv interface{}, ctx context.Context,
 		FullMethod: "/services.SystemInfoService/ListUpdate",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SystemInfoServiceServer).ListUpdate(ctx, req.(*ClientInfo))
+		return srv.(SystemInfoServiceServer).ListUpdate(ctx, req.(*UpdateInfo))
 	}
 	return interceptor(ctx, in, info, handler)
 }

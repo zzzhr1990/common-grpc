@@ -8,7 +8,7 @@ import * as grpc from "grpc";
 
 interface ISystemInfoServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
   info: grpc.MethodDefinition<system_system_pb.ClientInfo, system_system_pb.SystemInfo>;
-  listUpdate: grpc.MethodDefinition<system_system_pb.ClientInfo, system_system_pb.UpdateInfoList>;
+  listUpdate: grpc.MethodDefinition<system_system_pb.UpdateInfo, system_system_pb.UpdateInfoList>;
 }
 
 export const SystemInfoServiceService: ISystemInfoServiceService;
@@ -18,7 +18,7 @@ export class SystemInfoServiceClient extends grpc.Client {
   info(argument: system_system_pb.ClientInfo, callback: grpc.requestCallback<system_system_pb.SystemInfo>): grpc.ClientUnaryCall;
   info(argument: system_system_pb.ClientInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<system_system_pb.SystemInfo>): grpc.ClientUnaryCall;
   info(argument: system_system_pb.ClientInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<system_system_pb.SystemInfo>): grpc.ClientUnaryCall;
-  listUpdate(argument: system_system_pb.ClientInfo, callback: grpc.requestCallback<system_system_pb.UpdateInfoList>): grpc.ClientUnaryCall;
-  listUpdate(argument: system_system_pb.ClientInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<system_system_pb.UpdateInfoList>): grpc.ClientUnaryCall;
-  listUpdate(argument: system_system_pb.ClientInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<system_system_pb.UpdateInfoList>): grpc.ClientUnaryCall;
+  listUpdate(argument: system_system_pb.UpdateInfo, callback: grpc.requestCallback<system_system_pb.UpdateInfoList>): grpc.ClientUnaryCall;
+  listUpdate(argument: system_system_pb.UpdateInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<system_system_pb.UpdateInfoList>): grpc.ClientUnaryCall;
+  listUpdate(argument: system_system_pb.UpdateInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<system_system_pb.UpdateInfoList>): grpc.ClientUnaryCall;
 }
