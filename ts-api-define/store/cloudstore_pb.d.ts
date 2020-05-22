@@ -88,8 +88,8 @@ export class CloudStore extends jspb.Message {
   getCtime(): number;
   setCtime(value: number): void;
 
-  getOriginalalFilename(): string;
-  setOriginalalFilename(value: string): void;
+  getOriginalFilename(): string;
+  setOriginalFilename(value: string): void;
 
   getStore(): number;
   setStore(value: number): void;
@@ -150,7 +150,7 @@ export namespace CloudStore {
     mime: string,
     uploadUser: number,
     ctime: number,
-    originalalFilename: string,
+    originalFilename: string,
     store: number,
     key: string,
     coldKey: string,

@@ -609,7 +609,7 @@ proto.services.CloudStore.toObject = function(includeInstance, msg) {
     mime: jspb.Message.getFieldWithDefault(msg, 3, ""),
     uploadUser: jspb.Message.getFieldWithDefault(msg, 4, 0),
     ctime: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    originalalFilename: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    originalFilename: jspb.Message.getFieldWithDefault(msg, 6, ""),
     store: jspb.Message.getFieldWithDefault(msg, 7, 0),
     key: jspb.Message.getFieldWithDefault(msg, 8, ""),
     coldKey: jspb.Message.getFieldWithDefault(msg, 9, ""),
@@ -682,7 +682,7 @@ proto.services.CloudStore.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 6:
       var value = /** @type {string} */ (reader.readString());
-      msg.setOriginalalFilename(value);
+      msg.setOriginalFilename(value);
       break;
     case 7:
       var value = /** @type {number} */ (reader.readInt32());
@@ -804,7 +804,7 @@ proto.services.CloudStore.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getOriginalalFilename();
+  f = message.getOriginalFilename();
   if (f.length > 0) {
     writer.writeString(
       6,
@@ -1003,10 +1003,10 @@ proto.services.CloudStore.prototype.setCtime = function(value) {
 
 
 /**
- * optional string originalal_filename = 6;
+ * optional string original_filename = 6;
  * @return {string}
  */
-proto.services.CloudStore.prototype.getOriginalalFilename = function() {
+proto.services.CloudStore.prototype.getOriginalFilename = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
@@ -1015,7 +1015,7 @@ proto.services.CloudStore.prototype.getOriginalalFilename = function() {
  * @param {string} value
  * @return {!proto.services.CloudStore} returns this
  */
-proto.services.CloudStore.prototype.setOriginalalFilename = function(value) {
+proto.services.CloudStore.prototype.setOriginalFilename = function(value) {
   return jspb.Message.setProto3StringField(this, 6, value);
 };
 
