@@ -6,7 +6,7 @@ export PATH=$PATH:$GOPATH/bin
 #
 # protoc -I ../def --go_out=plugins=grpc:../go ../def/helloworld.proto
 # -I ../common
-DIRS=("common" "user" "util" "store" "file" "report" "ext" "share" "offline" "task" "system")
+DIRS=("common" "user" "util" "store" "file" "report" "ext" "share" "offline" "task" "system" "bill")
 
 
 rm -rf ./go_temp
