@@ -5,6 +5,39 @@ var grpc = require('grpc');
 var bill_bill_pb = require('../bill/bill_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
+function serialize_services_Order(arg) {
+  if (!(arg instanceof bill_bill_pb.Order)) {
+    throw new Error('Expected argument of type services.Order');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_Order(buffer_arg) {
+  return bill_bill_pb.Order.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_OrderListRequest(arg) {
+  if (!(arg instanceof bill_bill_pb.OrderListRequest)) {
+    throw new Error('Expected argument of type services.OrderListRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_OrderListRequest(buffer_arg) {
+  return bill_bill_pb.OrderListRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_OrderListResponse(arg) {
+  if (!(arg instanceof bill_bill_pb.OrderListResponse)) {
+    throw new Error('Expected argument of type services.OrderListResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_OrderListResponse(buffer_arg) {
+  return bill_bill_pb.OrderListResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_PlanListRequest(arg) {
   if (!(arg instanceof bill_bill_pb.PlanListRequest)) {
     throw new Error('Expected argument of type services.PlanListRequest');
@@ -27,66 +60,33 @@ function deserialize_services_PlanListResponse(buffer_arg) {
   return bill_bill_pb.PlanListResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_Subscribe(arg) {
-  if (!(arg instanceof bill_bill_pb.Subscribe)) {
-    throw new Error('Expected argument of type services.Subscribe');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
 
-function deserialize_services_Subscribe(buffer_arg) {
-  return bill_bill_pb.Subscribe.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_SubscribeListRequest(arg) {
-  if (!(arg instanceof bill_bill_pb.SubscribeListRequest)) {
-    throw new Error('Expected argument of type services.SubscribeListRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_SubscribeListRequest(buffer_arg) {
-  return bill_bill_pb.SubscribeListRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_services_SubscribeListResponse(arg) {
-  if (!(arg instanceof bill_bill_pb.SubscribeListResponse)) {
-    throw new Error('Expected argument of type services.SubscribeListResponse');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_SubscribeListResponse(buffer_arg) {
-  return bill_bill_pb.SubscribeListResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-
-var SubscribeServiceService = exports.SubscribeServiceService = {
+var OrderServiceService = exports.OrderServiceService = {
   // Create bill（仅后台使用）
   create: {
-    path: '/services.SubscribeService/Create',
+    path: '/services.OrderService/Create',
     requestStream: false,
     responseStream: false,
-    requestType: bill_bill_pb.Subscribe,
-    responseType: bill_bill_pb.Subscribe,
-    requestSerialize: serialize_services_Subscribe,
-    requestDeserialize: deserialize_services_Subscribe,
-    responseSerialize: serialize_services_Subscribe,
-    responseDeserialize: deserialize_services_Subscribe,
+    requestType: bill_bill_pb.Order,
+    responseType: bill_bill_pb.Order,
+    requestSerialize: serialize_services_Order,
+    requestDeserialize: deserialize_services_Order,
+    responseSerialize: serialize_services_Order,
+    responseDeserialize: deserialize_services_Order,
   },
   list: {
-    path: '/services.SubscribeService/List',
+    path: '/services.OrderService/List',
     requestStream: false,
     responseStream: false,
-    requestType: bill_bill_pb.SubscribeListRequest,
-    responseType: bill_bill_pb.SubscribeListResponse,
-    requestSerialize: serialize_services_SubscribeListRequest,
-    requestDeserialize: deserialize_services_SubscribeListRequest,
-    responseSerialize: serialize_services_SubscribeListResponse,
-    responseDeserialize: deserialize_services_SubscribeListResponse,
+    requestType: bill_bill_pb.OrderListRequest,
+    responseType: bill_bill_pb.OrderListResponse,
+    requestSerialize: serialize_services_OrderListRequest,
+    requestDeserialize: deserialize_services_OrderListRequest,
+    responseSerialize: serialize_services_OrderListResponse,
+    responseDeserialize: deserialize_services_OrderListResponse,
   },
   listPlan: {
-    path: '/services.SubscribeService/ListPlan',
+    path: '/services.OrderService/ListPlan',
     requestStream: false,
     responseStream: false,
     requestType: bill_bill_pb.PlanListRequest,
@@ -97,38 +97,38 @@ var SubscribeServiceService = exports.SubscribeServiceService = {
     responseDeserialize: deserialize_services_PlanListResponse,
   },
   check: {
-    path: '/services.SubscribeService/Check',
+    path: '/services.OrderService/Check',
     requestStream: false,
     responseStream: false,
-    requestType: bill_bill_pb.Subscribe,
-    responseType: bill_bill_pb.Subscribe,
-    requestSerialize: serialize_services_Subscribe,
-    requestDeserialize: deserialize_services_Subscribe,
-    responseSerialize: serialize_services_Subscribe,
-    responseDeserialize: deserialize_services_Subscribe,
+    requestType: bill_bill_pb.Order,
+    responseType: bill_bill_pb.Order,
+    requestSerialize: serialize_services_Order,
+    requestDeserialize: deserialize_services_Order,
+    responseSerialize: serialize_services_Order,
+    responseDeserialize: deserialize_services_Order,
   },
   update: {
-    path: '/services.SubscribeService/Update',
+    path: '/services.OrderService/Update',
     requestStream: false,
     responseStream: false,
-    requestType: bill_bill_pb.Subscribe,
-    responseType: bill_bill_pb.Subscribe,
-    requestSerialize: serialize_services_Subscribe,
-    requestDeserialize: deserialize_services_Subscribe,
-    responseSerialize: serialize_services_Subscribe,
-    responseDeserialize: deserialize_services_Subscribe,
+    requestType: bill_bill_pb.Order,
+    responseType: bill_bill_pb.Order,
+    requestSerialize: serialize_services_Order,
+    requestDeserialize: deserialize_services_Order,
+    responseSerialize: serialize_services_Order,
+    responseDeserialize: deserialize_services_Order,
   },
   complete: {
-    path: '/services.SubscribeService/Complete',
+    path: '/services.OrderService/Complete',
     requestStream: false,
     responseStream: false,
-    requestType: bill_bill_pb.Subscribe,
-    responseType: bill_bill_pb.Subscribe,
-    requestSerialize: serialize_services_Subscribe,
-    requestDeserialize: deserialize_services_Subscribe,
-    responseSerialize: serialize_services_Subscribe,
-    responseDeserialize: deserialize_services_Subscribe,
+    requestType: bill_bill_pb.Order,
+    responseType: bill_bill_pb.Order,
+    requestSerialize: serialize_services_Order,
+    requestDeserialize: deserialize_services_Order,
+    responseSerialize: serialize_services_Order,
+    responseDeserialize: deserialize_services_Order,
   },
 };
 
-exports.SubscribeServiceClient = grpc.makeGenericClientConstructor(SubscribeServiceService);
+exports.OrderServiceClient = grpc.makeGenericClientConstructor(OrderServiceService);

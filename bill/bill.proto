@@ -3,24 +3,24 @@ syntax = "proto3";
 package services;
 
 //import "service_one/messages.proto";
-option go_package = "github.com/zzzhr1990/common-grpc/go/services/bill/subscribe";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/bill/order";
 import "common/common_entity.proto";
 // import "common/common_entity.proto";
 
 
-service SubscribeService {
+service OrderService {
     // Create bill（仅后台使用）
-    rpc Create (Subscribe) returns (Subscribe) {}
-    rpc List (SubscribeListRequest) returns (SubscribeListResponse) {}
+    rpc Create (Order) returns (Order) {}
+    rpc List (OrderListRequest) returns (OrderListResponse) {}
     rpc ListPlan (PlanListRequest) returns (PlanListResponse) {}
-    rpc Check (Subscribe) returns (Subscribe) {}
-    rpc Update (Subscribe) returns (Subscribe) {}
-    rpc Complete (Subscribe) returns (Subscribe) {}
+    rpc Check (Order) returns (Order) {}
+    rpc Update (Order) returns (Order) {}
+    rpc Complete (Order) returns (Order) {}
 }
 
 
-message Subscribe {
-    string  identity = 1;
+message Order {
+    int64  identity = 1;
     string user_identity = 2;
     int32 plan_identity = 3;
     int32 plan_type = 4;
@@ -37,6 +37,7 @@ message Subscribe {
     int64  complete_time = 15;
     string plan_description = 16;
     string info = 17;
+    string intent = 18;
 }
 
 
@@ -70,23 +71,23 @@ message PlanListRequest {
 
 
 
-message SubscribeListRequest {
+message OrderListRequest {
     // string identity = 1;
     // int64 plan_type = 2;
     // string path = 3;
     ListInfo list_info = 4;
     repeated OrderByRequest order_by = 5;
-    SubscribeFilterRequest filter = 6;
+    OrderFilterRequest filter = 6;
 }
 
-message SubscribeFilterRequest {
-    string identity = 1;
+message OrderFilterRequest {
+    int64 identity = 1;
     int64 plan_type = 2;
     string path = 3;
 }
 
-message SubscribeListResponse {
-    repeated Subscribe data = 1;
+message OrderListResponse {
+    repeated Order data = 1;
 }
 
 message PlanListResponse {

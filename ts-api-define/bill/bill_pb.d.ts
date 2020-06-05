@@ -4,9 +4,9 @@
 import * as jspb from "google-protobuf";
 import * as common_common_entity_pb from "../common/common_entity_pb";
 
-export class Subscribe extends jspb.Message {
-  getIdentity(): string;
-  setIdentity(value: string): void;
+export class Order extends jspb.Message {
+  getIdentity(): number;
+  setIdentity(value: number): void;
 
   getUserIdentity(): string;
   setUserIdentity(value: string): void;
@@ -56,19 +56,22 @@ export class Subscribe extends jspb.Message {
   getInfo(): string;
   setInfo(value: string): void;
 
+  getIntent(): string;
+  setIntent(value: string): void;
+
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Subscribe.AsObject;
-  static toObject(includeInstance: boolean, msg: Subscribe): Subscribe.AsObject;
+  toObject(includeInstance?: boolean): Order.AsObject;
+  static toObject(includeInstance: boolean, msg: Order): Order.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Subscribe, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Subscribe;
-  static deserializeBinaryFromReader(message: Subscribe, reader: jspb.BinaryReader): Subscribe;
+  static serializeBinaryToWriter(message: Order, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Order;
+  static deserializeBinaryFromReader(message: Order, reader: jspb.BinaryReader): Order;
 }
 
-export namespace Subscribe {
+export namespace Order {
   export type AsObject = {
-    identity: string,
+    identity: number,
     userIdentity: string,
     planIdentity: number,
     planType: number,
@@ -85,6 +88,7 @@ export namespace Subscribe {
     completeTime: number,
     planDescription: string,
     info: string,
+    intent: string,
   }
 }
 
@@ -158,7 +162,7 @@ export namespace PlanListRequest {
   }
 }
 
-export class SubscribeListRequest extends jspb.Message {
+export class OrderListRequest extends jspb.Message {
   hasListInfo(): boolean;
   clearListInfo(): void;
   getListInfo(): common_common_entity_pb.ListInfo | undefined;
@@ -171,30 +175,30 @@ export class SubscribeListRequest extends jspb.Message {
 
   hasFilter(): boolean;
   clearFilter(): void;
-  getFilter(): SubscribeFilterRequest | undefined;
-  setFilter(value?: SubscribeFilterRequest): void;
+  getFilter(): OrderFilterRequest | undefined;
+  setFilter(value?: OrderFilterRequest): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SubscribeListRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: SubscribeListRequest): SubscribeListRequest.AsObject;
+  toObject(includeInstance?: boolean): OrderListRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: OrderListRequest): OrderListRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SubscribeListRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SubscribeListRequest;
-  static deserializeBinaryFromReader(message: SubscribeListRequest, reader: jspb.BinaryReader): SubscribeListRequest;
+  static serializeBinaryToWriter(message: OrderListRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): OrderListRequest;
+  static deserializeBinaryFromReader(message: OrderListRequest, reader: jspb.BinaryReader): OrderListRequest;
 }
 
-export namespace SubscribeListRequest {
+export namespace OrderListRequest {
   export type AsObject = {
     listInfo?: common_common_entity_pb.ListInfo.AsObject,
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
-    filter?: SubscribeFilterRequest.AsObject,
+    filter?: OrderFilterRequest.AsObject,
   }
 }
 
-export class SubscribeFilterRequest extends jspb.Message {
-  getIdentity(): string;
-  setIdentity(value: string): void;
+export class OrderFilterRequest extends jspb.Message {
+  getIdentity(): number;
+  setIdentity(value: number): void;
 
   getPlanType(): number;
   setPlanType(value: number): void;
@@ -203,42 +207,42 @@ export class SubscribeFilterRequest extends jspb.Message {
   setPath(value: string): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SubscribeFilterRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: SubscribeFilterRequest): SubscribeFilterRequest.AsObject;
+  toObject(includeInstance?: boolean): OrderFilterRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: OrderFilterRequest): OrderFilterRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SubscribeFilterRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SubscribeFilterRequest;
-  static deserializeBinaryFromReader(message: SubscribeFilterRequest, reader: jspb.BinaryReader): SubscribeFilterRequest;
+  static serializeBinaryToWriter(message: OrderFilterRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): OrderFilterRequest;
+  static deserializeBinaryFromReader(message: OrderFilterRequest, reader: jspb.BinaryReader): OrderFilterRequest;
 }
 
-export namespace SubscribeFilterRequest {
+export namespace OrderFilterRequest {
   export type AsObject = {
-    identity: string,
+    identity: number,
     planType: number,
     path: string,
   }
 }
 
-export class SubscribeListResponse extends jspb.Message {
+export class OrderListResponse extends jspb.Message {
   clearDataList(): void;
-  getDataList(): Array<Subscribe>;
-  setDataList(value: Array<Subscribe>): void;
-  addData(value?: Subscribe, index?: number): Subscribe;
+  getDataList(): Array<Order>;
+  setDataList(value: Array<Order>): void;
+  addData(value?: Order, index?: number): Order;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SubscribeListResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: SubscribeListResponse): SubscribeListResponse.AsObject;
+  toObject(includeInstance?: boolean): OrderListResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: OrderListResponse): OrderListResponse.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SubscribeListResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SubscribeListResponse;
-  static deserializeBinaryFromReader(message: SubscribeListResponse, reader: jspb.BinaryReader): SubscribeListResponse;
+  static serializeBinaryToWriter(message: OrderListResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): OrderListResponse;
+  static deserializeBinaryFromReader(message: OrderListResponse, reader: jspb.BinaryReader): OrderListResponse;
 }
 
-export namespace SubscribeListResponse {
+export namespace OrderListResponse {
   export type AsObject = {
-    dataList: Array<Subscribe.AsObject>,
+    dataList: Array<Order.AsObject>,
   }
 }
 
