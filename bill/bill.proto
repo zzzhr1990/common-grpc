@@ -13,9 +13,10 @@ service OrderService {
     rpc Create (Order) returns (Order) {}
     rpc List (OrderListRequest) returns (OrderListResponse) {}
     rpc ListPlan (PlanListRequest) returns (PlanListResponse) {}
-    rpc Check (Order) returns (Order) {}
+    rpc Get (Order) returns (Order) {}
     rpc Update (Order) returns (Order) {}
     rpc Complete (Order) returns (Order) {}
+    rpc Fail (Order) returns (Order) {}
 }
 
 
