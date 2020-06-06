@@ -96,8 +96,8 @@ var OrderServiceService = exports.OrderServiceService = {
     responseSerialize: serialize_services_PlanListResponse,
     responseDeserialize: deserialize_services_PlanListResponse,
   },
-  check: {
-    path: '/services.OrderService/Check',
+  get: {
+    path: '/services.OrderService/Get',
     requestStream: false,
     responseStream: false,
     requestType: bill_bill_pb.Order,
@@ -120,6 +120,17 @@ var OrderServiceService = exports.OrderServiceService = {
   },
   complete: {
     path: '/services.OrderService/Complete',
+    requestStream: false,
+    responseStream: false,
+    requestType: bill_bill_pb.Order,
+    responseType: bill_bill_pb.Order,
+    requestSerialize: serialize_services_Order,
+    requestDeserialize: deserialize_services_Order,
+    responseSerialize: serialize_services_Order,
+    responseDeserialize: deserialize_services_Order,
+  },
+  fail: {
+    path: '/services.OrderService/Fail',
     requestStream: false,
     responseStream: false,
     requestType: bill_bill_pb.Order,

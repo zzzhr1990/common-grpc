@@ -167,6 +167,9 @@ export namespace PlanListRequest {
 }
 
 export class OrderListRequest extends jspb.Message {
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
   hasListInfo(): boolean;
   clearListInfo(): void;
   getListInfo(): common_common_entity_pb.ListInfo | undefined;
@@ -194,6 +197,7 @@ export class OrderListRequest extends jspb.Message {
 
 export namespace OrderListRequest {
   export type AsObject = {
+    userIdentity: number,
     listInfo?: common_common_entity_pb.ListInfo.AsObject,
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
     filter?: OrderFilterRequest.AsObject,

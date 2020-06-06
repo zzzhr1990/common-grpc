@@ -75,7 +75,7 @@ message PlanListRequest {
 
 message OrderListRequest {
     // string identity = 1;
-    // int64 plan_type = 2;
+    int64 user_identity = 2;
     // string path = 3;
     ListInfo list_info = 4;
     repeated OrderByRequest order_by = 5;
