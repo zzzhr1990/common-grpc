@@ -21,7 +21,7 @@ service OrderService {
 
 message Order {
     string  identity = 1;
-    string user_identity = 2;
+    int64 user_identity = 2;
     int32 plan_identity = 3;
     int32 plan_type = 4;
     int32 pay_type = 5;
