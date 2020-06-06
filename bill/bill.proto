@@ -50,6 +50,7 @@ message Plan {
     string currency = 6;
     string info = 7;
     string description = 8;
+    int64 value = 9;
     // int64 user_identity = 4;
     // string scope = 5; 
     // string app_identity = 6;

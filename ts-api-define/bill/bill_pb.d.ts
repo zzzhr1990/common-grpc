@@ -117,6 +117,9 @@ export class Plan extends jspb.Message {
   getDescription(): string;
   setDescription(value: string): void;
 
+  getValue(): number;
+  setValue(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Plan.AsObject;
   static toObject(includeInstance: boolean, msg: Plan): Plan.AsObject;
@@ -137,6 +140,7 @@ export namespace Plan {
     currency: string,
     info: string,
     description: string,
+    value: number,
   }
 }
 
