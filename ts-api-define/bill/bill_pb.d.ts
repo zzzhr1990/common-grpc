@@ -5,8 +5,8 @@ import * as jspb from "google-protobuf";
 import * as common_common_entity_pb from "../common/common_entity_pb";
 
 export class Order extends jspb.Message {
-  getIdentity(): number;
-  setIdentity(value: number): void;
+  getIdentity(): string;
+  setIdentity(value: string): void;
 
   getUserIdentity(): string;
   setUserIdentity(value: string): void;
@@ -71,7 +71,7 @@ export class Order extends jspb.Message {
 
 export namespace Order {
   export type AsObject = {
-    identity: number,
+    identity: string,
     userIdentity: string,
     planIdentity: number,
     planType: number,
@@ -197,8 +197,8 @@ export namespace OrderListRequest {
 }
 
 export class OrderFilterRequest extends jspb.Message {
-  getIdentity(): number;
-  setIdentity(value: number): void;
+  getIdentity(): string;
+  setIdentity(value: string): void;
 
   getPlanType(): number;
   setPlanType(value: number): void;
@@ -218,7 +218,7 @@ export class OrderFilterRequest extends jspb.Message {
 
 export namespace OrderFilterRequest {
   export type AsObject = {
-    identity: number,
+    identity: string,
     planType: number,
     path: string,
   }
