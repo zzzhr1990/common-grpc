@@ -8,8 +8,8 @@ export class Order extends jspb.Message {
   getIdentity(): string;
   setIdentity(value: string): void;
 
-  getUserIdentity(): string;
-  setUserIdentity(value: string): void;
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
 
   getPlanIdentity(): number;
   setPlanIdentity(value: number): void;
@@ -72,7 +72,7 @@ export class Order extends jspb.Message {
 export namespace Order {
   export type AsObject = {
     identity: string,
-    userIdentity: string,
+    userIdentity: number,
     planIdentity: number,
     planType: number,
     payType: number,

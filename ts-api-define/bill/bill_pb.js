@@ -201,7 +201,7 @@ proto.services.Order.prototype.toObject = function(opt_includeInstance) {
 proto.services.Order.toObject = function(includeInstance, msg) {
   var f, obj = {
     identity: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    userIdentity: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
     planIdentity: jspb.Message.getFieldWithDefault(msg, 3, 0),
     planType: jspb.Message.getFieldWithDefault(msg, 4, 0),
     payType: jspb.Message.getFieldWithDefault(msg, 5, 0),
@@ -259,7 +259,7 @@ proto.services.Order.deserializeBinaryFromReader = function(msg, reader) {
       msg.setIdentity(value);
       break;
     case 2:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setUserIdentity(value);
       break;
     case 3:
@@ -363,8 +363,8 @@ proto.services.Order.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getUserIdentity();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt64(
       2,
       f
     );
@@ -503,20 +503,20 @@ proto.services.Order.prototype.setIdentity = function(value) {
 
 
 /**
- * optional string user_identity = 2;
- * @return {string}
+ * optional int64 user_identity = 2;
+ * @return {number}
  */
 proto.services.Order.prototype.getUserIdentity = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.services.Order} returns this
  */
 proto.services.Order.prototype.setUserIdentity = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
