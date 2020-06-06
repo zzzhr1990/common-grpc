@@ -263,7 +263,7 @@ proto.services.Order.deserializeBinaryFromReader = function(msg, reader) {
       msg.setUserIdentity(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setPlanIdentity(value);
       break;
     case 4:
@@ -371,7 +371,7 @@ proto.services.Order.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getPlanIdentity();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       3,
       f
     );
@@ -521,7 +521,7 @@ proto.services.Order.prototype.setUserIdentity = function(value) {
 
 
 /**
- * optional int32 plan_identity = 3;
+ * optional int64 plan_identity = 3;
  * @return {number}
  */
 proto.services.Order.prototype.getPlanIdentity = function() {
