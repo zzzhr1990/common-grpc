@@ -140,6 +140,17 @@ var OrderServiceService = exports.OrderServiceService = {
     responseSerialize: serialize_services_Order,
     responseDeserialize: deserialize_services_Order,
   },
+  cancel: {
+    path: '/services.OrderService/Cancel',
+    requestStream: false,
+    responseStream: false,
+    requestType: bill_bill_pb.Order,
+    responseType: bill_bill_pb.Order,
+    requestSerialize: serialize_services_Order,
+    requestDeserialize: deserialize_services_Order,
+    responseSerialize: serialize_services_Order,
+    responseDeserialize: deserialize_services_Order,
+  },
 };
 
 exports.OrderServiceClient = grpc.makeGenericClientConstructor(OrderServiceService);

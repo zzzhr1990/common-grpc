@@ -17,6 +17,7 @@ service OrderService {
     rpc Update (Order) returns (Order) {}
     rpc Complete (Order) returns (Order) {}
     rpc Fail (Order) returns (Order) {}
+    rpc Cancel (Order) returns (Order) {}
 }
 
 
