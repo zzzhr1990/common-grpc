@@ -66,17 +66,8 @@ export class Reply extends jspb.Message {
   getTicketIdentity(): number;
   setTicketIdentity(value: number): void;
 
-  getType(): number;
-  setType(value: number): void;
-
-  getStatus(): number;
-  setStatus(value: number): void;
-
   getCreateTime(): number;
   setCreateTime(value: number): void;
-
-  getRefreshTime(): number;
-  setRefreshTime(value: number): void;
 
   getMessage(): string;
   setMessage(value: string): void;
@@ -99,10 +90,7 @@ export namespace Reply {
     identity: number,
     userIdentity: number,
     ticketIdentity: number,
-    type: number,
-    status: number,
     createTime: number,
-    refreshTime: number,
     message: string,
     images: string,
   }

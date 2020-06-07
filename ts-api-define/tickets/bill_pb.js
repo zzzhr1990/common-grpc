@@ -551,10 +551,7 @@ proto.services.Reply.toObject = function(includeInstance, msg) {
     identity: jspb.Message.getFieldWithDefault(msg, 1, 0),
     userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
     ticketIdentity: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    type: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    status: jspb.Message.getFieldWithDefault(msg, 6, 0),
     createTime: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    refreshTime: jspb.Message.getFieldWithDefault(msg, 8, 0),
     message: jspb.Message.getFieldWithDefault(msg, 9, ""),
     images: jspb.Message.getFieldWithDefault(msg, 10, "")
   };
@@ -605,21 +602,9 @@ proto.services.Reply.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {number} */ (reader.readInt64());
       msg.setTicketIdentity(value);
       break;
-    case 5:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setType(value);
-      break;
-    case 6:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setStatus(value);
-      break;
     case 7:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setCreateTime(value);
-      break;
-    case 8:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setRefreshTime(value);
       break;
     case 9:
       var value = /** @type {string} */ (reader.readString());
@@ -679,31 +664,10 @@ proto.services.Reply.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getType();
-  if (f !== 0) {
-    writer.writeInt32(
-      5,
-      f
-    );
-  }
-  f = message.getStatus();
-  if (f !== 0) {
-    writer.writeInt32(
-      6,
-      f
-    );
-  }
   f = message.getCreateTime();
   if (f !== 0) {
     writer.writeInt64(
       7,
-      f
-    );
-  }
-  f = message.getRefreshTime();
-  if (f !== 0) {
-    writer.writeInt64(
-      8,
       f
     );
   }
@@ -779,42 +743,6 @@ proto.services.Reply.prototype.setTicketIdentity = function(value) {
 
 
 /**
- * optional int32 type = 5;
- * @return {number}
- */
-proto.services.Reply.prototype.getType = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.services.Reply} returns this
- */
-proto.services.Reply.prototype.setType = function(value) {
-  return jspb.Message.setProto3IntField(this, 5, value);
-};
-
-
-/**
- * optional int32 status = 6;
- * @return {number}
- */
-proto.services.Reply.prototype.getStatus = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.services.Reply} returns this
- */
-proto.services.Reply.prototype.setStatus = function(value) {
-  return jspb.Message.setProto3IntField(this, 6, value);
-};
-
-
-/**
  * optional int64 create_time = 7;
  * @return {number}
  */
@@ -829,24 +757,6 @@ proto.services.Reply.prototype.getCreateTime = function() {
  */
 proto.services.Reply.prototype.setCreateTime = function(value) {
   return jspb.Message.setProto3IntField(this, 7, value);
-};
-
-
-/**
- * optional int64 refresh_time = 8;
- * @return {number}
- */
-proto.services.Reply.prototype.getRefreshTime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.services.Reply} returns this
- */
-proto.services.Reply.prototype.setRefreshTime = function(value) {
-  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 

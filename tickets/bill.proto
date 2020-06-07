@@ -37,10 +37,10 @@ message Reply {
     int64 identity = 1;
     int64 user_identity = 2;
     int64 ticket_identity = 4;
-    int32 type = 5;
-    int32 status = 6;
+    // int32 type = 5;
+    // int32 status = 6;
     int64 create_time = 7;
-    int64 refresh_time = 8;
+    // string create_address = 8;
     string message = 9;
     string images = 10;
     // int64 user_identity = 4;
