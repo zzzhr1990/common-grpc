@@ -759,7 +759,6 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type TicketsServiceClient interface {
-	// Create bill（仅后台使用）
 	Create(ctx context.Context, in *Ticket, opts ...grpc.CallOption) (*Ticket, error)
 	List(ctx context.Context, in *TicketListRequest, opts ...grpc.CallOption) (*TicketListResponse, error)
 	ListReply(ctx context.Context, in *ReplyListRequest, opts ...grpc.CallOption) (*ReplyListResponse, error)
@@ -862,7 +861,6 @@ func (c *ticketsServiceClient) DeleteReply(ctx context.Context, in *Reply, opts 
 
 // TicketsServiceServer is the server API for TicketsService service.
 type TicketsServiceServer interface {
-	// Create bill（仅后台使用）
 	Create(context.Context, *Ticket) (*Ticket, error)
 	List(context.Context, *TicketListRequest) (*TicketListResponse, error)
 	ListReply(context.Context, *ReplyListRequest) (*ReplyListResponse, error)

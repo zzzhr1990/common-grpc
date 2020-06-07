@@ -73,7 +73,6 @@ function deserialize_services_TicketListResponse(buffer_arg) {
 
 
 var TicketsServiceService = exports.TicketsServiceService = {
-  // Create bill（仅后台使用）
   create: {
     path: '/services.TicketsService/Create',
     requestStream: false,

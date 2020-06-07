@@ -9,7 +9,6 @@ import "common/common_entity.proto";
 
 
 service TicketsService {
-    // Create bill（仅后台使用）
     rpc Create (Ticket) returns (Ticket) {}
     rpc List (TicketListRequest) returns (TicketListResponse) {}
     rpc ListReply (ReplyListRequest) returns (ReplyListResponse) {}
