@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package services;
+
+//import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/tickets/tickets";
+import "common/common_entity.proto";
+// import "common/common_entity.proto";
+
+
+service TicketsService {
+    // Create bill（仅后台使用）
+    rpc Create (Ticket) returns (Ticket) {}
+    rpc List (TicketListRequest) returns (TicketListResponse) {}
+    rpc ListReply (ReplyListRequest) returns (ReplyListResponse) {}
+    rpc Get (Ticket) returns (Ticket) {}
+    rpc GetReply (Reply) returns (Reply) {}
+    rpc ReplyTicket (Reply) returns (Reply) {}
+    rpc Close (Ticket) returns (Ticket) {}
+}
+
+
+message Ticket {
+    int64 identity = 1;
+    int64 user_identity = 2;
+    int64 reply_user_identity = 4;
+    int32 type = 5;
+    int32 status = 6;
+    int64 create_time = 7;
+    int64 refresh_time = 8;
+    string message = 9;
+    string images = 10;
+}
+
+
+message Reply {
+    int64 identity = 1;
+    int64 user_identity = 2;
+    int64 ticket_identity = 4;
+    int32 type = 5;
+    int32 status = 6;
+    int64 create_time = 7;
+    int64 refresh_time = 8;
+    string message = 9;
+    string images = 10;
+    // int64 user_identity = 4;
+    // string scope = 5; 
+    // string app_identity = 6;
+    // string app_name = 7;
+    // int64 login_time = 8;
+    // string login_address = 9;
+}
+
+message TicketListRequest {
+    // string identity = 1;
+    int64 user_identity = 2;
+    // string path = 3;
+    ListInfo list_info = 4;
+    repeated OrderByRequest order_by = 5;
+    // OrderFilterRequest filter = 6;
+}
+
+
+
+message ReplyListRequest {
+    // string identity = 1;
+    int64 user_identity = 2;
+    // string path = 3;
+    ListInfo list_info = 4;
+    repeated OrderByRequest order_by = 5;
+    // OrderFilterRequest filter = 6;
+}
+
+/*
+message OrderFilterRequest {
+    string identity = 1;
+    int64 plan_type = 2;
+    string path = 3;
+}
+*/
+message TicketListResponse {
+    repeated Ticket data = 1;
+}
+
+message ReplyListResponse {
+    Ticket Ticket = 1;
+    repeated Reply data = 2;
+}
