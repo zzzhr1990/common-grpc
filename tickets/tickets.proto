@@ -25,6 +25,7 @@ service TicketsService {
 message Ticket {
     int64 identity = 1;
     int64 user_identity = 2;
+    string title = 3;
     int64 reply_user_identity = 4;
     int32 type = 5;
     int32 status = 6;
