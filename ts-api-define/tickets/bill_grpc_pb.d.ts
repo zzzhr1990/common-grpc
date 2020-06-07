@@ -14,6 +14,8 @@ interface ITicketsServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
   getReply: grpc.MethodDefinition<tickets_bill_pb.Reply, tickets_bill_pb.Reply>;
   replyTicket: grpc.MethodDefinition<tickets_bill_pb.Reply, tickets_bill_pb.Reply>;
   close: grpc.MethodDefinition<tickets_bill_pb.Ticket, tickets_bill_pb.Ticket>;
+  delete: grpc.MethodDefinition<tickets_bill_pb.Ticket, tickets_bill_pb.Ticket>;
+  deleteReply: grpc.MethodDefinition<tickets_bill_pb.Reply, tickets_bill_pb.Reply>;
 }
 
 export const TicketsServiceService: ITicketsServiceService;
@@ -41,4 +43,10 @@ export class TicketsServiceClient extends grpc.Client {
   close(argument: tickets_bill_pb.Ticket, callback: grpc.requestCallback<tickets_bill_pb.Ticket>): grpc.ClientUnaryCall;
   close(argument: tickets_bill_pb.Ticket, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<tickets_bill_pb.Ticket>): grpc.ClientUnaryCall;
   close(argument: tickets_bill_pb.Ticket, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<tickets_bill_pb.Ticket>): grpc.ClientUnaryCall;
+  delete(argument: tickets_bill_pb.Ticket, callback: grpc.requestCallback<tickets_bill_pb.Ticket>): grpc.ClientUnaryCall;
+  delete(argument: tickets_bill_pb.Ticket, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<tickets_bill_pb.Ticket>): grpc.ClientUnaryCall;
+  delete(argument: tickets_bill_pb.Ticket, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<tickets_bill_pb.Ticket>): grpc.ClientUnaryCall;
+  deleteReply(argument: tickets_bill_pb.Reply, callback: grpc.requestCallback<tickets_bill_pb.Reply>): grpc.ClientUnaryCall;
+  deleteReply(argument: tickets_bill_pb.Reply, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<tickets_bill_pb.Reply>): grpc.ClientUnaryCall;
+  deleteReply(argument: tickets_bill_pb.Reply, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<tickets_bill_pb.Reply>): grpc.ClientUnaryCall;
 }

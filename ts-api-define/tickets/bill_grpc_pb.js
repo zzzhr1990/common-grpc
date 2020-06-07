@@ -151,6 +151,28 @@ var TicketsServiceService = exports.TicketsServiceService = {
     responseSerialize: serialize_services_Ticket,
     responseDeserialize: deserialize_services_Ticket,
   },
+  delete: {
+    path: '/services.TicketsService/Delete',
+    requestStream: false,
+    responseStream: false,
+    requestType: tickets_bill_pb.Ticket,
+    responseType: tickets_bill_pb.Ticket,
+    requestSerialize: serialize_services_Ticket,
+    requestDeserialize: deserialize_services_Ticket,
+    responseSerialize: serialize_services_Ticket,
+    responseDeserialize: deserialize_services_Ticket,
+  },
+  deleteReply: {
+    path: '/services.TicketsService/DeleteReply',
+    requestStream: false,
+    responseStream: false,
+    requestType: tickets_bill_pb.Reply,
+    responseType: tickets_bill_pb.Reply,
+    requestSerialize: serialize_services_Reply,
+    requestDeserialize: deserialize_services_Reply,
+    responseSerialize: serialize_services_Reply,
+    responseDeserialize: deserialize_services_Reply,
+  },
 };
 
 exports.TicketsServiceClient = grpc.makeGenericClientConstructor(TicketsServiceService);

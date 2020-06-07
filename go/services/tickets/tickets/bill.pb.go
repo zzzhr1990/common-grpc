@@ -536,7 +536,7 @@ var file_tickets_bill_proto_rawDesc = []byte{
 	0x6b, 0x65, 0x74, 0x52, 0x06, 0x54, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x12, 0x23, 0x0a, 0x04, 0x64,
 	0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0f, 0x2e, 0x73, 0x65, 0x72, 0x76,
 	0x69, 0x63, 0x65, 0x73, 0x2e, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x52, 0x04, 0x64, 0x61, 0x74, 0x61,
-	0x32, 0x8c, 0x03, 0x0a, 0x0e, 0x54, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x53, 0x65, 0x72, 0x76,
+	0x32, 0xef, 0x03, 0x0a, 0x0e, 0x54, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x53, 0x65, 0x72, 0x76,
 	0x69, 0x63, 0x65, 0x12, 0x2e, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x10, 0x2e,
 	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x1a,
 	0x10, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x69, 0x63, 0x6b, 0x65,
@@ -560,12 +560,18 @@ var file_tickets_bill_proto_rawDesc = []byte{
 	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00,
 	0x12, 0x2d, 0x0a, 0x05, 0x43, 0x6c, 0x6f, 0x73, 0x65, 0x12, 0x10, 0x2e, 0x73, 0x65, 0x72, 0x76,
 	0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x1a, 0x10, 0x2e, 0x73, 0x65,
-	0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x22, 0x00, 0x42,
-	0x3e, 0x5a, 0x3c, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x7a, 0x7a,
-	0x7a, 0x68, 0x72, 0x31, 0x39, 0x39, 0x30, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2d, 0x67,
-	0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2f,
-	0x74, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x2f, 0x74, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x22, 0x00, 0x12,
+	0x2e, 0x0a, 0x06, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x12, 0x10, 0x2e, 0x73, 0x65, 0x72, 0x76,
+	0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x1a, 0x10, 0x2e, 0x73, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x22, 0x00, 0x12,
+	0x31, 0x0a, 0x0b, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x0f,
+	0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x1a,
+	0x0f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x52, 0x65, 0x70, 0x6c, 0x79,
+	0x22, 0x00, 0x42, 0x3e, 0x5a, 0x3c, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
+	0x2f, 0x7a, 0x7a, 0x7a, 0x68, 0x72, 0x31, 0x39, 0x39, 0x30, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f,
+	0x6e, 0x2d, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x73, 0x2f, 0x74, 0x69, 0x63, 0x6b, 0x65, 0x74, 0x73, 0x2f, 0x74, 0x69, 0x63, 0x6b, 0x65,
+	0x74, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -606,15 +612,19 @@ var file_tickets_bill_proto_depIdxs = []int32{
 	1,  // 11: services.TicketsService.GetReply:input_type -> services.Reply
 	1,  // 12: services.TicketsService.ReplyTicket:input_type -> services.Reply
 	0,  // 13: services.TicketsService.Close:input_type -> services.Ticket
-	0,  // 14: services.TicketsService.Create:output_type -> services.Ticket
-	4,  // 15: services.TicketsService.List:output_type -> services.TicketListResponse
-	5,  // 16: services.TicketsService.ListReply:output_type -> services.ReplyListResponse
-	0,  // 17: services.TicketsService.Get:output_type -> services.Ticket
-	1,  // 18: services.TicketsService.GetReply:output_type -> services.Reply
-	1,  // 19: services.TicketsService.ReplyTicket:output_type -> services.Reply
-	0,  // 20: services.TicketsService.Close:output_type -> services.Ticket
-	14, // [14:21] is the sub-list for method output_type
-	7,  // [7:14] is the sub-list for method input_type
+	0,  // 14: services.TicketsService.Delete:input_type -> services.Ticket
+	1,  // 15: services.TicketsService.DeleteReply:input_type -> services.Reply
+	0,  // 16: services.TicketsService.Create:output_type -> services.Ticket
+	4,  // 17: services.TicketsService.List:output_type -> services.TicketListResponse
+	5,  // 18: services.TicketsService.ListReply:output_type -> services.ReplyListResponse
+	0,  // 19: services.TicketsService.Get:output_type -> services.Ticket
+	1,  // 20: services.TicketsService.GetReply:output_type -> services.Reply
+	1,  // 21: services.TicketsService.ReplyTicket:output_type -> services.Reply
+	0,  // 22: services.TicketsService.Close:output_type -> services.Ticket
+	0,  // 23: services.TicketsService.Delete:output_type -> services.Ticket
+	1,  // 24: services.TicketsService.DeleteReply:output_type -> services.Reply
+	16, // [16:25] is the sub-list for method output_type
+	7,  // [7:16] is the sub-list for method input_type
 	7,  // [7:7] is the sub-list for extension type_name
 	7,  // [7:7] is the sub-list for extension extendee
 	0,  // [0:7] is the sub-list for field type_name
@@ -739,6 +749,8 @@ type TicketsServiceClient interface {
 	GetReply(ctx context.Context, in *Reply, opts ...grpc.CallOption) (*Reply, error)
 	ReplyTicket(ctx context.Context, in *Reply, opts ...grpc.CallOption) (*Reply, error)
 	Close(ctx context.Context, in *Ticket, opts ...grpc.CallOption) (*Ticket, error)
+	Delete(ctx context.Context, in *Ticket, opts ...grpc.CallOption) (*Ticket, error)
+	DeleteReply(ctx context.Context, in *Reply, opts ...grpc.CallOption) (*Reply, error)
 }
 
 type ticketsServiceClient struct {
@@ -812,6 +824,24 @@ func (c *ticketsServiceClient) Close(ctx context.Context, in *Ticket, opts ...gr
 	return out, nil
 }
 
+func (c *ticketsServiceClient) Delete(ctx context.Context, in *Ticket, opts ...grpc.CallOption) (*Ticket, error) {
+	out := new(Ticket)
+	err := c.cc.Invoke(ctx, "/services.TicketsService/Delete", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ticketsServiceClient) DeleteReply(ctx context.Context, in *Reply, opts ...grpc.CallOption) (*Reply, error) {
+	out := new(Reply)
+	err := c.cc.Invoke(ctx, "/services.TicketsService/DeleteReply", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TicketsServiceServer is the server API for TicketsService service.
 type TicketsServiceServer interface {
 	// Create bill（仅后台使用）
@@ -822,6 +852,8 @@ type TicketsServiceServer interface {
 	GetReply(context.Context, *Reply) (*Reply, error)
 	ReplyTicket(context.Context, *Reply) (*Reply, error)
 	Close(context.Context, *Ticket) (*Ticket, error)
+	Delete(context.Context, *Ticket) (*Ticket, error)
+	DeleteReply(context.Context, *Reply) (*Reply, error)
 }
 
 // UnimplementedTicketsServiceServer can be embedded to have forward compatible implementations.
@@ -848,6 +880,12 @@ func (*UnimplementedTicketsServiceServer) ReplyTicket(context.Context, *Reply) (
 }
 func (*UnimplementedTicketsServiceServer) Close(context.Context, *Ticket) (*Ticket, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Close not implemented")
+}
+func (*UnimplementedTicketsServiceServer) Delete(context.Context, *Ticket) (*Ticket, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+}
+func (*UnimplementedTicketsServiceServer) DeleteReply(context.Context, *Reply) (*Reply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteReply not implemented")
 }
 
 func RegisterTicketsServiceServer(s *grpc.Server, srv TicketsServiceServer) {
@@ -980,6 +1018,42 @@ func _TicketsService_Close_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TicketsService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Ticket)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TicketsServiceServer).Delete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.TicketsService/Delete",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TicketsServiceServer).Delete(ctx, req.(*Ticket))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TicketsService_DeleteReply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Reply)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TicketsServiceServer).DeleteReply(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.TicketsService/DeleteReply",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TicketsServiceServer).DeleteReply(ctx, req.(*Reply))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _TicketsService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "services.TicketsService",
 	HandlerType: (*TicketsServiceServer)(nil),
@@ -1011,6 +1085,14 @@ var _TicketsService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Close",
 			Handler:    _TicketsService_Close_Handler,
+		},
+		{
+			MethodName: "Delete",
+			Handler:    _TicketsService_Delete_Handler,
+		},
+		{
+			MethodName: "DeleteReply",
+			Handler:    _TicketsService_DeleteReply_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

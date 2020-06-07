@@ -17,6 +17,8 @@ service TicketsService {
     rpc GetReply (Reply) returns (Reply) {}
     rpc ReplyTicket (Reply) returns (Reply) {}
     rpc Close (Ticket) returns (Ticket) {}
+    rpc Delete (Ticket) returns (Ticket) {}
+    rpc DeleteReply (Reply) returns (Reply) {}
 }
 
 
