@@ -39,6 +39,7 @@ message Order {
     string plan_description = 16;
     string info = 17;
     string intent = 18;
+    int32 period_type = 19;
 }
 
 
