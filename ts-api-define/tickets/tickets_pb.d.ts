@@ -1,5 +1,5 @@
 // package: services
-// file: tickets/bill.proto
+// file: tickets/tickets.proto
 
 import * as jspb from "google-protobuf";
 import * as common_common_entity_pb from "../common/common_entity_pb";
@@ -10,6 +10,9 @@ export class Ticket extends jspb.Message {
 
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
+
+  getTitle(): string;
+  setTitle(value: string): void;
 
   getReplyUserIdentity(): number;
   setReplyUserIdentity(value: number): void;
@@ -46,6 +49,7 @@ export namespace Ticket {
   export type AsObject = {
     identity: number,
     userIdentity: number,
+    title: string,
     replyUserIdentity: number,
     type: number,
     status: number,

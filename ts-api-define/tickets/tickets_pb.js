@@ -1,4 +1,4 @@
-// source: tickets/bill.proto
+// source: tickets/tickets.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -180,6 +180,7 @@ proto.services.Ticket.toObject = function(includeInstance, msg) {
   var f, obj = {
     identity: jspb.Message.getFieldWithDefault(msg, 1, 0),
     userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    title: jspb.Message.getFieldWithDefault(msg, 3, ""),
     replyUserIdentity: jspb.Message.getFieldWithDefault(msg, 4, 0),
     type: jspb.Message.getFieldWithDefault(msg, 5, 0),
     status: jspb.Message.getFieldWithDefault(msg, 6, 0),
@@ -230,6 +231,10 @@ proto.services.Ticket.deserializeBinaryFromReader = function(msg, reader) {
     case 2:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setUserIdentity(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTitle(value);
       break;
     case 4:
       var value = /** @type {number} */ (reader.readInt64());
@@ -299,6 +304,13 @@ proto.services.Ticket.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       2,
+      f
+    );
+  }
+  f = message.getTitle();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
       f
     );
   }
@@ -387,6 +399,24 @@ proto.services.Ticket.prototype.getUserIdentity = function() {
  */
 proto.services.Ticket.prototype.setUserIdentity = function(value) {
   return jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional string title = 3;
+ * @return {string}
+ */
+proto.services.Ticket.prototype.getTitle = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.Ticket} returns this
+ */
+proto.services.Ticket.prototype.setTitle = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
