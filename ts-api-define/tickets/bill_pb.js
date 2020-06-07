@@ -1076,6 +1076,7 @@ proto.services.ReplyListRequest.prototype.toObject = function(opt_includeInstanc
  */
 proto.services.ReplyListRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    ticketIdentity: jspb.Message.getFieldWithDefault(msg, 1, 0),
     userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
     listInfo: (f = msg.getListInfo()) && common_common_entity_pb.ListInfo.toObject(includeInstance, f),
     orderByList: jspb.Message.toObjectList(msg.getOrderByList(),
@@ -1116,6 +1117,10 @@ proto.services.ReplyListRequest.deserializeBinaryFromReader = function(msg, read
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setTicketIdentity(value);
+      break;
     case 2:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setUserIdentity(value);
@@ -1159,6 +1164,13 @@ proto.services.ReplyListRequest.prototype.serializeBinary = function() {
  */
 proto.services.ReplyListRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getTicketIdentity();
+  if (f !== 0) {
+    writer.writeInt64(
+      1,
+      f
+    );
+  }
   f = message.getUserIdentity();
   if (f !== 0) {
     writer.writeInt64(
@@ -1182,6 +1194,24 @@ proto.services.ReplyListRequest.serializeBinaryToWriter = function(message, writ
       common_common_entity_pb.OrderByRequest.serializeBinaryToWriter
     );
   }
+};
+
+
+/**
+ * optional int64 ticket_identity = 1;
+ * @return {number}
+ */
+proto.services.ReplyListRequest.prototype.getTicketIdentity = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.ReplyListRequest} returns this
+ */
+proto.services.ReplyListRequest.prototype.setTicketIdentity = function(value) {
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 

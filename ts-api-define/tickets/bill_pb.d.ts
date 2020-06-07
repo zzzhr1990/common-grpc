@@ -129,6 +129,9 @@ export namespace TicketListRequest {
 }
 
 export class ReplyListRequest extends jspb.Message {
+  getTicketIdentity(): number;
+  setTicketIdentity(value: number): void;
+
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
 
@@ -154,6 +157,7 @@ export class ReplyListRequest extends jspb.Message {
 
 export namespace ReplyListRequest {
   export type AsObject = {
+    ticketIdentity: number,
     userIdentity: number,
     listInfo?: common_common_entity_pb.ListInfo.AsObject,
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
