@@ -1843,7 +1843,10 @@ proto.services.Payment.toObject = function(includeInstance, msg) {
     status: jspb.Message.getFieldWithDefault(msg, 5, 0),
     amount: jspb.Message.getFieldWithDefault(msg, 6, 0),
     data: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    userIdentity: jspb.Message.getFieldWithDefault(msg, 8, 0)
+    userIdentity: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    addonInt: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    addonLong: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    addonString: jspb.Message.getFieldWithDefault(msg, 11, 0)
   };
 
   if (includeInstance) {
@@ -1911,6 +1914,18 @@ proto.services.Payment.deserializeBinaryFromReader = function(msg, reader) {
     case 8:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setUserIdentity(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setAddonInt(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setAddonLong(value);
+      break;
+    case 11:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setAddonString(value);
       break;
     default:
       reader.skipField();
@@ -1994,6 +2009,27 @@ proto.services.Payment.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       8,
+      f
+    );
+  }
+  f = message.getAddonInt();
+  if (f !== 0) {
+    writer.writeInt32(
+      9,
+      f
+    );
+  }
+  f = message.getAddonLong();
+  if (f !== 0) {
+    writer.writeInt64(
+      10,
+      f
+    );
+  }
+  f = message.getAddonString();
+  if (f !== 0) {
+    writer.writeInt64(
+      11,
       f
     );
   }
@@ -2141,6 +2177,60 @@ proto.services.Payment.prototype.getUserIdentity = function() {
  */
 proto.services.Payment.prototype.setUserIdentity = function(value) {
   return jspb.Message.setProto3IntField(this, 8, value);
+};
+
+
+/**
+ * optional int32 addon_int = 9;
+ * @return {number}
+ */
+proto.services.Payment.prototype.getAddonInt = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.Payment} returns this
+ */
+proto.services.Payment.prototype.setAddonInt = function(value) {
+  return jspb.Message.setProto3IntField(this, 9, value);
+};
+
+
+/**
+ * optional int64 addon_long = 10;
+ * @return {number}
+ */
+proto.services.Payment.prototype.getAddonLong = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.Payment} returns this
+ */
+proto.services.Payment.prototype.setAddonLong = function(value) {
+  return jspb.Message.setProto3IntField(this, 10, value);
+};
+
+
+/**
+ * optional int64 addon_string = 11;
+ * @return {number}
+ */
+proto.services.Payment.prototype.getAddonString = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.Payment} returns this
+ */
+proto.services.Payment.prototype.setAddonString = function(value) {
+  return jspb.Message.setProto3IntField(this, 11, value);
 };
 
 

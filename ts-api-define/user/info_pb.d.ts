@@ -238,6 +238,15 @@ export class Payment extends jspb.Message {
   getUserIdentity(): number;
   setUserIdentity(value: number): void;
 
+  getAddonInt(): number;
+  setAddonInt(value: number): void;
+
+  getAddonLong(): number;
+  setAddonLong(value: number): void;
+
+  getAddonString(): number;
+  setAddonString(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Payment.AsObject;
   static toObject(includeInstance: boolean, msg: Payment): Payment.AsObject;
@@ -258,6 +267,9 @@ export namespace Payment {
     amount: number,
     data: string,
     userIdentity: number,
+    addonInt: number,
+    addonLong: number,
+    addonString: number,
   }
 }
 

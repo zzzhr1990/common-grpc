@@ -113,6 +113,9 @@ message Payment {
     int64 amount = 6;
     string data = 7;
     int64 user_identity = 8;
+    int32 addon_int = 9;
+    int64 addon_long = 10;
+    int64 addon_string = 11;
 }
 
 message SmsValidateRequest {
