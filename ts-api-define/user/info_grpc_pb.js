@@ -26,6 +26,17 @@ function deserialize_services_OauthInfo(buffer_arg) {
   return user_info_pb.OauthInfo.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_Payment(arg) {
+  if (!(arg instanceof user_info_pb.Payment)) {
+    throw new Error('Expected argument of type services.Payment');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_Payment(buffer_arg) {
+  return user_info_pb.Payment.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_SmsChangePasswordRequest(arg) {
   if (!(arg instanceof user_info_pb.SmsChangePasswordRequest)) {
     throw new Error('Expected argument of type services.SmsChangePasswordRequest');
@@ -343,6 +354,39 @@ var UserServiceService = exports.UserServiceService = {
     requestDeserialize: deserialize_services_OauthInfo,
     responseSerialize: serialize_services_OauthInfo,
     responseDeserialize: deserialize_services_OauthInfo,
+  },
+  createPayment: {
+    path: '/services.UserService/CreatePayment',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.Payment,
+    responseType: user_info_pb.Payment,
+    requestSerialize: serialize_services_Payment,
+    requestDeserialize: deserialize_services_Payment,
+    responseSerialize: serialize_services_Payment,
+    responseDeserialize: deserialize_services_Payment,
+  },
+  completePayment: {
+    path: '/services.UserService/CompletePayment',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.Payment,
+    responseType: user_info_pb.Payment,
+    requestSerialize: serialize_services_Payment,
+    requestDeserialize: deserialize_services_Payment,
+    responseSerialize: serialize_services_Payment,
+    responseDeserialize: deserialize_services_Payment,
+  },
+  failedPayment: {
+    path: '/services.UserService/FailedPayment',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.Payment,
+    responseType: user_info_pb.Payment,
+    requestSerialize: serialize_services_Payment,
+    requestDeserialize: deserialize_services_Payment,
+    responseSerialize: serialize_services_Payment,
+    responseDeserialize: deserialize_services_Payment,
   },
 };
 

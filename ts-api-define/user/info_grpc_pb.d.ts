@@ -26,6 +26,9 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   createOauthInfo: grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
   refreshOauthToken: grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
   checkAccessToken: grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
+  createPayment: grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment>;
+  completePayment: grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment>;
+  failedPayment: grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment>;
 }
 
 export const UserServiceService: IUserServiceService;
@@ -89,4 +92,13 @@ export class UserServiceClient extends grpc.Client {
   checkAccessToken(argument: user_info_pb.OauthInfo, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
   checkAccessToken(argument: user_info_pb.OauthInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
   checkAccessToken(argument: user_info_pb.OauthInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
+  createPayment(argument: user_info_pb.Payment, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
+  createPayment(argument: user_info_pb.Payment, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
+  createPayment(argument: user_info_pb.Payment, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
+  completePayment(argument: user_info_pb.Payment, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
+  completePayment(argument: user_info_pb.Payment, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
+  completePayment(argument: user_info_pb.Payment, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
+  failedPayment(argument: user_info_pb.Payment, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
+  failedPayment(argument: user_info_pb.Payment, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
+  failedPayment(argument: user_info_pb.Payment, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
 }

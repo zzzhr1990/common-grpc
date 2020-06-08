@@ -213,6 +213,50 @@ export namespace SmsResponse {
   }
 }
 
+export class Payment extends jspb.Message {
+  getOrderIdentity(): string;
+  setOrderIdentity(value: string): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
+
+  getUpdateTime(): number;
+  setUpdateTime(value: number): void;
+
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getAmount(): number;
+  setAmount(value: number): void;
+
+  getData(): string;
+  setData(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Payment.AsObject;
+  static toObject(includeInstance: boolean, msg: Payment): Payment.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Payment, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Payment;
+  static deserializeBinaryFromReader(message: Payment, reader: jspb.BinaryReader): Payment;
+}
+
+export namespace Payment {
+  export type AsObject = {
+    orderIdentity: string,
+    type: number,
+    createTime: number,
+    updateTime: number,
+    status: number,
+    amount: number,
+    data: string,
+  }
+}
+
 export class SmsValidateRequest extends jspb.Message {
   getSession(): string;
   setSession(value: string): void;
