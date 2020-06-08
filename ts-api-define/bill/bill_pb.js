@@ -219,7 +219,8 @@ proto.services.Order.toObject = function(includeInstance, msg) {
     info: jspb.Message.getFieldWithDefault(msg, 17, ""),
     intent: jspb.Message.getFieldWithDefault(msg, 18, ""),
     periodType: jspb.Message.getFieldWithDefault(msg, 19, 0),
-    secret: jspb.Message.getFieldWithDefault(msg, 20, "")
+    secret: jspb.Message.getFieldWithDefault(msg, 20, ""),
+    planValue: jspb.Message.getFieldWithDefault(msg, 21, 0)
   };
 
   if (includeInstance) {
@@ -335,6 +336,10 @@ proto.services.Order.deserializeBinaryFromReader = function(msg, reader) {
     case 20:
       var value = /** @type {string} */ (reader.readString());
       msg.setSecret(value);
+      break;
+    case 21:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setPlanValue(value);
       break;
     default:
       reader.skipField();
@@ -502,6 +507,13 @@ proto.services.Order.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       20,
+      f
+    );
+  }
+  f = message.getPlanValue();
+  if (f !== 0) {
+    writer.writeInt64(
+      21,
       f
     );
   }
@@ -865,6 +877,24 @@ proto.services.Order.prototype.getSecret = function() {
  */
 proto.services.Order.prototype.setSecret = function(value) {
   return jspb.Message.setProto3StringField(this, 20, value);
+};
+
+
+/**
+ * optional int64 plan_value = 21;
+ * @return {number}
+ */
+proto.services.Order.prototype.getPlanValue = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 21, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.Order} returns this
+ */
+proto.services.Order.prototype.setPlanValue = function(value) {
+  return jspb.Message.setProto3IntField(this, 21, value);
 };
 
 

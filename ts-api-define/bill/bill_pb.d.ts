@@ -65,6 +65,9 @@ export class Order extends jspb.Message {
   getSecret(): string;
   setSecret(value: string): void;
 
+  getPlanValue(): number;
+  setPlanValue(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Order.AsObject;
   static toObject(includeInstance: boolean, msg: Order): Order.AsObject;
@@ -97,6 +100,7 @@ export namespace Order {
     intent: string,
     periodType: number,
     secret: string,
+    planValue: number,
   }
 }
 
