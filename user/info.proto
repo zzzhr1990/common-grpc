@@ -112,6 +112,7 @@ message Payment {
     int32 status = 5;
     int64 amount = 6;
     string data = 7;
+    int64 user_identity = 8;
 }
 
 message SmsValidateRequest {
