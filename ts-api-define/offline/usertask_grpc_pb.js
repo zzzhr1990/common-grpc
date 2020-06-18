@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('grpc');
+var grpc = require('@grpc/grpc-js');
 var offline_usertask_pb = require('../offline/usertask_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 

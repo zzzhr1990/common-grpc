@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('grpc');
+var grpc = require('@grpc/grpc-js');
 var user_info_pb = require('../user/info_pb.js');
 
 function serialize_services_ChangePasswordRequest(arg) {

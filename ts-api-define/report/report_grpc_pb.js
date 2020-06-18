@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('grpc');
+var grpc = require('@grpc/grpc-js');
 var report_report_pb = require('../report/report_pb.js');
 
 function serialize_services_Report(arg) {

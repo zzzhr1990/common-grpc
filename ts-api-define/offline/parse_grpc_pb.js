@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('grpc');
+var grpc = require('@grpc/grpc-js');
 var offline_parse_pb = require('../offline/parse_pb.js');
 
 function serialize_services_ParseTaskRequest(arg) {

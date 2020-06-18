@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('grpc');
+var grpc = require('@grpc/grpc-js');
 var system_system_pb = require('../system/system_pb.js');
 
 function serialize_services_ClientInfo(arg) {

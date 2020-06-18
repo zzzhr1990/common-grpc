@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('grpc');
+var grpc = require('@grpc/grpc-js');
 var share_share_pb = require('../share/share_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
