@@ -85,7 +85,7 @@ var SystemTaskServiceService = exports.SystemTaskServiceService = {
     responseDeserialize: deserialize_services_SystemTask,
   },
   // rpc parse (SystemTask) returns (SystemTaskDetail) {}
-  update: {
+update: {
     path: '/services.SystemTaskService/update',
     requestStream: false,
     responseStream: false,
@@ -97,8 +97,8 @@ var SystemTaskServiceService = exports.SystemTaskServiceService = {
     responseDeserialize: deserialize_services_SystemTask,
   },
   // rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
-  // rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
-  get: {
+// rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
+get: {
     path: '/services.SystemTaskService/get',
     requestStream: false,
     responseStream: false,
@@ -121,7 +121,7 @@ var SystemTaskServiceService = exports.SystemTaskServiceService = {
     responseDeserialize: deserialize_services_SystemTaskList,
   },
   // getDetail detail
-  getDetail: {
+getDetail: {
     path: '/services.SystemTaskService/getDetail',
     requestStream: false,
     responseStream: false,
@@ -144,8 +144,8 @@ var SystemTaskServiceService = exports.SystemTaskServiceService = {
     responseDeserialize: deserialize_services_SystemTaskList,
   },
   // rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
-  // rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
-  uploadFile: {
+// rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
+uploadFile: {
     path: '/services.SystemTaskService/uploadFile',
     requestStream: false,
     responseStream: false,
@@ -168,7 +168,7 @@ var SystemTaskServiceService = exports.SystemTaskServiceService = {
     responseDeserialize: deserialize_services_TaskFile,
   },
   // rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
-  complete: {
+complete: {
     path: '/services.SystemTaskService/complete',
     requestStream: false,
     responseStream: false,
@@ -180,7 +180,7 @@ var SystemTaskServiceService = exports.SystemTaskServiceService = {
     responseDeserialize: deserialize_services_SystemTask,
   },
   // ErrorRequest
-  error: {
+error: {
     path: '/services.SystemTaskService/error',
     requestStream: false,
     responseStream: false,

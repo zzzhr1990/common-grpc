@@ -107,7 +107,7 @@ function deserialize_services_UserTaskList(buffer_arg) {
 
 var UserTaskServiceService = exports.UserTaskServiceService = {
   // rpc create (UserOfflineTask) returns (UserOfflineTask) {}
-  add: {
+add: {
     path: '/services.UserTaskService/add',
     requestStream: false,
     responseStream: false,
@@ -119,8 +119,8 @@ var UserTaskServiceService = exports.UserTaskServiceService = {
     responseDeserialize: deserialize_services_UserTaskList,
   },
   // rpc parse (UserTask) returns (UserTask) {}
-  // rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
-  list: {
+// rpc page (PageUserOfflineTaskRequest) returns (UserOfflineTaskPage) {}
+list: {
     path: '/services.UserTaskService/list',
     requestStream: false,
     responseStream: false,

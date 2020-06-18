@@ -1,6 +1,6 @@
 #!/bin/bash
 go get -u github.com/golang/protobuf/protoc-gen-go
-GOPATH="/Users/herui/go"
+GOPATH="/Users/zzzhr/go"
 export PATH=$PATH:$GOPATH/bin
 # nodejs_path="/Users/herui/vscode/typescript/ts-api-gateway/src/proto"
 #

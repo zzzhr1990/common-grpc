@@ -74,8 +74,8 @@ var CloudStoreServiceService = exports.CloudStoreServiceService = {
     responseDeserialize: deserialize_services_CloudStore,
   },
   // rpc tryCreate (CloudStore) returns (CloudStore) {}
-  // rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
-  get: {
+// rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
+get: {
     path: '/services.CloudStoreService/Get',
     requestStream: false,
     responseStream: false,

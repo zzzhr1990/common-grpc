@@ -128,7 +128,7 @@ function deserialize_services_User(buffer_arg) {
 
 var UserServiceService = exports.UserServiceService = {
   // 强行创建用户（仅后台使用）
-  create: {
+create: {
     path: '/services.UserService/Create',
     requestStream: false,
     responseStream: false,
@@ -140,7 +140,7 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_User,
   },
   // 短信创建用户，password、email、name 选填项目，如果不填写，系统会随机生成
-  smsCreate: {
+smsCreate: {
     path: '/services.UserService/SmsCreate',
     requestStream: false,
     responseStream: false,
@@ -152,7 +152,7 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_User,
   },
   // 获取用户信息，仅需要传递 identity，如果没有 返回空用户实体（identity = 0）
-  get: {
+get: {
     path: '/services.UserService/Get',
     requestStream: false,
     responseStream: false,
@@ -164,7 +164,7 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_User,
   },
   // 查找用户/判断用户存在，仅需要传递 identity，或者是phone+country_code，如果没有 返回空用户实体（identity = 0）
-  findOne: {
+findOne: {
     path: '/services.UserService/FindOne',
     requestStream: false,
     responseStream: false,
@@ -176,7 +176,7 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_User,
   },
   // 校验密码并登录， 支持 phone+country_code+password/ name+country_code+password，如果没有 返回空用户实体（identity = 0）
-  login: {
+login: {
     path: '/services.UserService/Login',
     requestStream: false,
     responseStream: false,
@@ -188,7 +188,7 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_User,
   },
   // SMS login, send session and code, return empty user info instead of error if not success
-  smsLogin: {
+smsLogin: {
     path: '/services.UserService/SmsLogin',
     requestStream: false,
     responseStream: false,
@@ -200,7 +200,7 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_User,
   },
   // 强行登录用户（仅后台使用）
-  loginDirect: {
+loginDirect: {
     path: '/services.UserService/LoginDirect',
     requestStream: false,
     responseStream: false,
@@ -212,7 +212,7 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_User,
   },
   // 登出（记录用户登录操作）
-  logoff: {
+logoff: {
     path: '/services.UserService/Logoff',
     requestStream: false,
     responseStream: false,
@@ -224,7 +224,7 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_User,
   },
   // 更新用户信息，identity是必填项目，其他选填， 但是不能更改密码
-  update: {
+update: {
     path: '/services.UserService/Update',
     requestStream: false,
     responseStream: false,
@@ -236,9 +236,9 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_User,
   },
   // rpc getBalance (Balance) returns (Balance) {}
-  // rpc setSpaceUsed (Balance) returns (Balance) {}
-  // 发送短信
-  sendSms: {
+// rpc setSpaceUsed (Balance) returns (Balance) {}
+// 发送短信
+sendSms: {
     path: '/services.UserService/SendSms',
     requestStream: false,
     responseStream: false,
@@ -250,7 +250,7 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_SmsResponse,
   },
   // 验证短信验证码，不建议使用，请直接使用对应的 SmsXXX方法
-  validateSms: {
+validateSms: {
     path: '/services.UserService/ValidateSms',
     requestStream: false,
     responseStream: false,
@@ -262,7 +262,7 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_SmsValidateResponse,
   },
   // 更改用户密码， 用户identity、old_password、new_password必须填写
-  changePassword: {
+changePassword: {
     path: '/services.UserService/ChangePassword',
     requestStream: false,
     responseStream: false,
@@ -274,7 +274,7 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_User,
   },
   // 短信更改用户密码， 用户session、code、new_password必须填写
-  smsChangePassword: {
+smsChangePassword: {
     path: '/services.UserService/SmsChangePassword',
     requestStream: false,
     responseStream: false,
@@ -286,10 +286,10 @@ var UserServiceService = exports.UserServiceService = {
     responseDeserialize: deserialize_services_User,
   },
   // 废弃， 请使用update
-  // rpc ChangeName (User) returns (User) {}
-  // 废弃， 请使用update
-  // rpc ChangeEmail (User) returns (User) {}
-  bindThirdPartyLogin: {
+// rpc ChangeName (User) returns (User) {}
+// 废弃， 请使用update
+// rpc ChangeEmail (User) returns (User) {}
+bindThirdPartyLogin: {
     path: '/services.UserService/BindThirdPartyLogin',
     requestStream: false,
     responseStream: false,

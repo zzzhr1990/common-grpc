@@ -107,7 +107,7 @@ function deserialize_services_UserFileListResponse(buffer_arg) {
 
 var FileServiceService = exports.FileServiceService = {
   // Create create a file
-  create: {
+create: {
     path: '/services.FileService/Create',
     requestStream: false,
     responseStream: false,
@@ -141,7 +141,7 @@ var FileServiceService = exports.FileServiceService = {
     responseDeserialize: deserialize_services_UserFile,
   },
   // rpc CreateInternal (UserFile) returns (UserFile) {}
-  get: {
+get: {
     path: '/services.FileService/Get',
     requestStream: false,
     responseStream: false,
@@ -175,7 +175,7 @@ var FileServiceService = exports.FileServiceService = {
     responseDeserialize: deserialize_services_UserFile,
   },
   // rpc ChangePathInternal (UserFile) returns (UserFile) {}
-  lock: {
+lock: {
     path: '/services.FileService/Lock',
     requestStream: false,
     responseStream: false,
@@ -253,7 +253,7 @@ var FileServiceService = exports.FileServiceService = {
     responseDeserialize: deserialize_services_Int64Entity,
   },
   // rpc Page (UserFilePageRequest) returns (UserFilePageResponse) {}
-  list: {
+list: {
     path: '/services.FileService/List',
     requestStream: false,
     responseStream: false,
@@ -276,7 +276,7 @@ var FileServiceService = exports.FileServiceService = {
     responseDeserialize: deserialize_services_UserFileListResponse,
   },
   // rpc PageTrash (CommonPageRequest) returns (TrashPageResponse) {}
-  deleteTrash: {
+deleteTrash: {
     path: '/services.FileService/DeleteTrash',
     requestStream: false,
     responseStream: false,

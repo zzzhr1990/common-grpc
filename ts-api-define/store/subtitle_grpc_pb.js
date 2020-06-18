@@ -41,8 +41,8 @@ var SubtitleServiceService = exports.SubtitleServiceService = {
     responseDeserialize: deserialize_services_Subtitle,
   },
   // rpc tryCreate (CloudStore) returns (CloudStore) {}
-  // rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
-  get: {
+// rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
+get: {
     path: '/services.SubtitleService/Get',
     requestStream: false,
     responseStream: false,

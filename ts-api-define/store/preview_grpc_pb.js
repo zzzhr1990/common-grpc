@@ -30,8 +30,8 @@ var PreviewServiceService = exports.PreviewServiceService = {
     responseDeserialize: deserialize_services_MediaPreview,
   },
   // rpc tryCreate (CloudStore) returns (CloudStore) {}
-  // rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
-  get: {
+// rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
+get: {
     path: '/services.PreviewService/Get',
     requestStream: false,
     responseStream: false,

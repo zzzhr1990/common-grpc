@@ -85,7 +85,7 @@ var SimpleTaskCenterServiceService = exports.SimpleTaskCenterServiceService = {
     responseDeserialize: deserialize_services_FetchResponse,
   },
   // rpc delete(SimpleTask) returns (BoolEntity) {} // del
-  complete: {
+complete: {
     path: '/services.SimpleTaskCenterService/complete',
     requestStream: false,
     responseStream: false,
@@ -119,7 +119,7 @@ var SimpleTaskCenterServiceService = exports.SimpleTaskCenterServiceService = {
     responseDeserialize: deserialize_services_ErrorTask,
   },
   // rpc list(ListRequest) returns (FetchResponse) {} // del
-  get: {
+get: {
     path: '/services.SimpleTaskCenterService/get',
     requestStream: false,
     responseStream: false,

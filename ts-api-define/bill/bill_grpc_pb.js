@@ -63,7 +63,7 @@ function deserialize_services_PlanListResponse(buffer_arg) {
 
 var OrderServiceService = exports.OrderServiceService = {
   // Create bill（仅后台使用）
-  create: {
+create: {
     path: '/services.OrderService/Create',
     requestStream: false,
     responseStream: false,
