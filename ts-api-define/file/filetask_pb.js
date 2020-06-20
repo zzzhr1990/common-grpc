@@ -92,7 +92,7 @@ proto.services.FileTask.toObject = function(includeInstance, msg) {
     sourceUserIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
     destUserIdentity: jspb.Message.getFieldWithDefault(msg, 3, 0),
     sourcePath: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    destinationPath: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    destPath: jspb.Message.getFieldWithDefault(msg, 5, ""),
     op: jspb.Message.getFieldWithDefault(msg, 6, 0),
     type: jspb.Message.getFieldWithDefault(msg, 7, 0),
     status: jspb.Message.getFieldWithDefault(msg, 8, ""),
@@ -156,7 +156,7 @@ proto.services.FileTask.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 5:
       var value = /** @type {string} */ (reader.readString());
-      msg.setDestinationPath(value);
+      msg.setDestPath(value);
       break;
     case 6:
       var value = /** @type {number} */ (reader.readInt32());
@@ -251,7 +251,7 @@ proto.services.FileTask.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getDestinationPath();
+  f = message.getDestPath();
   if (f.length > 0) {
     writer.writeString(
       5,
@@ -397,10 +397,10 @@ proto.services.FileTask.prototype.setSourcePath = function(value) {
 
 
 /**
- * optional string destination_path = 5;
+ * optional string dest_path = 5;
  * @return {string}
  */
-proto.services.FileTask.prototype.getDestinationPath = function() {
+proto.services.FileTask.prototype.getDestPath = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
@@ -409,7 +409,7 @@ proto.services.FileTask.prototype.getDestinationPath = function() {
  * @param {string} value
  * @return {!proto.services.FileTask} returns this
  */
-proto.services.FileTask.prototype.setDestinationPath = function(value) {
+proto.services.FileTask.prototype.setDestPath = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
 };
 

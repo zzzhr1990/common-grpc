@@ -16,8 +16,8 @@ export class FileTask extends jspb.Message {
   getSourcePath(): string;
   setSourcePath(value: string): void;
 
-  getDestinationPath(): string;
-  setDestinationPath(value: string): void;
+  getDestPath(): string;
+  setDestPath(value: string): void;
 
   getOp(): number;
   setOp(value: number): void;
@@ -62,7 +62,7 @@ export namespace FileTask {
     sourceUserIdentity: number,
     destUserIdentity: number,
     sourcePath: string,
-    destinationPath: string,
+    destPath: string,
     op: number,
     type: number,
     status: string,

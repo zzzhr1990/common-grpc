@@ -17,7 +17,7 @@ message FileTask {
     int64 source_user_identity = 2;
     int64 dest_user_identity = 3;
     string source_path = 4;
-    string destination_path = 5;
+    string dest_path = 5;
     int32 op = 6;
     int32 type = 7;
     string status = 8;
