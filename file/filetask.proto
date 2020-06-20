@@ -20,10 +20,15 @@ message FileTask {
     string destination_path = 5;
     int32 op = 6;
     int32 type = 7;
-    string addon = 8;
+    string status = 8;
     int64 create_time = 9;
+    string current_text = 10;
+    int64 files_done = 11;
+    int64 files_total = 12;
+    int64 progress = 13;
+    string addon = 14;
 }
 
 message FileTaskListResponse {
-    repeated FileTask data = 2;
+    repeated FileTask data = 1;
 }

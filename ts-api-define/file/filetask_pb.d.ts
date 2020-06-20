@@ -25,11 +25,26 @@ export class FileTask extends jspb.Message {
   getType(): number;
   setType(value: number): void;
 
-  getAddon(): string;
-  setAddon(value: string): void;
+  getStatus(): string;
+  setStatus(value: string): void;
 
   getCreateTime(): number;
   setCreateTime(value: number): void;
+
+  getCurrentText(): string;
+  setCurrentText(value: string): void;
+
+  getFilesDone(): number;
+  setFilesDone(value: number): void;
+
+  getFilesTotal(): number;
+  setFilesTotal(value: number): void;
+
+  getProgress(): number;
+  setProgress(value: number): void;
+
+  getAddon(): string;
+  setAddon(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): FileTask.AsObject;
@@ -50,8 +65,13 @@ export namespace FileTask {
     destinationPath: string,
     op: number,
     type: number,
-    addon: string,
+    status: string,
     createTime: number,
+    currentText: string,
+    filesDone: number,
+    filesTotal: number,
+    progress: number,
+    addon: string,
   }
 }
 

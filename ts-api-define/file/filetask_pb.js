@@ -95,8 +95,13 @@ proto.services.FileTask.toObject = function(includeInstance, msg) {
     destinationPath: jspb.Message.getFieldWithDefault(msg, 5, ""),
     op: jspb.Message.getFieldWithDefault(msg, 6, 0),
     type: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    addon: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    createTime: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    status: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    createTime: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    currentText: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    filesDone: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    filesTotal: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    progress: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    addon: jspb.Message.getFieldWithDefault(msg, 14, "")
   };
 
   if (includeInstance) {
@@ -163,11 +168,31 @@ proto.services.FileTask.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 8:
       var value = /** @type {string} */ (reader.readString());
-      msg.setAddon(value);
+      msg.setStatus(value);
       break;
     case 9:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setCreateTime(value);
+      break;
+    case 10:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCurrentText(value);
+      break;
+    case 11:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setFilesDone(value);
+      break;
+    case 12:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setFilesTotal(value);
+      break;
+    case 13:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setProgress(value);
+      break;
+    case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAddon(value);
       break;
     default:
       reader.skipField();
@@ -247,7 +272,7 @@ proto.services.FileTask.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getAddon();
+  f = message.getStatus();
   if (f.length > 0) {
     writer.writeString(
       8,
@@ -258,6 +283,41 @@ proto.services.FileTask.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       9,
+      f
+    );
+  }
+  f = message.getCurrentText();
+  if (f.length > 0) {
+    writer.writeString(
+      10,
+      f
+    );
+  }
+  f = message.getFilesDone();
+  if (f !== 0) {
+    writer.writeInt64(
+      11,
+      f
+    );
+  }
+  f = message.getFilesTotal();
+  if (f !== 0) {
+    writer.writeInt64(
+      12,
+      f
+    );
+  }
+  f = message.getProgress();
+  if (f !== 0) {
+    writer.writeInt64(
+      13,
+      f
+    );
+  }
+  f = message.getAddon();
+  if (f.length > 0) {
+    writer.writeString(
+      14,
       f
     );
   }
@@ -391,10 +451,10 @@ proto.services.FileTask.prototype.setType = function(value) {
 
 
 /**
- * optional string addon = 8;
+ * optional string status = 8;
  * @return {string}
  */
-proto.services.FileTask.prototype.getAddon = function() {
+proto.services.FileTask.prototype.getStatus = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
@@ -403,7 +463,7 @@ proto.services.FileTask.prototype.getAddon = function() {
  * @param {string} value
  * @return {!proto.services.FileTask} returns this
  */
-proto.services.FileTask.prototype.setAddon = function(value) {
+proto.services.FileTask.prototype.setStatus = function(value) {
   return jspb.Message.setProto3StringField(this, 8, value);
 };
 
@@ -426,13 +486,103 @@ proto.services.FileTask.prototype.setCreateTime = function(value) {
 };
 
 
+/**
+ * optional string current_text = 10;
+ * @return {string}
+ */
+proto.services.FileTask.prototype.getCurrentText = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.FileTask} returns this
+ */
+proto.services.FileTask.prototype.setCurrentText = function(value) {
+  return jspb.Message.setProto3StringField(this, 10, value);
+};
+
+
+/**
+ * optional int64 files_done = 11;
+ * @return {number}
+ */
+proto.services.FileTask.prototype.getFilesDone = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.FileTask} returns this
+ */
+proto.services.FileTask.prototype.setFilesDone = function(value) {
+  return jspb.Message.setProto3IntField(this, 11, value);
+};
+
+
+/**
+ * optional int64 files_total = 12;
+ * @return {number}
+ */
+proto.services.FileTask.prototype.getFilesTotal = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.FileTask} returns this
+ */
+proto.services.FileTask.prototype.setFilesTotal = function(value) {
+  return jspb.Message.setProto3IntField(this, 12, value);
+};
+
+
+/**
+ * optional int64 progress = 13;
+ * @return {number}
+ */
+proto.services.FileTask.prototype.getProgress = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.FileTask} returns this
+ */
+proto.services.FileTask.prototype.setProgress = function(value) {
+  return jspb.Message.setProto3IntField(this, 13, value);
+};
+
+
+/**
+ * optional string addon = 14;
+ * @return {string}
+ */
+proto.services.FileTask.prototype.getAddon = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.FileTask} returns this
+ */
+proto.services.FileTask.prototype.setAddon = function(value) {
+  return jspb.Message.setProto3StringField(this, 14, value);
+};
+
+
 
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.services.FileTaskListResponse.repeatedFields_ = [2];
+proto.services.FileTaskListResponse.repeatedFields_ = [1];
 
 
 
@@ -503,7 +653,7 @@ proto.services.FileTaskListResponse.deserializeBinaryFromReader = function(msg, 
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 2:
+    case 1:
       var value = new proto.services.FileTask;
       reader.readMessage(value,proto.services.FileTask.deserializeBinaryFromReader);
       msg.addData(value);
@@ -540,7 +690,7 @@ proto.services.FileTaskListResponse.serializeBinaryToWriter = function(message, 
   f = message.getDataList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      2,
+      1,
       f,
       proto.services.FileTask.serializeBinaryToWriter
     );
@@ -549,12 +699,12 @@ proto.services.FileTaskListResponse.serializeBinaryToWriter = function(message, 
 
 
 /**
- * repeated FileTask data = 2;
+ * repeated FileTask data = 1;
  * @return {!Array<!proto.services.FileTask>}
  */
 proto.services.FileTaskListResponse.prototype.getDataList = function() {
   return /** @type{!Array<!proto.services.FileTask>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.services.FileTask, 2));
+    jspb.Message.getRepeatedWrapperField(this, proto.services.FileTask, 1));
 };
 
 
@@ -563,7 +713,7 @@ proto.services.FileTaskListResponse.prototype.getDataList = function() {
  * @return {!proto.services.FileTaskListResponse} returns this
 */
 proto.services.FileTaskListResponse.prototype.setDataList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -573,7 +723,7 @@ proto.services.FileTaskListResponse.prototype.setDataList = function(value) {
  * @return {!proto.services.FileTask}
  */
 proto.services.FileTaskListResponse.prototype.addData = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.services.FileTask, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.services.FileTask, opt_index);
 };
 
 
