@@ -101,7 +101,8 @@ proto.services.FileTask.toObject = function(includeInstance, msg) {
     filesDone: jspb.Message.getFieldWithDefault(msg, 11, 0),
     filesTotal: jspb.Message.getFieldWithDefault(msg, 12, 0),
     progress: jspb.Message.getFieldWithDefault(msg, 13, 0),
-    addon: jspb.Message.getFieldWithDefault(msg, 14, "")
+    addon: jspb.Message.getFieldWithDefault(msg, 14, ""),
+    errorCode: jspb.Message.getFieldWithDefault(msg, 15, 0)
   };
 
   if (includeInstance) {
@@ -193,6 +194,10 @@ proto.services.FileTask.deserializeBinaryFromReader = function(msg, reader) {
     case 14:
       var value = /** @type {string} */ (reader.readString());
       msg.setAddon(value);
+      break;
+    case 15:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setErrorCode(value);
       break;
     default:
       reader.skipField();
@@ -318,6 +323,13 @@ proto.services.FileTask.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       14,
+      f
+    );
+  }
+  f = message.getErrorCode();
+  if (f !== 0) {
+    writer.writeInt32(
+      15,
       f
     );
   }
@@ -573,6 +585,24 @@ proto.services.FileTask.prototype.getAddon = function() {
  */
 proto.services.FileTask.prototype.setAddon = function(value) {
   return jspb.Message.setProto3StringField(this, 14, value);
+};
+
+
+/**
+ * optional int32 error_code = 15;
+ * @return {number}
+ */
+proto.services.FileTask.prototype.getErrorCode = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.FileTask} returns this
+ */
+proto.services.FileTask.prototype.setErrorCode = function(value) {
+  return jspb.Message.setProto3IntField(this, 15, value);
 };
 
 

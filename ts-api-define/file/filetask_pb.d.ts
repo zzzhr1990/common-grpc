@@ -46,6 +46,9 @@ export class FileTask extends jspb.Message {
   getAddon(): string;
   setAddon(value: string): void;
 
+  getErrorCode(): number;
+  setErrorCode(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): FileTask.AsObject;
   static toObject(includeInstance: boolean, msg: FileTask): FileTask.AsObject;
@@ -72,6 +75,7 @@ export namespace FileTask {
     filesTotal: number,
     progress: number,
     addon: string,
+    errorCode: number,
   }
 }
 

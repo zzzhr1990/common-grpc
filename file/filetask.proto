@@ -3,7 +3,7 @@ syntax = "proto3";
 package services;
 
 //import "service_one/messages.proto";
-option go_package = "github.com/zzzhr1990/common-grpc/go/services/file/filetask";
+option go_package = "github.com/zzzhr1990/common-grpc/go/v3/file/filetask";
 // import "common/common_entity.proto";
 
 service FileTaskService {
@@ -27,6 +27,7 @@ message FileTask {
     int64 files_total = 12;
     int64 progress = 13;
     string addon = 14;
+    int32 error_code = 15;
 }
 
 message FileTaskListResponse {
