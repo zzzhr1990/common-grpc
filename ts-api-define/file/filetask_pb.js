@@ -95,7 +95,7 @@ proto.services.FileTask.toObject = function(includeInstance, msg) {
     destPath: jspb.Message.getFieldWithDefault(msg, 5, ""),
     op: jspb.Message.getFieldWithDefault(msg, 6, 0),
     type: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    status: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    status: jspb.Message.getFieldWithDefault(msg, 8, 0),
     createTime: jspb.Message.getFieldWithDefault(msg, 9, 0),
     currentText: jspb.Message.getFieldWithDefault(msg, 10, ""),
     filesDone: jspb.Message.getFieldWithDefault(msg, 11, 0),
@@ -167,7 +167,7 @@ proto.services.FileTask.deserializeBinaryFromReader = function(msg, reader) {
       msg.setType(value);
       break;
     case 8:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setStatus(value);
       break;
     case 9:
@@ -273,8 +273,8 @@ proto.services.FileTask.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getStatus();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt32(
       8,
       f
     );
@@ -451,20 +451,20 @@ proto.services.FileTask.prototype.setType = function(value) {
 
 
 /**
- * optional string status = 8;
- * @return {string}
+ * optional int32 status = 8;
+ * @return {number}
  */
 proto.services.FileTask.prototype.getStatus = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.services.FileTask} returns this
  */
 proto.services.FileTask.prototype.setStatus = function(value) {
-  return jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 

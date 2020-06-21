@@ -25,8 +25,8 @@ export class FileTask extends jspb.Message {
   getType(): number;
   setType(value: number): void;
 
-  getStatus(): string;
-  setStatus(value: string): void;
+  getStatus(): number;
+  setStatus(value: number): void;
 
   getCreateTime(): number;
   setCreateTime(value: number): void;
@@ -65,7 +65,7 @@ export namespace FileTask {
     destPath: string,
     op: number,
     type: number,
-    status: string,
+    status: number,
     createTime: number,
     currentText: string,
     filesDone: number,
