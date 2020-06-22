@@ -96,6 +96,7 @@ message SmsRequest {
     int64 expire_in_ms = 4;
     string tpl = 5;
     repeated string params = 6;
+    string request_address = 7;
 }
 
 message SmsResponse {

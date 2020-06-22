@@ -1352,7 +1352,8 @@ proto.services.SmsRequest.toObject = function(includeInstance, msg) {
     type: jspb.Message.getFieldWithDefault(msg, 3, 0),
     expireInMs: jspb.Message.getFieldWithDefault(msg, 4, 0),
     tpl: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    paramsList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f
+    paramsList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f,
+    requestAddress: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
 
   if (includeInstance) {
@@ -1412,6 +1413,10 @@ proto.services.SmsRequest.deserializeBinaryFromReader = function(msg, reader) {
     case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.addParams(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRequestAddress(value);
       break;
     default:
       reader.skipField();
@@ -1481,6 +1486,13 @@ proto.services.SmsRequest.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeRepeatedString(
       6,
+      f
+    );
+  }
+  f = message.getRequestAddress();
+  if (f.length > 0) {
+    writer.writeString(
+      7,
       f
     );
   }
@@ -1611,6 +1623,24 @@ proto.services.SmsRequest.prototype.addParams = function(value, opt_index) {
  */
 proto.services.SmsRequest.prototype.clearParamsList = function() {
   return this.setParamsList([]);
+};
+
+
+/**
+ * optional string request_address = 7;
+ * @return {string}
+ */
+proto.services.SmsRequest.prototype.getRequestAddress = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.SmsRequest} returns this
+ */
+proto.services.SmsRequest.prototype.setRequestAddress = function(value) {
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 

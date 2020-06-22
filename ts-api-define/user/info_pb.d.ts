@@ -164,6 +164,9 @@ export class SmsRequest extends jspb.Message {
   setParamsList(value: Array<string>): void;
   addParams(value: string, index?: number): string;
 
+  getRequestAddress(): string;
+  setRequestAddress(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SmsRequest.AsObject;
   static toObject(includeInstance: boolean, msg: SmsRequest): SmsRequest.AsObject;
@@ -182,6 +185,7 @@ export namespace SmsRequest {
     expireInMs: number,
     tpl: string,
     paramsList: Array<string>,
+    requestAddress: string,
   }
 }
 
