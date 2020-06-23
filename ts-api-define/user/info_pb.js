@@ -1353,7 +1353,8 @@ proto.services.SmsRequest.toObject = function(includeInstance, msg) {
     expireInMs: jspb.Message.getFieldWithDefault(msg, 4, 0),
     tpl: jspb.Message.getFieldWithDefault(msg, 5, ""),
     paramsList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f,
-    requestAddress: jspb.Message.getFieldWithDefault(msg, 7, "")
+    requestAddress: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    ticket: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -1417,6 +1418,10 @@ proto.services.SmsRequest.deserializeBinaryFromReader = function(msg, reader) {
     case 7:
       var value = /** @type {string} */ (reader.readString());
       msg.setRequestAddress(value);
+      break;
+    case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTicket(value);
       break;
     default:
       reader.skipField();
@@ -1493,6 +1498,13 @@ proto.services.SmsRequest.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       7,
+      f
+    );
+  }
+  f = message.getTicket();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
       f
     );
   }
@@ -1641,6 +1653,24 @@ proto.services.SmsRequest.prototype.getRequestAddress = function() {
  */
 proto.services.SmsRequest.prototype.setRequestAddress = function(value) {
   return jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional string ticket = 8;
+ * @return {string}
+ */
+proto.services.SmsRequest.prototype.getTicket = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.SmsRequest} returns this
+ */
+proto.services.SmsRequest.prototype.setTicket = function(value) {
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 

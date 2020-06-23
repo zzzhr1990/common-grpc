@@ -88,6 +88,17 @@ message OauthInfo {
     int64 login_time = 8;
     string login_address = 9;
 }
+/*
+message SmsCapchaRequest {
+    string request_address = 1;
+    int32 type = 2;
+}
+
+message SmsCapchaResponse {
+    string session = 1;
+    int32 type = 2;
+}
+*/
 
 message SmsRequest {
     string country_code = 1;
@@ -97,6 +108,7 @@ message SmsRequest {
     string tpl = 5;
     repeated string params = 6;
     string request_address = 7;
+    string ticket = 8;
 }
 
 message SmsResponse {

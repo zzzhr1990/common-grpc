@@ -167,6 +167,9 @@ export class SmsRequest extends jspb.Message {
   getRequestAddress(): string;
   setRequestAddress(value: string): void;
 
+  getTicket(): string;
+  setTicket(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SmsRequest.AsObject;
   static toObject(includeInstance: boolean, msg: SmsRequest): SmsRequest.AsObject;
@@ -186,6 +189,7 @@ export namespace SmsRequest {
     tpl: string,
     paramsList: Array<string>,
     requestAddress: string,
+    ticket: string,
   }
 }
 
