@@ -109,6 +109,7 @@ message SmsRequest {
     repeated string params = 6;
     string request_address = 7;
     string ticket = 8;
+    string rand = 9;
 }
 
 message SmsResponse {

@@ -1354,7 +1354,8 @@ proto.services.SmsRequest.toObject = function(includeInstance, msg) {
     tpl: jspb.Message.getFieldWithDefault(msg, 5, ""),
     paramsList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f,
     requestAddress: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    ticket: jspb.Message.getFieldWithDefault(msg, 8, "")
+    ticket: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    rand: jspb.Message.getFieldWithDefault(msg, 9, "")
   };
 
   if (includeInstance) {
@@ -1422,6 +1423,10 @@ proto.services.SmsRequest.deserializeBinaryFromReader = function(msg, reader) {
     case 8:
       var value = /** @type {string} */ (reader.readString());
       msg.setTicket(value);
+      break;
+    case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRand(value);
       break;
     default:
       reader.skipField();
@@ -1505,6 +1510,13 @@ proto.services.SmsRequest.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       8,
+      f
+    );
+  }
+  f = message.getRand();
+  if (f.length > 0) {
+    writer.writeString(
+      9,
       f
     );
   }
@@ -1671,6 +1683,24 @@ proto.services.SmsRequest.prototype.getTicket = function() {
  */
 proto.services.SmsRequest.prototype.setTicket = function(value) {
   return jspb.Message.setProto3StringField(this, 8, value);
+};
+
+
+/**
+ * optional string rand = 9;
+ * @return {string}
+ */
+proto.services.SmsRequest.prototype.getRand = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.SmsRequest} returns this
+ */
+proto.services.SmsRequest.prototype.setRand = function(value) {
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
