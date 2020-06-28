@@ -1,5 +1,5 @@
 // package: services
-// file: file/fileinfo.proto
+// file: file/filesystem.proto
 
 import * as jspb from "google-protobuf";
 import * as common_common_entity_pb from "../common/common_entity_pb";
@@ -164,7 +164,7 @@ export namespace FileInfoListResponse {
   }
 }
 
-export class FileInfoFilterRequest extends jspb.Message {
+export class FileInfoListFilter extends jspb.Message {
   clearIdentityList(): void;
   getIdentityList(): Array<string>;
   setIdentityList(value: Array<string>): void;
@@ -182,16 +182,16 @@ export class FileInfoFilterRequest extends jspb.Message {
   setName(value: string): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): FileInfoFilterRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: FileInfoFilterRequest): FileInfoFilterRequest.AsObject;
+  toObject(includeInstance?: boolean): FileInfoListFilter.AsObject;
+  static toObject(includeInstance: boolean, msg: FileInfoListFilter): FileInfoListFilter.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: FileInfoFilterRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): FileInfoFilterRequest;
-  static deserializeBinaryFromReader(message: FileInfoFilterRequest, reader: jspb.BinaryReader): FileInfoFilterRequest;
+  static serializeBinaryToWriter(message: FileInfoListFilter, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FileInfoListFilter;
+  static deserializeBinaryFromReader(message: FileInfoListFilter, reader: jspb.BinaryReader): FileInfoListFilter;
 }
 
-export namespace FileInfoFilterRequest {
+export namespace FileInfoListFilter {
   export type AsObject = {
     identityList: Array<string>,
     typeList: Array<number>,
@@ -222,8 +222,8 @@ export class FileInfoListRequest extends jspb.Message {
 
   hasFilter(): boolean;
   clearFilter(): void;
-  getFilter(): FileInfoFilterRequest | undefined;
-  setFilter(value?: FileInfoFilterRequest): void;
+  getFilter(): FileInfoListFilter | undefined;
+  setFilter(value?: FileInfoListFilter): void;
 
   getOp(): number;
   setOp(value: number): void;
@@ -245,7 +245,7 @@ export namespace FileInfoListRequest {
     path: string,
     listInfo?: common_common_entity_pb.ListInfo.AsObject,
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
-    filter?: FileInfoFilterRequest.AsObject,
+    filter?: FileInfoListFilter.AsObject,
     op: number,
   }
 }

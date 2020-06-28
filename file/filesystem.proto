@@ -3,7 +3,7 @@ syntax = "proto3";
 package services;
 
 // import "service_one/messages.proto";
-option go_package = "github.com/zzzhr1990/common-grpc/go/v3/file/file";
+option go_package = "github.com/zzzhr1990/common-grpc/go/v3/file/filesystem";
 import "common/common_entity.proto";
 
 service FileService {
@@ -11,6 +11,8 @@ service FileService {
     rpc CreateInternal (FileInfo) returns (FileInfo) {}
     rpc List (FileInfoListRequest) returns (FileInfoListResponse) {}
     rpc ListInternal (FileInfoListRequest) returns (FileInfoListResponse) {}
+    rpc Trash (FileInfo) returns (FileInfo) {}
+    rpc Delete (FileInfo) returns (FileInfo) {}
     rpc Rename (FileInfo) returns (FileInfo) {}
     // rpc FlushStore (UserFile) returns (UserFile) {}
 }
@@ -53,7 +55,7 @@ message FileInfoListResponse {
     repeated FileInfo data = 2;
 }
 
-message FileInfoFilterRequest {
+message FileInfoListFilter {
     repeated string identity = 1;
     repeated int32 type = 2;
     int32 directory = 3;
@@ -66,6 +68,6 @@ message FileInfoListRequest {
     string path = 3;
     ListInfo list_info = 4;
     repeated OrderByRequest order_by = 5;
-    FileInfoFilterRequest filter = 6;
+    FileInfoListFilter filter = 6;
     int32 op = 7;
 }
