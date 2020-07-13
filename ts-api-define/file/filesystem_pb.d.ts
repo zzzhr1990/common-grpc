@@ -29,9 +29,6 @@ export class FileInfo extends jspb.Message {
   getMime(): string;
   setMime(value: string): void;
 
-  getDeleted(): boolean;
-  setDeleted(value: boolean): void;
-
   getHidden(): boolean;
   setHidden(value: boolean): void;
 
@@ -83,8 +80,8 @@ export class FileInfo extends jspb.Message {
   getDownloadAddress(): string;
   setDownloadAddress(value: string): void;
 
-  getUnlockTime(): number;
-  setUnlockTime(value: number): void;
+  getLockTime(): number;
+  setLockTime(value: number): void;
 
   getChildren(): number;
   setChildren(value: number): void;
@@ -112,7 +109,6 @@ export namespace FileInfo {
     ext: string,
     size: number,
     mime: string,
-    deleted: boolean,
     hidden: boolean,
     label: number,
     parent: string,
@@ -130,7 +126,7 @@ export namespace FileInfo {
     uniqueIdentity: string,
     share: boolean,
     downloadAddress: string,
-    unlockTime: number,
+    lockTime: number,
     children: number,
     childrenTotal: number,
   }

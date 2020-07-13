@@ -142,7 +142,6 @@ proto.services.FileInfo.toObject = function(includeInstance, msg) {
     ext: jspb.Message.getFieldWithDefault(msg, 6, ""),
     size: jspb.Message.getFieldWithDefault(msg, 7, 0),
     mime: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    deleted: jspb.Message.getBooleanFieldWithDefault(msg, 9, false),
     hidden: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
     label: jspb.Message.getFieldWithDefault(msg, 11, 0),
     parent: jspb.Message.getFieldWithDefault(msg, 12, ""),
@@ -160,7 +159,7 @@ proto.services.FileInfo.toObject = function(includeInstance, msg) {
     uniqueIdentity: jspb.Message.getFieldWithDefault(msg, 24, ""),
     share: jspb.Message.getBooleanFieldWithDefault(msg, 25, false),
     downloadAddress: jspb.Message.getFieldWithDefault(msg, 26, ""),
-    unlockTime: jspb.Message.getFieldWithDefault(msg, 27, 0),
+    lockTime: jspb.Message.getFieldWithDefault(msg, 27, 0),
     children: jspb.Message.getFieldWithDefault(msg, 28, 0),
     childrenTotal: jspb.Message.getFieldWithDefault(msg, 29, 0)
   };
@@ -230,10 +229,6 @@ proto.services.FileInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 8:
       var value = /** @type {string} */ (reader.readString());
       msg.setMime(value);
-      break;
-    case 9:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setDeleted(value);
       break;
     case 10:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -305,7 +300,7 @@ proto.services.FileInfo.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 27:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setUnlockTime(value);
+      msg.setLockTime(value);
       break;
     case 28:
       var value = /** @type {number} */ (reader.readInt64());
@@ -397,13 +392,6 @@ proto.services.FileInfo.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       8,
-      f
-    );
-  }
-  f = message.getDeleted();
-  if (f) {
-    writer.writeBool(
-      9,
       f
     );
   }
@@ -526,7 +514,7 @@ proto.services.FileInfo.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getUnlockTime();
+  f = message.getLockTime();
   if (f !== 0) {
     writer.writeInt64(
       27,
@@ -691,24 +679,6 @@ proto.services.FileInfo.prototype.getMime = function() {
  */
 proto.services.FileInfo.prototype.setMime = function(value) {
   return jspb.Message.setProto3StringField(this, 8, value);
-};
-
-
-/**
- * optional bool deleted = 9;
- * @return {boolean}
- */
-proto.services.FileInfo.prototype.getDeleted = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 9, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.services.FileInfo} returns this
- */
-proto.services.FileInfo.prototype.setDeleted = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 9, value);
 };
 
 
@@ -1019,10 +989,10 @@ proto.services.FileInfo.prototype.setDownloadAddress = function(value) {
 
 
 /**
- * optional int64 unlock_time = 27;
+ * optional int64 lock_time = 27;
  * @return {number}
  */
-proto.services.FileInfo.prototype.getUnlockTime = function() {
+proto.services.FileInfo.prototype.getLockTime = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 27, 0));
 };
 
@@ -1031,7 +1001,7 @@ proto.services.FileInfo.prototype.getUnlockTime = function() {
  * @param {number} value
  * @return {!proto.services.FileInfo} returns this
  */
-proto.services.FileInfo.prototype.setUnlockTime = function(value) {
+proto.services.FileInfo.prototype.setLockTime = function(value) {
   return jspb.Message.setProto3IntField(this, 27, value);
 };
 
