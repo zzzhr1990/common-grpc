@@ -66,6 +66,7 @@ message UserFile {
     bool share = 23;
     string download_address = 24;
     int64 unlock_time = 25;
+    int32 top = 26;
     // string name_lower = 26;
 }
 
