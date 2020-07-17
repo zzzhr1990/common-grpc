@@ -26,6 +26,7 @@ message FileInfo {
     string ext = 6;
     int64 size = 7;
     string mime = 8;
+    bool  deleted = 9;
     bool  hidden = 10;
     int32 label = 11;
     string parent = 12;
@@ -46,6 +47,8 @@ message FileInfo {
     int64 lock_time = 27;
     int64 children = 28;
     int64 children_total = 29;
+    int32 sticky = 30;
+    
     // string name_lower = 26;
 }
 

@@ -29,6 +29,9 @@ export class FileInfo extends jspb.Message {
   getMime(): string;
   setMime(value: string): void;
 
+  getDeleted(): boolean;
+  setDeleted(value: boolean): void;
+
   getHidden(): boolean;
   setHidden(value: boolean): void;
 
@@ -89,6 +92,9 @@ export class FileInfo extends jspb.Message {
   getChildrenTotal(): number;
   setChildrenTotal(value: number): void;
 
+  getSticky(): number;
+  setSticky(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): FileInfo.AsObject;
   static toObject(includeInstance: boolean, msg: FileInfo): FileInfo.AsObject;
@@ -109,6 +115,7 @@ export namespace FileInfo {
     ext: string,
     size: number,
     mime: string,
+    deleted: boolean,
     hidden: boolean,
     label: number,
     parent: string,
@@ -129,6 +136,7 @@ export namespace FileInfo {
     lockTime: number,
     children: number,
     childrenTotal: number,
+    sticky: number,
   }
 }
 
