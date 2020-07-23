@@ -434,3 +434,76 @@ export namespace Label {
         createTime: number,
     }
 }
+
+export class BathFileTaskRequest extends jspb.Message { 
+    clearIdentityList(): void;
+    getIdentityList(): Array<string>;
+    setIdentityList(value: Array<string>): BathFileTaskRequest;
+    addIdentity(value: string, index?: number): string;
+
+    clearPathList(): void;
+    getPathList(): Array<string>;
+    setPathList(value: Array<string>): BathFileTaskRequest;
+    addPath(value: string, index?: number): string;
+
+    getUserIdentity(): number;
+    setUserIdentity(value: number): BathFileTaskRequest;
+
+
+    hasDest(): boolean;
+    clearDest(): void;
+    getDest(): FileInfo | undefined;
+    setDest(value?: FileInfo): BathFileTaskRequest;
+
+    getOp(): number;
+    setOp(value: number): BathFileTaskRequest;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): BathFileTaskRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: BathFileTaskRequest): BathFileTaskRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: BathFileTaskRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): BathFileTaskRequest;
+    static deserializeBinaryFromReader(message: BathFileTaskRequest, reader: jspb.BinaryReader): BathFileTaskRequest;
+}
+
+export namespace BathFileTaskRequest {
+    export type AsObject = {
+        identityList: Array<string>,
+        pathList: Array<string>,
+        userIdentity: number,
+        dest?: FileInfo.AsObject,
+        op: number,
+    }
+}
+
+export class BathFileTaskResult extends jspb.Message { 
+    getIdentity(): string;
+    setIdentity(value: string): BathFileTaskResult;
+
+    getData(): number;
+    setData(value: number): BathFileTaskResult;
+
+    getAsync(): boolean;
+    setAsync(value: boolean): BathFileTaskResult;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): BathFileTaskResult.AsObject;
+    static toObject(includeInstance: boolean, msg: BathFileTaskResult): BathFileTaskResult.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: BathFileTaskResult, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): BathFileTaskResult;
+    static deserializeBinaryFromReader(message: BathFileTaskResult, reader: jspb.BinaryReader): BathFileTaskResult;
+}
+
+export namespace BathFileTaskResult {
+    export type AsObject = {
+        identity: string,
+        data: number,
+        async: boolean,
+    }
+}

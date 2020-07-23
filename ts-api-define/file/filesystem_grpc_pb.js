@@ -5,6 +5,28 @@ var grpc = require('@grpc/grpc-js');
 var file_filesystem_pb = require('../file/filesystem_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
+function serialize_services_BathFileTaskRequest(arg) {
+  if (!(arg instanceof file_filesystem_pb.BathFileTaskRequest)) {
+    throw new Error('Expected argument of type services.BathFileTaskRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_BathFileTaskRequest(buffer_arg) {
+  return file_filesystem_pb.BathFileTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_BathFileTaskResult(arg) {
+  if (!(arg instanceof file_filesystem_pb.BathFileTaskResult)) {
+    throw new Error('Expected argument of type services.BathFileTaskResult');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_BathFileTaskResult(buffer_arg) {
+  return file_filesystem_pb.BathFileTaskResult.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_FileInfo(arg) {
   if (!(arg instanceof file_filesystem_pb.FileInfo)) {
     throw new Error('Expected argument of type services.FileInfo');
@@ -62,18 +84,8 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_FileInfo,
     responseDeserialize: deserialize_services_FileInfo,
   },
-  createInternal: {
-    path: '/services.FileService/CreateInternal',
-    requestStream: false,
-    responseStream: false,
-    requestType: file_filesystem_pb.FileInfo,
-    responseType: file_filesystem_pb.FileInfo,
-    requestSerialize: serialize_services_FileInfo,
-    requestDeserialize: deserialize_services_FileInfo,
-    responseSerialize: serialize_services_FileInfo,
-    responseDeserialize: deserialize_services_FileInfo,
-  },
-  list: {
+  // rpc CreateInternal (FileInfo) returns (FileInfo) {}
+list: {
     path: '/services.FileService/List',
     requestStream: false,
     responseStream: false,
@@ -99,34 +111,45 @@ var FileServiceService = exports.FileServiceService = {
     path: '/services.FileService/Trash',
     requestStream: false,
     responseStream: false,
-    requestType: file_filesystem_pb.FileInfo,
-    responseType: file_filesystem_pb.FileInfo,
-    requestSerialize: serialize_services_FileInfo,
-    requestDeserialize: deserialize_services_FileInfo,
-    responseSerialize: serialize_services_FileInfo,
-    responseDeserialize: deserialize_services_FileInfo,
+    requestType: file_filesystem_pb.BathFileTaskRequest,
+    responseType: file_filesystem_pb.BathFileTaskResult,
+    requestSerialize: serialize_services_BathFileTaskRequest,
+    requestDeserialize: deserialize_services_BathFileTaskRequest,
+    responseSerialize: serialize_services_BathFileTaskResult,
+    responseDeserialize: deserialize_services_BathFileTaskResult,
   },
   delete: {
     path: '/services.FileService/Delete',
     requestStream: false,
     responseStream: false,
-    requestType: file_filesystem_pb.FileInfo,
-    responseType: file_filesystem_pb.FileInfo,
-    requestSerialize: serialize_services_FileInfo,
-    requestDeserialize: deserialize_services_FileInfo,
-    responseSerialize: serialize_services_FileInfo,
-    responseDeserialize: deserialize_services_FileInfo,
+    requestType: file_filesystem_pb.BathFileTaskRequest,
+    responseType: file_filesystem_pb.BathFileTaskResult,
+    requestSerialize: serialize_services_BathFileTaskRequest,
+    requestDeserialize: deserialize_services_BathFileTaskRequest,
+    responseSerialize: serialize_services_BathFileTaskResult,
+    responseDeserialize: deserialize_services_BathFileTaskResult,
+  },
+  copy: {
+    path: '/services.FileService/Copy',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.BathFileTaskRequest,
+    responseType: file_filesystem_pb.BathFileTaskResult,
+    requestSerialize: serialize_services_BathFileTaskRequest,
+    requestDeserialize: deserialize_services_BathFileTaskRequest,
+    responseSerialize: serialize_services_BathFileTaskResult,
+    responseDeserialize: deserialize_services_BathFileTaskResult,
   },
   rename: {
     path: '/services.FileService/Rename',
     requestStream: false,
     responseStream: false,
-    requestType: file_filesystem_pb.FileInfo,
-    responseType: file_filesystem_pb.FileInfo,
-    requestSerialize: serialize_services_FileInfo,
-    requestDeserialize: deserialize_services_FileInfo,
-    responseSerialize: serialize_services_FileInfo,
-    responseDeserialize: deserialize_services_FileInfo,
+    requestType: file_filesystem_pb.BathFileTaskRequest,
+    responseType: file_filesystem_pb.BathFileTaskResult,
+    requestSerialize: serialize_services_BathFileTaskRequest,
+    requestDeserialize: deserialize_services_BathFileTaskRequest,
+    responseSerialize: serialize_services_BathFileTaskResult,
+    responseDeserialize: deserialize_services_BathFileTaskResult,
   },
 };
 

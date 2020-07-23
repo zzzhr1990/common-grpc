@@ -8,12 +8,13 @@ import "common/common_entity.proto";
 
 service FileService {
     rpc Create (FileInfo) returns (FileInfo) {}
-    rpc CreateInternal (FileInfo) returns (FileInfo) {}
+    // rpc CreateInternal (FileInfo) returns (FileInfo) {}
     rpc List (FileInfoListRequest) returns (FileInfoListResponse) {}
     rpc ListInternal (FileInfoListRequest) returns (FileInfoListResponse) {}
-    rpc Trash (FileInfo) returns (FileInfo) {}
-    rpc Delete (FileInfo) returns (FileInfo) {}
-    rpc Rename (FileInfo) returns (FileInfo) {}
+    rpc Trash (BathFileTaskRequest) returns (BathFileTaskResult) {}
+    rpc Delete (BathFileTaskRequest) returns (BathFileTaskResult) {}
+    rpc Copy (BathFileTaskRequest) returns (BathFileTaskResult) {}
+    rpc Rename (BathFileTaskRequest) returns (BathFileTaskResult) {}
     // rpc FlushStore (UserFile) returns (UserFile) {}
 }
 
@@ -123,4 +124,18 @@ message Label {
     string name = 3;
     int32 type = 4;
     int64 create_time = 5;
+}
+
+message BathFileTaskRequest {
+    repeated string identity = 1;
+    repeated string path = 2;
+    int64 user_identity = 3;
+    FileInfo dest = 4;
+    int32 op = 5;
+}
+
+message BathFileTaskResult {
+    string identity = 1;
+    int64 data = 2;
+    bool async = 3;
 }

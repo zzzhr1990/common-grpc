@@ -11,25 +11,16 @@ import * as common_common_entity_pb from "../common/common_entity_pb";
 
 interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     create: IFileServiceService_ICreate;
-    createInternal: IFileServiceService_ICreateInternal;
     list: IFileServiceService_IList;
     listInternal: IFileServiceService_IListInternal;
     trash: IFileServiceService_ITrash;
     delete: IFileServiceService_IDelete;
+    copy: IFileServiceService_ICopy;
     rename: IFileServiceService_IRename;
 }
 
 interface IFileServiceService_ICreate extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
     path: string; // "/services.FileService/Create"
-    requestStream: false;
-    responseStream: false;
-    requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
-    requestDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
-    responseSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
-    responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
-}
-interface IFileServiceService_ICreateInternal extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
-    path: string; // "/services.FileService/CreateInternal"
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
@@ -55,68 +46,77 @@ interface IFileServiceService_IListInternal extends grpc.MethodDefinition<file_f
     responseSerialize: grpc.serialize<file_filesystem_pb.FileInfoListResponse>;
     responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfoListResponse>;
 }
-interface IFileServiceService_ITrash extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
+interface IFileServiceService_ITrash extends grpc.MethodDefinition<file_filesystem_pb.BathFileTaskRequest, file_filesystem_pb.BathFileTaskResult> {
     path: string; // "/services.FileService/Trash"
     requestStream: false;
     responseStream: false;
-    requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
-    requestDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
-    responseSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
-    responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
+    requestSerialize: grpc.serialize<file_filesystem_pb.BathFileTaskRequest>;
+    requestDeserialize: grpc.deserialize<file_filesystem_pb.BathFileTaskRequest>;
+    responseSerialize: grpc.serialize<file_filesystem_pb.BathFileTaskResult>;
+    responseDeserialize: grpc.deserialize<file_filesystem_pb.BathFileTaskResult>;
 }
-interface IFileServiceService_IDelete extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
+interface IFileServiceService_IDelete extends grpc.MethodDefinition<file_filesystem_pb.BathFileTaskRequest, file_filesystem_pb.BathFileTaskResult> {
     path: string; // "/services.FileService/Delete"
     requestStream: false;
     responseStream: false;
-    requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
-    requestDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
-    responseSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
-    responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
+    requestSerialize: grpc.serialize<file_filesystem_pb.BathFileTaskRequest>;
+    requestDeserialize: grpc.deserialize<file_filesystem_pb.BathFileTaskRequest>;
+    responseSerialize: grpc.serialize<file_filesystem_pb.BathFileTaskResult>;
+    responseDeserialize: grpc.deserialize<file_filesystem_pb.BathFileTaskResult>;
 }
-interface IFileServiceService_IRename extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
+interface IFileServiceService_ICopy extends grpc.MethodDefinition<file_filesystem_pb.BathFileTaskRequest, file_filesystem_pb.BathFileTaskResult> {
+    path: string; // "/services.FileService/Copy"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<file_filesystem_pb.BathFileTaskRequest>;
+    requestDeserialize: grpc.deserialize<file_filesystem_pb.BathFileTaskRequest>;
+    responseSerialize: grpc.serialize<file_filesystem_pb.BathFileTaskResult>;
+    responseDeserialize: grpc.deserialize<file_filesystem_pb.BathFileTaskResult>;
+}
+interface IFileServiceService_IRename extends grpc.MethodDefinition<file_filesystem_pb.BathFileTaskRequest, file_filesystem_pb.BathFileTaskResult> {
     path: string; // "/services.FileService/Rename"
     requestStream: false;
     responseStream: false;
-    requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
-    requestDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
-    responseSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
-    responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
+    requestSerialize: grpc.serialize<file_filesystem_pb.BathFileTaskRequest>;
+    requestDeserialize: grpc.deserialize<file_filesystem_pb.BathFileTaskRequest>;
+    responseSerialize: grpc.serialize<file_filesystem_pb.BathFileTaskResult>;
+    responseDeserialize: grpc.deserialize<file_filesystem_pb.BathFileTaskResult>;
 }
 
 export const FileServiceService: IFileServiceService;
 
 export interface IFileServiceServer {
     create: grpc.handleUnaryCall<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo>;
-    createInternal: grpc.handleUnaryCall<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo>;
     list: grpc.handleUnaryCall<file_filesystem_pb.FileInfoListRequest, file_filesystem_pb.FileInfoListResponse>;
     listInternal: grpc.handleUnaryCall<file_filesystem_pb.FileInfoListRequest, file_filesystem_pb.FileInfoListResponse>;
-    trash: grpc.handleUnaryCall<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo>;
-    delete: grpc.handleUnaryCall<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo>;
-    rename: grpc.handleUnaryCall<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo>;
+    trash: grpc.handleUnaryCall<file_filesystem_pb.BathFileTaskRequest, file_filesystem_pb.BathFileTaskResult>;
+    delete: grpc.handleUnaryCall<file_filesystem_pb.BathFileTaskRequest, file_filesystem_pb.BathFileTaskResult>;
+    copy: grpc.handleUnaryCall<file_filesystem_pb.BathFileTaskRequest, file_filesystem_pb.BathFileTaskResult>;
+    rename: grpc.handleUnaryCall<file_filesystem_pb.BathFileTaskRequest, file_filesystem_pb.BathFileTaskResult>;
 }
 
 export interface IFileServiceClient {
     create(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     create(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     create(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    createInternal(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    createInternal(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    createInternal(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     list(request: file_filesystem_pb.FileInfoListRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     list(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     list(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     listInternal(request: file_filesystem_pb.FileInfoListRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     listInternal(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     listInternal(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
-    trash(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    trash(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    trash(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    delete(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    delete(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    delete(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    rename(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    rename(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    rename(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    trash(request: file_filesystem_pb.BathFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    trash(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    trash(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    delete(request: file_filesystem_pb.BathFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    delete(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    delete(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    copy(request: file_filesystem_pb.BathFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    copy(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    copy(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    rename(request: file_filesystem_pb.BathFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    rename(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    rename(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
 }
 
 export class FileServiceClient extends grpc.Client implements IFileServiceClient {
@@ -124,24 +124,24 @@ export class FileServiceClient extends grpc.Client implements IFileServiceClient
     public create(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     public create(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     public create(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    public createInternal(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    public createInternal(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    public createInternal(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     public list(request: file_filesystem_pb.FileInfoListRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     public list(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     public list(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     public listInternal(request: file_filesystem_pb.FileInfoListRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     public listInternal(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     public listInternal(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
-    public trash(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    public trash(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    public trash(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    public delete(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    public delete(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    public delete(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    public rename(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    public rename(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
-    public rename(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    public trash(request: file_filesystem_pb.BathFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    public trash(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    public trash(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    public delete(request: file_filesystem_pb.BathFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    public delete(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    public delete(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    public copy(request: file_filesystem_pb.BathFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    public copy(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    public copy(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    public rename(request: file_filesystem_pb.BathFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    public rename(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
+    public rename(request: file_filesystem_pb.BathFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BathFileTaskResult) => void): grpc.ClientUnaryCall;
 }
 
 interface IFileNoticeServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
