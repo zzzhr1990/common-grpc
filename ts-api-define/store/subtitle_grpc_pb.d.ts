@@ -4,7 +4,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as store_subtitle_pb from "../store/subtitle_pb";
 
 interface ISubtitleServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {

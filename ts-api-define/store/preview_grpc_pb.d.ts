@@ -4,7 +4,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as store_preview_pb from "../store/preview_pb";
 
 interface IPreviewServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {

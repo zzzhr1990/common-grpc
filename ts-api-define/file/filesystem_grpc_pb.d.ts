@@ -4,7 +4,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as file_filesystem_pb from "../file/filesystem_pb";
 import * as common_common_entity_pb from "../common/common_entity_pb";
 

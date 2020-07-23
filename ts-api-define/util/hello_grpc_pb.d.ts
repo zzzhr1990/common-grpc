@@ -4,7 +4,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as util_hello_pb from "../util/hello_pb";
 
 interface IHelloServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {

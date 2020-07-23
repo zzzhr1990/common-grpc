@@ -4,7 +4,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as report_report_pb from "../report/report_pb";
 
 interface IReportServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {

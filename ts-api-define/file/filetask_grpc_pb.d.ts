@@ -4,7 +4,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as file_filetask_pb from "../file/filetask_pb";
 
 interface IFileTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {

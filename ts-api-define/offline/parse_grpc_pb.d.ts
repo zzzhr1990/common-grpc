@@ -4,7 +4,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as offline_parse_pb from "../offline/parse_pb";
 
 interface ITaskParseServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
