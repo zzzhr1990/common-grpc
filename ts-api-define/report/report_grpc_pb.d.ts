@@ -1,24 +1,58 @@
-// GENERATED CODE -- DO NOT EDIT!
-
 // package: services
 // file: report/report.proto
 
-import * as report_report_pb from "../report/report_pb";
+/* tslint:disable */
+/* eslint-disable */
+
 import * as grpc from "grpc";
+import * as report_report_pb from "../report/report_pb";
 
 interface IReportServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
-  create: grpc.MethodDefinition<report_report_pb.Report, report_report_pb.Report>;
-  get: grpc.MethodDefinition<report_report_pb.Report, report_report_pb.Report>;
+    create: IReportServiceService_Icreate;
+    get: IReportServiceService_Iget;
+}
+
+interface IReportServiceService_Icreate extends grpc.MethodDefinition<report_report_pb.Report, report_report_pb.Report> {
+    path: string; // "/services.ReportService/create"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<report_report_pb.Report>;
+    requestDeserialize: grpc.deserialize<report_report_pb.Report>;
+    responseSerialize: grpc.serialize<report_report_pb.Report>;
+    responseDeserialize: grpc.deserialize<report_report_pb.Report>;
+}
+interface IReportServiceService_Iget extends grpc.MethodDefinition<report_report_pb.Report, report_report_pb.Report> {
+    path: string; // "/services.ReportService/get"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<report_report_pb.Report>;
+    requestDeserialize: grpc.deserialize<report_report_pb.Report>;
+    responseSerialize: grpc.serialize<report_report_pb.Report>;
+    responseDeserialize: grpc.deserialize<report_report_pb.Report>;
 }
 
 export const ReportServiceService: IReportServiceService;
 
-export class ReportServiceClient extends grpc.Client {
-  constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
-  create(argument: report_report_pb.Report, callback: grpc.requestCallback<report_report_pb.Report>): grpc.ClientUnaryCall;
-  create(argument: report_report_pb.Report, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<report_report_pb.Report>): grpc.ClientUnaryCall;
-  create(argument: report_report_pb.Report, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<report_report_pb.Report>): grpc.ClientUnaryCall;
-  get(argument: report_report_pb.Report, callback: grpc.requestCallback<report_report_pb.Report>): grpc.ClientUnaryCall;
-  get(argument: report_report_pb.Report, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<report_report_pb.Report>): grpc.ClientUnaryCall;
-  get(argument: report_report_pb.Report, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<report_report_pb.Report>): grpc.ClientUnaryCall;
+export interface IReportServiceServer {
+    create: grpc.handleUnaryCall<report_report_pb.Report, report_report_pb.Report>;
+    get: grpc.handleUnaryCall<report_report_pb.Report, report_report_pb.Report>;
+}
+
+export interface IReportServiceClient {
+    create(request: report_report_pb.Report, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
+    create(request: report_report_pb.Report, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
+    create(request: report_report_pb.Report, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
+    get(request: report_report_pb.Report, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
+    get(request: report_report_pb.Report, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
+    get(request: report_report_pb.Report, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
+}
+
+export class ReportServiceClient extends grpc.Client implements IReportServiceClient {
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    public create(request: report_report_pb.Report, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
+    public create(request: report_report_pb.Report, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
+    public create(request: report_report_pb.Report, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
+    public get(request: report_report_pb.Report, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
+    public get(request: report_report_pb.Report, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
+    public get(request: report_report_pb.Report, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
 }

@@ -1,48 +1,161 @@
-// GENERATED CODE -- DO NOT EDIT!
-
 // package: services
 // file: bill/bill.proto
 
-import * as bill_bill_pb from "../bill/bill_pb";
+/* tslint:disable */
+/* eslint-disable */
+
 import * as grpc from "grpc";
+import * as bill_bill_pb from "../bill/bill_pb";
+import * as common_common_entity_pb from "../common/common_entity_pb";
 
 interface IOrderServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
-  create: grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order>;
-  list: grpc.MethodDefinition<bill_bill_pb.OrderListRequest, bill_bill_pb.OrderListResponse>;
-  listPlan: grpc.MethodDefinition<bill_bill_pb.PlanListRequest, bill_bill_pb.PlanListResponse>;
-  get: grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order>;
-  update: grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order>;
-  complete: grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order>;
-  fail: grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order>;
-  cancel: grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order>;
+    create: IOrderServiceService_ICreate;
+    list: IOrderServiceService_IList;
+    listPlan: IOrderServiceService_IListPlan;
+    get: IOrderServiceService_IGet;
+    update: IOrderServiceService_IUpdate;
+    complete: IOrderServiceService_IComplete;
+    fail: IOrderServiceService_IFail;
+    cancel: IOrderServiceService_ICancel;
+}
+
+interface IOrderServiceService_ICreate extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
+    path: string; // "/services.OrderService/Create"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<bill_bill_pb.Order>;
+    requestDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+    responseSerialize: grpc.serialize<bill_bill_pb.Order>;
+    responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+}
+interface IOrderServiceService_IList extends grpc.MethodDefinition<bill_bill_pb.OrderListRequest, bill_bill_pb.OrderListResponse> {
+    path: string; // "/services.OrderService/List"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<bill_bill_pb.OrderListRequest>;
+    requestDeserialize: grpc.deserialize<bill_bill_pb.OrderListRequest>;
+    responseSerialize: grpc.serialize<bill_bill_pb.OrderListResponse>;
+    responseDeserialize: grpc.deserialize<bill_bill_pb.OrderListResponse>;
+}
+interface IOrderServiceService_IListPlan extends grpc.MethodDefinition<bill_bill_pb.PlanListRequest, bill_bill_pb.PlanListResponse> {
+    path: string; // "/services.OrderService/ListPlan"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<bill_bill_pb.PlanListRequest>;
+    requestDeserialize: grpc.deserialize<bill_bill_pb.PlanListRequest>;
+    responseSerialize: grpc.serialize<bill_bill_pb.PlanListResponse>;
+    responseDeserialize: grpc.deserialize<bill_bill_pb.PlanListResponse>;
+}
+interface IOrderServiceService_IGet extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
+    path: string; // "/services.OrderService/Get"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<bill_bill_pb.Order>;
+    requestDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+    responseSerialize: grpc.serialize<bill_bill_pb.Order>;
+    responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+}
+interface IOrderServiceService_IUpdate extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
+    path: string; // "/services.OrderService/Update"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<bill_bill_pb.Order>;
+    requestDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+    responseSerialize: grpc.serialize<bill_bill_pb.Order>;
+    responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+}
+interface IOrderServiceService_IComplete extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
+    path: string; // "/services.OrderService/Complete"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<bill_bill_pb.Order>;
+    requestDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+    responseSerialize: grpc.serialize<bill_bill_pb.Order>;
+    responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+}
+interface IOrderServiceService_IFail extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
+    path: string; // "/services.OrderService/Fail"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<bill_bill_pb.Order>;
+    requestDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+    responseSerialize: grpc.serialize<bill_bill_pb.Order>;
+    responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+}
+interface IOrderServiceService_ICancel extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
+    path: string; // "/services.OrderService/Cancel"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<bill_bill_pb.Order>;
+    requestDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+    responseSerialize: grpc.serialize<bill_bill_pb.Order>;
+    responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
 }
 
 export const OrderServiceService: IOrderServiceService;
 
-export class OrderServiceClient extends grpc.Client {
-  constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
-  create(argument: bill_bill_pb.Order, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  create(argument: bill_bill_pb.Order, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  create(argument: bill_bill_pb.Order, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  list(argument: bill_bill_pb.OrderListRequest, callback: grpc.requestCallback<bill_bill_pb.OrderListResponse>): grpc.ClientUnaryCall;
-  list(argument: bill_bill_pb.OrderListRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.OrderListResponse>): grpc.ClientUnaryCall;
-  list(argument: bill_bill_pb.OrderListRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.OrderListResponse>): grpc.ClientUnaryCall;
-  listPlan(argument: bill_bill_pb.PlanListRequest, callback: grpc.requestCallback<bill_bill_pb.PlanListResponse>): grpc.ClientUnaryCall;
-  listPlan(argument: bill_bill_pb.PlanListRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.PlanListResponse>): grpc.ClientUnaryCall;
-  listPlan(argument: bill_bill_pb.PlanListRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.PlanListResponse>): grpc.ClientUnaryCall;
-  get(argument: bill_bill_pb.Order, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  get(argument: bill_bill_pb.Order, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  get(argument: bill_bill_pb.Order, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  update(argument: bill_bill_pb.Order, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  update(argument: bill_bill_pb.Order, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  update(argument: bill_bill_pb.Order, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  complete(argument: bill_bill_pb.Order, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  complete(argument: bill_bill_pb.Order, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  complete(argument: bill_bill_pb.Order, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  fail(argument: bill_bill_pb.Order, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  fail(argument: bill_bill_pb.Order, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  fail(argument: bill_bill_pb.Order, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  cancel(argument: bill_bill_pb.Order, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  cancel(argument: bill_bill_pb.Order, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
-  cancel(argument: bill_bill_pb.Order, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<bill_bill_pb.Order>): grpc.ClientUnaryCall;
+export interface IOrderServiceServer {
+    create: grpc.handleUnaryCall<bill_bill_pb.Order, bill_bill_pb.Order>;
+    list: grpc.handleUnaryCall<bill_bill_pb.OrderListRequest, bill_bill_pb.OrderListResponse>;
+    listPlan: grpc.handleUnaryCall<bill_bill_pb.PlanListRequest, bill_bill_pb.PlanListResponse>;
+    get: grpc.handleUnaryCall<bill_bill_pb.Order, bill_bill_pb.Order>;
+    update: grpc.handleUnaryCall<bill_bill_pb.Order, bill_bill_pb.Order>;
+    complete: grpc.handleUnaryCall<bill_bill_pb.Order, bill_bill_pb.Order>;
+    fail: grpc.handleUnaryCall<bill_bill_pb.Order, bill_bill_pb.Order>;
+    cancel: grpc.handleUnaryCall<bill_bill_pb.Order, bill_bill_pb.Order>;
+}
+
+export interface IOrderServiceClient {
+    create(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    create(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    create(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    list(request: bill_bill_pb.OrderListRequest, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.OrderListResponse) => void): grpc.ClientUnaryCall;
+    list(request: bill_bill_pb.OrderListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.OrderListResponse) => void): grpc.ClientUnaryCall;
+    list(request: bill_bill_pb.OrderListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.OrderListResponse) => void): grpc.ClientUnaryCall;
+    listPlan(request: bill_bill_pb.PlanListRequest, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.PlanListResponse) => void): grpc.ClientUnaryCall;
+    listPlan(request: bill_bill_pb.PlanListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.PlanListResponse) => void): grpc.ClientUnaryCall;
+    listPlan(request: bill_bill_pb.PlanListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.PlanListResponse) => void): grpc.ClientUnaryCall;
+    get(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    get(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    get(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    update(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    update(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    update(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    complete(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    complete(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    complete(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    fail(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    fail(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    fail(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    cancel(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    cancel(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    cancel(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+}
+
+export class OrderServiceClient extends grpc.Client implements IOrderServiceClient {
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    public create(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public create(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public create(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public list(request: bill_bill_pb.OrderListRequest, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.OrderListResponse) => void): grpc.ClientUnaryCall;
+    public list(request: bill_bill_pb.OrderListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.OrderListResponse) => void): grpc.ClientUnaryCall;
+    public list(request: bill_bill_pb.OrderListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.OrderListResponse) => void): grpc.ClientUnaryCall;
+    public listPlan(request: bill_bill_pb.PlanListRequest, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.PlanListResponse) => void): grpc.ClientUnaryCall;
+    public listPlan(request: bill_bill_pb.PlanListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.PlanListResponse) => void): grpc.ClientUnaryCall;
+    public listPlan(request: bill_bill_pb.PlanListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.PlanListResponse) => void): grpc.ClientUnaryCall;
+    public get(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public get(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public get(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public update(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public update(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public update(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public complete(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public complete(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public complete(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public fail(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public fail(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public fail(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public cancel(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public cancel(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public cancel(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
 }

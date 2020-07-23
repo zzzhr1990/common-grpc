@@ -1,104 +1,398 @@
-// GENERATED CODE -- DO NOT EDIT!
-
 // package: services
 // file: user/info.proto
 
-import * as user_info_pb from "../user/info_pb";
+/* tslint:disable */
+/* eslint-disable */
+
 import * as grpc from "grpc";
+import * as user_info_pb from "../user/info_pb";
 
 interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
-  create: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
-  smsCreate: grpc.MethodDefinition<user_info_pb.SmsCreateRequest, user_info_pb.User>;
-  get: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
-  findOne: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
-  login: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
-  smsLogin: grpc.MethodDefinition<user_info_pb.SmsValidateRequest, user_info_pb.User>;
-  loginDirect: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
-  logoff: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
-  update: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
-  sendSms: grpc.MethodDefinition<user_info_pb.SmsRequest, user_info_pb.SmsResponse>;
-  validateSms: grpc.MethodDefinition<user_info_pb.SmsValidateRequest, user_info_pb.SmsValidateResponse>;
-  changePassword: grpc.MethodDefinition<user_info_pb.ChangePasswordRequest, user_info_pb.User>;
-  smsChangePassword: grpc.MethodDefinition<user_info_pb.SmsChangePasswordRequest, user_info_pb.User>;
-  bindThirdPartyLogin: grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
-  removeThirdPartyLogin: grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
-  thirdPartyLogin: grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
-  createOauthInfo: grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
-  refreshOauthToken: grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
-  checkAccessToken: grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
-  createPayment: grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment>;
-  completePayment: grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment>;
-  failedPayment: grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment>;
+    create: IUserServiceService_ICreate;
+    smsCreate: IUserServiceService_ISmsCreate;
+    get: IUserServiceService_IGet;
+    findOne: IUserServiceService_IFindOne;
+    login: IUserServiceService_ILogin;
+    smsLogin: IUserServiceService_ISmsLogin;
+    loginDirect: IUserServiceService_ILoginDirect;
+    logoff: IUserServiceService_ILogoff;
+    update: IUserServiceService_IUpdate;
+    sendSms: IUserServiceService_ISendSms;
+    validateSms: IUserServiceService_IValidateSms;
+    changePassword: IUserServiceService_IChangePassword;
+    smsChangePassword: IUserServiceService_ISmsChangePassword;
+    bindThirdPartyLogin: IUserServiceService_IBindThirdPartyLogin;
+    removeThirdPartyLogin: IUserServiceService_IRemoveThirdPartyLogin;
+    thirdPartyLogin: IUserServiceService_IThirdPartyLogin;
+    createOauthInfo: IUserServiceService_ICreateOauthInfo;
+    refreshOauthToken: IUserServiceService_IRefreshOauthToken;
+    checkAccessToken: IUserServiceService_ICheckAccessToken;
+    createPayment: IUserServiceService_ICreatePayment;
+    completePayment: IUserServiceService_ICompletePayment;
+    failedPayment: IUserServiceService_IFailedPayment;
+}
+
+interface IUserServiceService_ICreate extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
+    path: string; // "/services.UserService/Create"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.User>;
+    requestDeserialize: grpc.deserialize<user_info_pb.User>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_ISmsCreate extends grpc.MethodDefinition<user_info_pb.SmsCreateRequest, user_info_pb.User> {
+    path: string; // "/services.UserService/SmsCreate"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.SmsCreateRequest>;
+    requestDeserialize: grpc.deserialize<user_info_pb.SmsCreateRequest>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_IGet extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
+    path: string; // "/services.UserService/Get"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.User>;
+    requestDeserialize: grpc.deserialize<user_info_pb.User>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_IFindOne extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
+    path: string; // "/services.UserService/FindOne"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.User>;
+    requestDeserialize: grpc.deserialize<user_info_pb.User>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_ILogin extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
+    path: string; // "/services.UserService/Login"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.User>;
+    requestDeserialize: grpc.deserialize<user_info_pb.User>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_ISmsLogin extends grpc.MethodDefinition<user_info_pb.SmsValidateRequest, user_info_pb.User> {
+    path: string; // "/services.UserService/SmsLogin"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.SmsValidateRequest>;
+    requestDeserialize: grpc.deserialize<user_info_pb.SmsValidateRequest>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_ILoginDirect extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
+    path: string; // "/services.UserService/LoginDirect"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.User>;
+    requestDeserialize: grpc.deserialize<user_info_pb.User>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_ILogoff extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
+    path: string; // "/services.UserService/Logoff"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.User>;
+    requestDeserialize: grpc.deserialize<user_info_pb.User>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_IUpdate extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
+    path: string; // "/services.UserService/Update"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.User>;
+    requestDeserialize: grpc.deserialize<user_info_pb.User>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_ISendSms extends grpc.MethodDefinition<user_info_pb.SmsRequest, user_info_pb.SmsResponse> {
+    path: string; // "/services.UserService/SendSms"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.SmsRequest>;
+    requestDeserialize: grpc.deserialize<user_info_pb.SmsRequest>;
+    responseSerialize: grpc.serialize<user_info_pb.SmsResponse>;
+    responseDeserialize: grpc.deserialize<user_info_pb.SmsResponse>;
+}
+interface IUserServiceService_IValidateSms extends grpc.MethodDefinition<user_info_pb.SmsValidateRequest, user_info_pb.SmsValidateResponse> {
+    path: string; // "/services.UserService/ValidateSms"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.SmsValidateRequest>;
+    requestDeserialize: grpc.deserialize<user_info_pb.SmsValidateRequest>;
+    responseSerialize: grpc.serialize<user_info_pb.SmsValidateResponse>;
+    responseDeserialize: grpc.deserialize<user_info_pb.SmsValidateResponse>;
+}
+interface IUserServiceService_IChangePassword extends grpc.MethodDefinition<user_info_pb.ChangePasswordRequest, user_info_pb.User> {
+    path: string; // "/services.UserService/ChangePassword"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.ChangePasswordRequest>;
+    requestDeserialize: grpc.deserialize<user_info_pb.ChangePasswordRequest>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_ISmsChangePassword extends grpc.MethodDefinition<user_info_pb.SmsChangePasswordRequest, user_info_pb.User> {
+    path: string; // "/services.UserService/SmsChangePassword"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.SmsChangePasswordRequest>;
+    requestDeserialize: grpc.deserialize<user_info_pb.SmsChangePasswordRequest>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_IBindThirdPartyLogin extends grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User> {
+    path: string; // "/services.UserService/BindThirdPartyLogin"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.ThirdPartyLoginInfo>;
+    requestDeserialize: grpc.deserialize<user_info_pb.ThirdPartyLoginInfo>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_IRemoveThirdPartyLogin extends grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User> {
+    path: string; // "/services.UserService/RemoveThirdPartyLogin"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.ThirdPartyLoginInfo>;
+    requestDeserialize: grpc.deserialize<user_info_pb.ThirdPartyLoginInfo>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_IThirdPartyLogin extends grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User> {
+    path: string; // "/services.UserService/ThirdPartyLogin"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.ThirdPartyLoginInfo>;
+    requestDeserialize: grpc.deserialize<user_info_pb.ThirdPartyLoginInfo>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_ICreateOauthInfo extends grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo> {
+    path: string; // "/services.UserService/CreateOauthInfo"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.OauthInfo>;
+    requestDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
+    responseSerialize: grpc.serialize<user_info_pb.OauthInfo>;
+    responseDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
+}
+interface IUserServiceService_IRefreshOauthToken extends grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo> {
+    path: string; // "/services.UserService/RefreshOauthToken"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.OauthInfo>;
+    requestDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
+    responseSerialize: grpc.serialize<user_info_pb.OauthInfo>;
+    responseDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
+}
+interface IUserServiceService_ICheckAccessToken extends grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo> {
+    path: string; // "/services.UserService/CheckAccessToken"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.OauthInfo>;
+    requestDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
+    responseSerialize: grpc.serialize<user_info_pb.OauthInfo>;
+    responseDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
+}
+interface IUserServiceService_ICreatePayment extends grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment> {
+    path: string; // "/services.UserService/CreatePayment"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.Payment>;
+    requestDeserialize: grpc.deserialize<user_info_pb.Payment>;
+    responseSerialize: grpc.serialize<user_info_pb.Payment>;
+    responseDeserialize: grpc.deserialize<user_info_pb.Payment>;
+}
+interface IUserServiceService_ICompletePayment extends grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment> {
+    path: string; // "/services.UserService/CompletePayment"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.Payment>;
+    requestDeserialize: grpc.deserialize<user_info_pb.Payment>;
+    responseSerialize: grpc.serialize<user_info_pb.Payment>;
+    responseDeserialize: grpc.deserialize<user_info_pb.Payment>;
+}
+interface IUserServiceService_IFailedPayment extends grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment> {
+    path: string; // "/services.UserService/FailedPayment"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.Payment>;
+    requestDeserialize: grpc.deserialize<user_info_pb.Payment>;
+    responseSerialize: grpc.serialize<user_info_pb.Payment>;
+    responseDeserialize: grpc.deserialize<user_info_pb.Payment>;
 }
 
 export const UserServiceService: IUserServiceService;
 
-export class UserServiceClient extends grpc.Client {
-  constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
-  create(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  create(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  create(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  smsCreate(argument: user_info_pb.SmsCreateRequest, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  smsCreate(argument: user_info_pb.SmsCreateRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  smsCreate(argument: user_info_pb.SmsCreateRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  get(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  get(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  get(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  findOne(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  findOne(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  findOne(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  login(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  login(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  login(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  smsLogin(argument: user_info_pb.SmsValidateRequest, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  smsLogin(argument: user_info_pb.SmsValidateRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  smsLogin(argument: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  loginDirect(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  loginDirect(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  loginDirect(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  logoff(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  logoff(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  logoff(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  update(argument: user_info_pb.User, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  update(argument: user_info_pb.User, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  update(argument: user_info_pb.User, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  sendSms(argument: user_info_pb.SmsRequest, callback: grpc.requestCallback<user_info_pb.SmsResponse>): grpc.ClientUnaryCall;
-  sendSms(argument: user_info_pb.SmsRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.SmsResponse>): grpc.ClientUnaryCall;
-  sendSms(argument: user_info_pb.SmsRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.SmsResponse>): grpc.ClientUnaryCall;
-  validateSms(argument: user_info_pb.SmsValidateRequest, callback: grpc.requestCallback<user_info_pb.SmsValidateResponse>): grpc.ClientUnaryCall;
-  validateSms(argument: user_info_pb.SmsValidateRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.SmsValidateResponse>): grpc.ClientUnaryCall;
-  validateSms(argument: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.SmsValidateResponse>): grpc.ClientUnaryCall;
-  changePassword(argument: user_info_pb.ChangePasswordRequest, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  changePassword(argument: user_info_pb.ChangePasswordRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  changePassword(argument: user_info_pb.ChangePasswordRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  smsChangePassword(argument: user_info_pb.SmsChangePasswordRequest, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  smsChangePassword(argument: user_info_pb.SmsChangePasswordRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  smsChangePassword(argument: user_info_pb.SmsChangePasswordRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  bindThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  bindThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  bindThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  removeThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  removeThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  removeThirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  thirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  thirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  thirdPartyLogin(argument: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
-  createOauthInfo(argument: user_info_pb.OauthInfo, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
-  createOauthInfo(argument: user_info_pb.OauthInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
-  createOauthInfo(argument: user_info_pb.OauthInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
-  refreshOauthToken(argument: user_info_pb.OauthInfo, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
-  refreshOauthToken(argument: user_info_pb.OauthInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
-  refreshOauthToken(argument: user_info_pb.OauthInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
-  checkAccessToken(argument: user_info_pb.OauthInfo, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
-  checkAccessToken(argument: user_info_pb.OauthInfo, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
-  checkAccessToken(argument: user_info_pb.OauthInfo, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.OauthInfo>): grpc.ClientUnaryCall;
-  createPayment(argument: user_info_pb.Payment, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
-  createPayment(argument: user_info_pb.Payment, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
-  createPayment(argument: user_info_pb.Payment, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
-  completePayment(argument: user_info_pb.Payment, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
-  completePayment(argument: user_info_pb.Payment, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
-  completePayment(argument: user_info_pb.Payment, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
-  failedPayment(argument: user_info_pb.Payment, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
-  failedPayment(argument: user_info_pb.Payment, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
-  failedPayment(argument: user_info_pb.Payment, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.Payment>): grpc.ClientUnaryCall;
+export interface IUserServiceServer {
+    create: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
+    smsCreate: grpc.handleUnaryCall<user_info_pb.SmsCreateRequest, user_info_pb.User>;
+    get: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
+    findOne: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
+    login: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
+    smsLogin: grpc.handleUnaryCall<user_info_pb.SmsValidateRequest, user_info_pb.User>;
+    loginDirect: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
+    logoff: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
+    update: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
+    sendSms: grpc.handleUnaryCall<user_info_pb.SmsRequest, user_info_pb.SmsResponse>;
+    validateSms: grpc.handleUnaryCall<user_info_pb.SmsValidateRequest, user_info_pb.SmsValidateResponse>;
+    changePassword: grpc.handleUnaryCall<user_info_pb.ChangePasswordRequest, user_info_pb.User>;
+    smsChangePassword: grpc.handleUnaryCall<user_info_pb.SmsChangePasswordRequest, user_info_pb.User>;
+    bindThirdPartyLogin: grpc.handleUnaryCall<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
+    removeThirdPartyLogin: grpc.handleUnaryCall<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
+    thirdPartyLogin: grpc.handleUnaryCall<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User>;
+    createOauthInfo: grpc.handleUnaryCall<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
+    refreshOauthToken: grpc.handleUnaryCall<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
+    checkAccessToken: grpc.handleUnaryCall<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
+    createPayment: grpc.handleUnaryCall<user_info_pb.Payment, user_info_pb.Payment>;
+    completePayment: grpc.handleUnaryCall<user_info_pb.Payment, user_info_pb.Payment>;
+    failedPayment: grpc.handleUnaryCall<user_info_pb.Payment, user_info_pb.Payment>;
+}
+
+export interface IUserServiceClient {
+    create(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    create(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    create(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsCreate(request: user_info_pb.SmsCreateRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsCreate(request: user_info_pb.SmsCreateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsCreate(request: user_info_pb.SmsCreateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    get(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    get(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    get(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    findOne(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    findOne(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    findOne(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    login(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    login(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    login(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsLogin(request: user_info_pb.SmsValidateRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsLogin(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsLogin(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    loginDirect(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    loginDirect(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    loginDirect(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    logoff(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    logoff(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    logoff(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    update(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    update(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    update(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    sendSms(request: user_info_pb.SmsRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;
+    sendSms(request: user_info_pb.SmsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;
+    sendSms(request: user_info_pb.SmsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;
+    validateSms(request: user_info_pb.SmsValidateRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsValidateResponse) => void): grpc.ClientUnaryCall;
+    validateSms(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsValidateResponse) => void): grpc.ClientUnaryCall;
+    validateSms(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsValidateResponse) => void): grpc.ClientUnaryCall;
+    changePassword(request: user_info_pb.ChangePasswordRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    changePassword(request: user_info_pb.ChangePasswordRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    changePassword(request: user_info_pb.ChangePasswordRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsChangePassword(request: user_info_pb.SmsChangePasswordRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsChangePassword(request: user_info_pb.SmsChangePasswordRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsChangePassword(request: user_info_pb.SmsChangePasswordRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    bindThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    bindThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    bindThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    removeThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    removeThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    removeThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    thirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    thirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    thirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    createOauthInfo(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    createOauthInfo(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    createOauthInfo(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    refreshOauthToken(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    refreshOauthToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    refreshOauthToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    checkAccessToken(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    createPayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    createPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    createPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    completePayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    completePayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    completePayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    failedPayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    failedPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    failedPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+}
+
+export class UserServiceClient extends grpc.Client implements IUserServiceClient {
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    public create(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public create(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public create(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsCreate(request: user_info_pb.SmsCreateRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsCreate(request: user_info_pb.SmsCreateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsCreate(request: user_info_pb.SmsCreateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public get(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public get(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public get(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public findOne(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public findOne(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public findOne(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public login(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public login(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public login(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsLogin(request: user_info_pb.SmsValidateRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsLogin(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsLogin(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public loginDirect(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public loginDirect(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public loginDirect(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public logoff(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public logoff(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public logoff(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public update(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public update(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public update(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public sendSms(request: user_info_pb.SmsRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;
+    public sendSms(request: user_info_pb.SmsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;
+    public sendSms(request: user_info_pb.SmsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;
+    public validateSms(request: user_info_pb.SmsValidateRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsValidateResponse) => void): grpc.ClientUnaryCall;
+    public validateSms(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsValidateResponse) => void): grpc.ClientUnaryCall;
+    public validateSms(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsValidateResponse) => void): grpc.ClientUnaryCall;
+    public changePassword(request: user_info_pb.ChangePasswordRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public changePassword(request: user_info_pb.ChangePasswordRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public changePassword(request: user_info_pb.ChangePasswordRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsChangePassword(request: user_info_pb.SmsChangePasswordRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsChangePassword(request: user_info_pb.SmsChangePasswordRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsChangePassword(request: user_info_pb.SmsChangePasswordRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public bindThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public bindThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public bindThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public removeThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public removeThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public removeThirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public thirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public thirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public thirdPartyLogin(request: user_info_pb.ThirdPartyLoginInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public createOauthInfo(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public createOauthInfo(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public createOauthInfo(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public refreshOauthToken(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public refreshOauthToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public refreshOauthToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public checkAccessToken(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public createPayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    public createPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    public createPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    public completePayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    public completePayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    public completePayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    public failedPayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    public failedPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    public failedPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
 }

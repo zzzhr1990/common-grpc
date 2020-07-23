@@ -1,20 +1,41 @@
-// GENERATED CODE -- DO NOT EDIT!
-
 // package: services
 // file: util/hello.proto
 
-import * as util_hello_pb from "../util/hello_pb";
+/* tslint:disable */
+/* eslint-disable */
+
 import * as grpc from "grpc";
+import * as util_hello_pb from "../util/hello_pb";
 
 interface IHelloServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
-  hello: grpc.MethodDefinition<util_hello_pb.HelloRequest, util_hello_pb.HelloResponse>;
+    hello: IHelloServiceService_Ihello;
+}
+
+interface IHelloServiceService_Ihello extends grpc.MethodDefinition<util_hello_pb.HelloRequest, util_hello_pb.HelloResponse> {
+    path: string; // "/services.HelloService/hello"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<util_hello_pb.HelloRequest>;
+    requestDeserialize: grpc.deserialize<util_hello_pb.HelloRequest>;
+    responseSerialize: grpc.serialize<util_hello_pb.HelloResponse>;
+    responseDeserialize: grpc.deserialize<util_hello_pb.HelloResponse>;
 }
 
 export const HelloServiceService: IHelloServiceService;
 
-export class HelloServiceClient extends grpc.Client {
-  constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
-  hello(argument: util_hello_pb.HelloRequest, callback: grpc.requestCallback<util_hello_pb.HelloResponse>): grpc.ClientUnaryCall;
-  hello(argument: util_hello_pb.HelloRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<util_hello_pb.HelloResponse>): grpc.ClientUnaryCall;
-  hello(argument: util_hello_pb.HelloRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<util_hello_pb.HelloResponse>): grpc.ClientUnaryCall;
+export interface IHelloServiceServer {
+    hello: grpc.handleUnaryCall<util_hello_pb.HelloRequest, util_hello_pb.HelloResponse>;
+}
+
+export interface IHelloServiceClient {
+    hello(request: util_hello_pb.HelloRequest, callback: (error: grpc.ServiceError | null, response: util_hello_pb.HelloResponse) => void): grpc.ClientUnaryCall;
+    hello(request: util_hello_pb.HelloRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: util_hello_pb.HelloResponse) => void): grpc.ClientUnaryCall;
+    hello(request: util_hello_pb.HelloRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: util_hello_pb.HelloResponse) => void): grpc.ClientUnaryCall;
+}
+
+export class HelloServiceClient extends grpc.Client implements IHelloServiceClient {
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    public hello(request: util_hello_pb.HelloRequest, callback: (error: grpc.ServiceError | null, response: util_hello_pb.HelloResponse) => void): grpc.ClientUnaryCall;
+    public hello(request: util_hello_pb.HelloRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: util_hello_pb.HelloResponse) => void): grpc.ClientUnaryCall;
+    public hello(request: util_hello_pb.HelloRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: util_hello_pb.HelloResponse) => void): grpc.ClientUnaryCall;
 }
