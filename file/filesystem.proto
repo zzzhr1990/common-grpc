@@ -8,6 +8,7 @@ import "common/common_entity.proto";
 
 service FileService {
     rpc Create (FileInfo) returns (FileInfo) {}
+    rpc Get (FileInfo) returns (FileInfo) {}
     // rpc CreateInternal (FileInfo) returns (FileInfo) {}
     rpc List (FileInfoListRequest) returns (FileInfoListResponse) {}
     rpc ListInternal (FileInfoListRequest) returns (FileInfoListResponse) {}

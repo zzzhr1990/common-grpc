@@ -11,6 +11,7 @@ import * as common_common_entity_pb from "../common/common_entity_pb";
 
 interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     create: IFileServiceService_ICreate;
+    get: IFileServiceService_IGet;
     list: IFileServiceService_IList;
     listInternal: IFileServiceService_IListInternal;
     trash: IFileServiceService_ITrash;
@@ -21,6 +22,15 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
 
 interface IFileServiceService_ICreate extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
     path: string; // "/services.FileService/Create"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
+    requestDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
+    responseSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
+    responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
+}
+interface IFileServiceService_IGet extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
+    path: string; // "/services.FileService/Get"
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
@@ -87,6 +97,7 @@ export const FileServiceService: IFileServiceService;
 
 export interface IFileServiceServer {
     create: grpc.handleUnaryCall<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo>;
+    get: grpc.handleUnaryCall<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo>;
     list: grpc.handleUnaryCall<file_filesystem_pb.FileInfoListRequest, file_filesystem_pb.FileInfoListResponse>;
     listInternal: grpc.handleUnaryCall<file_filesystem_pb.FileInfoListRequest, file_filesystem_pb.FileInfoListResponse>;
     trash: grpc.handleUnaryCall<file_filesystem_pb.BathFileTaskRequest, file_filesystem_pb.BathFileTaskResult>;
@@ -99,6 +110,9 @@ export interface IFileServiceClient {
     create(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     create(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     create(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    get(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    get(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    get(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     list(request: file_filesystem_pb.FileInfoListRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     list(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     list(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
@@ -124,6 +138,9 @@ export class FileServiceClient extends grpc.Client implements IFileServiceClient
     public create(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     public create(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     public create(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    public get(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    public get(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    public get(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     public list(request: file_filesystem_pb.FileInfoListRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     public list(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     public list(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;

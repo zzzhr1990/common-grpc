@@ -84,6 +84,17 @@ var FileServiceService = exports.FileServiceService = {
     responseSerialize: serialize_services_FileInfo,
     responseDeserialize: deserialize_services_FileInfo,
   },
+  get: {
+    path: '/services.FileService/Get',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.FileInfo,
+    responseType: file_filesystem_pb.FileInfo,
+    requestSerialize: serialize_services_FileInfo,
+    requestDeserialize: deserialize_services_FileInfo,
+    responseSerialize: serialize_services_FileInfo,
+    responseDeserialize: deserialize_services_FileInfo,
+  },
   // rpc CreateInternal (FileInfo) returns (FileInfo) {}
 list: {
     path: '/services.FileService/List',
