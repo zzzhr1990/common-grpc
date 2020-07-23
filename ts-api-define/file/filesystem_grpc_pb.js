@@ -38,6 +38,17 @@ function deserialize_services_FileInfoListResponse(buffer_arg) {
   return file_filesystem_pb.FileInfoListResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_TaskProgress(arg) {
+  if (!(arg instanceof file_filesystem_pb.TaskProgress)) {
+    throw new Error('Expected argument of type services.TaskProgress');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_TaskProgress(buffer_arg) {
+  return file_filesystem_pb.TaskProgress.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 var FileServiceService = exports.FileServiceService = {
   create: {
@@ -120,3 +131,51 @@ var FileServiceService = exports.FileServiceService = {
 };
 
 exports.FileServiceClient = grpc.makeGenericClientConstructor(FileServiceService);
+var FileNoticeServiceService = exports.FileNoticeServiceService = {
+  onProgress: {
+    path: '/services.FileNoticeService/OnProgress',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.TaskProgress,
+    responseType: file_filesystem_pb.TaskProgress,
+    requestSerialize: serialize_services_TaskProgress,
+    requestDeserialize: deserialize_services_TaskProgress,
+    responseSerialize: serialize_services_TaskProgress,
+    responseDeserialize: deserialize_services_TaskProgress,
+  },
+  onComplete: {
+    path: '/services.FileNoticeService/OnComplete',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.TaskProgress,
+    responseType: file_filesystem_pb.TaskProgress,
+    requestSerialize: serialize_services_TaskProgress,
+    requestDeserialize: deserialize_services_TaskProgress,
+    responseSerialize: serialize_services_TaskProgress,
+    responseDeserialize: deserialize_services_TaskProgress,
+  },
+  onError: {
+    path: '/services.FileNoticeService/OnError',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.TaskProgress,
+    responseType: file_filesystem_pb.TaskProgress,
+    requestSerialize: serialize_services_TaskProgress,
+    requestDeserialize: deserialize_services_TaskProgress,
+    responseSerialize: serialize_services_TaskProgress,
+    responseDeserialize: deserialize_services_TaskProgress,
+  },
+  onCancel: {
+    path: '/services.FileNoticeService/OnCancel',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.TaskProgress,
+    responseType: file_filesystem_pb.TaskProgress,
+    requestSerialize: serialize_services_TaskProgress,
+    requestDeserialize: deserialize_services_TaskProgress,
+    responseSerialize: serialize_services_TaskProgress,
+    responseDeserialize: deserialize_services_TaskProgress,
+  },
+};
+
+exports.FileNoticeServiceClient = grpc.makeGenericClientConstructor(FileNoticeServiceService);

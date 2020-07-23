@@ -17,6 +17,33 @@ service FileService {
     // rpc FlushStore (UserFile) returns (UserFile) {}
 }
 
+service FileNoticeService {
+    rpc OnProgress (TaskProgress) returns (TaskProgress) {}
+    rpc OnComplete (TaskProgress) returns (TaskProgress) {}
+    rpc OnError (TaskProgress) returns (TaskProgress) {}
+    rpc OnCancel (TaskProgress) returns (TaskProgress) {}
+    // rpc FlushStore (UserFile) returns (UserFile) {}
+}
+
+message TaskProgress {
+    // UserFile source = 1;
+    // UserFile dest = 2;
+    string identity = 1;
+    int64 user_identity = 2;
+    int32 type = 3;
+    string name = 4;
+    int64 progress = 5;
+    string size = 6;
+    int64 count = 7;
+    string source = 8;
+    string destination = 9;
+    int32 status = 10;
+    int32 error_code = 11;
+    string error_message = 12;
+}
+
+
+
 message FileInfo {
     string identity = 1;
     string hash = 2;
@@ -72,4 +99,28 @@ message FileInfoListRequest {
     repeated OrderByRequest order_by = 5;
     FileInfoListFilter filter = 6;
     int32 op = 7;
+}
+
+message TrashInfo {
+    string identity = 1;
+    int64 user_identity = 2;
+    string path = 3;
+    string path_identity = 4;
+    int64 create_time = 5;
+    string name = 6;
+    int32 type = 7;
+    string mime = 8;
+    string addon = 9;
+    bool locking = 10;
+    int32 op = 11;
+    int64 size = 12;
+    bool directory = 13;
+}
+
+message Label {
+    int32 identity = 1;
+    int64 user_identity = 2;
+    string name = 3;
+    int32 type = 4;
+    int64 create_time = 5;
 }

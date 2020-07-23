@@ -4,6 +4,70 @@
 import * as jspb from "google-protobuf";
 import * as common_common_entity_pb from "../common/common_entity_pb";
 
+export class TaskProgress extends jspb.Message {
+  getIdentity(): string;
+  setIdentity(value: string): void;
+
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getProgress(): number;
+  setProgress(value: number): void;
+
+  getSize(): string;
+  setSize(value: string): void;
+
+  getCount(): number;
+  setCount(value: number): void;
+
+  getSource(): string;
+  setSource(value: string): void;
+
+  getDestination(): string;
+  setDestination(value: string): void;
+
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getErrorCode(): number;
+  setErrorCode(value: number): void;
+
+  getErrorMessage(): string;
+  setErrorMessage(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TaskProgress.AsObject;
+  static toObject(includeInstance: boolean, msg: TaskProgress): TaskProgress.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: TaskProgress, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TaskProgress;
+  static deserializeBinaryFromReader(message: TaskProgress, reader: jspb.BinaryReader): TaskProgress;
+}
+
+export namespace TaskProgress {
+  export type AsObject = {
+    identity: string,
+    userIdentity: number,
+    type: number,
+    name: string,
+    progress: number,
+    size: string,
+    count: number,
+    source: string,
+    destination: string,
+    status: number,
+    errorCode: number,
+    errorMessage: string,
+  }
+}
+
 export class FileInfo extends jspb.Message {
   getIdentity(): string;
   setIdentity(value: string): void;
@@ -251,6 +315,110 @@ export namespace FileInfoListRequest {
     orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
     filter?: FileInfoListFilter.AsObject,
     op: number,
+  }
+}
+
+export class TrashInfo extends jspb.Message {
+  getIdentity(): string;
+  setIdentity(value: string): void;
+
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
+  getPath(): string;
+  setPath(value: string): void;
+
+  getPathIdentity(): string;
+  setPathIdentity(value: string): void;
+
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getMime(): string;
+  setMime(value: string): void;
+
+  getAddon(): string;
+  setAddon(value: string): void;
+
+  getLocking(): boolean;
+  setLocking(value: boolean): void;
+
+  getOp(): number;
+  setOp(value: number): void;
+
+  getSize(): number;
+  setSize(value: number): void;
+
+  getDirectory(): boolean;
+  setDirectory(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TrashInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: TrashInfo): TrashInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: TrashInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TrashInfo;
+  static deserializeBinaryFromReader(message: TrashInfo, reader: jspb.BinaryReader): TrashInfo;
+}
+
+export namespace TrashInfo {
+  export type AsObject = {
+    identity: string,
+    userIdentity: number,
+    path: string,
+    pathIdentity: string,
+    createTime: number,
+    name: string,
+    type: number,
+    mime: string,
+    addon: string,
+    locking: boolean,
+    op: number,
+    size: number,
+    directory: boolean,
+  }
+}
+
+export class Label extends jspb.Message {
+  getIdentity(): number;
+  setIdentity(value: number): void;
+
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Label.AsObject;
+  static toObject(includeInstance: boolean, msg: Label): Label.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Label, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Label;
+  static deserializeBinaryFromReader(message: Label, reader: jspb.BinaryReader): Label;
+}
+
+export namespace Label {
+  export type AsObject = {
+    identity: number,
+    userIdentity: number,
+    name: string,
+    type: number,
+    createTime: number,
   }
 }
 
