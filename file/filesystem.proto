@@ -12,10 +12,10 @@ service FileService {
     // rpc CreateInternal (FileInfo) returns (FileInfo) {}
     rpc List (FileInfoListRequest) returns (FileInfoListResponse) {}
     rpc ListInternal (FileInfoListRequest) returns (FileInfoListResponse) {}
-    rpc Trash (BathFileTaskRequest) returns (BathFileTaskResult) {}
-    rpc Delete (BathFileTaskRequest) returns (BathFileTaskResult) {}
-    rpc Copy (BathFileTaskRequest) returns (BathFileTaskResult) {}
-    rpc Rename (BathFileTaskRequest) returns (BathFileTaskResult) {}
+    rpc Trash (BatchFileTaskRequest) returns (BatchFileTaskResult) {}
+    rpc Delete (BatchFileTaskRequest) returns (BatchFileTaskResult) {}
+    rpc Copy (BatchFileTaskRequest) returns (BatchFileTaskResult) {}
+    rpc Rename (BatchFileTaskRequest) returns (BatchFileTaskResult) {}
     // rpc FlushStore (UserFile) returns (UserFile) {}
 }
 
@@ -127,7 +127,7 @@ message Label {
     int64 create_time = 5;
 }
 
-message BathFileTaskRequest {
+message BatchFileTaskRequest {
     repeated string identity = 1;
     repeated string path = 2;
     int64 user_identity = 3;
@@ -135,7 +135,7 @@ message BathFileTaskRequest {
     int32 op = 5;
 }
 
-message BathFileTaskResult {
+message BatchFileTaskResult {
     string identity = 1;
     int64 data = 2;
     bool async = 3;

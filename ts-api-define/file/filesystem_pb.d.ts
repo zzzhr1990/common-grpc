@@ -435,41 +435,41 @@ export namespace Label {
     }
 }
 
-export class BathFileTaskRequest extends jspb.Message { 
+export class BatchFileTaskRequest extends jspb.Message { 
     clearIdentityList(): void;
     getIdentityList(): Array<string>;
-    setIdentityList(value: Array<string>): BathFileTaskRequest;
+    setIdentityList(value: Array<string>): BatchFileTaskRequest;
     addIdentity(value: string, index?: number): string;
 
     clearPathList(): void;
     getPathList(): Array<string>;
-    setPathList(value: Array<string>): BathFileTaskRequest;
+    setPathList(value: Array<string>): BatchFileTaskRequest;
     addPath(value: string, index?: number): string;
 
     getUserIdentity(): number;
-    setUserIdentity(value: number): BathFileTaskRequest;
+    setUserIdentity(value: number): BatchFileTaskRequest;
 
 
     hasDest(): boolean;
     clearDest(): void;
     getDest(): FileInfo | undefined;
-    setDest(value?: FileInfo): BathFileTaskRequest;
+    setDest(value?: FileInfo): BatchFileTaskRequest;
 
     getOp(): number;
-    setOp(value: number): BathFileTaskRequest;
+    setOp(value: number): BatchFileTaskRequest;
 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): BathFileTaskRequest.AsObject;
-    static toObject(includeInstance: boolean, msg: BathFileTaskRequest): BathFileTaskRequest.AsObject;
+    toObject(includeInstance?: boolean): BatchFileTaskRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: BatchFileTaskRequest): BatchFileTaskRequest.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: BathFileTaskRequest, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): BathFileTaskRequest;
-    static deserializeBinaryFromReader(message: BathFileTaskRequest, reader: jspb.BinaryReader): BathFileTaskRequest;
+    static serializeBinaryToWriter(message: BatchFileTaskRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): BatchFileTaskRequest;
+    static deserializeBinaryFromReader(message: BatchFileTaskRequest, reader: jspb.BinaryReader): BatchFileTaskRequest;
 }
 
-export namespace BathFileTaskRequest {
+export namespace BatchFileTaskRequest {
     export type AsObject = {
         identityList: Array<string>,
         pathList: Array<string>,
@@ -479,28 +479,28 @@ export namespace BathFileTaskRequest {
     }
 }
 
-export class BathFileTaskResult extends jspb.Message { 
+export class BatchFileTaskResult extends jspb.Message { 
     getIdentity(): string;
-    setIdentity(value: string): BathFileTaskResult;
+    setIdentity(value: string): BatchFileTaskResult;
 
     getData(): number;
-    setData(value: number): BathFileTaskResult;
+    setData(value: number): BatchFileTaskResult;
 
     getAsync(): boolean;
-    setAsync(value: boolean): BathFileTaskResult;
+    setAsync(value: boolean): BatchFileTaskResult;
 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): BathFileTaskResult.AsObject;
-    static toObject(includeInstance: boolean, msg: BathFileTaskResult): BathFileTaskResult.AsObject;
+    toObject(includeInstance?: boolean): BatchFileTaskResult.AsObject;
+    static toObject(includeInstance: boolean, msg: BatchFileTaskResult): BatchFileTaskResult.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: BathFileTaskResult, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): BathFileTaskResult;
-    static deserializeBinaryFromReader(message: BathFileTaskResult, reader: jspb.BinaryReader): BathFileTaskResult;
+    static serializeBinaryToWriter(message: BatchFileTaskResult, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): BatchFileTaskResult;
+    static deserializeBinaryFromReader(message: BatchFileTaskResult, reader: jspb.BinaryReader): BatchFileTaskResult;
 }
 
-export namespace BathFileTaskResult {
+export namespace BatchFileTaskResult {
     export type AsObject = {
         identity: string,
         data: number,
