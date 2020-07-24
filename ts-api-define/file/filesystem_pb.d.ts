@@ -23,8 +23,8 @@ export class TaskProgress extends jspb.Message {
     getProgress(): number;
     setProgress(value: number): TaskProgress;
 
-    getSize(): string;
-    setSize(value: string): TaskProgress;
+    getSize(): number;
+    setSize(value: number): TaskProgress;
 
     getCount(): number;
     setCount(value: number): TaskProgress;
@@ -44,6 +44,9 @@ export class TaskProgress extends jspb.Message {
     getErrorMessage(): string;
     setErrorMessage(value: string): TaskProgress;
 
+    getAction(): string;
+    setAction(value: string): TaskProgress;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): TaskProgress.AsObject;
@@ -62,13 +65,14 @@ export namespace TaskProgress {
         type: number,
         name: string,
         progress: number,
-        size: string,
+        size: number,
         count: number,
         source: string,
         destination: string,
         status: number,
         errorCode: number,
         errorMessage: string,
+        action: string,
     }
 }
 

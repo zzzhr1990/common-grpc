@@ -249,13 +249,14 @@ proto.services.TaskProgress.toObject = function(includeInstance, msg) {
     type: jspb.Message.getFieldWithDefault(msg, 3, 0),
     name: jspb.Message.getFieldWithDefault(msg, 4, ""),
     progress: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    size: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    size: jspb.Message.getFieldWithDefault(msg, 6, 0),
     count: jspb.Message.getFieldWithDefault(msg, 7, 0),
     source: jspb.Message.getFieldWithDefault(msg, 8, ""),
     destination: jspb.Message.getFieldWithDefault(msg, 9, ""),
     status: jspb.Message.getFieldWithDefault(msg, 10, 0),
     errorCode: jspb.Message.getFieldWithDefault(msg, 11, 0),
-    errorMessage: jspb.Message.getFieldWithDefault(msg, 12, "")
+    errorMessage: jspb.Message.getFieldWithDefault(msg, 12, ""),
+    action: jspb.Message.getFieldWithDefault(msg, 13, "")
   };
 
   if (includeInstance) {
@@ -313,7 +314,7 @@ proto.services.TaskProgress.deserializeBinaryFromReader = function(msg, reader) 
       msg.setProgress(value);
       break;
     case 6:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setSize(value);
       break;
     case 7:
@@ -339,6 +340,10 @@ proto.services.TaskProgress.deserializeBinaryFromReader = function(msg, reader) 
     case 12:
       var value = /** @type {string} */ (reader.readString());
       msg.setErrorMessage(value);
+      break;
+    case 13:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAction(value);
       break;
     default:
       reader.skipField();
@@ -405,8 +410,8 @@ proto.services.TaskProgress.serializeBinaryToWriter = function(message, writer) 
     );
   }
   f = message.getSize();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt64(
       6,
       f
     );
@@ -450,6 +455,13 @@ proto.services.TaskProgress.serializeBinaryToWriter = function(message, writer) 
   if (f.length > 0) {
     writer.writeString(
       12,
+      f
+    );
+  }
+  f = message.getAction();
+  if (f.length > 0) {
+    writer.writeString(
+      13,
       f
     );
   }
@@ -547,20 +559,20 @@ proto.services.TaskProgress.prototype.setProgress = function(value) {
 
 
 /**
- * optional string size = 6;
- * @return {string}
+ * optional int64 size = 6;
+ * @return {number}
  */
 proto.services.TaskProgress.prototype.getSize = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.services.TaskProgress} returns this
  */
 proto.services.TaskProgress.prototype.setSize = function(value) {
-  return jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -669,6 +681,24 @@ proto.services.TaskProgress.prototype.getErrorMessage = function() {
  */
 proto.services.TaskProgress.prototype.setErrorMessage = function(value) {
   return jspb.Message.setProto3StringField(this, 12, value);
+};
+
+
+/**
+ * optional string action = 13;
+ * @return {string}
+ */
+proto.services.TaskProgress.prototype.getAction = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 13, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.TaskProgress} returns this
+ */
+proto.services.TaskProgress.prototype.setAction = function(value) {
+  return jspb.Message.setProto3StringField(this, 13, value);
 };
 
 
