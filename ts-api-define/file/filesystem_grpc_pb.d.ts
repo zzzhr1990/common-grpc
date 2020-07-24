@@ -26,6 +26,7 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
     clearTrash: IFileServiceService_IClearTrash;
     createLabel: IFileServiceService_ICreateLabel;
     deleteLabel: IFileServiceService_IDeleteLabel;
+    listLabel: IFileServiceService_IListLabel;
 }
 
 interface IFileServiceService_ICreate extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
@@ -172,6 +173,15 @@ interface IFileServiceService_IDeleteLabel extends grpc.MethodDefinition<file_fi
     responseSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskResult>;
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
+interface IFileServiceService_IListLabel extends grpc.MethodDefinition<file_filesystem_pb.LabelListRequest, file_filesystem_pb.LabelListResponse> {
+    path: string; // "/services.FileService/ListLabel"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<file_filesystem_pb.LabelListRequest>;
+    requestDeserialize: grpc.deserialize<file_filesystem_pb.LabelListRequest>;
+    responseSerialize: grpc.serialize<file_filesystem_pb.LabelListResponse>;
+    responseDeserialize: grpc.deserialize<file_filesystem_pb.LabelListResponse>;
+}
 
 export const FileServiceService: IFileServiceService;
 
@@ -192,6 +202,7 @@ export interface IFileServiceServer {
     clearTrash: grpc.handleUnaryCall<file_filesystem_pb.TrashInfo, file_filesystem_pb.BatchFileTaskResult>;
     createLabel: grpc.handleUnaryCall<file_filesystem_pb.Label, file_filesystem_pb.Label>;
     deleteLabel: grpc.handleUnaryCall<file_filesystem_pb.BatchLabelRequest, file_filesystem_pb.BatchFileTaskResult>;
+    listLabel: grpc.handleUnaryCall<file_filesystem_pb.LabelListRequest, file_filesystem_pb.LabelListResponse>;
 }
 
 export interface IFileServiceClient {
@@ -243,6 +254,9 @@ export interface IFileServiceClient {
     deleteLabel(request: file_filesystem_pb.BatchLabelRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     deleteLabel(request: file_filesystem_pb.BatchLabelRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     deleteLabel(request: file_filesystem_pb.BatchLabelRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
+    listLabel(request: file_filesystem_pb.LabelListRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.LabelListResponse) => void): grpc.ClientUnaryCall;
+    listLabel(request: file_filesystem_pb.LabelListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.LabelListResponse) => void): grpc.ClientUnaryCall;
+    listLabel(request: file_filesystem_pb.LabelListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.LabelListResponse) => void): grpc.ClientUnaryCall;
 }
 
 export class FileServiceClient extends grpc.Client implements IFileServiceClient {
@@ -295,6 +309,9 @@ export class FileServiceClient extends grpc.Client implements IFileServiceClient
     public deleteLabel(request: file_filesystem_pb.BatchLabelRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     public deleteLabel(request: file_filesystem_pb.BatchLabelRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     public deleteLabel(request: file_filesystem_pb.BatchLabelRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
+    public listLabel(request: file_filesystem_pb.LabelListRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.LabelListResponse) => void): grpc.ClientUnaryCall;
+    public listLabel(request: file_filesystem_pb.LabelListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.LabelListResponse) => void): grpc.ClientUnaryCall;
+    public listLabel(request: file_filesystem_pb.LabelListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.LabelListResponse) => void): grpc.ClientUnaryCall;
 }
 
 interface IFileNoticeServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {

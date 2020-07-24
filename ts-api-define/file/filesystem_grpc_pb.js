@@ -82,6 +82,28 @@ function deserialize_services_Label(buffer_arg) {
   return file_filesystem_pb.Label.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_LabelListRequest(arg) {
+  if (!(arg instanceof file_filesystem_pb.LabelListRequest)) {
+    throw new Error('Expected argument of type services.LabelListRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_LabelListRequest(buffer_arg) {
+  return file_filesystem_pb.LabelListRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_LabelListResponse(arg) {
+  if (!(arg instanceof file_filesystem_pb.LabelListResponse)) {
+    throw new Error('Expected argument of type services.LabelListResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_LabelListResponse(buffer_arg) {
+  return file_filesystem_pb.LabelListResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_TaskCompleteEvent(arg) {
   if (!(arg instanceof file_filesystem_pb.TaskCompleteEvent)) {
     throw new Error('Expected argument of type services.TaskCompleteEvent');
@@ -318,6 +340,17 @@ createLabel: {
     requestDeserialize: deserialize_services_BatchLabelRequest,
     responseSerialize: serialize_services_BatchFileTaskResult,
     responseDeserialize: deserialize_services_BatchFileTaskResult,
+  },
+  listLabel: {
+    path: '/services.FileService/ListLabel',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.LabelListRequest,
+    responseType: file_filesystem_pb.LabelListResponse,
+    requestSerialize: serialize_services_LabelListRequest,
+    requestDeserialize: deserialize_services_LabelListRequest,
+    responseSerialize: serialize_services_LabelListResponse,
+    responseDeserialize: deserialize_services_LabelListResponse,
   },
 };
 

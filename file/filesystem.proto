@@ -28,6 +28,7 @@ service FileService {
     // Label
     rpc CreateLabel (Label) returns (Label) {}
     rpc DeleteLabel (BatchLabelRequest) returns (BatchFileTaskResult) {}
+    rpc ListLabel (LabelListRequest) returns (LabelListResponse) {}
 }
 
 service FileNoticeService {
@@ -136,6 +137,7 @@ message FileInfoListFilter {
     repeated int32 type = 2;
     int32 directory = 3;
     string name = 4;
+    int32 label = 5;
 }
 
 message FileInfoListRequest {
@@ -146,6 +148,7 @@ message FileInfoListRequest {
     repeated OrderByRequest order_by = 5;
     FileInfoListFilter filter = 6;
     int32 op = 7;
+    bool search = 8;
 }
 
 message Label {
@@ -154,6 +157,15 @@ message Label {
     string name = 3;
     int32 type = 4;
     int64 create_time = 5;
+}
+
+message LabelListRequest {
+    repeated OrderByRequest order_by = 5;
+}
+
+
+message LabelListResponse {
+    repeated Label data = 1;
 }
 
 message BatchFileTaskRequest {

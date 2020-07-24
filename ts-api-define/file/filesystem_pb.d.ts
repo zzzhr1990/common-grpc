@@ -392,6 +392,9 @@ export class FileInfoListFilter extends jspb.Message {
     getName(): string;
     setName(value: string): FileInfoListFilter;
 
+    getLabel(): number;
+    setLabel(value: number): FileInfoListFilter;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): FileInfoListFilter.AsObject;
@@ -409,6 +412,7 @@ export namespace FileInfoListFilter {
         typeList: Array<number>,
         directory: number,
         name: string,
+        label: number,
     }
 }
 
@@ -442,6 +446,9 @@ export class FileInfoListRequest extends jspb.Message {
     getOp(): number;
     setOp(value: number): FileInfoListRequest;
 
+    getSearch(): boolean;
+    setSearch(value: boolean): FileInfoListRequest;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): FileInfoListRequest.AsObject;
@@ -462,6 +469,7 @@ export namespace FileInfoListRequest {
         orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
         filter?: FileInfoListFilter.AsObject,
         op: number,
+        search: boolean,
     }
 }
 
@@ -499,6 +507,52 @@ export namespace Label {
         name: string,
         type: number,
         createTime: number,
+    }
+}
+
+export class LabelListRequest extends jspb.Message { 
+    clearOrderByList(): void;
+    getOrderByList(): Array<common_common_entity_pb.OrderByRequest>;
+    setOrderByList(value: Array<common_common_entity_pb.OrderByRequest>): LabelListRequest;
+    addOrderBy(value?: common_common_entity_pb.OrderByRequest, index?: number): common_common_entity_pb.OrderByRequest;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): LabelListRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: LabelListRequest): LabelListRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: LabelListRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): LabelListRequest;
+    static deserializeBinaryFromReader(message: LabelListRequest, reader: jspb.BinaryReader): LabelListRequest;
+}
+
+export namespace LabelListRequest {
+    export type AsObject = {
+        orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
+    }
+}
+
+export class LabelListResponse extends jspb.Message { 
+    clearDataList(): void;
+    getDataList(): Array<Label>;
+    setDataList(value: Array<Label>): LabelListResponse;
+    addData(value?: Label, index?: number): Label;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): LabelListResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: LabelListResponse): LabelListResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: LabelListResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): LabelListResponse;
+    static deserializeBinaryFromReader(message: LabelListResponse, reader: jspb.BinaryReader): LabelListResponse;
+}
+
+export namespace LabelListResponse {
+    export type AsObject = {
+        dataList: Array<Label.AsObject>,
     }
 }
 
