@@ -138,6 +138,7 @@ message FileInfoListFilter {
     int32 directory = 3;
     string name = 4;
     int32 label = 5;
+    bool  hidden = 6;
 }
 
 message FileInfoListRequest {

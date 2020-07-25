@@ -395,6 +395,9 @@ export class FileInfoListFilter extends jspb.Message {
     getLabel(): number;
     setLabel(value: number): FileInfoListFilter;
 
+    getHidden(): boolean;
+    setHidden(value: boolean): FileInfoListFilter;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): FileInfoListFilter.AsObject;
@@ -413,6 +416,7 @@ export namespace FileInfoListFilter {
         directory: number,
         name: string,
         label: number,
+        hidden: boolean,
     }
 }
 

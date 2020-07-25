@@ -3014,7 +3014,8 @@ proto.services.FileInfoListFilter.toObject = function(includeInstance, msg) {
     typeList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
     directory: jspb.Message.getFieldWithDefault(msg, 3, 0),
     name: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    label: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    label: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    hidden: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
   };
 
   if (includeInstance) {
@@ -3070,6 +3071,10 @@ proto.services.FileInfoListFilter.deserializeBinaryFromReader = function(msg, re
     case 5:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setLabel(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setHidden(value);
       break;
     default:
       reader.skipField();
@@ -3132,6 +3137,13 @@ proto.services.FileInfoListFilter.serializeBinaryToWriter = function(message, wr
   if (f !== 0) {
     writer.writeInt32(
       5,
+      f
+    );
+  }
+  f = message.getHidden();
+  if (f) {
+    writer.writeBool(
+      6,
       f
     );
   }
@@ -3263,6 +3275,24 @@ proto.services.FileInfoListFilter.prototype.getLabel = function() {
  */
 proto.services.FileInfoListFilter.prototype.setLabel = function(value) {
   return jspb.Message.setProto3IntField(this, 5, value);
+};
+
+
+/**
+ * optional bool hidden = 6;
+ * @return {boolean}
+ */
+proto.services.FileInfoListFilter.prototype.getHidden = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.services.FileInfoListFilter} returns this
+ */
+proto.services.FileInfoListFilter.prototype.setHidden = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 
