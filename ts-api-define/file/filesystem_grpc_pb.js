@@ -363,6 +363,17 @@ createLabel: {
     responseSerialize: serialize_services_BatchFileTaskResult,
     responseDeserialize: deserialize_services_BatchFileTaskResult,
   },
+  removeLabelFromFiles: {
+    path: '/services.FileService/RemoveLabelFromFiles',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.BatchFileTaskRequest,
+    responseType: file_filesystem_pb.BatchFileTaskResult,
+    requestSerialize: serialize_services_BatchFileTaskRequest,
+    requestDeserialize: deserialize_services_BatchFileTaskRequest,
+    responseSerialize: serialize_services_BatchFileTaskResult,
+    responseDeserialize: deserialize_services_BatchFileTaskResult,
+  },
 };
 
 exports.FileServiceClient = grpc.makeGenericClientConstructor(FileServiceService);
