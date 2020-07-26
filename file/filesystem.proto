@@ -27,6 +27,7 @@ service FileService {
 
     // Label
     rpc CreateLabel (Label) returns (Label) {}
+    rpc GetLabel (Label) returns (Label) {}
     rpc DeleteLabel (BatchLabelRequest) returns (BatchFileTaskResult) {}
     rpc ListLabel (LabelListRequest) returns (LabelListResponse) {}
     rpc AddLabelToFiles (BatchFileTaskRequest) returns (BatchFileTaskResult) {}

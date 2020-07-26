@@ -1749,7 +1749,7 @@ var file_file_filesystem_proto_rawDesc = []byte{
 	0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x27, 0x0a, 0x04, 0x64, 0x61, 0x74,
 	0x61, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
 	0x65, 0x73, 0x2e, 0x54, 0x72, 0x61, 0x73, 0x68, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x04, 0x64, 0x61,
-	0x74, 0x61, 0x32, 0xce, 0x0a, 0x0a, 0x0b, 0x46, 0x69, 0x6c, 0x65, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x74, 0x61, 0x32, 0xfe, 0x0a, 0x0a, 0x0b, 0x46, 0x69, 0x6c, 0x65, 0x53, 0x65, 0x72, 0x76, 0x69,
 	0x63, 0x65, 0x12, 0x32, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x12, 0x2e, 0x73,
 	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x46, 0x69, 0x6c, 0x65, 0x49, 0x6e, 0x66, 0x6f,
 	0x1a, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x46, 0x69, 0x6c, 0x65,
@@ -1812,6 +1812,9 @@ var file_file_filesystem_proto_rawDesc = []byte{
 	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x42, 0x61, 0x74, 0x63, 0x68, 0x46, 0x69,
 	0x6c, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x00, 0x12, 0x31,
 	0x0a, 0x0b, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4c, 0x61, 0x62, 0x65, 0x6c, 0x12, 0x0f, 0x2e,
+	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x4c, 0x61, 0x62, 0x65, 0x6c, 0x1a, 0x0f,
+	0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x4c, 0x61, 0x62, 0x65, 0x6c, 0x22,
+	0x00, 0x12, 0x2e, 0x0a, 0x08, 0x47, 0x65, 0x74, 0x4c, 0x61, 0x62, 0x65, 0x6c, 0x12, 0x0f, 0x2e,
 	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x4c, 0x61, 0x62, 0x65, 0x6c, 0x1a, 0x0f,
 	0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x4c, 0x61, 0x62, 0x65, 0x6c, 0x22,
 	0x00, 0x12, 0x4b, 0x0a, 0x0b, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4c, 0x61, 0x62, 0x65, 0x6c,
@@ -1925,39 +1928,41 @@ var file_file_filesystem_proto_depIdxs = []int32{
 	13, // 28: services.FileService.GetTrash:input_type -> services.TrashInfo
 	13, // 29: services.FileService.ClearTrash:input_type -> services.TrashInfo
 	7,  // 30: services.FileService.CreateLabel:input_type -> services.Label
-	11, // 31: services.FileService.DeleteLabel:input_type -> services.BatchLabelRequest
-	8,  // 32: services.FileService.ListLabel:input_type -> services.LabelListRequest
-	10, // 33: services.FileService.AddLabelToFiles:input_type -> services.BatchFileTaskRequest
-	10, // 34: services.FileService.RemoveLabelFromFiles:input_type -> services.BatchFileTaskRequest
-	0,  // 35: services.FileNoticeService.OnProgress:input_type -> services.TaskProgress
-	1,  // 36: services.FileNoticeService.OnComplete:input_type -> services.TaskCompleteEvent
-	2,  // 37: services.FileNoticeService.OnError:input_type -> services.TaskStatusUpdateEvent
-	2,  // 38: services.FileNoticeService.OnCancel:input_type -> services.TaskStatusUpdateEvent
-	3,  // 39: services.FileService.Create:output_type -> services.FileInfo
-	3,  // 40: services.FileService.Get:output_type -> services.FileInfo
-	4,  // 41: services.FileService.List:output_type -> services.FileInfoListResponse
-	4,  // 42: services.FileService.ListInternal:output_type -> services.FileInfoListResponse
-	12, // 43: services.FileService.Trash:output_type -> services.BatchFileTaskResult
-	12, // 44: services.FileService.Delete:output_type -> services.BatchFileTaskResult
-	12, // 45: services.FileService.Copy:output_type -> services.BatchFileTaskResult
-	12, // 46: services.FileService.Move:output_type -> services.BatchFileTaskResult
-	12, // 47: services.FileService.Rename:output_type -> services.BatchFileTaskResult
-	12, // 48: services.FileService.Recover:output_type -> services.BatchFileTaskResult
-	12, // 49: services.FileService.DeleteTrash:output_type -> services.BatchFileTaskResult
-	14, // 50: services.FileService.ListTrash:output_type -> services.TrashInfoListResponse
-	13, // 51: services.FileService.GetTrash:output_type -> services.TrashInfo
-	12, // 52: services.FileService.ClearTrash:output_type -> services.BatchFileTaskResult
-	7,  // 53: services.FileService.CreateLabel:output_type -> services.Label
-	12, // 54: services.FileService.DeleteLabel:output_type -> services.BatchFileTaskResult
-	9,  // 55: services.FileService.ListLabel:output_type -> services.LabelListResponse
-	12, // 56: services.FileService.AddLabelToFiles:output_type -> services.BatchFileTaskResult
-	12, // 57: services.FileService.RemoveLabelFromFiles:output_type -> services.BatchFileTaskResult
-	0,  // 58: services.FileNoticeService.OnProgress:output_type -> services.TaskProgress
-	1,  // 59: services.FileNoticeService.OnComplete:output_type -> services.TaskCompleteEvent
-	2,  // 60: services.FileNoticeService.OnError:output_type -> services.TaskStatusUpdateEvent
-	2,  // 61: services.FileNoticeService.OnCancel:output_type -> services.TaskStatusUpdateEvent
-	39, // [39:62] is the sub-list for method output_type
-	16, // [16:39] is the sub-list for method input_type
+	7,  // 31: services.FileService.GetLabel:input_type -> services.Label
+	11, // 32: services.FileService.DeleteLabel:input_type -> services.BatchLabelRequest
+	8,  // 33: services.FileService.ListLabel:input_type -> services.LabelListRequest
+	10, // 34: services.FileService.AddLabelToFiles:input_type -> services.BatchFileTaskRequest
+	10, // 35: services.FileService.RemoveLabelFromFiles:input_type -> services.BatchFileTaskRequest
+	0,  // 36: services.FileNoticeService.OnProgress:input_type -> services.TaskProgress
+	1,  // 37: services.FileNoticeService.OnComplete:input_type -> services.TaskCompleteEvent
+	2,  // 38: services.FileNoticeService.OnError:input_type -> services.TaskStatusUpdateEvent
+	2,  // 39: services.FileNoticeService.OnCancel:input_type -> services.TaskStatusUpdateEvent
+	3,  // 40: services.FileService.Create:output_type -> services.FileInfo
+	3,  // 41: services.FileService.Get:output_type -> services.FileInfo
+	4,  // 42: services.FileService.List:output_type -> services.FileInfoListResponse
+	4,  // 43: services.FileService.ListInternal:output_type -> services.FileInfoListResponse
+	12, // 44: services.FileService.Trash:output_type -> services.BatchFileTaskResult
+	12, // 45: services.FileService.Delete:output_type -> services.BatchFileTaskResult
+	12, // 46: services.FileService.Copy:output_type -> services.BatchFileTaskResult
+	12, // 47: services.FileService.Move:output_type -> services.BatchFileTaskResult
+	12, // 48: services.FileService.Rename:output_type -> services.BatchFileTaskResult
+	12, // 49: services.FileService.Recover:output_type -> services.BatchFileTaskResult
+	12, // 50: services.FileService.DeleteTrash:output_type -> services.BatchFileTaskResult
+	14, // 51: services.FileService.ListTrash:output_type -> services.TrashInfoListResponse
+	13, // 52: services.FileService.GetTrash:output_type -> services.TrashInfo
+	12, // 53: services.FileService.ClearTrash:output_type -> services.BatchFileTaskResult
+	7,  // 54: services.FileService.CreateLabel:output_type -> services.Label
+	7,  // 55: services.FileService.GetLabel:output_type -> services.Label
+	12, // 56: services.FileService.DeleteLabel:output_type -> services.BatchFileTaskResult
+	9,  // 57: services.FileService.ListLabel:output_type -> services.LabelListResponse
+	12, // 58: services.FileService.AddLabelToFiles:output_type -> services.BatchFileTaskResult
+	12, // 59: services.FileService.RemoveLabelFromFiles:output_type -> services.BatchFileTaskResult
+	0,  // 60: services.FileNoticeService.OnProgress:output_type -> services.TaskProgress
+	1,  // 61: services.FileNoticeService.OnComplete:output_type -> services.TaskCompleteEvent
+	2,  // 62: services.FileNoticeService.OnError:output_type -> services.TaskStatusUpdateEvent
+	2,  // 63: services.FileNoticeService.OnCancel:output_type -> services.TaskStatusUpdateEvent
+	40, // [40:64] is the sub-list for method output_type
+	16, // [16:40] is the sub-list for method input_type
 	16, // [16:16] is the sub-list for extension type_name
 	16, // [16:16] is the sub-list for extension extendee
 	0,  // [0:16] is the sub-list for field type_name
@@ -2201,6 +2206,7 @@ type FileServiceClient interface {
 	ClearTrash(ctx context.Context, in *TrashInfo, opts ...grpc.CallOption) (*BatchFileTaskResult, error)
 	// Label
 	CreateLabel(ctx context.Context, in *Label, opts ...grpc.CallOption) (*Label, error)
+	GetLabel(ctx context.Context, in *Label, opts ...grpc.CallOption) (*Label, error)
 	DeleteLabel(ctx context.Context, in *BatchLabelRequest, opts ...grpc.CallOption) (*BatchFileTaskResult, error)
 	ListLabel(ctx context.Context, in *LabelListRequest, opts ...grpc.CallOption) (*LabelListResponse, error)
 	AddLabelToFiles(ctx context.Context, in *BatchFileTaskRequest, opts ...grpc.CallOption) (*BatchFileTaskResult, error)
@@ -2350,6 +2356,15 @@ func (c *fileServiceClient) CreateLabel(ctx context.Context, in *Label, opts ...
 	return out, nil
 }
 
+func (c *fileServiceClient) GetLabel(ctx context.Context, in *Label, opts ...grpc.CallOption) (*Label, error) {
+	out := new(Label)
+	err := c.cc.Invoke(ctx, "/services.FileService/GetLabel", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *fileServiceClient) DeleteLabel(ctx context.Context, in *BatchLabelRequest, opts ...grpc.CallOption) (*BatchFileTaskResult, error) {
 	out := new(BatchFileTaskResult)
 	err := c.cc.Invoke(ctx, "/services.FileService/DeleteLabel", in, out, opts...)
@@ -2407,6 +2422,7 @@ type FileServiceServer interface {
 	ClearTrash(context.Context, *TrashInfo) (*BatchFileTaskResult, error)
 	// Label
 	CreateLabel(context.Context, *Label) (*Label, error)
+	GetLabel(context.Context, *Label) (*Label, error)
 	DeleteLabel(context.Context, *BatchLabelRequest) (*BatchFileTaskResult, error)
 	ListLabel(context.Context, *LabelListRequest) (*LabelListResponse, error)
 	AddLabelToFiles(context.Context, *BatchFileTaskRequest) (*BatchFileTaskResult, error)
@@ -2461,6 +2477,9 @@ func (*UnimplementedFileServiceServer) ClearTrash(context.Context, *TrashInfo) (
 }
 func (*UnimplementedFileServiceServer) CreateLabel(context.Context, *Label) (*Label, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateLabel not implemented")
+}
+func (*UnimplementedFileServiceServer) GetLabel(context.Context, *Label) (*Label, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetLabel not implemented")
 }
 func (*UnimplementedFileServiceServer) DeleteLabel(context.Context, *BatchLabelRequest) (*BatchFileTaskResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteLabel not implemented")
@@ -2749,6 +2768,24 @@ func _FileService_CreateLabel_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Label)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).GetLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.FileService/GetLabel",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).GetLabel(ctx, req.(*Label))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FileService_DeleteLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BatchLabelRequest)
 	if err := dec(in); err != nil {
@@ -2884,6 +2921,10 @@ var _FileService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateLabel",
 			Handler:    _FileService_CreateLabel_Handler,
+		},
+		{
+			MethodName: "GetLabel",
+			Handler:    _FileService_GetLabel_Handler,
 		},
 		{
 			MethodName: "DeleteLabel",

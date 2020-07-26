@@ -330,6 +330,17 @@ createLabel: {
     responseSerialize: serialize_services_Label,
     responseDeserialize: deserialize_services_Label,
   },
+  getLabel: {
+    path: '/services.FileService/GetLabel',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.Label,
+    responseType: file_filesystem_pb.Label,
+    requestSerialize: serialize_services_Label,
+    requestDeserialize: deserialize_services_Label,
+    responseSerialize: serialize_services_Label,
+    responseDeserialize: deserialize_services_Label,
+  },
   deleteLabel: {
     path: '/services.FileService/DeleteLabel',
     requestStream: false,
