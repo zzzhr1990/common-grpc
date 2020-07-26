@@ -515,6 +515,9 @@ export namespace Label {
 }
 
 export class LabelListRequest extends jspb.Message { 
+    getUserIdentity(): number;
+    setUserIdentity(value: number): LabelListRequest;
+
 
     hasListInfo(): boolean;
     clearListInfo(): void;
@@ -539,6 +542,7 @@ export class LabelListRequest extends jspb.Message {
 
 export namespace LabelListRequest {
     export type AsObject = {
+        userIdentity: number,
         listInfo?: common_common_entity_pb.ListInfo.AsObject,
         orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
     }
