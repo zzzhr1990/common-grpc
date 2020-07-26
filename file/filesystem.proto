@@ -29,6 +29,11 @@ service FileService {
     rpc CreateLabel (Label) returns (Label) {}
     rpc DeleteLabel (BatchLabelRequest) returns (BatchFileTaskResult) {}
     rpc ListLabel (LabelListRequest) returns (LabelListResponse) {}
+    rpc AddLabelToFiles (BatchFileTaskRequest) returns (BatchFileTaskResult) {}
+    // rpc Edit (FileInfo) returns (FileInfo) {}
+    // rpc Hide (FileInfo) returns (FileInfo) {}
+    // rpc CancelHidden (FileInfo) returns (FileInfo) {}
+    // rpc DeleteLabel (BatchLabelRequest) returns (BatchFileTaskResult) {}
 }
 
 service FileNoticeService {
