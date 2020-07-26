@@ -515,6 +515,12 @@ export namespace Label {
 }
 
 export class LabelListRequest extends jspb.Message { 
+
+    hasListInfo(): boolean;
+    clearListInfo(): void;
+    getListInfo(): common_common_entity_pb.ListInfo | undefined;
+    setListInfo(value?: common_common_entity_pb.ListInfo): LabelListRequest;
+
     clearOrderByList(): void;
     getOrderByList(): Array<common_common_entity_pb.OrderByRequest>;
     setOrderByList(value: Array<common_common_entity_pb.OrderByRequest>): LabelListRequest;
@@ -533,6 +539,7 @@ export class LabelListRequest extends jspb.Message {
 
 export namespace LabelListRequest {
     export type AsObject = {
+        listInfo?: common_common_entity_pb.ListInfo.AsObject,
         orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
     }
 }

@@ -3997,6 +3997,7 @@ proto.services.LabelListRequest.prototype.toObject = function(opt_includeInstanc
  */
 proto.services.LabelListRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    listInfo: (f = msg.getListInfo()) && common_common_entity_pb.ListInfo.toObject(includeInstance, f),
     orderByList: jspb.Message.toObjectList(msg.getOrderByList(),
     common_common_entity_pb.OrderByRequest.toObject, includeInstance)
   };
@@ -4035,6 +4036,11 @@ proto.services.LabelListRequest.deserializeBinaryFromReader = function(msg, read
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 4:
+      var value = new common_common_entity_pb.ListInfo;
+      reader.readMessage(value,common_common_entity_pb.ListInfo.deserializeBinaryFromReader);
+      msg.setListInfo(value);
+      break;
     case 5:
       var value = new common_common_entity_pb.OrderByRequest;
       reader.readMessage(value,common_common_entity_pb.OrderByRequest.deserializeBinaryFromReader);
@@ -4069,6 +4075,14 @@ proto.services.LabelListRequest.prototype.serializeBinary = function() {
  */
 proto.services.LabelListRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getListInfo();
+  if (f != null) {
+    writer.writeMessage(
+      4,
+      f,
+      common_common_entity_pb.ListInfo.serializeBinaryToWriter
+    );
+  }
   f = message.getOrderByList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
@@ -4077,6 +4091,43 @@ proto.services.LabelListRequest.serializeBinaryToWriter = function(message, writ
       common_common_entity_pb.OrderByRequest.serializeBinaryToWriter
     );
   }
+};
+
+
+/**
+ * optional ListInfo list_info = 4;
+ * @return {?proto.services.ListInfo}
+ */
+proto.services.LabelListRequest.prototype.getListInfo = function() {
+  return /** @type{?proto.services.ListInfo} */ (
+    jspb.Message.getWrapperField(this, common_common_entity_pb.ListInfo, 4));
+};
+
+
+/**
+ * @param {?proto.services.ListInfo|undefined} value
+ * @return {!proto.services.LabelListRequest} returns this
+*/
+proto.services.LabelListRequest.prototype.setListInfo = function(value) {
+  return jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.services.LabelListRequest} returns this
+ */
+proto.services.LabelListRequest.prototype.clearListInfo = function() {
+  return this.setListInfo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.services.LabelListRequest.prototype.hasListInfo = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 

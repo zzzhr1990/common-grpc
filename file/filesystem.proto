@@ -166,6 +166,7 @@ message Label {
 }
 
 message LabelListRequest {
+    ListInfo list_info = 4;
     repeated OrderByRequest order_by = 5;
 }
 
