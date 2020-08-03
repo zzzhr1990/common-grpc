@@ -31,6 +31,7 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
     listLabel: IFileServiceService_IListLabel;
     addLabelToFiles: IFileServiceService_IAddLabelToFiles;
     removeLabelFromFiles: IFileServiceService_IRemoveLabelFromFiles;
+    uploadToken: IFileServiceService_IUploadToken;
 }
 
 interface IFileServiceService_ICreate extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
@@ -222,6 +223,15 @@ interface IFileServiceService_IRemoveLabelFromFiles extends grpc.MethodDefinitio
     responseSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskResult>;
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
+interface IFileServiceService_IUploadToken extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.UploadTokenInfo> {
+    path: string; // "/services.FileService/UploadToken"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
+    requestDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
+    responseSerialize: grpc.serialize<file_filesystem_pb.UploadTokenInfo>;
+    responseDeserialize: grpc.deserialize<file_filesystem_pb.UploadTokenInfo>;
+}
 
 export const FileServiceService: IFileServiceService;
 
@@ -247,6 +257,7 @@ export interface IFileServiceServer {
     listLabel: grpc.handleUnaryCall<file_filesystem_pb.LabelListRequest, file_filesystem_pb.LabelListResponse>;
     addLabelToFiles: grpc.handleUnaryCall<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult>;
     removeLabelFromFiles: grpc.handleUnaryCall<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult>;
+    uploadToken: grpc.handleUnaryCall<file_filesystem_pb.FileInfo, file_filesystem_pb.UploadTokenInfo>;
 }
 
 export interface IFileServiceClient {
@@ -313,6 +324,9 @@ export interface IFileServiceClient {
     removeLabelFromFiles(request: file_filesystem_pb.BatchFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     removeLabelFromFiles(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     removeLabelFromFiles(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
+    uploadToken(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.UploadTokenInfo) => void): grpc.ClientUnaryCall;
+    uploadToken(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.UploadTokenInfo) => void): grpc.ClientUnaryCall;
+    uploadToken(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.UploadTokenInfo) => void): grpc.ClientUnaryCall;
 }
 
 export class FileServiceClient extends grpc.Client implements IFileServiceClient {
@@ -380,6 +394,9 @@ export class FileServiceClient extends grpc.Client implements IFileServiceClient
     public removeLabelFromFiles(request: file_filesystem_pb.BatchFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     public removeLabelFromFiles(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     public removeLabelFromFiles(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
+    public uploadToken(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.UploadTokenInfo) => void): grpc.ClientUnaryCall;
+    public uploadToken(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.UploadTokenInfo) => void): grpc.ClientUnaryCall;
+    public uploadToken(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.UploadTokenInfo) => void): grpc.ClientUnaryCall;
 }
 
 interface IFileNoticeServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {

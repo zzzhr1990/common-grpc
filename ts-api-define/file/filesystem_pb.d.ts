@@ -208,6 +208,54 @@ export namespace TaskStatusUpdateEvent {
     }
 }
 
+export class UploadTokenInfo extends jspb.Message { 
+    getUploadToken(): string;
+    setUploadToken(value: string): UploadTokenInfo;
+
+    getType(): string;
+    setType(value: string): UploadTokenInfo;
+
+    getFilePath(): string;
+    setFilePath(value: string): UploadTokenInfo;
+
+    getCreated(): boolean;
+    setCreated(value: boolean): UploadTokenInfo;
+
+
+    hasCreateInfo(): boolean;
+    clearCreateInfo(): void;
+    getCreateInfo(): FileInfo | undefined;
+    setCreateInfo(value?: FileInfo): UploadTokenInfo;
+
+    getPartUploadUrl(): string;
+    setPartUploadUrl(value: string): UploadTokenInfo;
+
+    getDirectUploadUrl(): string;
+    setDirectUploadUrl(value: string): UploadTokenInfo;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UploadTokenInfo.AsObject;
+    static toObject(includeInstance: boolean, msg: UploadTokenInfo): UploadTokenInfo.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UploadTokenInfo, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UploadTokenInfo;
+    static deserializeBinaryFromReader(message: UploadTokenInfo, reader: jspb.BinaryReader): UploadTokenInfo;
+}
+
+export namespace UploadTokenInfo {
+    export type AsObject = {
+        uploadToken: string,
+        type: string,
+        filePath: string,
+        created: boolean,
+        createInfo?: FileInfo.AsObject,
+        partUploadUrl: string,
+        directUploadUrl: string,
+    }
+}
+
 export class FileInfo extends jspb.Message { 
     getIdentity(): string;
     setIdentity(value: string): FileInfo;

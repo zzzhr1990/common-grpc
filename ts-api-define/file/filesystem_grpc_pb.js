@@ -159,6 +159,17 @@ function deserialize_services_TrashInfoListResponse(buffer_arg) {
   return file_filesystem_pb.TrashInfoListResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_UploadTokenInfo(arg) {
+  if (!(arg instanceof file_filesystem_pb.UploadTokenInfo)) {
+    throw new Error('Expected argument of type services.UploadTokenInfo');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_UploadTokenInfo(buffer_arg) {
+  return file_filesystem_pb.UploadTokenInfo.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 var FileServiceService = exports.FileServiceService = {
   create: {
@@ -395,6 +406,18 @@ createLabel: {
     requestDeserialize: deserialize_services_BatchFileTaskRequest,
     responseSerialize: serialize_services_BatchFileTaskResult,
     responseDeserialize: deserialize_services_BatchFileTaskResult,
+  },
+  // Upload
+uploadToken: {
+    path: '/services.FileService/UploadToken',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.FileInfo,
+    responseType: file_filesystem_pb.UploadTokenInfo,
+    requestSerialize: serialize_services_FileInfo,
+    requestDeserialize: deserialize_services_FileInfo,
+    responseSerialize: serialize_services_UploadTokenInfo,
+    responseDeserialize: deserialize_services_UploadTokenInfo,
   },
 };
 
