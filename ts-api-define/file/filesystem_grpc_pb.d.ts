@@ -19,6 +19,7 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
     copy: IFileServiceService_ICopy;
     move: IFileServiceService_IMove;
     rename: IFileServiceService_IRename;
+    flushStore: IFileServiceService_IFlushStore;
     recover: IFileServiceService_IRecover;
     deleteTrash: IFileServiceService_IDeleteTrash;
     listTrash: IFileServiceService_IListTrash;
@@ -114,6 +115,15 @@ interface IFileServiceService_IRename extends grpc.MethodDefinition<file_filesys
     requestDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
     responseSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskResult>;
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
+}
+interface IFileServiceService_IFlushStore extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
+    path: string; // "/services.FileService/FlushStore"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
+    requestDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
+    responseSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
+    responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
 }
 interface IFileServiceService_IRecover extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
     path: string; // "/services.FileService/Recover"
@@ -245,6 +255,7 @@ export interface IFileServiceServer {
     copy: grpc.handleUnaryCall<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult>;
     move: grpc.handleUnaryCall<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult>;
     rename: grpc.handleUnaryCall<file_filesystem_pb.FileInfo, file_filesystem_pb.BatchFileTaskResult>;
+    flushStore: grpc.handleUnaryCall<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo>;
     recover: grpc.handleUnaryCall<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult>;
     deleteTrash: grpc.handleUnaryCall<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult>;
     listTrash: grpc.handleUnaryCall<file_filesystem_pb.FileInfoListRequest, file_filesystem_pb.TrashInfoListResponse>;
@@ -288,6 +299,9 @@ export interface IFileServiceClient {
     rename(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     rename(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     rename(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
+    flushStore(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    flushStore(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    flushStore(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     recover(request: file_filesystem_pb.BatchFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     recover(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     recover(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
@@ -358,6 +372,9 @@ export class FileServiceClient extends grpc.Client implements IFileServiceClient
     public rename(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     public rename(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     public rename(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
+    public flushStore(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    public flushStore(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
+    public flushStore(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     public recover(request: file_filesystem_pb.BatchFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     public recover(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     public recover(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;

@@ -272,8 +272,18 @@ list: {
     responseSerialize: serialize_services_BatchFileTaskResult,
     responseDeserialize: deserialize_services_BatchFileTaskResult,
   },
-  // rpc FlushStore (UserFile) returns (UserFile) {}
-// 
+  flushStore: {
+    path: '/services.FileService/FlushStore',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.FileInfo,
+    responseType: file_filesystem_pb.FileInfo,
+    requestSerialize: serialize_services_FileInfo,
+    requestDeserialize: deserialize_services_FileInfo,
+    responseSerialize: serialize_services_FileInfo,
+    responseDeserialize: deserialize_services_FileInfo,
+  },
+  // 
 recover: {
     path: '/services.FileService/Recover',
     requestStream: false,
