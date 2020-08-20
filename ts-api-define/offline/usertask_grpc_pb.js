@@ -221,6 +221,17 @@ getListeners: {
     responseSerialize: serialize_services_Int64Entity,
     responseDeserialize: deserialize_services_Int64Entity,
   },
+  deleteAllListener: {
+    path: '/services.UserTaskService/deleteAllListener',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.TaskListener,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_TaskListener,
+    requestDeserialize: deserialize_services_TaskListener,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
+  },
   fakeCopy: {
     path: '/services.UserTaskService/fakeCopy',
     requestStream: false,
