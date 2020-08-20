@@ -22,7 +22,7 @@ service UserTaskService {
     // rpc syncTask (TaskListener) returns (Int64Entity) {}
     rpc getListeners (TaskListener) returns (TaskListenerList) {}
     rpc updateListener (TaskListener) returns (TaskListener) {}
-    rpc deleteListeners (TaskListener) returns (Int64Entity) {}
+    rpc deleteCompleteListener (TaskListener) returns (Int64Entity) {}
     rpc deleteFakeCopyListener (TaskListener) returns (Int64Entity) {}
     rpc deleteAllListener (TaskListener) returns (Int64Entity) {}
     rpc fakeCopy(TaskListener)returns (TaskListener) {}

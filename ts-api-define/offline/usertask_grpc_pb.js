@@ -199,8 +199,8 @@ getListeners: {
     responseSerialize: serialize_services_TaskListener,
     responseDeserialize: deserialize_services_TaskListener,
   },
-  deleteListeners: {
-    path: '/services.UserTaskService/deleteListeners',
+  deleteCompleteListener: {
+    path: '/services.UserTaskService/deleteCompleteListener',
     requestStream: false,
     responseStream: false,
     requestType: offline_usertask_pb.TaskListener,
