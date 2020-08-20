@@ -153,8 +153,8 @@ list: {
     responseSerialize: serialize_services_UserTask,
     responseDeserialize: deserialize_services_UserTask,
   },
-  complete: {
-    path: '/services.UserTaskService/complete',
+  completeOrError: {
+    path: '/services.UserTaskService/completeOrError',
     requestStream: false,
     responseStream: false,
     requestType: offline_usertask_pb.UserTask,
@@ -164,8 +164,9 @@ list: {
     responseSerialize: serialize_services_UserTask,
     responseDeserialize: deserialize_services_UserTask,
   },
-  error: {
-    path: '/services.UserTaskService/error',
+  // rpc error(UserTask) returns (UserTask) {}
+update: {
+    path: '/services.UserTaskService/update',
     requestStream: false,
     responseStream: false,
     requestType: offline_usertask_pb.UserTask,
@@ -175,18 +176,8 @@ list: {
     responseSerialize: serialize_services_UserTask,
     responseDeserialize: deserialize_services_UserTask,
   },
-  syncTask: {
-    path: '/services.UserTaskService/syncTask',
-    requestStream: false,
-    responseStream: false,
-    requestType: offline_usertask_pb.TaskListener,
-    responseType: common_common_entity_pb.Int64Entity,
-    requestSerialize: serialize_services_TaskListener,
-    requestDeserialize: deserialize_services_TaskListener,
-    responseSerialize: serialize_services_Int64Entity,
-    responseDeserialize: deserialize_services_Int64Entity,
-  },
-  getListeners: {
+  // rpc syncTask (TaskListener) returns (Int64Entity) {}
+getListeners: {
     path: '/services.UserTaskService/getListeners',
     requestStream: false,
     responseStream: false,
@@ -210,6 +201,17 @@ list: {
   },
   deleteListeners: {
     path: '/services.UserTaskService/deleteListeners',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.TaskListener,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_TaskListener,
+    requestDeserialize: deserialize_services_TaskListener,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
+  },
+  deleteFakeCopyListener: {
+    path: '/services.UserTaskService/deleteFakeCopyListener',
     requestStream: false,
     responseStream: false,
     requestType: offline_usertask_pb.TaskListener,

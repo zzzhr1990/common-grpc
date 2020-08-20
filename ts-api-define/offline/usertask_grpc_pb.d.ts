@@ -14,12 +14,12 @@ interface IUserTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedSer
     list: IUserTaskServiceService_Ilist;
     delete: IUserTaskServiceService_Idelete;
     get: IUserTaskServiceService_Iget;
-    complete: IUserTaskServiceService_Icomplete;
-    error: IUserTaskServiceService_Ierror;
-    syncTask: IUserTaskServiceService_IsyncTask;
+    completeOrError: IUserTaskServiceService_IcompleteOrError;
+    update: IUserTaskServiceService_Iupdate;
     getListeners: IUserTaskServiceService_IgetListeners;
     updateListener: IUserTaskServiceService_IupdateListener;
     deleteListeners: IUserTaskServiceService_IdeleteListeners;
+    deleteFakeCopyListener: IUserTaskServiceService_IdeleteFakeCopyListener;
     fakeCopy: IUserTaskServiceService_IfakeCopy;
     clear: IUserTaskServiceService_Iclear;
 }
@@ -60,8 +60,8 @@ interface IUserTaskServiceService_Iget extends grpc.MethodDefinition<offline_use
     responseSerialize: grpc.serialize<offline_usertask_pb.UserTask>;
     responseDeserialize: grpc.deserialize<offline_usertask_pb.UserTask>;
 }
-interface IUserTaskServiceService_Icomplete extends grpc.MethodDefinition<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask> {
-    path: string; // "/services.UserTaskService/complete"
+interface IUserTaskServiceService_IcompleteOrError extends grpc.MethodDefinition<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask> {
+    path: string; // "/services.UserTaskService/completeOrError"
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.UserTask>;
@@ -69,23 +69,14 @@ interface IUserTaskServiceService_Icomplete extends grpc.MethodDefinition<offlin
     responseSerialize: grpc.serialize<offline_usertask_pb.UserTask>;
     responseDeserialize: grpc.deserialize<offline_usertask_pb.UserTask>;
 }
-interface IUserTaskServiceService_Ierror extends grpc.MethodDefinition<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask> {
-    path: string; // "/services.UserTaskService/error"
+interface IUserTaskServiceService_Iupdate extends grpc.MethodDefinition<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask> {
+    path: string; // "/services.UserTaskService/update"
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.UserTask>;
     requestDeserialize: grpc.deserialize<offline_usertask_pb.UserTask>;
     responseSerialize: grpc.serialize<offline_usertask_pb.UserTask>;
     responseDeserialize: grpc.deserialize<offline_usertask_pb.UserTask>;
-}
-interface IUserTaskServiceService_IsyncTask extends grpc.MethodDefinition<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.UserTaskService/syncTask"
-    requestStream: false;
-    responseStream: false;
-    requestSerialize: grpc.serialize<offline_usertask_pb.TaskListener>;
-    requestDeserialize: grpc.deserialize<offline_usertask_pb.TaskListener>;
-    responseSerialize: grpc.serialize<common_common_entity_pb.Int64Entity>;
-    responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IUserTaskServiceService_IgetListeners extends grpc.MethodDefinition<offline_usertask_pb.TaskListener, offline_usertask_pb.TaskListenerList> {
     path: string; // "/services.UserTaskService/getListeners"
@@ -107,6 +98,15 @@ interface IUserTaskServiceService_IupdateListener extends grpc.MethodDefinition<
 }
 interface IUserTaskServiceService_IdeleteListeners extends grpc.MethodDefinition<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity> {
     path: string; // "/services.UserTaskService/deleteListeners"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<offline_usertask_pb.TaskListener>;
+    requestDeserialize: grpc.deserialize<offline_usertask_pb.TaskListener>;
+    responseSerialize: grpc.serialize<common_common_entity_pb.Int64Entity>;
+    responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
+}
+interface IUserTaskServiceService_IdeleteFakeCopyListener extends grpc.MethodDefinition<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity> {
+    path: string; // "/services.UserTaskService/deleteFakeCopyListener"
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.TaskListener>;
@@ -140,12 +140,12 @@ export interface IUserTaskServiceServer {
     list: grpc.handleUnaryCall<offline_usertask_pb.ListUserTaskRequest, offline_usertask_pb.UserTaskList>;
     delete: grpc.handleUnaryCall<offline_usertask_pb.DeleteUserTaskRequest, common_common_entity_pb.Int64Entity>;
     get: grpc.handleUnaryCall<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask>;
-    complete: grpc.handleUnaryCall<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask>;
-    error: grpc.handleUnaryCall<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask>;
-    syncTask: grpc.handleUnaryCall<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity>;
+    completeOrError: grpc.handleUnaryCall<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask>;
+    update: grpc.handleUnaryCall<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask>;
     getListeners: grpc.handleUnaryCall<offline_usertask_pb.TaskListener, offline_usertask_pb.TaskListenerList>;
     updateListener: grpc.handleUnaryCall<offline_usertask_pb.TaskListener, offline_usertask_pb.TaskListener>;
     deleteListeners: grpc.handleUnaryCall<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity>;
+    deleteFakeCopyListener: grpc.handleUnaryCall<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity>;
     fakeCopy: grpc.handleUnaryCall<offline_usertask_pb.TaskListener, offline_usertask_pb.TaskListener>;
     clear: grpc.handleUnaryCall<offline_usertask_pb.ClearTaskRequest, common_common_entity_pb.Int64Entity>;
 }
@@ -163,15 +163,12 @@ export interface IUserTaskServiceClient {
     get(request: offline_usertask_pb.UserTask, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
     get(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
     get(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    complete(request: offline_usertask_pb.UserTask, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    complete(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    complete(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    error(request: offline_usertask_pb.UserTask, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    error(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    error(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    syncTask(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
-    syncTask(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
-    syncTask(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
+    completeOrError(request: offline_usertask_pb.UserTask, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
+    completeOrError(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
+    completeOrError(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
+    update(request: offline_usertask_pb.UserTask, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
+    update(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
+    update(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
     getListeners(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListenerList) => void): grpc.ClientUnaryCall;
     getListeners(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListenerList) => void): grpc.ClientUnaryCall;
     getListeners(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListenerList) => void): grpc.ClientUnaryCall;
@@ -181,6 +178,9 @@ export interface IUserTaskServiceClient {
     deleteListeners(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     deleteListeners(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     deleteListeners(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
+    deleteFakeCopyListener(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
+    deleteFakeCopyListener(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
+    deleteFakeCopyListener(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     fakeCopy(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
     fakeCopy(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
     fakeCopy(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
@@ -203,15 +203,12 @@ export class UserTaskServiceClient extends grpc.Client implements IUserTaskServi
     public get(request: offline_usertask_pb.UserTask, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
     public get(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
     public get(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    public complete(request: offline_usertask_pb.UserTask, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    public complete(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    public complete(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    public error(request: offline_usertask_pb.UserTask, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    public error(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    public error(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
-    public syncTask(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
-    public syncTask(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
-    public syncTask(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
+    public completeOrError(request: offline_usertask_pb.UserTask, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
+    public completeOrError(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
+    public completeOrError(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
+    public update(request: offline_usertask_pb.UserTask, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
+    public update(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
+    public update(request: offline_usertask_pb.UserTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTask) => void): grpc.ClientUnaryCall;
     public getListeners(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListenerList) => void): grpc.ClientUnaryCall;
     public getListeners(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListenerList) => void): grpc.ClientUnaryCall;
     public getListeners(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListenerList) => void): grpc.ClientUnaryCall;
@@ -221,6 +218,9 @@ export class UserTaskServiceClient extends grpc.Client implements IUserTaskServi
     public deleteListeners(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     public deleteListeners(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     public deleteListeners(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
+    public deleteFakeCopyListener(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
+    public deleteFakeCopyListener(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
+    public deleteFakeCopyListener(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     public fakeCopy(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
     public fakeCopy(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
     public fakeCopy(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
