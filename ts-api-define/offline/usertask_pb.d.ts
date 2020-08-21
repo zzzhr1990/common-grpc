@@ -310,8 +310,8 @@ export class DeleteUserTaskRequest extends jspb.Message {
     setTaskIdentityList(value: Array<string>): DeleteUserTaskRequest;
     addTaskIdentity(value: string, index?: number): string;
 
-    getDeleteFile(): number;
-    setDeleteFile(value: number): DeleteUserTaskRequest;
+    getDeleteFile(): boolean;
+    setDeleteFile(value: boolean): DeleteUserTaskRequest;
 
 
     serializeBinary(): Uint8Array;
@@ -328,7 +328,7 @@ export namespace DeleteUserTaskRequest {
     export type AsObject = {
         userIdentity: number,
         taskIdentityList: Array<string>,
-        deleteFile: number,
+        deleteFile: boolean,
     }
 }
 

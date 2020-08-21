@@ -120,7 +120,7 @@ message ListUserTaskRequest {
 message DeleteUserTaskRequest {
     int64 user_identity = 1;
     repeated string task_identity = 2;
-    int64 delete_file = 3;
+    bool delete_file = 3;
     // deleteFile
 }
 

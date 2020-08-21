@@ -2335,7 +2335,7 @@ proto.services.DeleteUserTaskRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     userIdentity: jspb.Message.getFieldWithDefault(msg, 1, 0),
     taskIdentityList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
-    deleteFile: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    deleteFile: jspb.Message.getBooleanFieldWithDefault(msg, 3, false)
   };
 
   if (includeInstance) {
@@ -2381,7 +2381,7 @@ proto.services.DeleteUserTaskRequest.deserializeBinaryFromReader = function(msg,
       msg.addTaskIdentity(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {boolean} */ (reader.readBool());
       msg.setDeleteFile(value);
       break;
     default:
@@ -2428,8 +2428,8 @@ proto.services.DeleteUserTaskRequest.serializeBinaryToWriter = function(message,
     );
   }
   f = message.getDeleteFile();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f) {
+    writer.writeBool(
       3,
       f
     );
@@ -2493,20 +2493,20 @@ proto.services.DeleteUserTaskRequest.prototype.clearTaskIdentityList = function(
 
 
 /**
- * optional int64 delete_file = 3;
- * @return {number}
+ * optional bool delete_file = 3;
+ * @return {boolean}
  */
 proto.services.DeleteUserTaskRequest.prototype.getDeleteFile = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
 };
 
 
 /**
- * @param {number} value
+ * @param {boolean} value
  * @return {!proto.services.DeleteUserTaskRequest} returns this
  */
 proto.services.DeleteUserTaskRequest.prototype.setDeleteFile = function(value) {
-  return jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
