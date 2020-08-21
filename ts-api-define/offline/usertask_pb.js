@@ -2334,7 +2334,8 @@ proto.services.DeleteUserTaskRequest.prototype.toObject = function(opt_includeIn
 proto.services.DeleteUserTaskRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     userIdentity: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    taskIdentityList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
+    taskIdentityList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
+    deleteFile: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -2379,6 +2380,10 @@ proto.services.DeleteUserTaskRequest.deserializeBinaryFromReader = function(msg,
       var value = /** @type {string} */ (reader.readString());
       msg.addTaskIdentity(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setDeleteFile(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -2419,6 +2424,13 @@ proto.services.DeleteUserTaskRequest.serializeBinaryToWriter = function(message,
   if (f.length > 0) {
     writer.writeRepeatedString(
       2,
+      f
+    );
+  }
+  f = message.getDeleteFile();
+  if (f !== 0) {
+    writer.writeInt64(
+      3,
       f
     );
   }
@@ -2477,6 +2489,24 @@ proto.services.DeleteUserTaskRequest.prototype.addTaskIdentity = function(value,
  */
 proto.services.DeleteUserTaskRequest.prototype.clearTaskIdentityList = function() {
   return this.setTaskIdentityList([]);
+};
+
+
+/**
+ * optional int64 delete_file = 3;
+ * @return {number}
+ */
+proto.services.DeleteUserTaskRequest.prototype.getDeleteFile = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.DeleteUserTaskRequest} returns this
+ */
+proto.services.DeleteUserTaskRequest.prototype.setDeleteFile = function(value) {
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
