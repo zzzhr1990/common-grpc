@@ -919,7 +919,7 @@ var file_offline_usertask_proto_rawDesc = []byte{
 	0x02, 0x20, 0x03, 0x28, 0x05, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x6e,
 	0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12,
 	0x12, 0x0a, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x18, 0x04, 0x20, 0x01, 0x28, 0x05, 0x52, 0x04, 0x6b,
-	0x69, 0x6e, 0x64, 0x32, 0xd9, 0x06, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b,
+	0x69, 0x6e, 0x64, 0x32, 0x9b, 0x06, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x72, 0x54, 0x61, 0x73, 0x6b,
 	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3d, 0x0a, 0x03, 0x61, 0x64, 0x64, 0x12, 0x1c,
 	0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x41, 0x64, 0x64, 0x55, 0x73, 0x65,
 	0x72, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x73,
@@ -965,19 +965,15 @@ var file_offline_usertask_proto_rawDesc = []byte{
 	0x65, 0x72, 0x12, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x61,
 	0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x1a, 0x15, 0x2e, 0x73, 0x65, 0x72,
 	0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x45, 0x6e, 0x74, 0x69, 0x74,
-	0x79, 0x22, 0x00, 0x12, 0x3c, 0x0a, 0x08, 0x66, 0x61, 0x6b, 0x65, 0x43, 0x6f, 0x70, 0x79, 0x12,
-	0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x4c,
-	0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x1a, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x65, 0x6e, 0x65, 0x72, 0x22,
-	0x00, 0x12, 0x3c, 0x0a, 0x05, 0x63, 0x6c, 0x65, 0x61, 0x72, 0x12, 0x1a, 0x2e, 0x73, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x43, 0x6c, 0x65, 0x61, 0x72, 0x54, 0x61, 0x73, 0x6b, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x73, 0x2e, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x45, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x22, 0x00, 0x42,
-	0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x7a, 0x7a,
-	0x7a, 0x68, 0x72, 0x31, 0x39, 0x39, 0x30, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2d, 0x67,
-	0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2f,
-	0x6f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x74, 0x61, 0x73, 0x6b,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x79, 0x22, 0x00, 0x12, 0x3c, 0x0a, 0x05, 0x63, 0x6c, 0x65, 0x61, 0x72, 0x12, 0x1a, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x43, 0x6c, 0x65, 0x61, 0x72, 0x54, 0x61, 0x73,
+	0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x73, 0x2e, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x45, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x22,
+	0x00, 0x42, 0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x7a, 0x7a, 0x7a, 0x68, 0x72, 0x31, 0x39, 0x39, 0x30, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e,
+	0x2d, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x73, 0x2f, 0x6f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x74, 0x61,
+	0x73, 0x6b, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1025,23 +1021,21 @@ var file_offline_usertask_proto_depIdxs = []int32{
 	2,  // 14: services.UserTaskService.deleteCompleteListener:input_type -> services.TaskListener
 	2,  // 15: services.UserTaskService.deleteFakeCopyListener:input_type -> services.TaskListener
 	2,  // 16: services.UserTaskService.deleteAllListener:input_type -> services.TaskListener
-	2,  // 17: services.UserTaskService.fakeCopy:input_type -> services.TaskListener
-	4,  // 18: services.UserTaskService.clear:input_type -> services.ClearTaskRequest
-	7,  // 19: services.UserTaskService.add:output_type -> services.UserTaskList
-	7,  // 20: services.UserTaskService.list:output_type -> services.UserTaskList
-	11, // 21: services.UserTaskService.delete:output_type -> services.Int64Entity
-	1,  // 22: services.UserTaskService.get:output_type -> services.UserTask
-	1,  // 23: services.UserTaskService.completeOrError:output_type -> services.UserTask
-	1,  // 24: services.UserTaskService.update:output_type -> services.UserTask
-	3,  // 25: services.UserTaskService.getListeners:output_type -> services.TaskListenerList
-	2,  // 26: services.UserTaskService.updateListener:output_type -> services.TaskListener
-	11, // 27: services.UserTaskService.deleteCompleteListener:output_type -> services.Int64Entity
-	11, // 28: services.UserTaskService.deleteFakeCopyListener:output_type -> services.Int64Entity
-	11, // 29: services.UserTaskService.deleteAllListener:output_type -> services.Int64Entity
-	2,  // 30: services.UserTaskService.fakeCopy:output_type -> services.TaskListener
-	11, // 31: services.UserTaskService.clear:output_type -> services.Int64Entity
-	19, // [19:32] is the sub-list for method output_type
-	6,  // [6:19] is the sub-list for method input_type
+	4,  // 17: services.UserTaskService.clear:input_type -> services.ClearTaskRequest
+	7,  // 18: services.UserTaskService.add:output_type -> services.UserTaskList
+	7,  // 19: services.UserTaskService.list:output_type -> services.UserTaskList
+	11, // 20: services.UserTaskService.delete:output_type -> services.Int64Entity
+	1,  // 21: services.UserTaskService.get:output_type -> services.UserTask
+	1,  // 22: services.UserTaskService.completeOrError:output_type -> services.UserTask
+	1,  // 23: services.UserTaskService.update:output_type -> services.UserTask
+	3,  // 24: services.UserTaskService.getListeners:output_type -> services.TaskListenerList
+	2,  // 25: services.UserTaskService.updateListener:output_type -> services.TaskListener
+	11, // 26: services.UserTaskService.deleteCompleteListener:output_type -> services.Int64Entity
+	11, // 27: services.UserTaskService.deleteFakeCopyListener:output_type -> services.Int64Entity
+	11, // 28: services.UserTaskService.deleteAllListener:output_type -> services.Int64Entity
+	11, // 29: services.UserTaskService.clear:output_type -> services.Int64Entity
+	18, // [18:30] is the sub-list for method output_type
+	6,  // [6:18] is the sub-list for method input_type
 	6,  // [6:6] is the sub-list for extension type_name
 	6,  // [6:6] is the sub-list for extension extendee
 	0,  // [0:6] is the sub-list for field type_name
@@ -1210,7 +1204,7 @@ type UserTaskServiceClient interface {
 	DeleteCompleteListener(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*common.Int64Entity, error)
 	DeleteFakeCopyListener(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*common.Int64Entity, error)
 	DeleteAllListener(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*common.Int64Entity, error)
-	FakeCopy(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*TaskListener, error)
+	// rpc fakeCopy(TaskListener)returns (TaskListener) {}
 	Clear(ctx context.Context, in *ClearTaskRequest, opts ...grpc.CallOption) (*common.Int64Entity, error)
 }
 
@@ -1321,15 +1315,6 @@ func (c *userTaskServiceClient) DeleteAllListener(ctx context.Context, in *TaskL
 	return out, nil
 }
 
-func (c *userTaskServiceClient) FakeCopy(ctx context.Context, in *TaskListener, opts ...grpc.CallOption) (*TaskListener, error) {
-	out := new(TaskListener)
-	err := c.cc.Invoke(ctx, "/services.UserTaskService/fakeCopy", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *userTaskServiceClient) Clear(ctx context.Context, in *ClearTaskRequest, opts ...grpc.CallOption) (*common.Int64Entity, error) {
 	out := new(common.Int64Entity)
 	err := c.cc.Invoke(ctx, "/services.UserTaskService/clear", in, out, opts...)
@@ -1357,7 +1342,7 @@ type UserTaskServiceServer interface {
 	DeleteCompleteListener(context.Context, *TaskListener) (*common.Int64Entity, error)
 	DeleteFakeCopyListener(context.Context, *TaskListener) (*common.Int64Entity, error)
 	DeleteAllListener(context.Context, *TaskListener) (*common.Int64Entity, error)
-	FakeCopy(context.Context, *TaskListener) (*TaskListener, error)
+	// rpc fakeCopy(TaskListener)returns (TaskListener) {}
 	Clear(context.Context, *ClearTaskRequest) (*common.Int64Entity, error)
 }
 
@@ -1397,9 +1382,6 @@ func (*UnimplementedUserTaskServiceServer) DeleteFakeCopyListener(context.Contex
 }
 func (*UnimplementedUserTaskServiceServer) DeleteAllListener(context.Context, *TaskListener) (*common.Int64Entity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteAllListener not implemented")
-}
-func (*UnimplementedUserTaskServiceServer) FakeCopy(context.Context, *TaskListener) (*TaskListener, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FakeCopy not implemented")
 }
 func (*UnimplementedUserTaskServiceServer) Clear(context.Context, *ClearTaskRequest) (*common.Int64Entity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Clear not implemented")
@@ -1607,24 +1589,6 @@ func _UserTaskService_DeleteAllListener_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserTaskService_FakeCopy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TaskListener)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UserTaskServiceServer).FakeCopy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/services.UserTaskService/FakeCopy",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserTaskServiceServer).FakeCopy(ctx, req.(*TaskListener))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _UserTaskService_Clear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ClearTaskRequest)
 	if err := dec(in); err != nil {
@@ -1690,10 +1654,6 @@ var _UserTaskService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "deleteAllListener",
 			Handler:    _UserTaskService_DeleteAllListener_Handler,
-		},
-		{
-			MethodName: "fakeCopy",
-			Handler:    _UserTaskService_FakeCopy_Handler,
 		},
 		{
 			MethodName: "clear",

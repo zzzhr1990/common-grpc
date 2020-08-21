@@ -25,7 +25,7 @@ service UserTaskService {
     rpc deleteCompleteListener (TaskListener) returns (Int64Entity) {}
     rpc deleteFakeCopyListener (TaskListener) returns (Int64Entity) {}
     rpc deleteAllListener (TaskListener) returns (Int64Entity) {}
-    rpc fakeCopy(TaskListener)returns (TaskListener) {}
+    // rpc fakeCopy(TaskListener)returns (TaskListener) {}
     rpc clear(ClearTaskRequest)returns (Int64Entity) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}

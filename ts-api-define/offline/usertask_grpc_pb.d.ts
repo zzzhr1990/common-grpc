@@ -21,7 +21,6 @@ interface IUserTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedSer
     deleteCompleteListener: IUserTaskServiceService_IdeleteCompleteListener;
     deleteFakeCopyListener: IUserTaskServiceService_IdeleteFakeCopyListener;
     deleteAllListener: IUserTaskServiceService_IdeleteAllListener;
-    fakeCopy: IUserTaskServiceService_IfakeCopy;
     clear: IUserTaskServiceService_Iclear;
 }
 
@@ -124,15 +123,6 @@ interface IUserTaskServiceService_IdeleteAllListener extends grpc.MethodDefiniti
     responseSerialize: grpc.serialize<common_common_entity_pb.Int64Entity>;
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
-interface IUserTaskServiceService_IfakeCopy extends grpc.MethodDefinition<offline_usertask_pb.TaskListener, offline_usertask_pb.TaskListener> {
-    path: string; // "/services.UserTaskService/fakeCopy"
-    requestStream: false;
-    responseStream: false;
-    requestSerialize: grpc.serialize<offline_usertask_pb.TaskListener>;
-    requestDeserialize: grpc.deserialize<offline_usertask_pb.TaskListener>;
-    responseSerialize: grpc.serialize<offline_usertask_pb.TaskListener>;
-    responseDeserialize: grpc.deserialize<offline_usertask_pb.TaskListener>;
-}
 interface IUserTaskServiceService_Iclear extends grpc.MethodDefinition<offline_usertask_pb.ClearTaskRequest, common_common_entity_pb.Int64Entity> {
     path: string; // "/services.UserTaskService/clear"
     requestStream: false;
@@ -157,7 +147,6 @@ export interface IUserTaskServiceServer {
     deleteCompleteListener: grpc.handleUnaryCall<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity>;
     deleteFakeCopyListener: grpc.handleUnaryCall<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity>;
     deleteAllListener: grpc.handleUnaryCall<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity>;
-    fakeCopy: grpc.handleUnaryCall<offline_usertask_pb.TaskListener, offline_usertask_pb.TaskListener>;
     clear: grpc.handleUnaryCall<offline_usertask_pb.ClearTaskRequest, common_common_entity_pb.Int64Entity>;
 }
 
@@ -195,9 +184,6 @@ export interface IUserTaskServiceClient {
     deleteAllListener(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     deleteAllListener(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     deleteAllListener(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
-    fakeCopy(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
-    fakeCopy(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
-    fakeCopy(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
     clear(request: offline_usertask_pb.ClearTaskRequest, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     clear(request: offline_usertask_pb.ClearTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     clear(request: offline_usertask_pb.ClearTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
@@ -238,9 +224,6 @@ export class UserTaskServiceClient extends grpc.Client implements IUserTaskServi
     public deleteAllListener(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     public deleteAllListener(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     public deleteAllListener(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
-    public fakeCopy(request: offline_usertask_pb.TaskListener, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
-    public fakeCopy(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
-    public fakeCopy(request: offline_usertask_pb.TaskListener, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskListener) => void): grpc.ClientUnaryCall;
     public clear(request: offline_usertask_pb.ClearTaskRequest, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     public clear(request: offline_usertask_pb.ClearTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     public clear(request: offline_usertask_pb.ClearTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
