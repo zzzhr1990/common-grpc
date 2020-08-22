@@ -94,6 +94,7 @@ message TaskListenerList {
 message ClearTaskRequest {
     int64 user_identity = 1;
     int32 type = 2;
+    bool delete_file = 3;
 }
 
 

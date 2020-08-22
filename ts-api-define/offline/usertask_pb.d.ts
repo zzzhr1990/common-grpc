@@ -238,6 +238,9 @@ export class ClearTaskRequest extends jspb.Message {
     getType(): number;
     setType(value: number): ClearTaskRequest;
 
+    getDeleteFile(): boolean;
+    setDeleteFile(value: boolean): ClearTaskRequest;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ClearTaskRequest.AsObject;
@@ -253,6 +256,7 @@ export namespace ClearTaskRequest {
     export type AsObject = {
         userIdentity: number,
         type: number,
+        deleteFile: boolean,
     }
 }
 

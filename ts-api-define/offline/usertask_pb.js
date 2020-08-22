@@ -1845,7 +1845,8 @@ proto.services.ClearTaskRequest.prototype.toObject = function(opt_includeInstanc
 proto.services.ClearTaskRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     userIdentity: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    type: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    type: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    deleteFile: jspb.Message.getBooleanFieldWithDefault(msg, 3, false)
   };
 
   if (includeInstance) {
@@ -1890,6 +1891,10 @@ proto.services.ClearTaskRequest.deserializeBinaryFromReader = function(msg, read
       var value = /** @type {number} */ (reader.readInt32());
       msg.setType(value);
       break;
+    case 3:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDeleteFile(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -1933,6 +1938,13 @@ proto.services.ClearTaskRequest.serializeBinaryToWriter = function(message, writ
       f
     );
   }
+  f = message.getDeleteFile();
+  if (f) {
+    writer.writeBool(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -1969,6 +1981,24 @@ proto.services.ClearTaskRequest.prototype.getType = function() {
  */
 proto.services.ClearTaskRequest.prototype.setType = function(value) {
   return jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional bool delete_file = 3;
+ * @return {boolean}
+ */
+proto.services.ClearTaskRequest.prototype.getDeleteFile = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.services.ClearTaskRequest} returns this
+ */
+proto.services.ClearTaskRequest.prototype.setDeleteFile = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
