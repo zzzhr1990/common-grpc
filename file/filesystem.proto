@@ -12,6 +12,7 @@ service FileService {
     // rpc CreateInternal (FileInfo) returns (FileInfo) {}
     rpc List (FileInfoListRequest) returns (FileInfoListResponse) {}
     rpc ListInternal (FileInfoListRequest) returns (FileInfoListResponse) {}
+    rpc BatchCreateSync (BatchFileTaskRequest) returns (BatchFileTaskResult) {}
     rpc Trash (BatchFileTaskRequest) returns (BatchFileTaskResult) {}
     rpc Delete (BatchFileTaskRequest) returns (BatchFileTaskResult) {}
     rpc Copy (BatchFileTaskRequest) returns (BatchFileTaskResult) {}

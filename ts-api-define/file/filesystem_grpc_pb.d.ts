@@ -14,6 +14,7 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
     get: IFileServiceService_IGet;
     list: IFileServiceService_IList;
     listInternal: IFileServiceService_IListInternal;
+    batchCreateSync: IFileServiceService_IBatchCreateSync;
     trash: IFileServiceService_ITrash;
     delete: IFileServiceService_IDelete;
     copy: IFileServiceService_ICopy;
@@ -70,6 +71,15 @@ interface IFileServiceService_IListInternal extends grpc.MethodDefinition<file_f
     requestDeserialize: grpc.deserialize<file_filesystem_pb.FileInfoListRequest>;
     responseSerialize: grpc.serialize<file_filesystem_pb.FileInfoListResponse>;
     responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfoListResponse>;
+}
+interface IFileServiceService_IBatchCreateSync extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
+    path: string; // "/services.FileService/BatchCreateSync"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskRequest>;
+    requestDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskRequest>;
+    responseSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskResult>;
+    responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_ITrash extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
     path: string; // "/services.FileService/Trash"
@@ -250,6 +260,7 @@ export interface IFileServiceServer {
     get: grpc.handleUnaryCall<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo>;
     list: grpc.handleUnaryCall<file_filesystem_pb.FileInfoListRequest, file_filesystem_pb.FileInfoListResponse>;
     listInternal: grpc.handleUnaryCall<file_filesystem_pb.FileInfoListRequest, file_filesystem_pb.FileInfoListResponse>;
+    batchCreateSync: grpc.handleUnaryCall<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult>;
     trash: grpc.handleUnaryCall<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult>;
     delete: grpc.handleUnaryCall<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult>;
     copy: grpc.handleUnaryCall<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult>;
@@ -284,6 +295,9 @@ export interface IFileServiceClient {
     listInternal(request: file_filesystem_pb.FileInfoListRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     listInternal(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     listInternal(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
+    batchCreateSync(request: file_filesystem_pb.BatchFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
+    batchCreateSync(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
+    batchCreateSync(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     trash(request: file_filesystem_pb.BatchFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     trash(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     trash(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
@@ -357,6 +371,9 @@ export class FileServiceClient extends grpc.Client implements IFileServiceClient
     public listInternal(request: file_filesystem_pb.FileInfoListRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     public listInternal(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
     public listInternal(request: file_filesystem_pb.FileInfoListRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfoListResponse) => void): grpc.ClientUnaryCall;
+    public batchCreateSync(request: file_filesystem_pb.BatchFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
+    public batchCreateSync(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
+    public batchCreateSync(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     public trash(request: file_filesystem_pb.BatchFileTaskRequest, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     public trash(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
     public trash(request: file_filesystem_pb.BatchFileTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.BatchFileTaskResult) => void): grpc.ClientUnaryCall;
