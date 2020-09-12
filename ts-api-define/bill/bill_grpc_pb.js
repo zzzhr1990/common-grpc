@@ -38,6 +38,17 @@ function deserialize_services_OrderListResponse(buffer_arg) {
   return bill_bill_pb.OrderListResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_Payment(arg) {
+  if (!(arg instanceof bill_bill_pb.Payment)) {
+    throw new Error('Expected argument of type services.Payment');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_Payment(buffer_arg) {
+  return bill_bill_pb.Payment.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_PlanListRequest(arg) {
   if (!(arg instanceof bill_bill_pb.PlanListRequest)) {
     throw new Error('Expected argument of type services.PlanListRequest');
@@ -106,6 +117,17 @@ create: {
     requestDeserialize: deserialize_services_Order,
     responseSerialize: serialize_services_Order,
     responseDeserialize: deserialize_services_Order,
+  },
+  getPayment: {
+    path: '/services.OrderService/GetPayment',
+    requestStream: false,
+    responseStream: false,
+    requestType: bill_bill_pb.Payment,
+    responseType: bill_bill_pb.Payment,
+    requestSerialize: serialize_services_Payment,
+    requestDeserialize: deserialize_services_Payment,
+    responseSerialize: serialize_services_Payment,
+    responseDeserialize: deserialize_services_Payment,
   },
   update: {
     path: '/services.OrderService/Update',

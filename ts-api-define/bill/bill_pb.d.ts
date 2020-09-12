@@ -7,6 +7,51 @@
 import * as jspb from "google-protobuf";
 import * as common_common_entity_pb from "../common/common_entity_pb";
 
+export class Payment extends jspb.Message { 
+    getIdentity(): string;
+    setIdentity(value: string): Payment;
+
+    getUserIdentity(): number;
+    setUserIdentity(value: number): Payment;
+
+    getType(): number;
+    setType(value: number): Payment;
+
+    getChannel(): string;
+    setChannel(value: string): Payment;
+
+    getCreateTime(): number;
+    setCreateTime(value: number): Payment;
+
+    getStatus(): number;
+    setStatus(value: number): Payment;
+
+    getDetail(): string;
+    setDetail(value: string): Payment;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Payment.AsObject;
+    static toObject(includeInstance: boolean, msg: Payment): Payment.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: Payment, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Payment;
+    static deserializeBinaryFromReader(message: Payment, reader: jspb.BinaryReader): Payment;
+}
+
+export namespace Payment {
+    export type AsObject = {
+        identity: string,
+        userIdentity: number,
+        type: number,
+        channel: string,
+        createTime: number,
+        status: number,
+        detail: string,
+    }
+}
+
 export class Order extends jspb.Message { 
     getIdentity(): string;
     setIdentity(value: string): Order;
@@ -71,6 +116,9 @@ export class Order extends jspb.Message {
     getPlanValue(): number;
     setPlanValue(value: number): Order;
 
+    getPayChannel(): string;
+    setPayChannel(value: string): Order;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Order.AsObject;
@@ -105,6 +153,7 @@ export namespace Order {
         periodType: number,
         secret: string,
         planValue: number,
+        payChannel: string,
     }
 }
 

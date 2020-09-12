@@ -14,10 +14,21 @@ service OrderService {
     rpc List (OrderListRequest) returns (OrderListResponse) {}
     rpc ListPlan (PlanListRequest) returns (PlanListResponse) {}
     rpc Get (Order) returns (Order) {}
+    rpc GetPayment (Payment) returns (Payment) {}
     rpc Update (Order) returns (Order) {}
     rpc Complete (Order) returns (Order) {}
     rpc Fail (Order) returns (Order) {}
     rpc Cancel (Order) returns (Order) {}
+}
+
+message Payment {
+    string  identity = 1;
+    int64 user_identity = 2;
+    int32 type = 3;
+    string channel = 4;
+    int64 create_time = 5;
+    int32 status = 6;
+    string detail = 7;
 }
 
 
@@ -31,7 +42,7 @@ message Order {
     int64 create_time = 7;
     int64 refresh_time = 8;
     string ext = 9;
-    int64  expire_time = 10; // [json_name="payaya"] seems not working for normal json
+    int64  expire_time = 10; // ooo[json_name="payaya"] seems not working for normal json
     string create_address = 11; // when last login, activate, ... etc
     int64 amount = 12;
     int64 price = 13;
@@ -43,6 +54,7 @@ message Order {
     int32 period_type = 19;
     string secret = 20;
     int64 plan_value = 21;
+    string pay_channel = 22;
 }
 
 
