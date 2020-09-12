@@ -229,7 +229,9 @@ proto.services.Payment.toObject = function(includeInstance, msg) {
     createTime: jspb.Message.getFieldWithDefault(msg, 5, 0),
     status: jspb.Message.getFieldWithDefault(msg, 6, 0),
     payUnion: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    detail: jspb.Message.getFieldWithDefault(msg, 8, "")
+    price: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    currency: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    detail: jspb.Message.getFieldWithDefault(msg, 10, "")
   };
 
   if (includeInstance) {
@@ -295,6 +297,14 @@ proto.services.Payment.deserializeBinaryFromReader = function(msg, reader) {
       msg.setPayUnion(value);
       break;
     case 8:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setPrice(value);
+      break;
+    case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCurrency(value);
+      break;
+    case 10:
       var value = /** @type {string} */ (reader.readString());
       msg.setDetail(value);
       break;
@@ -376,10 +386,24 @@ proto.services.Payment.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getPrice();
+  if (f !== 0) {
+    writer.writeInt64(
+      8,
+      f
+    );
+  }
+  f = message.getCurrency();
+  if (f.length > 0) {
+    writer.writeString(
+      9,
+      f
+    );
+  }
   f = message.getDetail();
   if (f.length > 0) {
     writer.writeString(
-      8,
+      10,
       f
     );
   }
@@ -513,11 +537,47 @@ proto.services.Payment.prototype.setPayUnion = function(value) {
 
 
 /**
- * optional string detail = 8;
+ * optional int64 price = 8;
+ * @return {number}
+ */
+proto.services.Payment.prototype.getPrice = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.Payment} returns this
+ */
+proto.services.Payment.prototype.setPrice = function(value) {
+  return jspb.Message.setProto3IntField(this, 8, value);
+};
+
+
+/**
+ * optional string currency = 9;
+ * @return {string}
+ */
+proto.services.Payment.prototype.getCurrency = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.Payment} returns this
+ */
+proto.services.Payment.prototype.setCurrency = function(value) {
+  return jspb.Message.setProto3StringField(this, 9, value);
+};
+
+
+/**
+ * optional string detail = 10;
  * @return {string}
  */
 proto.services.Payment.prototype.getDetail = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
@@ -526,7 +586,7 @@ proto.services.Payment.prototype.getDetail = function() {
  * @return {!proto.services.Payment} returns this
  */
 proto.services.Payment.prototype.setDetail = function(value) {
-  return jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 10, value);
 };
 
 

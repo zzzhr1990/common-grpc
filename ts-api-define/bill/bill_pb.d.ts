@@ -29,6 +29,12 @@ export class Payment extends jspb.Message {
     getPayUnion(): string;
     setPayUnion(value: string): Payment;
 
+    getPrice(): number;
+    setPrice(value: number): Payment;
+
+    getCurrency(): string;
+    setCurrency(value: string): Payment;
+
     getDetail(): string;
     setDetail(value: string): Payment;
 
@@ -52,6 +58,8 @@ export namespace Payment {
         createTime: number,
         status: number,
         payUnion: string,
+        price: number,
+        currency: string,
         detail: string,
     }
 }
