@@ -11,6 +11,9 @@ export class Payment extends jspb.Message {
     getOrderIdentity(): string;
     setOrderIdentity(value: string): Payment;
 
+    getUserIdentity(): number;
+    setUserIdentity(value: number): Payment;
+
     getType(): number;
     setType(value: number): Payment;
 
@@ -23,8 +26,8 @@ export class Payment extends jspb.Message {
     getStatus(): number;
     setStatus(value: number): Payment;
 
-    getUnionIdentity(): string;
-    setUnionIdentity(value: string): Payment;
+    getPayUnion(): string;
+    setPayUnion(value: string): Payment;
 
     getDetail(): string;
     setDetail(value: string): Payment;
@@ -43,11 +46,12 @@ export class Payment extends jspb.Message {
 export namespace Payment {
     export type AsObject = {
         orderIdentity: string,
+        userIdentity: number,
         type: number,
         channel: string,
         createTime: number,
         status: number,
-        unionIdentity: string,
+        payUnion: string,
         detail: string,
     }
 }
