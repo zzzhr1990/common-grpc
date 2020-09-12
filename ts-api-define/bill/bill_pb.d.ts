@@ -8,11 +8,8 @@ import * as jspb from "google-protobuf";
 import * as common_common_entity_pb from "../common/common_entity_pb";
 
 export class Payment extends jspb.Message { 
-    getIdentity(): string;
-    setIdentity(value: string): Payment;
-
-    getUserIdentity(): number;
-    setUserIdentity(value: number): Payment;
+    getOrderIdentity(): string;
+    setOrderIdentity(value: string): Payment;
 
     getType(): number;
     setType(value: number): Payment;
@@ -45,8 +42,7 @@ export class Payment extends jspb.Message {
 
 export namespace Payment {
     export type AsObject = {
-        identity: string,
-        userIdentity: number,
+        orderIdentity: string,
         type: number,
         channel: string,
         createTime: number,

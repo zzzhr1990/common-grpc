@@ -222,8 +222,7 @@ proto.services.Payment.prototype.toObject = function(opt_includeInstance) {
  */
 proto.services.Payment.toObject = function(includeInstance, msg) {
   var f, obj = {
-    identity: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    orderIdentity: jspb.Message.getFieldWithDefault(msg, 1, ""),
     type: jspb.Message.getFieldWithDefault(msg, 3, 0),
     channel: jspb.Message.getFieldWithDefault(msg, 4, ""),
     createTime: jspb.Message.getFieldWithDefault(msg, 5, 0),
@@ -268,11 +267,7 @@ proto.services.Payment.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setIdentity(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setUserIdentity(value);
+      msg.setOrderIdentity(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt32());
@@ -327,17 +322,10 @@ proto.services.Payment.prototype.serializeBinary = function() {
  */
 proto.services.Payment.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getIdentity();
+  f = message.getOrderIdentity();
   if (f.length > 0) {
     writer.writeString(
       1,
-      f
-    );
-  }
-  f = message.getUserIdentity();
-  if (f !== 0) {
-    writer.writeInt64(
-      2,
       f
     );
   }
@@ -387,10 +375,10 @@ proto.services.Payment.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string identity = 1;
+ * optional string order_identity = 1;
  * @return {string}
  */
-proto.services.Payment.prototype.getIdentity = function() {
+proto.services.Payment.prototype.getOrderIdentity = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -399,26 +387,8 @@ proto.services.Payment.prototype.getIdentity = function() {
  * @param {string} value
  * @return {!proto.services.Payment} returns this
  */
-proto.services.Payment.prototype.setIdentity = function(value) {
+proto.services.Payment.prototype.setOrderIdentity = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional int64 user_identity = 2;
- * @return {number}
- */
-proto.services.Payment.prototype.getUserIdentity = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.services.Payment} returns this
- */
-proto.services.Payment.prototype.setUserIdentity = function(value) {
-  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
