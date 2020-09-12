@@ -26,6 +26,9 @@ export class Payment extends jspb.Message {
     getStatus(): number;
     setStatus(value: number): Payment;
 
+    getUnionIdentity(): string;
+    setUnionIdentity(value: string): Payment;
+
     getDetail(): string;
     setDetail(value: string): Payment;
 
@@ -48,6 +51,7 @@ export namespace Payment {
         channel: string,
         createTime: number,
         status: number,
+        unionIdentity: string,
         detail: string,
     }
 }

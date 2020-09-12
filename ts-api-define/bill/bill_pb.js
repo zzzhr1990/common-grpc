@@ -228,7 +228,8 @@ proto.services.Payment.toObject = function(includeInstance, msg) {
     channel: jspb.Message.getFieldWithDefault(msg, 4, ""),
     createTime: jspb.Message.getFieldWithDefault(msg, 5, 0),
     status: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    detail: jspb.Message.getFieldWithDefault(msg, 7, "")
+    unionIdentity: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    detail: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -290,6 +291,10 @@ proto.services.Payment.deserializeBinaryFromReader = function(msg, reader) {
       msg.setStatus(value);
       break;
     case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUnionIdentity(value);
+      break;
+    case 8:
       var value = /** @type {string} */ (reader.readString());
       msg.setDetail(value);
       break;
@@ -364,10 +369,17 @@ proto.services.Payment.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getDetail();
+  f = message.getUnionIdentity();
   if (f.length > 0) {
     writer.writeString(
       7,
+      f
+    );
+  }
+  f = message.getDetail();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
       f
     );
   }
@@ -483,10 +495,10 @@ proto.services.Payment.prototype.setStatus = function(value) {
 
 
 /**
- * optional string detail = 7;
+ * optional string union_identity = 7;
  * @return {string}
  */
-proto.services.Payment.prototype.getDetail = function() {
+proto.services.Payment.prototype.getUnionIdentity = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
@@ -495,8 +507,26 @@ proto.services.Payment.prototype.getDetail = function() {
  * @param {string} value
  * @return {!proto.services.Payment} returns this
  */
-proto.services.Payment.prototype.setDetail = function(value) {
+proto.services.Payment.prototype.setUnionIdentity = function(value) {
   return jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional string detail = 8;
+ * @return {string}
+ */
+proto.services.Payment.prototype.getDetail = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.Payment} returns this
+ */
+proto.services.Payment.prototype.setDetail = function(value) {
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
