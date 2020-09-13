@@ -26,17 +26,6 @@ function deserialize_services_OauthInfo(buffer_arg) {
   return user_info_pb.OauthInfo.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_services_Payment(arg) {
-  if (!(arg instanceof user_info_pb.Payment)) {
-    throw new Error('Expected argument of type services.Payment');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_services_Payment(buffer_arg) {
-  return user_info_pb.Payment.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_services_SmsChangePasswordRequest(arg) {
   if (!(arg instanceof user_info_pb.SmsChangePasswordRequest)) {
     throw new Error('Expected argument of type services.SmsChangePasswordRequest');
@@ -101,6 +90,17 @@ function serialize_services_SmsValidateResponse(arg) {
 
 function deserialize_services_SmsValidateResponse(buffer_arg) {
   return user_info_pb.SmsValidateResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_SubscriptionPayment(arg) {
+  if (!(arg instanceof user_info_pb.SubscriptionPayment)) {
+    throw new Error('Expected argument of type services.SubscriptionPayment');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_SubscriptionPayment(buffer_arg) {
+  return user_info_pb.SubscriptionPayment.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_ThirdPartyLoginInfo(arg) {
@@ -359,34 +359,34 @@ bindThirdPartyLogin: {
     path: '/services.UserService/CreatePayment',
     requestStream: false,
     responseStream: false,
-    requestType: user_info_pb.Payment,
-    responseType: user_info_pb.Payment,
-    requestSerialize: serialize_services_Payment,
-    requestDeserialize: deserialize_services_Payment,
-    responseSerialize: serialize_services_Payment,
-    responseDeserialize: deserialize_services_Payment,
+    requestType: user_info_pb.SubscriptionPayment,
+    responseType: user_info_pb.SubscriptionPayment,
+    requestSerialize: serialize_services_SubscriptionPayment,
+    requestDeserialize: deserialize_services_SubscriptionPayment,
+    responseSerialize: serialize_services_SubscriptionPayment,
+    responseDeserialize: deserialize_services_SubscriptionPayment,
   },
   completePayment: {
     path: '/services.UserService/CompletePayment',
     requestStream: false,
     responseStream: false,
-    requestType: user_info_pb.Payment,
-    responseType: user_info_pb.Payment,
-    requestSerialize: serialize_services_Payment,
-    requestDeserialize: deserialize_services_Payment,
-    responseSerialize: serialize_services_Payment,
-    responseDeserialize: deserialize_services_Payment,
+    requestType: user_info_pb.SubscriptionPayment,
+    responseType: user_info_pb.SubscriptionPayment,
+    requestSerialize: serialize_services_SubscriptionPayment,
+    requestDeserialize: deserialize_services_SubscriptionPayment,
+    responseSerialize: serialize_services_SubscriptionPayment,
+    responseDeserialize: deserialize_services_SubscriptionPayment,
   },
   failedPayment: {
     path: '/services.UserService/FailedPayment',
     requestStream: false,
     responseStream: false,
-    requestType: user_info_pb.Payment,
-    responseType: user_info_pb.Payment,
-    requestSerialize: serialize_services_Payment,
-    requestDeserialize: deserialize_services_Payment,
-    responseSerialize: serialize_services_Payment,
-    responseDeserialize: deserialize_services_Payment,
+    requestType: user_info_pb.SubscriptionPayment,
+    responseType: user_info_pb.SubscriptionPayment,
+    requestSerialize: serialize_services_SubscriptionPayment,
+    requestDeserialize: deserialize_services_SubscriptionPayment,
+    responseSerialize: serialize_services_SubscriptionPayment,
+    responseDeserialize: deserialize_services_SubscriptionPayment,
   },
 };
 

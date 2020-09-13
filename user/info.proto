@@ -50,9 +50,9 @@ service UserService {
     rpc CreateOauthInfo(OauthInfo)returns (OauthInfo) {}
     rpc RefreshOauthToken(OauthInfo)returns (OauthInfo) {}
     rpc CheckAccessToken(OauthInfo)returns (OauthInfo) {}
-    rpc CreatePayment(Payment)returns (Payment) {}
-    rpc CompletePayment(Payment)returns (Payment) {}
-    rpc FailedPayment(Payment)returns (Payment) {}
+    rpc CreatePayment(SubscriptionPayment)returns (SubscriptionPayment) {}
+    rpc CompletePayment(SubscriptionPayment)returns (SubscriptionPayment) {}
+    rpc FailedPayment(SubscriptionPayment)returns (SubscriptionPayment) {}
 }
 
 
@@ -118,7 +118,7 @@ message SmsResponse {
     int64 expire_time = 3;
 }
 
-message Payment {
+message SubscriptionPayment {
     string order_identity = 1;
     int32 type = 2;
     int64 create_time = 3;

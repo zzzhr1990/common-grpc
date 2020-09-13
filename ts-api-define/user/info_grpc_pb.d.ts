@@ -204,32 +204,32 @@ interface IUserServiceService_ICheckAccessToken extends grpc.MethodDefinition<us
     responseSerialize: grpc.serialize<user_info_pb.OauthInfo>;
     responseDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
 }
-interface IUserServiceService_ICreatePayment extends grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment> {
+interface IUserServiceService_ICreatePayment extends grpc.MethodDefinition<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment> {
     path: string; // "/services.UserService/CreatePayment"
     requestStream: false;
     responseStream: false;
-    requestSerialize: grpc.serialize<user_info_pb.Payment>;
-    requestDeserialize: grpc.deserialize<user_info_pb.Payment>;
-    responseSerialize: grpc.serialize<user_info_pb.Payment>;
-    responseDeserialize: grpc.deserialize<user_info_pb.Payment>;
+    requestSerialize: grpc.serialize<user_info_pb.SubscriptionPayment>;
+    requestDeserialize: grpc.deserialize<user_info_pb.SubscriptionPayment>;
+    responseSerialize: grpc.serialize<user_info_pb.SubscriptionPayment>;
+    responseDeserialize: grpc.deserialize<user_info_pb.SubscriptionPayment>;
 }
-interface IUserServiceService_ICompletePayment extends grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment> {
+interface IUserServiceService_ICompletePayment extends grpc.MethodDefinition<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment> {
     path: string; // "/services.UserService/CompletePayment"
     requestStream: false;
     responseStream: false;
-    requestSerialize: grpc.serialize<user_info_pb.Payment>;
-    requestDeserialize: grpc.deserialize<user_info_pb.Payment>;
-    responseSerialize: grpc.serialize<user_info_pb.Payment>;
-    responseDeserialize: grpc.deserialize<user_info_pb.Payment>;
+    requestSerialize: grpc.serialize<user_info_pb.SubscriptionPayment>;
+    requestDeserialize: grpc.deserialize<user_info_pb.SubscriptionPayment>;
+    responseSerialize: grpc.serialize<user_info_pb.SubscriptionPayment>;
+    responseDeserialize: grpc.deserialize<user_info_pb.SubscriptionPayment>;
 }
-interface IUserServiceService_IFailedPayment extends grpc.MethodDefinition<user_info_pb.Payment, user_info_pb.Payment> {
+interface IUserServiceService_IFailedPayment extends grpc.MethodDefinition<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment> {
     path: string; // "/services.UserService/FailedPayment"
     requestStream: false;
     responseStream: false;
-    requestSerialize: grpc.serialize<user_info_pb.Payment>;
-    requestDeserialize: grpc.deserialize<user_info_pb.Payment>;
-    responseSerialize: grpc.serialize<user_info_pb.Payment>;
-    responseDeserialize: grpc.deserialize<user_info_pb.Payment>;
+    requestSerialize: grpc.serialize<user_info_pb.SubscriptionPayment>;
+    requestDeserialize: grpc.deserialize<user_info_pb.SubscriptionPayment>;
+    responseSerialize: grpc.serialize<user_info_pb.SubscriptionPayment>;
+    responseDeserialize: grpc.deserialize<user_info_pb.SubscriptionPayment>;
 }
 
 export const UserServiceService: IUserServiceService;
@@ -254,9 +254,9 @@ export interface IUserServiceServer {
     createOauthInfo: grpc.handleUnaryCall<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
     refreshOauthToken: grpc.handleUnaryCall<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
     checkAccessToken: grpc.handleUnaryCall<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
-    createPayment: grpc.handleUnaryCall<user_info_pb.Payment, user_info_pb.Payment>;
-    completePayment: grpc.handleUnaryCall<user_info_pb.Payment, user_info_pb.Payment>;
-    failedPayment: grpc.handleUnaryCall<user_info_pb.Payment, user_info_pb.Payment>;
+    createPayment: grpc.handleUnaryCall<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment>;
+    completePayment: grpc.handleUnaryCall<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment>;
+    failedPayment: grpc.handleUnaryCall<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment>;
 }
 
 export interface IUserServiceClient {
@@ -317,15 +317,15 @@ export interface IUserServiceClient {
     checkAccessToken(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
     checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
     checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
-    createPayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    createPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    createPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    completePayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    completePayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    completePayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    failedPayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    failedPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    failedPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    createPayment(request: user_info_pb.SubscriptionPayment, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    createPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    createPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    completePayment(request: user_info_pb.SubscriptionPayment, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    completePayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    completePayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    failedPayment(request: user_info_pb.SubscriptionPayment, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    failedPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    failedPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
 }
 
 export class UserServiceClient extends grpc.Client implements IUserServiceClient {
@@ -387,13 +387,13 @@ export class UserServiceClient extends grpc.Client implements IUserServiceClient
     public checkAccessToken(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
     public checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
     public checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
-    public createPayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    public createPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    public createPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    public completePayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    public completePayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    public completePayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    public failedPayment(request: user_info_pb.Payment, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    public failedPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
-    public failedPayment(request: user_info_pb.Payment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Payment) => void): grpc.ClientUnaryCall;
+    public createPayment(request: user_info_pb.SubscriptionPayment, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    public createPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    public createPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    public completePayment(request: user_info_pb.SubscriptionPayment, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    public completePayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    public completePayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    public failedPayment(request: user_info_pb.SubscriptionPayment, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    public failedPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    public failedPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
 }

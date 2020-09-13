@@ -232,52 +232,52 @@ export namespace SmsResponse {
     }
 }
 
-export class Payment extends jspb.Message { 
+export class SubscriptionPayment extends jspb.Message { 
     getOrderIdentity(): string;
-    setOrderIdentity(value: string): Payment;
+    setOrderIdentity(value: string): SubscriptionPayment;
 
     getType(): number;
-    setType(value: number): Payment;
+    setType(value: number): SubscriptionPayment;
 
     getCreateTime(): number;
-    setCreateTime(value: number): Payment;
+    setCreateTime(value: number): SubscriptionPayment;
 
     getUpdateTime(): number;
-    setUpdateTime(value: number): Payment;
+    setUpdateTime(value: number): SubscriptionPayment;
 
     getStatus(): number;
-    setStatus(value: number): Payment;
+    setStatus(value: number): SubscriptionPayment;
 
     getAmount(): number;
-    setAmount(value: number): Payment;
+    setAmount(value: number): SubscriptionPayment;
 
     getData(): string;
-    setData(value: string): Payment;
+    setData(value: string): SubscriptionPayment;
 
     getUserIdentity(): number;
-    setUserIdentity(value: number): Payment;
+    setUserIdentity(value: number): SubscriptionPayment;
 
     getAddonInt(): number;
-    setAddonInt(value: number): Payment;
+    setAddonInt(value: number): SubscriptionPayment;
 
     getAddonLong(): number;
-    setAddonLong(value: number): Payment;
+    setAddonLong(value: number): SubscriptionPayment;
 
     getAddonString(): number;
-    setAddonString(value: number): Payment;
+    setAddonString(value: number): SubscriptionPayment;
 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): Payment.AsObject;
-    static toObject(includeInstance: boolean, msg: Payment): Payment.AsObject;
+    toObject(includeInstance?: boolean): SubscriptionPayment.AsObject;
+    static toObject(includeInstance: boolean, msg: SubscriptionPayment): SubscriptionPayment.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: Payment, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): Payment;
-    static deserializeBinaryFromReader(message: Payment, reader: jspb.BinaryReader): Payment;
+    static serializeBinaryToWriter(message: SubscriptionPayment, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): SubscriptionPayment;
+    static deserializeBinaryFromReader(message: SubscriptionPayment, reader: jspb.BinaryReader): SubscriptionPayment;
 }
 
-export namespace Payment {
+export namespace SubscriptionPayment {
     export type AsObject = {
         orderIdentity: string,
         type: number,
