@@ -866,7 +866,7 @@ var file_bill_bill_proto_rawDesc = []byte{
 	0x6c, 0x61, 0x6e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
 	0x22, 0x0a, 0x04, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0e, 0x2e,
 	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x50, 0x6c, 0x61, 0x6e, 0x52, 0x04, 0x64,
-	0x61, 0x74, 0x61, 0x32, 0xdd, 0x03, 0x0a, 0x0c, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x53, 0x65, 0x72,
+	0x61, 0x74, 0x61, 0x32, 0x93, 0x04, 0x0a, 0x0c, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x53, 0x65, 0x72,
 	0x76, 0x69, 0x63, 0x65, 0x12, 0x2c, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x0f,
 	0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x1a,
 	0x0f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72,
@@ -896,10 +896,14 @@ var file_bill_bill_proto_rawDesc = []byte{
 	0x64, 0x65, 0x72, 0x22, 0x00, 0x12, 0x2c, 0x0a, 0x06, 0x43, 0x61, 0x6e, 0x63, 0x65, 0x6c, 0x12,
 	0x0f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72,
 	0x1a, 0x0f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x4f, 0x72, 0x64, 0x65,
-	0x72, 0x22, 0x00, 0x42, 0x33, 0x5a, 0x31, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f,
-	0x6d, 0x2f, 0x7a, 0x7a, 0x7a, 0x68, 0x72, 0x31, 0x39, 0x39, 0x30, 0x2f, 0x63, 0x6f, 0x6d, 0x6d,
-	0x6f, 0x6e, 0x2d, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f, 0x2f, 0x76, 0x33, 0x2f, 0x62, 0x69,
-	0x6c, 0x6c, 0x2f, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x72, 0x22, 0x00, 0x12, 0x34, 0x0a, 0x0e, 0x42, 0x61, 0x74, 0x63, 0x68, 0x41, 0x73, 0x79, 0x6e,
+	0x63, 0x54, 0x61, 0x73, 0x6b, 0x12, 0x0f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73,
+	0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x1a, 0x0f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x73, 0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x22, 0x00, 0x42, 0x33, 0x5a, 0x31, 0x67, 0x69, 0x74,
+	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x7a, 0x7a, 0x7a, 0x68, 0x72, 0x31, 0x39, 0x39,
+	0x30, 0x2f, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2d, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x6f,
+	0x2f, 0x76, 0x33, 0x2f, 0x62, 0x69, 0x6c, 0x6c, 0x2f, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -943,17 +947,19 @@ var file_bill_bill_proto_depIdxs = []int32{
 	1,  // 12: services.OrderService.Complete:input_type -> services.Order
 	1,  // 13: services.OrderService.Fail:input_type -> services.Order
 	1,  // 14: services.OrderService.Cancel:input_type -> services.Order
-	1,  // 15: services.OrderService.Create:output_type -> services.Order
-	6,  // 16: services.OrderService.List:output_type -> services.OrderListResponse
-	7,  // 17: services.OrderService.ListPlan:output_type -> services.PlanListResponse
-	1,  // 18: services.OrderService.Get:output_type -> services.Order
-	0,  // 19: services.OrderService.GetPayment:output_type -> services.Payment
-	1,  // 20: services.OrderService.Update:output_type -> services.Order
-	1,  // 21: services.OrderService.Complete:output_type -> services.Order
-	1,  // 22: services.OrderService.Fail:output_type -> services.Order
-	1,  // 23: services.OrderService.Cancel:output_type -> services.Order
-	15, // [15:24] is the sub-list for method output_type
-	6,  // [6:15] is the sub-list for method input_type
+	1,  // 15: services.OrderService.BatchAsyncTask:input_type -> services.Order
+	1,  // 16: services.OrderService.Create:output_type -> services.Order
+	6,  // 17: services.OrderService.List:output_type -> services.OrderListResponse
+	7,  // 18: services.OrderService.ListPlan:output_type -> services.PlanListResponse
+	1,  // 19: services.OrderService.Get:output_type -> services.Order
+	0,  // 20: services.OrderService.GetPayment:output_type -> services.Payment
+	1,  // 21: services.OrderService.Update:output_type -> services.Order
+	1,  // 22: services.OrderService.Complete:output_type -> services.Order
+	1,  // 23: services.OrderService.Fail:output_type -> services.Order
+	1,  // 24: services.OrderService.Cancel:output_type -> services.Order
+	1,  // 25: services.OrderService.BatchAsyncTask:output_type -> services.Order
+	16, // [16:26] is the sub-list for method output_type
+	6,  // [6:16] is the sub-list for method input_type
 	6,  // [6:6] is the sub-list for extension type_name
 	6,  // [6:6] is the sub-list for extension extendee
 	0,  // [0:6] is the sub-list for field type_name
@@ -1104,6 +1110,7 @@ type OrderServiceClient interface {
 	Complete(ctx context.Context, in *Order, opts ...grpc.CallOption) (*Order, error)
 	Fail(ctx context.Context, in *Order, opts ...grpc.CallOption) (*Order, error)
 	Cancel(ctx context.Context, in *Order, opts ...grpc.CallOption) (*Order, error)
+	BatchAsyncTask(ctx context.Context, in *Order, opts ...grpc.CallOption) (*Order, error)
 }
 
 type orderServiceClient struct {
@@ -1195,6 +1202,15 @@ func (c *orderServiceClient) Cancel(ctx context.Context, in *Order, opts ...grpc
 	return out, nil
 }
 
+func (c *orderServiceClient) BatchAsyncTask(ctx context.Context, in *Order, opts ...grpc.CallOption) (*Order, error) {
+	out := new(Order)
+	err := c.cc.Invoke(ctx, "/services.OrderService/BatchAsyncTask", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // OrderServiceServer is the server API for OrderService service.
 type OrderServiceServer interface {
 	// Create bill（仅后台使用）
@@ -1207,6 +1223,7 @@ type OrderServiceServer interface {
 	Complete(context.Context, *Order) (*Order, error)
 	Fail(context.Context, *Order) (*Order, error)
 	Cancel(context.Context, *Order) (*Order, error)
+	BatchAsyncTask(context.Context, *Order) (*Order, error)
 }
 
 // UnimplementedOrderServiceServer can be embedded to have forward compatible implementations.
@@ -1239,6 +1256,9 @@ func (*UnimplementedOrderServiceServer) Fail(context.Context, *Order) (*Order, e
 }
 func (*UnimplementedOrderServiceServer) Cancel(context.Context, *Order) (*Order, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Cancel not implemented")
+}
+func (*UnimplementedOrderServiceServer) BatchAsyncTask(context.Context, *Order) (*Order, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchAsyncTask not implemented")
 }
 
 func RegisterOrderServiceServer(s *grpc.Server, srv OrderServiceServer) {
@@ -1407,6 +1427,24 @@ func _OrderService_Cancel_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _OrderService_BatchAsyncTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Order)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrderServiceServer).BatchAsyncTask(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.OrderService/BatchAsyncTask",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrderServiceServer).BatchAsyncTask(ctx, req.(*Order))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _OrderService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "services.OrderService",
 	HandlerType: (*OrderServiceServer)(nil),
@@ -1446,6 +1484,10 @@ var _OrderService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Cancel",
 			Handler:    _OrderService_Cancel_Handler,
+		},
+		{
+			MethodName: "BatchAsyncTask",
+			Handler:    _OrderService_BatchAsyncTask_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

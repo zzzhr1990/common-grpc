@@ -19,6 +19,7 @@ service OrderService {
     rpc Complete (Order) returns (Order) {}
     rpc Fail (Order) returns (Order) {}
     rpc Cancel (Order) returns (Order) {}
+    rpc BatchAsyncTask (Order) returns (Order) {}
 }
 
 message Payment {
@@ -33,7 +34,6 @@ message Payment {
     string currency = 9;
     string detail = 10;
 }
-
 
 message Order {
     string  identity = 1;

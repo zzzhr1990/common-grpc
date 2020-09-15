@@ -19,6 +19,7 @@ interface IOrderServiceService extends grpc.ServiceDefinition<grpc.UntypedServic
     complete: IOrderServiceService_IComplete;
     fail: IOrderServiceService_IFail;
     cancel: IOrderServiceService_ICancel;
+    batchAsyncTask: IOrderServiceService_IBatchAsyncTask;
 }
 
 interface IOrderServiceService_ICreate extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
@@ -102,6 +103,15 @@ interface IOrderServiceService_ICancel extends grpc.MethodDefinition<bill_bill_p
     responseSerialize: grpc.serialize<bill_bill_pb.Order>;
     responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
 }
+interface IOrderServiceService_IBatchAsyncTask extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
+    path: string; // "/services.OrderService/BatchAsyncTask"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<bill_bill_pb.Order>;
+    requestDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+    responseSerialize: grpc.serialize<bill_bill_pb.Order>;
+    responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
+}
 
 export const OrderServiceService: IOrderServiceService;
 
@@ -115,6 +125,7 @@ export interface IOrderServiceServer {
     complete: grpc.handleUnaryCall<bill_bill_pb.Order, bill_bill_pb.Order>;
     fail: grpc.handleUnaryCall<bill_bill_pb.Order, bill_bill_pb.Order>;
     cancel: grpc.handleUnaryCall<bill_bill_pb.Order, bill_bill_pb.Order>;
+    batchAsyncTask: grpc.handleUnaryCall<bill_bill_pb.Order, bill_bill_pb.Order>;
 }
 
 export interface IOrderServiceClient {
@@ -145,6 +156,9 @@ export interface IOrderServiceClient {
     cancel(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
     cancel(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
     cancel(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    batchAsyncTask(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    batchAsyncTask(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    batchAsyncTask(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
 }
 
 export class OrderServiceClient extends grpc.Client implements IOrderServiceClient {
@@ -176,4 +190,7 @@ export class OrderServiceClient extends grpc.Client implements IOrderServiceClie
     public cancel(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
     public cancel(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
     public cancel(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public batchAsyncTask(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public batchAsyncTask(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
+    public batchAsyncTask(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
 }
