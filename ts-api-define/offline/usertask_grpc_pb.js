@@ -27,6 +27,17 @@ function deserialize_services_ClearTaskRequest(buffer_arg) {
   return offline_usertask_pb.ClearTaskRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_DeleteTaskLogRequest(arg) {
+  if (!(arg instanceof offline_usertask_pb.DeleteTaskLogRequest)) {
+    throw new Error('Expected argument of type services.DeleteTaskLogRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_DeleteTaskLogRequest(buffer_arg) {
+  return offline_usertask_pb.DeleteTaskLogRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_DeleteUserTaskRequest(arg) {
   if (!(arg instanceof offline_usertask_pb.DeleteUserTaskRequest)) {
     throw new Error('Expected argument of type services.DeleteUserTaskRequest');
@@ -47,6 +58,17 @@ function serialize_services_Int64Entity(arg) {
 
 function deserialize_services_Int64Entity(buffer_arg) {
   return common_common_entity_pb.Int64Entity.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_ListTaskLogRequest(arg) {
+  if (!(arg instanceof offline_usertask_pb.ListTaskLogRequest)) {
+    throw new Error('Expected argument of type services.ListTaskLogRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_ListTaskLogRequest(buffer_arg) {
+  return offline_usertask_pb.ListTaskLogRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_ListUserTaskRequest(arg) {
@@ -80,6 +102,28 @@ function serialize_services_TaskListenerList(arg) {
 
 function deserialize_services_TaskListenerList(buffer_arg) {
   return offline_usertask_pb.TaskListenerList.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_TaskLog(arg) {
+  if (!(arg instanceof offline_usertask_pb.TaskLog)) {
+    throw new Error('Expected argument of type services.TaskLog');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_TaskLog(buffer_arg) {
+  return offline_usertask_pb.TaskLog.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_TaskLogList(arg) {
+  if (!(arg instanceof offline_usertask_pb.TaskLogList)) {
+    throw new Error('Expected argument of type services.TaskLogList');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_TaskLogList(buffer_arg) {
+  return offline_usertask_pb.TaskLogList.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_UserTask(arg) {
@@ -241,6 +285,72 @@ clear: {
     responseType: common_common_entity_pb.Int64Entity,
     requestSerialize: serialize_services_ClearTaskRequest,
     requestDeserialize: deserialize_services_ClearTaskRequest,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
+  },
+  updateLog: {
+    path: '/services.UserTaskService/updateLog',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.TaskLog,
+    responseType: offline_usertask_pb.TaskLog,
+    requestSerialize: serialize_services_TaskLog,
+    requestDeserialize: deserialize_services_TaskLog,
+    responseSerialize: serialize_services_TaskLog,
+    responseDeserialize: deserialize_services_TaskLog,
+  },
+  getLog: {
+    path: '/services.UserTaskService/getLog',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.TaskLog,
+    responseType: offline_usertask_pb.TaskLog,
+    requestSerialize: serialize_services_TaskLog,
+    requestDeserialize: deserialize_services_TaskLog,
+    responseSerialize: serialize_services_TaskLog,
+    responseDeserialize: deserialize_services_TaskLog,
+  },
+  deleteLog: {
+    path: '/services.UserTaskService/deleteLog',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.DeleteTaskLogRequest,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_DeleteTaskLogRequest,
+    requestDeserialize: deserialize_services_DeleteTaskLogRequest,
+    responseSerialize: serialize_services_Int64Entity,
+    responseDeserialize: deserialize_services_Int64Entity,
+  },
+  clearLog: {
+    path: '/services.UserTaskService/clearLog',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.TaskLog,
+    responseType: offline_usertask_pb.TaskLog,
+    requestSerialize: serialize_services_TaskLog,
+    requestDeserialize: deserialize_services_TaskLog,
+    responseSerialize: serialize_services_TaskLog,
+    responseDeserialize: deserialize_services_TaskLog,
+  },
+  listLog: {
+    path: '/services.UserTaskService/listLog',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.ListTaskLogRequest,
+    responseType: offline_usertask_pb.TaskLogList,
+    requestSerialize: serialize_services_ListTaskLogRequest,
+    requestDeserialize: deserialize_services_ListTaskLogRequest,
+    responseSerialize: serialize_services_TaskLogList,
+    responseDeserialize: deserialize_services_TaskLogList,
+  },
+  clearOutdatedLog: {
+    path: '/services.UserTaskService/clearOutdatedLog',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.TaskLog,
+    responseType: common_common_entity_pb.Int64Entity,
+    requestSerialize: serialize_services_TaskLog,
+    requestDeserialize: deserialize_services_TaskLog,
     responseSerialize: serialize_services_Int64Entity,
     responseDeserialize: deserialize_services_Int64Entity,
   },

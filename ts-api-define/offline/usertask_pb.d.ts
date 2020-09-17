@@ -126,6 +126,9 @@ export class UserTask extends jspb.Message {
     getKind(): number;
     setKind(value: number): UserTask;
 
+    getAddon(): string;
+    setAddon(value: string): UserTask;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UserTask.AsObject;
@@ -164,6 +167,111 @@ export namespace UserTask {
         username: string,
         password: string,
         kind: number,
+        addon: string,
+    }
+}
+
+export class DeleteTaskLogRequest extends jspb.Message { 
+    clearIdentityList(): void;
+    getIdentityList(): Array<number>;
+    setIdentityList(value: Array<number>): DeleteTaskLogRequest;
+    addIdentity(value: number, index?: number): number;
+
+    getUserIdentity(): number;
+    setUserIdentity(value: number): DeleteTaskLogRequest;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): DeleteTaskLogRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: DeleteTaskLogRequest): DeleteTaskLogRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: DeleteTaskLogRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): DeleteTaskLogRequest;
+    static deserializeBinaryFromReader(message: DeleteTaskLogRequest, reader: jspb.BinaryReader): DeleteTaskLogRequest;
+}
+
+export namespace DeleteTaskLogRequest {
+    export type AsObject = {
+        identityList: Array<number>,
+        userIdentity: number,
+    }
+}
+
+export class TaskLog extends jspb.Message { 
+    getIdentity(): number;
+    setIdentity(value: number): TaskLog;
+
+    getTaskIdentity(): string;
+    setTaskIdentity(value: string): TaskLog;
+
+    getUserIdentity(): number;
+    setUserIdentity(value: number): TaskLog;
+
+    getCreateTime(): number;
+    setCreateTime(value: number): TaskLog;
+
+    getName(): string;
+    setName(value: string): TaskLog;
+
+    getType(): number;
+    setType(value: number): TaskLog;
+
+    getStatus(): number;
+    setStatus(value: number): TaskLog;
+
+    getSize(): number;
+    setSize(value: number): TaskLog;
+
+    getCreateAddress(): string;
+    setCreateAddress(value: string): TaskLog;
+
+    getFileHash(): string;
+    setFileHash(value: string): TaskLog;
+
+    getOp(): number;
+    setOp(value: number): TaskLog;
+
+    getUsername(): string;
+    setUsername(value: string): TaskLog;
+
+    getPassword(): string;
+    setPassword(value: string): TaskLog;
+
+    getDevice(): string;
+    setDevice(value: string): TaskLog;
+
+    getApp(): string;
+    setApp(value: string): TaskLog;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): TaskLog.AsObject;
+    static toObject(includeInstance: boolean, msg: TaskLog): TaskLog.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: TaskLog, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): TaskLog;
+    static deserializeBinaryFromReader(message: TaskLog, reader: jspb.BinaryReader): TaskLog;
+}
+
+export namespace TaskLog {
+    export type AsObject = {
+        identity: number,
+        taskIdentity: string,
+        userIdentity: number,
+        createTime: number,
+        name: string,
+        type: number,
+        status: number,
+        size: number,
+        createAddress: string,
+        fileHash: string,
+        op: number,
+        username: string,
+        password: string,
+        device: string,
+        app: string,
     }
 }
 
@@ -257,6 +365,44 @@ export namespace ClearTaskRequest {
         userIdentity: number,
         type: number,
         deleteFile: boolean,
+    }
+}
+
+export class ListTaskLogRequest extends jspb.Message { 
+    getUserIdentity(): number;
+    setUserIdentity(value: number): ListTaskLogRequest;
+
+
+    hasListInfo(): boolean;
+    clearListInfo(): void;
+    getListInfo(): common_common_entity_pb.ListInfo | undefined;
+    setListInfo(value?: common_common_entity_pb.ListInfo): ListTaskLogRequest;
+
+    clearOrderByList(): void;
+    getOrderByList(): Array<common_common_entity_pb.OrderByRequest>;
+    setOrderByList(value: Array<common_common_entity_pb.OrderByRequest>): ListTaskLogRequest;
+    addOrderBy(value?: common_common_entity_pb.OrderByRequest, index?: number): common_common_entity_pb.OrderByRequest;
+
+    getOp(): number;
+    setOp(value: number): ListTaskLogRequest;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ListTaskLogRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: ListTaskLogRequest): ListTaskLogRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ListTaskLogRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ListTaskLogRequest;
+    static deserializeBinaryFromReader(message: ListTaskLogRequest, reader: jspb.BinaryReader): ListTaskLogRequest;
+}
+
+export namespace ListTaskLogRequest {
+    export type AsObject = {
+        userIdentity: number,
+        listInfo?: common_common_entity_pb.ListInfo.AsObject,
+        orderByList: Array<common_common_entity_pb.OrderByRequest.AsObject>,
+        op: number,
     }
 }
 
@@ -356,6 +502,29 @@ export class UserTaskList extends jspb.Message {
 export namespace UserTaskList {
     export type AsObject = {
         dataList: Array<UserTask.AsObject>,
+    }
+}
+
+export class TaskLogList extends jspb.Message { 
+    clearDataList(): void;
+    getDataList(): Array<TaskLog>;
+    setDataList(value: Array<TaskLog>): TaskLogList;
+    addData(value?: TaskLog, index?: number): TaskLog;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): TaskLogList.AsObject;
+    static toObject(includeInstance: boolean, msg: TaskLogList): TaskLogList.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: TaskLogList, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): TaskLogList;
+    static deserializeBinaryFromReader(message: TaskLogList, reader: jspb.BinaryReader): TaskLogList;
+}
+
+export namespace TaskLogList {
+    export type AsObject = {
+        dataList: Array<TaskLog.AsObject>,
     }
 }
 

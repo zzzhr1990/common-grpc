@@ -219,6 +219,29 @@ export namespace Int64Entity {
     }
 }
 
+export class Int64ListEntity extends jspb.Message { 
+    clearDataList(): void;
+    getDataList(): Array<number>;
+    setDataList(value: Array<number>): Int64ListEntity;
+    addData(value: number, index?: number): number;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Int64ListEntity.AsObject;
+    static toObject(includeInstance: boolean, msg: Int64ListEntity): Int64ListEntity.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: Int64ListEntity, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Int64ListEntity;
+    static deserializeBinaryFromReader(message: Int64ListEntity, reader: jspb.BinaryReader): Int64ListEntity;
+}
+
+export namespace Int64ListEntity {
+    export type AsObject = {
+        dataList: Array<number>,
+    }
+}
+
 export class Uint32Entity extends jspb.Message { 
     getData(): number;
     setData(value: number): Uint32Entity;

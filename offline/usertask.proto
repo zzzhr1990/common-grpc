@@ -29,6 +29,7 @@ service UserTaskService {
     rpc clear(ClearTaskRequest)returns (Int64Entity) {}
 
     rpc updateLog (TaskLog) returns (TaskLog) {}
+    rpc getLog (TaskLog) returns (TaskLog) {}
     rpc deleteLog (DeleteTaskLogRequest) returns (Int64Entity) {}
     rpc clearLog (TaskLog) returns (TaskLog) {}
     rpc listLog (ListTaskLogRequest) returns (TaskLogList) {}
@@ -80,6 +81,7 @@ message UserTask {
     string username = 23;
     string password = 24;
     int32 kind = 25;
+    string addon = 26;
 }
 
 message DeleteTaskLogRequest {
@@ -101,6 +103,8 @@ message TaskLog {
     int32 op = 11;
     string username = 12;
     string password = 13;
+    string device = 14;
+    string app = 15;
 }
 
 message TaskListener {
