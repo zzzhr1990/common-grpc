@@ -44,6 +44,10 @@ message Int64Entity{
     int64 data = 1;
 }
 
+message Int64ListEntity {
+    repeated int64 data = 1;
+}
+
 message Uint32Entity{
     uint32 data = 1;
 }

@@ -27,6 +27,12 @@ service UserTaskService {
     rpc deleteAllListener (TaskListener) returns (Int64Entity) {}
     // rpc fakeCopy(TaskListener)returns (TaskListener) {}
     rpc clear(ClearTaskRequest)returns (Int64Entity) {}
+
+    rpc updateLog (TaskLog) returns (TaskLog) {}
+    rpc deleteLog (DeleteTaskLogRequest) returns (Int64Entity) {}
+    rpc clearLog (TaskLog) returns (TaskLog) {}
+    rpc listLog (ListTaskLogRequest) returns (TaskLogList) {}
+    rpc clearOutdatedLog (TaskLog) returns (Int64Entity) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     // rpc get (UserOfflineTask) returns (UserOfflineTask) {}
@@ -76,6 +82,26 @@ message UserTask {
     int32 kind = 25;
 }
 
+message DeleteTaskLogRequest {
+    repeated int64 identity = 1;
+    int64 user_identity = 2;
+}
+
+message TaskLog {
+    int64 identity = 1;
+    string task_identity = 2;
+    int64 user_identity = 3;
+    int64 create_time = 4;
+    string name = 5;
+    int32 type = 6;
+    int32  status = 7;
+    int64 size = 8;
+    string create_address = 9;
+    string file_hash = 10;
+    int32 op = 11;
+    string username = 12;
+    string password = 13;
+}
 
 message TaskListener {
     string identity = 1;
@@ -108,6 +134,14 @@ message PageUserOfflineTaskRequest {
 }
 */
 
+message ListTaskLogRequest {
+    int64 user_identity = 1;
+    ListInfo list_info = 2;
+    repeated OrderByRequest order_by = 3;
+    // UserTaskFilterRequest filter = 4;
+    int32 op = 5;
+}
+
 message ListUserTaskRequest {
     int64 user_identity = 1;
     ListInfo list_info = 2;
@@ -127,6 +161,14 @@ message DeleteUserTaskRequest {
 
 message UserTaskList {
     repeated UserTask data = 2;
+    // int64 totalCount = 3;
+    // int32 totalPage = 4;
+    // int32 page = 5;
+    // int32 pageSize = 6;
+}
+
+message TaskLogList {
+    repeated TaskLog data = 2;
     // int64 totalCount = 3;
     // int32 totalPage = 4;
     // int32 page = 5;
