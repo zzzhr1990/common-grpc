@@ -642,6 +642,9 @@ export class BatchFileTaskRequest extends jspb.Message {
     getOp(): number;
     setOp(value: number): BatchFileTaskRequest;
 
+    getForceSync(): boolean;
+    setForceSync(value: boolean): BatchFileTaskRequest;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): BatchFileTaskRequest.AsObject;
@@ -660,6 +663,7 @@ export namespace BatchFileTaskRequest {
         userIdentity: number,
         dest?: FileInfo.AsObject,
         op: number,
+        forceSync: boolean,
     }
 }
 

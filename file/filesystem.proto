@@ -198,6 +198,7 @@ message BatchFileTaskRequest {
     int64 user_identity = 3;
     FileInfo dest = 4;
     int32 op = 5;
+    bool force_sync = 6;
 }
 
 message BatchLabelRequest {
