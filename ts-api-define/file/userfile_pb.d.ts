@@ -253,6 +253,9 @@ export class BathFileRequest extends jspb.Message {
     getOp(): number;
     setOp(value: number): BathFileRequest;
 
+    getForceSync(): boolean;
+    setForceSync(value: boolean): BathFileRequest;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): BathFileRequest.AsObject;
@@ -271,6 +274,7 @@ export namespace BathFileRequest {
         userIdentity: number,
         dest?: UserFile.AsObject,
         op: number,
+        forceSync: boolean,
     }
 }
 

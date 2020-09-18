@@ -1882,7 +1882,8 @@ proto.services.BathFileRequest.toObject = function(includeInstance, msg) {
     pathList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
     userIdentity: jspb.Message.getFieldWithDefault(msg, 3, 0),
     dest: (f = msg.getDest()) && proto.services.UserFile.toObject(includeInstance, f),
-    op: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    op: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    forceSync: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
   };
 
   if (includeInstance) {
@@ -1939,6 +1940,10 @@ proto.services.BathFileRequest.deserializeBinaryFromReader = function(msg, reade
     case 5:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setOp(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setForceSync(value);
       break;
     default:
       reader.skipField();
@@ -2002,6 +2007,13 @@ proto.services.BathFileRequest.serializeBinaryToWriter = function(message, write
   if (f !== 0) {
     writer.writeInt32(
       5,
+      f
+    );
+  }
+  f = message.getForceSync();
+  if (f) {
+    writer.writeBool(
+      6,
       f
     );
   }
@@ -2152,6 +2164,24 @@ proto.services.BathFileRequest.prototype.getOp = function() {
  */
 proto.services.BathFileRequest.prototype.setOp = function(value) {
   return jspb.Message.setProto3IntField(this, 5, value);
+};
+
+
+/**
+ * optional bool force_sync = 6;
+ * @return {boolean}
+ */
+proto.services.BathFileRequest.prototype.getForceSync = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.services.BathFileRequest} returns this
+ */
+proto.services.BathFileRequest.prototype.setForceSync = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 

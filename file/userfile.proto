@@ -116,6 +116,7 @@ message BathFileRequest {
     int64 user_identity = 3;
     UserFile dest = 4;
     int32 op = 5;
+    bool force_sync = 6;
 }
 
 message MqRequest {
