@@ -9,6 +9,8 @@ import "common/common_entity.proto";
 service FileService {
     rpc Create (FileInfo) returns (FileInfo) {}
     rpc Get (FileInfo) returns (FileInfo) {}
+    rpc Update (FileInfo) returns (FileInfo) {}
+    rpc UpdateStatistics (FileInfo) returns (FileInfo) {} // Safe version instead of Update()
     // rpc CreateInternal (FileInfo) returns (FileInfo) {}
     rpc List (FileInfoListRequest) returns (FileInfoListResponse) {}
     rpc ListInternal (FileInfoListRequest) returns (FileInfoListResponse) {}
