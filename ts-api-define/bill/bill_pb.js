@@ -231,7 +231,8 @@ proto.services.Payment.toObject = function(includeInstance, msg) {
     payUnion: jspb.Message.getFieldWithDefault(msg, 7, ""),
     price: jspb.Message.getFieldWithDefault(msg, 8, 0),
     currency: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    detail: jspb.Message.getFieldWithDefault(msg, 10, "")
+    detail: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    address: jspb.Message.getFieldWithDefault(msg, 11, "")
   };
 
   if (includeInstance) {
@@ -307,6 +308,10 @@ proto.services.Payment.deserializeBinaryFromReader = function(msg, reader) {
     case 10:
       var value = /** @type {string} */ (reader.readString());
       msg.setDetail(value);
+      break;
+    case 11:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAddress(value);
       break;
     default:
       reader.skipField();
@@ -404,6 +409,13 @@ proto.services.Payment.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       10,
+      f
+    );
+  }
+  f = message.getAddress();
+  if (f.length > 0) {
+    writer.writeString(
+      11,
       f
     );
   }
@@ -587,6 +599,24 @@ proto.services.Payment.prototype.getDetail = function() {
  */
 proto.services.Payment.prototype.setDetail = function(value) {
   return jspb.Message.setProto3StringField(this, 10, value);
+};
+
+
+/**
+ * optional string address = 11;
+ * @return {string}
+ */
+proto.services.Payment.prototype.getAddress = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.Payment} returns this
+ */
+proto.services.Payment.prototype.setAddress = function(value) {
+  return jspb.Message.setProto3StringField(this, 11, value);
 };
 
 

@@ -38,6 +38,9 @@ export class Payment extends jspb.Message {
     getDetail(): string;
     setDetail(value: string): Payment;
 
+    getAddress(): string;
+    setAddress(value: string): Payment;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Payment.AsObject;
@@ -61,6 +64,7 @@ export namespace Payment {
         price: number,
         currency: string,
         detail: string,
+        address: string,
     }
 }
 

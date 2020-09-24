@@ -33,6 +33,7 @@ message Payment {
     int64 price = 8;
     string currency = 9;
     string detail = 10;
+    string address = 11;
 }
 
 message Order {
