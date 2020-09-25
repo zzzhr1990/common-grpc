@@ -53,6 +53,14 @@ service UserService {
     rpc CreatePayment(SubscriptionPayment)returns (SubscriptionPayment) {}
     rpc CompletePayment(SubscriptionPayment)returns (SubscriptionPayment) {}
     rpc FailedPayment(SubscriptionPayment)returns (SubscriptionPayment) {}
+
+    rpc RequestChangePhone (LaterAction) returns (LaterAction) {}
+    rpc RequestRemoveAccount (LaterAction) returns (LaterAction) {}
+
+    rpc CancelLaterAction (LaterAction) returns (LaterAction) {}
+
+    rpc ChangePhone (LaterAction) returns (LaterAction) {}
+    rpc RemoveAccount (LaterAction) returns (LaterAction) {}
 }
 
 
@@ -75,6 +83,16 @@ message User {
     int32 vip = 16;
     int64  vip_expire_time = 17; // [json_name="payaya"] seems not working for normal json
     int64  last_activate_time = 18; // when last login, activate, ... etc
+}
+
+message LaterAction {
+    int64  user_identity = 1;
+    int32  type = 2;
+    int64  create_time = 3;
+    int64  expire_time = 4;
+    string cancel_token = 5;
+    string confirm_token = 6;
+    string addon = 7;
 }
 
 message OauthInfo {

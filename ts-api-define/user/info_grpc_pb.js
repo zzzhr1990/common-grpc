@@ -15,6 +15,17 @@ function deserialize_services_ChangePasswordRequest(buffer_arg) {
   return user_info_pb.ChangePasswordRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_LaterAction(arg) {
+  if (!(arg instanceof user_info_pb.LaterAction)) {
+    throw new Error('Expected argument of type services.LaterAction');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_LaterAction(buffer_arg) {
+  return user_info_pb.LaterAction.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_OauthInfo(arg) {
   if (!(arg instanceof user_info_pb.OauthInfo)) {
     throw new Error('Expected argument of type services.OauthInfo');
@@ -387,6 +398,61 @@ bindThirdPartyLogin: {
     requestDeserialize: deserialize_services_SubscriptionPayment,
     responseSerialize: serialize_services_SubscriptionPayment,
     responseDeserialize: deserialize_services_SubscriptionPayment,
+  },
+  requestChangePhone: {
+    path: '/services.UserService/RequestChangePhone',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.LaterAction,
+    responseType: user_info_pb.LaterAction,
+    requestSerialize: serialize_services_LaterAction,
+    requestDeserialize: deserialize_services_LaterAction,
+    responseSerialize: serialize_services_LaterAction,
+    responseDeserialize: deserialize_services_LaterAction,
+  },
+  requestRemoveAccount: {
+    path: '/services.UserService/RequestRemoveAccount',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.LaterAction,
+    responseType: user_info_pb.LaterAction,
+    requestSerialize: serialize_services_LaterAction,
+    requestDeserialize: deserialize_services_LaterAction,
+    responseSerialize: serialize_services_LaterAction,
+    responseDeserialize: deserialize_services_LaterAction,
+  },
+  cancelLaterAction: {
+    path: '/services.UserService/CancelLaterAction',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.LaterAction,
+    responseType: user_info_pb.LaterAction,
+    requestSerialize: serialize_services_LaterAction,
+    requestDeserialize: deserialize_services_LaterAction,
+    responseSerialize: serialize_services_LaterAction,
+    responseDeserialize: deserialize_services_LaterAction,
+  },
+  changePhone: {
+    path: '/services.UserService/ChangePhone',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.LaterAction,
+    responseType: user_info_pb.LaterAction,
+    requestSerialize: serialize_services_LaterAction,
+    requestDeserialize: deserialize_services_LaterAction,
+    responseSerialize: serialize_services_LaterAction,
+    responseDeserialize: deserialize_services_LaterAction,
+  },
+  removeAccount: {
+    path: '/services.UserService/RemoveAccount',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.LaterAction,
+    responseType: user_info_pb.LaterAction,
+    requestSerialize: serialize_services_LaterAction,
+    requestDeserialize: deserialize_services_LaterAction,
+    responseSerialize: serialize_services_LaterAction,
+    responseDeserialize: deserialize_services_LaterAction,
   },
 };
 

@@ -95,6 +95,51 @@ export namespace User {
     }
 }
 
+export class LaterAction extends jspb.Message { 
+    getUserIdentity(): number;
+    setUserIdentity(value: number): LaterAction;
+
+    getType(): number;
+    setType(value: number): LaterAction;
+
+    getCreateTime(): number;
+    setCreateTime(value: number): LaterAction;
+
+    getExpireTime(): number;
+    setExpireTime(value: number): LaterAction;
+
+    getCancelToken(): string;
+    setCancelToken(value: string): LaterAction;
+
+    getConfirmToken(): string;
+    setConfirmToken(value: string): LaterAction;
+
+    getAddon(): string;
+    setAddon(value: string): LaterAction;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): LaterAction.AsObject;
+    static toObject(includeInstance: boolean, msg: LaterAction): LaterAction.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: LaterAction, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): LaterAction;
+    static deserializeBinaryFromReader(message: LaterAction, reader: jspb.BinaryReader): LaterAction;
+}
+
+export namespace LaterAction {
+    export type AsObject = {
+        userIdentity: number,
+        type: number,
+        createTime: number,
+        expireTime: number,
+        cancelToken: string,
+        confirmToken: string,
+        addon: string,
+    }
+}
+
 export class OauthInfo extends jspb.Message { 
     getAccessToken(): string;
     setAccessToken(value: string): OauthInfo;

@@ -31,6 +31,11 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
     createPayment: IUserServiceService_ICreatePayment;
     completePayment: IUserServiceService_ICompletePayment;
     failedPayment: IUserServiceService_IFailedPayment;
+    requestChangePhone: IUserServiceService_IRequestChangePhone;
+    requestRemoveAccount: IUserServiceService_IRequestRemoveAccount;
+    cancelLaterAction: IUserServiceService_ICancelLaterAction;
+    changePhone: IUserServiceService_IChangePhone;
+    removeAccount: IUserServiceService_IRemoveAccount;
 }
 
 interface IUserServiceService_ICreate extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
@@ -231,6 +236,51 @@ interface IUserServiceService_IFailedPayment extends grpc.MethodDefinition<user_
     responseSerialize: grpc.serialize<user_info_pb.SubscriptionPayment>;
     responseDeserialize: grpc.deserialize<user_info_pb.SubscriptionPayment>;
 }
+interface IUserServiceService_IRequestChangePhone extends grpc.MethodDefinition<user_info_pb.LaterAction, user_info_pb.LaterAction> {
+    path: string; // "/services.UserService/RequestChangePhone"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.LaterAction>;
+    requestDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
+    responseSerialize: grpc.serialize<user_info_pb.LaterAction>;
+    responseDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
+}
+interface IUserServiceService_IRequestRemoveAccount extends grpc.MethodDefinition<user_info_pb.LaterAction, user_info_pb.LaterAction> {
+    path: string; // "/services.UserService/RequestRemoveAccount"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.LaterAction>;
+    requestDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
+    responseSerialize: grpc.serialize<user_info_pb.LaterAction>;
+    responseDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
+}
+interface IUserServiceService_ICancelLaterAction extends grpc.MethodDefinition<user_info_pb.LaterAction, user_info_pb.LaterAction> {
+    path: string; // "/services.UserService/CancelLaterAction"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.LaterAction>;
+    requestDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
+    responseSerialize: grpc.serialize<user_info_pb.LaterAction>;
+    responseDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
+}
+interface IUserServiceService_IChangePhone extends grpc.MethodDefinition<user_info_pb.LaterAction, user_info_pb.LaterAction> {
+    path: string; // "/services.UserService/ChangePhone"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.LaterAction>;
+    requestDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
+    responseSerialize: grpc.serialize<user_info_pb.LaterAction>;
+    responseDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
+}
+interface IUserServiceService_IRemoveAccount extends grpc.MethodDefinition<user_info_pb.LaterAction, user_info_pb.LaterAction> {
+    path: string; // "/services.UserService/RemoveAccount"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.LaterAction>;
+    requestDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
+    responseSerialize: grpc.serialize<user_info_pb.LaterAction>;
+    responseDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
+}
 
 export const UserServiceService: IUserServiceService;
 
@@ -257,6 +307,11 @@ export interface IUserServiceServer {
     createPayment: grpc.handleUnaryCall<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment>;
     completePayment: grpc.handleUnaryCall<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment>;
     failedPayment: grpc.handleUnaryCall<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment>;
+    requestChangePhone: grpc.handleUnaryCall<user_info_pb.LaterAction, user_info_pb.LaterAction>;
+    requestRemoveAccount: grpc.handleUnaryCall<user_info_pb.LaterAction, user_info_pb.LaterAction>;
+    cancelLaterAction: grpc.handleUnaryCall<user_info_pb.LaterAction, user_info_pb.LaterAction>;
+    changePhone: grpc.handleUnaryCall<user_info_pb.LaterAction, user_info_pb.LaterAction>;
+    removeAccount: grpc.handleUnaryCall<user_info_pb.LaterAction, user_info_pb.LaterAction>;
 }
 
 export interface IUserServiceClient {
@@ -326,6 +381,21 @@ export interface IUserServiceClient {
     failedPayment(request: user_info_pb.SubscriptionPayment, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
     failedPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
     failedPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    requestChangePhone(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    requestChangePhone(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    requestChangePhone(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    requestRemoveAccount(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    requestRemoveAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    requestRemoveAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    cancelLaterAction(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    cancelLaterAction(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    cancelLaterAction(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    changePhone(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    changePhone(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    changePhone(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    removeAccount(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    removeAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    removeAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
 }
 
 export class UserServiceClient extends grpc.Client implements IUserServiceClient {
@@ -396,4 +466,19 @@ export class UserServiceClient extends grpc.Client implements IUserServiceClient
     public failedPayment(request: user_info_pb.SubscriptionPayment, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
     public failedPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
     public failedPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
+    public requestChangePhone(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public requestChangePhone(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public requestChangePhone(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public requestRemoveAccount(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public requestRemoveAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public requestRemoveAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public cancelLaterAction(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public cancelLaterAction(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public cancelLaterAction(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public changePhone(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public changePhone(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public changePhone(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public removeAccount(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public removeAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public removeAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
 }
