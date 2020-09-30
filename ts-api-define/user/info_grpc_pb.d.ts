@@ -18,6 +18,7 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
     loginDirect: IUserServiceService_ILoginDirect;
     logoff: IUserServiceService_ILogoff;
     update: IUserServiceService_IUpdate;
+    updateStatistics: IUserServiceService_IUpdateStatistics;
     sendSms: IUserServiceService_ISendSms;
     validateSms: IUserServiceService_IValidateSms;
     changePassword: IUserServiceService_IChangePassword;
@@ -112,6 +113,15 @@ interface IUserServiceService_ILogoff extends grpc.MethodDefinition<user_info_pb
 }
 interface IUserServiceService_IUpdate extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
     path: string; // "/services.UserService/Update"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.User>;
+    requestDeserialize: grpc.deserialize<user_info_pb.User>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_IUpdateStatistics extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
+    path: string; // "/services.UserService/UpdateStatistics"
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.User>;
@@ -294,6 +304,7 @@ export interface IUserServiceServer {
     loginDirect: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
     logoff: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
     update: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
+    updateStatistics: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
     sendSms: grpc.handleUnaryCall<user_info_pb.SmsRequest, user_info_pb.SmsResponse>;
     validateSms: grpc.handleUnaryCall<user_info_pb.SmsValidateRequest, user_info_pb.SmsValidateResponse>;
     changePassword: grpc.handleUnaryCall<user_info_pb.ChangePasswordRequest, user_info_pb.User>;
@@ -342,6 +353,9 @@ export interface IUserServiceClient {
     update(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     update(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     update(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    updateStatistics(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    updateStatistics(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    updateStatistics(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     sendSms(request: user_info_pb.SmsRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;
     sendSms(request: user_info_pb.SmsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;
     sendSms(request: user_info_pb.SmsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;
@@ -427,6 +441,9 @@ export class UserServiceClient extends grpc.Client implements IUserServiceClient
     public update(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     public update(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     public update(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public updateStatistics(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public updateStatistics(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public updateStatistics(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     public sendSms(request: user_info_pb.SmsRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;
     public sendSms(request: user_info_pb.SmsRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;
     public sendSms(request: user_info_pb.SmsRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SmsResponse) => void): grpc.ClientUnaryCall;

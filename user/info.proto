@@ -30,6 +30,8 @@ service UserService {
     // 更新用户信息，identity是必填项目，其他选填， 但是不能更改密码
     rpc Update (User) returns (User) {}
 
+    rpc UpdateStatistics (User) returns (User) {}
+
     // rpc getBalance (Balance) returns (Balance) {}
     // rpc setSpaceUsed (Balance) returns (Balance) {}
     // 发送短信
