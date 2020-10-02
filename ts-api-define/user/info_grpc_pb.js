@@ -246,6 +246,17 @@ update: {
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
   },
+  checkCanCreateFile: {
+    path: '/services.UserService/CheckCanCreateFile',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.User,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_User,
+    requestDeserialize: deserialize_services_User,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
+  },
   updateStatistics: {
     path: '/services.UserService/UpdateStatistics',
     requestStream: false,
