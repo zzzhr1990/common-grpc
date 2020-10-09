@@ -15,6 +15,7 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
     findOne: IUserServiceService_IFindOne;
     login: IUserServiceService_ILogin;
     smsLogin: IUserServiceService_ISmsLogin;
+    smsChangePhone: IUserServiceService_ISmsChangePhone;
     loginDirect: IUserServiceService_ILoginDirect;
     logoff: IUserServiceService_ILogoff;
     update: IUserServiceService_IUpdate;
@@ -91,6 +92,15 @@ interface IUserServiceService_ISmsLogin extends grpc.MethodDefinition<user_info_
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.SmsValidateRequest>;
     requestDeserialize: grpc.deserialize<user_info_pb.SmsValidateRequest>;
+    responseSerialize: grpc.serialize<user_info_pb.User>;
+    responseDeserialize: grpc.deserialize<user_info_pb.User>;
+}
+interface IUserServiceService_ISmsChangePhone extends grpc.MethodDefinition<user_info_pb.SmsValidateRequestChange, user_info_pb.User> {
+    path: string; // "/services.UserService/SmsChangePhone"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.SmsValidateRequestChange>;
+    requestDeserialize: grpc.deserialize<user_info_pb.SmsValidateRequestChange>;
     responseSerialize: grpc.serialize<user_info_pb.User>;
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
@@ -311,6 +321,7 @@ export interface IUserServiceServer {
     findOne: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
     login: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
     smsLogin: grpc.handleUnaryCall<user_info_pb.SmsValidateRequest, user_info_pb.User>;
+    smsChangePhone: grpc.handleUnaryCall<user_info_pb.SmsValidateRequestChange, user_info_pb.User>;
     loginDirect: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
     logoff: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
     update: grpc.handleUnaryCall<user_info_pb.User, user_info_pb.User>;
@@ -355,6 +366,9 @@ export interface IUserServiceClient {
     smsLogin(request: user_info_pb.SmsValidateRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     smsLogin(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     smsLogin(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsChangePhone(request: user_info_pb.SmsValidateRequestChange, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsChangePhone(request: user_info_pb.SmsValidateRequestChange, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    smsChangePhone(request: user_info_pb.SmsValidateRequestChange, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     loginDirect(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     loginDirect(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     loginDirect(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
@@ -446,6 +460,9 @@ export class UserServiceClient extends grpc.Client implements IUserServiceClient
     public smsLogin(request: user_info_pb.SmsValidateRequest, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     public smsLogin(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     public smsLogin(request: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsChangePhone(request: user_info_pb.SmsValidateRequestChange, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsChangePhone(request: user_info_pb.SmsValidateRequestChange, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
+    public smsChangePhone(request: user_info_pb.SmsValidateRequestChange, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     public loginDirect(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     public loginDirect(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     public loginDirect(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;

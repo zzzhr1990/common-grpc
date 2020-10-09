@@ -363,6 +363,39 @@ export namespace SmsValidateRequest {
     }
 }
 
+export class SmsValidateRequestChange extends jspb.Message { 
+    getSession(): string;
+    setSession(value: string): SmsValidateRequestChange;
+
+    getCode(): string;
+    setCode(value: string): SmsValidateRequestChange;
+
+    getSessionOld(): string;
+    setSessionOld(value: string): SmsValidateRequestChange;
+
+    getCodeOld(): string;
+    setCodeOld(value: string): SmsValidateRequestChange;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): SmsValidateRequestChange.AsObject;
+    static toObject(includeInstance: boolean, msg: SmsValidateRequestChange): SmsValidateRequestChange.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: SmsValidateRequestChange, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): SmsValidateRequestChange;
+    static deserializeBinaryFromReader(message: SmsValidateRequestChange, reader: jspb.BinaryReader): SmsValidateRequestChange;
+}
+
+export namespace SmsValidateRequestChange {
+    export type AsObject = {
+        session: string,
+        code: string,
+        sessionOld: string,
+        codeOld: string,
+    }
+}
+
 export class SmsValidateResponse extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): SmsValidateResponse;

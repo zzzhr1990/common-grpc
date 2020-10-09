@@ -23,6 +23,10 @@ service UserService {
     rpc Login (User) returns (User) {}
     // SMS login, send session and code, return empty user info instead of error if not success
     rpc SmsLogin (SmsValidateRequest) returns (User) {} 
+
+    rpc SmsChangePhone (SmsValidateRequestChange) returns (User) {} 
+
+    // rpc SmsInput (SmsValidateRequest) returns (User) {} 
     // 强行登录用户（仅后台使用）
     rpc LoginDirect (User) returns (User) {}
     // 登出（记录用户登录操作）
@@ -157,6 +161,13 @@ message SubscriptionPayment {
 message SmsValidateRequest {
     string session = 1;
     string code = 2;
+}
+
+message SmsValidateRequestChange {
+    string session = 1;
+    string code = 2;
+    string session_old = 3;
+    string code_old = 4;
 }
 
 message SmsValidateResponse {

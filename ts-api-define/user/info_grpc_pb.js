@@ -92,6 +92,17 @@ function deserialize_services_SmsValidateRequest(buffer_arg) {
   return user_info_pb.SmsValidateRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_SmsValidateRequestChange(arg) {
+  if (!(arg instanceof user_info_pb.SmsValidateRequestChange)) {
+    throw new Error('Expected argument of type services.SmsValidateRequestChange');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_SmsValidateRequestChange(buffer_arg) {
+  return user_info_pb.SmsValidateRequestChange.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_SmsValidateResponse(arg) {
   if (!(arg instanceof user_info_pb.SmsValidateResponse)) {
     throw new Error('Expected argument of type services.SmsValidateResponse');
@@ -210,7 +221,19 @@ smsLogin: {
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
   },
-  // 强行登录用户（仅后台使用）
+  smsChangePhone: {
+    path: '/services.UserService/SmsChangePhone',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.SmsValidateRequestChange,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_SmsValidateRequestChange,
+    requestDeserialize: deserialize_services_SmsValidateRequestChange,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
+  },
+  // rpc SmsInput (SmsValidateRequest) returns (User) {} 
+// 强行登录用户（仅后台使用）
 loginDirect: {
     path: '/services.UserService/LoginDirect',
     requestStream: false,
