@@ -488,6 +488,17 @@ bindThirdPartyLogin: {
     responseSerialize: serialize_services_LaterAction,
     responseDeserialize: deserialize_services_LaterAction,
   },
+  getLaterAction: {
+    path: '/services.UserService/GetLaterAction',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.LaterAction,
+    responseType: user_info_pb.LaterAction,
+    requestSerialize: serialize_services_LaterAction,
+    requestDeserialize: deserialize_services_LaterAction,
+    responseSerialize: serialize_services_LaterAction,
+    responseDeserialize: deserialize_services_LaterAction,
+  },
   removeAccount: {
     path: '/services.UserService/RemoveAccount',
     requestStream: false,

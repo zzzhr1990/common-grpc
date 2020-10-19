@@ -64,10 +64,9 @@ service UserService {
 
     rpc RequestChangePhone (LaterAction) returns (LaterAction) {}
     rpc RequestRemoveAccount (LaterAction) returns (LaterAction) {}
-
     rpc CancelLaterAction (LaterAction) returns (LaterAction) {}
-
     rpc ChangePhone (LaterAction) returns (LaterAction) {}
+    rpc GetLaterAction (LaterAction) returns (LaterAction) {}
     rpc RemoveAccount (LaterAction) returns (LaterAction) {}
 }
 
