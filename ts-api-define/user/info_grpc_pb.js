@@ -291,6 +291,17 @@ update: {
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
   },
+  smsDeleteAccount: {
+    path: '/services.UserService/SmsDeleteAccount',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.User,
+    responseType: user_info_pb.User,
+    requestSerialize: serialize_services_User,
+    requestDeserialize: deserialize_services_User,
+    responseSerialize: serialize_services_User,
+    responseDeserialize: deserialize_services_User,
+  },
   // rpc getBalance (Balance) returns (Balance) {}
 // rpc setSpaceUsed (Balance) returns (Balance) {}
 // 发送短信
@@ -499,8 +510,8 @@ bindThirdPartyLogin: {
     responseSerialize: serialize_services_LaterAction,
     responseDeserialize: deserialize_services_LaterAction,
   },
-  removeAccount: {
-    path: '/services.UserService/RemoveAccount',
+  deleteAccount: {
+    path: '/services.UserService/DeleteAccount',
     requestStream: false,
     responseStream: false,
     requestType: user_info_pb.LaterAction,

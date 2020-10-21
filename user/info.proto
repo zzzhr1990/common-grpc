@@ -38,6 +38,8 @@ service UserService {
 
     rpc UpdateStatistics (User) returns (User) {}
 
+    rpc SmsDeleteAccount (User) returns (User) {}
+
     // rpc getBalance (Balance) returns (Balance) {}
     // rpc setSpaceUsed (Balance) returns (Balance) {}
     // 发送短信
@@ -67,7 +69,7 @@ service UserService {
     rpc CancelLaterAction (LaterAction) returns (LaterAction) {}
     rpc ChangePhone (LaterAction) returns (LaterAction) {}
     rpc GetLaterAction (LaterAction) returns (LaterAction) {}
-    rpc RemoveAccount (LaterAction) returns (LaterAction) {}
+    rpc DeleteAccount (LaterAction) returns (LaterAction) {}
 }
 
 
