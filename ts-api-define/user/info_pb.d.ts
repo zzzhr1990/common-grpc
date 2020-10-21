@@ -597,6 +597,35 @@ export namespace SmsChangePasswordRequest {
     }
 }
 
+export class SmsDeleteAccountRequest extends jspb.Message { 
+    getSession(): string;
+    setSession(value: string): SmsDeleteAccountRequest;
+
+    getCode(): string;
+    setCode(value: string): SmsDeleteAccountRequest;
+
+    getIdentity(): number;
+    setIdentity(value: number): SmsDeleteAccountRequest;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): SmsDeleteAccountRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: SmsDeleteAccountRequest): SmsDeleteAccountRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: SmsDeleteAccountRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): SmsDeleteAccountRequest;
+    static deserializeBinaryFromReader(message: SmsDeleteAccountRequest, reader: jspb.BinaryReader): SmsDeleteAccountRequest;
+}
+
+export namespace SmsDeleteAccountRequest {
+    export type AsObject = {
+        session: string,
+        code: string,
+        identity: number,
+    }
+}
+
 export class SmsCreateRequest extends jspb.Message { 
     getSession(): string;
     setSession(value: string): SmsCreateRequest;

@@ -59,6 +59,17 @@ function deserialize_services_SmsCreateRequest(buffer_arg) {
   return user_info_pb.SmsCreateRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_SmsDeleteAccountRequest(arg) {
+  if (!(arg instanceof user_info_pb.SmsDeleteAccountRequest)) {
+    throw new Error('Expected argument of type services.SmsDeleteAccountRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_SmsDeleteAccountRequest(buffer_arg) {
+  return user_info_pb.SmsDeleteAccountRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_SmsRequest(arg) {
   if (!(arg instanceof user_info_pb.SmsRequest)) {
     throw new Error('Expected argument of type services.SmsRequest');
@@ -295,10 +306,10 @@ update: {
     path: '/services.UserService/SmsDeleteAccount',
     requestStream: false,
     responseStream: false,
-    requestType: user_info_pb.User,
+    requestType: user_info_pb.SmsDeleteAccountRequest,
     responseType: user_info_pb.User,
-    requestSerialize: serialize_services_User,
-    requestDeserialize: deserialize_services_User,
+    requestSerialize: serialize_services_SmsDeleteAccountRequest,
+    requestDeserialize: deserialize_services_SmsDeleteAccountRequest,
     responseSerialize: serialize_services_User,
     responseDeserialize: deserialize_services_User,
   },

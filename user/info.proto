@@ -38,7 +38,7 @@ service UserService {
 
     rpc UpdateStatistics (User) returns (User) {}
 
-    rpc SmsDeleteAccount (User) returns (User) {}
+    rpc SmsDeleteAccount (SmsDeleteAccountRequest) returns (User) {}
 
     // rpc getBalance (Balance) returns (Balance) {}
     // rpc setSpaceUsed (Balance) returns (Balance) {}
@@ -215,6 +215,13 @@ message SmsChangePasswordRequest {
     string code = 2;
     string  new_password = 3;
 }
+
+message SmsDeleteAccountRequest {
+    string session = 1;
+    string code = 2;
+    int64  identity = 3;
+}
+
 
 message SmsCreateRequest {
     string session = 1;
