@@ -10,16 +10,16 @@
   "author": "zzzhr",
   "license": "ISC",
   "dependencies": {
-    "google-protobuf": "^3.12.2",
-    "@grpc/grpc-js": "^1.0.5"
+    "google-protobuf": "^3.13.0",
+    "@grpc/grpc-js": "^1.1.7"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zzzhr1990/ts-api-define.git"
   },
   "devDependencies": {
-    "grpc-tools": "^1.9.0",
-    "grpc_tools_node_protoc_ts": "^4.1.0"
+    "grpc-tools": "^1.9.1",
+    "grpc_tools_node_protoc_ts": "^5.0.1"
   },
   "bugs": {
     "url": "https://github.com/zzzhr1990/ts-api-define/issues"
