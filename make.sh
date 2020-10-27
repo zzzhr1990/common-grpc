@@ -60,7 +60,7 @@ go mod init github.com/zzzhr1990/common-grpc/go
 # go get google.golang.org/grpc
 go get
 # go get github.com/golang/protobuf@master
-# go mod tidy
+go mod tidy
 cd ..
 
 # echo "Copy JavaScript Files"
