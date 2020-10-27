@@ -31,7 +31,7 @@ interface IUserTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedSer
 }
 
 interface IUserTaskServiceService_Iadd extends grpc.MethodDefinition<offline_usertask_pb.AddUserTaskRequest, offline_usertask_pb.UserTaskList> {
-    path: string; // "/services.UserTaskService/add"
+    path: "/services.UserTaskService/add";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.AddUserTaskRequest>;
@@ -40,7 +40,7 @@ interface IUserTaskServiceService_Iadd extends grpc.MethodDefinition<offline_use
     responseDeserialize: grpc.deserialize<offline_usertask_pb.UserTaskList>;
 }
 interface IUserTaskServiceService_Ilist extends grpc.MethodDefinition<offline_usertask_pb.ListUserTaskRequest, offline_usertask_pb.UserTaskList> {
-    path: string; // "/services.UserTaskService/list"
+    path: "/services.UserTaskService/list";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.ListUserTaskRequest>;
@@ -49,7 +49,7 @@ interface IUserTaskServiceService_Ilist extends grpc.MethodDefinition<offline_us
     responseDeserialize: grpc.deserialize<offline_usertask_pb.UserTaskList>;
 }
 interface IUserTaskServiceService_Idelete extends grpc.MethodDefinition<offline_usertask_pb.DeleteUserTaskRequest, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.UserTaskService/delete"
+    path: "/services.UserTaskService/delete";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.DeleteUserTaskRequest>;
@@ -58,7 +58,7 @@ interface IUserTaskServiceService_Idelete extends grpc.MethodDefinition<offline_
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IUserTaskServiceService_Iget extends grpc.MethodDefinition<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask> {
-    path: string; // "/services.UserTaskService/get"
+    path: "/services.UserTaskService/get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.UserTask>;
@@ -67,7 +67,7 @@ interface IUserTaskServiceService_Iget extends grpc.MethodDefinition<offline_use
     responseDeserialize: grpc.deserialize<offline_usertask_pb.UserTask>;
 }
 interface IUserTaskServiceService_IcompleteOrError extends grpc.MethodDefinition<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask> {
-    path: string; // "/services.UserTaskService/completeOrError"
+    path: "/services.UserTaskService/completeOrError";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.UserTask>;
@@ -76,7 +76,7 @@ interface IUserTaskServiceService_IcompleteOrError extends grpc.MethodDefinition
     responseDeserialize: grpc.deserialize<offline_usertask_pb.UserTask>;
 }
 interface IUserTaskServiceService_Iupdate extends grpc.MethodDefinition<offline_usertask_pb.UserTask, offline_usertask_pb.UserTask> {
-    path: string; // "/services.UserTaskService/update"
+    path: "/services.UserTaskService/update";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.UserTask>;
@@ -85,7 +85,7 @@ interface IUserTaskServiceService_Iupdate extends grpc.MethodDefinition<offline_
     responseDeserialize: grpc.deserialize<offline_usertask_pb.UserTask>;
 }
 interface IUserTaskServiceService_IgetListeners extends grpc.MethodDefinition<offline_usertask_pb.TaskListener, offline_usertask_pb.TaskListenerList> {
-    path: string; // "/services.UserTaskService/getListeners"
+    path: "/services.UserTaskService/getListeners";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.TaskListener>;
@@ -94,7 +94,7 @@ interface IUserTaskServiceService_IgetListeners extends grpc.MethodDefinition<of
     responseDeserialize: grpc.deserialize<offline_usertask_pb.TaskListenerList>;
 }
 interface IUserTaskServiceService_IupdateListener extends grpc.MethodDefinition<offline_usertask_pb.TaskListener, offline_usertask_pb.TaskListener> {
-    path: string; // "/services.UserTaskService/updateListener"
+    path: "/services.UserTaskService/updateListener";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.TaskListener>;
@@ -103,7 +103,7 @@ interface IUserTaskServiceService_IupdateListener extends grpc.MethodDefinition<
     responseDeserialize: grpc.deserialize<offline_usertask_pb.TaskListener>;
 }
 interface IUserTaskServiceService_IdeleteCompleteListener extends grpc.MethodDefinition<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.UserTaskService/deleteCompleteListener"
+    path: "/services.UserTaskService/deleteCompleteListener";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.TaskListener>;
@@ -112,7 +112,7 @@ interface IUserTaskServiceService_IdeleteCompleteListener extends grpc.MethodDef
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IUserTaskServiceService_IdeleteFakeCopyListener extends grpc.MethodDefinition<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.UserTaskService/deleteFakeCopyListener"
+    path: "/services.UserTaskService/deleteFakeCopyListener";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.TaskListener>;
@@ -121,7 +121,7 @@ interface IUserTaskServiceService_IdeleteFakeCopyListener extends grpc.MethodDef
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IUserTaskServiceService_IdeleteAllListener extends grpc.MethodDefinition<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.UserTaskService/deleteAllListener"
+    path: "/services.UserTaskService/deleteAllListener";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.TaskListener>;
@@ -130,7 +130,7 @@ interface IUserTaskServiceService_IdeleteAllListener extends grpc.MethodDefiniti
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IUserTaskServiceService_Iclear extends grpc.MethodDefinition<offline_usertask_pb.ClearTaskRequest, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.UserTaskService/clear"
+    path: "/services.UserTaskService/clear";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.ClearTaskRequest>;
@@ -139,7 +139,7 @@ interface IUserTaskServiceService_Iclear extends grpc.MethodDefinition<offline_u
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IUserTaskServiceService_IupdateLog extends grpc.MethodDefinition<offline_usertask_pb.TaskLog, offline_usertask_pb.TaskLog> {
-    path: string; // "/services.UserTaskService/updateLog"
+    path: "/services.UserTaskService/updateLog";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.TaskLog>;
@@ -148,7 +148,7 @@ interface IUserTaskServiceService_IupdateLog extends grpc.MethodDefinition<offli
     responseDeserialize: grpc.deserialize<offline_usertask_pb.TaskLog>;
 }
 interface IUserTaskServiceService_IgetLog extends grpc.MethodDefinition<offline_usertask_pb.TaskLog, offline_usertask_pb.TaskLog> {
-    path: string; // "/services.UserTaskService/getLog"
+    path: "/services.UserTaskService/getLog";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.TaskLog>;
@@ -157,7 +157,7 @@ interface IUserTaskServiceService_IgetLog extends grpc.MethodDefinition<offline_
     responseDeserialize: grpc.deserialize<offline_usertask_pb.TaskLog>;
 }
 interface IUserTaskServiceService_IdeleteLog extends grpc.MethodDefinition<offline_usertask_pb.DeleteTaskLogRequest, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.UserTaskService/deleteLog"
+    path: "/services.UserTaskService/deleteLog";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.DeleteTaskLogRequest>;
@@ -166,7 +166,7 @@ interface IUserTaskServiceService_IdeleteLog extends grpc.MethodDefinition<offli
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IUserTaskServiceService_IclearLog extends grpc.MethodDefinition<offline_usertask_pb.TaskLog, offline_usertask_pb.TaskLog> {
-    path: string; // "/services.UserTaskService/clearLog"
+    path: "/services.UserTaskService/clearLog";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.TaskLog>;
@@ -175,7 +175,7 @@ interface IUserTaskServiceService_IclearLog extends grpc.MethodDefinition<offlin
     responseDeserialize: grpc.deserialize<offline_usertask_pb.TaskLog>;
 }
 interface IUserTaskServiceService_IlistLog extends grpc.MethodDefinition<offline_usertask_pb.ListTaskLogRequest, offline_usertask_pb.TaskLogList> {
-    path: string; // "/services.UserTaskService/listLog"
+    path: "/services.UserTaskService/listLog";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.ListTaskLogRequest>;
@@ -184,7 +184,7 @@ interface IUserTaskServiceService_IlistLog extends grpc.MethodDefinition<offline
     responseDeserialize: grpc.deserialize<offline_usertask_pb.TaskLogList>;
 }
 interface IUserTaskServiceService_IclearOutdatedLog extends grpc.MethodDefinition<offline_usertask_pb.TaskLog, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.UserTaskService/clearOutdatedLog"
+    path: "/services.UserTaskService/clearOutdatedLog";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_usertask_pb.TaskLog>;
@@ -274,7 +274,7 @@ export interface IUserTaskServiceClient {
 }
 
 export class UserTaskServiceClient extends grpc.Client implements IUserTaskServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public add(request: offline_usertask_pb.AddUserTaskRequest, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTaskList) => void): grpc.ClientUnaryCall;
     public add(request: offline_usertask_pb.AddUserTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTaskList) => void): grpc.ClientUnaryCall;
     public add(request: offline_usertask_pb.AddUserTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.UserTaskList) => void): grpc.ClientUnaryCall;

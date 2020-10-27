@@ -23,7 +23,7 @@ interface IOrderServiceService extends grpc.ServiceDefinition<grpc.UntypedServic
 }
 
 interface IOrderServiceService_ICreate extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
-    path: string; // "/services.OrderService/Create"
+    path: "/services.OrderService/Create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<bill_bill_pb.Order>;
@@ -32,7 +32,7 @@ interface IOrderServiceService_ICreate extends grpc.MethodDefinition<bill_bill_p
     responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
 }
 interface IOrderServiceService_IList extends grpc.MethodDefinition<bill_bill_pb.OrderListRequest, bill_bill_pb.OrderListResponse> {
-    path: string; // "/services.OrderService/List"
+    path: "/services.OrderService/List";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<bill_bill_pb.OrderListRequest>;
@@ -41,7 +41,7 @@ interface IOrderServiceService_IList extends grpc.MethodDefinition<bill_bill_pb.
     responseDeserialize: grpc.deserialize<bill_bill_pb.OrderListResponse>;
 }
 interface IOrderServiceService_IListPlan extends grpc.MethodDefinition<bill_bill_pb.PlanListRequest, bill_bill_pb.PlanListResponse> {
-    path: string; // "/services.OrderService/ListPlan"
+    path: "/services.OrderService/ListPlan";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<bill_bill_pb.PlanListRequest>;
@@ -50,7 +50,7 @@ interface IOrderServiceService_IListPlan extends grpc.MethodDefinition<bill_bill
     responseDeserialize: grpc.deserialize<bill_bill_pb.PlanListResponse>;
 }
 interface IOrderServiceService_IGet extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
-    path: string; // "/services.OrderService/Get"
+    path: "/services.OrderService/Get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<bill_bill_pb.Order>;
@@ -59,7 +59,7 @@ interface IOrderServiceService_IGet extends grpc.MethodDefinition<bill_bill_pb.O
     responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
 }
 interface IOrderServiceService_IGetPayment extends grpc.MethodDefinition<bill_bill_pb.Payment, bill_bill_pb.Payment> {
-    path: string; // "/services.OrderService/GetPayment"
+    path: "/services.OrderService/GetPayment";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<bill_bill_pb.Payment>;
@@ -68,7 +68,7 @@ interface IOrderServiceService_IGetPayment extends grpc.MethodDefinition<bill_bi
     responseDeserialize: grpc.deserialize<bill_bill_pb.Payment>;
 }
 interface IOrderServiceService_IUpdate extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
-    path: string; // "/services.OrderService/Update"
+    path: "/services.OrderService/Update";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<bill_bill_pb.Order>;
@@ -77,7 +77,7 @@ interface IOrderServiceService_IUpdate extends grpc.MethodDefinition<bill_bill_p
     responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
 }
 interface IOrderServiceService_IComplete extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
-    path: string; // "/services.OrderService/Complete"
+    path: "/services.OrderService/Complete";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<bill_bill_pb.Order>;
@@ -86,7 +86,7 @@ interface IOrderServiceService_IComplete extends grpc.MethodDefinition<bill_bill
     responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
 }
 interface IOrderServiceService_IFail extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
-    path: string; // "/services.OrderService/Fail"
+    path: "/services.OrderService/Fail";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<bill_bill_pb.Order>;
@@ -95,7 +95,7 @@ interface IOrderServiceService_IFail extends grpc.MethodDefinition<bill_bill_pb.
     responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
 }
 interface IOrderServiceService_ICancel extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
-    path: string; // "/services.OrderService/Cancel"
+    path: "/services.OrderService/Cancel";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<bill_bill_pb.Order>;
@@ -104,7 +104,7 @@ interface IOrderServiceService_ICancel extends grpc.MethodDefinition<bill_bill_p
     responseDeserialize: grpc.deserialize<bill_bill_pb.Order>;
 }
 interface IOrderServiceService_IBatchAsyncTask extends grpc.MethodDefinition<bill_bill_pb.Order, bill_bill_pb.Order> {
-    path: string; // "/services.OrderService/BatchAsyncTask"
+    path: "/services.OrderService/BatchAsyncTask";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<bill_bill_pb.Order>;
@@ -162,7 +162,7 @@ export interface IOrderServiceClient {
 }
 
 export class OrderServiceClient extends grpc.Client implements IOrderServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: bill_bill_pb.Order, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
     public create(request: bill_bill_pb.Order, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;
     public create(request: bill_bill_pb.Order, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: bill_bill_pb.Order) => void): grpc.ClientUnaryCall;

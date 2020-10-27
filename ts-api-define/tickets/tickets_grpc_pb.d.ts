@@ -22,7 +22,7 @@ interface ITicketsServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
 }
 
 interface ITicketsServiceService_ICreate extends grpc.MethodDefinition<tickets_tickets_pb.Ticket, tickets_tickets_pb.Ticket> {
-    path: string; // "/services.TicketsService/Create"
+    path: "/services.TicketsService/Create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<tickets_tickets_pb.Ticket>;
@@ -31,7 +31,7 @@ interface ITicketsServiceService_ICreate extends grpc.MethodDefinition<tickets_t
     responseDeserialize: grpc.deserialize<tickets_tickets_pb.Ticket>;
 }
 interface ITicketsServiceService_IList extends grpc.MethodDefinition<tickets_tickets_pb.TicketListRequest, tickets_tickets_pb.TicketListResponse> {
-    path: string; // "/services.TicketsService/List"
+    path: "/services.TicketsService/List";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<tickets_tickets_pb.TicketListRequest>;
@@ -40,7 +40,7 @@ interface ITicketsServiceService_IList extends grpc.MethodDefinition<tickets_tic
     responseDeserialize: grpc.deserialize<tickets_tickets_pb.TicketListResponse>;
 }
 interface ITicketsServiceService_IListReply extends grpc.MethodDefinition<tickets_tickets_pb.ReplyListRequest, tickets_tickets_pb.ReplyListResponse> {
-    path: string; // "/services.TicketsService/ListReply"
+    path: "/services.TicketsService/ListReply";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<tickets_tickets_pb.ReplyListRequest>;
@@ -49,7 +49,7 @@ interface ITicketsServiceService_IListReply extends grpc.MethodDefinition<ticket
     responseDeserialize: grpc.deserialize<tickets_tickets_pb.ReplyListResponse>;
 }
 interface ITicketsServiceService_IGet extends grpc.MethodDefinition<tickets_tickets_pb.Ticket, tickets_tickets_pb.Ticket> {
-    path: string; // "/services.TicketsService/Get"
+    path: "/services.TicketsService/Get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<tickets_tickets_pb.Ticket>;
@@ -58,7 +58,7 @@ interface ITicketsServiceService_IGet extends grpc.MethodDefinition<tickets_tick
     responseDeserialize: grpc.deserialize<tickets_tickets_pb.Ticket>;
 }
 interface ITicketsServiceService_IGetReply extends grpc.MethodDefinition<tickets_tickets_pb.Reply, tickets_tickets_pb.Reply> {
-    path: string; // "/services.TicketsService/GetReply"
+    path: "/services.TicketsService/GetReply";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<tickets_tickets_pb.Reply>;
@@ -67,7 +67,7 @@ interface ITicketsServiceService_IGetReply extends grpc.MethodDefinition<tickets
     responseDeserialize: grpc.deserialize<tickets_tickets_pb.Reply>;
 }
 interface ITicketsServiceService_IReplyTicket extends grpc.MethodDefinition<tickets_tickets_pb.Reply, tickets_tickets_pb.Reply> {
-    path: string; // "/services.TicketsService/ReplyTicket"
+    path: "/services.TicketsService/ReplyTicket";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<tickets_tickets_pb.Reply>;
@@ -76,7 +76,7 @@ interface ITicketsServiceService_IReplyTicket extends grpc.MethodDefinition<tick
     responseDeserialize: grpc.deserialize<tickets_tickets_pb.Reply>;
 }
 interface ITicketsServiceService_IClose extends grpc.MethodDefinition<tickets_tickets_pb.Ticket, tickets_tickets_pb.Ticket> {
-    path: string; // "/services.TicketsService/Close"
+    path: "/services.TicketsService/Close";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<tickets_tickets_pb.Ticket>;
@@ -85,7 +85,7 @@ interface ITicketsServiceService_IClose extends grpc.MethodDefinition<tickets_ti
     responseDeserialize: grpc.deserialize<tickets_tickets_pb.Ticket>;
 }
 interface ITicketsServiceService_IDelete extends grpc.MethodDefinition<tickets_tickets_pb.Ticket, tickets_tickets_pb.Ticket> {
-    path: string; // "/services.TicketsService/Delete"
+    path: "/services.TicketsService/Delete";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<tickets_tickets_pb.Ticket>;
@@ -94,7 +94,7 @@ interface ITicketsServiceService_IDelete extends grpc.MethodDefinition<tickets_t
     responseDeserialize: grpc.deserialize<tickets_tickets_pb.Ticket>;
 }
 interface ITicketsServiceService_IDeleteReply extends grpc.MethodDefinition<tickets_tickets_pb.Reply, tickets_tickets_pb.Reply> {
-    path: string; // "/services.TicketsService/DeleteReply"
+    path: "/services.TicketsService/DeleteReply";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<tickets_tickets_pb.Reply>;
@@ -148,7 +148,7 @@ export interface ITicketsServiceClient {
 }
 
 export class TicketsServiceClient extends grpc.Client implements ITicketsServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: tickets_tickets_pb.Ticket, callback: (error: grpc.ServiceError | null, response: tickets_tickets_pb.Ticket) => void): grpc.ClientUnaryCall;
     public create(request: tickets_tickets_pb.Ticket, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: tickets_tickets_pb.Ticket) => void): grpc.ClientUnaryCall;
     public create(request: tickets_tickets_pb.Ticket, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: tickets_tickets_pb.Ticket) => void): grpc.ClientUnaryCall;

@@ -21,7 +21,7 @@ interface ICloudStoreServiceService extends grpc.ServiceDefinition<grpc.UntypedS
 }
 
 interface ICloudStoreServiceService_ICreate extends grpc.MethodDefinition<store_cloudstore_pb.CloudStore, store_cloudstore_pb.CloudStore> {
-    path: string; // "/services.CloudStoreService/Create"
+    path: "/services.CloudStoreService/Create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_cloudstore_pb.CloudStore>;
@@ -30,7 +30,7 @@ interface ICloudStoreServiceService_ICreate extends grpc.MethodDefinition<store_
     responseDeserialize: grpc.deserialize<store_cloudstore_pb.CloudStore>;
 }
 interface ICloudStoreServiceService_IGet extends grpc.MethodDefinition<store_cloudstore_pb.CloudStore, store_cloudstore_pb.CloudStore> {
-    path: string; // "/services.CloudStoreService/Get"
+    path: "/services.CloudStoreService/Get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_cloudstore_pb.CloudStore>;
@@ -39,7 +39,7 @@ interface ICloudStoreServiceService_IGet extends grpc.MethodDefinition<store_clo
     responseDeserialize: grpc.deserialize<store_cloudstore_pb.CloudStore>;
 }
 interface ICloudStoreServiceService_IUpdate extends grpc.MethodDefinition<store_cloudstore_pb.CloudStore, store_cloudstore_pb.CloudStore> {
-    path: string; // "/services.CloudStoreService/Update"
+    path: "/services.CloudStoreService/Update";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_cloudstore_pb.CloudStore>;
@@ -48,7 +48,7 @@ interface ICloudStoreServiceService_IUpdate extends grpc.MethodDefinition<store_
     responseDeserialize: grpc.deserialize<store_cloudstore_pb.CloudStore>;
 }
 interface ICloudStoreServiceService_IBatchGet extends grpc.MethodDefinition<store_cloudstore_pb.CloudStoreList, store_cloudstore_pb.CloudStoreList> {
-    path: string; // "/services.CloudStoreService/BatchGet"
+    path: "/services.CloudStoreService/BatchGet";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_cloudstore_pb.CloudStoreList>;
@@ -57,7 +57,7 @@ interface ICloudStoreServiceService_IBatchGet extends grpc.MethodDefinition<stor
     responseDeserialize: grpc.deserialize<store_cloudstore_pb.CloudStoreList>;
 }
 interface ICloudStoreServiceService_IGetDownloadAddress extends grpc.MethodDefinition<store_cloudstore_pb.CloudStore, store_cloudstore_pb.CloudStore> {
-    path: string; // "/services.CloudStoreService/GetDownloadAddress"
+    path: "/services.CloudStoreService/GetDownloadAddress";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_cloudstore_pb.CloudStore>;
@@ -66,7 +66,7 @@ interface ICloudStoreServiceService_IGetDownloadAddress extends grpc.MethodDefin
     responseDeserialize: grpc.deserialize<store_cloudstore_pb.CloudStore>;
 }
 interface ICloudStoreServiceService_IBatchDownloadAddress extends grpc.MethodDefinition<common_common_entity_pb.StringListEntity, store_cloudstore_pb.CloudStoreList> {
-    path: string; // "/services.CloudStoreService/BatchDownloadAddress"
+    path: "/services.CloudStoreService/BatchDownloadAddress";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<common_common_entity_pb.StringListEntity>;
@@ -75,7 +75,7 @@ interface ICloudStoreServiceService_IBatchDownloadAddress extends grpc.MethodDef
     responseDeserialize: grpc.deserialize<store_cloudstore_pb.CloudStoreList>;
 }
 interface ICloudStoreServiceService_ICreateWcsUploadToken extends grpc.MethodDefinition<store_cloudstore_pb.UploadTokenRequest, store_cloudstore_pb.WcsUploadToken> {
-    path: string; // "/services.CloudStoreService/CreateWcsUploadToken"
+    path: "/services.CloudStoreService/CreateWcsUploadToken";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_cloudstore_pb.UploadTokenRequest>;
@@ -84,7 +84,7 @@ interface ICloudStoreServiceService_ICreateWcsUploadToken extends grpc.MethodDef
     responseDeserialize: grpc.deserialize<store_cloudstore_pb.WcsUploadToken>;
 }
 interface ICloudStoreServiceService_IOnFileUpload extends grpc.MethodDefinition<store_cloudstore_pb.CloudStore, store_cloudstore_pb.CloudStore> {
-    path: string; // "/services.CloudStoreService/OnFileUpload"
+    path: "/services.CloudStoreService/OnFileUpload";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_cloudstore_pb.CloudStore>;
@@ -134,7 +134,7 @@ export interface ICloudStoreServiceClient {
 }
 
 export class CloudStoreServiceClient extends grpc.Client implements ICloudStoreServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: store_cloudstore_pb.CloudStore, callback: (error: grpc.ServiceError | null, response: store_cloudstore_pb.CloudStore) => void): grpc.ClientUnaryCall;
     public create(request: store_cloudstore_pb.CloudStore, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: store_cloudstore_pb.CloudStore) => void): grpc.ClientUnaryCall;
     public create(request: store_cloudstore_pb.CloudStore, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: store_cloudstore_pb.CloudStore) => void): grpc.ClientUnaryCall;

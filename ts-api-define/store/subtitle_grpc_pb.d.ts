@@ -16,7 +16,7 @@ interface ISubtitleServiceService extends grpc.ServiceDefinition<grpc.UntypedSer
 }
 
 interface ISubtitleServiceService_ICreate extends grpc.MethodDefinition<store_subtitle_pb.Subtitle, store_subtitle_pb.Subtitle> {
-    path: string; // "/services.SubtitleService/Create"
+    path: "/services.SubtitleService/Create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_subtitle_pb.Subtitle>;
@@ -25,7 +25,7 @@ interface ISubtitleServiceService_ICreate extends grpc.MethodDefinition<store_su
     responseDeserialize: grpc.deserialize<store_subtitle_pb.Subtitle>;
 }
 interface ISubtitleServiceService_IGet extends grpc.MethodDefinition<store_subtitle_pb.Subtitle, store_subtitle_pb.Subtitle> {
-    path: string; // "/services.SubtitleService/Get"
+    path: "/services.SubtitleService/Get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_subtitle_pb.Subtitle>;
@@ -34,7 +34,7 @@ interface ISubtitleServiceService_IGet extends grpc.MethodDefinition<store_subti
     responseDeserialize: grpc.deserialize<store_subtitle_pb.Subtitle>;
 }
 interface ISubtitleServiceService_IGetList extends grpc.MethodDefinition<store_subtitle_pb.Subtitle, store_subtitle_pb.SubtitleListResponse> {
-    path: string; // "/services.SubtitleService/GetList"
+    path: "/services.SubtitleService/GetList";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_subtitle_pb.Subtitle>;
@@ -43,7 +43,7 @@ interface ISubtitleServiceService_IGetList extends grpc.MethodDefinition<store_s
     responseDeserialize: grpc.deserialize<store_subtitle_pb.SubtitleListResponse>;
 }
 interface ISubtitleServiceService_IUpdate extends grpc.MethodDefinition<store_subtitle_pb.Subtitle, store_subtitle_pb.Subtitle> {
-    path: string; // "/services.SubtitleService/Update"
+    path: "/services.SubtitleService/Update";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_subtitle_pb.Subtitle>;
@@ -77,7 +77,7 @@ export interface ISubtitleServiceClient {
 }
 
 export class SubtitleServiceClient extends grpc.Client implements ISubtitleServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: store_subtitle_pb.Subtitle, callback: (error: grpc.ServiceError | null, response: store_subtitle_pb.Subtitle) => void): grpc.ClientUnaryCall;
     public create(request: store_subtitle_pb.Subtitle, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: store_subtitle_pb.Subtitle) => void): grpc.ClientUnaryCall;
     public create(request: store_subtitle_pb.Subtitle, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: store_subtitle_pb.Subtitle) => void): grpc.ClientUnaryCall;

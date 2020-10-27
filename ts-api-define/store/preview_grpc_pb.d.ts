@@ -15,7 +15,7 @@ interface IPreviewServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
 }
 
 interface IPreviewServiceService_ICreate extends grpc.MethodDefinition<store_preview_pb.MediaPreview, store_preview_pb.MediaPreview> {
-    path: string; // "/services.PreviewService/Create"
+    path: "/services.PreviewService/Create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_preview_pb.MediaPreview>;
@@ -24,7 +24,7 @@ interface IPreviewServiceService_ICreate extends grpc.MethodDefinition<store_pre
     responseDeserialize: grpc.deserialize<store_preview_pb.MediaPreview>;
 }
 interface IPreviewServiceService_IGet extends grpc.MethodDefinition<store_preview_pb.MediaPreview, store_preview_pb.MediaPreview> {
-    path: string; // "/services.PreviewService/Get"
+    path: "/services.PreviewService/Get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_preview_pb.MediaPreview>;
@@ -33,7 +33,7 @@ interface IPreviewServiceService_IGet extends grpc.MethodDefinition<store_previe
     responseDeserialize: grpc.deserialize<store_preview_pb.MediaPreview>;
 }
 interface IPreviewServiceService_IUpdate extends grpc.MethodDefinition<store_preview_pb.MediaPreview, store_preview_pb.MediaPreview> {
-    path: string; // "/services.PreviewService/Update"
+    path: "/services.PreviewService/Update";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_preview_pb.MediaPreview>;
@@ -63,7 +63,7 @@ export interface IPreviewServiceClient {
 }
 
 export class PreviewServiceClient extends grpc.Client implements IPreviewServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: store_preview_pb.MediaPreview, callback: (error: grpc.ServiceError | null, response: store_preview_pb.MediaPreview) => void): grpc.ClientUnaryCall;
     public create(request: store_preview_pb.MediaPreview, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: store_preview_pb.MediaPreview) => void): grpc.ClientUnaryCall;
     public create(request: store_preview_pb.MediaPreview, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: store_preview_pb.MediaPreview) => void): grpc.ClientUnaryCall;

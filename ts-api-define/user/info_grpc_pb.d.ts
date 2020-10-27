@@ -45,7 +45,7 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
 }
 
 interface IUserServiceService_ICreate extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
-    path: string; // "/services.UserService/Create"
+    path: "/services.UserService/Create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.User>;
@@ -54,7 +54,7 @@ interface IUserServiceService_ICreate extends grpc.MethodDefinition<user_info_pb
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_ISmsCreate extends grpc.MethodDefinition<user_info_pb.SmsCreateRequest, user_info_pb.User> {
-    path: string; // "/services.UserService/SmsCreate"
+    path: "/services.UserService/SmsCreate";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.SmsCreateRequest>;
@@ -63,7 +63,7 @@ interface IUserServiceService_ISmsCreate extends grpc.MethodDefinition<user_info
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_IGet extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
-    path: string; // "/services.UserService/Get"
+    path: "/services.UserService/Get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.User>;
@@ -72,7 +72,7 @@ interface IUserServiceService_IGet extends grpc.MethodDefinition<user_info_pb.Us
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_IFindOne extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
-    path: string; // "/services.UserService/FindOne"
+    path: "/services.UserService/FindOne";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.User>;
@@ -81,7 +81,7 @@ interface IUserServiceService_IFindOne extends grpc.MethodDefinition<user_info_p
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_ILogin extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
-    path: string; // "/services.UserService/Login"
+    path: "/services.UserService/Login";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.User>;
@@ -90,7 +90,7 @@ interface IUserServiceService_ILogin extends grpc.MethodDefinition<user_info_pb.
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_ISmsLogin extends grpc.MethodDefinition<user_info_pb.SmsValidateRequest, user_info_pb.User> {
-    path: string; // "/services.UserService/SmsLogin"
+    path: "/services.UserService/SmsLogin";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.SmsValidateRequest>;
@@ -99,7 +99,7 @@ interface IUserServiceService_ISmsLogin extends grpc.MethodDefinition<user_info_
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_ISmsChangePhone extends grpc.MethodDefinition<user_info_pb.SmsValidateRequestChange, user_info_pb.User> {
-    path: string; // "/services.UserService/SmsChangePhone"
+    path: "/services.UserService/SmsChangePhone";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.SmsValidateRequestChange>;
@@ -108,7 +108,7 @@ interface IUserServiceService_ISmsChangePhone extends grpc.MethodDefinition<user
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_ILoginDirect extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
-    path: string; // "/services.UserService/LoginDirect"
+    path: "/services.UserService/LoginDirect";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.User>;
@@ -117,7 +117,7 @@ interface IUserServiceService_ILoginDirect extends grpc.MethodDefinition<user_in
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_ILogoff extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
-    path: string; // "/services.UserService/Logoff"
+    path: "/services.UserService/Logoff";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.User>;
@@ -126,7 +126,7 @@ interface IUserServiceService_ILogoff extends grpc.MethodDefinition<user_info_pb
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_IUpdate extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
-    path: string; // "/services.UserService/Update"
+    path: "/services.UserService/Update";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.User>;
@@ -135,7 +135,7 @@ interface IUserServiceService_IUpdate extends grpc.MethodDefinition<user_info_pb
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_IFindNextOne extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
-    path: string; // "/services.UserService/FindNextOne"
+    path: "/services.UserService/FindNextOne";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.User>;
@@ -144,7 +144,7 @@ interface IUserServiceService_IFindNextOne extends grpc.MethodDefinition<user_in
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_ICheckCanCreateFile extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
-    path: string; // "/services.UserService/CheckCanCreateFile"
+    path: "/services.UserService/CheckCanCreateFile";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.User>;
@@ -153,7 +153,7 @@ interface IUserServiceService_ICheckCanCreateFile extends grpc.MethodDefinition<
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_IUpdateStatistics extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
-    path: string; // "/services.UserService/UpdateStatistics"
+    path: "/services.UserService/UpdateStatistics";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.User>;
@@ -162,7 +162,7 @@ interface IUserServiceService_IUpdateStatistics extends grpc.MethodDefinition<us
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_ISmsDeleteAccount extends grpc.MethodDefinition<user_info_pb.SmsDeleteAccountRequest, user_info_pb.User> {
-    path: string; // "/services.UserService/SmsDeleteAccount"
+    path: "/services.UserService/SmsDeleteAccount";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.SmsDeleteAccountRequest>;
@@ -171,7 +171,7 @@ interface IUserServiceService_ISmsDeleteAccount extends grpc.MethodDefinition<us
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_ISendSms extends grpc.MethodDefinition<user_info_pb.SmsRequest, user_info_pb.SmsResponse> {
-    path: string; // "/services.UserService/SendSms"
+    path: "/services.UserService/SendSms";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.SmsRequest>;
@@ -180,7 +180,7 @@ interface IUserServiceService_ISendSms extends grpc.MethodDefinition<user_info_p
     responseDeserialize: grpc.deserialize<user_info_pb.SmsResponse>;
 }
 interface IUserServiceService_IValidateSms extends grpc.MethodDefinition<user_info_pb.SmsValidateRequest, user_info_pb.SmsValidateResponse> {
-    path: string; // "/services.UserService/ValidateSms"
+    path: "/services.UserService/ValidateSms";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.SmsValidateRequest>;
@@ -189,7 +189,7 @@ interface IUserServiceService_IValidateSms extends grpc.MethodDefinition<user_in
     responseDeserialize: grpc.deserialize<user_info_pb.SmsValidateResponse>;
 }
 interface IUserServiceService_IChangePassword extends grpc.MethodDefinition<user_info_pb.ChangePasswordRequest, user_info_pb.User> {
-    path: string; // "/services.UserService/ChangePassword"
+    path: "/services.UserService/ChangePassword";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.ChangePasswordRequest>;
@@ -198,7 +198,7 @@ interface IUserServiceService_IChangePassword extends grpc.MethodDefinition<user
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_ISmsChangePassword extends grpc.MethodDefinition<user_info_pb.SmsChangePasswordRequest, user_info_pb.User> {
-    path: string; // "/services.UserService/SmsChangePassword"
+    path: "/services.UserService/SmsChangePassword";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.SmsChangePasswordRequest>;
@@ -207,7 +207,7 @@ interface IUserServiceService_ISmsChangePassword extends grpc.MethodDefinition<u
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_IBindThirdPartyLogin extends grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User> {
-    path: string; // "/services.UserService/BindThirdPartyLogin"
+    path: "/services.UserService/BindThirdPartyLogin";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.ThirdPartyLoginInfo>;
@@ -216,7 +216,7 @@ interface IUserServiceService_IBindThirdPartyLogin extends grpc.MethodDefinition
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_IRemoveThirdPartyLogin extends grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User> {
-    path: string; // "/services.UserService/RemoveThirdPartyLogin"
+    path: "/services.UserService/RemoveThirdPartyLogin";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.ThirdPartyLoginInfo>;
@@ -225,7 +225,7 @@ interface IUserServiceService_IRemoveThirdPartyLogin extends grpc.MethodDefiniti
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_IThirdPartyLogin extends grpc.MethodDefinition<user_info_pb.ThirdPartyLoginInfo, user_info_pb.User> {
-    path: string; // "/services.UserService/ThirdPartyLogin"
+    path: "/services.UserService/ThirdPartyLogin";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.ThirdPartyLoginInfo>;
@@ -234,7 +234,7 @@ interface IUserServiceService_IThirdPartyLogin extends grpc.MethodDefinition<use
     responseDeserialize: grpc.deserialize<user_info_pb.User>;
 }
 interface IUserServiceService_ICreateOauthInfo extends grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo> {
-    path: string; // "/services.UserService/CreateOauthInfo"
+    path: "/services.UserService/CreateOauthInfo";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.OauthInfo>;
@@ -243,7 +243,7 @@ interface IUserServiceService_ICreateOauthInfo extends grpc.MethodDefinition<use
     responseDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
 }
 interface IUserServiceService_IRefreshOauthToken extends grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo> {
-    path: string; // "/services.UserService/RefreshOauthToken"
+    path: "/services.UserService/RefreshOauthToken";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.OauthInfo>;
@@ -252,7 +252,7 @@ interface IUserServiceService_IRefreshOauthToken extends grpc.MethodDefinition<u
     responseDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
 }
 interface IUserServiceService_ICheckAccessToken extends grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo> {
-    path: string; // "/services.UserService/CheckAccessToken"
+    path: "/services.UserService/CheckAccessToken";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.OauthInfo>;
@@ -261,7 +261,7 @@ interface IUserServiceService_ICheckAccessToken extends grpc.MethodDefinition<us
     responseDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
 }
 interface IUserServiceService_ICreatePayment extends grpc.MethodDefinition<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment> {
-    path: string; // "/services.UserService/CreatePayment"
+    path: "/services.UserService/CreatePayment";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.SubscriptionPayment>;
@@ -270,7 +270,7 @@ interface IUserServiceService_ICreatePayment extends grpc.MethodDefinition<user_
     responseDeserialize: grpc.deserialize<user_info_pb.SubscriptionPayment>;
 }
 interface IUserServiceService_ICompletePayment extends grpc.MethodDefinition<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment> {
-    path: string; // "/services.UserService/CompletePayment"
+    path: "/services.UserService/CompletePayment";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.SubscriptionPayment>;
@@ -279,7 +279,7 @@ interface IUserServiceService_ICompletePayment extends grpc.MethodDefinition<use
     responseDeserialize: grpc.deserialize<user_info_pb.SubscriptionPayment>;
 }
 interface IUserServiceService_IFailedPayment extends grpc.MethodDefinition<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment> {
-    path: string; // "/services.UserService/FailedPayment"
+    path: "/services.UserService/FailedPayment";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.SubscriptionPayment>;
@@ -288,7 +288,7 @@ interface IUserServiceService_IFailedPayment extends grpc.MethodDefinition<user_
     responseDeserialize: grpc.deserialize<user_info_pb.SubscriptionPayment>;
 }
 interface IUserServiceService_IRequestChangePhone extends grpc.MethodDefinition<user_info_pb.LaterAction, user_info_pb.LaterAction> {
-    path: string; // "/services.UserService/RequestChangePhone"
+    path: "/services.UserService/RequestChangePhone";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.LaterAction>;
@@ -297,7 +297,7 @@ interface IUserServiceService_IRequestChangePhone extends grpc.MethodDefinition<
     responseDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
 }
 interface IUserServiceService_IRequestRemoveAccount extends grpc.MethodDefinition<user_info_pb.LaterAction, user_info_pb.LaterAction> {
-    path: string; // "/services.UserService/RequestRemoveAccount"
+    path: "/services.UserService/RequestRemoveAccount";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.LaterAction>;
@@ -306,7 +306,7 @@ interface IUserServiceService_IRequestRemoveAccount extends grpc.MethodDefinitio
     responseDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
 }
 interface IUserServiceService_ICancelLaterAction extends grpc.MethodDefinition<user_info_pb.LaterAction, user_info_pb.LaterAction> {
-    path: string; // "/services.UserService/CancelLaterAction"
+    path: "/services.UserService/CancelLaterAction";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.LaterAction>;
@@ -315,7 +315,7 @@ interface IUserServiceService_ICancelLaterAction extends grpc.MethodDefinition<u
     responseDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
 }
 interface IUserServiceService_IChangePhone extends grpc.MethodDefinition<user_info_pb.LaterAction, user_info_pb.LaterAction> {
-    path: string; // "/services.UserService/ChangePhone"
+    path: "/services.UserService/ChangePhone";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.LaterAction>;
@@ -324,7 +324,7 @@ interface IUserServiceService_IChangePhone extends grpc.MethodDefinition<user_in
     responseDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
 }
 interface IUserServiceService_IGetLaterAction extends grpc.MethodDefinition<user_info_pb.LaterAction, user_info_pb.LaterAction> {
-    path: string; // "/services.UserService/GetLaterAction"
+    path: "/services.UserService/GetLaterAction";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.LaterAction>;
@@ -333,7 +333,7 @@ interface IUserServiceService_IGetLaterAction extends grpc.MethodDefinition<user
     responseDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
 }
 interface IUserServiceService_IDeleteAccount extends grpc.MethodDefinition<user_info_pb.LaterAction, user_info_pb.LaterAction> {
-    path: string; // "/services.UserService/DeleteAccount"
+    path: "/services.UserService/DeleteAccount";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<user_info_pb.LaterAction>;
@@ -483,7 +483,7 @@ export interface IUserServiceClient {
 }
 
 export class UserServiceClient extends grpc.Client implements IUserServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: user_info_pb.User, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     public create(request: user_info_pb.User, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;
     public create(request: user_info_pb.User, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.User) => void): grpc.ClientUnaryCall;

@@ -32,7 +32,7 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
 }
 
 interface IFileServiceService_ICreate extends grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile> {
-    path: string; // "/services.FileService/Create"
+    path: "/services.FileService/Create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.UserFile>;
@@ -41,7 +41,7 @@ interface IFileServiceService_ICreate extends grpc.MethodDefinition<file_userfil
     responseDeserialize: grpc.deserialize<file_userfile_pb.UserFile>;
 }
 interface IFileServiceService_IFlushStore extends grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile> {
-    path: string; // "/services.FileService/FlushStore"
+    path: "/services.FileService/FlushStore";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.UserFile>;
@@ -50,7 +50,7 @@ interface IFileServiceService_IFlushStore extends grpc.MethodDefinition<file_use
     responseDeserialize: grpc.deserialize<file_userfile_pb.UserFile>;
 }
 interface IFileServiceService_IUpdateCount extends grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile> {
-    path: string; // "/services.FileService/UpdateCount"
+    path: "/services.FileService/UpdateCount";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.UserFile>;
@@ -59,7 +59,7 @@ interface IFileServiceService_IUpdateCount extends grpc.MethodDefinition<file_us
     responseDeserialize: grpc.deserialize<file_userfile_pb.UserFile>;
 }
 interface IFileServiceService_IGet extends grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile> {
-    path: string; // "/services.FileService/Get"
+    path: "/services.FileService/Get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.UserFile>;
@@ -68,7 +68,7 @@ interface IFileServiceService_IGet extends grpc.MethodDefinition<file_userfile_p
     responseDeserialize: grpc.deserialize<file_userfile_pb.UserFile>;
 }
 interface IFileServiceService_IUploadToken extends grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UploadTokenResponse> {
-    path: string; // "/services.FileService/UploadToken"
+    path: "/services.FileService/UploadToken";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.UserFile>;
@@ -77,7 +77,7 @@ interface IFileServiceService_IUploadToken extends grpc.MethodDefinition<file_us
     responseDeserialize: grpc.deserialize<file_userfile_pb.UploadTokenResponse>;
 }
 interface IFileServiceService_IRename extends grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile> {
-    path: string; // "/services.FileService/Rename"
+    path: "/services.FileService/Rename";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.UserFile>;
@@ -86,7 +86,7 @@ interface IFileServiceService_IRename extends grpc.MethodDefinition<file_userfil
     responseDeserialize: grpc.deserialize<file_userfile_pb.UserFile>;
 }
 interface IFileServiceService_ILock extends grpc.MethodDefinition<file_userfile_pb.UserFile, common_common_entity_pb.BoolEntity> {
-    path: string; // "/services.FileService/Lock"
+    path: "/services.FileService/Lock";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.UserFile>;
@@ -95,7 +95,7 @@ interface IFileServiceService_ILock extends grpc.MethodDefinition<file_userfile_
     responseDeserialize: grpc.deserialize<common_common_entity_pb.BoolEntity>;
 }
 interface IFileServiceService_IReleaseLock extends grpc.MethodDefinition<file_userfile_pb.UserFile, common_common_entity_pb.BoolEntity> {
-    path: string; // "/services.FileService/ReleaseLock"
+    path: "/services.FileService/ReleaseLock";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.UserFile>;
@@ -104,7 +104,7 @@ interface IFileServiceService_IReleaseLock extends grpc.MethodDefinition<file_us
     responseDeserialize: grpc.deserialize<common_common_entity_pb.BoolEntity>;
 }
 interface IFileServiceService_ITrash extends grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.FileService/Trash"
+    path: "/services.FileService/Trash";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.BathFileRequest>;
@@ -113,7 +113,7 @@ interface IFileServiceService_ITrash extends grpc.MethodDefinition<file_userfile
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IFileServiceService_IDelete extends grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.FileService/Delete"
+    path: "/services.FileService/Delete";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.BathFileRequest>;
@@ -122,7 +122,7 @@ interface IFileServiceService_IDelete extends grpc.MethodDefinition<file_userfil
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IFileServiceService_ICopy extends grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.FileService/Copy"
+    path: "/services.FileService/Copy";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.BathFileRequest>;
@@ -131,7 +131,7 @@ interface IFileServiceService_ICopy extends grpc.MethodDefinition<file_userfile_
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IFileServiceService_IMove extends grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.FileService/Move"
+    path: "/services.FileService/Move";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.BathFileRequest>;
@@ -140,7 +140,7 @@ interface IFileServiceService_IMove extends grpc.MethodDefinition<file_userfile_
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IFileServiceService_IRecover extends grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.FileService/Recover"
+    path: "/services.FileService/Recover";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.BathFileRequest>;
@@ -149,7 +149,7 @@ interface IFileServiceService_IRecover extends grpc.MethodDefinition<file_userfi
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IFileServiceService_IList extends grpc.MethodDefinition<file_userfile_pb.UserFileListRequest, file_userfile_pb.UserFileListResponse> {
-    path: string; // "/services.FileService/List"
+    path: "/services.FileService/List";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.UserFileListRequest>;
@@ -158,7 +158,7 @@ interface IFileServiceService_IList extends grpc.MethodDefinition<file_userfile_
     responseDeserialize: grpc.deserialize<file_userfile_pb.UserFileListResponse>;
 }
 interface IFileServiceService_IListInternal extends grpc.MethodDefinition<file_userfile_pb.UserFileListRequest, file_userfile_pb.UserFileListResponse> {
-    path: string; // "/services.FileService/ListInternal"
+    path: "/services.FileService/ListInternal";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.UserFileListRequest>;
@@ -167,7 +167,7 @@ interface IFileServiceService_IListInternal extends grpc.MethodDefinition<file_u
     responseDeserialize: grpc.deserialize<file_userfile_pb.UserFileListResponse>;
 }
 interface IFileServiceService_IDeleteTrash extends grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.FileService/DeleteTrash"
+    path: "/services.FileService/DeleteTrash";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.BathFileRequest>;
@@ -176,7 +176,7 @@ interface IFileServiceService_IDeleteTrash extends grpc.MethodDefinition<file_us
     responseDeserialize: grpc.deserialize<common_common_entity_pb.Int64Entity>;
 }
 interface IFileServiceService_IListTrash extends grpc.MethodDefinition<file_userfile_pb.UserFileListRequest, file_userfile_pb.TrashListResponse> {
-    path: string; // "/services.FileService/ListTrash"
+    path: "/services.FileService/ListTrash";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.UserFileListRequest>;
@@ -185,7 +185,7 @@ interface IFileServiceService_IListTrash extends grpc.MethodDefinition<file_user
     responseDeserialize: grpc.deserialize<file_userfile_pb.TrashListResponse>;
 }
 interface IFileServiceService_IGetTrash extends grpc.MethodDefinition<file_userfile_pb.TrashInfo, file_userfile_pb.TrashInfo> {
-    path: string; // "/services.FileService/GetTrash"
+    path: "/services.FileService/GetTrash";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.TrashInfo>;
@@ -194,7 +194,7 @@ interface IFileServiceService_IGetTrash extends grpc.MethodDefinition<file_userf
     responseDeserialize: grpc.deserialize<file_userfile_pb.TrashInfo>;
 }
 interface IFileServiceService_IClearTrash extends grpc.MethodDefinition<file_userfile_pb.BathFileRequest, common_common_entity_pb.Int64Entity> {
-    path: string; // "/services.FileService/ClearTrash"
+    path: "/services.FileService/ClearTrash";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_userfile_pb.BathFileRequest>;
@@ -288,7 +288,7 @@ export interface IFileServiceClient {
 }
 
 export class FileServiceClient extends grpc.Client implements IFileServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: file_userfile_pb.UserFile, callback: (error: grpc.ServiceError | null, response: file_userfile_pb.UserFile) => void): grpc.ClientUnaryCall;
     public create(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_userfile_pb.UserFile) => void): grpc.ClientUnaryCall;
     public create(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_userfile_pb.UserFile) => void): grpc.ClientUnaryCall;

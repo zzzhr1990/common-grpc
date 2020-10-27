@@ -13,7 +13,7 @@ interface IHelloServiceService extends grpc.ServiceDefinition<grpc.UntypedServic
 }
 
 interface IHelloServiceService_Ihello extends grpc.MethodDefinition<util_hello_pb.HelloRequest, util_hello_pb.HelloResponse> {
-    path: string; // "/services.HelloService/hello"
+    path: "/services.HelloService/hello";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<util_hello_pb.HelloRequest>;
@@ -35,7 +35,7 @@ export interface IHelloServiceClient {
 }
 
 export class HelloServiceClient extends grpc.Client implements IHelloServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public hello(request: util_hello_pb.HelloRequest, callback: (error: grpc.ServiceError | null, response: util_hello_pb.HelloResponse) => void): grpc.ClientUnaryCall;
     public hello(request: util_hello_pb.HelloRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: util_hello_pb.HelloResponse) => void): grpc.ClientUnaryCall;
     public hello(request: util_hello_pb.HelloRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: util_hello_pb.HelloResponse) => void): grpc.ClientUnaryCall;

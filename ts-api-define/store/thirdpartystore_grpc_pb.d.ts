@@ -15,7 +15,7 @@ interface IThirdPartyStoreServiceService extends grpc.ServiceDefinition<grpc.Unt
 }
 
 interface IThirdPartyStoreServiceService_ICreate extends grpc.MethodDefinition<store_thirdpartystore_pb.ThirdPartyStore, store_thirdpartystore_pb.ThirdPartyStore> {
-    path: string; // "/services.ThirdPartyStoreService/Create"
+    path: "/services.ThirdPartyStoreService/Create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_thirdpartystore_pb.ThirdPartyStore>;
@@ -24,7 +24,7 @@ interface IThirdPartyStoreServiceService_ICreate extends grpc.MethodDefinition<s
     responseDeserialize: grpc.deserialize<store_thirdpartystore_pb.ThirdPartyStore>;
 }
 interface IThirdPartyStoreServiceService_IGet extends grpc.MethodDefinition<store_thirdpartystore_pb.ThirdPartyStore, store_thirdpartystore_pb.ThirdPartyStore> {
-    path: string; // "/services.ThirdPartyStoreService/Get"
+    path: "/services.ThirdPartyStoreService/Get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_thirdpartystore_pb.ThirdPartyStore>;
@@ -33,7 +33,7 @@ interface IThirdPartyStoreServiceService_IGet extends grpc.MethodDefinition<stor
     responseDeserialize: grpc.deserialize<store_thirdpartystore_pb.ThirdPartyStore>;
 }
 interface IThirdPartyStoreServiceService_IUpdate extends grpc.MethodDefinition<store_thirdpartystore_pb.ThirdPartyStore, store_thirdpartystore_pb.ThirdPartyStore> {
-    path: string; // "/services.ThirdPartyStoreService/Update"
+    path: "/services.ThirdPartyStoreService/Update";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<store_thirdpartystore_pb.ThirdPartyStore>;
@@ -63,7 +63,7 @@ export interface IThirdPartyStoreServiceClient {
 }
 
 export class ThirdPartyStoreServiceClient extends grpc.Client implements IThirdPartyStoreServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: store_thirdpartystore_pb.ThirdPartyStore, callback: (error: grpc.ServiceError | null, response: store_thirdpartystore_pb.ThirdPartyStore) => void): grpc.ClientUnaryCall;
     public create(request: store_thirdpartystore_pb.ThirdPartyStore, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: store_thirdpartystore_pb.ThirdPartyStore) => void): grpc.ClientUnaryCall;
     public create(request: store_thirdpartystore_pb.ThirdPartyStore, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: store_thirdpartystore_pb.ThirdPartyStore) => void): grpc.ClientUnaryCall;

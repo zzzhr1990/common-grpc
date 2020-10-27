@@ -14,7 +14,7 @@ interface IFileTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedSer
 }
 
 interface IFileTaskServiceService_ICreate extends grpc.MethodDefinition<file_filetask_pb.FileTask, file_filetask_pb.FileTask> {
-    path: string; // "/services.FileTaskService/Create"
+    path: "/services.FileTaskService/Create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filetask_pb.FileTask>;
@@ -23,7 +23,7 @@ interface IFileTaskServiceService_ICreate extends grpc.MethodDefinition<file_fil
     responseDeserialize: grpc.deserialize<file_filetask_pb.FileTask>;
 }
 interface IFileTaskServiceService_IList extends grpc.MethodDefinition<file_filetask_pb.FileTask, file_filetask_pb.FileTaskListResponse> {
-    path: string; // "/services.FileTaskService/List"
+    path: "/services.FileTaskService/List";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filetask_pb.FileTask>;
@@ -49,7 +49,7 @@ export interface IFileTaskServiceClient {
 }
 
 export class FileTaskServiceClient extends grpc.Client implements IFileTaskServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: file_filetask_pb.FileTask, callback: (error: grpc.ServiceError | null, response: file_filetask_pb.FileTask) => void): grpc.ClientUnaryCall;
     public create(request: file_filetask_pb.FileTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filetask_pb.FileTask) => void): grpc.ClientUnaryCall;
     public create(request: file_filetask_pb.FileTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filetask_pb.FileTask) => void): grpc.ClientUnaryCall;

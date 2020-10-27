@@ -14,7 +14,7 @@ interface ISystemInfoServiceService extends grpc.ServiceDefinition<grpc.UntypedS
 }
 
 interface ISystemInfoServiceService_Iinfo extends grpc.MethodDefinition<system_system_pb.ClientInfo, system_system_pb.SystemInfo> {
-    path: string; // "/services.SystemInfoService/info"
+    path: "/services.SystemInfoService/info";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<system_system_pb.ClientInfo>;
@@ -23,7 +23,7 @@ interface ISystemInfoServiceService_Iinfo extends grpc.MethodDefinition<system_s
     responseDeserialize: grpc.deserialize<system_system_pb.SystemInfo>;
 }
 interface ISystemInfoServiceService_IlistUpdate extends grpc.MethodDefinition<system_system_pb.UpdateInfo, system_system_pb.UpdateInfoList> {
-    path: string; // "/services.SystemInfoService/listUpdate"
+    path: "/services.SystemInfoService/listUpdate";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<system_system_pb.UpdateInfo>;
@@ -49,7 +49,7 @@ export interface ISystemInfoServiceClient {
 }
 
 export class SystemInfoServiceClient extends grpc.Client implements ISystemInfoServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public info(request: system_system_pb.ClientInfo, callback: (error: grpc.ServiceError | null, response: system_system_pb.SystemInfo) => void): grpc.ClientUnaryCall;
     public info(request: system_system_pb.ClientInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: system_system_pb.SystemInfo) => void): grpc.ClientUnaryCall;
     public info(request: system_system_pb.ClientInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: system_system_pb.SystemInfo) => void): grpc.ClientUnaryCall;

@@ -39,7 +39,7 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
 }
 
 interface IFileServiceService_ICreate extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
-    path: string; // "/services.FileService/Create"
+    path: "/services.FileService/Create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
@@ -48,7 +48,7 @@ interface IFileServiceService_ICreate extends grpc.MethodDefinition<file_filesys
     responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
 }
 interface IFileServiceService_IGet extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
-    path: string; // "/services.FileService/Get"
+    path: "/services.FileService/Get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
@@ -57,7 +57,7 @@ interface IFileServiceService_IGet extends grpc.MethodDefinition<file_filesystem
     responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
 }
 interface IFileServiceService_IUpdate extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
-    path: string; // "/services.FileService/Update"
+    path: "/services.FileService/Update";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
@@ -66,7 +66,7 @@ interface IFileServiceService_IUpdate extends grpc.MethodDefinition<file_filesys
     responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
 }
 interface IFileServiceService_IUpdateStatistics extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
-    path: string; // "/services.FileService/UpdateStatistics"
+    path: "/services.FileService/UpdateStatistics";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
@@ -75,7 +75,7 @@ interface IFileServiceService_IUpdateStatistics extends grpc.MethodDefinition<fi
     responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
 }
 interface IFileServiceService_IList extends grpc.MethodDefinition<file_filesystem_pb.FileInfoListRequest, file_filesystem_pb.FileInfoListResponse> {
-    path: string; // "/services.FileService/List"
+    path: "/services.FileService/List";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfoListRequest>;
@@ -84,7 +84,7 @@ interface IFileServiceService_IList extends grpc.MethodDefinition<file_filesyste
     responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfoListResponse>;
 }
 interface IFileServiceService_IListInternal extends grpc.MethodDefinition<file_filesystem_pb.FileInfoListRequest, file_filesystem_pb.FileInfoListResponse> {
-    path: string; // "/services.FileService/ListInternal"
+    path: "/services.FileService/ListInternal";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfoListRequest>;
@@ -93,7 +93,7 @@ interface IFileServiceService_IListInternal extends grpc.MethodDefinition<file_f
     responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfoListResponse>;
 }
 interface IFileServiceService_IBatchCreateSync extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/BatchCreateSync"
+    path: "/services.FileService/BatchCreateSync";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskRequest>;
@@ -102,7 +102,7 @@ interface IFileServiceService_IBatchCreateSync extends grpc.MethodDefinition<fil
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_ITrash extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/Trash"
+    path: "/services.FileService/Trash";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskRequest>;
@@ -111,7 +111,7 @@ interface IFileServiceService_ITrash extends grpc.MethodDefinition<file_filesyst
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_IDelete extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/Delete"
+    path: "/services.FileService/Delete";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskRequest>;
@@ -120,7 +120,7 @@ interface IFileServiceService_IDelete extends grpc.MethodDefinition<file_filesys
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_ICopy extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/Copy"
+    path: "/services.FileService/Copy";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskRequest>;
@@ -129,7 +129,7 @@ interface IFileServiceService_ICopy extends grpc.MethodDefinition<file_filesyste
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_IMove extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/Move"
+    path: "/services.FileService/Move";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskRequest>;
@@ -138,7 +138,7 @@ interface IFileServiceService_IMove extends grpc.MethodDefinition<file_filesyste
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_IRename extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/Rename"
+    path: "/services.FileService/Rename";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
@@ -147,7 +147,7 @@ interface IFileServiceService_IRename extends grpc.MethodDefinition<file_filesys
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_IFlushStore extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.FileInfo> {
-    path: string; // "/services.FileService/FlushStore"
+    path: "/services.FileService/FlushStore";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
@@ -156,7 +156,7 @@ interface IFileServiceService_IFlushStore extends grpc.MethodDefinition<file_fil
     responseDeserialize: grpc.deserialize<file_filesystem_pb.FileInfo>;
 }
 interface IFileServiceService_IRecover extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/Recover"
+    path: "/services.FileService/Recover";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskRequest>;
@@ -165,7 +165,7 @@ interface IFileServiceService_IRecover extends grpc.MethodDefinition<file_filesy
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_IDeleteTrash extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/DeleteTrash"
+    path: "/services.FileService/DeleteTrash";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskRequest>;
@@ -174,7 +174,7 @@ interface IFileServiceService_IDeleteTrash extends grpc.MethodDefinition<file_fi
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_IListTrash extends grpc.MethodDefinition<file_filesystem_pb.FileInfoListRequest, file_filesystem_pb.TrashInfoListResponse> {
-    path: string; // "/services.FileService/ListTrash"
+    path: "/services.FileService/ListTrash";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfoListRequest>;
@@ -183,7 +183,7 @@ interface IFileServiceService_IListTrash extends grpc.MethodDefinition<file_file
     responseDeserialize: grpc.deserialize<file_filesystem_pb.TrashInfoListResponse>;
 }
 interface IFileServiceService_IGetTrash extends grpc.MethodDefinition<file_filesystem_pb.TrashInfo, file_filesystem_pb.TrashInfo> {
-    path: string; // "/services.FileService/GetTrash"
+    path: "/services.FileService/GetTrash";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.TrashInfo>;
@@ -192,7 +192,7 @@ interface IFileServiceService_IGetTrash extends grpc.MethodDefinition<file_files
     responseDeserialize: grpc.deserialize<file_filesystem_pb.TrashInfo>;
 }
 interface IFileServiceService_IClearTrash extends grpc.MethodDefinition<file_filesystem_pb.TrashInfo, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/ClearTrash"
+    path: "/services.FileService/ClearTrash";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.TrashInfo>;
@@ -201,7 +201,7 @@ interface IFileServiceService_IClearTrash extends grpc.MethodDefinition<file_fil
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_ICreateLabel extends grpc.MethodDefinition<file_filesystem_pb.Label, file_filesystem_pb.Label> {
-    path: string; // "/services.FileService/CreateLabel"
+    path: "/services.FileService/CreateLabel";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.Label>;
@@ -210,7 +210,7 @@ interface IFileServiceService_ICreateLabel extends grpc.MethodDefinition<file_fi
     responseDeserialize: grpc.deserialize<file_filesystem_pb.Label>;
 }
 interface IFileServiceService_IGetLabel extends grpc.MethodDefinition<file_filesystem_pb.Label, file_filesystem_pb.Label> {
-    path: string; // "/services.FileService/GetLabel"
+    path: "/services.FileService/GetLabel";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.Label>;
@@ -219,7 +219,7 @@ interface IFileServiceService_IGetLabel extends grpc.MethodDefinition<file_files
     responseDeserialize: grpc.deserialize<file_filesystem_pb.Label>;
 }
 interface IFileServiceService_IEditLabel extends grpc.MethodDefinition<file_filesystem_pb.Label, file_filesystem_pb.Label> {
-    path: string; // "/services.FileService/EditLabel"
+    path: "/services.FileService/EditLabel";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.Label>;
@@ -228,7 +228,7 @@ interface IFileServiceService_IEditLabel extends grpc.MethodDefinition<file_file
     responseDeserialize: grpc.deserialize<file_filesystem_pb.Label>;
 }
 interface IFileServiceService_IDeleteLabel extends grpc.MethodDefinition<file_filesystem_pb.BatchLabelRequest, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/DeleteLabel"
+    path: "/services.FileService/DeleteLabel";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.BatchLabelRequest>;
@@ -237,7 +237,7 @@ interface IFileServiceService_IDeleteLabel extends grpc.MethodDefinition<file_fi
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_IListLabel extends grpc.MethodDefinition<file_filesystem_pb.LabelListRequest, file_filesystem_pb.LabelListResponse> {
-    path: string; // "/services.FileService/ListLabel"
+    path: "/services.FileService/ListLabel";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.LabelListRequest>;
@@ -246,7 +246,7 @@ interface IFileServiceService_IListLabel extends grpc.MethodDefinition<file_file
     responseDeserialize: grpc.deserialize<file_filesystem_pb.LabelListResponse>;
 }
 interface IFileServiceService_IAddLabelToFiles extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/AddLabelToFiles"
+    path: "/services.FileService/AddLabelToFiles";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskRequest>;
@@ -255,7 +255,7 @@ interface IFileServiceService_IAddLabelToFiles extends grpc.MethodDefinition<fil
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_IRemoveLabelFromFiles extends grpc.MethodDefinition<file_filesystem_pb.BatchFileTaskRequest, file_filesystem_pb.BatchFileTaskResult> {
-    path: string; // "/services.FileService/RemoveLabelFromFiles"
+    path: "/services.FileService/RemoveLabelFromFiles";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.BatchFileTaskRequest>;
@@ -264,7 +264,7 @@ interface IFileServiceService_IRemoveLabelFromFiles extends grpc.MethodDefinitio
     responseDeserialize: grpc.deserialize<file_filesystem_pb.BatchFileTaskResult>;
 }
 interface IFileServiceService_IUploadToken extends grpc.MethodDefinition<file_filesystem_pb.FileInfo, file_filesystem_pb.UploadTokenInfo> {
-    path: string; // "/services.FileService/UploadToken"
+    path: "/services.FileService/UploadToken";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.FileInfo>;
@@ -386,7 +386,7 @@ export interface IFileServiceClient {
 }
 
 export class FileServiceClient extends grpc.Client implements IFileServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: file_filesystem_pb.FileInfo, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     public create(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
     public create(request: file_filesystem_pb.FileInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.FileInfo) => void): grpc.ClientUnaryCall;
@@ -475,7 +475,7 @@ interface IFileNoticeServiceService extends grpc.ServiceDefinition<grpc.UntypedS
 }
 
 interface IFileNoticeServiceService_IOnProgress extends grpc.MethodDefinition<file_filesystem_pb.TaskProgress, file_filesystem_pb.TaskProgress> {
-    path: string; // "/services.FileNoticeService/OnProgress"
+    path: "/services.FileNoticeService/OnProgress";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.TaskProgress>;
@@ -484,7 +484,7 @@ interface IFileNoticeServiceService_IOnProgress extends grpc.MethodDefinition<fi
     responseDeserialize: grpc.deserialize<file_filesystem_pb.TaskProgress>;
 }
 interface IFileNoticeServiceService_IOnComplete extends grpc.MethodDefinition<file_filesystem_pb.TaskCompleteEvent, file_filesystem_pb.TaskCompleteEvent> {
-    path: string; // "/services.FileNoticeService/OnComplete"
+    path: "/services.FileNoticeService/OnComplete";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.TaskCompleteEvent>;
@@ -493,7 +493,7 @@ interface IFileNoticeServiceService_IOnComplete extends grpc.MethodDefinition<fi
     responseDeserialize: grpc.deserialize<file_filesystem_pb.TaskCompleteEvent>;
 }
 interface IFileNoticeServiceService_IOnError extends grpc.MethodDefinition<file_filesystem_pb.TaskStatusUpdateEvent, file_filesystem_pb.TaskStatusUpdateEvent> {
-    path: string; // "/services.FileNoticeService/OnError"
+    path: "/services.FileNoticeService/OnError";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.TaskStatusUpdateEvent>;
@@ -502,7 +502,7 @@ interface IFileNoticeServiceService_IOnError extends grpc.MethodDefinition<file_
     responseDeserialize: grpc.deserialize<file_filesystem_pb.TaskStatusUpdateEvent>;
 }
 interface IFileNoticeServiceService_IOnCancel extends grpc.MethodDefinition<file_filesystem_pb.TaskStatusUpdateEvent, file_filesystem_pb.TaskStatusUpdateEvent> {
-    path: string; // "/services.FileNoticeService/OnCancel"
+    path: "/services.FileNoticeService/OnCancel";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<file_filesystem_pb.TaskStatusUpdateEvent>;
@@ -536,7 +536,7 @@ export interface IFileNoticeServiceClient {
 }
 
 export class FileNoticeServiceClient extends grpc.Client implements IFileNoticeServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public onProgress(request: file_filesystem_pb.TaskProgress, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.TaskProgress) => void): grpc.ClientUnaryCall;
     public onProgress(request: file_filesystem_pb.TaskProgress, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.TaskProgress) => void): grpc.ClientUnaryCall;
     public onProgress(request: file_filesystem_pb.TaskProgress, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_filesystem_pb.TaskProgress) => void): grpc.ClientUnaryCall;

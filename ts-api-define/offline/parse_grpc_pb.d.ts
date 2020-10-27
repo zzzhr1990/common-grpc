@@ -13,7 +13,7 @@ interface ITaskParseServiceService extends grpc.ServiceDefinition<grpc.UntypedSe
 }
 
 interface ITaskParseServiceService_Iparse extends grpc.MethodDefinition<offline_parse_pb.ParseTaskRequest, offline_parse_pb.ParseTaskResponse> {
-    path: string; // "/services.TaskParseService/parse"
+    path: "/services.TaskParseService/parse";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_parse_pb.ParseTaskRequest>;
@@ -35,7 +35,7 @@ export interface ITaskParseServiceClient {
 }
 
 export class TaskParseServiceClient extends grpc.Client implements ITaskParseServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public parse(request: offline_parse_pb.ParseTaskRequest, callback: (error: grpc.ServiceError | null, response: offline_parse_pb.ParseTaskResponse) => void): grpc.ClientUnaryCall;
     public parse(request: offline_parse_pb.ParseTaskRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_parse_pb.ParseTaskResponse) => void): grpc.ClientUnaryCall;
     public parse(request: offline_parse_pb.ParseTaskRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_parse_pb.ParseTaskResponse) => void): grpc.ClientUnaryCall;

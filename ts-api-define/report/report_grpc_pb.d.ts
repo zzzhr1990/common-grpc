@@ -14,7 +14,7 @@ interface IReportServiceService extends grpc.ServiceDefinition<grpc.UntypedServi
 }
 
 interface IReportServiceService_Icreate extends grpc.MethodDefinition<report_report_pb.Report, report_report_pb.Report> {
-    path: string; // "/services.ReportService/create"
+    path: "/services.ReportService/create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<report_report_pb.Report>;
@@ -23,7 +23,7 @@ interface IReportServiceService_Icreate extends grpc.MethodDefinition<report_rep
     responseDeserialize: grpc.deserialize<report_report_pb.Report>;
 }
 interface IReportServiceService_Iget extends grpc.MethodDefinition<report_report_pb.Report, report_report_pb.Report> {
-    path: string; // "/services.ReportService/get"
+    path: "/services.ReportService/get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<report_report_pb.Report>;
@@ -49,7 +49,7 @@ export interface IReportServiceClient {
 }
 
 export class ReportServiceClient extends grpc.Client implements IReportServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: report_report_pb.Report, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
     public create(request: report_report_pb.Report, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;
     public create(request: report_report_pb.Report, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: report_report_pb.Report) => void): grpc.ClientUnaryCall;

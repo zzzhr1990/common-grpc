@@ -23,7 +23,7 @@ interface ISystemTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedS
 }
 
 interface ISystemTaskServiceService_Icreate extends grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTask> {
-    path: string; // "/services.SystemTaskService/create"
+    path: "/services.SystemTaskService/create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_system_pb.SystemTask>;
@@ -32,7 +32,7 @@ interface ISystemTaskServiceService_Icreate extends grpc.MethodDefinition<offlin
     responseDeserialize: grpc.deserialize<offline_system_pb.SystemTask>;
 }
 interface ISystemTaskServiceService_Iupdate extends grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTask> {
-    path: string; // "/services.SystemTaskService/update"
+    path: "/services.SystemTaskService/update";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_system_pb.SystemTask>;
@@ -41,7 +41,7 @@ interface ISystemTaskServiceService_Iupdate extends grpc.MethodDefinition<offlin
     responseDeserialize: grpc.deserialize<offline_system_pb.SystemTask>;
 }
 interface ISystemTaskServiceService_Iget extends grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTask> {
-    path: string; // "/services.SystemTaskService/get"
+    path: "/services.SystemTaskService/get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_system_pb.SystemTask>;
@@ -50,7 +50,7 @@ interface ISystemTaskServiceService_Iget extends grpc.MethodDefinition<offline_s
     responseDeserialize: grpc.deserialize<offline_system_pb.SystemTask>;
 }
 interface ISystemTaskServiceService_IgetList extends grpc.MethodDefinition<common_common_entity_pb.StringListEntity, offline_system_pb.SystemTaskList> {
-    path: string; // "/services.SystemTaskService/getList"
+    path: "/services.SystemTaskService/getList";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<common_common_entity_pb.StringListEntity>;
@@ -59,7 +59,7 @@ interface ISystemTaskServiceService_IgetList extends grpc.MethodDefinition<commo
     responseDeserialize: grpc.deserialize<offline_system_pb.SystemTaskList>;
 }
 interface ISystemTaskServiceService_IgetDetail extends grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTaskDetail> {
-    path: string; // "/services.SystemTaskService/getDetail"
+    path: "/services.SystemTaskService/getDetail";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_system_pb.SystemTask>;
@@ -68,7 +68,7 @@ interface ISystemTaskServiceService_IgetDetail extends grpc.MethodDefinition<off
     responseDeserialize: grpc.deserialize<offline_system_pb.SystemTaskDetail>;
 }
 interface ISystemTaskServiceService_Ifetch extends grpc.MethodDefinition<offline_system_pb.SystemTaskFetchRequest, offline_system_pb.SystemTaskList> {
-    path: string; // "/services.SystemTaskService/fetch"
+    path: "/services.SystemTaskService/fetch";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_system_pb.SystemTaskFetchRequest>;
@@ -77,7 +77,7 @@ interface ISystemTaskServiceService_Ifetch extends grpc.MethodDefinition<offline
     responseDeserialize: grpc.deserialize<offline_system_pb.SystemTaskList>;
 }
 interface ISystemTaskServiceService_IuploadFile extends grpc.MethodDefinition<offline_system_pb.TaskFile, offline_system_pb.TaskFile> {
-    path: string; // "/services.SystemTaskService/uploadFile"
+    path: "/services.SystemTaskService/uploadFile";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_system_pb.TaskFile>;
@@ -86,7 +86,7 @@ interface ISystemTaskServiceService_IuploadFile extends grpc.MethodDefinition<of
     responseDeserialize: grpc.deserialize<offline_system_pb.TaskFile>;
 }
 interface ISystemTaskServiceService_IupdateFile extends grpc.MethodDefinition<offline_system_pb.TaskFile, offline_system_pb.TaskFile> {
-    path: string; // "/services.SystemTaskService/updateFile"
+    path: "/services.SystemTaskService/updateFile";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_system_pb.TaskFile>;
@@ -95,7 +95,7 @@ interface ISystemTaskServiceService_IupdateFile extends grpc.MethodDefinition<of
     responseDeserialize: grpc.deserialize<offline_system_pb.TaskFile>;
 }
 interface ISystemTaskServiceService_Icomplete extends grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTask> {
-    path: string; // "/services.SystemTaskService/complete"
+    path: "/services.SystemTaskService/complete";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_system_pb.SystemTask>;
@@ -104,7 +104,7 @@ interface ISystemTaskServiceService_Icomplete extends grpc.MethodDefinition<offl
     responseDeserialize: grpc.deserialize<offline_system_pb.SystemTask>;
 }
 interface ISystemTaskServiceService_Ierror extends grpc.MethodDefinition<offline_system_pb.SystemTask, offline_system_pb.SystemTask> {
-    path: string; // "/services.SystemTaskService/error"
+    path: "/services.SystemTaskService/error";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<offline_system_pb.SystemTask>;
@@ -162,7 +162,7 @@ export interface ISystemTaskServiceClient {
 }
 
 export class SystemTaskServiceClient extends grpc.Client implements ISystemTaskServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: offline_system_pb.SystemTask, callback: (error: grpc.ServiceError | null, response: offline_system_pb.SystemTask) => void): grpc.ClientUnaryCall;
     public create(request: offline_system_pb.SystemTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_system_pb.SystemTask) => void): grpc.ClientUnaryCall;
     public create(request: offline_system_pb.SystemTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_system_pb.SystemTask) => void): grpc.ClientUnaryCall;

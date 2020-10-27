@@ -17,7 +17,7 @@ interface IFileShareServiceService extends grpc.ServiceDefinition<grpc.UntypedSe
 }
 
 interface IFileShareServiceService_Icreate extends grpc.MethodDefinition<share_share_pb.FileShare, share_share_pb.FileShare> {
-    path: string; // "/services.FileShareService/create"
+    path: "/services.FileShareService/create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<share_share_pb.FileShare>;
@@ -26,7 +26,7 @@ interface IFileShareServiceService_Icreate extends grpc.MethodDefinition<share_s
     responseDeserialize: grpc.deserialize<share_share_pb.FileShare>;
 }
 interface IFileShareServiceService_Icancel extends grpc.MethodDefinition<share_share_pb.FileShare, common_common_entity_pb.BoolEntity> {
-    path: string; // "/services.FileShareService/cancel"
+    path: "/services.FileShareService/cancel";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<share_share_pb.FileShare>;
@@ -35,7 +35,7 @@ interface IFileShareServiceService_Icancel extends grpc.MethodDefinition<share_s
     responseDeserialize: grpc.deserialize<common_common_entity_pb.BoolEntity>;
 }
 interface IFileShareServiceService_IgetOrEmpty extends grpc.MethodDefinition<share_share_pb.FileShare, share_share_pb.FileShare> {
-    path: string; // "/services.FileShareService/getOrEmpty"
+    path: "/services.FileShareService/getOrEmpty";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<share_share_pb.FileShare>;
@@ -44,7 +44,7 @@ interface IFileShareServiceService_IgetOrEmpty extends grpc.MethodDefinition<sha
     responseDeserialize: grpc.deserialize<share_share_pb.FileShare>;
 }
 interface IFileShareServiceService_Isave extends grpc.MethodDefinition<share_share_pb.ShareSaveRequest, share_share_pb.FileShare> {
-    path: string; // "/services.FileShareService/save"
+    path: "/services.FileShareService/save";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<share_share_pb.ShareSaveRequest>;
@@ -78,7 +78,7 @@ export interface IFileShareServiceClient {
 }
 
 export class FileShareServiceClient extends grpc.Client implements IFileShareServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: share_share_pb.FileShare, callback: (error: grpc.ServiceError | null, response: share_share_pb.FileShare) => void): grpc.ClientUnaryCall;
     public create(request: share_share_pb.FileShare, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: share_share_pb.FileShare) => void): grpc.ClientUnaryCall;
     public create(request: share_share_pb.FileShare, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: share_share_pb.FileShare) => void): grpc.ClientUnaryCall;

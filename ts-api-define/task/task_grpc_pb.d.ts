@@ -20,7 +20,7 @@ interface ISimpleTaskCenterServiceService extends grpc.ServiceDefinition<grpc.Un
 }
 
 interface ISimpleTaskCenterServiceService_Icreate extends grpc.MethodDefinition<task_task_pb.SimpleTask, task_task_pb.SimpleTask> {
-    path: string; // "/services.SimpleTaskCenterService/create"
+    path: "/services.SimpleTaskCenterService/create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<task_task_pb.SimpleTask>;
@@ -29,7 +29,7 @@ interface ISimpleTaskCenterServiceService_Icreate extends grpc.MethodDefinition<
     responseDeserialize: grpc.deserialize<task_task_pb.SimpleTask>;
 }
 interface ISimpleTaskCenterServiceService_Ifetch extends grpc.MethodDefinition<task_task_pb.FetchRequest, task_task_pb.FetchResponse> {
-    path: string; // "/services.SimpleTaskCenterService/fetch"
+    path: "/services.SimpleTaskCenterService/fetch";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<task_task_pb.FetchRequest>;
@@ -38,7 +38,7 @@ interface ISimpleTaskCenterServiceService_Ifetch extends grpc.MethodDefinition<t
     responseDeserialize: grpc.deserialize<task_task_pb.FetchResponse>;
 }
 interface ISimpleTaskCenterServiceService_Icomplete extends grpc.MethodDefinition<task_task_pb.SimpleTask, common_common_entity_pb.BoolEntity> {
-    path: string; // "/services.SimpleTaskCenterService/complete"
+    path: "/services.SimpleTaskCenterService/complete";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<task_task_pb.SimpleTask>;
@@ -47,7 +47,7 @@ interface ISimpleTaskCenterServiceService_Icomplete extends grpc.MethodDefinitio
     responseDeserialize: grpc.deserialize<common_common_entity_pb.BoolEntity>;
 }
 interface ISimpleTaskCenterServiceService_Iupdate extends grpc.MethodDefinition<task_task_pb.SimpleTask, task_task_pb.SimpleTask> {
-    path: string; // "/services.SimpleTaskCenterService/update"
+    path: "/services.SimpleTaskCenterService/update";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<task_task_pb.SimpleTask>;
@@ -56,7 +56,7 @@ interface ISimpleTaskCenterServiceService_Iupdate extends grpc.MethodDefinition<
     responseDeserialize: grpc.deserialize<task_task_pb.SimpleTask>;
 }
 interface ISimpleTaskCenterServiceService_Ierror extends grpc.MethodDefinition<task_task_pb.ErrorTask, task_task_pb.ErrorTask> {
-    path: string; // "/services.SimpleTaskCenterService/error"
+    path: "/services.SimpleTaskCenterService/error";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<task_task_pb.ErrorTask>;
@@ -65,7 +65,7 @@ interface ISimpleTaskCenterServiceService_Ierror extends grpc.MethodDefinition<t
     responseDeserialize: grpc.deserialize<task_task_pb.ErrorTask>;
 }
 interface ISimpleTaskCenterServiceService_Iget extends grpc.MethodDefinition<task_task_pb.SimpleTask, task_task_pb.SimpleTask> {
-    path: string; // "/services.SimpleTaskCenterService/get"
+    path: "/services.SimpleTaskCenterService/get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<task_task_pb.SimpleTask>;
@@ -74,7 +74,7 @@ interface ISimpleTaskCenterServiceService_Iget extends grpc.MethodDefinition<tas
     responseDeserialize: grpc.deserialize<task_task_pb.SimpleTask>;
 }
 interface ISimpleTaskCenterServiceService_Ireset extends grpc.MethodDefinition<task_task_pb.ErrorTask, task_task_pb.SimpleTask> {
-    path: string; // "/services.SimpleTaskCenterService/reset"
+    path: "/services.SimpleTaskCenterService/reset";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<task_task_pb.ErrorTask>;
@@ -120,7 +120,7 @@ export interface ISimpleTaskCenterServiceClient {
 }
 
 export class SimpleTaskCenterServiceClient extends grpc.Client implements ISimpleTaskCenterServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: task_task_pb.SimpleTask, callback: (error: grpc.ServiceError | null, response: task_task_pb.SimpleTask) => void): grpc.ClientUnaryCall;
     public create(request: task_task_pb.SimpleTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: task_task_pb.SimpleTask) => void): grpc.ClientUnaryCall;
     public create(request: task_task_pb.SimpleTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: task_task_pb.SimpleTask) => void): grpc.ClientUnaryCall;

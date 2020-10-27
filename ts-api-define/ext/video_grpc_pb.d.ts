@@ -18,7 +18,7 @@ interface IVideoExtServiceService extends grpc.ServiceDefinition<grpc.UntypedSer
 }
 
 interface IVideoExtServiceService_Icreate extends grpc.MethodDefinition<ext_video_pb.VideoExt, common_common_entity_pb.BoolEntity> {
-    path: string; // "/services.VideoExtService/create"
+    path: "/services.VideoExtService/create";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<ext_video_pb.VideoExt>;
@@ -27,7 +27,7 @@ interface IVideoExtServiceService_Icreate extends grpc.MethodDefinition<ext_vide
     responseDeserialize: grpc.deserialize<common_common_entity_pb.BoolEntity>;
 }
 interface IVideoExtServiceService_Iget extends grpc.MethodDefinition<ext_video_pb.VideoExt, ext_video_pb.VideoExt> {
-    path: string; // "/services.VideoExtService/get"
+    path: "/services.VideoExtService/get";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<ext_video_pb.VideoExt>;
@@ -36,7 +36,7 @@ interface IVideoExtServiceService_Iget extends grpc.MethodDefinition<ext_video_p
     responseDeserialize: grpc.deserialize<ext_video_pb.VideoExt>;
 }
 interface IVideoExtServiceService_IgetOrEmpty extends grpc.MethodDefinition<ext_video_pb.VideoExt, ext_video_pb.VideoExt> {
-    path: string; // "/services.VideoExtService/getOrEmpty"
+    path: "/services.VideoExtService/getOrEmpty";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<ext_video_pb.VideoExt>;
@@ -45,7 +45,7 @@ interface IVideoExtServiceService_IgetOrEmpty extends grpc.MethodDefinition<ext_
     responseDeserialize: grpc.deserialize<ext_video_pb.VideoExt>;
 }
 interface IVideoExtServiceService_Iupdate extends grpc.MethodDefinition<ext_video_pb.VideoExt, ext_video_pb.VideoExt> {
-    path: string; // "/services.VideoExtService/update"
+    path: "/services.VideoExtService/update";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<ext_video_pb.VideoExt>;
@@ -54,7 +54,7 @@ interface IVideoExtServiceService_Iupdate extends grpc.MethodDefinition<ext_vide
     responseDeserialize: grpc.deserialize<ext_video_pb.VideoExt>;
 }
 interface IVideoExtServiceService_IgetPreview extends grpc.MethodDefinition<ext_video_pb.VideoExt, ext_video_pb.PreviewInfo> {
-    path: string; // "/services.VideoExtService/getPreview"
+    path: "/services.VideoExtService/getPreview";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<ext_video_pb.VideoExt>;
@@ -92,7 +92,7 @@ export interface IVideoExtServiceClient {
 }
 
 export class VideoExtServiceClient extends grpc.Client implements IVideoExtServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public create(request: ext_video_pb.VideoExt, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BoolEntity) => void): grpc.ClientUnaryCall;
     public create(request: ext_video_pb.VideoExt, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BoolEntity) => void): grpc.ClientUnaryCall;
     public create(request: ext_video_pb.VideoExt, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BoolEntity) => void): grpc.ClientUnaryCall;
