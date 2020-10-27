@@ -1,5 +1,7 @@
 #!/bin/bash
-go get -u github.com/golang/protobuf/protoc-gen-go
+# go get -u github.com/golang/protobuf/protoc-gen-go
+go get -u google.golang.org/protobuf/cmd/protoc-gen-go
+go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
 GOPATH="/Users/zzzhr/go"
 export PATH=$PATH:$GOPATH/bin
 # nodejs_path="/Users/herui/vscode/typescript/ts-api-gateway/src/proto"
@@ -30,7 +32,7 @@ echo ${PROTOC_GEN_TS_PATH}
 function makeFile(){
     file=$1
     echo "Generate: ${file}"
-    protoc --go_out=plugins=grpc:./go_temp ${file}
+    protoc --go-grpc_out=./go_temp ${file}
     protoc --plugin=protoc-gen-grpc=${PROTOC_GEN_GRPC_PATH}  --js_out="import_style=commonjs,binary:${OUT_DIR}" --grpc_out=grpc_js:"${OUT_DIR}" ${file}
     protoc --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" --ts_out="generate_package_definition:${OUT_DIR}" ${file}
 }
