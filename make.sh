@@ -33,6 +33,7 @@ function makeFile(){
     file=$1
     echo "Generate: ${file}"
     protoc --go-grpc_out=./go_temp ${file}
+    protoc --go_out=./go_temp ${file}
     protoc --plugin=protoc-gen-grpc=${PROTOC_GEN_GRPC_PATH}  --js_out="import_style=commonjs,binary:${OUT_DIR}" --grpc_out=grpc_js:"${OUT_DIR}" ${file}
     protoc --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" --ts_out="generate_package_definition:${OUT_DIR}" ${file}
 }
