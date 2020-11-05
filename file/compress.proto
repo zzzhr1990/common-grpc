@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package services;
+
+// import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/v3/file/compress";
+// import "common/common_entity.proto";
+
+service ZipFileService {
+    rpc CreateZipDownload (CreateZipDownloadRequest) returns (ZipDownloadInfo) {}
+    rpc GetZipDownload (ZipDownloadInfo) returns (ZipDownloadInfo) {}
+    rpc GetZipDetail (ZipDownloadInfo) returns (ZipDownloadDetail) {}
+}
+
+message CreateZipDownloadRequest {
+    repeated string identity = 1;
+    repeated string path = 2;
+    int64 user_identity = 3;
+    string password = 4;
+    int32 op = 5;
+}
+
+message ZipDownloadInfo {
+    string identity = 1;
+    int64 user_identity = 2;
+    string count = 3;
+    string size = 4;
+    string download_address = 5;
+}
+
+message ZipDownloadDetail {
+    string identity = 1;
+    int64 user_identity = 2;
+    string count = 3;
+    string size = 4;
+    repeated SimpleFile data = 5;
+}
+
+message SimpleFile {
+    string path = 2;
+    bool directory = 3;
+    string hash = 4;
+    int64 size = 5;
+}
