@@ -23,16 +23,17 @@ message CreateZipDownloadRequest {
 message ZipDownloadInfo {
     string identity = 1;
     int64 user_identity = 2;
-    string count = 3;
-    string size = 4;
-    string download_address = 5;
+    int64 count = 3;
+    int64 size = 4;
+    string password = 5;
+    string download_address = 6;
 }
 
 message ZipDownloadDetail {
     string identity = 1;
     int64 user_identity = 2;
-    string count = 3;
-    string size = 4;
+    int64 count = 3;
+    int64 size = 4;
     repeated SimpleFile data = 5;
 }
 

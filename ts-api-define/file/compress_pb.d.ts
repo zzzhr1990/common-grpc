@@ -54,11 +54,14 @@ export class ZipDownloadInfo extends jspb.Message {
     getUserIdentity(): number;
     setUserIdentity(value: number): ZipDownloadInfo;
 
-    getCount(): string;
-    setCount(value: string): ZipDownloadInfo;
+    getCount(): number;
+    setCount(value: number): ZipDownloadInfo;
 
-    getSize(): string;
-    setSize(value: string): ZipDownloadInfo;
+    getSize(): number;
+    setSize(value: number): ZipDownloadInfo;
+
+    getPassword(): string;
+    setPassword(value: string): ZipDownloadInfo;
 
     getDownloadAddress(): string;
     setDownloadAddress(value: string): ZipDownloadInfo;
@@ -78,8 +81,9 @@ export namespace ZipDownloadInfo {
     export type AsObject = {
         identity: string,
         userIdentity: number,
-        count: string,
-        size: string,
+        count: number,
+        size: number,
+        password: string,
         downloadAddress: string,
     }
 }
@@ -91,11 +95,11 @@ export class ZipDownloadDetail extends jspb.Message {
     getUserIdentity(): number;
     setUserIdentity(value: number): ZipDownloadDetail;
 
-    getCount(): string;
-    setCount(value: string): ZipDownloadDetail;
+    getCount(): number;
+    setCount(value: number): ZipDownloadDetail;
 
-    getSize(): string;
-    setSize(value: string): ZipDownloadDetail;
+    getSize(): number;
+    setSize(value: number): ZipDownloadDetail;
 
     clearDataList(): void;
     getDataList(): Array<SimpleFile>;
@@ -117,8 +121,8 @@ export namespace ZipDownloadDetail {
     export type AsObject = {
         identity: string,
         userIdentity: number,
-        count: string,
-        size: string,
+        count: number,
+        size: number,
         dataList: Array<SimpleFile.AsObject>,
     }
 }

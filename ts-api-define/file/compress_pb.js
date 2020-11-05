@@ -429,9 +429,10 @@ proto.services.ZipDownloadInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
     identity: jspb.Message.getFieldWithDefault(msg, 1, ""),
     userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    count: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    size: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    downloadAddress: jspb.Message.getFieldWithDefault(msg, 5, "")
+    count: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    size: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    password: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    downloadAddress: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -477,14 +478,18 @@ proto.services.ZipDownloadInfo.deserializeBinaryFromReader = function(msg, reade
       msg.setUserIdentity(value);
       break;
     case 3:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCount(value);
       break;
     case 4:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setSize(value);
       break;
     case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPassword(value);
+      break;
+    case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setDownloadAddress(value);
       break;
@@ -532,23 +537,30 @@ proto.services.ZipDownloadInfo.serializeBinaryToWriter = function(message, write
     );
   }
   f = message.getCount();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt64(
       3,
       f
     );
   }
   f = message.getSize();
+  if (f !== 0) {
+    writer.writeInt64(
+      4,
+      f
+    );
+  }
+  f = message.getPassword();
   if (f.length > 0) {
     writer.writeString(
-      4,
+      5,
       f
     );
   }
   f = message.getDownloadAddress();
   if (f.length > 0) {
     writer.writeString(
-      5,
+      6,
       f
     );
   }
@@ -592,46 +604,46 @@ proto.services.ZipDownloadInfo.prototype.setUserIdentity = function(value) {
 
 
 /**
- * optional string count = 3;
- * @return {string}
+ * optional int64 count = 3;
+ * @return {number}
  */
 proto.services.ZipDownloadInfo.prototype.getCount = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.services.ZipDownloadInfo} returns this
  */
 proto.services.ZipDownloadInfo.prototype.setCount = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
 /**
- * optional string size = 4;
- * @return {string}
+ * optional int64 size = 4;
+ * @return {number}
  */
 proto.services.ZipDownloadInfo.prototype.getSize = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.services.ZipDownloadInfo} returns this
  */
 proto.services.ZipDownloadInfo.prototype.setSize = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
 /**
- * optional string download_address = 5;
+ * optional string password = 5;
  * @return {string}
  */
-proto.services.ZipDownloadInfo.prototype.getDownloadAddress = function() {
+proto.services.ZipDownloadInfo.prototype.getPassword = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
@@ -640,8 +652,26 @@ proto.services.ZipDownloadInfo.prototype.getDownloadAddress = function() {
  * @param {string} value
  * @return {!proto.services.ZipDownloadInfo} returns this
  */
-proto.services.ZipDownloadInfo.prototype.setDownloadAddress = function(value) {
+proto.services.ZipDownloadInfo.prototype.setPassword = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string download_address = 6;
+ * @return {string}
+ */
+proto.services.ZipDownloadInfo.prototype.getDownloadAddress = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.ZipDownloadInfo} returns this
+ */
+proto.services.ZipDownloadInfo.prototype.setDownloadAddress = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -686,8 +716,8 @@ proto.services.ZipDownloadDetail.toObject = function(includeInstance, msg) {
   var f, obj = {
     identity: jspb.Message.getFieldWithDefault(msg, 1, ""),
     userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    count: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    size: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    count: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    size: jspb.Message.getFieldWithDefault(msg, 4, 0),
     dataList: jspb.Message.toObjectList(msg.getDataList(),
     proto.services.SimpleFile.toObject, includeInstance)
   };
@@ -735,11 +765,11 @@ proto.services.ZipDownloadDetail.deserializeBinaryFromReader = function(msg, rea
       msg.setUserIdentity(value);
       break;
     case 3:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setCount(value);
       break;
     case 4:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setSize(value);
       break;
     case 5:
@@ -791,15 +821,15 @@ proto.services.ZipDownloadDetail.serializeBinaryToWriter = function(message, wri
     );
   }
   f = message.getCount();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt64(
       3,
       f
     );
   }
   f = message.getSize();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt64(
       4,
       f
     );
@@ -852,38 +882,38 @@ proto.services.ZipDownloadDetail.prototype.setUserIdentity = function(value) {
 
 
 /**
- * optional string count = 3;
- * @return {string}
+ * optional int64 count = 3;
+ * @return {number}
  */
 proto.services.ZipDownloadDetail.prototype.getCount = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.services.ZipDownloadDetail} returns this
  */
 proto.services.ZipDownloadDetail.prototype.setCount = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
 /**
- * optional string size = 4;
- * @return {string}
+ * optional int64 size = 4;
+ * @return {number}
  */
 proto.services.ZipDownloadDetail.prototype.getSize = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {number} value
  * @return {!proto.services.ZipDownloadDetail} returns this
  */
 proto.services.ZipDownloadDetail.prototype.setSize = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
