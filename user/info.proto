@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package services;
 
+option csharp_namespace = "GrpcUserClient";
+
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/user/info";
 // import "common/common_entity.proto";
