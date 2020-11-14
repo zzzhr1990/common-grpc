@@ -18,6 +18,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SystemInfoServiceClient interface {
 	Info(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*SystemInfo, error)
+	Address(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*AddressInfo, error)
 	ListUpdate(ctx context.Context, in *UpdateInfo, opts ...grpc.CallOption) (*UpdateInfoList, error)
 }
 
@@ -38,6 +39,15 @@ func (c *systemInfoServiceClient) Info(ctx context.Context, in *ClientInfo, opts
 	return out, nil
 }
 
+func (c *systemInfoServiceClient) Address(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*AddressInfo, error) {
+	out := new(AddressInfo)
+	err := c.cc.Invoke(ctx, "/services.SystemInfoService/address", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *systemInfoServiceClient) ListUpdate(ctx context.Context, in *UpdateInfo, opts ...grpc.CallOption) (*UpdateInfoList, error) {
 	out := new(UpdateInfoList)
 	err := c.cc.Invoke(ctx, "/services.SystemInfoService/listUpdate", in, out, opts...)
@@ -52,6 +62,7 @@ func (c *systemInfoServiceClient) ListUpdate(ctx context.Context, in *UpdateInfo
 // for forward compatibility
 type SystemInfoServiceServer interface {
 	Info(context.Context, *ClientInfo) (*SystemInfo, error)
+	Address(context.Context, *ClientInfo) (*AddressInfo, error)
 	ListUpdate(context.Context, *UpdateInfo) (*UpdateInfoList, error)
 	mustEmbedUnimplementedSystemInfoServiceServer()
 }
@@ -62,6 +73,9 @@ type UnimplementedSystemInfoServiceServer struct {
 
 func (UnimplementedSystemInfoServiceServer) Info(context.Context, *ClientInfo) (*SystemInfo, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Info not implemented")
+}
+func (UnimplementedSystemInfoServiceServer) Address(context.Context, *ClientInfo) (*AddressInfo, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Address not implemented")
 }
 func (UnimplementedSystemInfoServiceServer) ListUpdate(context.Context, *UpdateInfo) (*UpdateInfoList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListUpdate not implemented")
@@ -97,6 +111,24 @@ func _SystemInfoService_Info_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SystemInfoService_Address_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClientInfo)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemInfoServiceServer).Address(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.SystemInfoService/address",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemInfoServiceServer).Address(ctx, req.(*ClientInfo))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _SystemInfoService_ListUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateInfo)
 	if err := dec(in); err != nil {
@@ -122,6 +154,10 @@ var _SystemInfoService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "info",
 			Handler:    _SystemInfoService_Info_Handler,
+		},
+		{
+			MethodName: "address",
+			Handler:    _SystemInfoService_Address_Handler,
 		},
 		{
 			MethodName: "listUpdate",

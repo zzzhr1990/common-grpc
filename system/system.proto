@@ -6,6 +6,7 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/system/sysinfo
 
 service SystemInfoService {
     rpc info (ClientInfo) returns (SystemInfo) {}
+    rpc address (ClientInfo) returns (AddressInfo) {}
     rpc listUpdate (UpdateInfo) returns (UpdateInfoList) {}
 }
 
@@ -15,7 +16,6 @@ message SystemInfo {
     string  server_name = 3;
     int64  server_time = 4;
     int64  access_count = 5;
-    string address = 6;
 }
 
 message UpdateInfoList {
@@ -43,4 +43,34 @@ message UpdateInfo {
 
 message ClientInfo {
     string  client_name = 1;
+    string address = 2;
+}
+
+message AddressInfo {
+    string address = 1;
+    string country_name = 2;
+    string region_name = 3;
+    string city_name = 4;
+    string owner_domain = 5;
+    string isp_domain = 6;
+    string latitude = 7;
+    string longitude = 8;
+    string timezone = 9;
+    string utc_offset = 10;
+    string china_admin_code = 11;
+    string idd_code = 12;
+    string country_code = 13;
+    string continent_code = 14;
+    string idc = 15;
+    string base_station = 16;
+    string country_code3 = 17;
+    string european_union = 18;
+    string currency_code = 19;
+    string currency_name = 20;
+    string anycast =21;
+    string line = 22;
+    string route = 23;
+    string asn =24;
+    string area_code = 25;
+    string usage_type = 26;
 }

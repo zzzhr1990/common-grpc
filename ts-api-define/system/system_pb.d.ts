@@ -22,9 +22,6 @@ export class SystemInfo extends jspb.Message {
     getAccessCount(): number;
     setAccessCount(value: number): SystemInfo;
 
-    getAddress(): string;
-    setAddress(value: string): SystemInfo;
-
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SystemInfo.AsObject;
@@ -43,7 +40,6 @@ export namespace SystemInfo {
         serverName: string,
         serverTime: number,
         accessCount: number,
-        address: string,
     }
 }
 
@@ -151,6 +147,9 @@ export class ClientInfo extends jspb.Message {
     getClientName(): string;
     setClientName(value: string): ClientInfo;
 
+    getAddress(): string;
+    setAddress(value: string): ClientInfo;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ClientInfo.AsObject;
@@ -165,5 +164,127 @@ export class ClientInfo extends jspb.Message {
 export namespace ClientInfo {
     export type AsObject = {
         clientName: string,
+        address: string,
+    }
+}
+
+export class AddressInfo extends jspb.Message { 
+    getAddress(): string;
+    setAddress(value: string): AddressInfo;
+
+    getCountryName(): string;
+    setCountryName(value: string): AddressInfo;
+
+    getRegionName(): string;
+    setRegionName(value: string): AddressInfo;
+
+    getCityName(): string;
+    setCityName(value: string): AddressInfo;
+
+    getOwnerDomain(): string;
+    setOwnerDomain(value: string): AddressInfo;
+
+    getIspDomain(): string;
+    setIspDomain(value: string): AddressInfo;
+
+    getLatitude(): string;
+    setLatitude(value: string): AddressInfo;
+
+    getLongitude(): string;
+    setLongitude(value: string): AddressInfo;
+
+    getTimezone(): string;
+    setTimezone(value: string): AddressInfo;
+
+    getUtcOffset(): string;
+    setUtcOffset(value: string): AddressInfo;
+
+    getChinaAdminCode(): string;
+    setChinaAdminCode(value: string): AddressInfo;
+
+    getIddCode(): string;
+    setIddCode(value: string): AddressInfo;
+
+    getCountryCode(): string;
+    setCountryCode(value: string): AddressInfo;
+
+    getContinentCode(): string;
+    setContinentCode(value: string): AddressInfo;
+
+    getIdc(): string;
+    setIdc(value: string): AddressInfo;
+
+    getBaseStation(): string;
+    setBaseStation(value: string): AddressInfo;
+
+    getCountryCode3(): string;
+    setCountryCode3(value: string): AddressInfo;
+
+    getEuropeanUnion(): string;
+    setEuropeanUnion(value: string): AddressInfo;
+
+    getCurrencyCode(): string;
+    setCurrencyCode(value: string): AddressInfo;
+
+    getCurrencyName(): string;
+    setCurrencyName(value: string): AddressInfo;
+
+    getAnycast(): string;
+    setAnycast(value: string): AddressInfo;
+
+    getLine(): string;
+    setLine(value: string): AddressInfo;
+
+    getRoute(): string;
+    setRoute(value: string): AddressInfo;
+
+    getAsn(): string;
+    setAsn(value: string): AddressInfo;
+
+    getAreaCode(): string;
+    setAreaCode(value: string): AddressInfo;
+
+    getUsageType(): string;
+    setUsageType(value: string): AddressInfo;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): AddressInfo.AsObject;
+    static toObject(includeInstance: boolean, msg: AddressInfo): AddressInfo.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: AddressInfo, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AddressInfo;
+    static deserializeBinaryFromReader(message: AddressInfo, reader: jspb.BinaryReader): AddressInfo;
+}
+
+export namespace AddressInfo {
+    export type AsObject = {
+        address: string,
+        countryName: string,
+        regionName: string,
+        cityName: string,
+        ownerDomain: string,
+        ispDomain: string,
+        latitude: string,
+        longitude: string,
+        timezone: string,
+        utcOffset: string,
+        chinaAdminCode: string,
+        iddCode: string,
+        countryCode: string,
+        continentCode: string,
+        idc: string,
+        baseStation: string,
+        countryCode3: string,
+        europeanUnion: string,
+        currencyCode: string,
+        currencyName: string,
+        anycast: string,
+        line: string,
+        route: string,
+        asn: string,
+        areaCode: string,
+        usageType: string,
     }
 }
