@@ -9,13 +9,13 @@ import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as system_system_pb from "../system/system_pb";
 
 interface ISystemInfoServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
-    info: ISystemInfoServiceService_Iinfo;
-    address: ISystemInfoServiceService_Iaddress;
-    listUpdate: ISystemInfoServiceService_IlistUpdate;
+    info: ISystemInfoServiceService_IInfo;
+    address: ISystemInfoServiceService_IAddress;
+    listUpdate: ISystemInfoServiceService_IListUpdate;
 }
 
-interface ISystemInfoServiceService_Iinfo extends grpc.MethodDefinition<system_system_pb.ClientInfo, system_system_pb.SystemInfo> {
-    path: "/services.SystemInfoService/info";
+interface ISystemInfoServiceService_IInfo extends grpc.MethodDefinition<system_system_pb.ClientInfo, system_system_pb.SystemInfo> {
+    path: "/services.SystemInfoService/Info";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<system_system_pb.ClientInfo>;
@@ -23,8 +23,8 @@ interface ISystemInfoServiceService_Iinfo extends grpc.MethodDefinition<system_s
     responseSerialize: grpc.serialize<system_system_pb.SystemInfo>;
     responseDeserialize: grpc.deserialize<system_system_pb.SystemInfo>;
 }
-interface ISystemInfoServiceService_Iaddress extends grpc.MethodDefinition<system_system_pb.ClientInfo, system_system_pb.AddressInfo> {
-    path: "/services.SystemInfoService/address";
+interface ISystemInfoServiceService_IAddress extends grpc.MethodDefinition<system_system_pb.ClientInfo, system_system_pb.AddressInfo> {
+    path: "/services.SystemInfoService/Address";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<system_system_pb.ClientInfo>;
@@ -32,8 +32,8 @@ interface ISystemInfoServiceService_Iaddress extends grpc.MethodDefinition<syste
     responseSerialize: grpc.serialize<system_system_pb.AddressInfo>;
     responseDeserialize: grpc.deserialize<system_system_pb.AddressInfo>;
 }
-interface ISystemInfoServiceService_IlistUpdate extends grpc.MethodDefinition<system_system_pb.UpdateInfo, system_system_pb.UpdateInfoList> {
-    path: "/services.SystemInfoService/listUpdate";
+interface ISystemInfoServiceService_IListUpdate extends grpc.MethodDefinition<system_system_pb.UpdateInfo, system_system_pb.UpdateInfoList> {
+    path: "/services.SystemInfoService/ListUpdate";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<system_system_pb.UpdateInfo>;

@@ -7,9 +7,9 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/services/system/sysinfo
 option csharp_namespace = "GrpcSystemInfo";
 
 service SystemInfoService {
-    rpc info (ClientInfo) returns (SystemInfo) {}
-    rpc address (ClientInfo) returns (AddressInfo) {}
-    rpc listUpdate (UpdateInfo) returns (UpdateInfoList) {}
+    rpc Info (ClientInfo) returns (SystemInfo) {}
+    rpc Address (ClientInfo) returns (AddressInfo) {}
+    rpc ListUpdate (UpdateInfo) returns (UpdateInfoList) {}
 }
 
 message SystemInfo {

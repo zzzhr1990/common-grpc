@@ -62,7 +62,7 @@ function deserialize_services_UpdateInfoList(buffer_arg) {
 
 var SystemInfoServiceService = exports.SystemInfoServiceService = {
   info: {
-    path: '/services.SystemInfoService/info',
+    path: '/services.SystemInfoService/Info',
     requestStream: false,
     responseStream: false,
     requestType: system_system_pb.ClientInfo,
@@ -73,7 +73,7 @@ var SystemInfoServiceService = exports.SystemInfoServiceService = {
     responseDeserialize: deserialize_services_SystemInfo,
   },
   address: {
-    path: '/services.SystemInfoService/address',
+    path: '/services.SystemInfoService/Address',
     requestStream: false,
     responseStream: false,
     requestType: system_system_pb.ClientInfo,
@@ -84,7 +84,7 @@ var SystemInfoServiceService = exports.SystemInfoServiceService = {
     responseDeserialize: deserialize_services_AddressInfo,
   },
   listUpdate: {
-    path: '/services.SystemInfoService/listUpdate',
+    path: '/services.SystemInfoService/ListUpdate',
     requestStream: false,
     responseStream: false,
     requestType: system_system_pb.UpdateInfo,

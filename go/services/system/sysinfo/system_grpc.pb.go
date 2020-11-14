@@ -32,7 +32,7 @@ func NewSystemInfoServiceClient(cc grpc.ClientConnInterface) SystemInfoServiceCl
 
 func (c *systemInfoServiceClient) Info(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*SystemInfo, error) {
 	out := new(SystemInfo)
-	err := c.cc.Invoke(ctx, "/services.SystemInfoService/info", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/services.SystemInfoService/Info", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *systemInfoServiceClient) Info(ctx context.Context, in *ClientInfo, opts
 
 func (c *systemInfoServiceClient) Address(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*AddressInfo, error) {
 	out := new(AddressInfo)
-	err := c.cc.Invoke(ctx, "/services.SystemInfoService/address", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/services.SystemInfoService/Address", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func (c *systemInfoServiceClient) Address(ctx context.Context, in *ClientInfo, o
 
 func (c *systemInfoServiceClient) ListUpdate(ctx context.Context, in *UpdateInfo, opts ...grpc.CallOption) (*UpdateInfoList, error) {
 	out := new(UpdateInfoList)
-	err := c.cc.Invoke(ctx, "/services.SystemInfoService/listUpdate", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/services.SystemInfoService/ListUpdate", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -103,7 +103,7 @@ func _SystemInfoService_Info_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.SystemInfoService/info",
+		FullMethod: "/services.SystemInfoService/Info",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemInfoServiceServer).Info(ctx, req.(*ClientInfo))
@@ -121,7 +121,7 @@ func _SystemInfoService_Address_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.SystemInfoService/address",
+		FullMethod: "/services.SystemInfoService/Address",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemInfoServiceServer).Address(ctx, req.(*ClientInfo))
@@ -139,7 +139,7 @@ func _SystemInfoService_ListUpdate_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.SystemInfoService/listUpdate",
+		FullMethod: "/services.SystemInfoService/ListUpdate",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemInfoServiceServer).ListUpdate(ctx, req.(*UpdateInfo))
@@ -152,15 +152,15 @@ var _SystemInfoService_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*SystemInfoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "info",
+			MethodName: "Info",
 			Handler:    _SystemInfoService_Info_Handler,
 		},
 		{
-			MethodName: "address",
+			MethodName: "Address",
 			Handler:    _SystemInfoService_Address_Handler,
 		},
 		{
-			MethodName: "listUpdate",
+			MethodName: "ListUpdate",
 			Handler:    _SystemInfoService_ListUpdate_Handler,
 		},
 	},
