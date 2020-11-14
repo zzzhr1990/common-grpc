@@ -136,7 +136,8 @@ proto.services.SystemInfo.toObject = function(includeInstance, msg) {
     requestUser: jspb.Message.getFieldWithDefault(msg, 2, ""),
     serverName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     serverTime: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    accessCount: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    accessCount: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    address: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -192,6 +193,10 @@ proto.services.SystemInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 5:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setAccessCount(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAddress(value);
       break;
     default:
       reader.skipField();
@@ -254,6 +259,13 @@ proto.services.SystemInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       5,
+      f
+    );
+  }
+  f = message.getAddress();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
       f
     );
   }
@@ -347,6 +359,24 @@ proto.services.SystemInfo.prototype.getAccessCount = function() {
  */
 proto.services.SystemInfo.prototype.setAccessCount = function(value) {
   return jspb.Message.setProto3IntField(this, 5, value);
+};
+
+
+/**
+ * optional string address = 6;
+ * @return {string}
+ */
+proto.services.SystemInfo.prototype.getAddress = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.SystemInfo} returns this
+ */
+proto.services.SystemInfo.prototype.setAddress = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 

@@ -22,6 +22,9 @@ export class SystemInfo extends jspb.Message {
     getAccessCount(): number;
     setAccessCount(value: number): SystemInfo;
 
+    getAddress(): string;
+    setAddress(value: string): SystemInfo;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SystemInfo.AsObject;
@@ -40,6 +43,7 @@ export namespace SystemInfo {
         serverName: string,
         serverTime: number,
         accessCount: number,
+        address: string,
     }
 }
 
