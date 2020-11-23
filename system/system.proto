@@ -88,4 +88,5 @@ message AppInfo {
     int64 create_time = 7;
     int32 permission = 8;
     string type_string = 9;
+    int64 rate = 10;
 }
