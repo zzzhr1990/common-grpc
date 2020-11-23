@@ -10,6 +10,7 @@ service SystemInfoService {
     rpc Info (ClientInfo) returns (SystemInfo) {}
     rpc Address (ClientInfo) returns (AddressInfo) {}
     rpc ListUpdate (UpdateInfo) returns (UpdateInfoList) {}
+    rpc GetApp (AppInfo) returns (AppInfo) {}
 }
 
 message SystemInfo {
@@ -75,4 +76,16 @@ message AddressInfo {
     string asn =24;
     string area_code = 25;
     string usage_type = 26;
+}
+
+message AppInfo {
+    string identity = 1;
+    int32 type = 2;
+    string destination_prefix = 3;
+    string description = 4;
+    string callback_address = 5;
+    string secret = 6;
+    int64 create_time = 7;
+    int32 permission = 8;
+    string type_string = 9;
 }

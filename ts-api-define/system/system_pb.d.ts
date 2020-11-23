@@ -288,3 +288,56 @@ export namespace AddressInfo {
         usageType: string,
     }
 }
+
+export class AppInfo extends jspb.Message { 
+    getIdentity(): string;
+    setIdentity(value: string): AppInfo;
+
+    getType(): number;
+    setType(value: number): AppInfo;
+
+    getDestinationPrefix(): string;
+    setDestinationPrefix(value: string): AppInfo;
+
+    getDescription(): string;
+    setDescription(value: string): AppInfo;
+
+    getCallbackAddress(): string;
+    setCallbackAddress(value: string): AppInfo;
+
+    getSecret(): string;
+    setSecret(value: string): AppInfo;
+
+    getCreateTime(): number;
+    setCreateTime(value: number): AppInfo;
+
+    getPermission(): number;
+    setPermission(value: number): AppInfo;
+
+    getTypeString(): string;
+    setTypeString(value: string): AppInfo;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): AppInfo.AsObject;
+    static toObject(includeInstance: boolean, msg: AppInfo): AppInfo.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: AppInfo, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): AppInfo;
+    static deserializeBinaryFromReader(message: AppInfo, reader: jspb.BinaryReader): AppInfo;
+}
+
+export namespace AppInfo {
+    export type AsObject = {
+        identity: string,
+        type: number,
+        destinationPrefix: string,
+        description: string,
+        callbackAddress: string,
+        secret: string,
+        createTime: number,
+        permission: number,
+        typeString: string,
+    }
+}

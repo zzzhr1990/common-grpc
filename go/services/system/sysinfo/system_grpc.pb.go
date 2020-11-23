@@ -20,6 +20,7 @@ type SystemInfoServiceClient interface {
 	Info(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*SystemInfo, error)
 	Address(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*AddressInfo, error)
 	ListUpdate(ctx context.Context, in *UpdateInfo, opts ...grpc.CallOption) (*UpdateInfoList, error)
+	GetApp(ctx context.Context, in *AppInfo, opts ...grpc.CallOption) (*AppInfo, error)
 }
 
 type systemInfoServiceClient struct {
@@ -57,6 +58,15 @@ func (c *systemInfoServiceClient) ListUpdate(ctx context.Context, in *UpdateInfo
 	return out, nil
 }
 
+func (c *systemInfoServiceClient) GetApp(ctx context.Context, in *AppInfo, opts ...grpc.CallOption) (*AppInfo, error) {
+	out := new(AppInfo)
+	err := c.cc.Invoke(ctx, "/services.SystemInfoService/GetApp", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // SystemInfoServiceServer is the server API for SystemInfoService service.
 // All implementations must embed UnimplementedSystemInfoServiceServer
 // for forward compatibility
@@ -64,6 +74,7 @@ type SystemInfoServiceServer interface {
 	Info(context.Context, *ClientInfo) (*SystemInfo, error)
 	Address(context.Context, *ClientInfo) (*AddressInfo, error)
 	ListUpdate(context.Context, *UpdateInfo) (*UpdateInfoList, error)
+	GetApp(context.Context, *AppInfo) (*AppInfo, error)
 	mustEmbedUnimplementedSystemInfoServiceServer()
 }
 
@@ -79,6 +90,9 @@ func (UnimplementedSystemInfoServiceServer) Address(context.Context, *ClientInfo
 }
 func (UnimplementedSystemInfoServiceServer) ListUpdate(context.Context, *UpdateInfo) (*UpdateInfoList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListUpdate not implemented")
+}
+func (UnimplementedSystemInfoServiceServer) GetApp(context.Context, *AppInfo) (*AppInfo, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetApp not implemented")
 }
 func (UnimplementedSystemInfoServiceServer) mustEmbedUnimplementedSystemInfoServiceServer() {}
 
@@ -147,6 +161,24 @@ func _SystemInfoService_ListUpdate_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SystemInfoService_GetApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AppInfo)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemInfoServiceServer).GetApp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.SystemInfoService/GetApp",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemInfoServiceServer).GetApp(ctx, req.(*AppInfo))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _SystemInfoService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "services.SystemInfoService",
 	HandlerType: (*SystemInfoServiceServer)(nil),
@@ -162,6 +194,10 @@ var _SystemInfoService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListUpdate",
 			Handler:    _SystemInfoService_ListUpdate_Handler,
+		},
+		{
+			MethodName: "GetApp",
+			Handler:    _SystemInfoService_GetApp_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

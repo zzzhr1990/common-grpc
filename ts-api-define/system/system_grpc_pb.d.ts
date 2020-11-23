@@ -12,6 +12,7 @@ interface ISystemInfoServiceService extends grpc.ServiceDefinition<grpc.UntypedS
     info: ISystemInfoServiceService_IInfo;
     address: ISystemInfoServiceService_IAddress;
     listUpdate: ISystemInfoServiceService_IListUpdate;
+    getApp: ISystemInfoServiceService_IGetApp;
 }
 
 interface ISystemInfoServiceService_IInfo extends grpc.MethodDefinition<system_system_pb.ClientInfo, system_system_pb.SystemInfo> {
@@ -41,6 +42,15 @@ interface ISystemInfoServiceService_IListUpdate extends grpc.MethodDefinition<sy
     responseSerialize: grpc.serialize<system_system_pb.UpdateInfoList>;
     responseDeserialize: grpc.deserialize<system_system_pb.UpdateInfoList>;
 }
+interface ISystemInfoServiceService_IGetApp extends grpc.MethodDefinition<system_system_pb.AppInfo, system_system_pb.AppInfo> {
+    path: "/services.SystemInfoService/GetApp";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<system_system_pb.AppInfo>;
+    requestDeserialize: grpc.deserialize<system_system_pb.AppInfo>;
+    responseSerialize: grpc.serialize<system_system_pb.AppInfo>;
+    responseDeserialize: grpc.deserialize<system_system_pb.AppInfo>;
+}
 
 export const SystemInfoServiceService: ISystemInfoServiceService;
 
@@ -48,6 +58,7 @@ export interface ISystemInfoServiceServer {
     info: grpc.handleUnaryCall<system_system_pb.ClientInfo, system_system_pb.SystemInfo>;
     address: grpc.handleUnaryCall<system_system_pb.ClientInfo, system_system_pb.AddressInfo>;
     listUpdate: grpc.handleUnaryCall<system_system_pb.UpdateInfo, system_system_pb.UpdateInfoList>;
+    getApp: grpc.handleUnaryCall<system_system_pb.AppInfo, system_system_pb.AppInfo>;
 }
 
 export interface ISystemInfoServiceClient {
@@ -60,6 +71,9 @@ export interface ISystemInfoServiceClient {
     listUpdate(request: system_system_pb.UpdateInfo, callback: (error: grpc.ServiceError | null, response: system_system_pb.UpdateInfoList) => void): grpc.ClientUnaryCall;
     listUpdate(request: system_system_pb.UpdateInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: system_system_pb.UpdateInfoList) => void): grpc.ClientUnaryCall;
     listUpdate(request: system_system_pb.UpdateInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: system_system_pb.UpdateInfoList) => void): grpc.ClientUnaryCall;
+    getApp(request: system_system_pb.AppInfo, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
+    getApp(request: system_system_pb.AppInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
+    getApp(request: system_system_pb.AppInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
 }
 
 export class SystemInfoServiceClient extends grpc.Client implements ISystemInfoServiceClient {
@@ -73,4 +87,7 @@ export class SystemInfoServiceClient extends grpc.Client implements ISystemInfoS
     public listUpdate(request: system_system_pb.UpdateInfo, callback: (error: grpc.ServiceError | null, response: system_system_pb.UpdateInfoList) => void): grpc.ClientUnaryCall;
     public listUpdate(request: system_system_pb.UpdateInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: system_system_pb.UpdateInfoList) => void): grpc.ClientUnaryCall;
     public listUpdate(request: system_system_pb.UpdateInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: system_system_pb.UpdateInfoList) => void): grpc.ClientUnaryCall;
+    public getApp(request: system_system_pb.AppInfo, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
+    public getApp(request: system_system_pb.AppInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
+    public getApp(request: system_system_pb.AppInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
 }

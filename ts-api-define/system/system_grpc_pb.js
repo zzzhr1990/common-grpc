@@ -15,6 +15,17 @@ function deserialize_services_AddressInfo(buffer_arg) {
   return system_system_pb.AddressInfo.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_AppInfo(arg) {
+  if (!(arg instanceof system_system_pb.AppInfo)) {
+    throw new Error('Expected argument of type services.AppInfo');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_AppInfo(buffer_arg) {
+  return system_system_pb.AppInfo.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_ClientInfo(arg) {
   if (!(arg instanceof system_system_pb.ClientInfo)) {
     throw new Error('Expected argument of type services.ClientInfo');
@@ -93,6 +104,17 @@ var SystemInfoServiceService = exports.SystemInfoServiceService = {
     requestDeserialize: deserialize_services_UpdateInfo,
     responseSerialize: serialize_services_UpdateInfoList,
     responseDeserialize: deserialize_services_UpdateInfoList,
+  },
+  getApp: {
+    path: '/services.SystemInfoService/GetApp',
+    requestStream: false,
+    responseStream: false,
+    requestType: system_system_pb.AppInfo,
+    responseType: system_system_pb.AppInfo,
+    requestSerialize: serialize_services_AppInfo,
+    requestDeserialize: deserialize_services_AppInfo,
+    responseSerialize: serialize_services_AppInfo,
+    responseDeserialize: deserialize_services_AppInfo,
   },
 };
 
