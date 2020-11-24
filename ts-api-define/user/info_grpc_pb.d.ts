@@ -33,6 +33,7 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
     createOauthInfo: IUserServiceService_ICreateOauthInfo;
     refreshOauthToken: IUserServiceService_IRefreshOauthToken;
     checkAccessToken: IUserServiceService_ICheckAccessToken;
+    deleteAccessToken: IUserServiceService_IDeleteAccessToken;
     createPayment: IUserServiceService_ICreatePayment;
     completePayment: IUserServiceService_ICompletePayment;
     failedPayment: IUserServiceService_IFailedPayment;
@@ -260,6 +261,15 @@ interface IUserServiceService_ICheckAccessToken extends grpc.MethodDefinition<us
     responseSerialize: grpc.serialize<user_info_pb.OauthInfo>;
     responseDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
 }
+interface IUserServiceService_IDeleteAccessToken extends grpc.MethodDefinition<user_info_pb.OauthInfo, user_info_pb.OauthInfo> {
+    path: "/services.UserService/DeleteAccessToken";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.OauthInfo>;
+    requestDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
+    responseSerialize: grpc.serialize<user_info_pb.OauthInfo>;
+    responseDeserialize: grpc.deserialize<user_info_pb.OauthInfo>;
+}
 interface IUserServiceService_ICreatePayment extends grpc.MethodDefinition<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment> {
     path: "/services.UserService/CreatePayment";
     requestStream: false;
@@ -369,6 +379,7 @@ export interface IUserServiceServer {
     createOauthInfo: grpc.handleUnaryCall<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
     refreshOauthToken: grpc.handleUnaryCall<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
     checkAccessToken: grpc.handleUnaryCall<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
+    deleteAccessToken: grpc.handleUnaryCall<user_info_pb.OauthInfo, user_info_pb.OauthInfo>;
     createPayment: grpc.handleUnaryCall<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment>;
     completePayment: grpc.handleUnaryCall<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment>;
     failedPayment: grpc.handleUnaryCall<user_info_pb.SubscriptionPayment, user_info_pb.SubscriptionPayment>;
@@ -453,6 +464,9 @@ export interface IUserServiceClient {
     checkAccessToken(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
     checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
     checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    deleteAccessToken(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    deleteAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    deleteAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
     createPayment(request: user_info_pb.SubscriptionPayment, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
     createPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
     createPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
@@ -556,6 +570,9 @@ export class UserServiceClient extends grpc.Client implements IUserServiceClient
     public checkAccessToken(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
     public checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
     public checkAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public deleteAccessToken(request: user_info_pb.OauthInfo, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public deleteAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
+    public deleteAccessToken(request: user_info_pb.OauthInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OauthInfo) => void): grpc.ClientUnaryCall;
     public createPayment(request: user_info_pb.SubscriptionPayment, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
     public createPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;
     public createPayment(request: user_info_pb.SubscriptionPayment, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.SubscriptionPayment) => void): grpc.ClientUnaryCall;

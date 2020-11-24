@@ -64,6 +64,7 @@ service UserService {
     rpc CreateOauthInfo(OauthInfo)returns (OauthInfo) {}
     rpc RefreshOauthToken(OauthInfo)returns (OauthInfo) {}
     rpc CheckAccessToken(OauthInfo)returns (OauthInfo) {}
+    rpc DeleteAccessToken(OauthInfo)returns (OauthInfo) {}
     rpc CreatePayment(SubscriptionPayment)returns (SubscriptionPayment) {}
     rpc CompletePayment(SubscriptionPayment)returns (SubscriptionPayment) {}
     rpc FailedPayment(SubscriptionPayment)returns (SubscriptionPayment) {}

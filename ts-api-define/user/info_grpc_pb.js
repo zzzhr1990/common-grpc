@@ -444,6 +444,17 @@ bindThirdPartyLogin: {
     responseSerialize: serialize_services_OauthInfo,
     responseDeserialize: deserialize_services_OauthInfo,
   },
+  deleteAccessToken: {
+    path: '/services.UserService/DeleteAccessToken',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.OauthInfo,
+    responseType: user_info_pb.OauthInfo,
+    requestSerialize: serialize_services_OauthInfo,
+    requestDeserialize: deserialize_services_OauthInfo,
+    responseSerialize: serialize_services_OauthInfo,
+    responseDeserialize: deserialize_services_OauthInfo,
+  },
   createPayment: {
     path: '/services.UserService/CreatePayment',
     requestStream: false,

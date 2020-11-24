@@ -61,6 +61,7 @@ type UserServiceClient interface {
 	CreateOauthInfo(ctx context.Context, in *OauthInfo, opts ...grpc.CallOption) (*OauthInfo, error)
 	RefreshOauthToken(ctx context.Context, in *OauthInfo, opts ...grpc.CallOption) (*OauthInfo, error)
 	CheckAccessToken(ctx context.Context, in *OauthInfo, opts ...grpc.CallOption) (*OauthInfo, error)
+	DeleteAccessToken(ctx context.Context, in *OauthInfo, opts ...grpc.CallOption) (*OauthInfo, error)
 	CreatePayment(ctx context.Context, in *SubscriptionPayment, opts ...grpc.CallOption) (*SubscriptionPayment, error)
 	CompletePayment(ctx context.Context, in *SubscriptionPayment, opts ...grpc.CallOption) (*SubscriptionPayment, error)
 	FailedPayment(ctx context.Context, in *SubscriptionPayment, opts ...grpc.CallOption) (*SubscriptionPayment, error)
@@ -296,6 +297,15 @@ func (c *userServiceClient) CheckAccessToken(ctx context.Context, in *OauthInfo,
 	return out, nil
 }
 
+func (c *userServiceClient) DeleteAccessToken(ctx context.Context, in *OauthInfo, opts ...grpc.CallOption) (*OauthInfo, error) {
+	out := new(OauthInfo)
+	err := c.cc.Invoke(ctx, "/services.UserService/DeleteAccessToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *userServiceClient) CreatePayment(ctx context.Context, in *SubscriptionPayment, opts ...grpc.CallOption) (*SubscriptionPayment, error) {
 	out := new(SubscriptionPayment)
 	err := c.cc.Invoke(ctx, "/services.UserService/CreatePayment", in, out, opts...)
@@ -425,6 +435,7 @@ type UserServiceServer interface {
 	CreateOauthInfo(context.Context, *OauthInfo) (*OauthInfo, error)
 	RefreshOauthToken(context.Context, *OauthInfo) (*OauthInfo, error)
 	CheckAccessToken(context.Context, *OauthInfo) (*OauthInfo, error)
+	DeleteAccessToken(context.Context, *OauthInfo) (*OauthInfo, error)
 	CreatePayment(context.Context, *SubscriptionPayment) (*SubscriptionPayment, error)
 	CompletePayment(context.Context, *SubscriptionPayment) (*SubscriptionPayment, error)
 	FailedPayment(context.Context, *SubscriptionPayment) (*SubscriptionPayment, error)
@@ -512,6 +523,9 @@ func (UnimplementedUserServiceServer) RefreshOauthToken(context.Context, *OauthI
 }
 func (UnimplementedUserServiceServer) CheckAccessToken(context.Context, *OauthInfo) (*OauthInfo, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckAccessToken not implemented")
+}
+func (UnimplementedUserServiceServer) DeleteAccessToken(context.Context, *OauthInfo) (*OauthInfo, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteAccessToken not implemented")
 }
 func (UnimplementedUserServiceServer) CreatePayment(context.Context, *SubscriptionPayment) (*SubscriptionPayment, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePayment not implemented")
@@ -985,6 +999,24 @@ func _UserService_CheckAccessToken_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UserService_DeleteAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OauthInfo)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).DeleteAccessToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserService/DeleteAccessToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).DeleteAccessToken(ctx, req.(*OauthInfo))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _UserService_CreatePayment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SubscriptionPayment)
 	if err := dec(in); err != nil {
@@ -1246,6 +1278,10 @@ var _UserService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CheckAccessToken",
 			Handler:    _UserService_CheckAccessToken_Handler,
+		},
+		{
+			MethodName: "DeleteAccessToken",
+			Handler:    _UserService_DeleteAccessToken_Handler,
 		},
 		{
 			MethodName: "CreatePayment",
