@@ -320,6 +320,9 @@ export class AppInfo extends jspb.Message {
     getRate(): number;
     setRate(value: number): AppInfo;
 
+    getAction(): number;
+    setAction(value: number): AppInfo;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): AppInfo.AsObject;
@@ -343,5 +346,6 @@ export namespace AppInfo {
         permission: number,
         typeString: string,
         rate: number,
+        action: number,
     }
 }

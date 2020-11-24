@@ -89,4 +89,5 @@ message AppInfo {
     int32 permission = 8;
     string type_string = 9;
     int64 rate = 10;
+    int32 action = 11;
 }

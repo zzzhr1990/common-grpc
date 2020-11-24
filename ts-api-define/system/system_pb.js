@@ -2185,7 +2185,8 @@ proto.services.AppInfo.toObject = function(includeInstance, msg) {
     createTime: jspb.Message.getFieldWithDefault(msg, 7, 0),
     permission: jspb.Message.getFieldWithDefault(msg, 8, 0),
     typeString: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    rate: jspb.Message.getFieldWithDefault(msg, 10, 0)
+    rate: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    action: jspb.Message.getFieldWithDefault(msg, 11, 0)
   };
 
   if (includeInstance) {
@@ -2261,6 +2262,10 @@ proto.services.AppInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 10:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setRate(value);
+      break;
+    case 11:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setAction(value);
       break;
     default:
       reader.skipField();
@@ -2358,6 +2363,13 @@ proto.services.AppInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       10,
+      f
+    );
+  }
+  f = message.getAction();
+  if (f !== 0) {
+    writer.writeInt32(
+      11,
       f
     );
   }
@@ -2541,6 +2553,24 @@ proto.services.AppInfo.prototype.getRate = function() {
  */
 proto.services.AppInfo.prototype.setRate = function(value) {
   return jspb.Message.setProto3IntField(this, 10, value);
+};
+
+
+/**
+ * optional int32 action = 11;
+ * @return {number}
+ */
+proto.services.AppInfo.prototype.getAction = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.AppInfo} returns this
+ */
+proto.services.AppInfo.prototype.setAction = function(value) {
+  return jspb.Message.setProto3IntField(this, 11, value);
 };
 
 
