@@ -7,8 +7,8 @@
 import * as jspb from "google-protobuf";
 
 export class Online extends jspb.Message { 
-    getSsid(): number;
-    setSsid(value: number): Online;
+    getSsid(): string;
+    setSsid(value: string): Online;
 
     getUserIdentity(): number;
     setUserIdentity(value: number): Online;
@@ -50,7 +50,7 @@ export class Online extends jspb.Message {
 
 export namespace Online {
     export type AsObject = {
-        ssid: number,
+        ssid: string,
         userIdentity: number,
         oldSsid: string,
         loginTime: number,

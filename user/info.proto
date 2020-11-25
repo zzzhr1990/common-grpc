@@ -88,7 +88,7 @@ service UserService {
 }
 
 message Online {
-    int64  ssid = 1;
+    string ssid = 1;
     int64  user_identity = 2;
     string old_ssid = 3;
     int64 login_time = 4;
