@@ -43,6 +43,9 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
     changePhone: IUserServiceService_IChangePhone;
     getLaterAction: IUserServiceService_IGetLaterAction;
     deleteAccount: IUserServiceService_IDeleteAccount;
+    afterLogin: IUserServiceService_IAfterLogin;
+    afterLogout: IUserServiceService_IAfterLogout;
+    listOnline: IUserServiceService_IListOnline;
 }
 
 interface IUserServiceService_ICreate extends grpc.MethodDefinition<user_info_pb.User, user_info_pb.User> {
@@ -351,6 +354,33 @@ interface IUserServiceService_IDeleteAccount extends grpc.MethodDefinition<user_
     responseSerialize: grpc.serialize<user_info_pb.LaterAction>;
     responseDeserialize: grpc.deserialize<user_info_pb.LaterAction>;
 }
+interface IUserServiceService_IAfterLogin extends grpc.MethodDefinition<user_info_pb.Online, user_info_pb.Online> {
+    path: "/services.UserService/AfterLogin";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.Online>;
+    requestDeserialize: grpc.deserialize<user_info_pb.Online>;
+    responseSerialize: grpc.serialize<user_info_pb.Online>;
+    responseDeserialize: grpc.deserialize<user_info_pb.Online>;
+}
+interface IUserServiceService_IAfterLogout extends grpc.MethodDefinition<user_info_pb.Online, user_info_pb.Online> {
+    path: "/services.UserService/AfterLogout";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.Online>;
+    requestDeserialize: grpc.deserialize<user_info_pb.Online>;
+    responseSerialize: grpc.serialize<user_info_pb.Online>;
+    responseDeserialize: grpc.deserialize<user_info_pb.Online>;
+}
+interface IUserServiceService_IListOnline extends grpc.MethodDefinition<user_info_pb.Online, user_info_pb.OnlineList> {
+    path: "/services.UserService/ListOnline";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<user_info_pb.Online>;
+    requestDeserialize: grpc.deserialize<user_info_pb.Online>;
+    responseSerialize: grpc.serialize<user_info_pb.OnlineList>;
+    responseDeserialize: grpc.deserialize<user_info_pb.OnlineList>;
+}
 
 export const UserServiceService: IUserServiceService;
 
@@ -389,6 +419,9 @@ export interface IUserServiceServer {
     changePhone: grpc.handleUnaryCall<user_info_pb.LaterAction, user_info_pb.LaterAction>;
     getLaterAction: grpc.handleUnaryCall<user_info_pb.LaterAction, user_info_pb.LaterAction>;
     deleteAccount: grpc.handleUnaryCall<user_info_pb.LaterAction, user_info_pb.LaterAction>;
+    afterLogin: grpc.handleUnaryCall<user_info_pb.Online, user_info_pb.Online>;
+    afterLogout: grpc.handleUnaryCall<user_info_pb.Online, user_info_pb.Online>;
+    listOnline: grpc.handleUnaryCall<user_info_pb.Online, user_info_pb.OnlineList>;
 }
 
 export interface IUserServiceClient {
@@ -494,6 +527,15 @@ export interface IUserServiceClient {
     deleteAccount(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
     deleteAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
     deleteAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    afterLogin(request: user_info_pb.Online, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    afterLogin(request: user_info_pb.Online, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    afterLogin(request: user_info_pb.Online, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    afterLogout(request: user_info_pb.Online, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    afterLogout(request: user_info_pb.Online, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    afterLogout(request: user_info_pb.Online, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    listOnline(request: user_info_pb.Online, callback: (error: grpc.ServiceError | null, response: user_info_pb.OnlineList) => void): grpc.ClientUnaryCall;
+    listOnline(request: user_info_pb.Online, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OnlineList) => void): grpc.ClientUnaryCall;
+    listOnline(request: user_info_pb.Online, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OnlineList) => void): grpc.ClientUnaryCall;
 }
 
 export class UserServiceClient extends grpc.Client implements IUserServiceClient {
@@ -600,4 +642,13 @@ export class UserServiceClient extends grpc.Client implements IUserServiceClient
     public deleteAccount(request: user_info_pb.LaterAction, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
     public deleteAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
     public deleteAccount(request: user_info_pb.LaterAction, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.LaterAction) => void): grpc.ClientUnaryCall;
+    public afterLogin(request: user_info_pb.Online, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    public afterLogin(request: user_info_pb.Online, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    public afterLogin(request: user_info_pb.Online, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    public afterLogout(request: user_info_pb.Online, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    public afterLogout(request: user_info_pb.Online, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    public afterLogout(request: user_info_pb.Online, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.Online) => void): grpc.ClientUnaryCall;
+    public listOnline(request: user_info_pb.Online, callback: (error: grpc.ServiceError | null, response: user_info_pb.OnlineList) => void): grpc.ClientUnaryCall;
+    public listOnline(request: user_info_pb.Online, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: user_info_pb.OnlineList) => void): grpc.ClientUnaryCall;
+    public listOnline(request: user_info_pb.Online, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: user_info_pb.OnlineList) => void): grpc.ClientUnaryCall;
 }

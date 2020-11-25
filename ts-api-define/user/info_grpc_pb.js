@@ -37,6 +37,28 @@ function deserialize_services_OauthInfo(buffer_arg) {
   return user_info_pb.OauthInfo.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_Online(arg) {
+  if (!(arg instanceof user_info_pb.Online)) {
+    throw new Error('Expected argument of type services.Online');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_Online(buffer_arg) {
+  return user_info_pb.Online.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_OnlineList(arg) {
+  if (!(arg instanceof user_info_pb.OnlineList)) {
+    throw new Error('Expected argument of type services.OnlineList');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_OnlineList(buffer_arg) {
+  return user_info_pb.OnlineList.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_SmsChangePasswordRequest(arg) {
   if (!(arg instanceof user_info_pb.SmsChangePasswordRequest)) {
     throw new Error('Expected argument of type services.SmsChangePasswordRequest');
@@ -553,6 +575,39 @@ bindThirdPartyLogin: {
     requestDeserialize: deserialize_services_LaterAction,
     responseSerialize: serialize_services_LaterAction,
     responseDeserialize: deserialize_services_LaterAction,
+  },
+  afterLogin: {
+    path: '/services.UserService/AfterLogin',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.Online,
+    responseType: user_info_pb.Online,
+    requestSerialize: serialize_services_Online,
+    requestDeserialize: deserialize_services_Online,
+    responseSerialize: serialize_services_Online,
+    responseDeserialize: deserialize_services_Online,
+  },
+  afterLogout: {
+    path: '/services.UserService/AfterLogout',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.Online,
+    responseType: user_info_pb.Online,
+    requestSerialize: serialize_services_Online,
+    requestDeserialize: deserialize_services_Online,
+    responseSerialize: serialize_services_Online,
+    responseDeserialize: deserialize_services_Online,
+  },
+  listOnline: {
+    path: '/services.UserService/ListOnline',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.Online,
+    responseType: user_info_pb.OnlineList,
+    requestSerialize: serialize_services_Online,
+    requestDeserialize: deserialize_services_Online,
+    responseSerialize: serialize_services_OnlineList,
+    responseDeserialize: deserialize_services_OnlineList,
   },
 };
 

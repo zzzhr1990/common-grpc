@@ -6,6 +6,90 @@
 
 import * as jspb from "google-protobuf";
 
+export class Online extends jspb.Message { 
+    getIdentity(): number;
+    setIdentity(value: number): Online;
+
+    getUserIdentity(): number;
+    setUserIdentity(value: number): Online;
+
+    getSsid(): string;
+    setSsid(value: string): Online;
+
+    getLoginTime(): number;
+    setLoginTime(value: number): Online;
+
+    getRefreshTime(): number;
+    setRefreshTime(value: number): Online;
+
+    getLoginAddress(): string;
+    setLoginAddress(value: string): Online;
+
+    getRefreshAddress(): string;
+    setRefreshAddress(value: string): Online;
+
+    getDevice(): string;
+    setDevice(value: string): Online;
+
+    getAppIdentity(): string;
+    setAppIdentity(value: string): Online;
+
+    getAppType(): number;
+    setAppType(value: number): Online;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Online.AsObject;
+    static toObject(includeInstance: boolean, msg: Online): Online.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: Online, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Online;
+    static deserializeBinaryFromReader(message: Online, reader: jspb.BinaryReader): Online;
+}
+
+export namespace Online {
+    export type AsObject = {
+        identity: number,
+        userIdentity: number,
+        ssid: string,
+        loginTime: number,
+        refreshTime: number,
+        loginAddress: string,
+        refreshAddress: string,
+        device: string,
+        appIdentity: string,
+        appType: number,
+    }
+}
+
+export class OnlineList extends jspb.Message { 
+    getUserIdentity(): number;
+    setUserIdentity(value: number): OnlineList;
+
+    clearDataList(): void;
+    getDataList(): Array<Online>;
+    setDataList(value: Array<Online>): OnlineList;
+    addData(value?: Online, index?: number): Online;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): OnlineList.AsObject;
+    static toObject(includeInstance: boolean, msg: OnlineList): OnlineList.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: OnlineList, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): OnlineList;
+    static deserializeBinaryFromReader(message: OnlineList, reader: jspb.BinaryReader): OnlineList;
+}
+
+export namespace OnlineList {
+    export type AsObject = {
+        userIdentity: number,
+        dataList: Array<Online.AsObject>,
+    }
+}
+
 export class User extends jspb.Message { 
     getIdentity(): number;
     setIdentity(value: number): User;

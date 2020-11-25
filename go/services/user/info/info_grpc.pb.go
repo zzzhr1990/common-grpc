@@ -71,6 +71,9 @@ type UserServiceClient interface {
 	ChangePhone(ctx context.Context, in *LaterAction, opts ...grpc.CallOption) (*LaterAction, error)
 	GetLaterAction(ctx context.Context, in *LaterAction, opts ...grpc.CallOption) (*LaterAction, error)
 	DeleteAccount(ctx context.Context, in *LaterAction, opts ...grpc.CallOption) (*LaterAction, error)
+	AfterLogin(ctx context.Context, in *Online, opts ...grpc.CallOption) (*Online, error)
+	AfterLogout(ctx context.Context, in *Online, opts ...grpc.CallOption) (*Online, error)
+	ListOnline(ctx context.Context, in *Online, opts ...grpc.CallOption) (*OnlineList, error)
 }
 
 type userServiceClient struct {
@@ -387,6 +390,33 @@ func (c *userServiceClient) DeleteAccount(ctx context.Context, in *LaterAction, 
 	return out, nil
 }
 
+func (c *userServiceClient) AfterLogin(ctx context.Context, in *Online, opts ...grpc.CallOption) (*Online, error) {
+	out := new(Online)
+	err := c.cc.Invoke(ctx, "/services.UserService/AfterLogin", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) AfterLogout(ctx context.Context, in *Online, opts ...grpc.CallOption) (*Online, error) {
+	out := new(Online)
+	err := c.cc.Invoke(ctx, "/services.UserService/AfterLogout", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) ListOnline(ctx context.Context, in *Online, opts ...grpc.CallOption) (*OnlineList, error) {
+	out := new(OnlineList)
+	err := c.cc.Invoke(ctx, "/services.UserService/ListOnline", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserServiceServer is the server API for UserService service.
 // All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility
@@ -445,6 +475,9 @@ type UserServiceServer interface {
 	ChangePhone(context.Context, *LaterAction) (*LaterAction, error)
 	GetLaterAction(context.Context, *LaterAction) (*LaterAction, error)
 	DeleteAccount(context.Context, *LaterAction) (*LaterAction, error)
+	AfterLogin(context.Context, *Online) (*Online, error)
+	AfterLogout(context.Context, *Online) (*Online, error)
+	ListOnline(context.Context, *Online) (*OnlineList, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
 
@@ -553,6 +586,15 @@ func (UnimplementedUserServiceServer) GetLaterAction(context.Context, *LaterActi
 }
 func (UnimplementedUserServiceServer) DeleteAccount(context.Context, *LaterAction) (*LaterAction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteAccount not implemented")
+}
+func (UnimplementedUserServiceServer) AfterLogin(context.Context, *Online) (*Online, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AfterLogin not implemented")
+}
+func (UnimplementedUserServiceServer) AfterLogout(context.Context, *Online) (*Online, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AfterLogout not implemented")
+}
+func (UnimplementedUserServiceServer) ListOnline(context.Context, *Online) (*OnlineList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListOnline not implemented")
 }
 func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
 
@@ -1179,6 +1221,60 @@ func _UserService_DeleteAccount_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UserService_AfterLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Online)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).AfterLogin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserService/AfterLogin",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).AfterLogin(ctx, req.(*Online))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_AfterLogout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Online)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).AfterLogout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserService/AfterLogout",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).AfterLogout(ctx, req.(*Online))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_ListOnline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Online)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).ListOnline(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserService/ListOnline",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).ListOnline(ctx, req.(*Online))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _UserService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "services.UserService",
 	HandlerType: (*UserServiceServer)(nil),
@@ -1318,6 +1414,18 @@ var _UserService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteAccount",
 			Handler:    _UserService_DeleteAccount_Handler,
+		},
+		{
+			MethodName: "AfterLogin",
+			Handler:    _UserService_AfterLogin_Handler,
+		},
+		{
+			MethodName: "AfterLogout",
+			Handler:    _UserService_AfterLogout_Handler,
+		},
+		{
+			MethodName: "ListOnline",
+			Handler:    _UserService_ListOnline_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
