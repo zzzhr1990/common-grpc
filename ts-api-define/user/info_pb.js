@@ -440,9 +440,9 @@ proto.services.Online.prototype.toObject = function(opt_includeInstance) {
  */
 proto.services.Online.toObject = function(includeInstance, msg) {
   var f, obj = {
-    identity: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    ssid: jspb.Message.getFieldWithDefault(msg, 1, 0),
     userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    ssid: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    oldSsid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     loginTime: jspb.Message.getFieldWithDefault(msg, 4, 0),
     refreshTime: jspb.Message.getFieldWithDefault(msg, 5, 0),
     loginAddress: jspb.Message.getFieldWithDefault(msg, 6, ""),
@@ -488,7 +488,7 @@ proto.services.Online.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setIdentity(value);
+      msg.setSsid(value);
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt64());
@@ -496,7 +496,7 @@ proto.services.Online.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setSsid(value);
+      msg.setOldSsid(value);
       break;
     case 4:
       var value = /** @type {number} */ (reader.readInt64());
@@ -555,7 +555,7 @@ proto.services.Online.prototype.serializeBinary = function() {
  */
 proto.services.Online.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getIdentity();
+  f = message.getSsid();
   if (f !== 0) {
     writer.writeInt64(
       1,
@@ -569,7 +569,7 @@ proto.services.Online.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getSsid();
+  f = message.getOldSsid();
   if (f.length > 0) {
     writer.writeString(
       3,
@@ -629,10 +629,10 @@ proto.services.Online.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional int64 identity = 1;
+ * optional int64 ssid = 1;
  * @return {number}
  */
-proto.services.Online.prototype.getIdentity = function() {
+proto.services.Online.prototype.getSsid = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
@@ -641,7 +641,7 @@ proto.services.Online.prototype.getIdentity = function() {
  * @param {number} value
  * @return {!proto.services.Online} returns this
  */
-proto.services.Online.prototype.setIdentity = function(value) {
+proto.services.Online.prototype.setSsid = function(value) {
   return jspb.Message.setProto3IntField(this, 1, value);
 };
 
@@ -665,10 +665,10 @@ proto.services.Online.prototype.setUserIdentity = function(value) {
 
 
 /**
- * optional string ssid = 3;
+ * optional string old_ssid = 3;
  * @return {string}
  */
-proto.services.Online.prototype.getSsid = function() {
+proto.services.Online.prototype.getOldSsid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -677,7 +677,7 @@ proto.services.Online.prototype.getSsid = function() {
  * @param {string} value
  * @return {!proto.services.Online} returns this
  */
-proto.services.Online.prototype.setSsid = function(value) {
+proto.services.Online.prototype.setOldSsid = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
