@@ -37,6 +37,9 @@ export class Online extends jspb.Message {
     getAppType(): number;
     setAppType(value: number): Online;
 
+    getSelf(): boolean;
+    setSelf(value: boolean): Online;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Online.AsObject;
@@ -60,6 +63,7 @@ export namespace Online {
         device: string,
         appIdentity: string,
         appType: number,
+        self: boolean,
     }
 }
 

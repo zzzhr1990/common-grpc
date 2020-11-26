@@ -449,7 +449,8 @@ proto.services.Online.toObject = function(includeInstance, msg) {
     refreshAddress: jspb.Message.getFieldWithDefault(msg, 7, ""),
     device: jspb.Message.getFieldWithDefault(msg, 8, ""),
     appIdentity: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    appType: jspb.Message.getFieldWithDefault(msg, 10, 0)
+    appType: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    self: jspb.Message.getBooleanFieldWithDefault(msg, 11, false)
   };
 
   if (includeInstance) {
@@ -525,6 +526,10 @@ proto.services.Online.deserializeBinaryFromReader = function(msg, reader) {
     case 10:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setAppType(value);
+      break;
+    case 11:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSelf(value);
       break;
     default:
       reader.skipField();
@@ -622,6 +627,13 @@ proto.services.Online.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       10,
+      f
+    );
+  }
+  f = message.getSelf();
+  if (f) {
+    writer.writeBool(
+      11,
       f
     );
   }
@@ -805,6 +817,24 @@ proto.services.Online.prototype.getAppType = function() {
  */
 proto.services.Online.prototype.setAppType = function(value) {
   return jspb.Message.setProto3IntField(this, 10, value);
+};
+
+
+/**
+ * optional bool self = 11;
+ * @return {boolean}
+ */
+proto.services.Online.prototype.getSelf = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 11, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.services.Online} returns this
+ */
+proto.services.Online.prototype.setSelf = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 11, value);
 };
 
 

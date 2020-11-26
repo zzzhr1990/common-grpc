@@ -98,6 +98,7 @@ message Online {
     string device = 8;
     string app_identity = 9;
     int32 app_type = 10;
+    bool self = 11;
 }
 
 message OnlineList {
