@@ -7,14 +7,14 @@
 import * as jspb from "google-protobuf";
 
 export class Online extends jspb.Message { 
-    getSsid(): string;
-    setSsid(value: string): Online;
+    getAppIdentity(): string;
+    setAppIdentity(value: string): Online;
 
     getUserIdentity(): number;
     setUserIdentity(value: number): Online;
 
-    getOldSsid(): string;
-    setOldSsid(value: string): Online;
+    getSsid(): string;
+    setSsid(value: string): Online;
 
     getLoginTime(): number;
     setLoginTime(value: number): Online;
@@ -30,9 +30,6 @@ export class Online extends jspb.Message {
 
     getDevice(): string;
     setDevice(value: string): Online;
-
-    getAppIdentity(): string;
-    setAppIdentity(value: string): Online;
 
     getAppType(): number;
     setAppType(value: number): Online;
@@ -53,15 +50,14 @@ export class Online extends jspb.Message {
 
 export namespace Online {
     export type AsObject = {
-        ssid: string,
+        appIdentity: string,
         userIdentity: number,
-        oldSsid: string,
+        ssid: string,
         loginTime: number,
         refreshTime: number,
         loginAddress: string,
         refreshAddress: string,
         device: string,
-        appIdentity: string,
         appType: number,
         self: boolean,
     }

@@ -440,17 +440,16 @@ proto.services.Online.prototype.toObject = function(opt_includeInstance) {
  */
 proto.services.Online.toObject = function(includeInstance, msg) {
   var f, obj = {
-    ssid: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    appIdentity: jspb.Message.getFieldWithDefault(msg, 1, ""),
     userIdentity: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    oldSsid: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    ssid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     loginTime: jspb.Message.getFieldWithDefault(msg, 4, 0),
     refreshTime: jspb.Message.getFieldWithDefault(msg, 5, 0),
     loginAddress: jspb.Message.getFieldWithDefault(msg, 6, ""),
     refreshAddress: jspb.Message.getFieldWithDefault(msg, 7, ""),
     device: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    appIdentity: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    appType: jspb.Message.getFieldWithDefault(msg, 10, 0),
-    self: jspb.Message.getBooleanFieldWithDefault(msg, 11, false)
+    appType: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    self: jspb.Message.getBooleanFieldWithDefault(msg, 10, false)
   };
 
   if (includeInstance) {
@@ -489,7 +488,7 @@ proto.services.Online.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setSsid(value);
+      msg.setAppIdentity(value);
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt64());
@@ -497,7 +496,7 @@ proto.services.Online.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setOldSsid(value);
+      msg.setSsid(value);
       break;
     case 4:
       var value = /** @type {number} */ (reader.readInt64());
@@ -520,14 +519,10 @@ proto.services.Online.deserializeBinaryFromReader = function(msg, reader) {
       msg.setDevice(value);
       break;
     case 9:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setAppIdentity(value);
-      break;
-    case 10:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setAppType(value);
       break;
-    case 11:
+    case 10:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setSelf(value);
       break;
@@ -560,7 +555,7 @@ proto.services.Online.prototype.serializeBinary = function() {
  */
 proto.services.Online.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getSsid();
+  f = message.getAppIdentity();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -574,7 +569,7 @@ proto.services.Online.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getOldSsid();
+  f = message.getSsid();
   if (f.length > 0) {
     writer.writeString(
       3,
@@ -616,24 +611,17 @@ proto.services.Online.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getAppIdentity();
-  if (f.length > 0) {
-    writer.writeString(
-      9,
-      f
-    );
-  }
   f = message.getAppType();
   if (f !== 0) {
     writer.writeInt32(
-      10,
+      9,
       f
     );
   }
   f = message.getSelf();
   if (f) {
     writer.writeBool(
-      11,
+      10,
       f
     );
   }
@@ -641,10 +629,10 @@ proto.services.Online.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string ssid = 1;
+ * optional string app_identity = 1;
  * @return {string}
  */
-proto.services.Online.prototype.getSsid = function() {
+proto.services.Online.prototype.getAppIdentity = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -653,7 +641,7 @@ proto.services.Online.prototype.getSsid = function() {
  * @param {string} value
  * @return {!proto.services.Online} returns this
  */
-proto.services.Online.prototype.setSsid = function(value) {
+proto.services.Online.prototype.setAppIdentity = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -677,10 +665,10 @@ proto.services.Online.prototype.setUserIdentity = function(value) {
 
 
 /**
- * optional string old_ssid = 3;
+ * optional string ssid = 3;
  * @return {string}
  */
-proto.services.Online.prototype.getOldSsid = function() {
+proto.services.Online.prototype.getSsid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -689,7 +677,7 @@ proto.services.Online.prototype.getOldSsid = function() {
  * @param {string} value
  * @return {!proto.services.Online} returns this
  */
-proto.services.Online.prototype.setOldSsid = function(value) {
+proto.services.Online.prototype.setSsid = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -785,29 +773,11 @@ proto.services.Online.prototype.setDevice = function(value) {
 
 
 /**
- * optional string app_identity = 9;
- * @return {string}
- */
-proto.services.Online.prototype.getAppIdentity = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.services.Online} returns this
- */
-proto.services.Online.prototype.setAppIdentity = function(value) {
-  return jspb.Message.setProto3StringField(this, 9, value);
-};
-
-
-/**
- * optional int32 app_type = 10;
+ * optional int32 app_type = 9;
  * @return {number}
  */
 proto.services.Online.prototype.getAppType = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
 
@@ -816,16 +786,16 @@ proto.services.Online.prototype.getAppType = function() {
  * @return {!proto.services.Online} returns this
  */
 proto.services.Online.prototype.setAppType = function(value) {
-  return jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
 /**
- * optional bool self = 11;
+ * optional bool self = 10;
  * @return {boolean}
  */
 proto.services.Online.prototype.getSelf = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 11, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 10, false));
 };
 
 
@@ -834,7 +804,7 @@ proto.services.Online.prototype.getSelf = function() {
  * @return {!proto.services.Online} returns this
  */
 proto.services.Online.prototype.setSelf = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 11, value);
+  return jspb.Message.setProto3BooleanField(this, 10, value);
 };
 
 
