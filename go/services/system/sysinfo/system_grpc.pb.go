@@ -4,6 +4,7 @@ package sysinfo
 
 import (
 	context "context"
+	common "github.com/zzzhr1990/common-grpc/go/common"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -19,6 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 type SystemInfoServiceClient interface {
 	Info(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*SystemInfo, error)
 	Address(ctx context.Context, in *ClientInfo, opts ...grpc.CallOption) (*AddressInfo, error)
+	EarseSensitiveAddress(ctx context.Context, in *common.StringListEntity, opts ...grpc.CallOption) (*common.StringListEntity, error)
 	ListUpdate(ctx context.Context, in *UpdateInfo, opts ...grpc.CallOption) (*UpdateInfoList, error)
 	GetApp(ctx context.Context, in *AppInfo, opts ...grpc.CallOption) (*AppInfo, error)
 }
@@ -49,6 +51,15 @@ func (c *systemInfoServiceClient) Address(ctx context.Context, in *ClientInfo, o
 	return out, nil
 }
 
+func (c *systemInfoServiceClient) EarseSensitiveAddress(ctx context.Context, in *common.StringListEntity, opts ...grpc.CallOption) (*common.StringListEntity, error) {
+	out := new(common.StringListEntity)
+	err := c.cc.Invoke(ctx, "/services.SystemInfoService/EarseSensitiveAddress", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *systemInfoServiceClient) ListUpdate(ctx context.Context, in *UpdateInfo, opts ...grpc.CallOption) (*UpdateInfoList, error) {
 	out := new(UpdateInfoList)
 	err := c.cc.Invoke(ctx, "/services.SystemInfoService/ListUpdate", in, out, opts...)
@@ -73,6 +84,7 @@ func (c *systemInfoServiceClient) GetApp(ctx context.Context, in *AppInfo, opts 
 type SystemInfoServiceServer interface {
 	Info(context.Context, *ClientInfo) (*SystemInfo, error)
 	Address(context.Context, *ClientInfo) (*AddressInfo, error)
+	EarseSensitiveAddress(context.Context, *common.StringListEntity) (*common.StringListEntity, error)
 	ListUpdate(context.Context, *UpdateInfo) (*UpdateInfoList, error)
 	GetApp(context.Context, *AppInfo) (*AppInfo, error)
 	mustEmbedUnimplementedSystemInfoServiceServer()
@@ -87,6 +99,9 @@ func (UnimplementedSystemInfoServiceServer) Info(context.Context, *ClientInfo) (
 }
 func (UnimplementedSystemInfoServiceServer) Address(context.Context, *ClientInfo) (*AddressInfo, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Address not implemented")
+}
+func (UnimplementedSystemInfoServiceServer) EarseSensitiveAddress(context.Context, *common.StringListEntity) (*common.StringListEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EarseSensitiveAddress not implemented")
 }
 func (UnimplementedSystemInfoServiceServer) ListUpdate(context.Context, *UpdateInfo) (*UpdateInfoList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListUpdate not implemented")
@@ -143,6 +158,24 @@ func _SystemInfoService_Address_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SystemInfoService_EarseSensitiveAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(common.StringListEntity)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemInfoServiceServer).EarseSensitiveAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.SystemInfoService/EarseSensitiveAddress",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemInfoServiceServer).EarseSensitiveAddress(ctx, req.(*common.StringListEntity))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _SystemInfoService_ListUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateInfo)
 	if err := dec(in); err != nil {
@@ -190,6 +223,10 @@ var _SystemInfoService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Address",
 			Handler:    _SystemInfoService_Address_Handler,
+		},
+		{
+			MethodName: "EarseSensitiveAddress",
+			Handler:    _SystemInfoService_EarseSensitiveAddress_Handler,
 		},
 		{
 			MethodName: "ListUpdate",

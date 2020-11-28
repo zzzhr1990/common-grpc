@@ -3,6 +3,7 @@
 'use strict';
 var grpc = require('@grpc/grpc-js');
 var system_system_pb = require('../system/system_pb.js');
+var common_common_entity_pb = require('../common/common_entity_pb.js');
 
 function serialize_services_AddressInfo(arg) {
   if (!(arg instanceof system_system_pb.AddressInfo)) {
@@ -35,6 +36,17 @@ function serialize_services_ClientInfo(arg) {
 
 function deserialize_services_ClientInfo(buffer_arg) {
   return system_system_pb.ClientInfo.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_StringListEntity(arg) {
+  if (!(arg instanceof common_common_entity_pb.StringListEntity)) {
+    throw new Error('Expected argument of type services.StringListEntity');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_StringListEntity(buffer_arg) {
+  return common_common_entity_pb.StringListEntity.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_SystemInfo(arg) {
@@ -93,6 +105,17 @@ var SystemInfoServiceService = exports.SystemInfoServiceService = {
     requestDeserialize: deserialize_services_ClientInfo,
     responseSerialize: serialize_services_AddressInfo,
     responseDeserialize: deserialize_services_AddressInfo,
+  },
+  earseSensitiveAddress: {
+    path: '/services.SystemInfoService/EarseSensitiveAddress',
+    requestStream: false,
+    responseStream: false,
+    requestType: common_common_entity_pb.StringListEntity,
+    responseType: common_common_entity_pb.StringListEntity,
+    requestSerialize: serialize_services_StringListEntity,
+    requestDeserialize: deserialize_services_StringListEntity,
+    responseSerialize: serialize_services_StringListEntity,
+    responseDeserialize: deserialize_services_StringListEntity,
   },
   listUpdate: {
     path: '/services.SystemInfoService/ListUpdate',

@@ -3,12 +3,13 @@ syntax = "proto3";
 package services;
 
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/system/sysinfo";
-
 option csharp_namespace = "GrpcSystemInfo";
+import "common/common_entity.proto";
 
 service SystemInfoService {
     rpc Info (ClientInfo) returns (SystemInfo) {}
     rpc Address (ClientInfo) returns (AddressInfo) {}
+    rpc EarseSensitiveAddress (StringListEntity) returns (StringListEntity) {}
     rpc ListUpdate (UpdateInfo) returns (UpdateInfoList) {}
     rpc GetApp (AppInfo) returns (AppInfo) {}
 }

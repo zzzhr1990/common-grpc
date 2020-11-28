@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
+import * as common_common_entity_pb from "../common/common_entity_pb";
 
 export class SystemInfo extends jspb.Message { 
     getRequestTime(): number;
