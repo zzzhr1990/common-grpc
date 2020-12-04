@@ -38,6 +38,28 @@ function deserialize_services_ClientInfo(buffer_arg) {
   return system_system_pb.ClientInfo.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_RateLimitRequest(arg) {
+  if (!(arg instanceof system_system_pb.RateLimitRequest)) {
+    throw new Error('Expected argument of type services.RateLimitRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_RateLimitRequest(buffer_arg) {
+  return system_system_pb.RateLimitRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_RateLimitResult(arg) {
+  if (!(arg instanceof system_system_pb.RateLimitResult)) {
+    throw new Error('Expected argument of type services.RateLimitResult');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_RateLimitResult(buffer_arg) {
+  return system_system_pb.RateLimitResult.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_StringListEntity(arg) {
   if (!(arg instanceof common_common_entity_pb.StringListEntity)) {
     throw new Error('Expected argument of type services.StringListEntity');
@@ -138,6 +160,17 @@ var SystemInfoServiceService = exports.SystemInfoServiceService = {
     requestDeserialize: deserialize_services_AppInfo,
     responseSerialize: serialize_services_AppInfo,
     responseDeserialize: deserialize_services_AppInfo,
+  },
+  commonRateLimit: {
+    path: '/services.SystemInfoService/CommonRateLimit',
+    requestStream: false,
+    responseStream: false,
+    requestType: system_system_pb.RateLimitRequest,
+    responseType: system_system_pb.RateLimitResult,
+    requestSerialize: serialize_services_RateLimitRequest,
+    requestDeserialize: deserialize_services_RateLimitRequest,
+    responseSerialize: serialize_services_RateLimitResult,
+    responseDeserialize: deserialize_services_RateLimitResult,
   },
 };
 

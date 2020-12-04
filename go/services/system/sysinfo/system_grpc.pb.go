@@ -23,6 +23,7 @@ type SystemInfoServiceClient interface {
 	EarseSensitiveAddress(ctx context.Context, in *common.StringListEntity, opts ...grpc.CallOption) (*common.StringListEntity, error)
 	ListUpdate(ctx context.Context, in *UpdateInfo, opts ...grpc.CallOption) (*UpdateInfoList, error)
 	GetApp(ctx context.Context, in *AppInfo, opts ...grpc.CallOption) (*AppInfo, error)
+	CommonRateLimit(ctx context.Context, in *RateLimitRequest, opts ...grpc.CallOption) (*RateLimitResult, error)
 }
 
 type systemInfoServiceClient struct {
@@ -78,6 +79,15 @@ func (c *systemInfoServiceClient) GetApp(ctx context.Context, in *AppInfo, opts 
 	return out, nil
 }
 
+func (c *systemInfoServiceClient) CommonRateLimit(ctx context.Context, in *RateLimitRequest, opts ...grpc.CallOption) (*RateLimitResult, error) {
+	out := new(RateLimitResult)
+	err := c.cc.Invoke(ctx, "/services.SystemInfoService/CommonRateLimit", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // SystemInfoServiceServer is the server API for SystemInfoService service.
 // All implementations must embed UnimplementedSystemInfoServiceServer
 // for forward compatibility
@@ -87,6 +97,7 @@ type SystemInfoServiceServer interface {
 	EarseSensitiveAddress(context.Context, *common.StringListEntity) (*common.StringListEntity, error)
 	ListUpdate(context.Context, *UpdateInfo) (*UpdateInfoList, error)
 	GetApp(context.Context, *AppInfo) (*AppInfo, error)
+	CommonRateLimit(context.Context, *RateLimitRequest) (*RateLimitResult, error)
 	mustEmbedUnimplementedSystemInfoServiceServer()
 }
 
@@ -108,6 +119,9 @@ func (UnimplementedSystemInfoServiceServer) ListUpdate(context.Context, *UpdateI
 }
 func (UnimplementedSystemInfoServiceServer) GetApp(context.Context, *AppInfo) (*AppInfo, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetApp not implemented")
+}
+func (UnimplementedSystemInfoServiceServer) CommonRateLimit(context.Context, *RateLimitRequest) (*RateLimitResult, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CommonRateLimit not implemented")
 }
 func (UnimplementedSystemInfoServiceServer) mustEmbedUnimplementedSystemInfoServiceServer() {}
 
@@ -212,6 +226,24 @@ func _SystemInfoService_GetApp_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SystemInfoService_CommonRateLimit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RateLimitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemInfoServiceServer).CommonRateLimit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.SystemInfoService/CommonRateLimit",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemInfoServiceServer).CommonRateLimit(ctx, req.(*RateLimitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _SystemInfoService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "services.SystemInfoService",
 	HandlerType: (*SystemInfoServiceServer)(nil),
@@ -235,6 +267,10 @@ var _SystemInfoService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetApp",
 			Handler:    _SystemInfoService_GetApp_Handler,
+		},
+		{
+			MethodName: "CommonRateLimit",
+			Handler:    _SystemInfoService_CommonRateLimit_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

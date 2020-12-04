@@ -350,3 +350,69 @@ export namespace AppInfo {
         action: number,
     }
 }
+
+export class RateLimitRequest extends jspb.Message { 
+    getKey(): string;
+    setKey(value: string): RateLimitRequest;
+
+    getDuration(): number;
+    setDuration(value: number): RateLimitRequest;
+
+    getDurationType(): number;
+    setDurationType(value: number): RateLimitRequest;
+
+    getBurst(): number;
+    setBurst(value: number): RateLimitRequest;
+
+    getConcurrent(): number;
+    setConcurrent(value: number): RateLimitRequest;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RateLimitRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: RateLimitRequest): RateLimitRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RateLimitRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RateLimitRequest;
+    static deserializeBinaryFromReader(message: RateLimitRequest, reader: jspb.BinaryReader): RateLimitRequest;
+}
+
+export namespace RateLimitRequest {
+    export type AsObject = {
+        key: string,
+        duration: number,
+        durationType: number,
+        burst: number,
+        concurrent: number,
+    }
+}
+
+export class RateLimitResult extends jspb.Message { 
+    getKey(): string;
+    setKey(value: string): RateLimitResult;
+
+    getAllowed(): number;
+    setAllowed(value: number): RateLimitResult;
+
+    getRemaining(): number;
+    setRemaining(value: number): RateLimitResult;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): RateLimitResult.AsObject;
+    static toObject(includeInstance: boolean, msg: RateLimitResult): RateLimitResult.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: RateLimitResult, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): RateLimitResult;
+    static deserializeBinaryFromReader(message: RateLimitResult, reader: jspb.BinaryReader): RateLimitResult;
+}
+
+export namespace RateLimitResult {
+    export type AsObject = {
+        key: string,
+        allowed: number,
+        remaining: number,
+    }
+}

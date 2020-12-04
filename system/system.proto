@@ -12,6 +12,7 @@ service SystemInfoService {
     rpc EarseSensitiveAddress (StringListEntity) returns (StringListEntity) {}
     rpc ListUpdate (UpdateInfo) returns (UpdateInfoList) {}
     rpc GetApp (AppInfo) returns (AppInfo) {}
+    rpc CommonRateLimit (RateLimitRequest) returns (RateLimitResult) {}
 }
 
 message SystemInfo {
@@ -91,4 +92,24 @@ message AppInfo {
     string type_string = 9;
     int64 rate = 10;
     int32 action = 11;
+}
+
+message RateLimitRequest {
+    string key = 1;
+    int32 duration = 2;
+    int32 duration_type = 3;
+    int32 burst = 4;
+    int32 concurrent = 5;
+}
+
+message RateLimitResult {
+    string key = 1;
+    int32 allowed = 2;
+
+	// Remaining is the maximum number of requests that could be
+	// permitted instantaneously for this key given the current
+	// state. For example, if a rate limiter allows 10 requests per
+	// second and has already received 6 requests for this key this
+	// second, Remaining would be 4.
+    int32 remaining = 3;
 }

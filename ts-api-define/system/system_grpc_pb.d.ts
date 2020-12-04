@@ -15,6 +15,7 @@ interface ISystemInfoServiceService extends grpc.ServiceDefinition<grpc.UntypedS
     earseSensitiveAddress: ISystemInfoServiceService_IEarseSensitiveAddress;
     listUpdate: ISystemInfoServiceService_IListUpdate;
     getApp: ISystemInfoServiceService_IGetApp;
+    commonRateLimit: ISystemInfoServiceService_ICommonRateLimit;
 }
 
 interface ISystemInfoServiceService_IInfo extends grpc.MethodDefinition<system_system_pb.ClientInfo, system_system_pb.SystemInfo> {
@@ -62,6 +63,15 @@ interface ISystemInfoServiceService_IGetApp extends grpc.MethodDefinition<system
     responseSerialize: grpc.serialize<system_system_pb.AppInfo>;
     responseDeserialize: grpc.deserialize<system_system_pb.AppInfo>;
 }
+interface ISystemInfoServiceService_ICommonRateLimit extends grpc.MethodDefinition<system_system_pb.RateLimitRequest, system_system_pb.RateLimitResult> {
+    path: "/services.SystemInfoService/CommonRateLimit";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<system_system_pb.RateLimitRequest>;
+    requestDeserialize: grpc.deserialize<system_system_pb.RateLimitRequest>;
+    responseSerialize: grpc.serialize<system_system_pb.RateLimitResult>;
+    responseDeserialize: grpc.deserialize<system_system_pb.RateLimitResult>;
+}
 
 export const SystemInfoServiceService: ISystemInfoServiceService;
 
@@ -71,6 +81,7 @@ export interface ISystemInfoServiceServer {
     earseSensitiveAddress: grpc.handleUnaryCall<common_common_entity_pb.StringListEntity, common_common_entity_pb.StringListEntity>;
     listUpdate: grpc.handleUnaryCall<system_system_pb.UpdateInfo, system_system_pb.UpdateInfoList>;
     getApp: grpc.handleUnaryCall<system_system_pb.AppInfo, system_system_pb.AppInfo>;
+    commonRateLimit: grpc.handleUnaryCall<system_system_pb.RateLimitRequest, system_system_pb.RateLimitResult>;
 }
 
 export interface ISystemInfoServiceClient {
@@ -89,6 +100,9 @@ export interface ISystemInfoServiceClient {
     getApp(request: system_system_pb.AppInfo, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
     getApp(request: system_system_pb.AppInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
     getApp(request: system_system_pb.AppInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
+    commonRateLimit(request: system_system_pb.RateLimitRequest, callback: (error: grpc.ServiceError | null, response: system_system_pb.RateLimitResult) => void): grpc.ClientUnaryCall;
+    commonRateLimit(request: system_system_pb.RateLimitRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: system_system_pb.RateLimitResult) => void): grpc.ClientUnaryCall;
+    commonRateLimit(request: system_system_pb.RateLimitRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: system_system_pb.RateLimitResult) => void): grpc.ClientUnaryCall;
 }
 
 export class SystemInfoServiceClient extends grpc.Client implements ISystemInfoServiceClient {
@@ -108,4 +122,7 @@ export class SystemInfoServiceClient extends grpc.Client implements ISystemInfoS
     public getApp(request: system_system_pb.AppInfo, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
     public getApp(request: system_system_pb.AppInfo, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
     public getApp(request: system_system_pb.AppInfo, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: system_system_pb.AppInfo) => void): grpc.ClientUnaryCall;
+    public commonRateLimit(request: system_system_pb.RateLimitRequest, callback: (error: grpc.ServiceError | null, response: system_system_pb.RateLimitResult) => void): grpc.ClientUnaryCall;
+    public commonRateLimit(request: system_system_pb.RateLimitRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: system_system_pb.RateLimitResult) => void): grpc.ClientUnaryCall;
+    public commonRateLimit(request: system_system_pb.RateLimitRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: system_system_pb.RateLimitResult) => void): grpc.ClientUnaryCall;
 }
