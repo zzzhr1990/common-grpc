@@ -12,6 +12,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // SystemInfoServiceClient is the client API for SystemInfoService service.
@@ -133,7 +134,7 @@ type UnsafeSystemInfoServiceServer interface {
 }
 
 func RegisterSystemInfoServiceServer(s grpc.ServiceRegistrar, srv SystemInfoServiceServer) {
-	s.RegisterService(&_SystemInfoService_serviceDesc, srv)
+	s.RegisterService(&SystemInfoService_ServiceDesc, srv)
 }
 
 func _SystemInfoService_Info_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -244,7 +245,10 @@ func _SystemInfoService_CommonRateLimit_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
-var _SystemInfoService_serviceDesc = grpc.ServiceDesc{
+// SystemInfoService_ServiceDesc is the grpc.ServiceDesc for SystemInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SystemInfoService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.SystemInfoService",
 	HandlerType: (*SystemInfoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

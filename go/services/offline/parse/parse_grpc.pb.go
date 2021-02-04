@@ -11,6 +11,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // TaskParseServiceClient is the client API for TaskParseService service.
@@ -62,7 +63,7 @@ type UnsafeTaskParseServiceServer interface {
 }
 
 func RegisterTaskParseServiceServer(s grpc.ServiceRegistrar, srv TaskParseServiceServer) {
-	s.RegisterService(&_TaskParseService_serviceDesc, srv)
+	s.RegisterService(&TaskParseService_ServiceDesc, srv)
 }
 
 func _TaskParseService_Parse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -83,7 +84,10 @@ func _TaskParseService_Parse_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
-var _TaskParseService_serviceDesc = grpc.ServiceDesc{
+// TaskParseService_ServiceDesc is the grpc.ServiceDesc for TaskParseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TaskParseService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.TaskParseService",
 	HandlerType: (*TaskParseServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

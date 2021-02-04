@@ -11,6 +11,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // HelloServiceClient is the client API for HelloService service.
@@ -62,7 +63,7 @@ type UnsafeHelloServiceServer interface {
 }
 
 func RegisterHelloServiceServer(s grpc.ServiceRegistrar, srv HelloServiceServer) {
-	s.RegisterService(&_HelloService_serviceDesc, srv)
+	s.RegisterService(&HelloService_ServiceDesc, srv)
 }
 
 func _HelloService_Hello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -83,7 +84,10 @@ func _HelloService_Hello_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
-var _HelloService_serviceDesc = grpc.ServiceDesc{
+// HelloService_ServiceDesc is the grpc.ServiceDesc for HelloService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var HelloService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.HelloService",
 	HandlerType: (*HelloServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

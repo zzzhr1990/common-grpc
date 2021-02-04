@@ -11,6 +11,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // FileTaskServiceClient is the client API for FileTaskService service.
@@ -76,7 +77,7 @@ type UnsafeFileTaskServiceServer interface {
 }
 
 func RegisterFileTaskServiceServer(s grpc.ServiceRegistrar, srv FileTaskServiceServer) {
-	s.RegisterService(&_FileTaskService_serviceDesc, srv)
+	s.RegisterService(&FileTaskService_ServiceDesc, srv)
 }
 
 func _FileTaskService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -115,7 +116,10 @@ func _FileTaskService_List_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-var _FileTaskService_serviceDesc = grpc.ServiceDesc{
+// FileTaskService_ServiceDesc is the grpc.ServiceDesc for FileTaskService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FileTaskService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.FileTaskService",
 	HandlerType: (*FileTaskServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

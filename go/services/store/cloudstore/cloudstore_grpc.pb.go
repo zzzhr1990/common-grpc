@@ -12,6 +12,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // CloudStoreServiceClient is the client API for CloudStoreService service.
@@ -165,7 +166,7 @@ type UnsafeCloudStoreServiceServer interface {
 }
 
 func RegisterCloudStoreServiceServer(s grpc.ServiceRegistrar, srv CloudStoreServiceServer) {
-	s.RegisterService(&_CloudStoreService_serviceDesc, srv)
+	s.RegisterService(&CloudStoreService_ServiceDesc, srv)
 }
 
 func _CloudStoreService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -312,7 +313,10 @@ func _CloudStoreService_OnFileUpload_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
-var _CloudStoreService_serviceDesc = grpc.ServiceDesc{
+// CloudStoreService_ServiceDesc is the grpc.ServiceDesc for CloudStoreService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CloudStoreService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.CloudStoreService",
 	HandlerType: (*CloudStoreServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

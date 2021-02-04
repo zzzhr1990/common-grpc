@@ -3,36 +3,39 @@ syntax = "proto3";
 package services;
 
 //import "service_one/messages.proto";
-option go_package = "github.com/zzzhr1990/common-grpc/go/services/file/userfile";
+option go_package = "github.com/zzzhr1990/common-grpc/go/v5/file/userfile";
 import "common/common_entity.proto";
 
 
 service FileService {
     // Create create a file
     rpc Create (UserFile) returns (UserFile) {}
-    rpc FlushStore (UserFile) returns (UserFile) {}
-    rpc UpdateCount (UserFile) returns (UserFile) {}
-    // rpc CreateInternal (UserFile) returns (UserFile) {}
     rpc Get (UserFile) returns (UserFile) {}
+    rpc Update (UserFile) returns (UserFile) {}
+    rpc Rename (UserFile) returns (BatchTaskResult) {}
+    //rpc FlushStore (UserFile) returns (UserFile) {}
+    //rpc UpdateCount (UserFile) returns (UserFile) {}
+    // rpc CreateInternal (UserFile) returns (UserFile) {}
+    // rpc Get (UserFile) returns (UserFile) {}
 
-    rpc UploadToken (UserFile) returns (UploadTokenResponse) {}
-    rpc Rename (UserFile) returns (UserFile) {}
+    // rpc UploadToken (UserFile) returns (UploadTokenResponse) {}
+    // rpc Rename (UserFile) returns (UserFile) {}
     // rpc ChangePathInternal (UserFile) returns (UserFile) {}
-    rpc Lock (UserFile) returns (BoolEntity) {}
-    rpc ReleaseLock (UserFile) returns (BoolEntity) {}
-    rpc Trash (BathFileRequest) returns (Int64Entity) {}
-    rpc Delete (BathFileRequest) returns (Int64Entity) {}
-    rpc Copy (BathFileRequest) returns (Int64Entity) {}
-    rpc Move (BathFileRequest) returns (Int64Entity) {}
-    rpc Recover (BathFileRequest) returns (Int64Entity) {}
+    // rpc Lock (UserFile) returns (BoolEntity) {}
+    // rpc ReleaseLock (UserFile) returns (BoolEntity) {}
+    // rpc Trash (BathFileRequest) returns (Int64Entity) {}
+    // rpc Delete (BathFileRequest) returns (Int64Entity) {}
+    // rpc Copy (BathFileRequest) returns (Int64Entity) {}
+    // rpc Move (BathFileRequest) returns (Int64Entity) {}
+    // rpc Recover (BathFileRequest) returns (Int64Entity) {}
     // rpc Page (UserFilePageRequest) returns (UserFilePageResponse) {}
-    rpc List (UserFileListRequest) returns (UserFileListResponse) {}
-    rpc ListInternal (UserFileListRequest) returns (UserFileListResponse) {}
+    // rpc List (UserFileListRequest) returns (UserFileListResponse) {}
+    // rpc ListInternal (UserFileListRequest) returns (UserFileListResponse) {}
     // rpc PageTrash (CommonPageRequest) returns (TrashPageResponse) {}
-    rpc DeleteTrash (BathFileRequest) returns (Int64Entity) {}
-    rpc ListTrash (UserFileListRequest) returns (TrashListResponse) {}
-    rpc GetTrash (TrashInfo) returns (TrashInfo) {}
-    rpc ClearTrash (BathFileRequest) returns (Int64Entity) {}
+    // rpc DeleteTrash (BathFileRequest) returns (Int64Entity) {}
+    // rpc ListTrash (UserFileListRequest) returns (TrashListResponse) {}
+    // rpc GetTrash (TrashInfo) returns (TrashInfo) {}
+    // rpc ClearTrash (BathFileRequest) returns (Int64Entity) {}
     // rpc AddQueue (OperationQueue) returns (OperationQueue) {}
     // rpc FetchQueue (OperationQueue) returns (OperationQueue) {}
     // rpc DeleteQueue (OperationQueue) returns (OperationQueue) {}
@@ -50,23 +53,27 @@ message UserFile {
     int64 size = 7;
     string mime = 8;
     bool  deleted = 9;
-    string  parent = 10;
-    int32 type = 11;
-    bool directory = 12;
-    int64 atime = 13;
-    int64 ctime = 14;
-    int64 mtime = 15;
-    int32  version = 16;
-    bool locking = 17;
-    int32 op = 18;
-    bool preview = 19;
-    int32 preview_type = 20;
-    int32  flag = 21;
-    string unique_identity = 22;
-    bool share = 23;
-    string download_address = 24;
-    int64 unlock_time = 25;
-    // string name_lower = 26;
+    bool  hidden = 10;
+    int32 label = 11;
+    string parent = 12;
+    int32 type = 13;
+    bool directory = 14;
+    int64 atime = 15;
+    int64 ctime = 16;
+    int64 mtime = 17;
+    int32  version = 18;
+    bool locking = 19;
+    int32 op = 20;
+    bool preview = 21;
+    int32 preview_type = 22;
+    int32  flag = 23;
+    string unique_identity = 24;
+    bool share = 25;
+    string download_address = 26;
+    int64 lock_time = 27;
+    int64 children = 28;
+    int64 children_total = 29;
+    int32 sticky = 30;
 }
 
 message TrashInfo {
@@ -79,7 +86,7 @@ message TrashInfo {
     int32 type = 7;
     string mime = 8;
     string addon = 9;
-    bool locking = 10;
+    // bool locking = 10;
     int32 op = 11;
     int64 size = 12;
     bool directory = 13;
@@ -101,88 +108,5 @@ message UserFilePageRequest {
 message CommonPageRequest {
     int64 user_identity = 1;
     PageInfo page_info = 2;
-}
-*/
-message FilterRequest {
-    repeated string identity = 1;
-    repeated int32 type = 2;
-    int32 directory = 3;
-    string name = 4;
-}
-
-message BathFileRequest {
-    repeated string identity = 1;
-    repeated string path = 2;
-    int64 user_identity = 3;
-    UserFile dest = 4;
-    int32 op = 5;
-    bool force_sync = 6;
-}
-
-message MqRequest {
-    UserFile source = 1;
-    UserFile dest = 2;
-    int32 type = 3;
-}
-
-message UserFileListRequest {
-    string identity = 1;
-    int64 user_identity = 2;
-    string path = 3;
-    ListInfo list_info = 4;
-    repeated OrderByRequest order_by = 5;
-    FilterRequest filter = 6;
-    int32 op = 7;
-}
-
-message CommonListRequest {
-    int64 user_identity = 1;
-    ListInfo list_info = 2;
-}
-
-message UserFileListResponse {
-    UserFile parent = 1;
-    repeated UserFile data = 2;
-}
-
-/*
-message UserFilePageResponse {
-    UserFile parent = 1;
-    repeated UserFile data = 2;
-    PageInfo page_info = 3;
-}
-*/
-
-message TrashListResponse {
-    repeated TrashInfo data = 2;
-}
-
-/*
-message TrashPageResponse {
-    repeated TrashInfo data = 2;
-    PageInfo page_info = 3;
-}
-*/
-
-message UploadTokenResponse {
-    string upload_token = 1;
-    string type = 2;
-    // string upload_url = 3;
-    string file_path = 3;
-    bool created = 4;
-    UserFile create_info = 5;
-    string part_upload_url = 6;
-    string direct_upload_url = 7;
-}
-
-/*
-message OperationQueue {
-    int32 identity = 1;
-    int64 user_identity = 2;
-    int64 create_time = 3;
-    string source = 4;
-    string destination = 5;
-    string addon = 6;
-    int32 operation = 7;
 }
 */

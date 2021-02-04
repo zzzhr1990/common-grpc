@@ -283,3 +283,32 @@ export namespace Uint64Entity {
         data: number,
     }
 }
+
+export class BatchTaskResult extends jspb.Message { 
+    getIdentity(): string;
+    setIdentity(value: string): BatchTaskResult;
+
+    getData(): number;
+    setData(value: number): BatchTaskResult;
+
+    getAsync(): boolean;
+    setAsync(value: boolean): BatchTaskResult;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): BatchTaskResult.AsObject;
+    static toObject(includeInstance: boolean, msg: BatchTaskResult): BatchTaskResult.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: BatchTaskResult, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): BatchTaskResult;
+    static deserializeBinaryFromReader(message: BatchTaskResult, reader: jspb.BinaryReader): BatchTaskResult;
+}
+
+export namespace BatchTaskResult {
+    export type AsObject = {
+        identity: string,
+        data: number,
+        async: boolean,
+    }
+}

@@ -11,6 +11,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // SubtitleServiceClient is the client API for SubtitleService service.
@@ -108,7 +109,7 @@ type UnsafeSubtitleServiceServer interface {
 }
 
 func RegisterSubtitleServiceServer(s grpc.ServiceRegistrar, srv SubtitleServiceServer) {
-	s.RegisterService(&_SubtitleService_serviceDesc, srv)
+	s.RegisterService(&SubtitleService_ServiceDesc, srv)
 }
 
 func _SubtitleService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -183,7 +184,10 @@ func _SubtitleService_Update_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
-var _SubtitleService_serviceDesc = grpc.ServiceDesc{
+// SubtitleService_ServiceDesc is the grpc.ServiceDesc for SubtitleService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SubtitleService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.SubtitleService",
 	HandlerType: (*SubtitleServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

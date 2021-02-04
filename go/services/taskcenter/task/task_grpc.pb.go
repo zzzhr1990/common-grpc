@@ -12,6 +12,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // SimpleTaskCenterServiceClient is the client API for SimpleTaskCenterService service.
@@ -152,7 +153,7 @@ type UnsafeSimpleTaskCenterServiceServer interface {
 }
 
 func RegisterSimpleTaskCenterServiceServer(s grpc.ServiceRegistrar, srv SimpleTaskCenterServiceServer) {
-	s.RegisterService(&_SimpleTaskCenterService_serviceDesc, srv)
+	s.RegisterService(&SimpleTaskCenterService_ServiceDesc, srv)
 }
 
 func _SimpleTaskCenterService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -281,7 +282,10 @@ func _SimpleTaskCenterService_Reset_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-var _SimpleTaskCenterService_serviceDesc = grpc.ServiceDesc{
+// SimpleTaskCenterService_ServiceDesc is the grpc.ServiceDesc for SimpleTaskCenterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SimpleTaskCenterService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.SimpleTaskCenterService",
 	HandlerType: (*SimpleTaskCenterServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

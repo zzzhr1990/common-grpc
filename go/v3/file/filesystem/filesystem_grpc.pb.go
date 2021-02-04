@@ -11,6 +11,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // FileServiceClient is the client API for FileService service.
@@ -420,7 +421,7 @@ type UnsafeFileServiceServer interface {
 }
 
 func RegisterFileServiceServer(s grpc.ServiceRegistrar, srv FileServiceServer) {
-	s.RegisterService(&_FileService_serviceDesc, srv)
+	s.RegisterService(&FileService_ServiceDesc, srv)
 }
 
 func _FileService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -891,7 +892,10 @@ func _FileService_UploadToken_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
-var _FileService_serviceDesc = grpc.ServiceDesc{
+// FileService_ServiceDesc is the grpc.ServiceDesc for FileService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FileService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.FileService",
 	HandlerType: (*FileServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
@@ -1095,7 +1099,7 @@ type UnsafeFileNoticeServiceServer interface {
 }
 
 func RegisterFileNoticeServiceServer(s grpc.ServiceRegistrar, srv FileNoticeServiceServer) {
-	s.RegisterService(&_FileNoticeService_serviceDesc, srv)
+	s.RegisterService(&FileNoticeService_ServiceDesc, srv)
 }
 
 func _FileNoticeService_OnProgress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -1170,7 +1174,10 @@ func _FileNoticeService_OnCancel_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-var _FileNoticeService_serviceDesc = grpc.ServiceDesc{
+// FileNoticeService_ServiceDesc is the grpc.ServiceDesc for FileNoticeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FileNoticeService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.FileNoticeService",
 	HandlerType: (*FileNoticeServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

@@ -7,6 +7,8 @@
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 var jspb = require('google-protobuf');
 var goog = jspb;
@@ -190,16 +192,20 @@ proto.services.FetchRequest.deserializeBinaryFromReader = function(msg, reader) 
       msg.setConsumer(value);
       break;
     case 2:
-      var value = /** @type {!Array<number>} */ (reader.readPackedInt32());
-      msg.setTypeList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt32() : [reader.readInt32()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addType(values[i]);
+      }
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setCount(value);
       break;
     case 4:
-      var value = /** @type {!Array<number>} */ (reader.readPackedInt32());
-      msg.setStatusList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt32() : [reader.readInt32()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addStatus(values[i]);
+      }
       break;
     case 5:
       var value = /** @type {number} */ (reader.readInt32());

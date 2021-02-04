@@ -12,6 +12,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // SystemTaskServiceClient is the client API for SystemTaskService service.
@@ -205,7 +206,7 @@ type UnsafeSystemTaskServiceServer interface {
 }
 
 func RegisterSystemTaskServiceServer(s grpc.ServiceRegistrar, srv SystemTaskServiceServer) {
-	s.RegisterService(&_SystemTaskService_serviceDesc, srv)
+	s.RegisterService(&SystemTaskService_ServiceDesc, srv)
 }
 
 func _SystemTaskService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -388,7 +389,10 @@ func _SystemTaskService_Error_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
-var _SystemTaskService_serviceDesc = grpc.ServiceDesc{
+// SystemTaskService_ServiceDesc is the grpc.ServiceDesc for SystemTaskService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SystemTaskService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.SystemTaskService",
 	HandlerType: (*SystemTaskServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

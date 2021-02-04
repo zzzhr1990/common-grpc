@@ -12,6 +12,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // UserTaskServiceClient is the client API for UserTaskService service.
@@ -313,7 +314,7 @@ type UnsafeUserTaskServiceServer interface {
 }
 
 func RegisterUserTaskServiceServer(s grpc.ServiceRegistrar, srv UserTaskServiceServer) {
-	s.RegisterService(&_UserTaskService_serviceDesc, srv)
+	s.RegisterService(&UserTaskService_ServiceDesc, srv)
 }
 
 func _UserTaskService_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -640,7 +641,10 @@ func _UserTaskService_ClearOutdatedLog_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-var _UserTaskService_serviceDesc = grpc.ServiceDesc{
+// UserTaskService_ServiceDesc is the grpc.ServiceDesc for UserTaskService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UserTaskService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.UserTaskService",
 	HandlerType: (*UserTaskServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

@@ -12,6 +12,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // VideoExtServiceClient is the client API for VideoExtService service.
@@ -119,7 +120,7 @@ type UnsafeVideoExtServiceServer interface {
 }
 
 func RegisterVideoExtServiceServer(s grpc.ServiceRegistrar, srv VideoExtServiceServer) {
-	s.RegisterService(&_VideoExtService_serviceDesc, srv)
+	s.RegisterService(&VideoExtService_ServiceDesc, srv)
 }
 
 func _VideoExtService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -212,7 +213,10 @@ func _VideoExtService_GetPreview_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-var _VideoExtService_serviceDesc = grpc.ServiceDesc{
+// VideoExtService_ServiceDesc is the grpc.ServiceDesc for VideoExtService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var VideoExtService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.VideoExtService",
 	HandlerType: (*VideoExtServiceServer)(nil),
 	Methods: []grpc.MethodDesc{

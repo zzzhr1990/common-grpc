@@ -7,6 +7,8 @@
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 var jspb = require('google-protobuf');
 var goog = jspb;
@@ -1568,8 +1570,10 @@ proto.services.DeleteTaskLogRequest.deserializeBinaryFromReader = function(msg, 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Array<number>} */ (reader.readPackedInt64());
-      msg.setIdentityList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt64() : [reader.readInt64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addIdentity(values[i]);
+      }
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt64());
@@ -4069,8 +4073,10 @@ proto.services.UserTaskFilterRequest.deserializeBinaryFromReader = function(msg,
       msg.addTaskIdentity(value);
       break;
     case 2:
-      var value = /** @type {!Array<number>} */ (reader.readPackedInt32());
-      msg.setTypeList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt32() : [reader.readInt32()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addType(values[i]);
+      }
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());

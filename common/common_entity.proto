@@ -58,3 +58,9 @@ message Uint32Entity{
 message Uint64Entity{
     uint64 data = 1;
 }
+
+message BatchTaskResult {
+    string identity = 1;
+    int64 data = 2;
+    bool async = 3;
+}

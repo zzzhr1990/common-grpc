@@ -11,6 +11,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // ZipFileServiceClient is the client API for ZipFileService service.
@@ -90,7 +91,7 @@ type UnsafeZipFileServiceServer interface {
 }
 
 func RegisterZipFileServiceServer(s grpc.ServiceRegistrar, srv ZipFileServiceServer) {
-	s.RegisterService(&_ZipFileService_serviceDesc, srv)
+	s.RegisterService(&ZipFileService_ServiceDesc, srv)
 }
 
 func _ZipFileService_CreateZipDownload_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -147,7 +148,10 @@ func _ZipFileService_GetZipDetail_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
-var _ZipFileService_serviceDesc = grpc.ServiceDesc{
+// ZipFileService_ServiceDesc is the grpc.ServiceDesc for ZipFileService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ZipFileService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "services.ZipFileService",
 	HandlerType: (*ZipFileServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
