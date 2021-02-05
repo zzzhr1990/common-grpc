@@ -87,7 +87,7 @@ message UserFile {
 message FileListProps {
     string identity = 1;
     string path = 2;
-    int64 user_identity = 3;
+    // int64 user_identity = 3;
     bool directory = 4;
     bool file = 5;
     bool  hidden = 6;
@@ -112,7 +112,8 @@ message BatchTaskRequest {
 
 message UserFileListRequest {
     FileListProps props = 1;
-    .services.ListInfo list_info = 2;
+    int64 user_identity = 2;
+    .services.ListInfo list_info = 3;
 }
 
 message UserFileListResponse {
@@ -122,7 +123,8 @@ message UserFileListResponse {
 
 message UserFilePageRequest {
     FileListProps props = 1;
-    .services.PageInfo page_info = 2;
+    int64 user_identity = 2;
+    .services.PageInfo page_info = 3;
 }
 
 message UserFilePageResponse {
