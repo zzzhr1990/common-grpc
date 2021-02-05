@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package services;
+package v5.services;
 
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/v5/file/userfile";
@@ -12,8 +12,8 @@ service FileService {
     rpc Create (UserFile) returns (UserFile) {}
     rpc Get (UserFile) returns (UserFile) {}
     rpc Update (UserFile) returns (UserFile) {}
-    rpc Rename (UserFile) returns (BatchTaskResult) {}
-    rpc Delete (UserFile) returns (BatchTaskResult) {}
+    rpc Rename (UserFile) returns (.services.BatchTaskResult) {}
+    rpc Delete (BatchTaskRequest) returns (.services.BatchTaskResult) {}
 
     rpc UpdateStatistics (UserFile) returns (UserFile) {} // Safe version instead of Update()
     // rpc CreateInternal (FileInfo) returns (FileInfo) {}
@@ -92,4 +92,13 @@ message FileListFilter {
     bool  hidden = 6;
     bool directory = 7;
     bool regular_file = 8;
+}
+
+message BatchTaskRequest {
+    repeated string identity = 1;
+    repeated string path = 2;
+    int64 user_identity = 3;
+    UserFile dest = 4;
+    int32 op = 5;
+    bool force_sync = 6;
 }

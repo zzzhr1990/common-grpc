@@ -24,7 +24,7 @@ type FileServiceClient interface {
 	Get(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
 	Update(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
 	Rename(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
-	Delete(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
+	Delete(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
 	UpdateStatistics(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
 }
 
@@ -38,7 +38,7 @@ func NewFileServiceClient(cc grpc.ClientConnInterface) FileServiceClient {
 
 func (c *fileServiceClient) Create(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error) {
 	out := new(UserFile)
-	err := c.cc.Invoke(ctx, "/services.FileService/Create", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func (c *fileServiceClient) Create(ctx context.Context, in *UserFile, opts ...gr
 
 func (c *fileServiceClient) Get(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error) {
 	out := new(UserFile)
-	err := c.cc.Invoke(ctx, "/services.FileService/Get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func (c *fileServiceClient) Get(ctx context.Context, in *UserFile, opts ...grpc.
 
 func (c *fileServiceClient) Update(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error) {
 	out := new(UserFile)
-	err := c.cc.Invoke(ctx, "/services.FileService/Update", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,16 +65,16 @@ func (c *fileServiceClient) Update(ctx context.Context, in *UserFile, opts ...gr
 
 func (c *fileServiceClient) Rename(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*common.BatchTaskResult, error) {
 	out := new(common.BatchTaskResult)
-	err := c.cc.Invoke(ctx, "/services.FileService/Rename", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/Rename", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *fileServiceClient) Delete(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*common.BatchTaskResult, error) {
+func (c *fileServiceClient) Delete(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error) {
 	out := new(common.BatchTaskResult)
-	err := c.cc.Invoke(ctx, "/services.FileService/Delete", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/Delete", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +83,7 @@ func (c *fileServiceClient) Delete(ctx context.Context, in *UserFile, opts ...gr
 
 func (c *fileServiceClient) UpdateStatistics(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error) {
 	out := new(UserFile)
-	err := c.cc.Invoke(ctx, "/services.FileService/UpdateStatistics", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/UpdateStatistics", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +99,7 @@ type FileServiceServer interface {
 	Get(context.Context, *UserFile) (*UserFile, error)
 	Update(context.Context, *UserFile) (*UserFile, error)
 	Rename(context.Context, *UserFile) (*common.BatchTaskResult, error)
-	Delete(context.Context, *UserFile) (*common.BatchTaskResult, error)
+	Delete(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error)
 	UpdateStatistics(context.Context, *UserFile) (*UserFile, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
@@ -120,7 +120,7 @@ func (UnimplementedFileServiceServer) Update(context.Context, *UserFile) (*UserF
 func (UnimplementedFileServiceServer) Rename(context.Context, *UserFile) (*common.BatchTaskResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Rename not implemented")
 }
-func (UnimplementedFileServiceServer) Delete(context.Context, *UserFile) (*common.BatchTaskResult, error) {
+func (UnimplementedFileServiceServer) Delete(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 func (UnimplementedFileServiceServer) UpdateStatistics(context.Context, *UserFile) (*UserFile, error) {
@@ -149,7 +149,7 @@ func _FileService_Create_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.FileService/Create",
+		FullMethod: "/v5.services.FileService/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FileServiceServer).Create(ctx, req.(*UserFile))
@@ -167,7 +167,7 @@ func _FileService_Get_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.FileService/Get",
+		FullMethod: "/v5.services.FileService/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FileServiceServer).Get(ctx, req.(*UserFile))
@@ -185,7 +185,7 @@ func _FileService_Update_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.FileService/Update",
+		FullMethod: "/v5.services.FileService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FileServiceServer).Update(ctx, req.(*UserFile))
@@ -203,7 +203,7 @@ func _FileService_Rename_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.FileService/Rename",
+		FullMethod: "/v5.services.FileService/Rename",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FileServiceServer).Rename(ctx, req.(*UserFile))
@@ -212,7 +212,7 @@ func _FileService_Rename_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _FileService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserFile)
+	in := new(BatchTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -221,10 +221,10 @@ func _FileService_Delete_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.FileService/Delete",
+		FullMethod: "/v5.services.FileService/Delete",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).Delete(ctx, req.(*UserFile))
+		return srv.(FileServiceServer).Delete(ctx, req.(*BatchTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -239,7 +239,7 @@ func _FileService_UpdateStatistics_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/services.FileService/UpdateStatistics",
+		FullMethod: "/v5.services.FileService/UpdateStatistics",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FileServiceServer).UpdateStatistics(ctx, req.(*UserFile))
@@ -251,7 +251,7 @@ func _FileService_UpdateStatistics_Handler(srv interface{}, ctx context.Context,
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var FileService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "services.FileService",
+	ServiceName: "v5.services.FileService",
 	HandlerType: (*FileServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
