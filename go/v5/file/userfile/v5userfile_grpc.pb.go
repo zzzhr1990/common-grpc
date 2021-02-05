@@ -28,6 +28,7 @@ type FileServiceClient interface {
 	UpdateStatistics(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
 	// rpc CreateInternal (FileInfo) returns (FileInfo) {}
 	List(ctx context.Context, in *UserFileListRequest, opts ...grpc.CallOption) (*UserFileListResponse, error)
+	Page(ctx context.Context, in *UserFilePageRequest, opts ...grpc.CallOption) (*UserFilePageResponse, error)
 }
 
 type fileServiceClient struct {
@@ -101,6 +102,15 @@ func (c *fileServiceClient) List(ctx context.Context, in *UserFileListRequest, o
 	return out, nil
 }
 
+func (c *fileServiceClient) Page(ctx context.Context, in *UserFilePageRequest, opts ...grpc.CallOption) (*UserFilePageResponse, error) {
+	out := new(UserFilePageResponse)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/Page", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileServiceServer is the server API for FileService service.
 // All implementations must embed UnimplementedFileServiceServer
 // for forward compatibility
@@ -114,6 +124,7 @@ type FileServiceServer interface {
 	UpdateStatistics(context.Context, *UserFile) (*UserFile, error)
 	// rpc CreateInternal (FileInfo) returns (FileInfo) {}
 	List(context.Context, *UserFileListRequest) (*UserFileListResponse, error)
+	Page(context.Context, *UserFilePageRequest) (*UserFilePageResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
 
@@ -141,6 +152,9 @@ func (UnimplementedFileServiceServer) UpdateStatistics(context.Context, *UserFil
 }
 func (UnimplementedFileServiceServer) List(context.Context, *UserFileListRequest) (*UserFileListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
+}
+func (UnimplementedFileServiceServer) Page(context.Context, *UserFilePageRequest) (*UserFilePageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Page not implemented")
 }
 func (UnimplementedFileServiceServer) mustEmbedUnimplementedFileServiceServer() {}
 
@@ -281,6 +295,24 @@ func _FileService_List_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_Page_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserFilePageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).Page(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileService/Page",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).Page(ctx, req.(*UserFilePageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileService_ServiceDesc is the grpc.ServiceDesc for FileService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -315,6 +347,10 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "List",
 			Handler:    _FileService_List_Handler,
+		},
+		{
+			MethodName: "Page",
+			Handler:    _FileService_Page_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
