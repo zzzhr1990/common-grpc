@@ -101,4 +101,5 @@ message BatchTaskRequest {
     UserFile dest = 4;
     int32 op = 5;
     bool force_sync = 6;
+    bool ignore_duplicate = 7;
 }
