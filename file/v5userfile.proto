@@ -17,7 +17,7 @@ service FileService {
 
     rpc UpdateStatistics (UserFile) returns (UserFile) {} // Safe version instead of Update()
     // rpc CreateInternal (FileInfo) returns (FileInfo) {}
-    // rpc List (FileInfoListRequest) returns (FileInfoListResponse) {}
+    rpc List (UserFileListRequest) returns (UserFileListResponse) {}
     // rpc ListInternal (FileInfoListRequest) returns (FileInfoListResponse) {}
 
     //rpc FlushStore (UserFile) returns (UserFile) {}
@@ -83,15 +83,20 @@ message UserFile {
     int32 sticky = 30;
 }
 
-message FileListFilter {
-    repeated string identity = 1;
-    repeated int32 type = 2;
+message FileListProps {
+    string identity = 1;
+    string path = 2;
+    
+    bool directory = 3;
+    bool file = 4;
+    bool  hidden = 5;
+    repeated int32 type = 6;
+    repeated .services.OrderByRequest order_by = 7;
     // int32 directory = 3;
-    string name = 4;
-    int32 label = 5;
-    bool  hidden = 6;
-    bool directory = 7;
-    bool regular_file = 8;
+    // string name = 4;
+    int32 label = 8;
+    
+    
 }
 
 message BatchTaskRequest {
@@ -102,4 +107,14 @@ message BatchTaskRequest {
     int32 op = 5;
     bool force_sync = 6;
     bool ignore_duplicate = 7;
+}
+
+message UserFileListRequest {
+    FileListProps props = 1;
+    .services.ListInfo list_info = 2;
+}
+
+message UserFileListResponse {
+    UserFile parent = 1;
+    repeated UserFile data = 2;
 }

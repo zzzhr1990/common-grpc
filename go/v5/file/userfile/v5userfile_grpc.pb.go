@@ -26,6 +26,8 @@ type FileServiceClient interface {
 	Rename(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
 	Delete(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
 	UpdateStatistics(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
+	// rpc CreateInternal (FileInfo) returns (FileInfo) {}
+	List(ctx context.Context, in *UserFileListRequest, opts ...grpc.CallOption) (*UserFileListResponse, error)
 }
 
 type fileServiceClient struct {
@@ -90,6 +92,15 @@ func (c *fileServiceClient) UpdateStatistics(ctx context.Context, in *UserFile, 
 	return out, nil
 }
 
+func (c *fileServiceClient) List(ctx context.Context, in *UserFileListRequest, opts ...grpc.CallOption) (*UserFileListResponse, error) {
+	out := new(UserFileListResponse)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/List", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileServiceServer is the server API for FileService service.
 // All implementations must embed UnimplementedFileServiceServer
 // for forward compatibility
@@ -101,6 +112,8 @@ type FileServiceServer interface {
 	Rename(context.Context, *UserFile) (*common.BatchTaskResult, error)
 	Delete(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error)
 	UpdateStatistics(context.Context, *UserFile) (*UserFile, error)
+	// rpc CreateInternal (FileInfo) returns (FileInfo) {}
+	List(context.Context, *UserFileListRequest) (*UserFileListResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
 
@@ -125,6 +138,9 @@ func (UnimplementedFileServiceServer) Delete(context.Context, *BatchTaskRequest)
 }
 func (UnimplementedFileServiceServer) UpdateStatistics(context.Context, *UserFile) (*UserFile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStatistics not implemented")
+}
+func (UnimplementedFileServiceServer) List(context.Context, *UserFileListRequest) (*UserFileListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
 func (UnimplementedFileServiceServer) mustEmbedUnimplementedFileServiceServer() {}
 
@@ -247,6 +263,24 @@ func _FileService_UpdateStatistics_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserFileListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileService/List",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).List(ctx, req.(*UserFileListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileService_ServiceDesc is the grpc.ServiceDesc for FileService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -277,6 +311,10 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateStatistics",
 			Handler:    _FileService_UpdateStatistics_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _FileService_List_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
