@@ -25,6 +25,8 @@ type FileServiceClient interface {
 	Update(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
 	Rename(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
 	Delete(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
+	Copy(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
+	Move(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
 	UpdateStatistics(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
 	// rpc CreateInternal (FileInfo) returns (FileInfo) {}
 	List(ctx context.Context, in *UserFileListRequest, opts ...grpc.CallOption) (*UserFileListResponse, error)
@@ -84,6 +86,24 @@ func (c *fileServiceClient) Delete(ctx context.Context, in *BatchTaskRequest, op
 	return out, nil
 }
 
+func (c *fileServiceClient) Copy(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error) {
+	out := new(common.BatchTaskResult)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/Copy", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileServiceClient) Move(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error) {
+	out := new(common.BatchTaskResult)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/Move", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *fileServiceClient) UpdateStatistics(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error) {
 	out := new(UserFile)
 	err := c.cc.Invoke(ctx, "/v5.services.FileService/UpdateStatistics", in, out, opts...)
@@ -121,6 +141,8 @@ type FileServiceServer interface {
 	Update(context.Context, *UserFile) (*UserFile, error)
 	Rename(context.Context, *UserFile) (*common.BatchTaskResult, error)
 	Delete(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error)
+	Copy(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error)
+	Move(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error)
 	UpdateStatistics(context.Context, *UserFile) (*UserFile, error)
 	// rpc CreateInternal (FileInfo) returns (FileInfo) {}
 	List(context.Context, *UserFileListRequest) (*UserFileListResponse, error)
@@ -146,6 +168,12 @@ func (UnimplementedFileServiceServer) Rename(context.Context, *UserFile) (*commo
 }
 func (UnimplementedFileServiceServer) Delete(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+}
+func (UnimplementedFileServiceServer) Copy(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Copy not implemented")
+}
+func (UnimplementedFileServiceServer) Move(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Move not implemented")
 }
 func (UnimplementedFileServiceServer) UpdateStatistics(context.Context, *UserFile) (*UserFile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStatistics not implemented")
@@ -259,6 +287,42 @@ func _FileService_Delete_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_Copy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BatchTaskRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).Copy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileService/Copy",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).Copy(ctx, req.(*BatchTaskRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileService_Move_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BatchTaskRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).Move(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileService/Move",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).Move(ctx, req.(*BatchTaskRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FileService_UpdateStatistics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserFile)
 	if err := dec(in); err != nil {
@@ -339,6 +403,14 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Delete",
 			Handler:    _FileService_Delete_Handler,
+		},
+		{
+			MethodName: "Copy",
+			Handler:    _FileService_Copy_Handler,
+		},
+		{
+			MethodName: "Move",
+			Handler:    _FileService_Move_Handler,
 		},
 		{
 			MethodName: "UpdateStatistics",

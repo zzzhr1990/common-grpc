@@ -14,6 +14,8 @@ service FileService {
     rpc Update (UserFile) returns (UserFile) {}
     rpc Rename (UserFile) returns (.services.BatchTaskResult) {}
     rpc Delete (BatchTaskRequest) returns (.services.BatchTaskResult) {}
+    rpc Copy (BatchTaskRequest) returns (.services.BatchTaskResult) {}
+    rpc Move (BatchTaskRequest) returns (.services.BatchTaskResult) {}
 
     rpc UpdateStatistics (UserFile) returns (UserFile) {} // Safe version instead of Update()
     // rpc CreateInternal (FileInfo) returns (FileInfo) {}
