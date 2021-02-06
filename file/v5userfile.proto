@@ -12,15 +12,15 @@ service FileService {
     rpc Create (UserFile) returns (UserFile) {}
     rpc Get (UserFile) returns (UserFile) {}
     rpc Update (UserFile) returns (UserFile) {}
-    rpc Rename (UserFile) returns (.services.BatchTaskResult) {}
+    rpc Rename (BatchTaskRequest) returns (.services.BatchTaskResult) {}
     rpc Delete (BatchTaskRequest) returns (.services.BatchTaskResult) {}
     rpc Copy (BatchTaskRequest) returns (.services.BatchTaskResult) {}
     rpc Move (BatchTaskRequest) returns (.services.BatchTaskResult) {}
-
+    rpc Trash (BatchTaskRequest) returns (.services.BatchTaskResult) {}
     rpc UpdateStatistics (UserFile) returns (UserFile) {} // Safe version instead of Update()
-    // rpc CreateInternal (FileInfo) returns (FileInfo) {}
     rpc List (UserFileListRequest) returns (UserFileListResponse) {}
     rpc Page (UserFilePageRequest) returns (UserFilePageResponse) {}
+    rpc ListInternal (UserFile) returns (UserFileListResponse) {}
     // rpc ListInternal (FileInfoListRequest) returns (FileInfoListResponse) {}
 
     //rpc FlushStore (UserFile) returns (UserFile) {}

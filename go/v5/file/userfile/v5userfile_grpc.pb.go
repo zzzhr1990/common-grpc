@@ -23,14 +23,15 @@ type FileServiceClient interface {
 	Create(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
 	Get(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
 	Update(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
-	Rename(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
+	Rename(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
 	Delete(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
 	Copy(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
 	Move(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
+	Trash(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
 	UpdateStatistics(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error)
-	// rpc CreateInternal (FileInfo) returns (FileInfo) {}
 	List(ctx context.Context, in *UserFileListRequest, opts ...grpc.CallOption) (*UserFileListResponse, error)
 	Page(ctx context.Context, in *UserFilePageRequest, opts ...grpc.CallOption) (*UserFilePageResponse, error)
+	ListInternal(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFileListResponse, error)
 }
 
 type fileServiceClient struct {
@@ -68,7 +69,7 @@ func (c *fileServiceClient) Update(ctx context.Context, in *UserFile, opts ...gr
 	return out, nil
 }
 
-func (c *fileServiceClient) Rename(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*common.BatchTaskResult, error) {
+func (c *fileServiceClient) Rename(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error) {
 	out := new(common.BatchTaskResult)
 	err := c.cc.Invoke(ctx, "/v5.services.FileService/Rename", in, out, opts...)
 	if err != nil {
@@ -104,6 +105,15 @@ func (c *fileServiceClient) Move(ctx context.Context, in *BatchTaskRequest, opts
 	return out, nil
 }
 
+func (c *fileServiceClient) Trash(ctx context.Context, in *BatchTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error) {
+	out := new(common.BatchTaskResult)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/Trash", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *fileServiceClient) UpdateStatistics(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFile, error) {
 	out := new(UserFile)
 	err := c.cc.Invoke(ctx, "/v5.services.FileService/UpdateStatistics", in, out, opts...)
@@ -131,6 +141,15 @@ func (c *fileServiceClient) Page(ctx context.Context, in *UserFilePageRequest, o
 	return out, nil
 }
 
+func (c *fileServiceClient) ListInternal(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UserFileListResponse, error) {
+	out := new(UserFileListResponse)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/ListInternal", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileServiceServer is the server API for FileService service.
 // All implementations must embed UnimplementedFileServiceServer
 // for forward compatibility
@@ -139,14 +158,15 @@ type FileServiceServer interface {
 	Create(context.Context, *UserFile) (*UserFile, error)
 	Get(context.Context, *UserFile) (*UserFile, error)
 	Update(context.Context, *UserFile) (*UserFile, error)
-	Rename(context.Context, *UserFile) (*common.BatchTaskResult, error)
+	Rename(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error)
 	Delete(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error)
 	Copy(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error)
 	Move(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error)
+	Trash(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error)
 	UpdateStatistics(context.Context, *UserFile) (*UserFile, error)
-	// rpc CreateInternal (FileInfo) returns (FileInfo) {}
 	List(context.Context, *UserFileListRequest) (*UserFileListResponse, error)
 	Page(context.Context, *UserFilePageRequest) (*UserFilePageResponse, error)
+	ListInternal(context.Context, *UserFile) (*UserFileListResponse, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
 
@@ -163,7 +183,7 @@ func (UnimplementedFileServiceServer) Get(context.Context, *UserFile) (*UserFile
 func (UnimplementedFileServiceServer) Update(context.Context, *UserFile) (*UserFile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedFileServiceServer) Rename(context.Context, *UserFile) (*common.BatchTaskResult, error) {
+func (UnimplementedFileServiceServer) Rename(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Rename not implemented")
 }
 func (UnimplementedFileServiceServer) Delete(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error) {
@@ -175,6 +195,9 @@ func (UnimplementedFileServiceServer) Copy(context.Context, *BatchTaskRequest) (
 func (UnimplementedFileServiceServer) Move(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Move not implemented")
 }
+func (UnimplementedFileServiceServer) Trash(context.Context, *BatchTaskRequest) (*common.BatchTaskResult, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Trash not implemented")
+}
 func (UnimplementedFileServiceServer) UpdateStatistics(context.Context, *UserFile) (*UserFile, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateStatistics not implemented")
 }
@@ -183,6 +206,9 @@ func (UnimplementedFileServiceServer) List(context.Context, *UserFileListRequest
 }
 func (UnimplementedFileServiceServer) Page(context.Context, *UserFilePageRequest) (*UserFilePageResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Page not implemented")
+}
+func (UnimplementedFileServiceServer) ListInternal(context.Context, *UserFile) (*UserFileListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListInternal not implemented")
 }
 func (UnimplementedFileServiceServer) mustEmbedUnimplementedFileServiceServer() {}
 
@@ -252,7 +278,7 @@ func _FileService_Update_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _FileService_Rename_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserFile)
+	in := new(BatchTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -264,7 +290,7 @@ func _FileService_Rename_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: "/v5.services.FileService/Rename",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileServiceServer).Rename(ctx, req.(*UserFile))
+		return srv.(FileServiceServer).Rename(ctx, req.(*BatchTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -323,6 +349,24 @@ func _FileService_Move_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_Trash_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BatchTaskRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).Trash(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileService/Trash",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).Trash(ctx, req.(*BatchTaskRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FileService_UpdateStatistics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserFile)
 	if err := dec(in); err != nil {
@@ -377,6 +421,24 @@ func _FileService_Page_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_ListInternal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserFile)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).ListInternal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileService/ListInternal",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).ListInternal(ctx, req.(*UserFile))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileService_ServiceDesc is the grpc.ServiceDesc for FileService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -413,6 +475,10 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _FileService_Move_Handler,
 		},
 		{
+			MethodName: "Trash",
+			Handler:    _FileService_Trash_Handler,
+		},
+		{
 			MethodName: "UpdateStatistics",
 			Handler:    _FileService_UpdateStatistics_Handler,
 		},
@@ -423,6 +489,10 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Page",
 			Handler:    _FileService_Page_Handler,
+		},
+		{
+			MethodName: "ListInternal",
+			Handler:    _FileService_ListInternal_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
