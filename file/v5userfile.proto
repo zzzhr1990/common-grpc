@@ -16,11 +16,19 @@ service FileService {
     rpc Delete (BatchTaskRequest) returns (.services.BatchTaskResult) {}
     rpc Copy (BatchTaskRequest) returns (.services.BatchTaskResult) {}
     rpc Move (BatchTaskRequest) returns (.services.BatchTaskResult) {}
-    rpc Trash (BatchTaskRequest) returns (.services.BatchTaskResult) {}
+    
     rpc UpdateStatistics (UserFile) returns (UserFile) {} // Safe version instead of Update()
     rpc List (UserFileListRequest) returns (UserFileListResponse) {}
     rpc Page (UserFilePageRequest) returns (UserFilePageResponse) {}
     rpc ListInternal (UserFile) returns (UserFileListResponse) {}
+    // Trash Area
+    rpc GetTrash (TrashInfo) returns (TrashInfo) {}
+    rpc Trash (BatchTaskRequest) returns (.services.BatchTaskResult) {}
+    rpc Recover (BatchTaskRequest) returns (.services.BatchTaskResult) {}
+    rpc DeleteTrash (BatchTaskRequest) returns (.services.BatchTaskResult) {}
+    rpc ListTrash (UserFileListRequest) returns (TrashInfoListResponse) {}
+    rpc PageTrash (UserFilePageRequest) returns (TrashInfoPageResponse) {}
+    rpc TruncateTrash (TrashInfo) returns (.services.BatchTaskResult) {}
     // rpc ListInternal (FileInfoListRequest) returns (FileInfoListResponse) {}
 
     //rpc FlushStore (UserFile) returns (UserFile) {}
@@ -130,5 +138,28 @@ message UserFilePageRequest {
 message UserFilePageResponse {
     UserFile parent = 1;
     repeated UserFile data = 2;
+    .services.PageInfo page_info = 3;
+}
+
+message TrashInfo {
+    string identity = 1;
+    int64 user_identity = 2;
+    string parent_path = 3;
+    int64 create_time = 5;
+    string name = 6;
+    int32 type = 7;
+    string mime = 8;
+    // bool locking = 10;
+    int32 op = 11;
+    int64 size = 12;
+    bool directory = 13;
+}
+
+message TrashInfoListResponse {
+    repeated TrashInfo data = 2;
+}
+
+message TrashInfoPageResponse {
+    repeated TrashInfo data = 2;
     .services.PageInfo page_info = 3;
 }
