@@ -5,6 +5,7 @@ package services;
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/systemtask";
 import "common/common_entity.proto";
+option csharp_namespace = "GrpcOfflineSystem";
 
 
 service SystemTaskService {

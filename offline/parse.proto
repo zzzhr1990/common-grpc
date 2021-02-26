@@ -5,6 +5,8 @@ package services;
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/parse";
 // import "common/common_entity.proto";
+option csharp_namespace = "GrpcOfflineParse";
+
 service TaskParseService {
     rpc parse (ParseTaskRequest) returns (ParseTaskResponse) {}
 }

@@ -5,6 +5,7 @@ package services;
 //import "service_one/messages.proto";
 option go_package = "github.com/zzzhr1990/common-grpc/go/services/offline/usertask";
 import "common/common_entity.proto";
+option csharp_namespace = "GrpcOfflineUser";
 
 
 service UserTaskService {
@@ -34,6 +35,7 @@ service UserTaskService {
     rpc clearLog (TaskLog) returns (TaskLog) {}
     rpc listLog (ListTaskLogRequest) returns (TaskLogList) {}
     rpc clearOutdatedLog (TaskLog) returns (Int64Entity) {}
+    rpc getQuota(QuotaRequest) returns (QuotaResponse) {}
     //rpc tryCreate (OfflineDownload) returns (OfflineDownload) {}
     //rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
     // rpc get (UserOfflineTask) returns (UserOfflineTask) {}
@@ -127,6 +129,17 @@ message ClearTaskRequest {
     bool delete_file = 3;
 }
 
+message QuotaRequest {
+    int64 user_identity = 1;
+    int32 type = 2;
+}
+
+message QuotaResponse {
+    int64 user_identity = 1;
+    int32 type = 2;
+    int64 today_used = 3;
+    int64 today_available = 4;
+}
 
 /*
 message PageUserOfflineTaskRequest {

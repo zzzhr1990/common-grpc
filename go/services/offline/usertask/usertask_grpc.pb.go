@@ -43,6 +43,7 @@ type UserTaskServiceClient interface {
 	ClearLog(ctx context.Context, in *TaskLog, opts ...grpc.CallOption) (*TaskLog, error)
 	ListLog(ctx context.Context, in *ListTaskLogRequest, opts ...grpc.CallOption) (*TaskLogList, error)
 	ClearOutdatedLog(ctx context.Context, in *TaskLog, opts ...grpc.CallOption) (*common.Int64Entity, error)
+	GetQuota(ctx context.Context, in *QuotaRequest, opts ...grpc.CallOption) (*QuotaResponse, error)
 }
 
 type userTaskServiceClient struct {
@@ -215,6 +216,15 @@ func (c *userTaskServiceClient) ClearOutdatedLog(ctx context.Context, in *TaskLo
 	return out, nil
 }
 
+func (c *userTaskServiceClient) GetQuota(ctx context.Context, in *QuotaRequest, opts ...grpc.CallOption) (*QuotaResponse, error) {
+	out := new(QuotaResponse)
+	err := c.cc.Invoke(ctx, "/services.UserTaskService/getQuota", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserTaskServiceServer is the server API for UserTaskService service.
 // All implementations must embed UnimplementedUserTaskServiceServer
 // for forward compatibility
@@ -243,6 +253,7 @@ type UserTaskServiceServer interface {
 	ClearLog(context.Context, *TaskLog) (*TaskLog, error)
 	ListLog(context.Context, *ListTaskLogRequest) (*TaskLogList, error)
 	ClearOutdatedLog(context.Context, *TaskLog) (*common.Int64Entity, error)
+	GetQuota(context.Context, *QuotaRequest) (*QuotaResponse, error)
 	mustEmbedUnimplementedUserTaskServiceServer()
 }
 
@@ -303,6 +314,9 @@ func (UnimplementedUserTaskServiceServer) ListLog(context.Context, *ListTaskLogR
 }
 func (UnimplementedUserTaskServiceServer) ClearOutdatedLog(context.Context, *TaskLog) (*common.Int64Entity, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ClearOutdatedLog not implemented")
+}
+func (UnimplementedUserTaskServiceServer) GetQuota(context.Context, *QuotaRequest) (*QuotaResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetQuota not implemented")
 }
 func (UnimplementedUserTaskServiceServer) mustEmbedUnimplementedUserTaskServiceServer() {}
 
@@ -641,6 +655,24 @@ func _UserTaskService_ClearOutdatedLog_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UserTaskService_GetQuota_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuotaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserTaskServiceServer).GetQuota(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.UserTaskService/getQuota",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserTaskServiceServer).GetQuota(ctx, req.(*QuotaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // UserTaskService_ServiceDesc is the grpc.ServiceDesc for UserTaskService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -719,6 +751,10 @@ var UserTaskService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "clearOutdatedLog",
 			Handler:    _UserTaskService_ClearOutdatedLog_Handler,
+		},
+		{
+			MethodName: "getQuota",
+			Handler:    _UserTaskService_GetQuota_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
