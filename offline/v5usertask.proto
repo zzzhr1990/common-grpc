@@ -11,6 +11,8 @@ service UserTaskService {
     rpc List (UserTaskListRequest) returns (UserTaskListResponse) {}
     rpc Page (UserTaskPageRequest) returns (UserTaskPageResponse) {}
     rpc Delete (BatchUserTaskRequest) returns (.services.BatchTaskResult) {}
+    rpc GetQuota(QuotaRequest) returns (QuotaResponse) {}
+
 }
 
 message AddUserTaskRequest {
@@ -79,4 +81,16 @@ message UserTaskPageResponse {
 
 message BatchUserTaskRequest {
     repeated string identity = 1;
+}
+
+message QuotaRequest {
+    int64 user_identity = 1;
+    int32 type = 2;
+}
+
+message QuotaResponse {
+    int64 user_identity = 1;
+    int32 type = 2;
+    int64 today_used = 3;
+    int64 today_available = 4;
 }

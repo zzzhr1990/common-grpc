@@ -23,6 +23,7 @@ type UserTaskServiceClient interface {
 	List(ctx context.Context, in *UserTaskListRequest, opts ...grpc.CallOption) (*UserTaskListResponse, error)
 	Page(ctx context.Context, in *UserTaskPageRequest, opts ...grpc.CallOption) (*UserTaskPageResponse, error)
 	Delete(ctx context.Context, in *BatchUserTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
+	GetQuota(ctx context.Context, in *QuotaRequest, opts ...grpc.CallOption) (*QuotaResponse, error)
 }
 
 type userTaskServiceClient struct {
@@ -69,6 +70,15 @@ func (c *userTaskServiceClient) Delete(ctx context.Context, in *BatchUserTaskReq
 	return out, nil
 }
 
+func (c *userTaskServiceClient) GetQuota(ctx context.Context, in *QuotaRequest, opts ...grpc.CallOption) (*QuotaResponse, error) {
+	out := new(QuotaResponse)
+	err := c.cc.Invoke(ctx, "/v5.services.UserTaskService/GetQuota", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserTaskServiceServer is the server API for UserTaskService service.
 // All implementations must embed UnimplementedUserTaskServiceServer
 // for forward compatibility
@@ -77,6 +87,7 @@ type UserTaskServiceServer interface {
 	List(context.Context, *UserTaskListRequest) (*UserTaskListResponse, error)
 	Page(context.Context, *UserTaskPageRequest) (*UserTaskPageResponse, error)
 	Delete(context.Context, *BatchUserTaskRequest) (*common.BatchTaskResult, error)
+	GetQuota(context.Context, *QuotaRequest) (*QuotaResponse, error)
 	mustEmbedUnimplementedUserTaskServiceServer()
 }
 
@@ -95,6 +106,9 @@ func (UnimplementedUserTaskServiceServer) Page(context.Context, *UserTaskPageReq
 }
 func (UnimplementedUserTaskServiceServer) Delete(context.Context, *BatchUserTaskRequest) (*common.BatchTaskResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+}
+func (UnimplementedUserTaskServiceServer) GetQuota(context.Context, *QuotaRequest) (*QuotaResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetQuota not implemented")
 }
 func (UnimplementedUserTaskServiceServer) mustEmbedUnimplementedUserTaskServiceServer() {}
 
@@ -181,6 +195,24 @@ func _UserTaskService_Delete_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UserTaskService_GetQuota_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuotaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserTaskServiceServer).GetQuota(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.UserTaskService/GetQuota",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserTaskServiceServer).GetQuota(ctx, req.(*QuotaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // UserTaskService_ServiceDesc is the grpc.ServiceDesc for UserTaskService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -203,6 +235,10 @@ var UserTaskService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Delete",
 			Handler:    _UserTaskService_Delete_Handler,
+		},
+		{
+			MethodName: "GetQuota",
+			Handler:    _UserTaskService_GetQuota_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
