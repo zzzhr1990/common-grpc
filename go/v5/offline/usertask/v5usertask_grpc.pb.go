@@ -23,6 +23,7 @@ type UserTaskServiceClient interface {
 	List(ctx context.Context, in *UserTaskListRequest, opts ...grpc.CallOption) (*UserTaskListResponse, error)
 	Page(ctx context.Context, in *UserTaskPageRequest, opts ...grpc.CallOption) (*UserTaskPageResponse, error)
 	Delete(ctx context.Context, in *BatchUserTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
+	// rpc BatchDelete (BatchUserTaskRequest) returns (.services.BatchTaskResult) {}
 	GetQuota(ctx context.Context, in *QuotaRequest, opts ...grpc.CallOption) (*QuotaResponse, error)
 }
 
@@ -87,6 +88,7 @@ type UserTaskServiceServer interface {
 	List(context.Context, *UserTaskListRequest) (*UserTaskListResponse, error)
 	Page(context.Context, *UserTaskPageRequest) (*UserTaskPageResponse, error)
 	Delete(context.Context, *BatchUserTaskRequest) (*common.BatchTaskResult, error)
+	// rpc BatchDelete (BatchUserTaskRequest) returns (.services.BatchTaskResult) {}
 	GetQuota(context.Context, *QuotaRequest) (*QuotaResponse, error)
 	mustEmbedUnimplementedUserTaskServiceServer()
 }
