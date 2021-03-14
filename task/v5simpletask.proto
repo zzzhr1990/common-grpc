@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package v5.services;
+
+option csharp_namespace = "GrpcSimpleTask";
+option go_package = "github.com/zzzhr1990/common-grpc/go/v5/task/simpletask";
+import "common/common_entity.proto";
+
+service SimpleTaskService {
+    rpc Create (SimpleTask) returns (SimpleTask) {}
+    rpc Fetch(FetchTaskRequest) returns (FetchTaskResponse) {} // 
+    rpc Complete(SimpleTask) returns (.services.BoolEntity) {} // del
+    rpc Update(SimpleTask) returns (SimpleTask) {} // del
+    rpc Error(ErrorTask) returns (ErrorTask) {}
+    rpc Get(SimpleTask) returns (SimpleTask) {} // del
+    rpc Reset(ErrorTask) returns (SimpleTask) {}
+}
+
+message SimpleTask {
+    string identity = 1; //id
+    int32 type = 2; // type
+    string source = 3;
+    string consumer = 4;
+    string producer = 5;
+    int64 create_time = 6;
+    int64 consumer_time = 7;
+    int64 deadline = 8;
+    string data = 9;
+    int32 status = 10;
+}
+
+message ErrorTask {
+    int64 seq = 1;
+    string identity = 2; //id
+    int32 type = 3; // type
+    string source = 4;
+    string consumer = 5;
+    string producer = 6;
+    int64 create_time = 7;
+    int64 consumer_time = 8;
+    int64 deadline = 9;
+    string data = 10;
+    int32 status = 11;
+    int32 error_code = 12;
+    string error_message = 13;
+}
+
+message FetchTaskResponse {
+    repeated SimpleTask data = 1;
+}
+
+message FetchTaskRequest {
+    string consumer = 1;
+    repeated int32 type = 2; 
+    int32 count = 3; 
+    repeated int32 status = 4;
+    int32 next = 5;
+    int64 deadline = 6;
+    bool recover = 7;
+    bool desc = 8;
+}
