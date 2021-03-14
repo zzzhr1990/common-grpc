@@ -85,6 +85,7 @@ message BatchUserTaskRequest {
     int64 user_identity = 2;
     int32 type = 3;
     int32 status = 4;
+    int32 op = 5;
 }
 
 message QuotaRequest {
