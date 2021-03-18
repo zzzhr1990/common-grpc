@@ -31,6 +31,7 @@ service FileService {
     rpc TruncateTrash (TrashInfo) returns (.services.BatchTaskResult) {}
     // rpc ListInternal (FileInfoListRequest) returns (FileInfoListResponse) {}
 
+    rpc UploadToken (UserFile) returns (UploadTokenResult) {}
     //rpc FlushStore (UserFile) returns (UserFile) {}
     //rpc UpdateCount (UserFile) returns (UserFile) {}
     // rpc CreateInternal (UserFile) returns (UserFile) {}
@@ -92,6 +93,17 @@ message UserFile {
     int64 children = 28;
     int64 children_total = 29;
     int32 sticky = 30;
+}
+
+message UploadTokenResult {
+    string upload_token = 1;
+    string type = 2;
+    // string upload_url = 3;
+    string file_path = 3;
+    bool created = 4;
+    UserFile create_info = 5;
+    string part_upload_url = 6;
+    string direct_upload_url = 7;
 }
 
 message FileListProps {

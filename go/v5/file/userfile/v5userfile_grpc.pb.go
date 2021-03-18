@@ -39,6 +39,7 @@ type FileServiceClient interface {
 	ListTrash(ctx context.Context, in *UserFileListRequest, opts ...grpc.CallOption) (*TrashInfoListResponse, error)
 	PageTrash(ctx context.Context, in *UserFilePageRequest, opts ...grpc.CallOption) (*TrashInfoPageResponse, error)
 	TruncateTrash(ctx context.Context, in *TrashInfo, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
+	UploadToken(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UploadTokenResult, error)
 }
 
 type fileServiceClient struct {
@@ -211,6 +212,15 @@ func (c *fileServiceClient) TruncateTrash(ctx context.Context, in *TrashInfo, op
 	return out, nil
 }
 
+func (c *fileServiceClient) UploadToken(ctx context.Context, in *UserFile, opts ...grpc.CallOption) (*UploadTokenResult, error) {
+	out := new(UploadTokenResult)
+	err := c.cc.Invoke(ctx, "/v5.services.FileService/UploadToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileServiceServer is the server API for FileService service.
 // All implementations must embed UnimplementedFileServiceServer
 // for forward compatibility
@@ -235,6 +245,7 @@ type FileServiceServer interface {
 	ListTrash(context.Context, *UserFileListRequest) (*TrashInfoListResponse, error)
 	PageTrash(context.Context, *UserFilePageRequest) (*TrashInfoPageResponse, error)
 	TruncateTrash(context.Context, *TrashInfo) (*common.BatchTaskResult, error)
+	UploadToken(context.Context, *UserFile) (*UploadTokenResult, error)
 	mustEmbedUnimplementedFileServiceServer()
 }
 
@@ -295,6 +306,9 @@ func (UnimplementedFileServiceServer) PageTrash(context.Context, *UserFilePageRe
 }
 func (UnimplementedFileServiceServer) TruncateTrash(context.Context, *TrashInfo) (*common.BatchTaskResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TruncateTrash not implemented")
+}
+func (UnimplementedFileServiceServer) UploadToken(context.Context, *UserFile) (*UploadTokenResult, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UploadToken not implemented")
 }
 func (UnimplementedFileServiceServer) mustEmbedUnimplementedFileServiceServer() {}
 
@@ -633,6 +647,24 @@ func _FileService_TruncateTrash_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileService_UploadToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserFile)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileServiceServer).UploadToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileService/UploadToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileServiceServer).UploadToken(ctx, req.(*UserFile))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileService_ServiceDesc is the grpc.ServiceDesc for FileService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -711,6 +743,10 @@ var FileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "TruncateTrash",
 			Handler:    _FileService_TruncateTrash_Handler,
+		},
+		{
+			MethodName: "UploadToken",
+			Handler:    _FileService_UploadToken_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
