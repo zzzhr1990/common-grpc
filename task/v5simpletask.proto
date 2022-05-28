@@ -3,7 +3,7 @@ syntax = "proto3";
 package v5.services;
 
 option csharp_namespace = "GrpcSimpleTask";
-option go_package = "github.com/zzzhr1990/common-grpc/go/v5/task/simpletask";
+option go_package = "github.com/zzzhr1990/common-grpc/go/v5/task";
 import "common/common_entity.proto";
 
 service SimpleTaskService {

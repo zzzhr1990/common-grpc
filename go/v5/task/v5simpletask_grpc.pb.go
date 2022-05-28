@@ -4,7 +4,7 @@
 // - protoc             v3.19.4
 // source: task/v5simpletask.proto
 
-package simpletask
+package task
 
 import (
 	context "context"
