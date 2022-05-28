@@ -1,0 +1,66 @@
+syntax = "proto3";
+package services;
+option go_package = "github.com/zzzhr1990/common-grpc/go/common";
+
+
+
+message BoolEntity {
+    bool data = 1;
+}
+
+message OrderByRequest {
+    string name = 1;
+    bool asc = 2;
+}
+
+
+message PageInfo {
+    int64 page = 1;
+    int64 page_size = 2;
+    int64 total_page = 3;
+    int64 total_record = 4;
+}
+
+message ListInfo {
+    int64 start = 1;
+    int64 limit = 2;
+}
+
+
+message StringEntity {
+    string data = 1;
+}
+
+message StringListEntity {
+    repeated string data = 1;
+}
+
+message Int32Entity{
+    int32 data = 1;
+}
+
+message Int32ListEntity{
+    repeated int32 data = 1;
+}
+
+message Int64Entity{
+    int64 data = 1;
+}
+
+message Int64ListEntity {
+    repeated int64 data = 1;
+}
+
+message Uint32Entity{
+    uint32 data = 1;
+}
+
+message Uint64Entity{
+    uint64 data = 1;
+}
+
+message BatchTaskResult {
+    string identity = 1;
+    int64 data = 2;
+    bool async = 3;
+}

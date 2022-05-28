@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package services;
+
+//import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/services/taskcenter/task";
+import "common/common_entity.proto";
+
+
+service SimpleTaskCenterService {
+    rpc create (SimpleTask) returns (SimpleTask) {}
+    rpc fetch(FetchRequest) returns (FetchResponse) {} // 
+    // rpc delete(SimpleTask) returns (BoolEntity) {} // del
+    rpc complete(SimpleTask) returns (BoolEntity) {} // del
+    rpc update(SimpleTask) returns (SimpleTask) {} // del
+    rpc error(ErrorTask) returns (ErrorTask) {}
+    // rpc list(ListRequest) returns (FetchResponse) {} // del
+    rpc get(SimpleTask) returns (SimpleTask) {} // del
+    rpc reset(ErrorTask) returns (SimpleTask) {}
+
+    // CallLater
+    /*
+    rpc tryCreate (CloudStore) returns (CloudStore) {}
+    rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
+    rpc get (CloudStore) returns (CloudStore) {}
+    rpc batchGet (CloudStoreList) returns (CloudStoreList) {}
+    rpc batchGetByHash (StringListEntity) returns (CloudStoreList) {}
+    rpc getOrEmpty (CloudStore) returns (CloudStore) {}
+    */
+}
+
+message FetchRequest {
+    string consumer = 1;
+    repeated int32 type = 2; 
+    int32 count = 3; 
+    repeated int32 status = 4;
+    int32 next = 5;
+    int64 deadline = 6;
+    bool recover = 7;
+    bool desc = 8;
+}
+
+
+message SimpleTask {
+    string identity = 1; //id
+    int32 type = 2; // type
+    string source = 3;
+    string consumer = 4;
+    string producer = 5;
+    int64 create_time = 6;
+    int64 consumer_time = 7;
+    int64 deadline = 8;
+    string data = 9;
+    int32 status = 10;
+}
+
+message ErrorTask {
+    int64 seq = 1;
+    string identity = 2; //id
+    int32 type = 3; // type
+    string source = 4;
+    string consumer = 5;
+    string producer = 6;
+    int64 create_time = 7;
+    int64 consumer_time = 8;
+    int64 deadline = 9;
+    string data = 10;
+    int32 status = 11;
+    int32 error_code = 12;
+    string error_message = 13;
+}
+
+message FetchResponse {
+    repeated SimpleTask data = 1;
+}
+

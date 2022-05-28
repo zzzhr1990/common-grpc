@@ -2,13 +2,16 @@
 # go get -u github.com/golang/protobuf/protoc-gen-go
 go get -u google.golang.org/protobuf/cmd/protoc-gen-go
 go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
-GOPATH="/Users/zzzhr/go"
+go install google.golang.org/protobuf/cmd/protoc-gen-go
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
+GOPATH=$(go env GOPATH)
 export PATH=$PATH:$GOPATH/bin
+# export PATH="$PATH:$(go env GOPATH)/bin"
 # nodejs_path="/Users/herui/vscode/typescript/ts-api-gateway/src/proto"
 #
 # protoc -I ../def --go_out=plugins=grpc:../go ../def/helloworld.proto
 # -I ../common
-DIRS=("common" "user" "util" "store" "file" "report" "ext" "share" "offline" "task" "system" "bill" "tickets")
+DIRS=("common" "task")
 
 
 rm -rf ./go_temp
@@ -32,8 +35,11 @@ OUT_DIR=`pwd`
 function makeFile(){
     file=$1
     echo "Generate: ${file}"
-    protoc --go-grpc_out=./go_temp ${file}
-    protoc --go_out=./go_temp ${file}
+    protoc --go_out=./go_temp --go-grpc_out=./go_temp ${file}
+    # protoc --go_out=./go_temp --go-grpc_out=./go_temp --go_opt=paths=source_relative --go-grpc_opt=paths=source_relative ${file}
+    # protoc --go_out=. --go_opt=paths=
+    # protoc --go-grpc_out=./go_temp ${file}
+    # protoc --go_out=./go_temp ${file}
 ###    protoc --plugin=protoc-gen-grpc=${PROTOC_GEN_GRPC_PATH}  --js_out="import_style=commonjs,binary:${OUT_DIR}" --grpc_out=grpc_js:"${OUT_DIR}" ${file}
 ###    protoc --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" --ts_out="generate_package_definition:${OUT_DIR}" ${file}
 }
@@ -43,6 +49,7 @@ function makeFile(){
 for(( i=0;i<${#DIRS[@]};i++)) 
 do
     name=${DIRS[i]}
+    echo "Generate from: ${name}"
     for file in ./${name}/*.proto   
     do
         makeFile $file
@@ -55,7 +62,7 @@ rm -rf ./go
 cp -r ./go_temp/github.com/zzzhr1990/common-grpc/go ./
 rm -rf ./go_temp
 cd ./go
-cp ../main.go ./
+# cp ../main.go ./
 go mod init github.com/zzzhr1990/common-grpc/go
 # go get google.golang.org/grpc
 go get
