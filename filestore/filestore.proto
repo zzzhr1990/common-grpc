@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package v5.services;
+
+option csharp_namespace = "GrpcFileStore";
+option go_package = "github.com/zzzhr1990/common-grpc/go/v5/filestore";
+import "common/common_entity.proto";
+
+service CloudStoreService {
+    rpc Create (CloudStore) returns (CloudStore) {}
+    // rpc tryCreate (CloudStore) returns (CloudStore) {}
+    // rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
+    rpc Get (CloudStore) returns (CloudStore) {}
+    rpc Update (CloudStore) returns (CloudStore) {}
+    rpc BatchGet (CloudStoreList) returns (CloudStoreList) {}
+    rpc GetDownloadAddress (CloudStore) returns (CloudStore) {}
+    rpc BatchDownloadAddress(.services.StringListEntity)returns (CloudStoreList) {}
+    rpc OnFileUpload (CloudStore) returns (CloudStore) {}
+    // rpc batchGetByHash (StringListEntity) returns (CloudStoreList) {}
+    // rpc getOrEmpty (CloudStore) returns (CloudStore) {}
+    // rpc GetInnerDownloadAddress (CloudStore) returns (CloudStore) {}
+}
+
+message CloudStore {
+    string  cid = 1;
+    int64 size = 2;
+    string mime = 3;
+    int64 upload_user = 4;
+    int64 create_time = 5;
+    string original_filename = 6;
+    int32 bucket = 7;
+    string key = 8;
+    string oss_header = 9;
+    string oss_bucket = 10;
+    string oss_key = 11;
+    string sha1 = 12;
+    int32 flag = 13;
+    int32 status = 14;
+    int64 fetch_time = 15;
+    string md5 = 16;
+    string etag = 17;
+    string encoded_etag = 18;
+    string download_address = 19;
+}
+
+message CloudStoreList {
+    repeated CloudStore data = 1;
+}
