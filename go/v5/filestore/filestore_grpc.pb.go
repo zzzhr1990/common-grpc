@@ -19,306 +19,306 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// CloudStoreServiceClient is the client API for CloudStoreService service.
+// FileStoreServiceClient is the client API for FileStoreService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CloudStoreServiceClient interface {
-	Create(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error)
-	// rpc tryCreate (CloudStore) returns (CloudStore) {}
-	// rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
-	Get(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error)
-	Update(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error)
-	BatchGet(ctx context.Context, in *CloudStoreList, opts ...grpc.CallOption) (*CloudStoreList, error)
-	GetDownloadAddress(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error)
-	BatchDownloadAddress(ctx context.Context, in *common.StringListEntity, opts ...grpc.CallOption) (*CloudStoreList, error)
-	OnFileUpload(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error)
+type FileStoreServiceClient interface {
+	Create(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
+	// rpc tryCreate (FileStore) returns (FileStore) {}
+	// rpc batchCreate (FileStoreList) returns (FileStoreList) {}
+	Get(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
+	Update(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
+	BatchGet(ctx context.Context, in *FileStoreList, opts ...grpc.CallOption) (*FileStoreList, error)
+	GetDownloadAddress(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
+	BatchDownloadAddress(ctx context.Context, in *common.StringListEntity, opts ...grpc.CallOption) (*FileStoreList, error)
+	OnFileUpload(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
 }
 
-type cloudStoreServiceClient struct {
+type fileStoreServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCloudStoreServiceClient(cc grpc.ClientConnInterface) CloudStoreServiceClient {
-	return &cloudStoreServiceClient{cc}
+func NewFileStoreServiceClient(cc grpc.ClientConnInterface) FileStoreServiceClient {
+	return &fileStoreServiceClient{cc}
 }
 
-func (c *cloudStoreServiceClient) Create(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error) {
-	out := new(CloudStore)
-	err := c.cc.Invoke(ctx, "/v5.services.CloudStoreService/Create", in, out, opts...)
+func (c *fileStoreServiceClient) Create(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error) {
+	out := new(FileStore)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cloudStoreServiceClient) Get(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error) {
-	out := new(CloudStore)
-	err := c.cc.Invoke(ctx, "/v5.services.CloudStoreService/Get", in, out, opts...)
+func (c *fileStoreServiceClient) Get(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error) {
+	out := new(FileStore)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cloudStoreServiceClient) Update(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error) {
-	out := new(CloudStore)
-	err := c.cc.Invoke(ctx, "/v5.services.CloudStoreService/Update", in, out, opts...)
+func (c *fileStoreServiceClient) Update(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error) {
+	out := new(FileStore)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cloudStoreServiceClient) BatchGet(ctx context.Context, in *CloudStoreList, opts ...grpc.CallOption) (*CloudStoreList, error) {
-	out := new(CloudStoreList)
-	err := c.cc.Invoke(ctx, "/v5.services.CloudStoreService/BatchGet", in, out, opts...)
+func (c *fileStoreServiceClient) BatchGet(ctx context.Context, in *FileStoreList, opts ...grpc.CallOption) (*FileStoreList, error) {
+	out := new(FileStoreList)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/BatchGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cloudStoreServiceClient) GetDownloadAddress(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error) {
-	out := new(CloudStore)
-	err := c.cc.Invoke(ctx, "/v5.services.CloudStoreService/GetDownloadAddress", in, out, opts...)
+func (c *fileStoreServiceClient) GetDownloadAddress(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error) {
+	out := new(FileStore)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/GetDownloadAddress", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cloudStoreServiceClient) BatchDownloadAddress(ctx context.Context, in *common.StringListEntity, opts ...grpc.CallOption) (*CloudStoreList, error) {
-	out := new(CloudStoreList)
-	err := c.cc.Invoke(ctx, "/v5.services.CloudStoreService/BatchDownloadAddress", in, out, opts...)
+func (c *fileStoreServiceClient) BatchDownloadAddress(ctx context.Context, in *common.StringListEntity, opts ...grpc.CallOption) (*FileStoreList, error) {
+	out := new(FileStoreList)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/BatchDownloadAddress", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cloudStoreServiceClient) OnFileUpload(ctx context.Context, in *CloudStore, opts ...grpc.CallOption) (*CloudStore, error) {
-	out := new(CloudStore)
-	err := c.cc.Invoke(ctx, "/v5.services.CloudStoreService/OnFileUpload", in, out, opts...)
+func (c *fileStoreServiceClient) OnFileUpload(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error) {
+	out := new(FileStore)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/OnFileUpload", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CloudStoreServiceServer is the server API for CloudStoreService service.
-// All implementations must embed UnimplementedCloudStoreServiceServer
+// FileStoreServiceServer is the server API for FileStoreService service.
+// All implementations must embed UnimplementedFileStoreServiceServer
 // for forward compatibility
-type CloudStoreServiceServer interface {
-	Create(context.Context, *CloudStore) (*CloudStore, error)
-	// rpc tryCreate (CloudStore) returns (CloudStore) {}
-	// rpc batchCreate (CloudStoreList) returns (CloudStoreList) {}
-	Get(context.Context, *CloudStore) (*CloudStore, error)
-	Update(context.Context, *CloudStore) (*CloudStore, error)
-	BatchGet(context.Context, *CloudStoreList) (*CloudStoreList, error)
-	GetDownloadAddress(context.Context, *CloudStore) (*CloudStore, error)
-	BatchDownloadAddress(context.Context, *common.StringListEntity) (*CloudStoreList, error)
-	OnFileUpload(context.Context, *CloudStore) (*CloudStore, error)
-	mustEmbedUnimplementedCloudStoreServiceServer()
+type FileStoreServiceServer interface {
+	Create(context.Context, *FileStore) (*FileStore, error)
+	// rpc tryCreate (FileStore) returns (FileStore) {}
+	// rpc batchCreate (FileStoreList) returns (FileStoreList) {}
+	Get(context.Context, *FileStore) (*FileStore, error)
+	Update(context.Context, *FileStore) (*FileStore, error)
+	BatchGet(context.Context, *FileStoreList) (*FileStoreList, error)
+	GetDownloadAddress(context.Context, *FileStore) (*FileStore, error)
+	BatchDownloadAddress(context.Context, *common.StringListEntity) (*FileStoreList, error)
+	OnFileUpload(context.Context, *FileStore) (*FileStore, error)
+	mustEmbedUnimplementedFileStoreServiceServer()
 }
 
-// UnimplementedCloudStoreServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedCloudStoreServiceServer struct {
+// UnimplementedFileStoreServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedFileStoreServiceServer struct {
 }
 
-func (UnimplementedCloudStoreServiceServer) Create(context.Context, *CloudStore) (*CloudStore, error) {
+func (UnimplementedFileStoreServiceServer) Create(context.Context, *FileStore) (*FileStore, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedCloudStoreServiceServer) Get(context.Context, *CloudStore) (*CloudStore, error) {
+func (UnimplementedFileStoreServiceServer) Get(context.Context, *FileStore) (*FileStore, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedCloudStoreServiceServer) Update(context.Context, *CloudStore) (*CloudStore, error) {
+func (UnimplementedFileStoreServiceServer) Update(context.Context, *FileStore) (*FileStore, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedCloudStoreServiceServer) BatchGet(context.Context, *CloudStoreList) (*CloudStoreList, error) {
+func (UnimplementedFileStoreServiceServer) BatchGet(context.Context, *FileStoreList) (*FileStoreList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BatchGet not implemented")
 }
-func (UnimplementedCloudStoreServiceServer) GetDownloadAddress(context.Context, *CloudStore) (*CloudStore, error) {
+func (UnimplementedFileStoreServiceServer) GetDownloadAddress(context.Context, *FileStore) (*FileStore, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetDownloadAddress not implemented")
 }
-func (UnimplementedCloudStoreServiceServer) BatchDownloadAddress(context.Context, *common.StringListEntity) (*CloudStoreList, error) {
+func (UnimplementedFileStoreServiceServer) BatchDownloadAddress(context.Context, *common.StringListEntity) (*FileStoreList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BatchDownloadAddress not implemented")
 }
-func (UnimplementedCloudStoreServiceServer) OnFileUpload(context.Context, *CloudStore) (*CloudStore, error) {
+func (UnimplementedFileStoreServiceServer) OnFileUpload(context.Context, *FileStore) (*FileStore, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OnFileUpload not implemented")
 }
-func (UnimplementedCloudStoreServiceServer) mustEmbedUnimplementedCloudStoreServiceServer() {}
+func (UnimplementedFileStoreServiceServer) mustEmbedUnimplementedFileStoreServiceServer() {}
 
-// UnsafeCloudStoreServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CloudStoreServiceServer will
+// UnsafeFileStoreServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FileStoreServiceServer will
 // result in compilation errors.
-type UnsafeCloudStoreServiceServer interface {
-	mustEmbedUnimplementedCloudStoreServiceServer()
+type UnsafeFileStoreServiceServer interface {
+	mustEmbedUnimplementedFileStoreServiceServer()
 }
 
-func RegisterCloudStoreServiceServer(s grpc.ServiceRegistrar, srv CloudStoreServiceServer) {
-	s.RegisterService(&CloudStoreService_ServiceDesc, srv)
+func RegisterFileStoreServiceServer(s grpc.ServiceRegistrar, srv FileStoreServiceServer) {
+	s.RegisterService(&FileStoreService_ServiceDesc, srv)
 }
 
-func _CloudStoreService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudStore)
+func _FileStoreService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileStore)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudStoreServiceServer).Create(ctx, in)
+		return srv.(FileStoreServiceServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.CloudStoreService/Create",
+		FullMethod: "/v5.services.FileStoreService/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudStoreServiceServer).Create(ctx, req.(*CloudStore))
+		return srv.(FileStoreServiceServer).Create(ctx, req.(*FileStore))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudStoreService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudStore)
+func _FileStoreService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileStore)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudStoreServiceServer).Get(ctx, in)
+		return srv.(FileStoreServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.CloudStoreService/Get",
+		FullMethod: "/v5.services.FileStoreService/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudStoreServiceServer).Get(ctx, req.(*CloudStore))
+		return srv.(FileStoreServiceServer).Get(ctx, req.(*FileStore))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudStoreService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudStore)
+func _FileStoreService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileStore)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudStoreServiceServer).Update(ctx, in)
+		return srv.(FileStoreServiceServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.CloudStoreService/Update",
+		FullMethod: "/v5.services.FileStoreService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudStoreServiceServer).Update(ctx, req.(*CloudStore))
+		return srv.(FileStoreServiceServer).Update(ctx, req.(*FileStore))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudStoreService_BatchGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudStoreList)
+func _FileStoreService_BatchGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileStoreList)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudStoreServiceServer).BatchGet(ctx, in)
+		return srv.(FileStoreServiceServer).BatchGet(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.CloudStoreService/BatchGet",
+		FullMethod: "/v5.services.FileStoreService/BatchGet",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudStoreServiceServer).BatchGet(ctx, req.(*CloudStoreList))
+		return srv.(FileStoreServiceServer).BatchGet(ctx, req.(*FileStoreList))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudStoreService_GetDownloadAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudStore)
+func _FileStoreService_GetDownloadAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileStore)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudStoreServiceServer).GetDownloadAddress(ctx, in)
+		return srv.(FileStoreServiceServer).GetDownloadAddress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.CloudStoreService/GetDownloadAddress",
+		FullMethod: "/v5.services.FileStoreService/GetDownloadAddress",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudStoreServiceServer).GetDownloadAddress(ctx, req.(*CloudStore))
+		return srv.(FileStoreServiceServer).GetDownloadAddress(ctx, req.(*FileStore))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudStoreService_BatchDownloadAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FileStoreService_BatchDownloadAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(common.StringListEntity)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudStoreServiceServer).BatchDownloadAddress(ctx, in)
+		return srv.(FileStoreServiceServer).BatchDownloadAddress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.CloudStoreService/BatchDownloadAddress",
+		FullMethod: "/v5.services.FileStoreService/BatchDownloadAddress",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudStoreServiceServer).BatchDownloadAddress(ctx, req.(*common.StringListEntity))
+		return srv.(FileStoreServiceServer).BatchDownloadAddress(ctx, req.(*common.StringListEntity))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudStoreService_OnFileUpload_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudStore)
+func _FileStoreService_OnFileUpload_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileStore)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudStoreServiceServer).OnFileUpload(ctx, in)
+		return srv.(FileStoreServiceServer).OnFileUpload(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.CloudStoreService/OnFileUpload",
+		FullMethod: "/v5.services.FileStoreService/OnFileUpload",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudStoreServiceServer).OnFileUpload(ctx, req.(*CloudStore))
+		return srv.(FileStoreServiceServer).OnFileUpload(ctx, req.(*FileStore))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CloudStoreService_ServiceDesc is the grpc.ServiceDesc for CloudStoreService service.
+// FileStoreService_ServiceDesc is the grpc.ServiceDesc for FileStoreService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CloudStoreService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "v5.services.CloudStoreService",
-	HandlerType: (*CloudStoreServiceServer)(nil),
+var FileStoreService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "v5.services.FileStoreService",
+	HandlerType: (*FileStoreServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Create",
-			Handler:    _CloudStoreService_Create_Handler,
+			Handler:    _FileStoreService_Create_Handler,
 		},
 		{
 			MethodName: "Get",
-			Handler:    _CloudStoreService_Get_Handler,
+			Handler:    _FileStoreService_Get_Handler,
 		},
 		{
 			MethodName: "Update",
-			Handler:    _CloudStoreService_Update_Handler,
+			Handler:    _FileStoreService_Update_Handler,
 		},
 		{
 			MethodName: "BatchGet",
-			Handler:    _CloudStoreService_BatchGet_Handler,
+			Handler:    _FileStoreService_BatchGet_Handler,
 		},
 		{
 			MethodName: "GetDownloadAddress",
-			Handler:    _CloudStoreService_GetDownloadAddress_Handler,
+			Handler:    _FileStoreService_GetDownloadAddress_Handler,
 		},
 		{
 			MethodName: "BatchDownloadAddress",
-			Handler:    _CloudStoreService_BatchDownloadAddress_Handler,
+			Handler:    _FileStoreService_BatchDownloadAddress_Handler,
 		},
 		{
 			MethodName: "OnFileUpload",
-			Handler:    _CloudStoreService_OnFileUpload_Handler,
+			Handler:    _FileStoreService_OnFileUpload_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
