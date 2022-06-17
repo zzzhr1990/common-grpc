@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package v5.services;
+
+//import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/v5/offline/systemtask";
+import "common/common_entity.proto";
+option csharp_namespace = "GrpcOfflineSystem";
+
+
+service SystemTaskService {
+    rpc create (SystemTask) returns (SystemTask) {}
+    // rpc parse (SystemTask) returns (SystemTaskDetail) {}
+    rpc update (SystemTask) returns (SystemTask) {}
+    // rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
+    // rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
+    rpc get (SystemTask) returns (SystemTask) {}
+    rpc getList (.services.StringListEntity) returns (SystemTaskList) {}
+    // getDetail detail
+    rpc getDetail (SystemTask) returns (SystemTaskDetail) {}
+
+    rpc fetch (SystemTaskFetchRequest) returns (SystemTaskList) {}
+    //rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
+    // rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
+    rpc uploadFile (TaskFile) returns (TaskFile) {}
+    rpc updateFile (TaskFile) returns (TaskFile) {}
+    // rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
+    rpc complete(SystemTask) returns (SystemTask) {}
+    // ErrorRequest
+    rpc error(SystemTask) returns (SystemTask) {}
+}
+
+/*
+message BatchGetRequest {
+    repeated string identities = 1;
+}
+
+message BatchGetResponse {
+    repeated SystemOfflineTaskDetail data = 1;
+}
+
+*/
+message SystemTaskFetchRequest {
+    repeated int32 type = 1;
+    repeated int32  status = 2;
+    int32  next_status = 3;
+    int64  limit = 4;
+    string consumer = 5;
+    bool recover = 6;
+    bool desc = 7;
+}
+
+message SystemTaskList {
+    repeated SystemTask data = 1;
+}
+
+message TaskFile {
+    string identity = 1;
+    string  task_identity = 2;
+    int64 create_time = 3;
+    string name = 5;
+    string path = 6;
+    string hash = 7;
+    int64 size = 8;
+    int64 processed_size = 9;
+    int32  status = 10;
+    int32  flag = 11;
+    int32  file_index = 12;
+    bool  finish = 13;
+    bool  directory = 14;
+}
+
+message SystemTask {
+    string  identity = 1;
+    int64 size = 2;
+    int64 create_user = 3;
+    int64 create_time = 4;
+    string name = 5;
+    int32 type = 6;
+    int32  status = 7;
+    int32  flag = 8;
+    int64 processed_size = 9;
+    int32 error_code = 10;
+    string error_message = 11;
+    string create_addr = 12;
+    string data = 13;
+    string text_link = 14;
+    int32 error_count = 15;
+    int64 error_time = 16;
+    int32 op = 17;
+    string file_hash = 18;
+    string username = 19;
+    string password = 20;
+}
+
+message SystemTaskDetail {
+    string  identity = 1;
+    SystemTask  task = 2;
+    repeated TaskFile data = 3;
+}

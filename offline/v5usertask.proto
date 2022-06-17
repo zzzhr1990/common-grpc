@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package v5.services;
+
+option csharp_namespace = "GrpcOfflineUser";
+option go_package = "github.com/zzzhr1990/common-grpc/go/v5/offline/usertask";
+import "common/common_entity.proto";
+
+service UserTaskService {
+    rpc Add (AddUserTaskRequest) returns (UserTaskListResponse) {}
+    rpc List (UserTaskListRequest) returns (UserTaskListResponse) {}
+    rpc Page (UserTaskPageRequest) returns (UserTaskPageResponse) {}
+    rpc Delete (BatchUserTaskRequest) returns (.services.BatchTaskResult) {}
+    // rpc BatchDelete (BatchUserTaskRequest) returns (.services.BatchTaskResult) {}
+    rpc GetQuota(QuotaRequest) returns (QuotaResponse) {}
+
+}
+
+message AddUserTaskRequest {
+    int64 user_identity = 1;
+    repeated UserTask data = 2;
+    string save_path = 3;
+    string save_identity = 4;
+    string create_address = 5;
+    int32 op = 6;
+    bool force_start = 7;
+}
+
+message UserTask {
+    string task_identity = 1;
+    int64 user_identity = 2;
+    int64 create_time = 3;
+    string name = 4;
+    int32 type = 5;
+    int32  status = 6;
+    int64 size = 7;
+    int64 processed_size = 8;
+    int64 progress = 9;
+    int32 error_code = 10;
+	string error_message = 11;
+    string save_path = 12;
+    string save_identity = 13;
+    string access_path = 14;
+    string access_identity = 15;
+	string file_mime = 16;
+	int32 file_type = 17;
+	string create_address = 18;
+    string data = 19;
+    string text_link = 20;
+    string file_hash = 21;
+    int32 op = 22;
+    string username = 23;
+    string password = 24;
+    int32 kind = 25;
+    string addon = 26;
+}
+
+message UserTaskListResponse {
+    repeated UserTask data = 2;
+}
+
+message UserTaskListProps {
+    int64 user_identity = 3;
+    repeated int32 type = 7;
+    repeated .services.OrderByRequest order_by = 8;
+}
+
+message UserTaskListRequest {
+    UserTaskListProps props = 1;
+    .services.ListInfo list_info = 2;
+}
+
+message UserTaskPageRequest {
+    UserTaskListProps props = 1;
+    .services.PageInfo page_info = 2;
+}
+
+message UserTaskPageResponse {
+    repeated UserTask data = 2;
+    .services.PageInfo page_info = 3;
+}
+
+message BatchUserTaskRequest {
+    repeated string identity = 1;
+    int64 user_identity = 2;
+    int32 type = 3;
+    int32 status = 4;
+    int32 op = 5;
+}
+
+message QuotaRequest {
+    int64 user_identity = 1;
+    int32 type = 2;
+}
+
+message QuotaResponse {
+    int64 user_identity = 1;
+    int32 type = 2;
+    int64 today_used = 3;
+    int64 today_available = 4;
+}
