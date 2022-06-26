@@ -86,7 +86,7 @@ message SystemTask {
     string data = 13;
     string text_link = 14;
     int32 error_count = 15;
-    int64 error_time = 16;
+    int64 update_time = 16;
     int32 op = 17;
     string file_hash = 18;
     string username = 19;
