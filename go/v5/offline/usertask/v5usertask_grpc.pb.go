@@ -24,6 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserTaskServiceClient interface {
 	Add(ctx context.Context, in *AddUserTaskRequest, opts ...grpc.CallOption) (*UserTaskListResponse, error)
+	AddThirdParty(ctx context.Context, in *AddUserTaskRequest, opts ...grpc.CallOption) (*UserTaskListResponse, error)
 	List(ctx context.Context, in *UserTaskListRequest, opts ...grpc.CallOption) (*UserTaskListResponse, error)
 	Page(ctx context.Context, in *UserTaskPageRequest, opts ...grpc.CallOption) (*UserTaskPageResponse, error)
 	Delete(ctx context.Context, in *BatchUserTaskRequest, opts ...grpc.CallOption) (*common.BatchTaskResult, error)
@@ -42,6 +43,15 @@ func NewUserTaskServiceClient(cc grpc.ClientConnInterface) UserTaskServiceClient
 func (c *userTaskServiceClient) Add(ctx context.Context, in *AddUserTaskRequest, opts ...grpc.CallOption) (*UserTaskListResponse, error) {
 	out := new(UserTaskListResponse)
 	err := c.cc.Invoke(ctx, "/v5.services.UserTaskService/Add", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userTaskServiceClient) AddThirdParty(ctx context.Context, in *AddUserTaskRequest, opts ...grpc.CallOption) (*UserTaskListResponse, error) {
+	out := new(UserTaskListResponse)
+	err := c.cc.Invoke(ctx, "/v5.services.UserTaskService/AddThirdParty", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,6 +99,7 @@ func (c *userTaskServiceClient) GetQuota(ctx context.Context, in *QuotaRequest, 
 // for forward compatibility
 type UserTaskServiceServer interface {
 	Add(context.Context, *AddUserTaskRequest) (*UserTaskListResponse, error)
+	AddThirdParty(context.Context, *AddUserTaskRequest) (*UserTaskListResponse, error)
 	List(context.Context, *UserTaskListRequest) (*UserTaskListResponse, error)
 	Page(context.Context, *UserTaskPageRequest) (*UserTaskPageResponse, error)
 	Delete(context.Context, *BatchUserTaskRequest) (*common.BatchTaskResult, error)
@@ -103,6 +114,9 @@ type UnimplementedUserTaskServiceServer struct {
 
 func (UnimplementedUserTaskServiceServer) Add(context.Context, *AddUserTaskRequest) (*UserTaskListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
+}
+func (UnimplementedUserTaskServiceServer) AddThirdParty(context.Context, *AddUserTaskRequest) (*UserTaskListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddThirdParty not implemented")
 }
 func (UnimplementedUserTaskServiceServer) List(context.Context, *UserTaskListRequest) (*UserTaskListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
@@ -143,6 +157,24 @@ func _UserTaskService_Add_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserTaskServiceServer).Add(ctx, req.(*AddUserTaskRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserTaskService_AddThirdParty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddUserTaskRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserTaskServiceServer).AddThirdParty(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.UserTaskService/AddThirdParty",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserTaskServiceServer).AddThirdParty(ctx, req.(*AddUserTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -229,6 +261,10 @@ var UserTaskService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Add",
 			Handler:    _UserTaskService_Add_Handler,
+		},
+		{
+			MethodName: "AddThirdParty",
+			Handler:    _UserTaskService_AddThirdParty_Handler,
 		},
 		{
 			MethodName: "List",

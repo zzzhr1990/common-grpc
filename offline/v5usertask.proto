@@ -8,6 +8,7 @@ import "common/common_entity.proto";
 
 service UserTaskService {
     rpc Add (AddUserTaskRequest) returns (UserTaskListResponse) {}
+    rpc AddThirdParty (AddUserTaskRequest) returns (UserTaskListResponse) {}
     rpc List (UserTaskListRequest) returns (UserTaskListResponse) {}
     rpc Page (UserTaskPageRequest) returns (UserTaskPageResponse) {}
     rpc Delete (BatchUserTaskRequest) returns (.services.BatchTaskResult) {}
