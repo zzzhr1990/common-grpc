@@ -53,7 +53,7 @@ func NewSystemTaskServiceClient(cc grpc.ClientConnInterface) SystemTaskServiceCl
 
 func (c *systemTaskServiceClient) Create(ctx context.Context, in *SystemTask, opts ...grpc.CallOption) (*SystemTask, error) {
 	out := new(SystemTask)
-	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/create", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func (c *systemTaskServiceClient) Create(ctx context.Context, in *SystemTask, op
 
 func (c *systemTaskServiceClient) Update(ctx context.Context, in *SystemTask, opts ...grpc.CallOption) (*SystemTask, error) {
 	out := new(SystemTask)
-	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/update", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +71,7 @@ func (c *systemTaskServiceClient) Update(ctx context.Context, in *SystemTask, op
 
 func (c *systemTaskServiceClient) Get(ctx context.Context, in *SystemTask, opts ...grpc.CallOption) (*SystemTask, error) {
 	out := new(SystemTask)
-	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func (c *systemTaskServiceClient) Get(ctx context.Context, in *SystemTask, opts 
 
 func (c *systemTaskServiceClient) GetList(ctx context.Context, in *common.StringListEntity, opts ...grpc.CallOption) (*SystemTaskList, error) {
 	out := new(SystemTaskList)
-	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/getList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/GetList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +89,7 @@ func (c *systemTaskServiceClient) GetList(ctx context.Context, in *common.String
 
 func (c *systemTaskServiceClient) GetDetail(ctx context.Context, in *SystemTask, opts ...grpc.CallOption) (*SystemTaskDetail, error) {
 	out := new(SystemTaskDetail)
-	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/getDetail", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/GetDetail", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +98,7 @@ func (c *systemTaskServiceClient) GetDetail(ctx context.Context, in *SystemTask,
 
 func (c *systemTaskServiceClient) Fetch(ctx context.Context, in *SystemTaskFetchRequest, opts ...grpc.CallOption) (*SystemTaskList, error) {
 	out := new(SystemTaskList)
-	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/fetch", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/Fetch", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -107,7 +107,7 @@ func (c *systemTaskServiceClient) Fetch(ctx context.Context, in *SystemTaskFetch
 
 func (c *systemTaskServiceClient) UploadFile(ctx context.Context, in *TaskFile, opts ...grpc.CallOption) (*TaskFile, error) {
 	out := new(TaskFile)
-	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/uploadFile", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/UploadFile", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -116,7 +116,7 @@ func (c *systemTaskServiceClient) UploadFile(ctx context.Context, in *TaskFile, 
 
 func (c *systemTaskServiceClient) UpdateFile(ctx context.Context, in *TaskFile, opts ...grpc.CallOption) (*TaskFile, error) {
 	out := new(TaskFile)
-	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/updateFile", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/UpdateFile", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +125,7 @@ func (c *systemTaskServiceClient) UpdateFile(ctx context.Context, in *TaskFile, 
 
 func (c *systemTaskServiceClient) Complete(ctx context.Context, in *SystemTask, opts ...grpc.CallOption) (*SystemTask, error) {
 	out := new(SystemTask)
-	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/complete", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/Complete", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -134,7 +134,7 @@ func (c *systemTaskServiceClient) Complete(ctx context.Context, in *SystemTask, 
 
 func (c *systemTaskServiceClient) Error(ctx context.Context, in *SystemTask, opts ...grpc.CallOption) (*SystemTask, error) {
 	out := new(SystemTask)
-	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/error", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.SystemTaskService/Error", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -223,7 +223,7 @@ func _SystemTaskService_Create_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.SystemTaskService/create",
+		FullMethod: "/v5.services.SystemTaskService/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemTaskServiceServer).Create(ctx, req.(*SystemTask))
@@ -241,7 +241,7 @@ func _SystemTaskService_Update_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.SystemTaskService/update",
+		FullMethod: "/v5.services.SystemTaskService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemTaskServiceServer).Update(ctx, req.(*SystemTask))
@@ -259,7 +259,7 @@ func _SystemTaskService_Get_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.SystemTaskService/get",
+		FullMethod: "/v5.services.SystemTaskService/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemTaskServiceServer).Get(ctx, req.(*SystemTask))
@@ -277,7 +277,7 @@ func _SystemTaskService_GetList_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.SystemTaskService/getList",
+		FullMethod: "/v5.services.SystemTaskService/GetList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemTaskServiceServer).GetList(ctx, req.(*common.StringListEntity))
@@ -295,7 +295,7 @@ func _SystemTaskService_GetDetail_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.SystemTaskService/getDetail",
+		FullMethod: "/v5.services.SystemTaskService/GetDetail",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemTaskServiceServer).GetDetail(ctx, req.(*SystemTask))
@@ -313,7 +313,7 @@ func _SystemTaskService_Fetch_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.SystemTaskService/fetch",
+		FullMethod: "/v5.services.SystemTaskService/Fetch",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemTaskServiceServer).Fetch(ctx, req.(*SystemTaskFetchRequest))
@@ -331,7 +331,7 @@ func _SystemTaskService_UploadFile_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.SystemTaskService/uploadFile",
+		FullMethod: "/v5.services.SystemTaskService/UploadFile",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemTaskServiceServer).UploadFile(ctx, req.(*TaskFile))
@@ -349,7 +349,7 @@ func _SystemTaskService_UpdateFile_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.SystemTaskService/updateFile",
+		FullMethod: "/v5.services.SystemTaskService/UpdateFile",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemTaskServiceServer).UpdateFile(ctx, req.(*TaskFile))
@@ -367,7 +367,7 @@ func _SystemTaskService_Complete_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.SystemTaskService/complete",
+		FullMethod: "/v5.services.SystemTaskService/Complete",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemTaskServiceServer).Complete(ctx, req.(*SystemTask))
@@ -385,7 +385,7 @@ func _SystemTaskService_Error_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.SystemTaskService/error",
+		FullMethod: "/v5.services.SystemTaskService/Error",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SystemTaskServiceServer).Error(ctx, req.(*SystemTask))
@@ -401,43 +401,43 @@ var SystemTaskService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*SystemTaskServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "create",
+			MethodName: "Create",
 			Handler:    _SystemTaskService_Create_Handler,
 		},
 		{
-			MethodName: "update",
+			MethodName: "Update",
 			Handler:    _SystemTaskService_Update_Handler,
 		},
 		{
-			MethodName: "get",
+			MethodName: "Get",
 			Handler:    _SystemTaskService_Get_Handler,
 		},
 		{
-			MethodName: "getList",
+			MethodName: "GetList",
 			Handler:    _SystemTaskService_GetList_Handler,
 		},
 		{
-			MethodName: "getDetail",
+			MethodName: "GetDetail",
 			Handler:    _SystemTaskService_GetDetail_Handler,
 		},
 		{
-			MethodName: "fetch",
+			MethodName: "Fetch",
 			Handler:    _SystemTaskService_Fetch_Handler,
 		},
 		{
-			MethodName: "uploadFile",
+			MethodName: "UploadFile",
 			Handler:    _SystemTaskService_UploadFile_Handler,
 		},
 		{
-			MethodName: "updateFile",
+			MethodName: "UpdateFile",
 			Handler:    _SystemTaskService_UpdateFile_Handler,
 		},
 		{
-			MethodName: "complete",
+			MethodName: "Complete",
 			Handler:    _SystemTaskService_Complete_Handler,
 		},
 		{
-			MethodName: "error",
+			MethodName: "Error",
 			Handler:    _SystemTaskService_Error_Handler,
 		},
 	},

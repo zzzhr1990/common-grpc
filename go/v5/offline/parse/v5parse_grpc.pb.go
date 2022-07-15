@@ -35,7 +35,7 @@ func NewTaskParseServiceClient(cc grpc.ClientConnInterface) TaskParseServiceClie
 
 func (c *taskParseServiceClient) Parse(ctx context.Context, in *ParseTaskRequest, opts ...grpc.CallOption) (*ParseTaskResponse, error) {
 	out := new(ParseTaskResponse)
-	err := c.cc.Invoke(ctx, "/v5.services.TaskParseService/parse", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.TaskParseService/Parse", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func _TaskParseService_Parse_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.TaskParseService/parse",
+		FullMethod: "/v5.services.TaskParseService/Parse",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TaskParseServiceServer).Parse(ctx, req.(*ParseTaskRequest))
@@ -96,7 +96,7 @@ var TaskParseService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*TaskParseServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "parse",
+			MethodName: "Parse",
 			Handler:    _TaskParseService_Parse_Handler,
 		},
 	},

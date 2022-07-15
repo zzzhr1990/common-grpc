@@ -8,7 +8,7 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/v5/offline/parse";
 option csharp_namespace = "GrpcOfflineSystem";
 
 service TaskParseService {
-    rpc parse (ParseTaskRequest) returns (ParseTaskResponse) {}
+    rpc Parse (ParseTaskRequest) returns (ParseTaskResponse) {}
 }
 
 message ParseTaskRequest {

@@ -9,25 +9,25 @@ option csharp_namespace = "GrpcOfflineSystem";
 
 
 service SystemTaskService {
-    rpc create (SystemTask) returns (SystemTask) {}
+    rpc Create (SystemTask) returns (SystemTask) {}
     // rpc parse (SystemTask) returns (SystemTaskDetail) {}
-    rpc update (SystemTask) returns (SystemTask) {}
+    rpc Update (SystemTask) returns (SystemTask) {}
     // rpc updateProgress (UpdateProgressRequest) returns (BoolEntity) {}
     // rpc batchGet (BatchGetRequest) returns (BatchGetResponse) {}
-    rpc get (SystemTask) returns (SystemTask) {}
-    rpc getList (.services.StringListEntity) returns (SystemTaskList) {}
+    rpc Get (SystemTask) returns (SystemTask) {}
+    rpc GetList (.services.StringListEntity) returns (SystemTaskList) {}
     // getDetail detail
-    rpc getDetail (SystemTask) returns (SystemTaskDetail) {}
+    rpc GetDetail (SystemTask) returns (SystemTaskDetail) {}
 
-    rpc fetch (SystemTaskFetchRequest) returns (SystemTaskList) {}
+    rpc Fetch (SystemTaskFetchRequest) returns (SystemTaskList) {}
     //rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
     // rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
-    rpc uploadFile (TaskFile) returns (TaskFile) {}
-    rpc updateFile (TaskFile) returns (TaskFile) {}
+    rpc UploadFile (TaskFile) returns (TaskFile) {}
+    rpc UpdateFile (TaskFile) returns (TaskFile) {}
     // rpc changeStatus (StatusChangeRequest) returns (BoolEntity) {}
-    rpc complete(SystemTask) returns (SystemTask) {}
+    rpc Complete(SystemTask) returns (SystemTask) {}
     // ErrorRequest
-    rpc error(SystemTask) returns (SystemTask) {}
+    rpc Error(SystemTask) returns (SystemTask) {}
 }
 
 /*
