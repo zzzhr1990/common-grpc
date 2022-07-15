@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package v5.services;
+
+// import "service_one/messages.proto";
+option go_package = "github.com/zzzhr1990/common-grpc/go/v5/offline/parse";
+// import "common/common_entity.proto";
+option csharp_namespace = "GrpcOfflineSystem";
+
+service TaskParseService {
+    rpc parse (ParseTaskRequest) returns (ParseTaskResponse) {}
+}
+
+message ParseTaskRequest {
+    string text_link = 1;
+    string file_hash = 2;
+    string username = 3;
+    string password = 4;
+    int32 op = 5;
+}
+
+message ParseTaskResponse {
+    string text_link = 1;
+    string file_hash = 2;
+    string username = 3;
+    string password = 4;
+    string identity = 5;
+    string name = 6;
+    int64 size = 7;
+    repeated ParseTaskFile data = 8;
+    int32 type = 9;
+}
+
+message ParseTaskFile {
+    string identity = 1;
+    string path = 2;
+    int64 size = 3;
+    string name = 4;
+}
