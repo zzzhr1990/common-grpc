@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package v5.services;
+
+option go_package = "github.com/zzzhr1990/common-grpc/go/v5/system";
+
+message SimpleTask {
+    string url = 1; //id
+    int32 type = 2; // type
+    string message = 3; 
+}

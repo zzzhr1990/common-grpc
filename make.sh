@@ -11,7 +11,7 @@ export PATH=$PATH:$GOPATH/bin
 #
 # protoc -I ../def --go_out=plugins=grpc:../go ../def/helloworld.proto
 # -I ../common
-DIRS=("common" "task" "filestore" "offline")
+DIRS=("common" "task" "filestore" "offline" "system")
 
 
 rm -rf ./go_temp
