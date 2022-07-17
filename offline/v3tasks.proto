@@ -34,7 +34,7 @@ message OldTaskFile {
     int32  file_index = 12;
     bool  finish = 13;
     bool  directory = 14;
-    // OldFileInfo v3_old_file_info = 15;
+    OldFileInfo v3_old_file_info = 15;
 }
 
 message OldSystemTask {
