@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package v5.services;
+
+option go_package = "github.com/zzzhr1990/common-grpc/go/v3/offline/oldsvc";
+
+service OldTaskService {
+    // getDetail detail
+    rpc GetDetail (OldSystemTask) returns (OldSystemTaskDetail) {}
+
+}
+
+
+
+message OldTaskFile {
+    string identity = 1;
+    string  task_identity = 2;
+    int64 create_time = 3;
+    string name = 5;
+    string path = 6;
+    string hash = 7;
+    int64 size = 8;
+    int64 processed_size = 9;
+    int32  status = 10;
+    int32  flag = 11;
+    int32  file_index = 12;
+    bool  finish = 13;
+    bool  directory = 14;
+}
+
+message OldSystemTask {
+    string  identity = 1;
+    int64 size = 2;
+    int64 create_user = 3;
+    int64 create_time = 4;
+    string name = 5;
+    int32 type = 6;
+    int32  status = 7;
+    int32  flag = 8;
+    int64 processed_size = 9;
+    int32 error_code = 10;
+    string error_message = 11;
+    string create_addr = 12;
+    string data = 13;
+    string text_link = 14;
+    int32 error_count = 15;
+    int64 update_time = 16;
+    int32 op = 17;
+    string file_hash = 18;
+    string username = 19;
+    string password = 20;
+}
+
+message OldSystemTaskDetail {
+    string  identity = 1;
+    OldSystemTask  task = 2;
+    repeated OldTaskFile data = 3;
+}

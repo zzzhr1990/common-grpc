@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package v5.services;
+
+option go_package = "github.com/zzzhr1990/common-grpc/go/v3/oldfile";
+
+service OldFileService {
+    // getDetail detail
+    rpc Get (OldFile) returns (OldFile) {}
+
+}
+
+
+message OldFile {
+    string hash = 1;
+    // string  task_identity = 2;
+    int64 size = 2;
+    string sha = 3;
+    string block_sha = 4;
+}
