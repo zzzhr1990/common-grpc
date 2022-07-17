@@ -6,10 +6,18 @@ option go_package = "github.com/zzzhr1990/common-grpc/go/v3/offline/oldsvc";
 
 service OldTaskService {
     // getDetail detail
-    rpc GetDetail (OldSystemTask) returns (OldSystemTaskDetail) {}
+    rpc Get (OldSystemTask) returns (OldSystemTaskDetail) {}
+    rpc GetFileInfo (OldFileInfo) returns (OldFileInfo) {}
 
 }
 
+message OldFileInfo {
+    string hash = 1;
+    // string  task_identity = 2;
+    int64 size = 2;
+    string sha = 3;
+    string block_sha = 4;
+}
 
 
 message OldTaskFile {

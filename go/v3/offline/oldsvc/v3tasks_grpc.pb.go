@@ -23,7 +23,8 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type OldTaskServiceClient interface {
 	// getDetail detail
-	GetDetail(ctx context.Context, in *OldSystemTask, opts ...grpc.CallOption) (*OldSystemTaskDetail, error)
+	Get(ctx context.Context, in *OldSystemTask, opts ...grpc.CallOption) (*OldSystemTaskDetail, error)
+	GetFileInfo(ctx context.Context, in *OldFileInfo, opts ...grpc.CallOption) (*OldFileInfo, error)
 }
 
 type oldTaskServiceClient struct {
@@ -34,9 +35,18 @@ func NewOldTaskServiceClient(cc grpc.ClientConnInterface) OldTaskServiceClient {
 	return &oldTaskServiceClient{cc}
 }
 
-func (c *oldTaskServiceClient) GetDetail(ctx context.Context, in *OldSystemTask, opts ...grpc.CallOption) (*OldSystemTaskDetail, error) {
+func (c *oldTaskServiceClient) Get(ctx context.Context, in *OldSystemTask, opts ...grpc.CallOption) (*OldSystemTaskDetail, error) {
 	out := new(OldSystemTaskDetail)
-	err := c.cc.Invoke(ctx, "/v5.services.OldTaskService/GetDetail", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/v5.services.OldTaskService/Get", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *oldTaskServiceClient) GetFileInfo(ctx context.Context, in *OldFileInfo, opts ...grpc.CallOption) (*OldFileInfo, error) {
+	out := new(OldFileInfo)
+	err := c.cc.Invoke(ctx, "/v5.services.OldTaskService/GetFileInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +58,8 @@ func (c *oldTaskServiceClient) GetDetail(ctx context.Context, in *OldSystemTask,
 // for forward compatibility
 type OldTaskServiceServer interface {
 	// getDetail detail
-	GetDetail(context.Context, *OldSystemTask) (*OldSystemTaskDetail, error)
+	Get(context.Context, *OldSystemTask) (*OldSystemTaskDetail, error)
+	GetFileInfo(context.Context, *OldFileInfo) (*OldFileInfo, error)
 	mustEmbedUnimplementedOldTaskServiceServer()
 }
 
@@ -56,8 +67,11 @@ type OldTaskServiceServer interface {
 type UnimplementedOldTaskServiceServer struct {
 }
 
-func (UnimplementedOldTaskServiceServer) GetDetail(context.Context, *OldSystemTask) (*OldSystemTaskDetail, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetDetail not implemented")
+func (UnimplementedOldTaskServiceServer) Get(context.Context, *OldSystemTask) (*OldSystemTaskDetail, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedOldTaskServiceServer) GetFileInfo(context.Context, *OldFileInfo) (*OldFileInfo, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetFileInfo not implemented")
 }
 func (UnimplementedOldTaskServiceServer) mustEmbedUnimplementedOldTaskServiceServer() {}
 
@@ -72,20 +86,38 @@ func RegisterOldTaskServiceServer(s grpc.ServiceRegistrar, srv OldTaskServiceSer
 	s.RegisterService(&OldTaskService_ServiceDesc, srv)
 }
 
-func _OldTaskService_GetDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OldTaskService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OldSystemTask)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OldTaskServiceServer).GetDetail(ctx, in)
+		return srv.(OldTaskServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/v5.services.OldTaskService/GetDetail",
+		FullMethod: "/v5.services.OldTaskService/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OldTaskServiceServer).GetDetail(ctx, req.(*OldSystemTask))
+		return srv.(OldTaskServiceServer).Get(ctx, req.(*OldSystemTask))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OldTaskService_GetFileInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OldFileInfo)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OldTaskServiceServer).GetFileInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.OldTaskService/GetFileInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OldTaskServiceServer).GetFileInfo(ctx, req.(*OldFileInfo))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -98,8 +130,12 @@ var OldTaskService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*OldTaskServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetDetail",
-			Handler:    _OldTaskService_GetDetail_Handler,
+			MethodName: "Get",
+			Handler:    _OldTaskService_Get_Handler,
+		},
+		{
+			MethodName: "GetFileInfo",
+			Handler:    _OldTaskService_GetFileInfo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
