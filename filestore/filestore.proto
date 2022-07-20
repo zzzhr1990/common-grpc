@@ -24,7 +24,7 @@ service FileStoreService {
 }
 
 message FileStore {
-    string  cid = 1;
+    string  hash = 1;
     int64 size = 2;
     string mime = 3;
     int64 upload_user = 4;
@@ -54,4 +54,5 @@ message QuickMapping {
     int64 size = 2;
     string sha1 = 3;
     string block_sha1 = 4;
+    string  hash = 5;
 }
