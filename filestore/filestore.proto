@@ -16,6 +16,8 @@ service FileStoreService {
     rpc GetDownloadAddress (FileStore) returns (FileStore) {}
     rpc BatchDownloadAddress(.services.StringListEntity)returns (FileStoreList) {}
     rpc OnFileUpload (FileStore) returns (FileStore) {}
+    rpc CreateQuickMapping (QuickMapping) returns (QuickMapping) {}
+    rpc GetQuickMapping (QuickMapping) returns (QuickMapping) {}
     // rpc batchGetByHash (StringListEntity) returns (FileStoreList) {}
     // rpc getOrEmpty (FileStore) returns (FileStore) {}
     // rpc GetInnerDownloadAddress (FileStore) returns (FileStore) {}
@@ -45,4 +47,11 @@ message FileStore {
 
 message FileStoreList {
     repeated FileStore data = 1;
+}
+
+message QuickMapping {
+    string index = 1;
+    int64 size = 2;
+    string sha1 = 3;
+    string block_sha1 = 4;
 }

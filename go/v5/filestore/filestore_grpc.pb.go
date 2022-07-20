@@ -32,6 +32,8 @@ type FileStoreServiceClient interface {
 	GetDownloadAddress(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
 	BatchDownloadAddress(ctx context.Context, in *common.StringListEntity, opts ...grpc.CallOption) (*FileStoreList, error)
 	OnFileUpload(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
+	CreateQuickMapping(ctx context.Context, in *QuickMapping, opts ...grpc.CallOption) (*QuickMapping, error)
+	GetQuickMapping(ctx context.Context, in *QuickMapping, opts ...grpc.CallOption) (*QuickMapping, error)
 }
 
 type fileStoreServiceClient struct {
@@ -105,6 +107,24 @@ func (c *fileStoreServiceClient) OnFileUpload(ctx context.Context, in *FileStore
 	return out, nil
 }
 
+func (c *fileStoreServiceClient) CreateQuickMapping(ctx context.Context, in *QuickMapping, opts ...grpc.CallOption) (*QuickMapping, error) {
+	out := new(QuickMapping)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/CreateQuickMapping", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileStoreServiceClient) GetQuickMapping(ctx context.Context, in *QuickMapping, opts ...grpc.CallOption) (*QuickMapping, error) {
+	out := new(QuickMapping)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/GetQuickMapping", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileStoreServiceServer is the server API for FileStoreService service.
 // All implementations must embed UnimplementedFileStoreServiceServer
 // for forward compatibility
@@ -118,6 +138,8 @@ type FileStoreServiceServer interface {
 	GetDownloadAddress(context.Context, *FileStore) (*FileStore, error)
 	BatchDownloadAddress(context.Context, *common.StringListEntity) (*FileStoreList, error)
 	OnFileUpload(context.Context, *FileStore) (*FileStore, error)
+	CreateQuickMapping(context.Context, *QuickMapping) (*QuickMapping, error)
+	GetQuickMapping(context.Context, *QuickMapping) (*QuickMapping, error)
 	mustEmbedUnimplementedFileStoreServiceServer()
 }
 
@@ -145,6 +167,12 @@ func (UnimplementedFileStoreServiceServer) BatchDownloadAddress(context.Context,
 }
 func (UnimplementedFileStoreServiceServer) OnFileUpload(context.Context, *FileStore) (*FileStore, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OnFileUpload not implemented")
+}
+func (UnimplementedFileStoreServiceServer) CreateQuickMapping(context.Context, *QuickMapping) (*QuickMapping, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateQuickMapping not implemented")
+}
+func (UnimplementedFileStoreServiceServer) GetQuickMapping(context.Context, *QuickMapping) (*QuickMapping, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetQuickMapping not implemented")
 }
 func (UnimplementedFileStoreServiceServer) mustEmbedUnimplementedFileStoreServiceServer() {}
 
@@ -285,6 +313,42 @@ func _FileStoreService_OnFileUpload_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileStoreService_CreateQuickMapping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuickMapping)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileStoreServiceServer).CreateQuickMapping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileStoreService/CreateQuickMapping",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileStoreServiceServer).CreateQuickMapping(ctx, req.(*QuickMapping))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileStoreService_GetQuickMapping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuickMapping)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileStoreServiceServer).GetQuickMapping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileStoreService/GetQuickMapping",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileStoreServiceServer).GetQuickMapping(ctx, req.(*QuickMapping))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileStoreService_ServiceDesc is the grpc.ServiceDesc for FileStoreService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -319,6 +383,14 @@ var FileStoreService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnFileUpload",
 			Handler:    _FileStoreService_OnFileUpload_Handler,
+		},
+		{
+			MethodName: "CreateQuickMapping",
+			Handler:    _FileStoreService_CreateQuickMapping_Handler,
+		},
+		{
+			MethodName: "GetQuickMapping",
+			Handler:    _FileStoreService_GetQuickMapping_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
