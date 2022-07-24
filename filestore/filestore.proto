@@ -54,5 +54,6 @@ message QuickMapping {
     int64 size = 2;
     string sha1 = 3;
     string block_sha1 = 4;
-    string  hash = 5;
+    string  etag = 5;
+    string  hash = 6;
 }
