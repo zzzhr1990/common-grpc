@@ -27,6 +27,7 @@ type FileStoreServiceClient interface {
 	// rpc tryCreate (FileStore) returns (FileStore) {}
 	// rpc batchCreate (FileStoreList) returns (FileStoreList) {}
 	Get(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
+	Random(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
 	Update(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
 	BatchGet(ctx context.Context, in *FileStoreList, opts ...grpc.CallOption) (*FileStoreList, error)
 	GetDownloadAddress(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
@@ -56,6 +57,15 @@ func (c *fileStoreServiceClient) Create(ctx context.Context, in *FileStore, opts
 func (c *fileStoreServiceClient) Get(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error) {
 	out := new(FileStore)
 	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/Get", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileStoreServiceClient) Random(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error) {
+	out := new(FileStore)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/Random", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -133,6 +143,7 @@ type FileStoreServiceServer interface {
 	// rpc tryCreate (FileStore) returns (FileStore) {}
 	// rpc batchCreate (FileStoreList) returns (FileStoreList) {}
 	Get(context.Context, *FileStore) (*FileStore, error)
+	Random(context.Context, *FileStore) (*FileStore, error)
 	Update(context.Context, *FileStore) (*FileStore, error)
 	BatchGet(context.Context, *FileStoreList) (*FileStoreList, error)
 	GetDownloadAddress(context.Context, *FileStore) (*FileStore, error)
@@ -152,6 +163,9 @@ func (UnimplementedFileStoreServiceServer) Create(context.Context, *FileStore) (
 }
 func (UnimplementedFileStoreServiceServer) Get(context.Context, *FileStore) (*FileStore, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedFileStoreServiceServer) Random(context.Context, *FileStore) (*FileStore, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Random not implemented")
 }
 func (UnimplementedFileStoreServiceServer) Update(context.Context, *FileStore) (*FileStore, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
@@ -219,6 +233,24 @@ func _FileStoreService_Get_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FileStoreServiceServer).Get(ctx, req.(*FileStore))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileStoreService_Random_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileStore)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileStoreServiceServer).Random(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileStoreService/Random",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileStoreServiceServer).Random(ctx, req.(*FileStore))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -363,6 +395,10 @@ var FileStoreService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Get",
 			Handler:    _FileStoreService_Get_Handler,
+		},
+		{
+			MethodName: "Random",
+			Handler:    _FileStoreService_Random_Handler,
 		},
 		{
 			MethodName: "Update",

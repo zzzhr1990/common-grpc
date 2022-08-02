@@ -11,6 +11,7 @@ service FileStoreService {
     // rpc tryCreate (FileStore) returns (FileStore) {}
     // rpc batchCreate (FileStoreList) returns (FileStoreList) {}
     rpc Get (FileStore) returns (FileStore) {}
+    rpc Random (FileStore) returns (FileStore) {}
     rpc Update (FileStore) returns (FileStore) {}
     rpc BatchGet (FileStoreList) returns (FileStoreList) {}
     rpc GetDownloadAddress (FileStore) returns (FileStore) {}
