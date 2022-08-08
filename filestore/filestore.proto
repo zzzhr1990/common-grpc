@@ -90,6 +90,6 @@ message SliceIndex {
     int64 size = 2;
     int64 create_time = 3;
     int64 fetch_time = 4;
-    repeated string parents = 7;
-    int32 version = 8;
+    repeated string parents = 5;
+    int32 version = 6;
 }
