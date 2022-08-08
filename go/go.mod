@@ -1,6 +1,6 @@
 module github.com/zzzhr1990/common-grpc/go
 
-go 1.19
+go 1.18
 
 require (
 	google.golang.org/grpc v1.48.0

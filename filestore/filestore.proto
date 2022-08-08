@@ -68,7 +68,7 @@ message QuickMapping {
 message FileSliceCollection {
     string  hash = 1;
     int64 size = 2;
-    string slice_length = 3;
+    int64 slice_length = 3;
     repeated Slice slices = 4;
     string sha1 = 5; // for fast verify
     // string head_sha1 = 5;
@@ -80,9 +80,7 @@ message Slice {
     int64 index = 3;
     int64 start_offset = 4;
     int64 end_offset = 5;
-    int64 fetch_time = 6;
-    string parent = 7;
-    int32 version = 8;
+    int32 version = 6;
 }
 
 message SliceIndex {
