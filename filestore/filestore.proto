@@ -19,6 +19,10 @@ service FileStoreService {
     rpc OnFileUpload (FileStore) returns (FileStore) {}
     rpc CreateQuickMapping (QuickMapping) returns (QuickMapping) {}
     rpc GetQuickMapping (QuickMapping) returns (QuickMapping) {}
+    rpc CreateSliceCollection (FileSliceCollection) returns (FileSliceCollection) {}
+    rpc AppendSliceCollection (FileSliceCollection) returns (FileSliceCollection) {}
+    rpc GetSliceCollection (FileSliceCollection) returns (FileSliceCollection) {}
+    rpc GetSliceIndex (SliceIndex) returns (SliceIndex) {}
     // rpc batchGetByHash (StringListEntity) returns (FileStoreList) {}
     // rpc getOrEmpty (FileStore) returns (FileStore) {}
     // rpc GetInnerDownloadAddress (FileStore) returns (FileStore) {}
@@ -61,7 +65,16 @@ message QuickMapping {
     string  md5 = 7;
 }
 
-message FileSlice {
+message FileSliceCollection {
+    string  hash = 1;
+    int64 size = 2;
+    string slice_length = 3;
+    repeated Slice slices = 4;
+    string sha1 = 5; // for fast verify
+    // string head_sha1 = 5;
+}
+
+message Slice {
     string  hash = 1;
     int64 size = 2;
     int64 index = 3;
@@ -69,5 +82,14 @@ message FileSlice {
     int64 end_offset = 5;
     int64 fetch_time = 6;
     string parent = 7;
+    int32 version = 8;
+}
+
+message SliceIndex {
+    string  hash = 1;
+    int64 size = 2;
+    int64 create_time = 3;
+    int64 fetch_time = 4;
+    repeated string parents = 7;
     int32 version = 8;
 }

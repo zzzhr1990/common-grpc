@@ -35,6 +35,10 @@ type FileStoreServiceClient interface {
 	OnFileUpload(ctx context.Context, in *FileStore, opts ...grpc.CallOption) (*FileStore, error)
 	CreateQuickMapping(ctx context.Context, in *QuickMapping, opts ...grpc.CallOption) (*QuickMapping, error)
 	GetQuickMapping(ctx context.Context, in *QuickMapping, opts ...grpc.CallOption) (*QuickMapping, error)
+	CreateSliceCollection(ctx context.Context, in *FileSliceCollection, opts ...grpc.CallOption) (*FileSliceCollection, error)
+	AppendSliceCollection(ctx context.Context, in *FileSliceCollection, opts ...grpc.CallOption) (*FileSliceCollection, error)
+	GetSliceCollection(ctx context.Context, in *FileSliceCollection, opts ...grpc.CallOption) (*FileSliceCollection, error)
+	GetSliceIndex(ctx context.Context, in *SliceIndex, opts ...grpc.CallOption) (*SliceIndex, error)
 }
 
 type fileStoreServiceClient struct {
@@ -135,6 +139,42 @@ func (c *fileStoreServiceClient) GetQuickMapping(ctx context.Context, in *QuickM
 	return out, nil
 }
 
+func (c *fileStoreServiceClient) CreateSliceCollection(ctx context.Context, in *FileSliceCollection, opts ...grpc.CallOption) (*FileSliceCollection, error) {
+	out := new(FileSliceCollection)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/CreateSliceCollection", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileStoreServiceClient) AppendSliceCollection(ctx context.Context, in *FileSliceCollection, opts ...grpc.CallOption) (*FileSliceCollection, error) {
+	out := new(FileSliceCollection)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/AppendSliceCollection", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileStoreServiceClient) GetSliceCollection(ctx context.Context, in *FileSliceCollection, opts ...grpc.CallOption) (*FileSliceCollection, error) {
+	out := new(FileSliceCollection)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/GetSliceCollection", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileStoreServiceClient) GetSliceIndex(ctx context.Context, in *SliceIndex, opts ...grpc.CallOption) (*SliceIndex, error) {
+	out := new(SliceIndex)
+	err := c.cc.Invoke(ctx, "/v5.services.FileStoreService/GetSliceIndex", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileStoreServiceServer is the server API for FileStoreService service.
 // All implementations must embed UnimplementedFileStoreServiceServer
 // for forward compatibility
@@ -151,6 +191,10 @@ type FileStoreServiceServer interface {
 	OnFileUpload(context.Context, *FileStore) (*FileStore, error)
 	CreateQuickMapping(context.Context, *QuickMapping) (*QuickMapping, error)
 	GetQuickMapping(context.Context, *QuickMapping) (*QuickMapping, error)
+	CreateSliceCollection(context.Context, *FileSliceCollection) (*FileSliceCollection, error)
+	AppendSliceCollection(context.Context, *FileSliceCollection) (*FileSliceCollection, error)
+	GetSliceCollection(context.Context, *FileSliceCollection) (*FileSliceCollection, error)
+	GetSliceIndex(context.Context, *SliceIndex) (*SliceIndex, error)
 	mustEmbedUnimplementedFileStoreServiceServer()
 }
 
@@ -187,6 +231,18 @@ func (UnimplementedFileStoreServiceServer) CreateQuickMapping(context.Context, *
 }
 func (UnimplementedFileStoreServiceServer) GetQuickMapping(context.Context, *QuickMapping) (*QuickMapping, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetQuickMapping not implemented")
+}
+func (UnimplementedFileStoreServiceServer) CreateSliceCollection(context.Context, *FileSliceCollection) (*FileSliceCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateSliceCollection not implemented")
+}
+func (UnimplementedFileStoreServiceServer) AppendSliceCollection(context.Context, *FileSliceCollection) (*FileSliceCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AppendSliceCollection not implemented")
+}
+func (UnimplementedFileStoreServiceServer) GetSliceCollection(context.Context, *FileSliceCollection) (*FileSliceCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetSliceCollection not implemented")
+}
+func (UnimplementedFileStoreServiceServer) GetSliceIndex(context.Context, *SliceIndex) (*SliceIndex, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetSliceIndex not implemented")
 }
 func (UnimplementedFileStoreServiceServer) mustEmbedUnimplementedFileStoreServiceServer() {}
 
@@ -381,6 +437,78 @@ func _FileStoreService_GetQuickMapping_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileStoreService_CreateSliceCollection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileSliceCollection)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileStoreServiceServer).CreateSliceCollection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileStoreService/CreateSliceCollection",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileStoreServiceServer).CreateSliceCollection(ctx, req.(*FileSliceCollection))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileStoreService_AppendSliceCollection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileSliceCollection)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileStoreServiceServer).AppendSliceCollection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileStoreService/AppendSliceCollection",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileStoreServiceServer).AppendSliceCollection(ctx, req.(*FileSliceCollection))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileStoreService_GetSliceCollection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileSliceCollection)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileStoreServiceServer).GetSliceCollection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileStoreService/GetSliceCollection",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileStoreServiceServer).GetSliceCollection(ctx, req.(*FileSliceCollection))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileStoreService_GetSliceIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SliceIndex)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileStoreServiceServer).GetSliceIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/v5.services.FileStoreService/GetSliceIndex",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileStoreServiceServer).GetSliceIndex(ctx, req.(*SliceIndex))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileStoreService_ServiceDesc is the grpc.ServiceDesc for FileStoreService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -427,6 +555,22 @@ var FileStoreService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetQuickMapping",
 			Handler:    _FileStoreService_GetQuickMapping_Handler,
+		},
+		{
+			MethodName: "CreateSliceCollection",
+			Handler:    _FileStoreService_CreateSliceCollection_Handler,
+		},
+		{
+			MethodName: "AppendSliceCollection",
+			Handler:    _FileStoreService_AppendSliceCollection_Handler,
+		},
+		{
+			MethodName: "GetSliceCollection",
+			Handler:    _FileStoreService_GetSliceCollection_Handler,
+		},
+		{
+			MethodName: "GetSliceIndex",
+			Handler:    _FileStoreService_GetSliceIndex_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
