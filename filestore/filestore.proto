@@ -44,6 +44,7 @@ message FileStore {
     string etag = 17;
     string encoded_etag = 18;
     string download_address = 19;
+    int32 version = 20;
 }
 
 message FileStoreList {
@@ -58,4 +59,15 @@ message QuickMapping {
     string  etag = 5;
     string  hash = 6;
     string  md5 = 7;
+}
+
+message FileSlice {
+    string  hash = 1;
+    int64 size = 2;
+    int64 index = 3;
+    int64 start_offset = 4;
+    int64 end_offset = 5;
+    int64 fetch_time = 6;
+    string parent = 7;
+    int32 version = 8;
 }

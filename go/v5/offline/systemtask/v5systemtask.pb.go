@@ -21,15 +21,13 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// message BatchGetRequest {
+// repeated string identities = 1;
+// }
 //
-//message BatchGetRequest {
-//repeated string identities = 1;
-//}
-//
-//message BatchGetResponse {
-//repeated SystemOfflineTaskDetail data = 1;
-//}
-//
+// message BatchGetResponse {
+// repeated SystemOfflineTaskDetail data = 1;
+// }
 type SystemTaskFetchRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

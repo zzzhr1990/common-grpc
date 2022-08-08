@@ -33,7 +33,7 @@ type SystemTaskServiceClient interface {
 	// getDetail detail
 	GetDetail(ctx context.Context, in *SystemTask, opts ...grpc.CallOption) (*SystemTaskDetail, error)
 	Fetch(ctx context.Context, in *SystemTaskFetchRequest, opts ...grpc.CallOption) (*SystemTaskList, error)
-	//rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
+	// rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
 	// rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
 	UploadFile(ctx context.Context, in *TaskFile, opts ...grpc.CallOption) (*TaskFile, error)
 	UpdateFile(ctx context.Context, in *TaskFile, opts ...grpc.CallOption) (*TaskFile, error)
@@ -155,7 +155,7 @@ type SystemTaskServiceServer interface {
 	// getDetail detail
 	GetDetail(context.Context, *SystemTask) (*SystemTaskDetail, error)
 	Fetch(context.Context, *SystemTaskFetchRequest) (*SystemTaskList, error)
-	//rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
+	// rpc getDetail (SystemOfflineTask) returns (SystemOfflineTaskDetail) {}
 	// rpc updateFile (SystemOfflineTaskFile) returns (BoolEntity) {}
 	UploadFile(context.Context, *TaskFile) (*TaskFile, error)
 	UpdateFile(context.Context, *TaskFile) (*TaskFile, error)
