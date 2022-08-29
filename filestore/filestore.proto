@@ -19,14 +19,20 @@ service FileStoreService {
     rpc OnFileUpload (FileStore) returns (FileStore) {}
     rpc CreateQuickMapping (QuickMapping) returns (QuickMapping) {}
     rpc GetQuickMapping (QuickMapping) returns (QuickMapping) {}
-    rpc CreateSliceCollection (FileSliceCollection) returns (FileSliceCollection) {}
-    rpc AppendSliceCollection (FileSliceCollection) returns (FileSliceCollection) {}
-    rpc GetSliceCollection (FileSliceCollection) returns (FileSliceCollection) {}
-    rpc GetSliceIndex (SliceIndex) returns (SliceIndex) {}
+    rpc CreateProtoDag (ProtoDag) returns (ProtoDag) {}
+    // rpc CreateSliceCollection (FileSliceCollection) returns (FileSliceCollection) {}
+    // rpc AppendSliceCollection (FileSliceCollection) returns (FileSliceCollection) {}
+    // rpc GetSliceCollection (FileSliceCollection) returns (FileSliceCollection) {}
+    // rpc GetSliceIndex (SliceIndex) returns (SliceIndex) {}
     // rpc batchGetByHash (StringListEntity) returns (FileStoreList) {}
     // rpc getOrEmpty (FileStore) returns (FileStore) {}
     // rpc GetInnerDownloadAddress (FileStore) returns (FileStore) {}
 }
+
+message ProtoDag{
+    string  hash = 1;
+    bytes alert=2;
+ }
 
 message FileStore {
     string  hash = 1;
